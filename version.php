@@ -30,18 +30,18 @@ defined('MOODLE_INTERNAL') || die;
 $plugin->component = 'theme_adaptable';
 
 // Adaptable version date.
-$plugin->version   = 2019011700;
+$plugin->version   = 2019021600;
 
-// Moodle required version (3.5.3 or higher).
-$plugin->requires  = 2018051703;
+// Moodle required version (3.6.2 or higher).
+$plugin->requires  = 2018120302.09;
 
 // Adaptable version.
-$plugin->release = '1.8.0';
+$plugin->release = '2.0.0';
 
 // Adaptable maturity (do not use ALPHA or BETA versions in production sites).
-$plugin->maturity = MATURITY_STABLE;
+$plugin->maturity = MATURITY_ALPHA;
 
 // Adaptable dependencies.
 $plugin->dependencies = array(
-    'theme_bootstrapbase'  => 2014111000,
+    'theme_classic'  => 2018120700,
 );

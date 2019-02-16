@@ -99,8 +99,10 @@ if ( (is_object($PAGE)) && ($PAGE->pagelayout) ) {
 
 $THEME->doctype = 'html5';
 
+// Theme parent.
 $THEME->parents = array('classic');
 
+// Styles.
 $THEME->sheets = array( 'adaptable',
                         'blocks',
                         'button',
