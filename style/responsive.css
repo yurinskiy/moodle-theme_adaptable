@@ -1,5 +1,6 @@
 /*
-* This file is part of Moodle - http://moodle.org/
+* This file is part of Adaptable theme for moodle
+*
 * Moodle is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
@@ -14,220 +15,63 @@
 * along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 *
 *
-* Adaptable Responsive Style sheet
+* Adaptable Responsive style sheet
 *
 * @package    theme_adaptable
-* @copyright  2015-2016 Jeremy Hopkins (Coventry University)
-* @copyright  2015-2017 Fernando Acedo (3-bits.com)
-* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+* @copyright  2015-2019 Jeremy Hopkins (Coventry University)
+* @copyright  2015-2019 Fernando Acedo (3-bits.com)
+* @copyright  2018-2019 Manoj Solanki (Coventry University)
 *
-=====================================================
-Default Bootstrap 2.3.2 Media Queries
-
-Only screen and (max-width : 1200px)
-Only screen and (max-width : 979px)
-Only screen and (max-width : 767px)
-Only screen and (max-width : 480px)
-=======================================================
+* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 */
 
-/*=====================================================
-1200px
+
+
+/* =====================================================
+Default Bootstrap 4 Media Queries
+
+Only screen and (max-width : 480px)
+Only screen and (max-width : 767px)
+Only screen and (max-width : 979px)
+Only screen and (max-width : 1200px)
 ======================================================= */
 
-@media only screen and (max-width: 1200px) {
-    .zoomdesc {
-        display: none;
-    }
-}
-
 /*=====================================================
-979px
+480px
 ======================================================= */
-@media only screen and (max-width: 979px) {
-    .langdesc {
-        display: inline;
+@media only screen and (max-width: 480px) {
+    .dropdown-menu.usermen {
+        left: 35%;
+        top: 15px;
     }
-    .slidestyle2 .flex-caption {
-        right: -800px;
+
+    .flex-caption {
+        width: auto !important;
+        padding: 5px 0 !important;
+        position: relative !important;
+        margin-top: -1px !important;
+        background-color: #000 !important;
     }
-    .slidestyle2 .flex-active-slide .flex-caption {
-        right: 0;
-        transition: all 1s ease;
-    }
-    .slidestyle2 .flex-caption h3 {
-        max-width: 970px;
-    }
-    .slidestyle2 .flex-caption br {
-        display: none;
-    }
-    .slidestyle2 .flex-caption {
-        top: 25%;
-    }
-    .slidestyle2 .flex-direction-nav {
-        display: none;
-    }
-    .slidestyle2 .flex-caption h4 {
-        font-size: 23px;
-        line-height: 30px;
-    }
-    .slidestyle2 .flex-caption a.submit {
-        font-size: 14px;
-        float: none;
-        white-space: normal;
+
+    #page-content {
+        padding: 0;
         width: auto;
     }
 
-    .navbar {
-        float: none !important;
-    }
-
-    .navbar .pull-right {
-        float: none;
-    }
-
-    .navbar .nav > li > a {
-        margin: 0 10px 0 0 !important;
-    }
-
-    .flex-direction-nav .flex-next {
-        right: 0 !important;
-    }
-
-    .flex-direction-nav .flex-prev {
-        left: 0 !important;
-    }
-
-/* Header */
-    /* Logo */
-    #logocontainer {
-        display: block !important;
-        margin: 5px 0;
-        padding: 0;
-        clear:both;
-        width: 100%;
-        height: auto;
-    }
-
-    #logo img {
-        display: block;
-        margin: 0 auto;
-    }
-
-    /* Site title */
-    #sitetitle {
-        clear: both;
-        display: block;
-        margin: 5px 0;
-        max-width: 100%;
-        text-align: center;
-        padding: 0;
-        height: auto;
-        top: 0;
-        left: 0;
-    }
-
-    /* Social Icons */
-    .socialbox {
-        display: table;
-        padding: 5px;
-        float: none;
-        clear: both;
-        margin: 0 auto;
-    }
-
-    .coursebox .panel-body p {
-        font-size: 90%;
-        line-height: 130%;
-    }
-
-    .enrolmenticons {
+    #page-header .userimg {
         display: none;
     }
 
-    #edittingbutton a,
-    #edittingbutton .btn {
-        margin-left: 10px !important;
+    #coursesearchbox2 {
+        display: none;
     }
 
-    .searchbox {
-        padding-bottom: 5px;
+    #above-header .headermenu .dropdown-menu {
+        margin-top: 15px;
     }
-
-    .search-box, .searchbox {
-        margin-top: 10px;
-        width: 100%;
-    }
-
-    #search-1 {
-        width: calc(100% - 39px);
-    }
-
-    .hbl, .sbl, .hbll, .sbll {
-        display: none !important;
-    }
-
-    .navbar .dropdown-toggle {
-        height: 38px;
-    }
-
-    .nav-collapse .nav {
-        width: 100%;
-        margin-left: 0 !important;
-    }
-
-    #navwrap {
-        border-bottom: 0;
-    }
-
-    #page-header a img {
-        margin: 0 auto;
-        float: none;
-        display: block;
-    }
-
-    .nav .dropdown-menu li a {
-        color: [[setting:menufontcolor]];
-    }
-
-    .nav-collapse.active {
-        background-color: [[setting:mobilemenubkcolor]];
-        height: auto;
-        top: 6px;
-        padding-bottom: 4px;
-    }
-
-    .nav-collapse.active > .nav > li > a,
-    .nav-collapse.active > .nav .dropdown-menu li > a {
-        color:[[setting:mobilemenufontcolor]] !important;
-    }
-
-    #edittingbutton {
-        margin-left: 10px;
-    }
-
-    .menutitle {
-        float: none;
-    }
-
-    /* Messages / Notifications dropdown */
-    .popover-region-container {
-        height: 600px;
-        float: left;
-        left: -100px;
-        top: 30px;
-        width: 300px;
-    }
-    .navbar .nav .dropdown-menu, .headermenu .dropdown-menu, .langmenu .dropdown-menu {
-        min-width: 150px;
-    }
-
-.icon {
-    height: 48px;
-    width:  48px;
 }
 
-}
+
 
 /*=====================================================
 767px
@@ -457,40 +301,213 @@ Only screen and (max-width : 480px)
 
 }
 
+
 /*=====================================================
-480px
+979px
 ======================================================= */
-@media only screen and (max-width: 480px) {
-    .dropdown-menu.usermen {
-        left: 35%;
-        top: 15px;
+@media only screen and (max-width: 979px) {
+    .langdesc {
+        display: inline;
     }
-
-    .flex-caption {
-        width: auto !important;
-        padding: 5px 0 !important;
-        position: relative !important;
-        margin-top: -1px !important;
-        background-color: #000 !important;
+    .slidestyle2 .flex-caption {
+        right: -800px;
     }
-
-    #page-content {
-        padding: 0;
+    .slidestyle2 .flex-active-slide .flex-caption {
+        right: 0;
+        transition: all 1s ease;
+    }
+    .slidestyle2 .flex-caption h3 {
+        max-width: 970px;
+    }
+    .slidestyle2 .flex-caption br {
+        display: none;
+    }
+    .slidestyle2 .flex-caption {
+        top: 25%;
+    }
+    .slidestyle2 .flex-direction-nav {
+        display: none;
+    }
+    .slidestyle2 .flex-caption h4 {
+        font-size: 23px;
+        line-height: 30px;
+    }
+    .slidestyle2 .flex-caption a.submit {
+        font-size: 14px;
+        float: none;
+        white-space: normal;
         width: auto;
     }
 
-    #page-header .userimg {
+    .navbar {
+        float: none !important;
+    }
+
+    .navbar .pull-right {
+        float: none;
+    }
+
+    .navbar .nav > li > a {
+        margin: 0 10px 0 0 !important;
+    }
+
+    .flex-direction-nav .flex-next {
+        right: 0 !important;
+    }
+
+    .flex-direction-nav .flex-prev {
+        left: 0 !important;
+    }
+
+/* Header */
+    /* Logo */
+    #logocontainer {
+        display: block !important;
+        margin: 5px 0;
+        padding: 0;
+        clear:both;
+        width: 100%;
+        height: auto;
+    }
+
+    #logo img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Site title */
+    #sitetitle {
+        clear: both;
+        display: block;
+        margin: 5px 0;
+        max-width: 100%;
+        text-align: center;
+        padding: 0;
+        height: auto;
+        top: 0;
+        left: 0;
+    }
+
+    /* Social Icons */
+    .socialbox {
+        display: table;
+        padding: 5px;
+        float: none;
+        clear: both;
+        margin: 0 auto;
+    }
+
+    .coursebox .panel-body p {
+        font-size: 90%;
+        line-height: 130%;
+    }
+
+    .enrolmenticons {
         display: none;
     }
 
-    #coursesearchbox2 {
+    #edittingbutton a,
+    #edittingbutton .btn {
+        margin-left: 10px !important;
+    }
+
+    .searchbox {
+        padding-bottom: 5px;
+    }
+
+    .search-box, .searchbox {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    #search-1 {
+        width: calc(100% - 39px);
+    }
+
+    .hbl, .sbl, .hbll, .sbll {
+        display: none !important;
+    }
+
+    .navbar .dropdown-toggle {
+        height: 38px;
+    }
+
+    .nav-collapse .nav {
+        width: 100%;
+        margin-left: 0 !important;
+    }
+
+    #navwrap {
+        border-bottom: 0;
+    }
+
+    #page-header a img {
+        margin: 0 auto;
+        float: none;
+        display: block;
+    }
+
+    .nav .dropdown-menu li a {
+        color: [[setting:menufontcolor]];
+    }
+
+    .nav-collapse.active {
+        background-color: [[setting:mobilemenubkcolor]];
+        height: auto;
+        top: 6px;
+        padding-bottom: 4px;
+    }
+
+    .nav-collapse.active > .nav > li > a,
+    .nav-collapse.active > .nav .dropdown-menu li > a {
+        color:[[setting:mobilemenufontcolor]] !important;
+    }
+
+    #edittingbutton {
+        margin-left: 10px;
+    }
+
+    .menutitle {
+        float: none;
+    }
+
+    /* Messages / Notifications dropdown */
+    .popover-region-container {
+        height: 600px;
+        float: left;
+        left: -100px;
+        top: 30px;
+        width: 300px;
+    }
+    .navbar .nav .dropdown-menu, .headermenu .dropdown-menu, .langmenu .dropdown-menu {
+        min-width: 150px;
+    }
+
+    .icon {
+        height: 48px;
+        width:  48px;
+    }
+}
+
+/*=====================================================
+1200px
+======================================================= */
+
+@media only screen and (max-width: 1200px) {
+    .zoomdesc {
         display: none;
     }
+}
 
-    #above-header .headermenu .dropdown-menu {
-        margin-top: 15px;
+/*=====================================================
+1201px or higher
+======================================================= */
+
+@media only screen and (min-width: 1200px) {
+    .container {
+        width: 100%;
+        max-width: 100% !important;
     }
-
 }
 
 
@@ -542,7 +559,6 @@ Other.
 }
 
 @media (min-width: 481px) {
-
     /* Activity chooser styling. Desktop styling. */
     .jsenabled .choosercontainer #chooseform .alloptions {
         overflow-x: hidden;
