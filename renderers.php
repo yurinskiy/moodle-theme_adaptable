@@ -1112,7 +1112,7 @@ EOT;
             $vals = explode('-', $field);
             foreach ($vals as $val) {
                 if ($val > 0) {
-                    $retval .= '<div class="span' . $val . $style . '">';
+                    $retval .= '<div class="col-' . $val . $style . '">';
 
                     // Moodle does not seem to like numbers in region names so using letter instead.
                     $blockcount ++;
@@ -1236,7 +1236,7 @@ EOT;
             $vals = explode('-', $field);
             foreach ($vals as $val) {
                 if ($val > 0) {
-                    $retval .= '<div class="span' . $val . ' ' . $extramarketclass . ' first">';
+                    $retval .= '<div class="col-' . $val . ' ' . $extramarketclass . ' first">';
                     $blockcount ++;
                     $fieldname = $settingname . $blockcount;
                     if (isset($PAGE->theme->settings->$fieldname)) {
@@ -1312,7 +1312,7 @@ EOT;
                     $footerheader = 'footer' . $blockcount . 'header';
                     $footercontent = 'footer' . $blockcount . 'content';
                     if (!empty($PAGE->theme->settings->$footercontent)) {
-                        $output .= '<div class="left-col span' . $val . '">';
+                        $output .= '<div class="left-col col-' . $val . '">';
                         if (!empty($PAGE->theme->settings->$footerheader)) {
                             $output .= '<h3>';
                             $output .= $OUTPUT->get_setting($footerheader, 'format_text');
@@ -1403,7 +1403,7 @@ EOT;
 
                 // Do not show navbar on dashboard / my home if news ticker is rendering.
                 if (!($PAGE->theme->settings->enabletickermy && $PAGE->bodyid == "page-my-index")) {
-                    $retval = '<div id="page-navbar" class="span12">';
+                    $retval = '<div id="page-navbar" class="col-12">';
                     if ($addbutton) {
                         $retval .= '<nav class="breadcrumb-button">' . $this->page_heading_button() . '</nav>';
                     }

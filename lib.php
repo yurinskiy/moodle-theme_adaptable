@@ -545,25 +545,25 @@ function theme_adaptable_remove_site_fullname($heading) {
 function theme_adaptable_grid($left, $hassitepost) {
     if ($hassitepost) {
         if ($left) {
-            $regions = array('content' => 'span9 pull-right');
-            $regions['blocks'] = 'span3 desktop-first-column';
+            $regions = array('content' => 'col-9 pull-right');
+            $regions['blocks'] = 'col-3 desktop-first-column';
         } else {
-            $regions = array('content' => 'span9 desktop-first-column');
-            $regions['blocks'] = 'span3';
+            $regions = array('content' => 'col-9 desktop-first-column');
+            $regions['blocks'] = 'col-3';
         }
     } else {
-        $regions = array('content' => 'span12');
+        $regions = array('content' => 'col-12');
         $regions['blocks'] = 'empty';
         return $regions;
     }
 
     if ('rtl' === get_string('thisdirection', 'langconfig')) {
         if ($left) {
-            $regions = array('content' => 'span9 desktop-first-column');
-            $regions['blocks'] = 'span3';
+            $regions = array('content' => 'col-9 desktop-first-column');
+            $regions['blocks'] = 'col-3';
         } else {
-            $regions = array('content' => 'span9 pull-right');
-            $regions['blocks'] = 'span3 desktop-first-column';
+            $regions = array('content' => 'col-9 pull-right');
+            $regions['blocks'] = 'col-3 desktop-first-column';
         }
     }
     return $regions;

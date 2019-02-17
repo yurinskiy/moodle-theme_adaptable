@@ -44,7 +44,7 @@ echo $OUTPUT->get_footer_blocks();
 if ($PAGE->theme->settings->hidefootersocial == 1) { ?>
         <div class="container">
             <div class="row-fluid">
-                <div class="span12 pagination-centered">
+                <div class="col-12 pagination-centered">
 <?php
     echo $OUTPUT->socialicons();
 ?>
@@ -55,9 +55,9 @@ if ($PAGE->theme->settings->hidefootersocial == 1) { ?>
 <?php }
 
 if ($PAGE->theme->settings->moodledocs) {
-    $footnoteclass = 'span4';
+    $footnoteclass = 'col-4';
 } else {
-    $footnoteclass = 'span8';
+    $footnoteclass = 'col-8';
 }
 
 if ($PAGE->theme->settings->showfooterblocks) {
@@ -73,14 +73,14 @@ if ($PAGE->theme->settings->showfooterblocks) {
 <?php
 if ($PAGE->theme->settings->moodledocs) {
 ?>
-                <div class="span4 helplink">
+                <div class="col-4 helplink">
 <?php
     echo $OUTPUT->page_doc_link(); ?>
                 </div>
 <?php
 }
 ?>
-                <div class="span4">
+                <div class="col-4">
                     <?php echo $OUTPUT->standard_footer_html(); ?>
                 </div>
             </div>

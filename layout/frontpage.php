@@ -97,7 +97,7 @@ if (!empty($PAGE->theme->settings->infobox2)) {
 
 <div class="container outercont">
     <div id="page-content" class="row-fluid">
-     <div id="page-navbar" class="span12">
+     <div id="page-navbar" class="col-12">
             <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
             <?php echo $OUTPUT->navbar(); ?>
 
@@ -132,7 +132,7 @@ if (is_siteadmin()) {
 
           <h3><?php echo get_string('frnt-footer', 'theme_adaptable') ?></h3>
             <?php
-            echo $OUTPUT->blocks('frnt-footer', 'span10');
+            echo $OUTPUT->blocks('frnt-footer', 'col-10');
             ?>
         </div>
       </div>

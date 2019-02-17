@@ -71,7 +71,7 @@ if (is_siteadmin()) {
         <div class="row-fluid">
             <h3><?php echo get_string('frnt-footer', 'theme_adaptable') ?></h3>
             <?php
-            echo $OUTPUT->blocks('frnt-footer', 'span10');
+            echo $OUTPUT->blocks('frnt-footer', 'col-10');
             ?>
         </div>
     </div>
