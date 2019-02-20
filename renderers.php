@@ -1511,6 +1511,7 @@ EOT;
      * @return string
      */
     public function navigation_menu() {
+
         global $PAGE, $COURSE, $OUTPUT, $CFG, $USER;
         $menu = new custom_menu();
         $access = true;
@@ -2545,9 +2546,9 @@ EOT;
             return '';
         }
 
-        $content = '<ul class="nav navbar-nav">';
+        $content = '<ul class="navbar-nav mr-auto">'; 
         foreach ($menu->get_children() as $item) {
-            $content .= $this->render_custom_menu_item($item, 1);
+            $content .= $this->render_custom_menu_item($item, 0);
         }
         $content = $wrappre . $content . '</ul>' . $wrappost;
         return $content;
@@ -2561,6 +2562,87 @@ EOT;
      * @return string
      */
     protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0) {
+        static $submenucount = 0;
+        
+        if ($menunode->has_children()) {
+            
+/*            if ($level == 1) {
+                $class = 'dropdown';
+            } else {
+                $class = 'dropdown-menu';
+            }
+            
+            if ($menunode === $this->language) {
+                $class .= ' langmenu';
+            }
+
+            $content = html_writer::start_tag('li', array('class' => $class)); */
+            // $content .= '<li class="nav-item dropdown">';
+
+            // If the child has menus render it as a sub menu.
+            $submenucount++;
+            if ($menunode->get_url() !== null) {
+                $url = $menunode->get_url();
+            } else {
+                $url = '#cm_submenu_'.$submenucount;
+            }
+
+            $content = '<li class="nav-item dropdown">';
+            $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'dropdown-item dropdown-toggle',
+                    // 'data-toggle' => 'dropdown', 'role' => 'button', 'id' => 'navbarDropdown', 'aria-haspopup' => 'true',
+                    /* 'aria-expanded' => 'false', */ 'title' => $menunode->get_title()));
+            $content .= $menunode->get_text();
+            $content .= '</a>';
+            $content .= '<ul class="dropdown-menu">';
+            // $content .= '<div class="dropdown-menu" aria-labelledby="navbarDropdown">'
+                    
+                    foreach ($menunode->get_children() as $menunode) {
+                        $content .= $this->render_custom_menu_item($menunode, 1);
+                    }
+            $content .= '</ul></li>';
+            // $content .= '</div>';
+        } else {
+            if ($level == 0) {
+                $content = '<li class="nav-item">';
+                $linkclass = 'nav-link';
+            } else {
+                $content = '<li>';
+                $linkclass = 'dropdown-item';
+            }
+            // The node doesn't have children so produce a final menuitem.
+            if ($menunode->get_url() !== null) {
+                $url = $menunode->get_url();
+            } else {
+                $url = '#';
+            }
+            
+            /* This is a bit of a cludge, but allows us to pass url, of type moodle_url with a param of
+             * "helptarget", which when equal to "_blank", will create a link with target="_blank" to allow the link to open
+             * in a new window.  This param is removed once checked.
+             */
+            if (is_object($url) && (get_class($url) == 'moodle_url') && ($url->get_param('helptarget') != null)) {
+                $helptarget = $url->get_param('helptarget');
+                $url->remove_params('helptarget');
+                $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title(),
+                        'target' => $helptarget, 'class' => $linkclass));
+            } else {
+                $content .= html_writer::link($url, $menunode->get_text(),
+                        array('title' => $menunode->get_title(), 'class' => $linkclass));
+            }
+            
+            $content .= "</li>";
+        }
+        return $content;
+    }
+    
+    /**
+     * This code renders the custom menu items for the bootstrap dropdown menu.
+     *
+     * @param custom_menu_item $menunode
+     * @param int $level = 0
+     * @return string
+     */
+    /* protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0) {
         static $submenucount = 0;
 
         if ($menunode->has_children()) {
@@ -2604,7 +2686,7 @@ EOT;
              * "helptarget", which when equal to "_blank", will create a link with target="_blank" to allow the link to open
              * in a new window.  This param is removed once checked.
              */
-            if (is_object($url) && (get_class($url) == 'moodle_url') && ($url->get_param('helptarget') != null)) {
+            /* if (is_object($url) && (get_class($url) == 'moodle_url') && ($url->get_param('helptarget') != null)) {
                 $helptarget = $url->get_param('helptarget');
                 $url->remove_params('helptarget');
                 $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title(),
@@ -2616,7 +2698,7 @@ EOT;
             $content .= "</li>";
         }
         return $content;
-    }
+    } */
 
     /**
      * Renders tabtree

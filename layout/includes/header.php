@@ -396,7 +396,7 @@ if (
     // Remove menu navbar in Quiz pages even if they don't use SEB.
     if ($PAGE->pagetype != "mod-quiz-attempt") {
 ?>
-    <div id="navwrap">
+    <!-- div id="navwrap">
         <div class="container">
             <div class="navbar">
                 <nav role="navigation" class="navbar-inner">
@@ -406,66 +406,83 @@ if (
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </a>
-                        <div class="nav-collapse collapse ">
-                            <?php echo $OUTPUT->navigation_menu(); ?>
-<?php
-if (empty($PAGE->theme->settings->disablecustommenu)) {
-        echo $OUTPUT->custom_menu();
-}
-?>
-<?php
-if ($PAGE->theme->settings->enabletoolsmenus) {
-        echo $OUTPUT->tools_menu();
-}
-?>
+                        <div class="nav-collapse collapse "> -->
 
-        <ul class="nav pull-right">
-<?php
-if (isloggedin()) {
-    if ($PAGE->theme->settings->enableshowhideblocks) { ?>
-           <li class="hbl">
-               <a href="javascript:void(0);" class="moodlezoom" title="<?php echo get_string('hideblocks', 'theme_adaptable') ?>">
-                   <i class="fa fa-indent fa-lg"></i>
-               <span class="zoomdesc"><?php echo get_string('hideblocks', 'theme_adaptable') ?></span>
-           </a>
-       </li>
-       <li class="sbl">
-               <a href="javascript:void(0);" class="moodlezoom" title="<?php echo get_string('showblocks', 'theme_adaptable') ?>">
-               <i class="fa fa-outdent fa-lg"></i>
-               <span class="zoomdesc"><?php echo get_string('showblocks', 'theme_adaptable') ?></span>
-           </a>
-       </li>
-<?php
-    }
-
-    if ($PAGE->theme->settings->enablezoom) { ?>
-        <li class="hbll">
-            <a href="javascript:void(0);" class="moodlewidth" title="<?php echo get_string('fullscreen', 'theme_adaptable') ?>">
-                <i class="fa fa-expand fa-lg"></i>
-                <span class="zoomdesc"><?php echo get_string('fullscreen', 'theme_adaptable') ?></span>
-            </a>
-        </li>
-        <li class="sbll">
-            <a href="javascript:void(0);" class="moodlewidth" title="<?php echo get_string('standardview', 'theme_adaptable') ?>">
-                <i class="fa fa-compress fa-lg"></i>
-                <span class="zoomdesc"><?php echo get_string('standardview', 'theme_adaptable') ?></span>
-            </a>
-            </li>
-<?php
-    }
-}
-    }
-    ?>
-        </ul>
-                            <div id="edittingbutton" class="pull-right breadcrumb-button">
-                                <?php echo $OUTPUT->page_heading_button(); ?>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
+<div id="navwrap">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light btco-hover-menu">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+            <?php echo $OUTPUT->navigation_menu(); ?>
+            
+            <?php
+            if (empty($PAGE->theme->settings->disablecustommenu)) {
+                    echo $OUTPUT->custom_menu();
+            }
+            ?>
+            <?php
+            if ($PAGE->theme->settings->enabletoolsmenus) {
+                    echo $OUTPUT->tools_menu();
+            }
+            ?>
+    
+            <!-- ul class="nav pull-right" -->
+    
+    		<ul class="navbar-nav mr-auto">
+                <?php
+                if (isloggedin()) {
+                    if ($PAGE->theme->settings->enableshowhideblocks) { ?>
+                       <!--  li class="hbl" -->
+                       <li class="nav-item hbl">
+                           <a class="nav-link" href="javascript:void(0);" class="moodlezoom" title="<?php echo get_string('hideblocks', 'theme_adaptable') ?>">
+                               <i class="fa fa-indent fa-lg"></i>
+    	                       <span class="zoomdesc"><?php echo get_string('hideblocks', 'theme_adaptable') ?></span>
+                           </a>
+                       </li>
+                       <!-- li class="sbl" -->
+                       <li class="nav-item sbl">
+                           <a class="nav-link" href="javascript:void(0);" class="moodlezoom" title="<?php echo get_string('showblocks', 'theme_adaptable') ?>">
+                               <i class="fa fa-outdent fa-lg"></i>
+                               <span class="zoomdesc"><?php echo get_string('showblocks', 'theme_adaptable') ?></span>
+                           </a>
+                       </li>
+                <?php
+                    }
+                
+                    if ($PAGE->theme->settings->enablezoom) { ?>
+                        <li class="nav-item hbll">
+                            <a class="nav-link" href="javascript:void(0);" class="moodlewidth" title="<?php echo get_string('fullscreen', 'theme_adaptable') ?>">
+                                <i class="fa fa-expand fa-lg"></i>
+                                <span class="zoomdesc"><?php echo get_string('fullscreen', 'theme_adaptable') ?></span>
+                            </a>
+                        </li>
+                        <li class="nav-item sbll">
+                            <a class="nav-link" href="javascript:void(0);" class="moodlewidth" title="<?php echo get_string('standardview', 'theme_adaptable') ?>">
+                                <i class="fa fa-compress fa-lg"></i>
+                                <span class="zoomdesc"><?php echo get_string('standardview', 'theme_adaptable') ?></span>
+                            </a>
+                        </li>
+                <?php
+                    }
+                }
+                    }
+                    ?>
+    		</ul>
+            <div id="edittingbutton" class="pull-right breadcrumb-button">
+                <?php echo $OUTPUT->page_heading_button(); ?>
             </div>
+    		<!-- /div -->
+    
+    	</div>
+    </nav>
+</div>
+            <!-- /div>
         </div>
-    </div>
+    </div -->
 <?php
 }
 ?>
