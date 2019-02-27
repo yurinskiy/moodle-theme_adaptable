@@ -92,14 +92,8 @@ class course_renderer extends \core_course_renderer {
         }
 
         // Control span to display course tiles.
-        if (!isloggedin() || isguestuser()) {
-            $spanclass = "span4";
-        } else {
-            $spanclass = "span4";
-        }
-
         $content .= html_writer::start_tag('div',
-                array('class' => ' '.$spanclass.' panel panel-default coursebox '.$additionalcss));
+                array('class' => 'col panel panel-default coursebox '.$additionalcss));
         $urlb = new moodle_url('/course/view.php', array('id' => $course->id));
 
         $content .= "<a href='$urlb'>";
