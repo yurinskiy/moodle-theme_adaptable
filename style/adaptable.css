@@ -67,12 +67,12 @@ a:visited,
 .tabtree .tabrow0 li a,
 .dropdown-menu.usermen > li > a {
     color: [[setting:linkcolor]];
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 a:hover,
 a:active {
-    color: [[setting:linkhover]] !important;
+    color: [[setting:linkhover]];
     text-decoration: underline;
 }
 
@@ -192,7 +192,7 @@ div.signuppanel h2 {
 }
 
 /* Header */
-#page-header-wrapper {
+#adaptable-page-header-wrapper {
     background-color: [[setting:headerbkcolor2]];
     width: 100%;
     z-index: 2;
@@ -200,7 +200,7 @@ div.signuppanel h2 {
 
 #above-header {
     border-bottom: 1px solid [[setting:dividingline]];
-    height: 25px;
+    height: 35px;
     padding-top: 5px;
     padding-bottom: 5px;
     margin-bottom: 10px;
@@ -211,7 +211,7 @@ div.signuppanel h2 {
     position: static;
 }
 
-#above-header .headermenu,
+/* #above-header .headermenu,
 #above-header .headermenu a {
     color: [[setting:headertextcolor]] !important;
     font-size: [[setting:topmenufontsize]];
@@ -247,7 +247,47 @@ div.signuppanel h2 {
 #above-header .langmenu a i,
 #above-header .linksmenu a i {
     color: [[setting:headertextcolor]];
+} */
+
+/* New #above-header replacements */
+#above-header .navbar a {
+    color: [[setting:headertextcolor]];
+    font-size: [[setting:topmenufontsize]];
+    text-decoration: none;
+    cursor: pointer;
 }
+
+#above-header .headermenu .dropdown-menu {
+    margin-top: 5px;
+}
+
+#above-header .dropdown-menu a,
+#above-header .dropdown-toggle a {
+    font-family: [[setting:fontname]], sans-serif;
+    font-size: [[setting:topmenufontsize]];
+    color: [[setting:linkcolor]] !important;
+}
+
+#above-header .dropdown-menu a {
+    margin-top: 0;
+}
+
+#above-header .linksmenu {
+    margin-left: 15px;
+}
+
+#above-header .langdesc,
+#above-header .linksdesc {
+    color: [[setting:headertextcolor]];
+    font-size: [[setting:topmenufontsize]];
+}
+
+#above-header .langmenu a i,
+#above-header .linksmenu a i {
+    color: [[setting:headertextcolor]];
+}
+
+
 
 #page-header {
     border-bottom: none solid [[setting:maincolor]];

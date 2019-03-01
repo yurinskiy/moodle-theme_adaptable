@@ -291,7 +291,7 @@ class theme_adaptable_core_renderer extends core_renderer {
             }
 
             if ($additem) {
-                $retval .= '<li><a href="' . $usermenuitems[$i][2] . '" title="' . $usermenuitems[$i][3] . '">';
+                $retval .= '<li class="nav-item mx-1"><a href="' . $usermenuitems[$i][2] . '" title="' . $usermenuitems[$i][3] . '">';
                 $retval .= '<i class="fa ' . $usermenuitems[$i][4] . '"></i>' . $usermenuitems[$i][3] . '</a></li>';
             }
         }
@@ -820,9 +820,9 @@ EOT;
         }
 
         // And finally let's go to add the custom usermenus.
-        $content = html_writer::start_tag('ul', array('class' => 'usermenu2 nav navbar-nav navbar-right'));
+        $content = html_writer::start_tag('ul', array('class' => 'navbar-nav mr-auto'));
         foreach ($menu->get_children() as $item) {
-            $content .= $this->render_custom_menu_item($item, 1);
+            $content .= $this->render_custom_menu_item($item, 1, 'usermenu');
         }
 
         return $content.html_writer::end_tag('ul');
@@ -1852,10 +1852,10 @@ EOT;
 
         if ($sessttl > 0) {
             $cache->set('usernavbarttl', $sessttl);
-            $cache->set('usernavbar', $this->render_custom_menu($menu));
+            $cache->set('usernavbar', $this->render_custom_menu($menu, '', '', 'main-navigation'));
         }
 
-        return $this->render_custom_menu($menu);
+        return $this->render_custom_menu($menu, '', '', 'main-navigation');
     }
 
     /**
@@ -2175,6 +2175,7 @@ EOT;
                 }
             }
         }
+
         return $this->render_from_template('theme_adaptable/overlaymenu', $template);
     }
 
@@ -2500,7 +2501,7 @@ EOT;
                 $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
             }
         }
-        return $this->render_custom_menu($langmenu);
+        return $this->render_custom_menu($langmenu, '', '', 'langmenu');
     }
 
 
@@ -2529,7 +2530,7 @@ EOT;
      * @param string $wrappost
      * @return string
      */
-    protected function render_custom_menu(custom_menu $menu, $wrappre = '', $wrappost = '') {
+    protected function render_custom_menu(custom_menu $menu, $wrappre = '', $wrappost = '', $menuid = '') {
         global $CFG;
 
         // TODO: eliminate this duplicated logic, it belongs in core, not
@@ -2545,12 +2546,13 @@ EOT;
         if (!$menu->has_children() && $addlangmenu === false) {
             return '';
         }
-
-        $content = '<ul class="navbar-nav mr-auto">'; 
+        
+        // $content = '<ul class="navbar-nav mr-auto">';
+        $content = '';
         foreach ($menu->get_children() as $item) {
-            $content .= $this->render_custom_menu_item($item, 0);
+            $content .= $this->render_custom_menu_item($item, 0, $menuid);
         }
-        $content = $wrappre . $content . '</ul>' . $wrappost;
+        $content = $wrappre . $content . '<!-- /ul -->' . $wrappost;
         return $content;
     }
 
@@ -2561,7 +2563,7 @@ EOT;
      * @param int $level = 0
      * @return string
      */
-    protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0) {
+    protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0, $menuid = '') {
         static $submenucount = 0;
         
         if ($menunode->has_children()) {
@@ -2587,23 +2589,24 @@ EOT;
                 $url = '#cm_submenu_'.$submenucount;
             }
 
-            $content = '<li class="nav-item dropdown">';
+            $content = '<li class="nav-item dropdown mx-2">';
             $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'dropdown-item dropdown-toggle',
+                                            'id' => $menuid . $submenucount,
                     // 'data-toggle' => 'dropdown', 'role' => 'button', 'id' => 'navbarDropdown', 'aria-haspopup' => 'true',
                     /* 'aria-expanded' => 'false', */ 'title' => $menunode->get_title()));
             $content .= $menunode->get_text();
             $content .= '</a>';
-            $content .= '<ul class="dropdown-menu">';
+            $content .= '<ul class="dropdown-menu" aria-labelledby="' . $menuid . $submenucount . '">';
             // $content .= '<div class="dropdown-menu" aria-labelledby="navbarDropdown">'
                     
                     foreach ($menunode->get_children() as $menunode) {
-                        $content .= $this->render_custom_menu_item($menunode, 1);
+                        $content .= $this->render_custom_menu_item($menunode, 1, $menuid . $submenucount);
                     }
             $content .= '</ul></li>';
             // $content .= '</div>';
         } else {
             if ($level == 0) {
-                $content = '<li class="nav-item">';
+                $content = '<li class="nav-item mx-2">';
                 $linkclass = 'nav-link';
             } else {
                 $content = '<li>';

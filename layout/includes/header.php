@@ -234,88 +234,111 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
 // Background image in Header.
 ?>
-    <header id="page-header-wrapper" <?php echo $headerbg; ?> >
-    <div id="above-header">
-        <div class="clearfix container userhead">
-            <div class="pull-left">
-                <?php echo $OUTPUT->user_menu(); ?>
-            </div>
+    <header id="adaptable-page-header-wrapper" <?php echo $headerbg; ?> >
 
-            <div class="headermenu row">
-<?php
-if (!isloggedin() || isguestuser()) {
-    echo $OUTPUT->page_heading_menu();
+<div id="above-header">
 
-    if ($PAGE->theme->settings->displaylogin == 'box') {
-        // Login button.
-?>
-        <form action="<?php p($wwwroot) ?>/login/index.php" method="post">
-            <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
-            <input type="text" name="username"
-                    placeholder="<?php echo get_string('loginplaceholder', 'theme_adaptable'); ?>" size="10">
-            <input type="password" name="password"
-                    placeholder="<?php echo get_string('passwordplaceholder', 'theme_adaptable'); ?>"  size="10">
-            <button class="btn-login" type="submit"><?php echo get_string('logintextbutton', 'theme_adaptable'); ?></button>
-        </form>
-<?php
-    } else if ($PAGE->theme->settings->displaylogin == 'button') {
-?>
-        <form action="<?php p($wwwroot) ?>/login/index.php" method="post">
-            <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
-            <button class="btn-login" type="submit">
-                <?php echo get_string('logintextbutton', 'theme_adaptable'); ?>
-            </button>
-        </form>
-<?php
-    }
-} else {
-?>
-        <div class="dropdown secondone">
-            <a class="dropdown-toggle usermendrop" data-toggle="dropdown">
+    <nav class="navbar navbar-expand btco-hover-menu">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
 
-<?php
-    // Show user avatar.
-    $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'size' => 80, 'class' => 'userpicture'));
-    echo $userpic;
+                <div class="pull-left">
+                    <?php echo $OUTPUT->user_menu(); ?>
+                </div>
 
-    // Show username based in fullnamedisplay variable.
-    echo fullname($USER);
-?>
-                <span class="fa fa-angle-down"></span>
-            </a>
+                <!--  div style="float: right; position: relative; display: inline; margin-left: 15px; height:20px;" -->
+                <li class="nav-item dropdown show">
 
-    <ul class="dropdown-menu usermen" role="menu">
+                    
+						<?php
+                        if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
+                            echo $OUTPUT->lang_menu();
+                        }
+                        ?>
+                    
 
-<?php echo $OUTPUT->user_profile_menu() ?>
+                <!-- /div -->
+                </li>
 
-    </ul>
+
+				<li class="nav-item ">
+                <?php
+                
+                // Add top menus.
+                echo $OUTPUT->get_top_menus();
+                ?>
+                </li>
+                
+                
+                
+                <?php
+                
+                // Add messages / notifications (moodle 3.2 or higher).
+                if ($CFG->version > 2016120400) {
+                    // Remove Messages and Notifications icons in Quiz pages even if they don't use SEB.
+                    if ($PAGE->pagetype != "mod-quiz-attempt") {
+                        echo $OUTPUT->navbar_plugin_output();
+                    }
+                }
+                ?>
+
+				<?php
+                if (!isloggedin() || isguestuser()) {
+                    echo $OUTPUT->page_heading_menu();
+
+                    if ($PAGE->theme->settings->displaylogin == 'box') {
+                        // Login button.
+                ?>
+                        <form class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php" method="post">
+                            <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
+                            <input type="text" name="username"
+                                    placeholder="<?php echo get_string('loginplaceholder', 'theme_adaptable'); ?>" size="10">
+                            <input type="password" name="password"
+                                    placeholder="<?php echo get_string('passwordplaceholder', 'theme_adaptable'); ?>"  size="10">
+                            <button class="btn-login" type="submit"><?php echo get_string('logintextbutton', 'theme_adaptable'); ?></button>
+                        </form>
+                <?php
+                    } else if ($PAGE->theme->settings->displaylogin == 'button') {
+                ?>
+                        <form class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php" method="post">
+                            <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
+                            <button class="btn-login" type="submit">
+                                <?php echo get_string('logintextbutton', 'theme_adaptable'); ?>
+                            </button>
+                        </form>
+                <?php
+                    }
+                } else {
+                    // Display user profile menu.
+                    ?>
+
+                    <li class="nav-item dropdown show">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarAboveHeaderDropdownMenuLink"
+                        		data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    
+                        <?php
+                            // Show user avatar.
+                            $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'size' => 80, 'class' => 'userpicture'));
+                            echo $userpic;
+                        
+                            // Show username based in fullnamedisplay variable.
+                            echo fullname($USER);
+                        ?>
+                            <span class="fa fa-angle-down"></span>
+                            
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarAboveHeaderDropdownMenuLink">
+                        	<?php echo $OUTPUT->user_profile_menu() ?>
+                        </ul>
+	                </li>
+
+                <?php } ?>
+
+            </ul>
+        </div>
+    </nav>
+
 </div>
-<?php } ?>
-</div>
-
-<div style="float: right; position: relative; display: inline; margin-left: 15px; height:20px;">
-<?php
-if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
-    echo $OUTPUT->lang_menu();
-}
-?>
-</div>
-
-<?php
-// Add top menus.
-echo $OUTPUT->get_top_menus();
-
-// Add messages / notifications (moodle 3.2 or higher).
-if ($CFG->version > 2016120400) {
-    // Remove Messages and Notifications icons in Quiz pages even if they don't use SEB.
-    if ($PAGE->pagetype != "mod-quiz-attempt") {
-        echo $OUTPUT->navbar_plugin_output();
-    }
-}
-?>
-    </div>
-</div>
-
 
 <?php
 
@@ -410,12 +433,13 @@ if (
 
 <div id="navwrap">
     <nav class="navbar navbar-expand-lg navbar-light bg-light btco-hover-menu">
-      <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+    		<ul class="navbar-nav">
     
             <?php echo $OUTPUT->navigation_menu(); ?>
             
@@ -429,22 +453,27 @@ if (
                     echo $OUTPUT->tools_menu();
             }
             ?>
-    
+    		</ul>
             <!-- ul class="nav pull-right" -->
-    
-    		<ul class="navbar-nav mr-auto">
+			<ul class="navbar-nav ml-auto">    
+    		
+					<li class="nav-item mx-1">
+                 		<div id="edittingbutton" class="breadcrumb-button">
+							<?php echo $OUTPUT->page_heading_button(); ?>
+                        </div>
+                    </li>
                 <?php
                 if (isloggedin()) {
                     if ($PAGE->theme->settings->enableshowhideblocks) { ?>
                        <!--  li class="hbl" -->
-                       <li class="nav-item hbl">
+                       <li class="nav-item mx-1 hbl">
                            <a class="nav-link" href="javascript:void(0);" class="moodlezoom" title="<?php echo get_string('hideblocks', 'theme_adaptable') ?>">
                                <i class="fa fa-indent fa-lg"></i>
     	                       <span class="zoomdesc"><?php echo get_string('hideblocks', 'theme_adaptable') ?></span>
                            </a>
                        </li>
                        <!-- li class="sbl" -->
-                       <li class="nav-item sbl">
+                       <li class="nav-item mx-1 sbl">
                            <a class="nav-link" href="javascript:void(0);" class="moodlezoom" title="<?php echo get_string('showblocks', 'theme_adaptable') ?>">
                                <i class="fa fa-outdent fa-lg"></i>
                                <span class="zoomdesc"><?php echo get_string('showblocks', 'theme_adaptable') ?></span>
@@ -454,13 +483,13 @@ if (
                     }
                 
                     if ($PAGE->theme->settings->enablezoom) { ?>
-                        <li class="nav-item hbll">
+                        <li class="nav-item mx-1 hbll">
                             <a class="nav-link" href="javascript:void(0);" class="moodlewidth" title="<?php echo get_string('fullscreen', 'theme_adaptable') ?>">
                                 <i class="fa fa-expand fa-lg"></i>
                                 <span class="zoomdesc"><?php echo get_string('fullscreen', 'theme_adaptable') ?></span>
                             </a>
                         </li>
-                        <li class="nav-item sbll">
+                        <li class="nav-item mx-1 sbll">
                             <a class="nav-link" href="javascript:void(0);" class="moodlewidth" title="<?php echo get_string('standardview', 'theme_adaptable') ?>">
                                 <i class="fa fa-compress fa-lg"></i>
                                 <span class="zoomdesc"><?php echo get_string('standardview', 'theme_adaptable') ?></span>
@@ -472,9 +501,10 @@ if (
                     }
                     ?>
     		</ul>
-            <div id="edittingbutton" class="pull-right breadcrumb-button">
+
+            <!-- div id="edittingbutton" class="pull-right breadcrumb-button">
                 <?php echo $OUTPUT->page_heading_button(); ?>
-            </div>
+            </div -->
     		<!-- /div -->
     
     	</div>
