@@ -46,7 +46,7 @@ use action_link;
 class course_renderer extends \core_course_renderer {
 
     /**
-     * Render course category box
+     * Render course tiles in the fron page
      *
      * @param coursecat_helper $chelper
      * @param string $course
@@ -59,7 +59,9 @@ class course_renderer extends \core_course_renderer {
         if ($type == 3 || $OUTPUT->body_id() != 'page-site-index') {
             return parent::coursecat_coursebox($chelper, $course, $additionalclasses = '');
         }
+
         $additionalcss = '';
+
         if ($type == 2) {
             $additionalcss = 'hover';
         }
@@ -75,15 +77,19 @@ class course_renderer extends \core_course_renderer {
         if (!isset($this->strings->summary)) {
             $this->strings->summary = get_string('summary');
         }
+
         if ($chelper->get_show_courses() <= self::COURSECAT_SHOW_COURSES_COUNT) {
             return '';
         }
+
         if ($course instanceof stdClass) {
             if ($CFG->version < 2018051799) {
                 require_once($CFG->libdir.'/coursecatlib.php');
             }
+
             $course = new course_in_list($course);
         }
+
         $content = '';
         $classes = trim($additionalclasses);
 
@@ -91,19 +97,25 @@ class course_renderer extends \core_course_renderer {
             $classes .= ' collapsed';
         }
 
-        // Control span to display course tiles.
+        // Number of tiles per row: 12=1 tile / 6=2 tiles / 4=3 tiles / 3=4 tiles / 2=6 tiles
+        $spanclass = 4;
+
+        // Display course tiles depending the number per row.
         $content .= html_writer::start_tag('div',
-                array('class' => 'col panel panel-default coursebox '.$additionalcss));
+                array('class' => 'col-sm-'.$spanclass.' panel panel-default coursebox '.$additionalcss));
         $urlb = new moodle_url('/course/view.php', array('id' => $course->id));
 
+        // Add the course link.
         $content .= "<a href='$urlb'>";
 
+        // Add the course name.
         $coursename = $chelper->get_course_formatted_name($course);
         $content .= html_writer::start_tag('div', array('class' => 'panel-heading'));
         if ($type == 1) {
             $content .= html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
                     $coursename, array('class' => $course->visible ? '' : 'dimmed', 'title' => $coursename));
         }
+
         // If we display course in collapsed form but the course has summary or course contacts, display the link to the info page.
         if ($chelper->get_show_courses() < self::COURSECAT_SHOW_COURSES_EXPANDED) {
             if ($course->has_summary() || $course->has_course_contacts() || $course->has_course_overviewfiles()) {

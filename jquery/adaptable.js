@@ -24,18 +24,6 @@ jQuery(document).ready(function($) {
     if($('header').css("position") == "fixed") {
         $('.outercont').css('padding-top', $('header').height());
     }
-    var $pArr = $('.frontpage-course-list-all').children(".coursebox");
-    var pArrLen = $pArr.length;
-    var pPerDiv = 3;
-    for (var i = 0;i < pArrLen;i+=pPerDiv){
-        $pArr.filter(':eq('+i+'),:lt('+(i+pPerDiv)+'):gt('+i+')').wrapAll('<div class="row-fluid clearfix" />');
-    }
-    var $pArr = $('.frontpage-course-list-enrolled').children(".coursebox");
-    var pArrLen = $pArr.length;
-    var pPerDiv = 3;
-    for (var i = 0;i < pArrLen;i+=pPerDiv){
-            $pArr.filter(':eq('+i+'),:lt('+(i+pPerDiv)+'):gt('+i+')').wrapAll('<div class="row-fluid clearfix" />');
-    }
 
     // Breadcrumb ***************************************
     $(".breadcrumb li:not(:last-child) span").not('.separator').addClass('');
@@ -137,5 +125,3 @@ jQuery(document).ready(function($) {
         }
     });
 });
-
-

@@ -54,10 +54,8 @@ if (!empty($PAGE->theme->settings->infobox)) {
         echo '<div id="theinfo" class="container">';
     }
 ?>
-            <div class="row-fluid">
-<?php
-    echo $OUTPUT->get_setting('infobox', 'format_html');
-?>
+            <div class="row">
+<?php echo $OUTPUT->get_setting('infobox', 'format_html'); ?>
             </div>
         </div>
 <?php
@@ -70,7 +68,7 @@ if (!empty($PAGE->theme->settings->infobox)) {
 
 if (!empty($PAGE->theme->settings->frontpageblocksenabled)) { ?>
     <div id="frontblockregion" class="container">
-        <div class="row-fluid">
+        <div class="row">
             <?php echo $OUTPUT->get_block_regions(); ?>
         </div>
     </div>
@@ -85,10 +83,8 @@ if (!empty($PAGE->theme->settings->infobox2)) {
         echo '<div id="theinfo2" class="container">';
     }
 ?>
-        <div class="row-fluid">
-<?php
-            echo $OUTPUT->get_setting('infobox2', 'format_html');
-?>
+        <div class="row">
+<?php echo $OUTPUT->get_setting('infobox2', 'format_html'); ?>
         </div>
 </div>
 <?php
@@ -96,12 +92,12 @@ if (!empty($PAGE->theme->settings->infobox2)) {
 ?>
 
 <div class="container outercont">
-    <div id="page-content" class="row-fluid">
+    <div id="page-content" class="row">
      <div id="page-navbar" class="col-12">
             <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
             <?php echo $OUTPUT->navbar(); ?>
-
     </div>
+
     <section id="region-main" class="<?php echo $regions['content'];?>">
         <?php
         echo $OUTPUT->course_content_header();
@@ -118,7 +114,7 @@ if (!empty($PAGE->theme->settings->infobox2)) {
 if (is_siteadmin()) {
 ?>
       <div class="hidden-blocks">
-        <div class="row-fluid">
+        <div class="row">
 
         <?php
         if (!empty($PAGE->theme->settings->coursepageblocksliderenabled) ) {
