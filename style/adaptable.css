@@ -1505,16 +1505,16 @@ div.questionbankwindow.block {
 }
 
 .panel.hover .coursebtn.submit.btn {
-  float: none;
-  display: block;
-  width: 90%;
-  margin: 0 auto 15px;
-  padding-left: 0;
-  padding-right: 0;
-  border: 1px solid #eee !important;
-  box-shadow: none;
-  font-weight: 300;
-  position: inherit;
+    float: none;
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+    border: 1px solid #eee !important;
+    box-shadow: none;
+    font-weight: 300;
+    position: inherit;
 }
 
 .coursebox.panel.hover {

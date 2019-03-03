@@ -102,7 +102,7 @@ class course_renderer extends \core_course_renderer {
 
         // Display course tiles depending the number per row.
         $content .= html_writer::start_tag('div',
-                array('class' => 'col-sm-'.$spanclass.' panel panel-default coursebox '.$additionalcss));
+                array('class' => 'col-'.$spanclass.' panel panel-default coursebox '.$additionalcss));
         $urlb = new moodle_url('/course/view.php', array('id' => $course->id));
 
         // Add the course link.
@@ -154,7 +154,7 @@ class course_renderer extends \core_course_renderer {
 
             if (empty($PAGE->theme->settings->covhidebutton)) {
                 $content .= html_writer::link(new moodle_url('/course/view.php',
-                        array('id' => $course->id)), $btn, array('class' => " coursebtn submit btn btn-info btn-sm pull-right"));
+                        array('id' => $course->id)), $btn, array('class' => " coursebtn submit btn btn-info btn-sm"));
             }
         }
 
