@@ -26,18 +26,19 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-// Include header.
+// Let's go to include firt the common header file.
 require_once(dirname(__FILE__) . '/includes/header.php');
 
-// Set layout.
+// And now we go to create the main layout.
 $left = $PAGE->theme->settings->blockside;
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $regions = theme_adaptable_grid($left, $hassidepost);
 
+// We need to load some settings.
 $hasfootnote = (!empty($PAGE->theme->settings->footnote));
 $hideslidermobile = $PAGE->theme->settings->hideslidermobile;
 
-// Include slider.
+// Let's include the images slider if enabled.
 if (!empty($PAGE->theme->settings->sliderenabled)) {
 
     // If it is a mobile and the header is not hidden or it is a desktop then load and show the header.
@@ -46,7 +47,7 @@ if (!empty($PAGE->theme->settings->sliderenabled)) {
     }
 }
 
-// Infobox 1.
+// And let's show Infobox 1 if enabled.
 if (!empty($PAGE->theme->settings->infobox)) {
     if (!empty($PAGE->theme->settings->infoboxfullscreen)) {
         echo '<div id="theinfo">';
@@ -60,9 +61,9 @@ if (!empty($PAGE->theme->settings->infobox)) {
         </div>
 <?php
 }
-?>
 
-<?php if (!empty($PAGE->theme->settings->frontpagemarketenabled)) {
+// If Marketing Blocks are enabled then let's show them.
+if (!empty($PAGE->theme->settings->frontpagemarketenabled)) {
     echo $OUTPUT->get_marketing_blocks();
 }
 
@@ -75,7 +76,7 @@ if (!empty($PAGE->theme->settings->frontpageblocksenabled)) { ?>
 <?php
 }
 
-// Infobox 2.
+// And finally let's show the Infobox 2 if enabled.
 if (!empty($PAGE->theme->settings->infobox2)) {
     if (!empty($PAGE->theme->settings->infoboxfullscreen)) {
         echo '<div id="theinfo2">';
@@ -89,6 +90,8 @@ if (!empty($PAGE->theme->settings->infobox2)) {
 </div>
 <?php
 }
+
+// The main content goes here.
 ?>
 
 <div class="container outercont">
@@ -111,6 +114,8 @@ if (!empty($PAGE->theme->settings->infobox2)) {
 </div>
 
 <?php
+
+// Let's show the hidden blocks region ONLY for administrators.
 if (is_siteadmin()) {
 ?>
       <div class="hidden-blocks">
@@ -138,5 +143,5 @@ if (is_siteadmin()) {
 </div>
 
 <?php
-// Include footer.
+// And to finish, we include the common footer file.
 require_once(dirname(__FILE__) . '/includes/footer.php');
