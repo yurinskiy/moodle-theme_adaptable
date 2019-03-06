@@ -258,7 +258,7 @@ div.signuppanel h2 {
 }
 
 #above-header .headermenu .dropdown-menu {
-    margin-top: 5px;
+/*    margin-top: 5px; */
 }
 
 #above-header .dropdown-menu a,
@@ -269,7 +269,7 @@ div.signuppanel h2 {
 }
 
 #above-header .dropdown-menu a {
-    margin-top: 0;
+    /* margin-top: 0; */
 }
 
 #above-header .linksmenu {
@@ -1419,9 +1419,9 @@ button.search-box__button {
     font-size: 1.4em;
 }
 
-#navwrap {
+/* #navwrap {
     background-color: [[setting:menubkcolor]];
-}
+} */ 
 
 div.questionbankwindow.block {
     overflow: auto;

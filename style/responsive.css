@@ -437,9 +437,13 @@ Only screen and (max-width : 1200px)
         margin-left: 0 !important;
     }
 
-    #navwrap {
+    #adaptable-page-header-wrapper #main-navbar {
         border-bottom: 0;
     }
+
+    /* #navwrap {
+        border-bottom: 0;
+    } */
 
     #page-header a img {
         margin: 0 auto;
