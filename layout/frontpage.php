@@ -1,43 +1,46 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
-/**
- * Version details
- *
- * @package    theme_adaptable
- * @copyright  2015-2016 Jeremy Hopkins (Coventry University)
- * @copyright  2015-2017 Fernando Acedo (3-bits.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- *
- */
+/*
+* This file is part of Adaptable theme for moodle
+*
+* Moodle is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Moodle is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+*
+*
+* Adaptable frontpage layout
+*
+* @package    theme_adaptable
+* @copyright  2015-2019 Jeremy Hopkins (Coventry University)
+* @copyright  2015-2019 Fernando Acedo (3-bits.com)
+* @copyright  2018-2019 Manoj Solanki (Coventry University)
+*
+* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+*/
 
 defined('MOODLE_INTERNAL') || die;
 
-// Include header.
+// Let's go to include firt the common header file.
 require_once(dirname(__FILE__) . '/includes/header.php');
 
-// Set layout.
+// And now we go to create the main layout.
 $left = $PAGE->theme->settings->blockside;
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $regions = theme_adaptable_grid($left, $hassidepost);
 
+// We need to load some settings.
 $hasfootnote = (!empty($PAGE->theme->settings->footnote));
 $hideslidermobile = $PAGE->theme->settings->hideslidermobile;
 
-// Include slider.
+// Let's include the images slider if enabled.
 if (!empty($PAGE->theme->settings->sliderenabled)) {
 
     // If it is a mobile and the header is not hidden or it is a desktop then load and show the header.
@@ -46,7 +49,7 @@ if (!empty($PAGE->theme->settings->sliderenabled)) {
     }
 }
 
-// Infobox 1.
+// And let's show Infobox 1 if enabled.
 if (!empty($PAGE->theme->settings->infobox)) {
     if (!empty($PAGE->theme->settings->infoboxfullscreen)) {
         echo '<div id="theinfo">';
@@ -54,30 +57,28 @@ if (!empty($PAGE->theme->settings->infobox)) {
         echo '<div id="theinfo" class="container">';
     }
 ?>
-            <div class="row-fluid">
-<?php
-    echo $OUTPUT->get_setting('infobox', 'format_html');
-?>
+            <div class="row">
+<?php echo $OUTPUT->get_setting('infobox', 'format_html'); ?>
             </div>
         </div>
 <?php
 }
-?>
 
-<?php if (!empty($PAGE->theme->settings->frontpagemarketenabled)) {
+// If Marketing Blocks are enabled then let's show them.
+if (!empty($PAGE->theme->settings->frontpagemarketenabled)) {
     echo $OUTPUT->get_marketing_blocks();
 }
 
 if (!empty($PAGE->theme->settings->frontpageblocksenabled)) { ?>
     <div id="frontblockregion" class="container">
-        <div class="row-fluid">
+        <div class="row">
             <?php echo $OUTPUT->get_block_regions(); ?>
         </div>
     </div>
 <?php
 }
 
-// Infobox 2.
+// And finally let's show the Infobox 2 if enabled.
 if (!empty($PAGE->theme->settings->infobox2)) {
     if (!empty($PAGE->theme->settings->infoboxfullscreen)) {
         echo '<div id="theinfo2">';
@@ -85,23 +86,23 @@ if (!empty($PAGE->theme->settings->infobox2)) {
         echo '<div id="theinfo2" class="container">';
     }
 ?>
-        <div class="row-fluid">
-<?php
-            echo $OUTPUT->get_setting('infobox2', 'format_html');
-?>
+        <div class="row">
+<?php echo $OUTPUT->get_setting('infobox2', 'format_html'); ?>
         </div>
 </div>
 <?php
 }
+
+// The main content goes here.
 ?>
 
 <div class="container outercont">
-    <div id="page-content" class="row-fluid">
+    <div id="page-content" class="row">
      <div id="page-navbar" class="col-12">
             <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
             <?php echo $OUTPUT->navbar(); ?>
-
     </div>
+
     <section id="region-main" class="<?php echo $regions['content'];?>">
         <?php
         echo $OUTPUT->course_content_header();
@@ -115,10 +116,12 @@ if (!empty($PAGE->theme->settings->infobox2)) {
 </div>
 
 <?php
+
+// Let's show the hidden blocks region ONLY for administrators.
 if (is_siteadmin()) {
 ?>
       <div class="hidden-blocks">
-        <div class="row-fluid">
+        <div class="row">
 
         <?php
         if (!empty($PAGE->theme->settings->coursepageblocksliderenabled) ) {
@@ -142,5 +145,5 @@ if (is_siteadmin()) {
 </div>
 
 <?php
-// Include footer.
+// And to finish, we include the common footer file.
 require_once(dirname(__FILE__) . '/includes/footer.php');

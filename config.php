@@ -100,17 +100,19 @@ if ( (is_object($PAGE)) && ($PAGE->pagelayout) ) {
 $THEME->doctype = 'html5';
 
 // Theme parent.
-// $THEME->parents = array('boost');
-$THEME->parents = ['boost'];
+$THEME->parents = array();
+
 // Styles.
-$THEME->sheets = array( 'adaptable',
-                        'blocks',
-                        'button',
-                        'course',
-                        'extras',
-                        'menu',
-                        'responsive',
-                        'custom');
+$THEME->sheets = array( 'moodle',
+        'adaptable',
+        'blocks',
+        'button',
+        'course',
+        'extras',
+        'menu',
+        'responsive',
+        'custom');
+
 
 $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();

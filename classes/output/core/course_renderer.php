@@ -1,18 +1,30 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+/*
+* This file is part of Adaptable theme for moodle
+*
+* Moodle is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Moodle is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+*
+*
+* Adaptable Course Renderers file
+*
+* @package    theme_adaptable
+* @copyright  2015-2019 Jeremy Hopkins (Coventry University)
+* @copyright  2015-2019 Fernando Acedo (3-bits.com)
+* @copyright  2018-2019 Manoj Solanki (Coventry University)
+*
+* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+*/
 
 namespace theme_adaptable\output\core;
 
@@ -46,7 +58,7 @@ use action_link;
 class course_renderer extends \core_course_renderer {
 
     /**
-     * Render course category box
+     * Render course tiles in the fron page
      *
      * @param coursecat_helper $chelper
      * @param string $course
@@ -59,7 +71,9 @@ class course_renderer extends \core_course_renderer {
         if ($type == 3 || $OUTPUT->body_id() != 'page-site-index') {
             return parent::coursecat_coursebox($chelper, $course, $additionalclasses = '');
         }
+
         $additionalcss = '';
+
         if ($type == 2) {
             $additionalcss = 'hover';
         }
@@ -75,15 +89,19 @@ class course_renderer extends \core_course_renderer {
         if (!isset($this->strings->summary)) {
             $this->strings->summary = get_string('summary');
         }
+
         if ($chelper->get_show_courses() <= self::COURSECAT_SHOW_COURSES_COUNT) {
             return '';
         }
+
         if ($course instanceof stdClass) {
             if ($CFG->version < 2018051799) {
                 require_once($CFG->libdir.'/coursecatlib.php');
             }
+
             $course = new course_in_list($course);
         }
+
         $content = '';
         $classes = trim($additionalclasses);
 
@@ -91,25 +109,25 @@ class course_renderer extends \core_course_renderer {
             $classes .= ' collapsed';
         }
 
-        // Control span to display course tiles.
-        if (!isloggedin() || isguestuser()) {
-            $spanclass = "span4";
-        } else {
-            $spanclass = "span4";
-        }
+        // Number of tiles per row: 12=1 tile / 6=2 tiles / 4=3 tiles / 3=4 tiles / 2=6 tiles
+        $spanclass = 4;
 
+        // Display course tiles depending the number per row.
         $content .= html_writer::start_tag('div',
-                array('class' => ' '.$spanclass.' panel panel-default coursebox '.$additionalcss));
+                array('class' => 'col-'.$spanclass.' panel panel-default coursebox '.$additionalcss));
         $urlb = new moodle_url('/course/view.php', array('id' => $course->id));
 
+        // Add the course link.
         $content .= "<a href='$urlb'>";
 
+        // Add the course name.
         $coursename = $chelper->get_course_formatted_name($course);
         $content .= html_writer::start_tag('div', array('class' => 'panel-heading'));
         if ($type == 1) {
             $content .= html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
                     $coursename, array('class' => $course->visible ? '' : 'dimmed', 'title' => $coursename));
         }
+
         // If we display course in collapsed form but the course has summary or course contacts, display the link to the info page.
         if ($chelper->get_show_courses() < self::COURSECAT_SHOW_COURSES_EXPANDED) {
             if ($course->has_summary() || $course->has_course_contacts() || $course->has_course_overviewfiles()) {
@@ -148,7 +166,7 @@ class course_renderer extends \core_course_renderer {
 
             if (empty($PAGE->theme->settings->covhidebutton)) {
                 $content .= html_writer::link(new moodle_url('/course/view.php',
-                        array('id' => $course->id)), $btn, array('class' => " coursebtn submit btn btn-info btn-sm pull-right"));
+                        array('id' => $course->id)), $btn, array('class' => " coursebtn submit btn btn-info btn-sm"));
             }
         }
 

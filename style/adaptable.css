@@ -1,5 +1,6 @@
 /*
-* This file is part of Moodle - http://moodle.org/
+* This file is part of Adaptable theme for moodle
+*
 * Moodle is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
@@ -14,13 +15,14 @@
 * along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 *
 *
-* Adaptable Main Style sheet
+* Adaptable main CSS file
 *
 * @package    theme_adaptable
-* @copyright  2015-2016 Jeremy Hopkins (Coventry University)
-* @copyright  2015-2018 Fernando Acedo (3-bits.com)
-* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+* @copyright  2015-2019 Jeremy Hopkins (Coventry University)
+* @copyright  2015-2019 Fernando Acedo (3-bits.com)
+* @copyright  2018-2019 Manoj Solanki (Coventry University)
 *
+* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 */
 
 /* Main elements selectors */
@@ -1545,16 +1547,16 @@ div.questionbankwindow.block {
 }
 
 .panel.hover .coursebtn.submit.btn {
-  float: none;
-  display: block;
-  width: 90%;
-  margin: 0 auto 15px;
-  padding-left: 0;
-  padding-right: 0;
-  border: 1px solid #eee !important;
-  box-shadow: none;
-  font-weight: 300;
-  position: inherit;
+    float: none;
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+    border: 1px solid #eee !important;
+    box-shadow: none;
+    font-weight: 300;
+    position: inherit;
 }
 
 .coursebox.panel.hover {
