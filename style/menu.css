@@ -261,7 +261,7 @@
 }
 
 .newmenus .dropdown-toggle::after {
-    font-family:FontAwesome;
+    font-family:"Font Awesome 5 Free";
     margin-left:5px;
     content:"\f107";
     font-weight: normal;

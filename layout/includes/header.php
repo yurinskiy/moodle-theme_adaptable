@@ -179,8 +179,14 @@ echo $OUTPUT->standard_head_html() ?>
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="<?php echo $PAGE->theme->settings->maincolor; ?>" />
 
-    <!-- Load FA icons -->
-    <link rel="stylesheet" href="<?php echo $wwwroot; ?>/theme/adaptable/style/font-awesome.min.css">
+    <!-- Font Awesome 5 -->
+    <script defer src="<?php echo $wwwroot; ?>/theme/adaptable/fonts/fontawesome/js/all.js"></script>
+    <script defer src="<?php echo $wwwroot; ?>/theme/adaptable/fonts/fontawesome/js/v4-shims.js"></script>
+
+
+    <!--
+    <link rel="stylesheet" href="<?php echo $wwwroot; ?>/theme/adaptable/fonts/fontawesome/css/all.css">
+ -->
 
     <?php
     if ((!empty($fontname)) && ($fontname != 'default') && ($fontname != 'custom')) {

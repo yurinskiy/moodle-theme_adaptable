@@ -486,7 +486,7 @@ ul.teachers {
 
 .showblockicons .block_sitenews .header .title h2:before {
     content: "\f1ea";
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free";
 }
 
 /* Lesson Activity */

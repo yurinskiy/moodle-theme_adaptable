@@ -617,7 +617,7 @@ div.fdescription.required {
 /* Before the like action link----------------------------------------------------- */
 /* Add a hollow thumbs up icon before like */
 .format-socialwall .like:before {
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free";
     content: "\f087";
     position: relative;
     padding-right: .15em;
@@ -625,7 +625,7 @@ div.fdescription.required {
 
 /* Add a full thumbs up icon before like */
 .format-socialwall .likenomore:before {
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free";
     content: "\f164";
     position: relative;
     padding-right: .15em;
@@ -633,7 +633,7 @@ div.fdescription.required {
 
 /* Add a hollow comment icon before like */
 .format-socialwall .tl-actionlink a:nth-child(3):before {
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free";
     content: "\f0e5";
     position: relative;
     padding-right: .15em;

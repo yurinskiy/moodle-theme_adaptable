@@ -975,7 +975,7 @@ EOT;
                 $val .= ' target="' . $target;
                 $val .= '" title="' . $fields[1];
                 $val .= '" href="' . $fields[0] . '">';
-                $val .= '<i class="fa ' . $fields[2] . '"></i>';
+                $val .= '<i class="'. $fields[2] . '"></i>';
                 $val .= '</a>';
                 $retval .= $val;
             }
