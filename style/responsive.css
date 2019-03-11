@@ -491,6 +491,18 @@ Only screen and (max-width : 1200px)
         height: 48px;
         width:  48px;
     }
+    
+    
+    /* New styles for Adaptable 2. */   
+    #adaptable-page-header-wrapper .nav-link {
+        padding: inherit;
+    }
+
+    #adaptable-page-header-wrapper .icon {
+        height: 24px;
+        width: 24px;
+    }
+
 }
 
 /*=====================================================

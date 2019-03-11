@@ -246,30 +246,10 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                     <?php echo $OUTPUT->user_menu(); ?>
                 </div>
 
-                <!--  div style="float: right; position: relative; display: inline; margin-left: 15px; height:20px;" -->
-                <li class="nav-item dropdown show">
-
-                    
-						<?php
-                        if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
-                            echo $OUTPUT->lang_menu();
-                        }
-                        ?>
-                    
-
-                <!-- /div -->
-                </li>
-
-
-				<li class="nav-item ">
                 <?php
-                
                 // Add top menus.
                 echo $OUTPUT->get_top_menus();
                 ?>
-                </li>
-                
-                
                 
                 <?php
                 
@@ -281,6 +261,19 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                     }
                 }
                 ?>
+
+                <!--  div style="float: right; position: relative; display: inline; margin-left: 15px; height:20px;" -->
+                <li class="nav-item dropdown show">
+                    
+						<?php
+                        if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
+                            echo $OUTPUT->lang_menu();
+                        }
+                        ?>
+
+                <!-- /div -->
+                </li>
+
 
 				<?php
                 if (!isloggedin() || isguestuser()) {
@@ -312,7 +305,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                     // Display user profile menu.
                     ?>
 
-                    <li class="nav-item dropdown show">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarAboveHeaderDropdownMenuLink"
                         		data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     
@@ -327,7 +320,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                             <span class="fa fa-angle-down"></span>
                             
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarAboveHeaderDropdownMenuLink">
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarAboveHeaderDropdownMenuLink">
                         	<?php echo $OUTPUT->user_profile_menu() ?>
                         </ul>
 	                </li>
@@ -400,10 +393,10 @@ if ($PAGE->pagetype != "mod-quiz-attempt") {
 }
     ?>
 
-        <div id="course-header">
-            <?php echo $OUTPUT->course_header(); ?>
-        </div>
+    <div id="course-header">
+        <?php echo $OUTPUT->course_header(); ?>
     </div>
+</div>
 
 <?php
 }
@@ -432,8 +425,8 @@ if (
                         <div class="nav-collapse collapse "> -->
 
 <div id="main-navbar">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light btco-hover-menu">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg btco-hover-menu ">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     
@@ -467,14 +460,14 @@ if (
                     if ($PAGE->theme->settings->enableshowhideblocks) { ?>
                        <!--  li class="hbl" -->
                        <li class="nav-item mx-1 hbl">
-                           <a class="nav-link" href="javascript:void(0);" class="moodlezoom" title="<?php echo get_string('hideblocks', 'theme_adaptable') ?>">
+                           <a href="javascript:void(0);" class="moodlezoom" title="<?php echo get_string('hideblocks', 'theme_adaptable') ?>">
                                <i class="fa fa-indent fa-lg"></i>
     	                       <span class="zoomdesc"><?php echo get_string('hideblocks', 'theme_adaptable') ?></span>
                            </a>
                        </li>
                        <!-- li class="sbl" -->
                        <li class="nav-item mx-1 sbl">
-                           <a class="nav-link" href="javascript:void(0);" class="moodlezoom" title="<?php echo get_string('showblocks', 'theme_adaptable') ?>">
+                           <a href="javascript:void(0);" class="moodlezoom" title="<?php echo get_string('showblocks', 'theme_adaptable') ?>">
                                <i class="fa fa-outdent fa-lg"></i>
                                <span class="zoomdesc"><?php echo get_string('showblocks', 'theme_adaptable') ?></span>
                            </a>
