@@ -291,7 +291,7 @@ class theme_adaptable_core_renderer extends core_renderer {
             }
 
             if ($additem) {
-                $retval .= '<li><a href="' . $usermenuitems[$i][2] . '" title="' . $usermenuitems[$i][3] . '">';
+                $retval .= '<li class="nav-item mx-1"><a class="dropdown-item" href="' . $usermenuitems[$i][2] . '" title="' . $usermenuitems[$i][3] . '">';
                 $retval .= '<i class="fa ' . $usermenuitems[$i][4] . '"></i>' . $usermenuitems[$i][3] . '</a></li>';
             }
         }
@@ -820,9 +820,9 @@ EOT;
         }
 
         // And finally let's go to add the custom usermenus.
-        $content = html_writer::start_tag('ul', array('class' => 'usermenu2 nav navbar-nav navbar-right'));
+        $content = html_writer::start_tag('ul', array('class' => 'navbar-nav mr-auto'));
         foreach ($menu->get_children() as $item) {
-            $content .= $this->render_custom_menu_item($item, 1);
+            $content .= $this->render_custom_menu_item($item, 1, 'usermenu');
         }
 
         return $content.html_writer::end_tag('ul');
@@ -1511,6 +1511,7 @@ EOT;
      * @return string
      */
     public function navigation_menu() {
+
         global $PAGE, $COURSE, $OUTPUT, $CFG, $USER;
         $menu = new custom_menu();
         $access = true;
@@ -1631,7 +1632,7 @@ EOT;
                     }
                     $branchlabel .= ' ' . $branchtitle;
 
-                    $branchurl   = new moodle_url('/my/index.php');
+                    $branchurl   = new moodle_url('#');
                     $branchsort  = 10001;
 
                     $menudisplayoption = '';
@@ -1851,10 +1852,10 @@ EOT;
 
         if ($sessttl > 0) {
             $cache->set('usernavbarttl', $sessttl);
-            $cache->set('usernavbar', $this->render_custom_menu($menu));
+            $cache->set('usernavbar', $this->render_custom_menu($menu, '', '', 'main-navigation'));
         }
 
-        return $this->render_custom_menu($menu);
+        return $this->render_custom_menu($menu, '', '', 'main-navigation');
     }
 
     /**
@@ -2174,6 +2175,7 @@ EOT;
                 }
             }
         }
+
         return $this->render_from_template('theme_adaptable/overlaymenu', $template);
     }
 
@@ -2499,7 +2501,7 @@ EOT;
                 $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
             }
         }
-        return $this->render_custom_menu($langmenu);
+        return $this->render_custom_menu($langmenu, '', '', 'langmenu');
     }
 
 
@@ -2528,7 +2530,7 @@ EOT;
      * @param string $wrappost
      * @return string
      */
-    protected function render_custom_menu(custom_menu $menu, $wrappre = '', $wrappost = '') {
+    protected function render_custom_menu(custom_menu $menu, $wrappre = '', $wrappost = '', $menuid = '') {
         global $CFG;
 
         // TODO: eliminate this duplicated logic, it belongs in core, not
@@ -2544,12 +2546,13 @@ EOT;
         if (!$menu->has_children() && $addlangmenu === false) {
             return '';
         }
-
-        $content = '<ul class="nav navbar-nav">';
+        
+        // $content = '<ul class="navbar-nav mr-auto">';
+        $content = '';
         foreach ($menu->get_children() as $item) {
-            $content .= $this->render_custom_menu_item($item, 1);
+            $content .= $this->render_custom_menu_item($item, 0, $menuid);
         }
-        $content = $wrappre . $content . '</ul>' . $wrappost;
+        $content = $wrappre . $content . '<!-- /ul -->' . $wrappost;
         return $content;
     }
 
@@ -2560,7 +2563,89 @@ EOT;
      * @param int $level = 0
      * @return string
      */
-    protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0) {
+    protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0, $menuid = '') {
+        static $submenucount = 0;
+        
+        if ($menunode->has_children()) {
+            
+/*            if ($level == 1) {
+                $class = 'dropdown';
+            } else {
+                $class = 'dropdown-menu';
+            }
+            
+            if ($menunode === $this->language) {
+                $class .= ' langmenu';
+            }
+
+            $content = html_writer::start_tag('li', array('class' => $class)); */
+            // $content .= '<li class="nav-item dropdown">';
+
+            // If the child has menus render it as a sub menu.
+            $submenucount++;
+            if ($menunode->get_url() !== null) {
+                $url = $menunode->get_url();
+            } else {
+                $url = '#cm_submenu_'.$submenucount;
+            }
+
+            $content = '<li class="nav-item dropdown">';
+            $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'dropdown-item dropdown-toggle',
+                                            'id' => $menuid . $submenucount,
+                    // 'data-toggle' => 'dropdown', 'role' => 'button', 'id' => 'navbarDropdown', 'aria-haspopup' => 'true',
+                    /* 'aria-expanded' => 'false', */ 'title' => $menunode->get_title()));
+            $content .= $menunode->get_text();
+            $content .= '</a>';
+            $content .= '<ul id="' . $menuid . $submenucount . '" class="dropdown-menu" aria-labelledby="' . $menuid . $submenucount . '">';
+            // $content .= '<div class="dropdown-menu" aria-labelledby="navbarDropdown">'
+                    
+                    foreach ($menunode->get_children() as $menunode) {
+                        $content .= $this->render_custom_menu_item($menunode, 1, $menuid . $submenucount);
+                    }
+            $content .= '</ul></li>';
+            // $content .= '</div>';
+        } else {
+            if ($level == 0) {
+                $content = '<li class="nav-item mx-2">';
+                $linkclass = 'nav-link';
+            } else {
+                $content = '<li>';
+                $linkclass = 'dropdown-item';
+            }
+            // The node doesn't have children so produce a final menuitem.
+            if ($menunode->get_url() !== null) {
+                $url = $menunode->get_url();
+            } else {
+                $url = '#';
+            }
+            
+            /* This is a bit of a cludge, but allows us to pass url, of type moodle_url with a param of
+             * "helptarget", which when equal to "_blank", will create a link with target="_blank" to allow the link to open
+             * in a new window.  This param is removed once checked.
+             */
+            if (is_object($url) && (get_class($url) == 'moodle_url') && ($url->get_param('helptarget') != null)) {
+                $helptarget = $url->get_param('helptarget');
+                $url->remove_params('helptarget');
+                $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title(),
+                        'target' => $helptarget, 'class' => $linkclass));
+            } else {
+                $content .= html_writer::link($url, $menunode->get_text(),
+                        array('title' => $menunode->get_title(), 'class' => $linkclass));
+            }
+            
+            $content .= "</li>";
+        }
+        return $content;
+    }
+    
+    /**
+     * This code renders the custom menu items for the bootstrap dropdown menu.
+     *
+     * @param custom_menu_item $menunode
+     * @param int $level = 0
+     * @return string
+     */
+    /* protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0) {
         static $submenucount = 0;
 
         if ($menunode->has_children()) {
@@ -2604,7 +2689,7 @@ EOT;
              * "helptarget", which when equal to "_blank", will create a link with target="_blank" to allow the link to open
              * in a new window.  This param is removed once checked.
              */
-            if (is_object($url) && (get_class($url) == 'moodle_url') && ($url->get_param('helptarget') != null)) {
+            /* if (is_object($url) && (get_class($url) == 'moodle_url') && ($url->get_param('helptarget') != null)) {
                 $helptarget = $url->get_param('helptarget');
                 $url->remove_params('helptarget');
                 $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title(),
@@ -2616,7 +2701,7 @@ EOT;
             $content .= "</li>";
         }
         return $content;
-    }
+    } */
 
     /**
      * Renders tabtree

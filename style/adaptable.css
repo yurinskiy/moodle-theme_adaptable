@@ -69,12 +69,12 @@ a:visited,
 .tabtree .tabrow0 li a,
 .dropdown-menu.usermen > li > a {
     color: [[setting:linkcolor]];
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 a:hover,
 a:active {
-    color: [[setting:linkhover]] !important;
+    color: [[setting:linkhover]];
     text-decoration: underline;
 }
 
@@ -194,15 +194,18 @@ div.signuppanel h2 {
 }
 
 /* Header */
-#page-header-wrapper {
+#adaptable-page-header-wrapper {
     background-color: [[setting:headerbkcolor2]];
     width: 100%;
     z-index: 2;
 }
 
-#above-header {
+
+/* All #aboveheader classes moved to menu.css */
+
+/* #above-header {
     border-bottom: 1px solid [[setting:dividingline]];
-    height: 25px;
+    height: 35px;
     padding-top: 5px;
     padding-bottom: 5px;
     margin-bottom: 10px;
@@ -211,9 +214,9 @@ div.signuppanel h2 {
 
 #above-header .container {
     position: static;
-}
+} */
 
-#above-header .headermenu,
+/* #above-header .headermenu,
 #above-header .headermenu a {
     color: [[setting:headertextcolor]] !important;
     font-size: [[setting:topmenufontsize]];
@@ -249,7 +252,11 @@ div.signuppanel h2 {
 #above-header .langmenu a i,
 #above-header .linksmenu a i {
     color: [[setting:headertextcolor]];
-}
+} */
+
+
+
+
 
 #page-header {
     border-bottom: none solid [[setting:maincolor]];
@@ -689,7 +696,7 @@ langmenu a:hover {
 }
 
 .breadcrumb-button {
-    margin-top: 4px;
+    margin-top: 6px;
 }
 
 .arrow-top {
@@ -1030,6 +1037,7 @@ a.carousel-control {
 .navbar .singlebutton div,
 .path-mod-data .navbar form {
   margin: 0 0;
+  line-height: 22px;
 }
 
 .navbar input#navsearchbox {
@@ -1381,9 +1389,9 @@ button.search-box__button {
     font-size: 1.4em;
 }
 
-#navwrap {
+/* #navwrap {
     background-color: [[setting:menubkcolor]];
-}
+} */ 
 
 div.questionbankwindow.block {
     overflow: auto;
@@ -1404,7 +1412,7 @@ div.questionbankwindow.block {
     transition: all .5s ease-in-out;
 }
 
-.nav .dropdown-menu li a i,
+/* .nav .dropdown-menu li a i,
 .nav li a i {
     padding-right: 5px;
 }
@@ -1412,7 +1420,7 @@ div.questionbankwindow.block {
 .nav .dropdown-menu li a moodlezoom  i,
 .nav li a i {
     padding-right: 5px;
-}
+} */
 
 .fselect #id_courses {
     width: 100% !important;

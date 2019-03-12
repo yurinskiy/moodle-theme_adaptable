@@ -33,7 +33,7 @@ $plugin->component = 'theme_adaptable';
 $plugin->version   = 2019022500;
 
 // Moodle required version (3.6.2 or higher).
-$plugin->requires  = 2018120302.09;
+$plugin->requires  = 2018120302.00;
 
 // Adaptable version.
 $plugin->release = '2.0.0';
@@ -42,6 +42,10 @@ $plugin->release = '2.0.0';
 $plugin->maturity = MATURITY_ALPHA;
 
 // Adaptable dependencies.
-$plugin->dependencies = array(
+/* $plugin->dependencies = array(
     'theme_classic'  => 2018120700,
-);
+); */
+
+$plugin->dependencies = [
+        'theme_boost' => 2018120300
+];
