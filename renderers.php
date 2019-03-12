@@ -1232,11 +1232,11 @@ EOT;
         }
 
         foreach ($fields as $field) {
-            $retval .= '<div class="row-fluid marketrow">';
+            $retval .= '<div class="row marketrow">';
             $vals = explode('-', $field);
             foreach ($vals as $val) {
                 if ($val > 0) {
-                    $retval .= '<div class="col-' . $val . ' ' . $extramarketclass . ' first">';
+                    $retval .= '<div class="col ' . $val . ' ' . $extramarketclass . ' first">';
                     $blockcount ++;
                     $fieldname = $settingname . $blockcount;
                     if (isset($PAGE->theme->settings->$fieldname)) {
@@ -1304,7 +1304,7 @@ EOT;
         }
 
         foreach ($fields as $field) {
-            $output .= '<div class="row-fluid">';
+            $output .= '<div class="row">';
             $vals = explode('-', $field);
             foreach ($vals as $val) {
                 if ($val > 0) {

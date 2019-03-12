@@ -1,5 +1,5 @@
 /*
-* This file is part of Moodle - http://moodle.org/
+* This file is part of Adaptable theme for moodle
 *
 * Moodle is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,19 +15,19 @@
 * along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 *
 *
-* Adaptable Style sheet for courses format
+* Adaptable course CSS file
 *
 * @package    theme_adaptable
-* @copyright  2015-2016 Jeremy Hopkins (Coventry University)
-* @copyright  2015-2018 Fernando Acedo (3-bits.com)
-* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+* @copyright  2015-2019 Jeremy Hopkins (Coventry University)
+* @copyright  2015-2019 Fernando Acedo (3-bits.com)
+* @copyright  2018-2019 Manoj Solanki (Coventry University)
 *
+* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 */
 
 /* ****************** */
 /* Common settings    */
 /* ****************** */
-
 
 #completionprogressid {
     display: [[setting:showyourprogress]];
@@ -35,135 +35,86 @@
 
 
 /* ************************ */
-/* Topics / Weekly format   */
+/* Course Tiles             */
 /* ************************ */
 
-.course-content ul.topics li.section {
-    padding-bottom: 0;
+/* Remove 'Available courses' label. */
+#frontpage-available-course-list h2 {
+    display: [[setting:enableavailablecourses]];
 }
 
-#page .course-content ul li.section.main {
-    background-color: [[setting:coursesectionbgcolor]];
-    border: [[setting:coursesectionborderwidth]] [[setting:coursesectionborderstyle]] [[setting:coursesectionbordercolor]];
-    margin-bottom: 10px;
-    border-radius: [[setting:coursesectionborderradius]];
+/* Display the course list container */
+.frontpage-course-list-all {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: row;
+    padding-right: 0px;
+    padding-left: 0px;
+    justify-content: flex-start !important; }
 }
 
-.site-topic ul.section, .course-content ul.section {
-    margin: 0em 1em;
+/* Media breakpoints for courses list area */
+@media (min-width: 576px) {
+    .frontpage-course-list-all {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .frontpage-course-list-all {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .frontpage-course-list-all {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .frontpage-course-list-all {
+        max-width: 100%;
+    }
 }
 
-#newdiscussionform {
-    text-align: center;
-}
-
-#searchforums {
-    margin: 5px 0 5px 5px;
-}
-
-.course-content .current {
-    background-color: transparent;
-    border-left: 0px solid #ccc;
-    border-right: 0px dashed #ccc;
-    margin-top: 0px !important;
-}
-
-.panel-body {
-    overflow: hidden;
-}
-
-.panel-body .courseimage img {
-    float: right;
-    margin-bottom: 10px;
-    max-width: 60px;
-    margin-left: 5px;
-}
-
-.course-content ul li.section .side {
-    display: none;
-}
-
-.editing .course-content ul li.section .side {
-    display: inherit;
-}
-
-.course-content ul.topics li.section .content,
-.course-content ul.weeks li.section .content {
-    margin: 0;
-}
-
-.editing .course-content ul.topics li.section .content,
-.editing .course-content ul.weeks li.section .content {
-    margin: 0;
-}
-
-.section-handle {
-    margin: 0;
+/* Course tiles */
+.coursebox.panel {
+    border-radius: 2px;
     position: relative;
-    top: 12px;
+    background-color: #fafafa !important;
+    border: 5px solid rgba(255,255,255,1);
+    height: 210px;
 }
 
-.course-content ul.topics li.section .left {
-    padding-top: 2px;
-    text-align: right;
+.coursebox .boxfooter {
+    clear: both;
+    margin-bottom: 30px;
 }
 
-.course-content ul li.section.main {
-    margin: 0;
+.coursebox .coursebtn {
+    bottom: 10px;
+    position: absolute;
+    right: 28%;
+    width: 30%;
 }
 
-.sectionname {
-    background-color: [[setting:coursesectionheaderbg]] !important;
-    color: [[setting:sectionheadingcolor]] !important;
-    font-size: 20px;
-    margin-bottom: 20px;
-    padding: 3px 10px;
-    border-bottom: [[setting:coursesectionheaderborderstyle]] [[setting:coursesectionheaderbordercolor]] [[setting:coursesectionheaderborderwidth]];
-    border-radius: [[setting:coursesectionheaderborderradiustop]];
-    border-bottom-right-radius: [[setting:coursesectionheaderborderradiusbottom]];
-    border-bottom-left-radius: [[setting:coursesectionheaderborderradiusbottom]];
+.coursebox.panel ul.teachers li {
+    display: [[setting:tilesshowallcontacts]];
 }
 
-
-/* Alter nav on single-section for better onetopic course format support */
-.single-section .nav {
-    margin-bottom: 0;
+.coursebox.panel ul.teachers li:first-child {
+    display: block;
 }
 
-.single-section .nav-tabs {
-    border-bottom: none;
+.coursebox .panel-heading {
+    padding: 12px 10px 10px;
 }
 
-.path-course-view .completionprogress {
-    color: #666;
-    float: none;
-    font-size: 90%;
-    padding: 0 0 10px;
+.coursebox .panel-heading a {
+    font-size: 105%;
 }
 
-.path-course-view .section .summary {
-    padding: 10px 0 0 20px;
-}
-
-#gridshadebox_content .content .summary,
-#gridshadebox_content .content ul.section {
-    padding: 0 20px;
-}
-
-/* Current Section */
-#page .course-content ul li.section.main.current {
-    background: [[setting:currentcolor]];
-}
-
-.course-content ul li.section.hidden .sectionname,
-.course-content ul li.section.hidden .content > div {
-    margin-right: 40px;
-}
-
-/* Course Tiles */
-.courses .coursebox.even,
 .courses .coursebox {
-  background-color: #fafafa !important;
+  background-color: #f0f0f0 !important;
+  padding: 4px;
   border-radius: 6px;
 }
 
@@ -191,6 +142,9 @@
     padding: 0;
     border: 0;
     border-radius: 0;
+      flex-grow: 2 !important;
+        flex-shrink: 2 !important;
+          flex-basis: 90% !important;
 }
 
 #page .covtiles.panel {
@@ -345,6 +299,133 @@
     background-color: [[setting:covbkcolor]];
     transition: all .5s ease-in-out;
 }
+
+/* ************************ */
+/* Topics / Weekly format   */
+/* ************************ */
+
+.course-content ul.topics li.section {
+    padding-bottom: 0;
+}
+
+#page .course-content ul li.section.main {
+    background-color: [[setting:coursesectionbgcolor]];
+    border: [[setting:coursesectionborderwidth]] [[setting:coursesectionborderstyle]] [[setting:coursesectionbordercolor]];
+    margin-bottom: 10px;
+    border-radius: [[setting:coursesectionborderradius]];
+}
+
+.site-topic ul.section, .course-content ul.section {
+    margin: 0em 1em;
+}
+
+#newdiscussionform {
+    text-align: center;
+}
+
+#searchforums {
+    margin: 5px 0 5px 5px;
+}
+
+.course-content .current {
+    background-color: transparent;
+    border-left: 0px solid #ccc;
+    border-right: 0px dashed #ccc;
+    margin-top: 0px !important;
+}
+
+.panel-body {
+    overflow: hidden;
+}
+
+.panel-body .courseimage img {
+    float: right;
+    margin-bottom: 10px;
+    max-width: 60px;
+    margin-left: 5px;
+}
+
+.course-content ul li.section .side {
+    display: none;
+}
+
+.editing .course-content ul li.section .side {
+    display: inherit;
+}
+
+.course-content ul.topics li.section .content,
+.course-content ul.weeks li.section .content {
+    margin: 0;
+}
+
+.editing .course-content ul.topics li.section .content,
+.editing .course-content ul.weeks li.section .content {
+    margin: 0;
+}
+
+.section-handle {
+    margin: 0;
+    position: relative;
+    top: 12px;
+}
+
+.course-content ul.topics li.section .left {
+    padding-top: 2px;
+    text-align: right;
+}
+
+.course-content ul li.section.main {
+    margin: 0;
+}
+
+.sectionname {
+    background-color: [[setting:coursesectionheaderbg]] !important;
+    color: [[setting:sectionheadingcolor]] !important;
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding: 3px 10px;
+    border-bottom: [[setting:coursesectionheaderborderstyle]] [[setting:coursesectionheaderbordercolor]] [[setting:coursesectionheaderborderwidth]];
+    border-radius: [[setting:coursesectionheaderborderradiustop]];
+    border-bottom-right-radius: [[setting:coursesectionheaderborderradiusbottom]];
+    border-bottom-left-radius: [[setting:coursesectionheaderborderradiusbottom]];
+}
+
+
+/* Alter nav on single-section for better onetopic course format support */
+.single-section .nav {
+    margin-bottom: 0;
+}
+
+.single-section .nav-tabs {
+    border-bottom: none;
+}
+
+.path-course-view .completionprogress {
+    color: #666;
+    float: none;
+    font-size: 90%;
+    padding: 0 0 10px;
+}
+
+.path-course-view .section .summary {
+    padding: 10px 0 0 20px;
+}
+
+#gridshadebox_content .content .summary,
+#gridshadebox_content .content ul.section {
+    padding: 0 20px;
+}
+
+/* Current Section */
+#page .course-content ul li.section.main.current {
+    background: [[setting:currentcolor]];
+}
+
+.course-content ul li.section.hidden .sectionname,
+.course-content ul li.section.hidden .content > div {
+    margin-right: 40px;
+}
+
 
 /* ************* */
 /* Social Wall   */

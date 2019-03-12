@@ -100,10 +100,11 @@ if ( (is_object($PAGE)) && ($PAGE->pagelayout) ) {
 $THEME->doctype = 'html5';
 
 // Theme parent.
-// $THEME->parents = array('boost');
-$THEME->parents = ['boost'];
+$THEME->parents = array();
+
 // Styles.
-$THEME->sheets = array( 'adaptable',
+$THEME->sheets = array( 'moodle',
+                        'adaptable',
                         'blocks',
                         'button',
                         'course',
