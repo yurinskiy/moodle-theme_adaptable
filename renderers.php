@@ -291,7 +291,7 @@ class theme_adaptable_core_renderer extends core_renderer {
             }
 
             if ($additem) {
-                $retval .= '<li class="nav-item mx-1"><a href="' . $usermenuitems[$i][2] . '" title="' . $usermenuitems[$i][3] . '">';
+                $retval .= '<li class="nav-item mx-1"><a class="dropdown-item" href="' . $usermenuitems[$i][2] . '" title="' . $usermenuitems[$i][3] . '">';
                 $retval .= '<i class="fa ' . $usermenuitems[$i][4] . '"></i>' . $usermenuitems[$i][3] . '</a></li>';
             }
         }
@@ -1632,7 +1632,7 @@ EOT;
                     }
                     $branchlabel .= ' ' . $branchtitle;
 
-                    $branchurl   = new moodle_url('/my/index.php');
+                    $branchurl   = new moodle_url('#');
                     $branchsort  = 10001;
 
                     $menudisplayoption = '';
@@ -2589,14 +2589,14 @@ EOT;
                 $url = '#cm_submenu_'.$submenucount;
             }
 
-            $content = '<li class="nav-item dropdown mx-2">';
+            $content = '<li class="nav-item dropdown">';
             $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'dropdown-item dropdown-toggle',
                                             'id' => $menuid . $submenucount,
                     // 'data-toggle' => 'dropdown', 'role' => 'button', 'id' => 'navbarDropdown', 'aria-haspopup' => 'true',
                     /* 'aria-expanded' => 'false', */ 'title' => $menunode->get_title()));
             $content .= $menunode->get_text();
             $content .= '</a>';
-            $content .= '<ul class="dropdown-menu" aria-labelledby="' . $menuid . $submenucount . '">';
+            $content .= '<ul id="' . $menuid . $submenucount . '" class="dropdown-menu" aria-labelledby="' . $menuid . $submenucount . '">';
             // $content .= '<div class="dropdown-menu" aria-labelledby="navbarDropdown">'
                     
                     foreach ($menunode->get_children() as $menunode) {

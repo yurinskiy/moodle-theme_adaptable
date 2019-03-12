@@ -200,7 +200,10 @@ div.signuppanel h2 {
     z-index: 2;
 }
 
-#above-header {
+
+/* All #aboveheader classes moved to menu.css */
+
+/* #above-header {
     border-bottom: 1px solid [[setting:dividingline]];
     height: 35px;
     padding-top: 5px;
@@ -211,7 +214,7 @@ div.signuppanel h2 {
 
 #above-header .container {
     position: static;
-}
+} */
 
 /* #above-header .headermenu,
 #above-header .headermenu a {
@@ -251,43 +254,7 @@ div.signuppanel h2 {
     color: [[setting:headertextcolor]];
 } */
 
-/* New #above-header replacements */
-#above-header .navbar a {
-    color: [[setting:headertextcolor]];
-    font-size: [[setting:topmenufontsize]];
-    text-decoration: none;
-    cursor: pointer;
-}
 
-#above-header .headermenu .dropdown-menu {
-/*    margin-top: 5px; */
-}
-
-#above-header .dropdown-menu a,
-#above-header .dropdown-toggle a {
-    font-family: [[setting:fontname]], sans-serif;
-    font-size: [[setting:topmenufontsize]];
-    color: [[setting:linkcolor]] !important;
-}
-
-#above-header .dropdown-menu a {
-    /* margin-top: 0; */
-}
-
-#above-header .linksmenu {
-    margin-left: 15px;
-}
-
-#above-header .langdesc,
-#above-header .linksdesc {
-    color: [[setting:headertextcolor]];
-    font-size: [[setting:topmenufontsize]];
-}
-
-#above-header .langmenu a i,
-#above-header .linksmenu a i {
-    color: [[setting:headertextcolor]];
-}
 
 
 
@@ -729,7 +696,7 @@ langmenu a:hover {
 }
 
 .breadcrumb-button {
-    margin-top: 4px;
+    margin-top: 6px;
 }
 
 .arrow-top {
@@ -1070,6 +1037,7 @@ a.carousel-control {
 .navbar .singlebutton div,
 .path-mod-data .navbar form {
   margin: 0 0;
+  line-height: 22px;
 }
 
 .navbar input#navsearchbox {
@@ -1444,7 +1412,7 @@ div.questionbankwindow.block {
     transition: all .5s ease-in-out;
 }
 
-.nav .dropdown-menu li a i,
+/* .nav .dropdown-menu li a i,
 .nav li a i {
     padding-right: 5px;
 }
@@ -1452,7 +1420,7 @@ div.questionbankwindow.block {
 .nav .dropdown-menu li a moodlezoom  i,
 .nav li a i {
     padding-right: 5px;
-}
+} */
 
 .fselect #id_courses {
     width: 100% !important;

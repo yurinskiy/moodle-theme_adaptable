@@ -225,19 +225,31 @@
 
 */
 
-/* New navbar styling */
+/* General menu styling */
+#adaptable-page-header-wrapper .navbar-nav .dropdown li a i,
+#adaptable-page-header-wrapper .navbar-nav li a i,
+#adaptable-page-header-wrapper .navbar-nav .dropdown li a moodlezoom  i
+ {
+    padding-right: 6px;
+}
+
+#adaptable-page-header-wrapper .dropdown-menu {
+    margin: 0;
+}
+
+/* New main navbar styling */
 #adaptable-page-header-wrapper .navbar-nav > li > a {
     color: [[setting:menufontcolor]];
     line-height: 40px;
-    float: none;
-    padding: 0 [[setting:menufontpadding]] 0 [[setting:menufontpadding]];
+    /* float: none; */
+    padding: 2px [[setting:menufontpadding]] 2px [[setting:menufontpadding]];
     text-decoration: none;
     text-shadow: none;
     font-weight: 400;
     font-size: [[setting:menufontsize]];
     text-transform: none;
     border-right: 0;
-    /* background-color: transparent; */
+    background-color: none;
     -webkit-transition: all [[setting:navbardropdowntransitiontime]];
     -moz-transition: all [[setting:navbardropdowntransitiontime]];
     -ms-transition: all [[setting:navbardropdowntransitiontime]];
@@ -245,37 +257,155 @@
     transition: all [[setting:navbardropdowntransitiontime]];
 }
 
-#adaptable-page-header-wrapper .navbar-nav .navbar .nav > li > a:hover {
+/* #adaptable-page-header-wrapper .dropdown-menu li a {
+    -webkit-transition: all [[setting:navbardropdowntransitiontime]];
+    -moz-transition: all [[setting:navbardropdowntransitiontime]];
+    -ms-transition: all [[setting:navbardropdowntransitiontime]];
+    -o-transition: all [[setting:navbardropdowntransitiontime]];
+    transition: all [[setting:navbardropdowntransitiontime]];
+} */
+
+
+#adaptable-page-header-wrapper .dropdown-menu ul {
+    padding: 0;
+    margin: 0;
+    -webkit-transition: all [[setting:navbardropdowntransitiontime]];
+    -moz-transition: all [[setting:navbardropdowntransitiontime]];
+    -ms-transition: all [[setting:navbardropdowntransitiontime]];
+    -o-transition: all [[setting:navbardropdowntransitiontime]];
+    transition: all [[setting:navbardropdowntransitiontime]];
+}
+
+/* #adaptable-page-header-wrapper .navbar .dropdown-menu {
+    padding: 0;
+} */
+
+#adaptable-page-header-wrapper #main-navbar li a:hover {
     color: [[setting:menufontcolor]];
-    background-color: [[setting:menuhovercolor]] !important;
+    background-color: [[setting:menuhovercolor]];
     text-decoration: none;
 }
 
-
-
-#adaptable-page-header-wrapper .navbar li {
-    line-height: inherit;
-    
+#adaptable-page-header-wrapper #main-navbar  li ul li a:hover { 
+    background-color: [[setting:navbardropdownhovercolor]]; /*  !important; */
+    /* background-image: none !important;
+    color: #333 !important; */
 }
 
+#adaptable-page-header-wrapper #above-header li a:hover {
+    background-color: transparent;
+}
+#adaptable-page-header-wrapper #above-header li ul li a:hover {
+    background-color: [[setting:navbardropdownhovercolor]];
+}
 
-
-#above-header .navbar {
+/* #above-header .navbar {
     max-height: 35px;
-} 
+}  */
 
 .navbar .nav > li:last-child > a {
     border-right: 0 !important;
 }
 
-.dropdown .fa.fa-briefcase {
+/* #adaptable-page-header-wrapper .navbar > li > a:hover {
+    color: [[setting:menufontcolor]];
+    background-color: [[setting:menuhovercolor]] !important;
+    text-decoration: none;
+} */
+
+/* .dropdown .fa.fa-briefcase {
     padding-right: 4px;
 }
 
 .navbar .btn-group {
     margin-top: 3px;
+} */
+
+
+#adaptable-page-header-wrapper .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+
+/* New top header menu styling (includes #aboveheader css previously in adaptable.css). */
+
+#above-header {
+    border-bottom: 1px solid [[setting:dividingline]];
+    height: 35px;
+    /* padding-top: 5px; */
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    background-color: [[setting:headerbkcolor]];
 }
 
+#adaptable-page-header-wrapper #above-header .dropdown-item {
+    padding: .3rem 0.65rem;
+}
+
+#adaptable-page-header-wrapper #above-header nav.navbar {
+    margin: 0 20px 0 0;
+}
+
+/* #above-header .container {
+    position: static;
+} */
+
+#adaptable-page-header-wrapper #above-header .navbar-nav > li > a {
+    color: [[setting:headertextcolor]];
+    font-size: [[setting:topmenufontsize]];
+    text-decoration: none;
+    line-height: 22px;
+    /* cursor: pointer; */
+
+}
+
+/* #adaptable-page-header-wrapper #above-header .navbar li a:hover {
+    background-color: transparent;
+} */
+
+#adaptable-page-header-wrapper #above-header .navbar > li {
+    line-height: 23px;
+}
+
+#adaptable-page-header-wrapper .nav-link {
+    padding: .2rem 0.2rem;
+}
+
+#adaptable-page-header-wrapper #above-header .headermenu .dropdown-menu {
+/*    margin-top: 5px; */
+}
+
+#adaptable-page-header-wrapper #above-header .dropdown-menu a,
+#adaptable-page-header-wrapper #above-header .dropdown-toggle a {
+    font-family: [[setting:fontname]], sans-serif;
+    font-size: [[setting:topmenufontsize]];
+    color: [[setting:linkcolor]] !important;
+}
+
+#adaptable-page-header-wrapper #above-header .dropdown-menu a {
+    /* margin-top: 0; */
+}
+
+#adaptable-page-header-wrapper #above-header .linksmenu {
+    margin-left: 15px;
+}
+
+#adaptable-page-header-wrapper #above-header .langdesc,
+#adaptable-page-header-wrapper #above-header .linksdesc {
+    color: [[setting:headertextcolor]];
+    font-size: [[setting:topmenufontsize]];
+}
+
+#adaptable-page-header-wrapper #above-header .langmenu a i,
+#adaptable-page-header-wrapper #above-header .linksmenu a i {
+    color: [[setting:headertextcolor]];
+}
+
+#adaptable-page-header-wrapper#above-header .dropdown-toggle::after {
+    display: none;
+}
+
+#adaptable-page-header-wrapper #above-header a#navbarAboveHeaderDropdownMenuLink {
+    margin-top: 2px;
+}
 
 /* New menus styles */
 
@@ -415,9 +545,9 @@
     box-shadow: none; /*) 0 2px 4px rgba(0,0,0,.08); */
 }
 
-#adaptable-page-header-wrapper .navwrap .navbar > li > a {
+/* #adaptable-page-header-wrapper .navwrap .navbar > li > a {
     color: [[setting:menufontcolor]] /* !important */;
-    line-height: 40px;
+/*    line-height: 40px;
     float: none;
     padding: 0 [[setting:menufontpadding]] 0 [[setting:menufontpadding]];
     text-decoration: none;
@@ -433,7 +563,7 @@
     color: [[setting:menufontcolor]];
     background-color: [[setting:menuhovercolor]] !important;
     text-decoration: none;
-}
+} */
 
 .navbar li.dropdown.open > .dropdown-toggle,
 .navbar li.dropdown.active > .dropdown-toggle,
@@ -444,26 +574,18 @@
 #adaptable-page-header-wrapper .navbar .dropdown-menu /* , .headermenu .dropdown-menu, .langmenu .dropdown-menu */ {
     font-size: [[setting:menufontsize]];
     border-radius: [[setting:navbardropdownborderradius]];
-}
-
-
-
-#adaptable-page-header-wrapper .dropdown-menu {
-/*     max-height: 0;
-
-    visibility:hidden; */
     -webkit-transition: all [[setting:navbardropdowntransitiontime]];
     -moz-transition: all [[setting:navbardropdowntransitiontime]];
     -ms-transition: all [[setting:navbardropdowntransitiontime]];
     -o-transition: all [[setting:navbardropdowntransitiontime]];
-    transition: all [[setting:navbardropdowntransitiontime]];
-
-    /* overflow: hidden;
-    opacity: 0; */
+    transition: all [[setting:navbardropdowntransitiontime]];    
 }
 
-.nav .dropdown-menu li a {
+
+
+#adaptable-page-header-wrapper .nav .dropdown-menu li a {
     color: [[setting:linkcolor]] /* !important */;
+    background-color: none;
 /*    font-size: 13px;
     font-weight: 400;
     padding: 6px 10px;
@@ -479,15 +601,14 @@
 }
 */
 
-
-.dropdown-item:hover > a,
-.dropdown-item:focus > a,
-.dropdown-menu > .active,
-.dropdown-menu > .active > a,
-.dropdown-menu > .active > a:hover,
-.dropdown-menu > .active > a:focus,
-.nav .dropdown-menu li a:hover {
-    background-color: [[setting:navbardropdownhovercolor]]; /*  !important; */
+/* a.dropdown-item:hover > a,
+a.dropdown-item:focus > a,
+a.dropdown-menu > .active,
+a.dropdown-menu > .active > a,
+a.dropdown-menu > .active > a:hover,
+a.dropdown-menu > .active > a:focus,
+#adaptable-page-header-wrapper .dropdown-menu li a:hover { */
+/*    background-color: [[setting:navbardropdownhovercolor]]; /*  !important; */
     /* background-image: none !important;
     color: #333 !important; */
 }
@@ -504,7 +625,7 @@
     border-radius: [[setting:navbardropdownborderradius]];
 }
 
-/* New bootstrap related css classes. The below added for Adaptable for Moodle 3.7 onwards. */
+/* New bootstrap related css classes for hover menus. The below added for Adaptable for Moodle 3.7 onwards. */
 
 /*=-====Bootstrapthemes.co btco-hover-menu=====*/
 
@@ -516,12 +637,16 @@
     width: inherit;
 }
 
+#adaptable-page-header-wrapper .navbar .popover-region {
+    margin-top: 2px;
+}
+
 .navbar-light .navbar-nav .nav-link {
     color: rgb(64, 64, 64);
 }
 .btco-hover-menu a ,  .navbar > li > a {
 /*    text-transform: capitalize; */
-    padding: 10px 15px;
+/*    padding: 10px 15px; */
 }
 
 /* .btco-hover-menu .active a,
@@ -561,31 +686,82 @@
 .btco-hover-menu .collapse ul ul ul, .btco-hover-menu .collapse ul ul ul.dropdown-menu{background:#f5f5f5}
 .btco-hover-menu .collapse ul ul ul ul, .btco-hover-menu .collapse ul ul ul ul.dropdown-menu{background:#f5f5f5} */
 
-/*Drop-down menu work on hover*/
-.btco-hover-menu{background: none;margin: 0;padding: 0;min-height:20px}
+/* Drop-down menu for hover. */
+#adaptable-page-header-wrapper .btco-hover-menu {
+    background: none;
+    margin: 0;
+    padding: 0;
+    min-height:20px
+}
+
 
 @media only screen and (max-width: 991px) {
-    .btco-hover-menu .show > .dropdown-toggle::after{
+    #adaptable-page-header-wrapper .btco-hover-menu .show > .dropdown-toggle::after{
         transform: rotate(-90deg);
     }
 }
+
 @media only screen and (min-width: 991px) {
 
-    .btco-hover-menu .collapse ul li{position:relative;}
-    .btco-hover-menu .collapse ul li:hover> ul{display:block}
-    .btco-hover-menu .collapse ul ul{position:absolute;top:100%;left:0;min-width:250px;display:none}
+    #adaptable-page-header-wrapper .btco-hover-menu .collapse ul li {
+        position:relative;
+    }
+
+    #adaptable-page-header-wrapper .btco-hover-menu .collapse ul li:hover > ul {
+        display:block
+    }
+
+    #adaptable-page-header-wrapper .btco-hover-menu .collapse ul ul {
+        position: absolute;
+        top: 100%;
+        /* left: 0; */
+        min-width: 180px;
+        display: none;
+    }
+
+    #adaptable-page-header-wrapper #above-header .btco-hover-menu .collapse ul ul {
+        min-width: 160px;
+    }
+
+    #adaptable-page-header-wrapper #above-header .btco-hover-menu .collapse ul [id^='langmenu']  {
+        min-width: 140px;
+        margin-right: 5px;
+    }
+
     /*******/
-    .btco-hover-menu .collapse ul ul li{position:relative}
-    .btco-hover-menu .collapse ul ul li:hover> ul{display:block}
-    .btco-hover-menu .collapse ul ul ul{position:absolute;top:0;left:100%;min-width:250px;display:none}
+    #adaptable-page-header-wrapper .btco-hover-menu .collapse ul ul li {
+        position: relative;
+    }
+
+    #adaptable-page-header-wrapper .btco-hover-menu .collapse ul ul li:hover > ul {
+        display: block;
+    }
+
+    #adaptable-page-header-wrapper .btco-hover-menu .collapse ul ul ul {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        min-width: 180px;
+        display: none;
+    }
+
     /*******/
-    .btco-hover-menu .collapse ul ul ul li{position:relative}
-    .btco-hover-menu .collapse ul ul ul li:hover ul{display:block}
-    .btco-hover-menu .collapse ul ul ul ul{position:absolute;top:0;left:-100%;min-width:250px;display:none;z-index:1}
+    #adaptable-page-header-wrapper .btco-hover-menu .collapse ul ul ul li {
+        position: relative;
+    }
+
+    #adaptable-page-header-wrapper .btco-hover-menu .collapse ul ul ul li:hover ul {
+        display:block;
+    }
+
+    #adaptable-page-header-wrapper .btco-hover-menu .collapse ul ul ul ul {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        min-width: 180px;
+        display: none;
+        z-index: 1
+    }
 
 }
-
-
-
-
 

@@ -104,14 +104,15 @@ $THEME->parents = array();
 
 // Styles.
 $THEME->sheets = array( 'moodle',
-                        'adaptable',
-                        'blocks',
-                        'button',
-                        'course',
-                        'extras',
-                        'menu',
-                        'responsive',
-                        'custom');
+        'adaptable',
+        'blocks',
+        'button',
+        'course',
+        'extras',
+        'menu',
+        'responsive',
+        'custom');
+
 
 $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();
