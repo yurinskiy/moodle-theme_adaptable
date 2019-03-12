@@ -110,7 +110,7 @@ defined('MOODLE_INTERNAL') || die;
     $title = get_string('edittopmargin', 'theme_adaptable');
     $description = get_string('edittopmargin', 'theme_adaptable');
     $radchoices = $from0to8px;
-    $setting = new admin_setting_configselect($name, $title, $description, '1px', $radchoices);
+    $setting = new admin_setting_configselect($name, $title, $description, '5px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 

@@ -100,8 +100,8 @@ if ( (is_object($PAGE)) && ($PAGE->pagelayout) ) {
 $THEME->doctype = 'html5';
 
 // Theme parent.
-$THEME->parents = array('classic');
-
+// $THEME->parents = array('boost');
+$THEME->parents = ['boost'];
 // Styles.
 $THEME->sheets = array( 'adaptable',
                         'blocks',

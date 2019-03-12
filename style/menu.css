@@ -24,18 +24,20 @@
 *
 */
 
-#navwrap {
+/* #navwrap { */
+#adaptable-page-header-wrapper #main-navbar {
     clear: both;
     border-bottom: 3px solid [[setting:menubordercolor]];
+    background-color: [[setting:menubkcolor]];
 }
 
-#navwrap.affix {
+/* #navwrap.affix {
     top: 0;
     width: 100%;
     z-index: 1010;
-}
+} */
 
-.navbar {
+/* .navbar {
     clear: none;
     float: none;
     margin-bottom: 0;
@@ -130,9 +132,12 @@
     z-index: 1000;
     border-radius: [[setting:navbardropdownborderradius]];
 }
+*/
 
 /* If another dropdown menu is added, please check the below two as definitions may need to be added
    to ensure dropdown is hidden and displayed appropriately. */
+
+/*
 .navbar .nav .dropdown-menu, .headermenu .dropdown-menu, .langmenu .dropdown-menu  {
     max-height: 0;
 
@@ -180,12 +185,16 @@
     border-bottom: 1px !important;
 }
 
+*/
+
 /*
 .navbar .nav > li > a:hover {
     background-color: #fff;
     color: #333;
 }
 */
+
+/*
 .dropdown-submenu:hover > a,
 .dropdown-submenu:focus > a,
 .dropdown-menu > .active,
@@ -213,6 +222,47 @@
 .nav-tabs .dropdown-menu, .nav-pills .dropdown-menu, .navbar .dropdown-menu {
     margin-top: 0;
 }
+
+*/
+
+/* New navbar styling */
+#adaptable-page-header-wrapper .navbar-nav > li > a {
+    color: [[setting:menufontcolor]];
+    line-height: 40px;
+    float: none;
+    padding: 0 [[setting:menufontpadding]] 0 [[setting:menufontpadding]];
+    text-decoration: none;
+    text-shadow: none;
+    font-weight: 400;
+    font-size: [[setting:menufontsize]];
+    text-transform: none;
+    border-right: 0;
+    /* background-color: transparent; */
+    -webkit-transition: all [[setting:navbardropdowntransitiontime]];
+    -moz-transition: all [[setting:navbardropdowntransitiontime]];
+    -ms-transition: all [[setting:navbardropdowntransitiontime]];
+    -o-transition: all [[setting:navbardropdowntransitiontime]];
+    transition: all [[setting:navbardropdowntransitiontime]];
+}
+
+#adaptable-page-header-wrapper .navbar-nav .navbar .nav > li > a:hover {
+    color: [[setting:menufontcolor]];
+    background-color: [[setting:menuhovercolor]] !important;
+    text-decoration: none;
+}
+
+
+
+#adaptable-page-header-wrapper .navbar li {
+    line-height: inherit;
+    
+}
+
+
+
+#above-header .navbar {
+    max-height: 35px;
+} 
 
 .navbar .nav > li:last-child > a {
     border-right: 0 !important;
@@ -322,7 +372,8 @@
 }
 
 .overlay-content li > a:hover {
-    color: [[setting:linkhover]] !important;
+    /* color: [[setting:linkhover]] !important; */
+    color: [[setting:linkhover]];
 }
 
 .overlay-content ul.overlaylist {
@@ -356,3 +407,185 @@
         right: 35px;
     }
 }
+
+/* New dropdown-related classes.  These are mainly for settings. */
+
+.navbar {
+    -webkit-box-shadow: none; /* 0 2px 4px rgba(0,0,0,.08); */
+    box-shadow: none; /*) 0 2px 4px rgba(0,0,0,.08); */
+}
+
+#adaptable-page-header-wrapper .navwrap .navbar > li > a {
+    color: [[setting:menufontcolor]] /* !important */;
+    line-height: 40px;
+    float: none;
+    padding: 0 [[setting:menufontpadding]] 0 [[setting:menufontpadding]];
+    text-decoration: none;
+    text-shadow: none;
+    font-weight: 400;
+    font-size: [[setting:menufontsize]];
+    text-transform: none;
+    border-right: 0;
+    background-color: transparent !important;
+}
+
+#adaptable-page-header-wrapper .navbar > li > a:hover {
+    color: [[setting:menufontcolor]];
+    background-color: [[setting:menuhovercolor]] !important;
+    text-decoration: none;
+}
+
+.navbar li.dropdown.open > .dropdown-toggle,
+.navbar li.dropdown.active > .dropdown-toggle,
+.navbar li.dropdown.open.active > .dropdown-toggle {
+    font-size: [[setting:menufontsize]];
+}
+
+#adaptable-page-header-wrapper .navbar .dropdown-menu /* , .headermenu .dropdown-menu, .langmenu .dropdown-menu */ {
+    font-size: [[setting:menufontsize]];
+    border-radius: [[setting:navbardropdownborderradius]];
+}
+
+
+
+#adaptable-page-header-wrapper .dropdown-menu {
+/*     max-height: 0;
+
+    visibility:hidden; */
+    -webkit-transition: all [[setting:navbardropdowntransitiontime]];
+    -moz-transition: all [[setting:navbardropdowntransitiontime]];
+    -ms-transition: all [[setting:navbardropdowntransitiontime]];
+    -o-transition: all [[setting:navbardropdowntransitiontime]];
+    transition: all [[setting:navbardropdowntransitiontime]];
+
+    /* overflow: hidden;
+    opacity: 0; */
+}
+
+.nav .dropdown-menu li a {
+    color: [[setting:linkcolor]] /* !important */;
+/*    font-size: 13px;
+    font-weight: 400;
+    padding: 6px 10px;
+    border-bottom: 1px !important; */
+}
+
+*/
+
+/*
+.navbar .nav > li > a:hover {
+    background-color: #fff;
+    color: #333;
+}
+*/
+
+
+.dropdown-item:hover > a,
+.dropdown-item:focus > a,
+.dropdown-menu > .active,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus,
+.nav .dropdown-menu li a:hover {
+    background-color: [[setting:navbardropdownhovercolor]]; /*  !important; */
+    /* background-image: none !important;
+    color: #333 !important; */
+}
+
+/* .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
+    background-color: #fff;
+} */
+
+.dropdown-submenu>.dropdown-menu {
+    /* top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px; */
+    border-radius: [[setting:navbardropdownborderradius]];
+}
+
+/* New bootstrap related css classes. The below added for Adaptable for Moodle 3.7 onwards. */
+
+/*=-====Bootstrapthemes.co btco-hover-menu=====*/
+
+#adaptable-page-header-wrapper .navbar-nav {
+    margin-bottom: 0;
+}
+
+#adaptable-page-header-wrapper .navbar .popover-region-toggle {
+    width: inherit;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(64, 64, 64);
+}
+.btco-hover-menu a ,  .navbar > li > a {
+/*    text-transform: capitalize; */
+    padding: 10px 15px;
+}
+
+/* .btco-hover-menu .active a,
+.btco-hover-menu .active a:focus,
+.btco-hover-menu .active a:hover,
+.btco-hover-menu li a:hover,
+.btco-hover-menu li a:focus ,
+.navbar>.show>a,  .navbar>.show>a:focus,  .navbar>.show>a:hover{
+    color: #000;
+    background: transparent;
+    outline: 0;
+} */
+
+
+
+/*submenu style starts from here*/
+
+/* .dropdown-menu {
+    padding: 0px 0; 
+    margin: 0 0 0; 
+    border: 0px solid transition !important;
+    border: 0px solid rgba(0,0,0,.15);  
+    border-radius: 0px;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+
+} */
+
+/*first level*/
+/* .btco-hover-menu .collapse ul > li:hover > a{background: #f5f5f5;}
+.btco-hover-menu .collapse ul ul > li:hover > a, .navbar .show .dropdown-menu > li > a:focus, .navbar .show .dropdown-menu > li > a:hover{background: #fff;} */
+/*second level*/
+/* .btco-hover-menu .collapse ul ul ul > li:hover > a{background: #fff;} */
+
+/*third level*/
+/* .btco-hover-menu .collapse ul ul, .btco-hover-menu .collapse ul ul.dropdown-menu{background:#f5f5f5;}
+.btco-hover-menu .collapse ul ul ul, .btco-hover-menu .collapse ul ul ul.dropdown-menu{background:#f5f5f5}
+.btco-hover-menu .collapse ul ul ul ul, .btco-hover-menu .collapse ul ul ul ul.dropdown-menu{background:#f5f5f5} */
+
+/*Drop-down menu work on hover*/
+.btco-hover-menu{background: none;margin: 0;padding: 0;min-height:20px}
+
+@media only screen and (max-width: 991px) {
+    .btco-hover-menu .show > .dropdown-toggle::after{
+        transform: rotate(-90deg);
+    }
+}
+@media only screen and (min-width: 991px) {
+
+    .btco-hover-menu .collapse ul li{position:relative;}
+    .btco-hover-menu .collapse ul li:hover> ul{display:block}
+    .btco-hover-menu .collapse ul ul{position:absolute;top:100%;left:0;min-width:250px;display:none}
+    /*******/
+    .btco-hover-menu .collapse ul ul li{position:relative}
+    .btco-hover-menu .collapse ul ul li:hover> ul{display:block}
+    .btco-hover-menu .collapse ul ul ul{position:absolute;top:0;left:100%;min-width:250px;display:none}
+    /*******/
+    .btco-hover-menu .collapse ul ul ul li{position:relative}
+    .btco-hover-menu .collapse ul ul ul li:hover ul{display:block}
+    .btco-hover-menu .collapse ul ul ul ul{position:absolute;top:0;left:-100%;min-width:250px;display:none;z-index:1}
+
+}
+
+
+
+
+
