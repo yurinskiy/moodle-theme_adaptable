@@ -100,10 +100,10 @@ if ( (is_object($PAGE)) && ($PAGE->pagelayout) ) {
 $THEME->doctype = 'html5';
 
 // Theme parent.
-$THEME->parents = array();
+$THEME->parents = array('classic');
 
 // Styles.
-$THEME->sheets = array( 'moodle',
+$THEME->sheets = array(
         'adaptable',
         'blocks',
         'button',
