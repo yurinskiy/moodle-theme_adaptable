@@ -100,7 +100,6 @@ if ( (is_object($PAGE)) && ($PAGE->pagelayout) ) {
 $THEME->doctype = 'html5';
 
 // Theme parent.
-
 $THEME->parents = ['boost'];
 
 // Styles.
@@ -114,7 +113,6 @@ $THEME->sheets = array(
         'responsive',
         'custom');
 
-$THEME->csstreepostprocessor = null;
 $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();
 

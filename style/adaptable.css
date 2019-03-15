@@ -1690,6 +1690,7 @@ div.questionbankwindow.block {
     border-bottom: 1px solid #e8eaeb;
     text-shadow: 1px 1px 2px #ffffff;
     color: #ff0000;
+    margin-left: 10px;
 }
 
 .hidden-blocks .block-region .block {

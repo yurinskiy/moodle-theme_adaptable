@@ -109,7 +109,7 @@ class course_renderer extends \core_course_renderer {
             $classes .= ' collapsed';
         }
 
-        // Number of tiles per row: 12=1 tile / 6=2 tiles / 4=3 tiles / 3=4 tiles / 2=6 tiles
+        // Number of tiles per row: 12=1 tile / 6=2 tiles / 4 (default)=3 tiles / 3=4 tiles / 2=6 tiles
         $spanclass = 4;
 
         // Display course tiles depending the number per row.
