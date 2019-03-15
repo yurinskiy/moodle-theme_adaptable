@@ -291,8 +291,8 @@ class theme_adaptable_core_renderer extends core_renderer {
             }
 
             if ($additem) {
-                $retval .= '<li class="nav-item mx-1"><a class="dropdown-item" href="' . $usermenuitems[$i][2] . '" title="' . $usermenuitems[$i][3] . '">';
-                $retval .= '<i class="fa ' . $usermenuitems[$i][4] . '"></i>' . $usermenuitems[$i][3] . '</a></li>';
+                $retval .= '<a class="dropdown-item" href="' . $usermenuitems[$i][2] . '" title="' . $usermenuitems[$i][3] . '">';
+                $retval .= '<i class="fa ' . $usermenuitems[$i][4] . '"></i>' . $usermenuitems[$i][3] . '</a>';
             }
         }
         return $retval;
@@ -2582,26 +2582,27 @@ EOT;
             // $content .= '<li class="nav-item dropdown">';
 
             // If the child has menus render it as a sub menu.
-            $submenucount++;
+            /* $submenucount++;
             if ($menunode->get_url() !== null) {
                 $url = $menunode->get_url();
             } else {
                 $url = '#cm_submenu_'.$submenucount;
-            }
+            } */
+            $url = '#';
 
             $content = '<li class="nav-item dropdown">';
-            $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'dropdown-item dropdown-toggle',
-                                            'id' => $menuid . $submenucount,
+            $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'nav-link dropdown-toggle',
+                    'id' => $menuid . $submenucount, 'aria-haspopup' => 'true',
+                    'data-target' => $url, 'data-toggle' => 'dropdown',
                     // 'data-toggle' => 'dropdown', 'role' => 'button', 'id' => 'navbarDropdown', 'aria-haspopup' => 'true',
                     /* 'aria-expanded' => 'false', */ 'title' => $menunode->get_title()));
             $content .= $menunode->get_text();
             $content .= '</a>';
-            $content .= '<ul id="' . $menuid . $submenucount . '" class="dropdown-menu" aria-labelledby="' . $menuid . $submenucount . '">';
+            $content .= '<ul class="dropdown-menu" aria-labelledby="' . $menuid . $submenucount . '">';
             // $content .= '<div class="dropdown-menu" aria-labelledby="navbarDropdown">'
-                    
-                    foreach ($menunode->get_children() as $menunode) {
-                        $content .= $this->render_custom_menu_item($menunode, 1, $menuid . $submenucount);
-                    }
+            foreach ($menunode->get_children() as $menunode) {
+                $content .= $this->render_custom_menu_item($menunode, 1, $menuid . $submenucount);
+            }
             $content .= '</ul></li>';
             // $content .= '</div>';
         } else {
@@ -2618,7 +2619,7 @@ EOT;
             } else {
                 $url = '#';
             }
-            
+
             /* This is a bit of a cludge, but allows us to pass url, of type moodle_url with a param of
              * "helptarget", which when equal to "_blank", will create a link with target="_blank" to allow the link to open
              * in a new window.  This param is removed once checked.
@@ -2632,7 +2633,7 @@ EOT;
                 $content .= html_writer::link($url, $menunode->get_text(),
                         array('title' => $menunode->get_title(), 'class' => $linkclass));
             }
-            
+
             $content .= "</li>";
         }
         return $content;

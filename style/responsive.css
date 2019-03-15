@@ -487,10 +487,10 @@ Only screen and (max-width : 1200px)
         min-width: 150px;
     } */
 
-    .icon {
+    /* .icon {
         height: 48px;
         width:  48px;
-    }
+    } */
     
     
     /* New styles for Adaptable 2. */   
@@ -656,4 +656,9 @@ Other.
     #above-header .linksmenu {
         margin-left: 0px;
     }
+
+    .adaptable-drawer {
+        display: none;
+    }
+
 }

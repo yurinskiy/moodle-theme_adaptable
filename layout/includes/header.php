@@ -59,6 +59,7 @@ if (isset($PAGE->theme->settings->stickynavbar) && $PAGE->theme->settings->stick
 }
 
 $PAGE->requires->js_call_amd('theme_adaptable/bsoptions', 'init', array($fixedheader));
+$PAGE->requires->js_call_amd('theme_boost/drawer', 'init');
 
 // Layout.
 $left = (!right_to_left());  // To know if to add 'pull-right' and 'desktop-first-column' classes in the layout for LTR.
@@ -234,12 +235,28 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
 // Background image in Header.
 ?>
-    <header id="adaptable-page-header-wrapper" <?php echo $headerbg; ?> >
 
-<div id="above-header">
+<header id="adaptable-page-header-wrapper" <?php echo $headerbg; ?> >
 
-    <nav class="navbar navbar-expand btco-hover-menu">
+<div id="above-header" class="mb-md-2">
+
+    <nav class="navbar navbar-expand btco-hover-menu mr-2 mr-md-4">
+
+             <div data-region="drawer-toggle" class="d-md-none mr-3">
+                <button aria-expanded="false" aria-controls="nav-drawer" type="button" class="btn nav-link float-sm-left mr-1"
+                 data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav">
+                 <i class="icon fa fa-bars fa-fw " aria-hidden="true"></i><span class="sr-only">Side panel</span>
+                 </button>
+            </div>
+
         <div class="collapse navbar-collapse">
+
+	        <?php
+	           if (empty($PAGE->theme->settings->menuslinkright)) {
+	                echo $OUTPUT->get_top_menus();
+	           }
+            ?>
+
             <ul class="navbar-nav ml-auto">
 
                 <div class="pull-left">
@@ -247,12 +264,13 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                 </div>
 
                 <?php
-                // Add top menus.
-                echo $OUTPUT->get_top_menus();
+                    if (!empty($PAGE->theme->settings->menuslinkright)) {
+    	                echo $OUTPUT->get_top_menus();
+                    }
                 ?>
                 
-                <?php
-                
+                <?php 
+
                 // Add messages / notifications (moodle 3.2 or higher).
                 if ($CFG->version > 2016120400) {
                     // Remove Messages and Notifications icons in Quiz pages even if they don't use SEB.
@@ -262,17 +280,14 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                 }
                 ?>
 
-                <!--  div style="float: right; position: relative; display: inline; margin-left: 15px; height:20px;" -->
-                <li class="nav-item dropdown show">
-                    
 						<?php
                         if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
+                            echo '<li class="nav-item dropdown ml-3">';
                             echo $OUTPUT->lang_menu();
+                            echo '</li>';
                         }
                         ?>
 
-                <!-- /div -->
-                </li>
 
 
 				<?php
@@ -305,7 +320,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                     // Display user profile menu.
                     ?>
 
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown ml-3 ml-md-0">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarAboveHeaderDropdownMenuLink"
                         		data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     
@@ -315,9 +330,16 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                             echo $userpic;
                         
                             // Show username based in fullnamedisplay variable.
+                            echo '<span class="d-none d-md-inline-block">';
                             echo fullname($USER);
+                            echo '</span>';
+                            mb_internal_encoding("UTF-8");
+                            echo '<span class="d-sm-inline-block d-md-none">';
+                            echo mb_substr($USER->firstname, 0, 1, 'utf-8') . ' ';
+                            echo mb_substr($USER->lastname, 0, 1, 'utf-8');
+                            echo '</span>';
                         ?>
-                            <span class="fa fa-angle-down"></span>
+                            <!-- span class="fa fa-angle-down"></span -->
                             
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarAboveHeaderDropdownMenuLink">
@@ -339,7 +361,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 if (((theme_adaptable_is_mobile()) && ($hideheadermobile == 1)) || (theme_adaptable_is_desktop())) {
 ?>
 
-<div id="page-header" class="clearfix container">
+<div id="page-header" class="d-none d-md-block container">
 
 <?php
 // Site title or logo.
@@ -424,18 +446,125 @@ if (
                         </a>
                         <div class="nav-collapse collapse "> -->
 
-<div id="main-navbar">
-    <nav class="navbar navbar-expand-lg btco-hover-menu ">
+<div id="nav-drawer" data-region="drawer" class="d-print-none moodle-has-zindex closed" aria-hidden="true" tabindex="-1">
+        <nav class="list-group">
+            <a class="list-group-item list-group-item-action active" href="http://hvs-td-mdl01.coventry.ac.uk/MT1/my/" data-key="myhome" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-tachometer fa-fw " aria-hidden="true"></i>
+                        </span>
+                        <span class="media-body font-weight-bold">Dashboard</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/?redirect=0" data-key="home" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="70" data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="myhome">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-home fa-fw " aria-hidden="true"></i>
+                        </span>
+                        <span class="media-body ">Site home</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/calendar/view.php?view=month" data-key="calendar" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="60" data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="1">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-calendar fa-fw " aria-hidden="true"></i>
+                        </span>
+                        <span class="media-body ">Calendar</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/user/files.php" data-key="privatefiles" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="70" data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="1">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-file-o fa-fw " aria-hidden="true"></i>
+                        </span>
+                        <span class="media-body ">Private files</span>
+                    </div>
+                </div>
+            </a>
+            <div class="list-group-item" data-key="mycourses" data-isexpandable="1" data-indent="0" data-showdivider="0" data-type="0" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="myhome">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"></i>
+                        </span>
+                        <span class="media-body">My courses</span>
+                    </div>
+                </div>
+            </div>
+            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/course/view.php?id=21" data-key="21" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"></i>
+                        </span>
+                        <span class="media-body ">Test course 4</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/course/view.php?id=15" data-key="15" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"></i>
+                        </span>
+                        <span class="media-body ">235SW_1718AAA test test test test test</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/course/view.php?id=10" data-key="10" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"></i>
+                        </span>
+                        <span class="media-body ">M07MAE_1819MAYSEP</span>
+                    </div>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/course/view.php?id=8" data-key="8" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
+                <div class="m-l-1">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"></i>
+                        </span>
+                        <span class="media-body ">Features Demo</span>
+                    </div>
+                </div>
+            </a>
+        </nav>
+        <nav class="list-group m-t-1">
+            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/admin/search.php" data-key="sitesettings" data-isexpandable="0" data-indent="0" data-showdivider="1" data-type="71" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-wrench fa-fw " aria-hidden="true"></i>
+                        </span>
+                        <span class="media-body ">Site administration</span>
+                    </div>
+                </div>
+            </a>
+        </nav>
+    </div>
+
+<div id="main-navbar" class="d-none d-md-block">
+    <nav class="navbar navbar-expand-md btco-hover-menu ">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    
+
     		<ul class="navbar-nav">
-    
+
             <?php echo $OUTPUT->navigation_menu(); ?>
-            
+
             <?php
             if (empty($PAGE->theme->settings->disablecustommenu)) {
                     echo $OUTPUT->custom_menu();
@@ -449,7 +578,7 @@ if (
     		</ul>
             <!-- ul class="nav pull-right" -->
 			<ul class="navbar-nav ml-auto">    
-    		
+
 					<li class="nav-item mx-1">
                  		<div id="edittingbutton" class="breadcrumb-button">
 							<?php echo $OUTPUT->page_heading_button(); ?>
@@ -474,7 +603,7 @@ if (
                        </li>
                 <?php
                     }
-                
+
                     if ($PAGE->theme->settings->enablezoom) { ?>
                         <li class="nav-item mx-1 hbll">
                             <a class="nav-link" href="javascript:void(0);" class="moodlewidth" title="<?php echo get_string('fullscreen', 'theme_adaptable') ?>">

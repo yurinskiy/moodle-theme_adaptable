@@ -1,5 +1,5 @@
 /* jshint ignore:start */
-define(['jquery', 'theme_bootstrapbase/bootstrap', 'core/log'], function($, bootstrap, log) {
+define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log) {
 
     "use strict"; // ...jshint ;_; !!!
 
@@ -9,12 +9,28 @@ define(['jquery', 'theme_bootstrapbase/bootstrap', 'core/log'], function($, boot
         init: function(hasaffix) {
             $(document).ready(function($) {
                 if (hasaffix) {
-                    // Check that #navwrap actually exists.
-                    if($("#navwrap").length > 0) {
-                        $('#navwrap').affix({
-                            'offset': { top: $('#navwrap').offset().top}
-                        });
+
+                    // New way to handle sticky navbar requirement.
+                    // Simply taken from https://www.w3schools.com/howto/howto_js_navbar_sticky.asp.
+
+                    // When the user scrolls the page, execute makeNavbarSticky().
+                    window.onscroll = function() {makeNavbarSticky()};
+
+                    // Get the navbar
+                    var navbar = document.getElementById("main-navbar");
+
+                    // Get the offset position of the navbar
+                    var sticky = navbar.offsetTop;
+
+                    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+                    function makeNavbarSticky() {
+                      if (window.pageYOffset >= sticky) {
+                        navbar.classList.add("adaptable-navbar-sticky")
+                      } else {
+                        navbar.classList.remove("adaptable-navbar-sticky");
+                      }
                     }
+
                 }
                 $('#openoverlaymenu').click(function() {
                     $('#conditionalmenu').toggleClass('open');

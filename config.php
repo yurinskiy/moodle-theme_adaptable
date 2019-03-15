@@ -100,10 +100,11 @@ if ( (is_object($PAGE)) && ($PAGE->pagelayout) ) {
 $THEME->doctype = 'html5';
 
 // Theme parent.
-$THEME->parents = array();
+
+$THEME->parents = ['boost'];
 
 // Styles.
-$THEME->sheets = array( 'moodle',
+$THEME->sheets = array(
         'adaptable',
         'blocks',
         'button',
@@ -113,7 +114,7 @@ $THEME->sheets = array( 'moodle',
         'responsive',
         'custom');
 
-
+$THEME->csstreepostprocessor = null;
 $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();
 
@@ -128,10 +129,12 @@ if (floatval($CFG->version) >= 2013111803.02) {
     $THEME->enable_dock = true;
 }
 
+$THEME->enable_dock = false;
+
 $THEME->plugins_exclude_sheets = array(
-    'block' => array(
-        'html',
-    )
+        'block' => array(
+                'html',
+        )
 );
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
@@ -255,12 +258,3 @@ $THEME->blockrtlmanipulations = array(
     'side-pre' => 'side-post',
     'side-post' => 'side-pre'
 );
-
-$THEME->enable_dock = false;
-//$THEME->extrascsscallback = 'theme_adaptable_get_extra_scss';
-//$THEME->prescsscallback = 'theme_adaptable_get_pre_scss';
-$THEME->yuicssmodules = array();
-$THEME->rendererfactory = 'theme_overridden_renderer_factory';
-//$THEME->scss = function($theme) {
-//    return theme_adaptable_get_main_scss_content($theme);
-//};

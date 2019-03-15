@@ -1,10 +1,28 @@
-<ul class="nav navbar-nav {{#showright}}pull-right{{/showright}} {{^showright}}pull-left{{/showright}}">
-    <li class="linksmenu">
-        <a href="javascript:void(0)" id="openoverlaymenu">
-            <i class="fa fa-link fa-lg"></i><span class="linksdesc">{{#str}}linksmenu, theme_adaptable{{/str}}</span>
+<!-- ul class="nav navbar-nav {{#showright}}pull-right{{/showright}} {{^showright}}pull-left{{/showright}}">
+    <li class="linksmenu" -->
+
+<!-- li class="nav-item linksmenu {{#showright}}pull-right{{/showright}} {{^showright}}pull-left{{/showright}}" -->
+{{#showright}}
+        <li class="nav-items linksmenu">
+        <a class="nav-link" href="javascript:void(0)" id="openoverlaymenu">
+        <i class="fa fa-link fa-lg"></i><span class="linksdesc">{{#str}}linksmenu, theme_adaptable{{/str}}</span>
         </a>
-    </li>
-</ul>
+        </li>
+{{/showright}}
+
+{{^showright}}
+        <a class="nav-link" href="javascript:void(0)" id="openoverlaymenu">
+        <i class="fa fa-link fa-lg"></i><span class="linksdesc">{{#str}}linksmenu, theme_adaptable{{/str}}</span>
+        </a>
+{{/showright}}
+
+
+
+<!-- /li -->
+    <!-- /li>
+</ul -->
+
+
 <div id="conditionalmenu" class="overlaymenu">
     <a id="overlaymenuclose" href="javascript:void(0)" class="btn btn-default pull-right overlayclosebtn">
         <i class="fa fa-close"></i>
