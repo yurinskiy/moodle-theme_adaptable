@@ -37,8 +37,10 @@ global $PAGE;
 // page use $frontlayoutregions to avoid losing existing regions that
 // are renamed.
 
+// The plugin internal name.
 $THEME->name = 'adaptable';
 
+// The frontpage regions.
 $frontlayoutregions = array('side-post',
         'middle',
         'frnt-footer',
@@ -63,8 +65,10 @@ $frontlayoutregions = array('side-post',
         'frnt-market-s',
         'frnt-market-t',
         'news-slider-a',
-        'course-section-a');
+        'course-section-a'
+);
 
+// The course page regions.
 $courselayoutregions = array('side-post',
         'middle',
         'frnt-footer',
@@ -77,12 +81,12 @@ $courselayoutregions = array('side-post',
         'course-bottom-b',
         'course-bottom-c',
         'course-bottom-d',
-        'course-section-a');
+        'course-section-a'
+);
 
 $standardregions = array('side-post');
-
-
 $regions = $standardregions;
+
 if ( (is_object($PAGE)) && ($PAGE->pagelayout) ) {
     switch ($PAGE->pagelayout) {
         case "frontpage":
@@ -97,6 +101,7 @@ if ( (is_object($PAGE)) && ($PAGE->pagelayout) ) {
     }
 }
 
+// The theme HTML DOCTYPE.
 $THEME->doctype = 'html5';
 
 // Theme parent.
@@ -111,29 +116,32 @@ $THEME->sheets = array(
         'extras',
         'menu',
         'responsive',
-        'custom');
+        'custom'
+);
 
 $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();
-
 $THEME->editor_sheets = array();
-
-$usedashboard = false;
-if ($CFG->version >= 2016052300) {
-    $usedashboard = true;
-}
-
-if (floatval($CFG->version) >= 2013111803.02) {
-    $THEME->enable_dock = true;
-}
-
-$THEME->enable_dock = false;
 
 $THEME->plugins_exclude_sheets = array(
         'block' => array(
                 'html',
         )
 );
+
+// Dashboard regions.
+$usedashboard = false;
+if ($CFG->version >= 2016052300) {
+    $usedashboard = true;
+}
+
+// Disabling block docking in old versions.
+$THEME->enable_dock = false;
+
+// But allowing the docking in moodle version 2.6.3 and higher.
+if (floatval($CFG->version) >= 2013111803.02) {
+    $THEME->enable_dock = true;
+}
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->layouts = array(
@@ -252,6 +260,7 @@ $THEME->layouts = array(
 
 $THEME->csspostprocess = 'theme_adaptable_process_css';
 
+// Select the opposite sidebar when switch to RTL.
 $THEME->blockrtlmanipulations = array(
     'side-pre' => 'side-post',
     'side-post' => 'side-pre'

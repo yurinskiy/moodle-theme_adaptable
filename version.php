@@ -27,25 +27,22 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+// The theme name.
 $plugin->component = 'theme_adaptable';
 
-// Adaptable version date.
+// Adaptable version date (YYYYMMDDrr where rr is the release number).
 $plugin->version   = 2019022500;
 
-// Moodle required version (3.6.2 or higher).
-$plugin->requires  = 2018120302.00;
+// Moodle required version is 3.6.3 or higher.
+$plugin->requires  = 2018120303.00;
 
-// Adaptable version.
+// Adaptable version using SemVer.
 $plugin->release = '2.0.0';
 
 // Adaptable maturity (do not use ALPHA or BETA versions in production sites).
 $plugin->maturity = MATURITY_ALPHA;
 
-// Adaptable dependencies.
-/* $plugin->dependencies = array(
-    'theme_classic'  => 2018120700,
-); */
-
-$plugin->dependencies = [
+// Adaptable dependencies (actually only Boost as a parent theme).
+$plugin->dependencies = array(
         'theme_boost' => 2018120300
-];
+);
