@@ -1,5 +1,5 @@
 /*
-* This file is part of Moodle - http://moodle.org/
+* This file is part of Adaptable theme for moodle
 *
 * Moodle is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,15 +15,14 @@
 * along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 *
 *
-* Adaptable Blocks Style sheet
-*
-* Version details
+* Adaptable block styles sheet
 *
 * @package    theme_adaptable
-* @copyright  2015 Jeremy Hopkins (Coventry University)
-* @copyright  2015 Fernando Acedo (3-bits.com)
-* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+* @copyright  2015-2019 Jeremy Hopkins (Coventry University)
+* @copyright  2015-2019 Fernando Acedo (3-bits.com)
+* @copyright  2018-2019 Manoj Solanki (Coventry University)
 *
+* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 */
 
 .block-region-front .block {
@@ -365,7 +364,6 @@ body.has_dock div#dock {
 }
 
 /* Add or hide block icons */
-
 .showblockicons .block .header .title h2:before {
     font-family: "Font Awesome 5 Free" !important;
     font-weight: 900 !important;
@@ -376,7 +374,6 @@ body.has_dock div#dock {
     -webkit-font-smoothing: antialiased;
     content: "\f0c9";
     padding-right: 5px;
-/*    vertical-align: middle;*/
     display: inline-block;
 }
 
