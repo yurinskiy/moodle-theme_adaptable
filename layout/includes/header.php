@@ -181,12 +181,12 @@ echo $OUTPUT->standard_head_html() ?>
     <meta name="apple-mobile-web-app-status-bar-style" content="<?php echo $PAGE->theme->settings->maincolor; ?>" />
 
     <!-- Font Awesome 5 -->
-    <script defer src="<?php echo $wwwroot; ?>/theme/adaptable/fonts/fontawesome/js/all.js"></script>
+    <link rel="stylesheet" href="<?php echo $wwwroot; ?>/theme/adaptable/fonts/fontawesome/css/all.css">
     <script defer src="<?php echo $wwwroot; ?>/theme/adaptable/fonts/fontawesome/js/v4-shims.js"></script>
 
 
     <!--
-    <link rel="stylesheet" href="<?php echo $wwwroot; ?>/theme/adaptable/fonts/fontawesome/css/all.css">
+    <script defer src="<?php echo $wwwroot; ?>/theme/adaptable/fonts/fontawesome/js/all.js"></script>
  -->
 
     <?php
@@ -274,8 +274,8 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
     	                echo $OUTPUT->get_top_menus();
                     }
                 ?>
-                
-                <?php 
+
+                <?php
 
                 // Add messages / notifications (moodle 3.2 or higher).
                 if ($CFG->version > 2016120400) {
@@ -329,12 +329,12 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                     <li class="nav-item dropdown ml-3 ml-md-0">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarAboveHeaderDropdownMenuLink"
                         		data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    
+
                         <?php
                             // Show user avatar.
                             $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'size' => 80, 'class' => 'userpicture'));
                             echo $userpic;
-                        
+
                             // Show username based in fullnamedisplay variable.
                             echo '<span class="d-none d-md-inline-block">';
                             echo fullname($USER);
@@ -346,7 +346,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                             echo '</span>';
                         ?>
                             <!-- span class="fa fa-angle-down"></span -->
-                            
+
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarAboveHeaderDropdownMenuLink">
                         	<?php echo $OUTPUT->user_profile_menu() ?>
@@ -583,7 +583,7 @@ if (
             ?>
     		</ul>
             <!-- ul class="nav pull-right" -->
-			<ul class="navbar-nav ml-auto">    
+			<ul class="navbar-nav ml-auto">
 
 					<li class="nav-item mx-1">
                  		<div id="edittingbutton" class="breadcrumb-button">
@@ -634,7 +634,7 @@ if (
                 <?php echo $OUTPUT->page_heading_button(); ?>
             </div -->
     		<!-- /div -->
-    
+
     	</div>
     </nav>
 </div>
