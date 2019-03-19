@@ -116,6 +116,7 @@ $THEME->sheets = array(
         'extras',
         'menu',
         'responsive',
+        'fontawesome',
         'custom'
 );
 
@@ -140,7 +141,7 @@ $THEME->enable_dock = false;
 
 // But allowing the docking in moodle version 2.6.3 and higher.
 if (floatval($CFG->version) >= 2013111803.02) {
-    $THEME->enable_dock = true;
+//    $THEME->enable_dock = true;
 }
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
