@@ -171,25 +171,17 @@ echo $OUTPUT->standard_head_html() ?>
     <meta property="og:url" content="<?php echo $wwwroot; ?>" />
     <meta name="og:site_name" value="<?php echo $SITE->fullname; ?>" />
 
-    <!-- Chrome, Firefox OS and Opera on Android -->
+    <!-- Chrome, Firefox OS and Opera on Android topbar color -->
     <meta name="theme-color" content="<?php echo $PAGE->theme->settings->maincolor; ?>" />
 
-    <!-- Windows Phone -->
+    <!-- Windows Phone topbar color -->
     <meta name="msapplication-navbutton-color" content="<?php echo $PAGE->theme->settings->maincolor; ?>" />
 
-    <!-- iOS Safari -->
+    <!-- iOS Safari topbar color -->
     <meta name="apple-mobile-web-app-status-bar-style" content="<?php echo $PAGE->theme->settings->maincolor; ?>" />
 
-    <!-- Font Awesome 5 -->
-    <link rel="stylesheet" href="<?php echo $wwwroot; ?>/theme/adaptable/fonts/fontawesome/css/all.css">
-    <script defer src="<?php echo $wwwroot; ?>/theme/adaptable/fonts/fontawesome/js/v4-shims.js"></script>
-
-
-    <!--
-    <script defer src="<?php echo $wwwroot; ?>/theme/adaptable/fonts/fontawesome/js/all.js"></script>
- -->
-
     <?php
+    // Load fonts.
     if ((!empty($fontname)) && ($fontname != 'default') && ($fontname != 'custom')) {
         ?>
     <!-- Load Google Fonts -->

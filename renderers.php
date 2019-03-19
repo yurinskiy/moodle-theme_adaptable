@@ -240,7 +240,7 @@ class theme_adaptable_core_renderer extends core_renderer {
          // Link text in fourth parameter.
          // Icon fa-icon in fifth param.
          $usermenuitems = array(
-            array('enablemy', false, $CFG->wwwroot.'/my', get_string('myhome'), 'fa-dashboard'),
+            array('enablemy', false, $CFG->wwwroot.'/my', get_string('myhome'), 'fa-tachometer-alt'),
             array('enableprofile', false, $CFG->wwwroot.'/user/profile.php', get_string('viewprofile'), 'fa-user'),
             array('enableeditprofile', false, $CFG->wwwroot.'/user/edit.php', get_string('editmyprofile'), 'fa-cog'),
             array('enableprivatefiles', false, $CFG->wwwroot.'/user/files.php', get_string('privatefiles', 'block_private_files'),
@@ -2546,7 +2546,7 @@ EOT;
         if (!$menu->has_children() && $addlangmenu === false) {
             return '';
         }
-        
+
         // $content = '<ul class="navbar-nav mr-auto">';
         $content = '';
         foreach ($menu->get_children() as $item) {
@@ -2565,15 +2565,15 @@ EOT;
      */
     protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0, $menuid = '') {
         static $submenucount = 0;
-        
+
         if ($menunode->has_children()) {
-            
+
 /*            if ($level == 1) {
                 $class = 'dropdown';
             } else {
                 $class = 'dropdown-menu';
             }
-            
+
             if ($menunode === $this->language) {
                 $class .= ' langmenu';
             }
@@ -2638,7 +2638,7 @@ EOT;
         }
         return $content;
     }
-    
+
     /**
      * This code renders the custom menu items for the bootstrap dropdown menu.
      *
