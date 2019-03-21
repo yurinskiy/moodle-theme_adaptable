@@ -291,16 +291,10 @@
 #adaptable-page-header-wrapper .dropdown-menu ul {
     padding: 0;
     margin: 0;
-    -webkit-transition: all [[setting:navbardropdowntransitiontime]];
-    -moz-transition: all [[setting:navbardropdowntransitiontime]];
-    -ms-transition: all [[setting:navbardropdowntransitiontime]];
-    -o-transition: all [[setting:navbardropdowntransitiontime]];
-    transition: all [[setting:navbardropdowntransitiontime]];
-    opacity: 0;
 }
 
 /* #adaptable-page-header-wrapper .navbar .dropdown-menu {
-    padding: 0;
+j    padding: 0;
 } */
 
 #adaptable-page-header-wrapper #main-navbar li a:hover {

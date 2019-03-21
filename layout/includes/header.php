@@ -446,99 +446,17 @@ if (
 
 <div id="nav-drawer" data-region="drawer" class="d-print-none moodle-has-zindex closed" aria-hidden="true" tabindex="-1">
         <nav class="list-group">
-            <a class="list-group-item list-group-item-action active" href="http://hvs-td-mdl01.coventry.ac.uk/MT1/my/" data-key="myhome" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0">
-                <div class="m-l-0">
-                    <div class="media">
-                        <span class="media-left">
-                            <i class="icon fa fa-tachometer fa-fw " aria-hidden="true"></i>
-                        </span>
-                        <span class="media-body font-weight-bold">Dashboard</span>
-                    </div>
-                </div>
-            </a>
-            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/?redirect=0" data-key="home" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="70" data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="myhome">
-                <div class="m-l-0">
-                    <div class="media">
-                        <span class="media-left">
-                            <i class="icon fa fa-home fa-fw " aria-hidden="true"></i>
-                        </span>
-                        <span class="media-body ">Site home</span>
-                    </div>
-                </div>
-            </a>
-            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/calendar/view.php?view=month" data-key="calendar" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="60" data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="1">
-                <div class="m-l-0">
-                    <div class="media">
-                        <span class="media-left">
-                            <i class="icon fa fa-calendar fa-fw " aria-hidden="true"></i>
-                        </span>
-                        <span class="media-body ">Calendar</span>
-                    </div>
-                </div>
-            </a>
-            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/user/files.php" data-key="privatefiles" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="70" data-nodetype="0" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="1">
-                <div class="m-l-0">
-                    <div class="media">
-                        <span class="media-left">
-                            <i class="icon fa fa-file-o fa-fw " aria-hidden="true"></i>
-                        </span>
-                        <span class="media-body ">Private files</span>
-                    </div>
-                </div>
-            </a>
-            <div class="list-group-item" data-key="mycourses" data-isexpandable="1" data-indent="0" data-showdivider="0" data-type="0" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="myhome">
-                <div class="m-l-0">
-                    <div class="media">
-                        <span class="media-left">
-                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"></i>
-                        </span>
-                        <span class="media-body">My courses</span>
-                    </div>
-                </div>
-            </div>
-            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/course/view.php?id=21" data-key="21" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
-                <div class="m-l-1">
-                    <div class="media">
-                        <span class="media-left">
-                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"></i>
-                        </span>
-                        <span class="media-body ">Test course 4</span>
-                    </div>
-                </div>
-            </a>
-            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/course/view.php?id=15" data-key="15" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
-                <div class="m-l-1">
-                    <div class="media">
-                        <span class="media-left">
-                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"></i>
-                        </span>
-                        <span class="media-body ">235SW_1718AAA test test test test test</span>
-                    </div>
-                </div>
-            </a>
-            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/course/view.php?id=10" data-key="10" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
-                <div class="m-l-1">
-                    <div class="media">
-                        <span class="media-left">
-                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"></i>
-                        </span>
-                        <span class="media-body ">M07MAE_1819MAYSEP</span>
-                    </div>
-                </div>
-            </a>
-            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/course/view.php?id=8" data-key="8" data-isexpandable="1" data-indent="1" data-showdivider="0" data-type="20" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0" data-parent-key="mycourses">
-                <div class="m-l-1">
-                    <div class="media">
-                        <span class="media-left">
-                            <i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"></i>
-                        </span>
-                        <span class="media-body ">Features Demo</span>
-                    </div>
-                </div>
-            </a>
+
+        <ul class="list-unstyled components">
+
+            <?php echo $OUTPUT->navigation_menu('main-navigation-drawer'); ?>
+
+        </ul>
+
         </nav>
+
         <nav class="list-group m-t-1">
-            <a class="list-group-item list-group-item-action " href="http://hvs-td-mdl01.coventry.ac.uk/MT1/admin/search.php" data-key="sitesettings" data-isexpandable="0" data-indent="0" data-showdivider="1" data-type="71" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0">
+            <a class="list-group-item list-group-item-action " href="<?php echo $CFG->wwwroot . '/admin/search.php'; ?>" data-key="sitesettings" data-isexpandable="0" data-indent="0" data-showdivider="1" data-type="71" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0">
                 <div class="m-l-0">
                     <div class="media">
                         <span class="media-left">
@@ -561,7 +479,7 @@ if (
 
     		<ul class="navbar-nav">
 
-            <?php echo $OUTPUT->navigation_menu(); ?>
+            <?php echo $OUTPUT->navigation_menu('main-navigation'); ?>
 
             <?php
             if (empty($PAGE->theme->settings->disablecustommenu)) {
