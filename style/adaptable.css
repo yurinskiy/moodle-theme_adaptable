@@ -851,6 +851,7 @@ span2.mceEditor iframe, table.mceLayout2 iframe {
     text-align: right;
 }
 
+
 .form-label label {
     font-family: [[setting:fontheadername]], sans-serif !important;
     font-weight: [[setting:fontheaderweight]] !important;
@@ -1391,7 +1392,7 @@ button.search-box__button {
 
 /* #navwrap {
     background-color: [[setting:menubkcolor]];
-} */ 
+} */
 
 div.questionbankwindow.block {
     overflow: auto;
@@ -2091,3 +2092,5 @@ img.smallicon {
 .filepicker-filelist .filepicker-container, .filemanager.fm-noitems .fm-empty-container {
     position: relative;
 }
+
+/* Adaptable 2.0 */
