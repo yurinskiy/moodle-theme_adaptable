@@ -1,3 +1,4 @@
+
 /*
 * This file is part of Moodle - http://moodle.org/
 *
@@ -303,7 +304,7 @@ j    padding: 0;
     text-decoration: none;
 }
 
-#adaptable-page-header-wrapper #main-navbar  li ul li a:hover { 
+#adaptable-page-header-wrapper #main-navbar  li ul li a:hover {
     background-color: [[setting:navbardropdownhovercolor]]; /*  !important; */
     /* background-image: none !important;
     color: #333 !important; */
@@ -701,10 +702,10 @@ a.dropdown-menu > .active > a:focus,
 /*submenu style starts from here*/
 
 /* .dropdown-menu {
-    padding: 0px 0; 
-    margin: 0 0 0; 
+    padding: 0px 0;
+    margin: 0 0 0;
     border: 0px solid transition !important;
-    border: 0px solid rgba(0,0,0,.15);  
+    border: 0px solid rgba(0,0,0,.15);
     border-radius: 0px;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -801,3 +802,34 @@ a.dropdown-menu > .active > a:focus,
 
 }
 
+// Replacing old FA icons in menus.
+
+// Dashboard.
+.fa-dashboard::before,
+.fa-tachometer::before {
+    content: "\f3fd" !important;
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+}
+
+// General menu icon.
+.navicon {
+    content: "\f013" !important;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+// Competencies icon.
+.fa-check-square-o::before {
+    content: "\f14a" !important;
+}
+
+// Badge icon.
+.fa-shield::before {
+    content: "\f0a3" !important;
+}
+
+// File icon.
+.fa-file-o::before {
+    content: "\f15b" !important;
+}

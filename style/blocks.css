@@ -455,7 +455,7 @@ body.has_dock div#dock {
 }
 
 .showblockicons .block_private_files .header .title h2:before {
-    content: "\f114";
+    content: "\f07b";
 }
 
 .showblockicons .block_block_mentees .header .title h2:before {

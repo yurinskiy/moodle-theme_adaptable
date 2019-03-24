@@ -1448,7 +1448,7 @@ EOT;
                 if (get_config('theme_adaptable', 'enablehome') && get_config('theme_adaptable', 'enablemyhome')) {
                     $breadcrumbs = html_writer::tag('i', '', array(
                             'title' => get_string('home', 'theme_adaptable'),
-                            'class' => 'fa fa-folder-open-o fa-lg'
+                            'class' => 'fas fa-folder-open-o fa-lg'
                     )
                             );
                 } else if (get_config('theme_adaptable', 'breadcrumbhome') == 'icon') {
