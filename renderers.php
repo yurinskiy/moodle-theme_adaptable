@@ -1448,7 +1448,7 @@ EOT;
                 if (get_config('theme_adaptable', 'enablehome') && get_config('theme_adaptable', 'enablemyhome')) {
                     $breadcrumbs = html_writer::tag('i', '', array(
                             'title' => get_string('home', 'theme_adaptable'),
-                            'class' => 'fas fa-folder-open-o fa-lg'
+                            'class' => 'far fa-folder-open fa-2x'
                     )
                             );
                 } else if (get_config('theme_adaptable', 'breadcrumbhome') == 'icon') {
@@ -1456,7 +1456,7 @@ EOT;
                             // Adds in a title for accessibility purposes.
                             html_writer::tag('i', '', array(
                                     'title' => get_string('home', 'theme_adaptable'),
-                                    'class' => 'fa fa-home fa-lg')
+                                    'class' => 'fas fa-home fa-2x')
                                     )
                             );
                     $breadcrumbs .= '</li>';
@@ -1549,7 +1549,7 @@ EOT;
                 $branchtitle = get_string('home', 'theme_adaptable');
                 $branchlabel = '';
                 if ($navbardisplayicons) {
-                    $branchlabel .= '<i class="fa fa-home"></i>';
+                    $branchlabel .= '<i class="fa fa-home fa-lg"></i>';
                 }
                 $branchlabel .= ' ' . $branchtitle;
 
@@ -1567,7 +1567,7 @@ EOT;
 
                 $branchlabel = '';
                 if ($navbardisplayicons) {
-                    $branchlabel .= '<i class="fa fa-dashboard"></i> ';
+                    $branchlabel .= '<i class="fas fa-tachometer-alt fa-lg"></i> ';
                 }
                 $branchlabel .= ' ' . $branchtitle;
                 $branchurl   = new moodle_url('/my/index.php');
@@ -1579,7 +1579,7 @@ EOT;
                 $branchtitle = get_string('events', 'theme_adaptable');
                 $branchlabel = '';
                 if ($navbardisplayicons) {
-                    $branchlabel .= '<i class="fa fa-calendar"></i>';
+                    $branchlabel .= '<i class="fa fa-calendar fa-lg"></i>';
                 }
                 $branchlabel .= ' ' . $branchtitle;
 
@@ -1629,7 +1629,7 @@ EOT;
                             $branchlabel = '';
 
                             if ($navbardisplayicons) {
-                                $branchlabel .= '<i class="fa fa-briefcase"></i>';
+                                $branchlabel .= '<i class="fa fa-briefcase fa-lg"></i>';
                             }
                             $branchlabel .= ' ' . $branchtitle;
 
@@ -1755,7 +1755,7 @@ EOT;
 
                             $branchlabel = '';
                             if ($navbardisplayicons) {
-                                $branchlabel .= '<i class="fa fa-sitemap"></i><span class="menutitle">';
+                                $branchlabel .= '<i class="fa fa-sitemap fa-lg"></i><span class="menutitle">';
                             }
                             $branchlabel .= $branchtitle . '</span>';
 
@@ -1772,7 +1772,7 @@ EOT;
                             // Display Participants.
                             if ($PAGE->theme->settings->displayparticipants) {
                                 $branchtitle = get_string('people', 'theme_adaptable');
-                                $branchlabel = '<i class="fa fa-users"></i>'.$branchtitle;
+                                $branchlabel = '<i class="fa fa-users fa-lg"></i>'.$branchtitle;
                                 $branchurl = new moodle_url('/user/index.php', array('id' => $PAGE->course->id));
                                 $branch->add($branchlabel, $branchurl, '', 100003);
                             }
@@ -1802,7 +1802,7 @@ EOT;
         }
 
         if ($navbardisplayicons) {
-            $helpicon = '<i class="fa fa-life-ring"></i>';
+            $helpicon = '<i class="fa fa-life-ring fa-lg"></i>';
         } else {
             $helpicon = '';
         }
@@ -1906,7 +1906,7 @@ EOT;
     /**
      * Returns html to render tools menu in main navigation bar
      *
-     * @param string $menuid The id to use when creating menu. Used so this can be called for a nav drawer style display. 
+     * @param string $menuid The id to use when creating menu. Used so this can be called for a nav drawer style display.
      *
      *
      * @return string
@@ -1924,7 +1924,7 @@ EOT;
 
         $class = '';
         if (!empty($PAGE->theme->settings->navbardisplayicons)) {
-            $class .= "<i class='fa fa-wrench'></i>";
+            $class .= "<i class='fa fa-wrench fa-lg'></i>";
         }
         $class .= "<span class='menutitle'>";
 
