@@ -236,11 +236,11 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
 <header id="adaptable-page-header-wrapper" <?php echo $headerbg; ?> >
 
-<div id="above-header" class="mb-md-2">
+<div id="above-header" class="mb-2">
 
     <nav class="navbar navbar-expand btco-hover-menu mr-2 mr-md-4">
 
-             <div data-region="drawer-toggle" class="d-md-none mr-3">
+             <div data-region="drawer-toggle" class="d-lg-none mr-3">
                 <button aria-expanded="false" aria-controls="nav-drawer" type="button" class="btn nav-link float-sm-left mr-1"
                  data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav">
                  <i class="icon fa fa-bars fa-fw " aria-hidden="true"></i><span class="sr-only">Side panel</span>
@@ -318,7 +318,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                     // Display user profile menu.
                     ?>
 
-                    <li class="nav-item dropdown ml-3 ml-md-0">
+                    <li class="nav-item dropdown ml-3 ml-md-4">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarAboveHeaderDropdownMenuLink"
                         		data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 
@@ -451,6 +451,18 @@ if (
 
             <?php echo $OUTPUT->navigation_menu('main-navigation-drawer'); ?>
 
+            <?php
+            if (empty($PAGE->theme->settings->disablecustommenu)) {
+                    echo $OUTPUT->custom_menu_drawer();
+            }
+            ?>
+            <?php
+            if ($PAGE->theme->settings->enabletoolsmenus) {
+                    echo $OUTPUT->tools_menu('tools-menu-drawer');
+            }
+            ?>
+
+
         </ul>
 
         </nav>
@@ -469,7 +481,7 @@ if (
         </nav>
     </div>
 
-<div id="main-navbar" class="d-none d-md-block">
+<div id="main-navbar" class="d-none d-lg-block">
     <nav class="navbar navbar-expand-md btco-hover-menu ">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

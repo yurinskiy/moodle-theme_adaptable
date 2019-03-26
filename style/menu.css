@@ -33,11 +33,16 @@
     z-index: 100;
 }
 
-/* #navwrap.affix {
+/* Used to add padding to top of page when sticky top menu is used */
+.page-header-margin {
+    padding-top: 30px;
+}
+
+adaptable-page-header-wrapper#affix {
     top: 0;
     width: 100%;
     z-index: 1010;
-} */
+}
 
 /* .navbar {
     clear: none;
@@ -352,8 +357,8 @@ j    padding: 0;
 
 #above-header {
     border-bottom: 1px solid [[setting:dividingline]];
-    height: 35px;
-    padding-bottom: 5px;
+    /* height: 35px;
+    padding-bottom: 5px; */
     background-color: [[setting:headerbkcolor]];
 }
 
@@ -390,7 +395,7 @@ j    padding: 0;
 }
 
 #adaptable-page-header-wrapper .nav-link {
-    padding: .2rem 0.2rem;
+    padding: .1rem .2rem .2rem .2rem;
 }
 
 #adaptable-page-header-wrapper .dropdown-menu .dropdown .dropdown-toggle {
@@ -728,7 +733,7 @@ a.dropdown-menu > .active > a:focus,
     background: none;
     margin: 0;
     padding: 0;
-    min-height:20px
+    min-height: 30px
 }
 
 

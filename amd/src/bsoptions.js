@@ -32,6 +32,27 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                     }
 
                 }
+
+                var screenmd = 992;
+
+                if (window.innerWidth <= screenmd) {
+                    $("#above-header").addClass("fixed-top");
+                    $("body").addClass("page-header-margin")
+                } else {
+                    $("#above-header").removeClass("fixed-top");
+                    $("body").removeClass("page-header-margin")
+                }
+                // if you want these classes to toggle when a desktop user shrinks the browser width to an xs width - or from xs to larger
+                $(window).resize(function() {
+                    if (window.innerWidth <= screenmd) {
+                        $("#above-header").addClass("fixed-top");
+                        $("body").addClass("page-header-margin")
+                    } else {
+                        $("#above-header").removeClass("fixed-top");
+                        $("body").removeClass("page-header-margin")
+                    }
+                });
+
                 $('#openoverlaymenu').click(function() {
                     $('#conditionalmenu').toggleClass('open');
                 });

@@ -1906,9 +1906,12 @@ EOT;
     /**
      * Returns html to render tools menu in main navigation bar
      *
+     * @param string $menuid The id to use when creating menu. Used so this can be called for a nav drawer style display. 
+     *
+     *
      * @return string
      */
-    public function tools_menu() {
+    public function tools_menu($menuid = '') {
         global $PAGE;
         $custommenuitems = '';
         $access = true;
@@ -2002,7 +2005,7 @@ EOT;
 
                 $custommenuitems = $this->parse_custom_menu($menu, $label, $class, '</span>');
                 $custommenu = new custom_menu($custommenuitems);
-                $retval .= $this->render_custom_menu($custommenu);
+                $retval .= $this->render_custom_menu($custommenu, '', '', $menuid);
             }
         }
         return $retval;
@@ -2535,23 +2538,27 @@ EOT;
 
 
     /**
-     * Returns html for custom menu
+     * Display custom menu in the format required for the nav drawer. Slight cludge here to make this work.
+     * The calling function cann't call the default custom_menu() method as there is no way to know to
+     * render custom menu items in the format required for the drawer (which is different from displaying on the normal navbar).
      *
-     * @param string $custommenuitems = ''
-     * @return array
+     * @return Custom menu html
      */
-    public function custom_menu($custommenuitems = '') {
+    public function custom_menu_drawer() {
         global $CFG;
 
-        if (empty($custommenuitems) && !empty($CFG->custommenuitems)) {
+        if (!empty($CFG->custommenuitems)) {
             $custommenuitems = $CFG->custommenuitems;
+        } else {
+            return '';
         }
+
         $custommenu = new custom_menu($custommenuitems, current_language());
-        return $this->render_custom_menu($custommenu);
+        return $this->render_custom_menu($custommenu, '', '', 'custom-menu-drawer');
     }
 
     /**
-     * This renders the bootstrap top menu.     *
+     * This renders the bootstrap top menu.
      * This renderer is needed to enable the Bootstrap style navigation.
      *
      * @param custom_menu $menu
@@ -2579,13 +2586,13 @@ EOT;
                 // $content = '<ul class="navbar-nav mr-auto">';
                 $content = '';
                 foreach ($menu->get_children() as $item) {
-                    if ($menuid == 'main-navigation-drawer') {
+                    if (stristr($menuid, 'drawer'))  {
                         $content .= $this->render_custom_menu_item_drawer($item, 0, $menuid, false);
                     } else {
                         $content .= $this->render_custom_menu_item($item, 0, $menuid);
                     }
                 }
-                $content = $wrappre . $content . '<!-- /ul -->' . $wrappost;
+                $content = $wrappre . $content . $wrappost;
                 return $content;
     }
 
@@ -2623,7 +2630,7 @@ EOT;
              } */
             $url = '#';
 
-            $content = '<li class="nav-item dropdown">';
+            $content = '<li class="nav-item dropdown mr-lg-1">';
             $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'nav-link dropdown-toggle',
                     'id' => $menuid . $submenucount, 'aria-haspopup' => 'true',
                     'data-target' => $url, 'data-toggle' => 'dropdown',
@@ -2640,7 +2647,7 @@ EOT;
             // $content .= '</div>';
         } else {
             if ($level == 0) {
-                $content = '<li class="nav-item mx-2">';
+                $content = '<li class="nav-item mr-lg-1">';
                 $linkclass = 'nav-link';
             } else {
                 $content = '<li>';
