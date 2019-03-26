@@ -2094,3 +2094,6 @@ img.smallicon {
 }
 
 /* Adaptable 2.0 */
+.p-0 {
+    background-color: transparent !important;
+}
