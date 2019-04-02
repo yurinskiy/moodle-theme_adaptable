@@ -236,65 +236,66 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
 <header id="adaptable-page-header-wrapper" <?php echo $headerbg; ?> >
 
-<div id="above-header" class="mb-2">
+<div id="above-header" class="mb-2 mb-lg-3">
 
-    <nav class="navbar navbar-expand btco-hover-menu mr-2 mr-md-4">
+	<div class="container">
+
+        <nav class="navbar navbar-expand btco-hover-menu">
 
              <div data-region="drawer-toggle" class="d-lg-none mr-3">
-                <button aria-expanded="false" aria-controls="nav-drawer" type="button" class="btn nav-link float-sm-left mr-1"
+                <button aria-expanded="false" aria-controls="nav-drawer" type="button" class="nav-link float-sm-left mr-1"
                  data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav">
-                 <i class="icon fa fa-bars fa-fw " aria-hidden="true"></i><span class="sr-only">Side panel</span>
+                 <i class="fa fa-bars fa-fw " aria-hidden="true"></i>
+                 <span class="sr-only">Side panel</span>
                  </button>
             </div>
 
-        <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse">
 
-	        <?php
-	           if (empty($PAGE->theme->settings->menuslinkright)) {
-	                echo $OUTPUT->get_top_menus();
-	           }
+            <?php
+                if (empty($PAGE->theme->settings->menuslinkright)) {
+                    echo $OUTPUT->get_top_menus();
+                }
             ?>
 
-            <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto">
 
-                <div class="pull-left">
-                    <?php echo $OUTPUT->user_menu(); ?>
-                </div>
+                    <div class="pull-left">
+                        <?php echo $OUTPUT->user_menu(); ?>
+                    </div>
 
-                <?php
-                    if (!empty($PAGE->theme->settings->menuslinkright)) {
-    	                echo $OUTPUT->get_top_menus();
-                    }
-                ?>
-
-                <?php
-
-                // Add messages / notifications (moodle 3.2 or higher).
-                if ($CFG->version > 2016120400) {
-                    // Remove Messages and Notifications icons in Quiz pages even if they don't use SEB.
-                    if ($PAGE->pagetype != "mod-quiz-attempt") {
-                        echo $OUTPUT->navbar_plugin_output();
-                    }
-                }
-                ?>
-
-						<?php
-                        if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
-                            echo '<li class="nav-item dropdown ml-3">';
-                            echo $OUTPUT->lang_menu();
-                            echo '</li>';
+                    <?php
+                        if (!empty($PAGE->theme->settings->menuslinkright)) {
+                            echo $OUTPUT->get_top_menus();
                         }
-                        ?>
+                    ?>
 
+                    <?php
 
+                    // Add messages / notifications (moodle 3.2 or higher).
+                    if ($CFG->version > 2016120400) {
+                        // Remove Messages and Notifications icons in Quiz pages even if they don't use SEB.
+                        if ($PAGE->pagetype != "mod-quiz-attempt") {
+                            echo $OUTPUT->navbar_plugin_output();
+                        }
+                    }
+                    ?>
 
-				<?php
-                if (!isloggedin() || isguestuser()) {
-                    echo $OUTPUT->page_heading_menu();
+					<?php
+                    if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
+                        echo '<li class="nav-item dropdown ml-3">';
+                        echo $OUTPUT->lang_menu();
+                        echo '</li>';
+                    }
+                    ?>
 
-                    if ($PAGE->theme->settings->displaylogin == 'box') {
-                        // Login button.
-                ?>
+                    <?php
+                    if (!isloggedin() || isguestuser()) {
+                        echo $OUTPUT->page_heading_menu();
+
+                        if ($PAGE->theme->settings->displaylogin == 'box') {
+                            // Login button.
+                    ?>
                         <form class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php" method="post">
                             <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
                             <input type="text" name="username"
@@ -303,54 +304,54 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                                     placeholder="<?php echo get_string('passwordplaceholder', 'theme_adaptable'); ?>"  size="10">
                             <button class="btn-login" type="submit"><?php echo get_string('logintextbutton', 'theme_adaptable'); ?></button>
                         </form>
-                <?php
-                    } else if ($PAGE->theme->settings->displaylogin == 'button') {
-                ?>
-                        <form class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php" method="post">
-                            <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
-                            <button class="btn-login" type="submit">
-                                <?php echo get_string('logintextbutton', 'theme_adaptable'); ?>
-                            </button>
-                        </form>
-                <?php
-                    }
-                } else {
-                    // Display user profile menu.
+                    <?php
+                        } else if ($PAGE->theme->settings->displaylogin == 'button') {
                     ?>
-
-                    <li class="nav-item dropdown ml-3 ml-md-4">
-                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarAboveHeaderDropdownMenuLink"
-                        		data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-
-                        <?php
-                            // Show user avatar.
-                            $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'size' => 80, 'class' => 'userpicture'));
-                            echo $userpic;
-
-                            // Show username based in fullnamedisplay variable.
-                            echo '<span class="d-none d-md-inline-block">';
-                            echo fullname($USER);
-                            echo '</span>';
-                            mb_internal_encoding("UTF-8");
-                            echo '<span class="d-sm-inline-block d-md-none">';
-                            echo mb_substr($USER->firstname, 0, 1, 'utf-8') . ' ';
-                            echo mb_substr($USER->lastname, 0, 1, 'utf-8');
-                            echo '</span>';
+                            <form class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php" method="post">
+                                <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
+                                <button class="btn-login" type="submit">
+                                    <?php echo get_string('logintextbutton', 'theme_adaptable'); ?>
+                                </button>
+                            </form>
+                    <?php
+                        }
+                    } else {
+                        // Display user profile menu.
                         ?>
-                            <!-- span class="fa fa-angle-down"></span -->
 
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarAboveHeaderDropdownMenuLink">
-                        	<?php echo $OUTPUT->user_profile_menu() ?>
-                        </ul>
-	                </li>
+                        <li class="nav-item dropdown ml-3 ml-md-4">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarAboveHeaderDropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 
-                <?php } ?>
+                            <?php
+                                // Show user avatar.
+                                $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'size' => 80, 'class' => 'userpicture'));
+                                echo $userpic;
 
-            </ul>
-        </div>
-    </nav>
+                                // Show username based in fullnamedisplay variable.
+                                echo '<span class="d-none d-md-inline-block">';
+                                echo fullname($USER);
+                                echo '</span>';
+                                mb_internal_encoding("UTF-8");
+                                echo '<span class="d-sm-inline-block d-md-none">';
+                                echo mb_substr($USER->firstname, 0, 1, 'utf-8') . ' ';
+                                echo mb_substr($USER->lastname, 0, 1, 'utf-8');
+                                echo '</span>';
+                            ?>
+                                <!-- span class="fa fa-angle-down"></span -->
 
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarAboveHeaderDropdownMenuLink">
+                                <?php echo $OUTPUT->user_profile_menu() ?>
+                            </ul>
+                        </li>
+
+                    <?php } ?>
+
+                </ul>
+            </div>
+        </nav>
+	</div>
 </div>
 
 <?php
@@ -359,7 +360,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 if (((theme_adaptable_is_mobile()) && ($hideheadermobile == 1)) || (theme_adaptable_is_desktop())) {
 ?>
 
-<div id="page-header" class="d-none d-md-block container">
+<div id="page-header" class="container">
 
 <?php
 // Site title or logo.
@@ -432,20 +433,9 @@ if (
     // Remove menu navbar in Quiz pages even if they don't use SEB.
     if ($PAGE->pagetype != "mod-quiz-attempt") {
 ?>
-    <!-- div id="navwrap">
-        <div class="container">
-            <div class="navbar">
-                <nav role="navigation" class="navbar-inner">
-                    <div class="container-fluid">
-                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </a>
-                        <div class="nav-collapse collapse "> -->
 
 <div id="nav-drawer" data-region="drawer" class="d-print-none moodle-has-zindex closed" aria-hidden="true" tabindex="-1">
-        <nav class="list-group">
+    <nav class="list-group">
 
         <ul class="list-unstyled components">
 
@@ -462,107 +452,102 @@ if (
             }
             ?>
 
-
         </ul>
 
-        </nav>
+    </nav>
 
-        <nav class="list-group m-t-1">
-            <a class="list-group-item list-group-item-action " href="<?php echo $CFG->wwwroot . '/admin/search.php'; ?>" data-key="sitesettings" data-isexpandable="0" data-indent="0" data-showdivider="1" data-type="71" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0">
-                <div class="m-l-0">
-                    <div class="media">
-                        <span class="media-left">
-                            <i class="icon fa fa-wrench fa-fw " aria-hidden="true"></i>
-                        </span>
-                        <span class="media-body ">Site administration</span>
-                    </div>
+    <nav class="list-group m-t-1">
+        <a class="list-group-item list-group-item-action " href="<?php echo $CFG->wwwroot . '/admin/search.php'; ?>" data-key="sitesettings" data-isexpandable="0" data-indent="0" data-showdivider="1" data-type="71" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0">
+            <div class="m-l-0">
+                <div class="media">
+                    <span class="media-left">
+                        <i class="icon fa fa-wrench fa-fw " aria-hidden="true"></i>
+                    </span>
+                    <span class="media-body ">Site administration</span>
                 </div>
-            </a>
-        </nav>
-    </div>
-
-<div id="main-navbar" class="d-none d-lg-block">
-    <nav class="navbar navbar-expand-md btco-hover-menu ">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-    		<ul class="navbar-nav">
-
-            <?php echo $OUTPUT->navigation_menu('main-navigation'); ?>
-
-            <?php
-            if (empty($PAGE->theme->settings->disablecustommenu)) {
-                    echo $OUTPUT->custom_menu();
-            }
-            ?>
-            <?php
-            if ($PAGE->theme->settings->enabletoolsmenus) {
-                    echo $OUTPUT->tools_menu();
-            }
-            ?>
-    		</ul>
-            <!-- ul class="nav pull-right" -->
-			<ul class="navbar-nav ml-auto">
-
-					<li class="nav-item mx-1">
-                 		<div id="edittingbutton" class="breadcrumb-button">
-							<?php echo $OUTPUT->page_heading_button(); ?>
-                        </div>
-                    </li>
-                <?php
-                if (isloggedin()) {
-                    if ($PAGE->theme->settings->enableshowhideblocks) { ?>
-                       <!--  li class="hbl" -->
-                       <li class="nav-item mx-1 hbl">
-                           <a href="javascript:void(0);" class="moodlezoom" title="<?php echo get_string('hideblocks', 'theme_adaptable') ?>">
-                               <i class="fa fa-indent fa-lg"></i>
-    	                       <span class="zoomdesc"><?php echo get_string('hideblocks', 'theme_adaptable') ?></span>
-                           </a>
-                       </li>
-                       <!-- li class="sbl" -->
-                       <li class="nav-item mx-1 sbl">
-                           <a href="javascript:void(0);" class="moodlezoom" title="<?php echo get_string('showblocks', 'theme_adaptable') ?>">
-                               <i class="fa fa-outdent fa-lg"></i>
-                               <span class="zoomdesc"><?php echo get_string('showblocks', 'theme_adaptable') ?></span>
-                           </a>
-                       </li>
-                <?php
-                    }
-
-                    if ($PAGE->theme->settings->enablezoom) { ?>
-                        <li class="nav-item mx-1 hbll">
-                            <a class="nav-link" href="javascript:void(0);" class="moodlewidth" title="<?php echo get_string('fullscreen', 'theme_adaptable') ?>">
-                                <i class="fa fa-expand fa-lg"></i>
-                                <span class="zoomdesc"><?php echo get_string('fullscreen', 'theme_adaptable') ?></span>
-                            </a>
-                        </li>
-                        <li class="nav-item mx-1 sbll">
-                            <a class="nav-link" href="javascript:void(0);" class="moodlewidth" title="<?php echo get_string('standardview', 'theme_adaptable') ?>">
-                                <i class="fa fa-compress fa-lg"></i>
-                                <span class="zoomdesc"><?php echo get_string('standardview', 'theme_adaptable') ?></span>
-                            </a>
-                        </li>
-                <?php
-                    }
-                }
-                    }
-                    ?>
-    		</ul>
-
-            <!-- div id="edittingbutton" class="pull-right breadcrumb-button">
-                <?php echo $OUTPUT->page_heading_button(); ?>
-            </div -->
-    		<!-- /div -->
-
-    	</div>
+            </div>
+        </a>
     </nav>
 </div>
-            <!-- /div>
-        </div>
-    </div -->
+
+<div id="main-navbar" class="d-none d-lg-block">
+	<div class="container">
+        <nav class="navbar navbar-expand-md btco-hover-menu">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav">
+
+                <?php echo $OUTPUT->navigation_menu('main-navigation'); ?>
+
+                <?php
+                if (empty($PAGE->theme->settings->disablecustommenu)) {
+                        echo $OUTPUT->custom_menu();
+                }
+                ?>
+                <?php
+                if ($PAGE->theme->settings->enabletoolsmenus) {
+                        echo $OUTPUT->tools_menu();
+                }
+                ?>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item mx-1">
+                 		<div id="edittingbutton" class="breadcrumb-button">
+                            <?php echo $OUTPUT->page_heading_button(); ?>
+                        </div>
+                    </li>
+
+                    <?php
+                    if (isloggedin()) {
+                        if ($PAGE->theme->settings->enableshowhideblocks) { ?>
+                           <li class="nav-item mx-1 hbl">
+                               <a href="javascript:void(0);" class="nav-link moodlezoom" title="<?php echo get_string('hideblocks', 'theme_adaptable') ?>">
+                                   <i class="fa fa-indent fa-lg"></i>
+                                   <span class="zoomdesc"><?php echo get_string('hideblocks', 'theme_adaptable') ?></span>
+                               </a>
+                           </li>
+                           <li class="nav-item mx-1 sbl">
+                               <a href="javascript:void(0);" class="nav-link moodlezoom" title="<?php echo get_string('showblocks', 'theme_adaptable') ?>">
+                                   <i class="fa fa-outdent fa-lg"></i>
+                                   <span class="zoomdesc"><?php echo get_string('showblocks', 'theme_adaptable') ?></span>
+                               </a>
+                           </li>
+                    <?php
+                        }
+
+                        if ($PAGE->theme->settings->enablezoom) { ?>
+                            <li class="nav-item mx-1 hbll">
+                                <a class="nav-link moodlewidth" href="javascript:void(0);" title="<?php echo get_string('fullscreen', 'theme_adaptable') ?>">
+                                    <i class="fa fa-expand fa-lg"></i>
+                                    <span class="zoomdesc"><?php echo get_string('fullscreen', 'theme_adaptable') ?></span>
+                                </a>
+                            </li>
+                            <li class="nav-item mx-1 sbll">
+                                <a class="nav-link moodlewidth" href="javascript:void(0);" title="<?php echo get_string('standardview', 'theme_adaptable') ?>">
+                                    <i class="fa fa-compress fa-lg"></i>
+                                    <span class="zoomdesc"><?php echo get_string('standardview', 'theme_adaptable') ?></span>
+                                </a>
+                            </li>
+                    <?php
+                        }
+                    }
+                        }
+                        ?>
+                </ul>
+
+                <?php echo $OUTPUT->page_heading_button(); ?>
+
+            </div>
+        </nav>
+    </div>
+</div>
+
 <?php
 }
 ?>

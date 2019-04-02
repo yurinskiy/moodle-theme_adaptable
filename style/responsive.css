@@ -156,9 +156,9 @@ Only screen and (max-width : 1200px)
         padding: 0;
     }
 
-    #page-header {
+    /* #page-header {
         min-height: [[setting:pageheaderheight]];
-    }
+    } */
 
     .row-fluid .span3 {
         width: 100%;
@@ -304,6 +304,10 @@ Only screen and (max-width : 1200px)
         min-height: 35px;
     }
 
+    .fullin .container {
+        width: 100%;
+    }
+
 }
 
 
@@ -311,6 +315,10 @@ Only screen and (max-width : 1200px)
 979px
 ======================================================= */
 @media only screen and (max-width: 979px) {
+    #page-header {
+        min-height: 92px;
+    }
+
     .langdesc {
         display: inline;
     }
@@ -421,7 +429,7 @@ Only screen and (max-width : 1200px)
     }
 
     .search-box, .searchbox {
-        margin-top: 10px;
+        margin: 0;
         width: 100%;
     }
 
@@ -529,11 +537,31 @@ Only screen and (max-width : 1200px)
 ======================================================= */
 
 @media only screen and (min-width: 1200px) {
+
     .container {
-        width: 100%;
-        max-width: 100% !important;
+        width: 1170px;
+        max-width: inherit;
     }
 }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+.container {
+    max-width: inherit;
+    width: 960px;
+}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  .container {
+    width: 724px;
+    max-width: inherit;
+  }
+
+}
+
+
 
 
 /*=====================================================

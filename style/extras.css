@@ -1202,6 +1202,14 @@ html[xmlns] .slides {
     width: [[setting:fullscreenwidth]];
 }
 
+/* .fullin #adaptable-page-header-wrapper .container {
+    width: 100%;
+} */
+
+#adaptable-page-header-wrapper .container {
+    padding: 0;
+}
+
 .sbll {
     display: none;
 }
