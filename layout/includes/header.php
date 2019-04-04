@@ -541,8 +541,6 @@ if (
                         ?>
                 </ul>
 
-                <?php echo $OUTPUT->page_heading_button(); ?>
-
             </div>
         </nav>
     </div>

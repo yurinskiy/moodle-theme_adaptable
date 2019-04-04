@@ -892,7 +892,12 @@ input[type="radio"], input[type="checkbox"] {
     background-color: [[setting:regionmaincolor]];
     margin-top: 0;
     margin-left: 0;
+    border: none;
     padding: 0 5px;
+}
+
+#region-main .row {
+    margin: 0;
 }
 
 #region-main #coursesearch .btn {
@@ -1411,6 +1416,7 @@ div.questionbankwindow.block {
 
 #block-region-side-post {
     transition: all .5s ease-in-out;
+    padding: 0 5px 0 15px;
 }
 
 /* .nav .dropdown-menu li a i,
@@ -1552,7 +1558,7 @@ div.questionbankwindow.block {
 }
 
 .course-content ul.topics li.section .summary {
-    margin: 15px;
+    margin: 10px 5px;
 }
 
 .paging .paging-morelink {
@@ -2096,4 +2102,32 @@ img.smallicon {
 /* Adaptable 2.0 */
 .p-0 {
     background-color: transparent !important;
+}
+
+.row-fluid .col-9 {
+    width: 74.46808511%;
+    *width: 74.41489362%;
+    max-width: none;
+    flex: none;
+    min-height: inherit;
+}
+
+.row-fluid .col-3 {
+    max-width: 24.40425532%;
+    width: 24.40425532%;
+    *width: 24.35106383%;
+}
+
+@media only screen and (max-width: 767px) {
+    .row-fluid .col-3 {
+        width: 100%;
+        max-width: 100%;
+        flex: none;
+    }
+
+    .row-fluid .col-9 {
+    width: 100%;
+    flex: none;
+    max-width: none;
+}
 }

@@ -316,7 +316,11 @@
 }
 
 .site-topic ul.section, .course-content ul.section {
-    margin: 0em 1em;
+    margin: 0em 0.4em;
+}
+
+.site-topic ul, .course-content ul {
+    padding-left: 0.5rem;
 }
 
 #newdiscussionform {
@@ -407,9 +411,9 @@
     padding: 0 0 10px;
 }
 
-.path-course-view .section .summary {
-    padding: 10px 0 0 20px;
-}
+/* .path-course-view .section .summary {
+    padding: 0;
+} */
 
 #gridshadebox_content .content .summary,
 #gridshadebox_content .content ul.section {
@@ -842,4 +846,9 @@ div.activity-wrapper {
     position: absolute;
     right: 17px;
     top: 15px;
+}
+
+
+.section .activity .activityinstance {
+    min-width: 60%;
 }

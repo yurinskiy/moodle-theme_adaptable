@@ -2630,7 +2630,7 @@ EOT;
              } */
             $url = '#';
 
-            $content = '<li class="nav-item dropdown mr-lg-1">';
+            $content = '<li class="nav-item dropdown">';
             $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'nav-link dropdown-toggle',
                     'id' => $menuid . $submenucount, 'aria-haspopup' => 'true',
                     'data-target' => $url, 'data-toggle' => 'dropdown',
@@ -2647,7 +2647,7 @@ EOT;
             // $content .= '</div>';
         } else {
             if ($level == 0) {
-                $content = '<li class="nav-item mr-lg-1">';
+                $content = '<li class="nav-item">';
                 $linkclass = 'nav-link';
             } else {
                 $content = '<li>';

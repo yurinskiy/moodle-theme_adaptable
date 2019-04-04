@@ -37,6 +37,13 @@
     margin-left: -15px;
 }
 
+/* Remove caret from main navbar menu. */
+#adaptable-page-header-wrapper #main-navbar .dropdown-toggle::after,
+#adaptable-page-header-wrapper #nav-drawer .dropdown-toggle::after
+ {
+    content: none;
+}
+
 /* Used to add padding to top of page when sticky top menu is used */
 .page-header-margin {
     padding-top: 30px;
@@ -324,7 +331,7 @@ j    padding: 0;
 }
 
 #adaptable-page-header-wrapper #above-header .navbar button {
-    margin: 3px 1px 1px 3px;
+    margin: 3px 1px 1px 0px;
     padding: 2px 2px;
     font-size: 16px;
 }
