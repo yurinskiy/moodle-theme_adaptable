@@ -852,3 +852,15 @@ div.activity-wrapper {
 .section .activity .activityinstance {
     min-width: 60%;
 }
+
+.course-content ul.gtopics li.section .content {
+    margin: 0 10px;
+}
+
+.section li.activity {
+    padding: 0;
+}
+
+.course-content .single-section .section-navigation {
+    padding: .1em;
+}

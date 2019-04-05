@@ -1456,7 +1456,7 @@ EOT;
                             // Adds in a title for accessibility purposes.
                             html_writer::tag('i', '', array(
                                     'title' => get_string('home', 'theme_adaptable'),
-                                    'class' => 'fas fa-home fa-2x')
+                                    'class' => 'fa fa-home fa-2x')
                                     )
                             );
                     $breadcrumbs .= '</li>';

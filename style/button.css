@@ -90,7 +90,7 @@ td.submit input {
 .btn-secondary {
     border-color: #cccccc !important;
     color: #292b2c !important;
-    min-height: 36px;
+    min-height: 32px;
 }
 
 /* Child buttons */
