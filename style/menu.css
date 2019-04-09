@@ -697,7 +697,7 @@ a.dropdown-menu > .active > a:focus,
 }
 
 #adaptable-page-header-wrapper .navbar .popover-region {
-    margin: 3px 2px 0 0;
+    margin: 4px 0 0 0;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -854,4 +854,9 @@ a.dropdown-menu > .active > a:focus,
 // File icon.
 .fa-file-o::before {
     content: "\f15b" !important;
+}
+
+
+.nav-link img.userpicture {
+    margin-right: 0;
 }

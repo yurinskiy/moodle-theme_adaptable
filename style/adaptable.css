@@ -848,7 +848,7 @@ span2.mceEditor iframe, table.mceLayout2 iframe {
 .mform .fdescription.required,
 .userprofile dl.list dd,
 .form-horizontal .controls {
-    margin-left: 260px;
+/*    margin-left: 260px; */
 }
 
 .form-item .form-label,
@@ -871,7 +871,7 @@ span2.mceEditor iframe, table.mceLayout2 iframe {
 
 .settingsform .form-item {
     border-bottom: 1px solid [[setting:blockbordercolor]];
-    padding-bottom: 10px;
+    padding: 10px 0;
 }
 
 
@@ -903,6 +903,10 @@ input[type="radio"], input[type="checkbox"] {
 
 #region-main .row {
     margin: 0;
+}
+
+#region-main .settingsform .row {
+    margin: 10px 0;
 }
 
 #region-main #coursesearch .btn {
@@ -1422,7 +1426,7 @@ div.questionbankwindow.block {
 
 #block-region-side-post {
     transition: all .5s ease-in-out;
-    padding: 0 5px 0 15px;
+    padding: 0 5px 0 18px;
 }
 
 /* .nav .dropdown-menu li a i,
@@ -2143,4 +2147,50 @@ img.smallicon {
     border-radius: 2px;
     margin: 0 10px 0 0;
     height: 32px;
+}
+
+.form-inline input.form-control {
+    margin-top: 5px;
+}
+
+/* Block action classes lifted from previously used bootstrapbase parent theme. */
+
+.block.hidden .header .block_action .block-hider-hide {
+    display: none;
+}
+.block.hidden .header .block_action .block-hider-show {
+    display: inline;
+}
+
+.block .header .block_action {
+    padding: 3px 2px;
+    float: right;
+}
+
+.block .header .block_action > * {
+    margin-left: 3px;
+}
+
+.block .header .block_action .block-hider-show,
+.block .header .block_action .block-hider-hide {
+    cursor: pointer;
+}
+
+.block .header .block_action .block-hider-show {
+    display: none;
+}
+
+.jsenabled .block.hidden .content {
+    display: none;
+    opacity: 0;
+}
+
+.jsenabled .block .content {
+    opacity: 1;
+    display: block;
+    -webkit-transition: ease [[setting:navbardropdowntransitiontime]];
+    -moz-transition: ease [[setting:navbardropdowntransitiontime]];
+    -ms-transition: ease [[setting:navbardropdowntransitiontime]];
+    -o-transition: ease [[setting:navbardropdowntransitiontime]];
+    transition: ease [[setting:navbardropdowntransitiontime]];
 }

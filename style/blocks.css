@@ -44,6 +44,7 @@
     box-shadow: none !important;
     background: transparent !important;
     border-radius: 0 !important;
+    margin-bottom: 2px;
 }
 
 /* Block titles */
@@ -52,7 +53,7 @@
     border-width: [[setting:blockheaderbordertop]] [[setting:blockheaderborderright]] [[setting:blockheaderborderbottom]] [[setting:blockheaderborderleft]];
     border-color: [[setting:blockbordercolor]];
     border-style: [[setting:blockheaderbordertopstyle]];
-    padding: 10px 10px;
+    padding: 10px 5px 5px 0;
     background: [[setting:blockheaderbackgroundcolor]];
     border-radius: [[setting:blockheadertopradius]] [[setting:blockheadertopradius]] [[setting:blockheaderbottomradius]] [[setting:blockheaderbottomradius]];
 }
@@ -64,13 +65,13 @@
 /* Block header */
 .block .header .title h2 {
     margin: 0;
-    padding: 0;
+    padding: 0 0 10px;
     text-transform: none;
     font-size: [[setting:fontblockheadersize]];
     color: [[setting:fontblockheadercolor]];
     font-weight: [[setting:fontblockheaderweight]];
     text-shadow: none;
-    line-height: 40px;
+    line-height: 30px;
 }
 
 .block .header .block_action {
@@ -84,7 +85,7 @@
     border-width: [[setting:blockmainbordertop]] [[setting:blockmainborderright]] [[setting:blockmainborderbottom]] [[setting:blockmainborderleft]];
     border-color: [[setting:blockbordercolor]];
     border-style: [[setting:blockmainbordertopstyle]];
-    padding: 10px 10px;
+    padding: 10px 0px;
     font-weight: normal;
     background: [[setting:blockbackgroundcolor]];
     border-radius: [[setting:blockmaintopradius]] [[setting:blockmaintopradius]] [[setting:blockmainbottomradius]] [[setting:blockmainbottomradius]];
@@ -517,4 +518,17 @@ body.has_dock div#dock {
 
 .showblockicons .block_timeline .header .title h2:before {
     content: "\f062";
+}
+
+/* Overriden from Boost. */
+.block_tree .tree_item.branch {
+    margin-left: 0;
+}
+
+.block_settings .block_tree .tree_item.branch {
+    padding-left: 5px;
+}
+
+.block_settings .block_tree p.hasicon {
+    padding-left: 5px;
 }

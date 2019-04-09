@@ -270,6 +270,19 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         }
                     ?>
 
+					 <?php
+					   if (!empty($PAGE->theme->settings->smallscreenshowsearchicon)) {
+					       $classes = 'd-xs-block d-sm-block d-md-none';
+					   } else {
+					       $classes = 'd-none';
+					   }
+					 ?>
+					<li class="nav-item <?php echo $classes; ?> mx-1">
+						<a class="nav-link" href="<?php p($wwwroot) ?>/course/search.php">
+							<i class="icon fa fa-search fa-fw " title="Search" aria-label="Search"></i>
+						</a>
+					</li>
+
                     <?php
 
                     // Add messages / notifications (moodle 3.2 or higher).
@@ -327,16 +340,6 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                                 // Show user avatar.
                                 $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'size' => 80, 'class' => 'userpicture'));
                                 echo $userpic;
-
-                                // Show username based in fullnamedisplay variable.
-                                echo '<span class="d-none d-md-inline-block">';
-                                echo fullname($USER);
-                                echo '</span>';
-                                mb_internal_encoding("UTF-8");
-                                echo '<span class="d-sm-inline-block d-md-none">';
-                                echo mb_substr($USER->firstname, 0, 1, 'utf-8') . ' ';
-                                echo mb_substr($USER->lastname, 0, 1, 'utf-8');
-                                echo '</span>';
                             ?>
                                 <!-- span class="fa fa-angle-down"></span -->
 
@@ -390,7 +393,7 @@ if ($PAGE->pagetype != "mod-quiz-attempt") {
     <?php
     // Search box.
     if ( (!$hidesitetitle) && ($PAGE->theme->settings->socialorsearch == 'search') ) { ?>
-        <div class="searchbox">
+        <div class="searchbox d-none d-lg-block">
             <form action="<?php echo $wwwroot; ?>/course/search.php">
                 <label class="hidden" for="search-1" style="display: none;"><?php echo get_string("searchcourses")?></label>
                 <div class="search-box grey-box bg-white clear-fix">

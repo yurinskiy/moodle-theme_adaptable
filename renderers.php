@@ -1472,7 +1472,12 @@ EOT;
 
         } // End loop.
 
-        return '<ul class="breadcrumb">'.$breadcrumbs.'</ul>';
+        $classes = '';
+        if (!empty($PAGE->theme->settings->smallscreenhidebreadcrumb) ) {
+            $classes = 'd-none d-md-flex';
+        }
+
+        return '<ul class="breadcrumb ' . $classes . '">'.$breadcrumbs.'</ul>';
     }
 
 
