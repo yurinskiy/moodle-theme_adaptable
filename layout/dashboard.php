@@ -115,7 +115,7 @@ if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition
 
         echo '</main>';
         echo '</section>';
-        echo $OUTPUT->blocks('side-post', $regions['blocks'] .  $classes);
+        echo $OUTPUT->blocks('side-post', $regions['blocks'] .  $sidebarclasses);
         ?>
 
     <?php else: ?>
@@ -129,7 +129,7 @@ if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition
         </section>
 
         <?php
-            echo $OUTPUT->blocks('side-post', $regions['blocks']  . $classes);
+            echo $OUTPUT->blocks('side-post', $regions['blocks']  . $sidebarclasses);
         ?>
 
     <?php endif; ?>
