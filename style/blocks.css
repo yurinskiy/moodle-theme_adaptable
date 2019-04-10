@@ -532,3 +532,131 @@ body.has_dock div#dock {
 .block_settings .block_tree p.hasicon {
     padding-left: 5px;
 }
+
+/* Tabbed layout for course and dashboard */
+
+main.tabcontentcontainer {
+  min-height: 400px;
+  padding: 10px;
+  background: #fff;
+}
+
+#dashboardtabcontainer section.adaptable-tab-section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 4px solid [[setting:tabbedlayoutdashboardcolorselected]];
+}
+
+#coursetabcontainer section.adaptable-tab-section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 4px solid [[setting:tabbedlayoutcoursepagetabcolorselected]];
+}
+
+#dashboardtabcontainer input.dashboardtab,
+#coursetabcontainer input.coursetab
+ {
+  display: none;
+}
+
+.tabcontentcontainer label.dashboardtab,
+.tabcontentcontainer label.coursetab {
+  position: relative;
+  display: inline-block;
+  padding: 15px 15px 25px;
+  margin: 0 4px 0 0;
+  border-bottom: 0;
+  cursor: pointer;
+  font-weight: 400;
+  transition: background-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease;
+  -moz-transition: background-color 0.2s ease;
+  -o-transition: background-color 0.2s ease;
+}
+
+.tabcontentcontainer label.dashboardtab {
+    background-color: [[setting:tabbedlayoutdashboardcolorunselected]];
+}
+
+.tabcontentcontainer label.coursetab {
+    background-color: [[setting:tabbedlayoutcoursepagetabcolorunselected]];
+}
+
+.tabcontentcontainer > dashboardtab.label:hover::after,
+.tabcontentcontainer > dashboardtab.input:focus + label::after,
+.tabcontentcontainer > dashboardtab.input:checked + label::after {
+  background-color: [[setting:tabbedlayoutdashboardcolorselected]];
+}
+
+.tabcontentcontainer > coursetab.label:hover::after,
+.tabcontentcontainer > coursetab.input:focus + label::after,
+.tabcontentcontainer > coursetab.input:checked + label::after {
+    background-color: [[setting:tabbedlayoutcoursepagetabcolorselected]];
+}
+
+.tabcontentcontainer input.dashboardtab:checked + label {
+    border-color: [[setting:tabbedlayoutdashboardcolorselected]];
+    background-color: [[setting:tabbedlayoutdashboardcolorselected]];
+    border-top: 4px solid [[setting:tabbedlayoutdashboardcolorselected]];  /* Override this in custom css to change the selected tab colour */
+    color: #FFF;
+}
+
+.tabcontentcontainer input.coursetab:checked + label {
+    border-color: [[setting:tabbedlayoutcoursepagetabcolorselected]];
+    background-color: [[setting:tabbedlayoutcoursepagetabcolorselected]];
+    border-top: 4px solid [[setting:tabbedlayoutcoursepagetabcolorselected]];  /* Override this in custom css to change the selected tab colour */
+    color: #FFF;
+}
+
+#tab-content:checked ~ #adaptable-course-tab-content,
+#tab1:checked ~ #adaptable-course-tab-1,
+#tab2:checked ~ #adaptable-course-tab-2 {
+    display: block;
+}
+
+#dashboard-tab-content:checked ~ #adaptable-dashboard-tab-content,
+#dashboard-tab1:checked ~ #adaptable-dashboard-tab-1,
+#dashboard-tab2:checked ~ #adaptable-dashboard-tab-2 {
+    display: block;
+}
+
+.tabcontentcontainer .tab-panel {
+    padding: 30px 0;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.tabcontentcontainer .tabset {
+    max-width: 100%;
+    min-height: 200px;
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+    .tabcontentcontainer dashboardtab.input[type="radio"],
+    .tabcontentcontainer coursetab.input[type="radio"] {
+        font-size: 1.4em;
+    }
+
+    .tabcontentcontainer label.dashboardtab,
+    .tabcontentcontainer label.coursetab {
+        display: inline-block;
+        padding: 20px 40px;
+        font-size: 1.25em;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .tabcontentcontainer label.dashboardtab,
+    .tabcontentcontainer label.coursetab {
+        padding: 12px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .tabcontentcontainer label.dashboardtab,
+    .tabcontentcontainer label.coursetab {
+        font-size: 0.95em;
+    }
+}

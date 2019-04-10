@@ -74,6 +74,73 @@ $regions = theme_adaptable_grid($left, $hassidepost);
         ?>
 
         <section id="region-main" class="<?php echo $regions['content'];?>">
+
+		<?php if (!empty($PAGE->theme->settings->tabbedlayoutcoursepage)): ?>
+            <?php
+
+            // Use Adaptable tabbed layout.
+            $currentpage = theme_adaptable_get_current_page();
+
+            $taborder = explode ('-', $PAGE->theme->settings->tabbedlayoutcoursepage);
+            $count = 0;
+
+            echo '<main id="coursetabcontainer" class="tabcontentcontainer">';
+
+            foreach ($taborder as $tabnumber) {
+                if ($tabnumber == 0) {
+                    $tabname = 'tab-content';
+                    $tablabel = get_string('tabbedlayouttablabelcourse', 'theme_adaptable');
+                } else {
+                    $tabname = 'tab' . $tabnumber;
+                    $tablabel = get_string('tabbedlayouttablabelcourse' . $tabnumber, 'theme_adaptable');
+                }
+
+                $checkedstatus = '';
+                if ( ($count == 0 && $currentpage == 'coursepage') ||
+                    ($currentpage != 'coursepage' && $tabnumber == 0) ) {
+                    $checkedstatus = 'checked';
+                }
+                $extrastyles = '';
+                if ($currentpage == 'coursepage') {
+                   $extrastyles = ' style="display: none"';
+                }
+                echo  '<input id="' . $tabname . '" type="radio" name="tabs" class="coursetab" ' .
+                    $checkedstatus . ' >' .
+                    '<label for="' . $tabname . '" class="coursetab" ' . $extrastyles . '>' . $tablabel .'</label>';
+                $checkedstatus = '';
+                $count++;
+            }
+
+            // Basic array used by appropriately named blocks below (e.g. course-tab-one).  All this is to re-use existing
+            // functionality and the non-use of numbers in block region names.
+            $wordtonumber = array (1 => 'one', 2 => 'two');
+
+            foreach ($taborder as $tabnumber) {
+                if ($tabnumber == 0) {
+                    echo '<section id="adaptable-course-tab-content" class="adaptable-tab-section tab-panel">';
+
+                    echo $OUTPUT->get_course_alerts();
+                    if (!empty($PAGE->theme->settings->coursepageblocksliderenabled) ) {
+                        echo $OUTPUT->get_block_regions('customrowsetting', 'news-slider-', '12-0-0-0');
+                    }
+                    echo $OUTPUT->course_content_header();
+                    echo $OUTPUT->main_content();
+                    echo $OUTPUT->course_content_footer();
+
+                    echo '</section>';
+                } else {
+                    echo '<section id="adaptable-course-tab-' . $tabnumber . '" class="adaptable-tab-section tab-panel">';
+
+                    echo $OUTPUT->get_block_regions('customrowsetting', 'course-tab-' . $wordtonumber[$tabnumber] . '-',
+                         '12-0-0-0');
+                    echo '</section>';
+                }
+            }
+            echo '</main>';
+            ?>
+
+        <?php else: ?>
+
             <?php
             echo $OUTPUT->get_course_alerts();
             if (!empty($PAGE->theme->settings->coursepageblocksliderenabled) ) {
@@ -82,6 +149,8 @@ $regions = theme_adaptable_grid($left, $hassidepost);
             echo $OUTPUT->course_content_header();
             echo $OUTPUT->main_content();
             echo $OUTPUT->course_content_footer(); ?>
+
+		<?php endif; ?>
 
         <?php // Check here if sidebar is configured to be in footer as we want to include
               // the sidebar information in the main content. ?>
@@ -142,3 +211,13 @@ $regions = theme_adaptable_grid($left, $hassidepost);
 <?php
 // Include footer.
 require_once(dirname(__FILE__) . '/includes/footer.php');
+
+if (!empty($PAGE->theme->settings->tabbedlayoutcoursepagetabpersistencetime)) {
+    $tabbedlayoutcoursepagetabpersistencetime = $PAGE->theme->settings->tabbedlayoutcoursepagetabpersistencetime;
+} else {
+    $tabbedlayoutcoursepagetabpersistencetime = 30;
+}
+if (!empty($PAGE->theme->settings->tabbedlayoutcoursepage)) {
+    $PAGE->requires->js_call_amd('theme_adaptable/utils', 'init', array('currentpage' => $currentpage, 'tabpersistencetime' => $tabbedlayoutcoursepagetabpersistencetime));
+    echo '<noscript><style>label.coursetab { display: block !important; }</style><noscript>';
+}
