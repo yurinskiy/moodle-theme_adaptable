@@ -54,21 +54,23 @@
 }
 
 /* Media breakpoints for courses list area */
-@media (min-width: 576px) {
+/* @media (min-width: 576px) {
     .frontpage-course-list-all {
         max-width: 540px;
     }
-}
-@media (min-width: 768px) {
+} */
+
+/* @media (min-width: 768px) {
     .frontpage-course-list-all {
         max-width: 720px;
     }
 }
+
 @media (min-width: 992px) {
     .frontpage-course-list-all {
         max-width: 960px;
     }
-}
+} */
 @media (min-width: 1200px) {
     .frontpage-course-list-all {
         max-width: 100%;
@@ -863,4 +865,9 @@ div.activity-wrapper {
 
 .course-content .single-section .section-navigation {
     padding: .1em;
+}
+
+.context-header-settings-menu {
+    height: 2em;
+    margin: 9px 5px 0;
 }
