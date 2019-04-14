@@ -48,6 +48,15 @@ if ($usedashboard) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    $name = 'theme_adaptable/dashblocksposition';
+    $title = get_string('dashblocksposition', 'theme_adaptable');
+    $description = get_string('dashblockspositiondesc', 'theme_adaptable');
+    $default = $dashboardblockregionposition['abovecontent'];
+    $choices = $dashboardblockregionposition;
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
     // Block region builder.
     $noregions = 20; // Number of block regions defined in config.php.
     $totalblocks = 0;
@@ -97,7 +106,6 @@ if ($usedashboard) {
     $temp->add(new admin_setting_heading('theme_adaptable_dashlayoutbuilder', '', $imgblder));
 
     $ADMIN->add('theme_adaptable', $temp);
-
 
 }
 

@@ -318,6 +318,15 @@ $string['dashblocksenabled'] = 'Enable custom block region on Dashboard page';
 $string['dashblocksenableddesc'] = 'You can enable / disable custom block regions on the Dashboard page.
 You can then drag and drop blocks into the regions you created';
 
+$string['dashblocksenabled'] = 'Enable Custom Block Region on Dashboard page';
+$string['dashblocksenableddesc'] = 'You can enable / disable custom block regions on the Dashboard page.
+You can then drag and drop blocks into the regions you created';
+
+$string['dashblocksposition'] = 'Custom block region position';
+$string['dashblockspositiondesc'] = 'When custom block regions are enabled for the dashboard page, choose the position.';
+$string['dashblocksabovecontent'] = 'Show above main content';
+$string['dashblocksbelowcontent'] = 'Show below main content';
+
 $string['coursepageblocksenabled'] = 'Enable custom block regions on Course page';
 $string['coursepageblocksenableddesc'] = 'You can enable / disable custom block regions (top and bottom) on the Course page.
 You can then drag and drop blocks into the regions you created';
@@ -1682,3 +1691,41 @@ $string['putpropertiesignored'] = 'Ignored:';
 
 // Privacy.
 $string['privacy:metadata'] = 'Adaptable do not store any individual user data.';
+
+// Small screen appearance settings.
+$string['settingssmallscreen'] = 'Small screen Block Appearance';
+$string['smallscreenshowsearchicon'] = 'Show search icon';
+$string['smallscreenshowsearchicondesc'] = 'Show search icon on small screen devices.';
+$string['smallscreenhidebreadcrumb'] = 'Hide Beadcrumb navigation';
+$string['smallscreenhidebreadcrumbdesc'] = 'Hide breadcrumb navigation on small screen devices.';
+$string['smallscreenhidesidebar'] = 'Hide sidebar';
+$string['smallscreenhidesidebardesc'] = 'Hide sidebar on small screen devices';
+
+// Adaptable Tabbed layout changes.
+$string['tabbedlayoutheading'] = 'Adaptable Tabbed Layout';
+$string['tabbedlayoutcoursepage'] = 'Course page Tabbed Layout';
+$string['tabbedlayoutcoursepagedesc'] = 'Use a tabbed layout for the course page.  This displays all content in tabs, with course content in one tab and allowing you to tailor the content in other tabs. Use this setting to configure the order of tabs.';
+$string['tabbedlayoutcoursepagetabcolorselected'] = 'Selected tab colour for course page';
+$string['tabbedlayoutcoursepagetabcolorselecteddesc'] = 'Choose the colour for the currently selected tab.';
+$string['tabbedlayoutcoursepagetabcolorunselected'] = 'Unselected tab colour for course page';
+$string['tabbedlayoutcoursepagetabcolorunselecteddesc'] = 'Choose the colour for any other tab.';
+$string['tabbedlayoutcoursepagetabpersistencetime'] = 'Course homepage Tab persistence time';
+$string['tabbedlayoutcoursepagetabpersistencetimedesc'] = 'Course homepage Tab persists on the selected tab when refreshing for a period of inactivity.  Set the inactivity period here.  For example, set to 30 so that the first tab is selected after 30 minutes of inactivity';
+$string['tabbedlayoutdashboard'] = 'Dashboard page Tabbed Layout';
+$string['tabbedlayoutdashboarddesc'] = 'Use a tabbed layout for the Dashboard page.  This displays all content in tabs, with course content in one tab and allowing you to tailor the content in other tabs. Use this setting to configure the order of tabs.';
+$string['tabbedlayoutdashboardtabcolorselected'] = 'Selected tab colour for dashboard';
+$string['tabbedlayoutdashboardtabcolorselecteddesc'] = 'Choose the colour for the currently selected tab.';
+$string['tabbedlayoutdashboardtabcolorunselected'] = 'Unselected tab colour for dashboard';
+$string['tabbedlayoutdashboardtabcolorunselecteddesc'] = 'Choose the colour for any other tab.';
+
+$string['tabbedlayouttablabelcourse'] = 'Course Content';
+$string['tabbedlayouttablabelcourse1'] = 'Tab 1';
+$string['tabbedlayouttablabelcourse2'] = 'Tab 2';
+$string['tabbedlayouttablabeldashboard'] = 'Dashboard Content';
+$string['tabbedlayouttablabeldashboard1'] = 'Tab 1';
+$string['tabbedlayouttablabeldashboard2'] = 'Tab 2';
+
+$string['region-course-tab-one-a'] = 'Course page tab region 1';
+$string['region-course-tab-two-a'] = 'Course page tab region 2';
+$string['region-my-tab-one-a'] = 'Dashboard page tab region 1';
+$string['region-my-tab-two-a'] = 'Dashboard page tab region 2';

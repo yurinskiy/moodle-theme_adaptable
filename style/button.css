@@ -44,7 +44,7 @@
     border-bottom-color: #b3b3b3;
     border-radius: [[setting:buttonradius]];
     box-shadow: 0 [[setting:buttondropshadow]] 0 0 rgba(0, 0, 0, 0.5) inset;
-    padding: 8px 15px 8px;
+    padding: 6px 12px 6px;
 }
 
 .btn-primary,
@@ -90,7 +90,7 @@ td.submit input {
 .btn-secondary {
     border-color: #cccccc !important;
     color: #292b2c !important;
-    min-height: 36px;
+    min-height: 32px;
 }
 
 /* Child buttons */

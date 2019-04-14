@@ -301,12 +301,12 @@ Only screen and (max-width : 1200px)
     }
 
     #above-header {
-        min-height: 35px;
+        min-height: 37px;
     }
 
-    .fullin .container {
+    /* .fullin .container {
         width: 100%;
-    }
+    } */
 
 }
 
@@ -316,7 +316,7 @@ Only screen and (max-width : 1200px)
 ======================================================= */
 @media only screen and (max-width: 979px) {
     #page-header {
-        min-height: 92px;
+        min-height: 60px;
     }
 
     .langdesc {
@@ -522,7 +522,7 @@ Only screen and (max-width : 1200px)
 1200px
 ======================================================= */
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1199px) {
     .zoomdesc {
         display: none;
     }
@@ -530,6 +530,7 @@ Only screen and (max-width : 1200px)
     #adaptable-page-header-wrapper #main-navbar .navbar-nav > li > a {
         padding: 2px 10px;
     }
+
 }
 
 /*=====================================================
@@ -553,12 +554,19 @@ Only screen and (max-width : 1200px)
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-
+  #adaptable-page-header-wrapper .container,
   .container {
-    width: 724px;
+  /*  width: 724px; */
     max-width: inherit;
   }
 
+}
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .container {
+        max-width: 747px;
+    }
 }
 
 

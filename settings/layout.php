@@ -76,5 +76,75 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    // Adaptable Tabbed layout changes.
+
+    $name = 'theme_adaptable/tabbedlayoutheading';
+    $heading = get_string('tabbedlayoutheading', 'theme_adaptable');
+    $setting = new admin_setting_heading($name, $heading, '');
+    $temp->add($setting);
+
+    // Course page tabbed layout.
+    $name = 'theme_adaptable/tabbedlayoutcoursepage';
+    $title = get_string('tabbedlayoutcoursepage', 'theme_adaptable');
+    $description = get_string('tabbedlayoutcoursepagedesc', 'theme_adaptable');
+    $default = $tabbedlayoutdefaultscourse[0];
+    $choices = $tabbedlayoutdefaultscourse;
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Course page tab colour selected.
+    $name = 'theme_adaptable/tabbedlayoutcoursepagetabcolorselected';
+    $title = get_string('tabbedlayoutcoursepagetabcolorselected', 'theme_adaptable');
+    $description = get_string('tabbedlayoutcoursepagetabcolorselecteddesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#06c', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Course page tab colour unselected.
+    $name = 'theme_adaptable/tabbedlayoutcoursepagetabcolorunselected';
+    $title = get_string('tabbedlayoutcoursepagetabcolorunselected', 'theme_adaptable');
+    $description = get_string('tabbedlayoutcoursepagetabcolorunselecteddesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#eee', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Course home page tab persistence time.
+    $name = 'theme_adaptable/tabbedlayoutcoursepagetabpersistencetime';
+    $title = get_string('tabbedlayoutcoursepagetabpersistencetime', 'theme_adaptable');
+    $description = get_string('tabbedlayoutcoursepagetabpersistencetimedesc', 'theme_adaptable');
+    $setting = new admin_setting_configtext($name, $title, $description, '30', PARAM_INT);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Dashboard page tabbed layout.
+    $name = 'theme_adaptable/tabbedlayoutdashboard';
+    $title = get_string('tabbedlayoutdashboard', 'theme_adaptable');
+    $description = get_string('tabbedlayoutdashboarddesc', 'theme_adaptable');
+    $default = $tabbedlayoutdefaultsdashboard[0];
+    $choices = $tabbedlayoutdefaultsdashboard;
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Dashboard page tab colour selected.
+    $name = 'theme_adaptable/tabbedlayoutdashboardcolorselected';
+    $title = get_string('tabbedlayoutdashboardtabcolorselected', 'theme_adaptable');
+    $description = get_string('tabbedlayoutdashboardtabcolorselecteddesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#06c', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Dashboard page tab colour unselected.
+    $name = 'theme_adaptable/tabbedlayoutdashboardcolorunselected';
+    $title = get_string('tabbedlayoutdashboardtabcolorunselected', 'theme_adaptable');
+    $description = get_string('tabbedlayoutdashboardtabcolorunselecteddesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#eee', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
 
     $ADMIN->add('theme_adaptable', $temp);

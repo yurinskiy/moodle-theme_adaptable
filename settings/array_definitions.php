@@ -1011,3 +1011,35 @@ $bootstrap12defaults = array ('3-3-3-3', '4-4-4-0', '3-3-3-3', '0-0-0-0', '0-0-0
 
 $marketingfooterbuilderdefaults = array ('3-3-3-3', '0-0-0-0', '0-0-0-0', '0-0-0-0', '0-0-0-0',
     '0-0-0-0', '0-0-0-0', '0-0-0-0', '0-0-0-0', '0-0-0-0');
+
+// Adaptable Tabbed Layout changes. 0 signifies the course content or dashboard main content.
+$courselabel = get_string('tabbedlayouttablabelcourse', 'theme_adaptable');
+$tab1label = get_string('tabbedlayouttablabelcourse1', 'theme_adaptable');
+$tab2label = get_string('tabbedlayouttablabelcourse2', 'theme_adaptable');
+$tabbedlayoutdefaultscourse = array(
+        '0' => get_string('disabled', 'theme_adaptable'),
+        '0-1' => $courselabel . ' + ' . $tab1label,
+        '1-0' => $tab1label . ' + ' . $courselabel,
+        '0-1-2' => $courselabel . ' + ' . $tab1label . ' + ' . $tab2label,
+        '1-0-2' => $tab1label . ' + ' . $courselabel . ' + ' . $tab2label,
+        '1-2-0' => $tab1label . ' + ' . $tab2label . ' + ' . $courselabel,
+        '0-2-1' => $courselabel . ' + ' . $tab2label . ' + ' . $tab1label,
+);
+
+$dashboardlabel = get_string('tabbedlayouttablabeldashboard', 'theme_adaptable');
+$tab1label = get_string('tabbedlayouttablabeldashboard1', 'theme_adaptable');
+$tab2label = get_string('tabbedlayouttablabeldashboard2', 'theme_adaptable');
+$tabbedlayoutdefaultsdashboard = array(
+        '0' => get_string('disabled', 'theme_adaptable'),
+        '0-1' => $dashboardlabel . ' + ' . $tab1label,
+        '1-0' => $tab1label . ' + ' . $dashboardlabel,
+        '0-1-2' => $dashboardlabel . ' + ' . $tab1label . ' + ' . $tab2label,
+        '1-0-2' => $tab1label . ' + ' . $dashboardlabel . ' + ' . $tab2label,
+        '1-2-0' => $tab1label . ' + ' . $tab2label . ' + ' . $dashboardlabel,
+        '0-2-1' => $dashboardlabel . ' + ' . $tab2label . ' + ' . $tab1label,
+);
+
+$dashboardblockregionposition = array(
+        'abovecontent' => get_string('dashblocksabovecontent', 'theme_adaptable'),
+        'belowcontent' => get_string('dashblocksbelowcontent', 'theme_adaptable')
+);

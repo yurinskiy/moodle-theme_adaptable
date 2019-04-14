@@ -270,6 +270,19 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         }
                     ?>
 
+					 <?php
+					   if (!empty($PAGE->theme->settings->smallscreenshowsearchicon)) {
+					       $classes = 'd-xs-block d-sm-block d-md-none';
+					   } else {
+					       $classes = 'd-none';
+					   }
+					 ?>
+					<li class="nav-item <?php echo $classes; ?> mx-1">
+						<a class="nav-link" href="<?php p($wwwroot) ?>/course/search.php">
+							<i class="icon fa fa-search fa-fw " title="Search" aria-label="Search"></i>
+						</a>
+					</li>
+
                     <?php
 
                     // Add messages / notifications (moodle 3.2 or higher).
@@ -319,7 +332,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         // Display user profile menu.
                         ?>
 
-                        <li class="nav-item dropdown ml-3 ml-md-4">
+                        <li class="nav-item dropdown ml-3 ml-md-4 mr-2 mr-md-0">
                             <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarAboveHeaderDropdownMenuLink"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 
@@ -327,16 +340,6 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                                 // Show user avatar.
                                 $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'size' => 80, 'class' => 'userpicture'));
                                 echo $userpic;
-
-                                // Show username based in fullnamedisplay variable.
-                                echo '<span class="d-none d-md-inline-block">';
-                                echo fullname($USER);
-                                echo '</span>';
-                                mb_internal_encoding("UTF-8");
-                                echo '<span class="d-sm-inline-block d-md-none">';
-                                echo mb_substr($USER->firstname, 0, 1, 'utf-8') . ' ';
-                                echo mb_substr($USER->lastname, 0, 1, 'utf-8');
-                                echo '</span>';
                             ?>
                                 <!-- span class="fa fa-angle-down"></span -->
 
@@ -390,7 +393,7 @@ if ($PAGE->pagetype != "mod-quiz-attempt") {
     <?php
     // Search box.
     if ( (!$hidesitetitle) && ($PAGE->theme->settings->socialorsearch == 'search') ) { ?>
-        <div class="searchbox">
+        <div class="searchbox d-none d-lg-block">
             <form action="<?php echo $wwwroot; ?>/course/search.php">
                 <label class="hidden" for="search-1" style="display: none;"><?php echo get_string("searchcourses")?></label>
                 <div class="search-box grey-box bg-white clear-fix">
@@ -497,7 +500,19 @@ if (
 
                 <ul class="navbar-nav ml-auto">
 
-                    <li class="nav-item mx-1">
+					<li class="nav-item mx-0">
+                        <div class="context-header-settings-menu">
+                            <?php echo $OUTPUT->context_header_settings_menu(); ?>
+	                    </div>
+                    </li>
+
+                    <li class="nav-item mx-0">
+                        <div id="region-main-settings-menu" class="">
+                            <div> <?php echo $OUTPUT->region_main_settings_menu(); ?> </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item mx-0">
                  		<div id="edittingbutton" class="breadcrumb-button">
                             <?php echo $OUTPUT->page_heading_button(); ?>
                         </div>
@@ -506,13 +521,13 @@ if (
                     <?php
                     if (isloggedin()) {
                         if ($PAGE->theme->settings->enableshowhideblocks) { ?>
-                           <li class="nav-item mx-1 hbl">
+                           <li class="nav-item mr-1 hbl">
                                <a href="javascript:void(0);" class="nav-link moodlezoom" title="<?php echo get_string('hideblocks', 'theme_adaptable') ?>">
                                    <i class="fa fa-indent fa-lg"></i>
                                    <span class="zoomdesc"><?php echo get_string('hideblocks', 'theme_adaptable') ?></span>
                                </a>
                            </li>
-                           <li class="nav-item mx-1 sbl">
+                           <li class="nav-item mr-1 sbl">
                                <a href="javascript:void(0);" class="nav-link moodlezoom" title="<?php echo get_string('showblocks', 'theme_adaptable') ?>">
                                    <i class="fa fa-outdent fa-lg"></i>
                                    <span class="zoomdesc"><?php echo get_string('showblocks', 'theme_adaptable') ?></span>
@@ -522,13 +537,13 @@ if (
                         }
 
                         if ($PAGE->theme->settings->enablezoom) { ?>
-                            <li class="nav-item mx-1 hbll">
+                            <li class="nav-item mx-0 hbll">
                                 <a class="nav-link moodlewidth" href="javascript:void(0);" title="<?php echo get_string('fullscreen', 'theme_adaptable') ?>">
                                     <i class="fa fa-expand fa-lg"></i>
                                     <span class="zoomdesc"><?php echo get_string('fullscreen', 'theme_adaptable') ?></span>
                                 </a>
                             </li>
-                            <li class="nav-item mx-1 sbll">
+                            <li class="nav-item mx-0 sbll">
                                 <a class="nav-link moodlewidth" href="javascript:void(0);" title="<?php echo get_string('standardview', 'theme_adaptable') ?>">
                                     <i class="fa fa-compress fa-lg"></i>
                                     <span class="zoomdesc"><?php echo get_string('standardview', 'theme_adaptable') ?></span>
@@ -540,8 +555,6 @@ if (
                         }
                         ?>
                 </ul>
-
-                <?php echo $OUTPUT->page_heading_button(); ?>
 
             </div>
         </nav>

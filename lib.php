@@ -33,6 +33,8 @@ define('THEME_ADAPTABLE_DEFAULT_TOOLSMENUSCOUNT', '1');
 define('THEME_ADAPTABLE_DEFAULT_NEWSTICKERCOUNT', '1');
 define('THEME_ADAPTABLE_DEFAULT_SLIDERCOUNT', '3');
 
+
+
 /**
  * Parses CSS before it is cached.
  *
@@ -245,6 +247,10 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:forumheaderbackgroundcolor]]' => '#ffffff',
         '[[setting:forumbodybackgroundcolor]]' => '#ffffff',
         '[[setting:showyourprogress]]' => '',
+        '[[setting:tabbedlayoutdashboardcolorselected]]' => '#06c',
+        '[[setting:tabbedlayoutdashboardcolorunselected]]' => '#eee',
+        '[[setting:tabbedlayoutcoursepagetabcolorselected]]' => '#06c',
+        '[[setting:tabbedlayoutcoursepagetabcolorunselected]]' => '#eee'
     );
 
     // Get all the defined settings for the theme and replace defaults.
@@ -592,4 +598,51 @@ function theme_adaptable_is_mobile() {
     $useragent = $_SERVER['HTTP_USER_AGENT'];
     return stripos($useragent, 'mobile') !== false ||
         stripos($useragent, 'nokia') !== false || stripos($useragent, 'phone') !== false;
+}
+
+/**
+ *
+ * Get the current page to allow us to check if the block is allowed to display.
+ *
+ * @return string The page name, which is either "frontpage", "dashboard", "coursepage", "coursesectionpage" or empty string.
+ *
+ */
+function theme_adaptable_get_current_page() {
+    global $COURSE, $PAGE;
+
+    // This will store the kind of activity page type we find. E.g. It will get populated with 'section' or similar.
+    $currentpage = '';
+
+    // We expect $PAGE->url to exist.  It should!
+    $url = $PAGE->url;
+
+    if ($PAGE->pagetype == 'site-index') {
+        $currentpage = 'frontpage';
+    } else if ($PAGE->pagetype == 'my-index') {
+        $currentpage = 'dashboard';
+    }
+    // Check if course home page.
+    if (empty ($currentpage)) {
+        if ($url !== null) {
+            // Check if this is the course view page.
+            if (strstr ($url->raw_out(), 'course/view.php')) {
+
+                $currentpage = 'coursepage';
+
+                // Get raw querystring params from URL.
+                $getparams = http_build_query($_GET);
+
+                // Check url paramaters.  Count should be 1 if course home page. Use this to check if section page.
+                $urlparams = $url->params();
+
+                // Allow the block to display on course sections too if the relevant setting is on.
+                if ((count ($urlparams) > 1) && (array_key_exists('section', $urlparams))) {
+                    $currentpage = 'coursesectionpage';
+                }
+
+            }
+        }
+    }
+
+    return $currentpage;
 }

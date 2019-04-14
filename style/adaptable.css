@@ -550,6 +550,11 @@ span.fa-chevron-right.fa {
     display: inline;
 }
 
+/* Overridden from Boost theme to ignore background colour set on dashboard. */
+#page-my-index {
+  background-color: unset;
+}
+
 .navbar .nav-collapse.in {
     border-top: none;
 }
@@ -614,7 +619,7 @@ langmenu a:hover {
 }
 
 .separator {
-    margin: 5px;
+    margin: 9px;
 }
 
 .separator i {
@@ -785,7 +790,7 @@ span2.mceEditor iframe, table.mceLayout2 iframe {
 .mform .fdescription.required,
 .userprofile dl.list dd,
 .form-horizontal .controls {
-    margin-left: 260px;
+/*    margin-left: 260px; */
 }
 
 .form-item .form-label,
@@ -808,7 +813,7 @@ span2.mceEditor iframe, table.mceLayout2 iframe {
 
 .settingsform .form-item {
     border-bottom: 1px solid [[setting:blockbordercolor]];
-    padding-bottom: 10px;
+    padding: 10px 0;
 }
 
 
@@ -834,8 +839,17 @@ input[type="radio"], input[type="checkbox"] {
     background-color: [[setting:regionmaincolor]];
     margin-top: 0;
     margin-left: 0;
+    border: none;
     padding: 0 5px;
     width: 100%;
+}
+
+#region-main .row {
+    margin: 0;
+}
+
+#region-main .settingsform .row {
+    margin: 10px 0;
 }
 
 #region-main #coursesearch .btn {
@@ -1006,8 +1020,9 @@ a.carousel-control {
 }
 
 .navbar .forumsearch input[type=text] {
-    height: 16px !important;
-    margin-bottom: 4px !important;
+    /* height: 16px !important;
+    margin-bottom: 4px !important; */
+    padding: 0;
 }
 
 #edittingbutton .helptooltip a {
@@ -1354,6 +1369,7 @@ div.questionbankwindow.block {
 
 #block-region-side-post {
     transition: all .5s ease-in-out;
+    padding: 0 5px 0 18px;
 }
 
 /* .nav .dropdown-menu li a i,
@@ -1495,7 +1511,7 @@ div.questionbankwindow.block {
 }
 
 .course-content ul.topics li.section .summary {
-    margin: 15px;
+    margin: 10px 5px;
 }
 
 .paging .paging-morelink {
@@ -2039,4 +2055,85 @@ img.smallicon {
 /* Adaptable 2.0 */
 .p-0 {
     background-color: transparent !important;
+}
+
+.row-fluid .col-9 {
+    width: 74.46808511%;
+    *width: 74.41489362%;
+    max-width: none;
+    flex: none;
+    min-height: inherit;
+}
+
+.row-fluid .col-3 {
+    max-width: 24.40425532%;
+    width: 24.40425532%;
+    *width: 24.35106383%;
+}
+
+@media only screen and (max-width: 767px) {
+    .row-fluid .col-3 {
+        width: 100%;
+        max-width: 100%;
+        flex: none;
+    }
+
+    .row-fluid .col-9 {
+    width: 100%;
+    flex: none;
+    max-width: none;
+    }
+}
+
+.form-inline input.form-control[type=text] {
+    min-width: 180px;
+    border-radius: 2px;
+    margin: 0 10px 0 0;
+    height: 32px;
+}
+
+.form-inline input.form-control {
+    margin-top: 5px;
+}
+
+/* Block action classes lifted from previously used bootstrapbase parent theme. */
+
+.block.hidden .header .block_action .block-hider-hide {
+    display: none;
+}
+.block.hidden .header .block_action .block-hider-show {
+    display: inline;
+}
+
+.block .header .block_action {
+    padding: 3px 2px;
+    float: right;
+}
+
+.block .header .block_action > * {
+    margin-left: 3px;
+}
+
+.block .header .block_action .block-hider-show,
+.block .header .block_action .block-hider-hide {
+    cursor: pointer;
+}
+
+.block .header .block_action .block-hider-show {
+    display: none;
+}
+
+.jsenabled .block.hidden .content {
+    display: none;
+    opacity: 0;
+}
+
+.jsenabled .block .content {
+    opacity: 1;
+    display: block;
+    -webkit-transition: ease [[setting:navbardropdowntransitiontime]];
+    -moz-transition: ease [[setting:navbardropdowntransitiontime]];
+    -ms-transition: ease [[setting:navbardropdowntransitiontime]];
+    -o-transition: ease [[setting:navbardropdowntransitiontime]];
+    transition: ease [[setting:navbardropdowntransitiontime]];
 }
