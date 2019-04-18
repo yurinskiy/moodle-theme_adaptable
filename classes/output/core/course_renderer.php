@@ -110,11 +110,12 @@ class course_renderer extends \core_course_renderer {
         }
 
         // Number of tiles per row: 12=1 tile / 6=2 tiles / 4 (default)=3 tiles / 3=4 tiles / 2=6 tiles
-        $spanclass = 4;
+        $spanclass = $PAGE->theme->settings->frontpagenumbertiles;
+
 
         // Display course tiles depending the number per row.
         $content .= html_writer::start_tag('div',
-                array('class' => 'col-'.$spanclass.' panel panel-default coursebox '.$additionalcss));
+              array('class' => 'col-'.$spanclass.' panel panel-default coursebox '.$additionalcss));
         $urlb = new moodle_url('/course/view.php', array('id' => $course->id));
 
         // Add the course link.
