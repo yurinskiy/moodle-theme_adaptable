@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This is built using the bootstrapbase template to allow for new theme's using Moodle's new Bootstrap theme engine
+ * This is built using the bootstrap template to allow for new theme's using Moodle's new Bootstrap theme engine
  *
  * @package     theme_adaptable
  * @copyright   2013 Julian Ridden

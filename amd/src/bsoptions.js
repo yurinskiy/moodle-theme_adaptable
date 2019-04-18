@@ -1,6 +1,5 @@
 /* jshint ignore:start */
-define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log) {
-
+define(['jquery', 'theme_adaptable/loader', 'core/log'], function($, bootstrap, log) {
     "use strict"; // ...jshint ;_; !!!
 
     log.debug('Adaptable Bootstrap AMD opt in functions');
@@ -71,21 +70,21 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                     }
                     var $subMenu = $( this ).next( ".dropdown-menu" );
                     $subMenu.toggleClass( 'show' );
-                    
+
                     $( this ).parent( "li" ).toggleClass( 'show' );
 
                     $( this ).parents( 'li.nav-item.dropdown.show' ).on( 'hidden.bs.dropdown', function ( e ) {
                         $( '.dropdown-menu .show' ).removeClass( "show" );
                     } );
-                    
+
                      if ( !$parent.parent().hasClass( 'navbar-nav' ) ) {
                         $el.next().css( { "top": $el[0].offsetTop, "left": $parent.outerWidth() - 4 } );
                     }
 
                     return false;
                 } );
-            
-            
+
+
             });
 
             // Conditional javascript to resolve anchor link clicking issue with sticky navbar.
