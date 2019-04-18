@@ -99,6 +99,10 @@ td.submit input {
     color: [[setting:buttontextcolor]] !important;
 }
 
+.btn-sm {
+  margin-right: 3px;
+}
+
 /* Action buttons */
 #notice .singlebutton + .singlebutton input,
 .submit.buttons input[name="cancel"] {
