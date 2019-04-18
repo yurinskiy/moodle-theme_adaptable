@@ -1448,7 +1448,7 @@ EOT;
                 if (get_config('theme_adaptable', 'enablehome') && get_config('theme_adaptable', 'enablemyhome')) {
                     $breadcrumbs = html_writer::tag('i', '', array(
                             'title' => get_string('home', 'theme_adaptable'),
-                            'class' => 'far fa-folder-open fa-2x'
+                            'class' => 'fa fa-folder-open fa-lg'
                     )
                             );
                 } else if (get_config('theme_adaptable', 'breadcrumbhome') == 'icon') {
@@ -1456,7 +1456,7 @@ EOT;
                             // Adds in a title for accessibility purposes.
                             html_writer::tag('i', '', array(
                                     'title' => get_string('home', 'theme_adaptable'),
-                                    'class' => 'fa fa-home fa-2x')
+                                    'class' => 'fa fa-home fa-lg')
                                     )
                             );
                     $breadcrumbs .= '</li>';
@@ -1572,7 +1572,7 @@ EOT;
 
                 $branchlabel = '';
                 if ($navbardisplayicons) {
-                    $branchlabel .= '<i class="fas fa-tachometer-alt fa-lg"></i> ';
+                    $branchlabel .= '<i class="fa fa-dashboard fa-lg"></i> ';
                 }
                 $branchlabel .= ' ' . $branchtitle;
                 $branchurl   = new moodle_url('/my/index.php');
