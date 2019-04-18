@@ -44,23 +44,23 @@
 }
 
 /* Display the course list container */
+#frontpage-available-course-list,
 .frontpage-course-list-all {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    flex-direction: row;
-    padding-right: 0px;
-    padding-left: 0px;
-    justify-content: flex-start !important;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  flex-grow: 1;
+
 }
 
 /* Media breakpoints for courses list area */
-/* @media (min-width: 576px) {
+@media (min-width: 576px) {
     .frontpage-course-list-all {
         max-width: 540px;
     }
-} */
+}
 
-/* @media (min-width: 768px) {
+@media (min-width: 768px) {
     .frontpage-course-list-all {
         max-width: 720px;
     }
@@ -70,7 +70,7 @@
     .frontpage-course-list-all {
         max-width: 960px;
     }
-} */
+}
 @media (min-width: 1200px) {
     .frontpage-course-list-all {
         max-width: 100%;

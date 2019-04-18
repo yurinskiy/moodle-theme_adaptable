@@ -46,7 +46,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugins = array(
-    'v4-shims' => array('files' => array('v4-shims.js')),
+    'shims' => array('files' => array('shims.js')),
     'flexslider' => array('files' => array('jquery-flexslider-min.js')),
     'easing' => array('files' => array('jquery-easing-min.js')),
     'ticker' => array('files' => array('tickerme.js')),
