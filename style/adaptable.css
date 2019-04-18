@@ -118,14 +118,14 @@ li {
 /* Forms */
 fieldset {
     min-width: 0;
-    width: 100%;
+    width: 90%;
 }
 
 .mform fieldset.collapsible legend a.fheader {
     margin-left: 0;
 }
 
-.form-group {
+.form-group  {
     margin: 4px 0 !important;
 }
 
@@ -2052,7 +2052,7 @@ img.smallicon {
 
 /* Filepicker area */
 .filepicker-filelist .filepicker-container, .filemanager.fm-noitems .fm-empty-container {
-    position: relative;
+/*    position: relative; */
 }
 
 /* Adaptable 2.0 */
