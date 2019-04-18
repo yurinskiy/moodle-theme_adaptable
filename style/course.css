@@ -50,7 +50,7 @@
   flex-flow: row wrap;
   justify-content: space-between;
   flex-grow: 1;
-
+  flex-wrap: wrap;
 }
 
 /* Media breakpoints for courses list area */
