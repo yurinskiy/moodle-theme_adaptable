@@ -2136,3 +2136,8 @@ img.smallicon {
     -o-transition: ease [[setting:navbardropdowntransitiontime]];
     transition: ease [[setting:navbardropdowntransitiontime]];
 }
+
+/* Transform default value text in settings to Italic */
+.form-item .form-setting .form-defaultinfo {
+    font-style: italic;
+}
