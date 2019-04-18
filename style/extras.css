@@ -734,7 +734,7 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscu
 
 #id_category,
 #id_parent {
-    width: 100%;
+/*    width: 100%; */
     max-width: 100%;
 }
 

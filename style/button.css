@@ -91,6 +91,7 @@ td.submit input {
     border-color: #cccccc !important;
     color: #292b2c !important;
     min-height: 32px;
+    margin-left: 3px;
 }
 
 /* Child buttons */
