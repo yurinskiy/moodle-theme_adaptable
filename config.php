@@ -116,7 +116,7 @@ $THEME->sheets = array(
         'extras',
         'menu',
         'responsive',
-        'fontawesome',
+/*        'fontawesome',*/
         'custom'
 );
 
