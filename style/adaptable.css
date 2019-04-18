@@ -2095,7 +2095,7 @@ img.smallicon {
     margin-top: 5px;
 }
 
-/* Block action classes lifted from previously used bootstrapbase parent theme. */
+/* Block action classes lifted from previously used parent theme. */
 
 .block.hidden .header .block_action .block-hider-hide {
     display: none;

@@ -1729,3 +1729,12 @@ $string['region-course-tab-one-a'] = 'Course page tab region 1';
 $string['region-course-tab-two-a'] = 'Course page tab region 2';
 $string['region-my-tab-one-a'] = 'Dashboard page tab region 1';
 $string['region-my-tab-two-a'] = 'Dashboard page tab region 2';
+
+// Number of course tiles in front page.
+$string['frontpagenumbertiles'] = 'Number of course tiles per row';
+$string['frontpagenumbertilesdesc'] = 'Number of course tiles to display per row in the front page courses list';
+$string['frontpagetiles1'] = '1 course tile';
+$string['frontpagetiles2'] = '2 course tiles';
+$string['frontpagetiles3'] = '3 course tiles';
+$string['frontpagetiles4'] = '4 course tiles';
+$string['frontpagetiles6'] = '6 course tiles';

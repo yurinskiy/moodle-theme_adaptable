@@ -18,11 +18,13 @@
  * Version details
  *
  * @package    theme_adaptable
- * @copyright 2015 Jeremy Hopkins (Coventry University)
- * @copyright 2015 Fernando Acedo (3-bits.com)
+ * @copyright  2015-2019 Jeremy Hopkins (Coventry University)
+ * @copyright  2015-2019 Fernando Acedo (3-bits.com)
+ * @copyright  2017-2019 Manoj Solanki (Coventry University)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
+
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -45,6 +47,23 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configselect($name, $title, $description, 2, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
+
+    // Number of tiles per row.
+    // Number of tiles per row: 12=1 tile / 6=2 tiles / 4 (default)=3 tiles / 3=4 tiles / 2=6 tiles.
+    $name = 'theme_adaptable/frontpagenumbertiles';
+    $title = get_string('frontpagenumbertiles', 'theme_adaptable');
+    $description = get_string('frontpagenumbertilesdesc', 'theme_adaptable');
+    $choices = array(
+        12 => get_string('frontpagetiles1', 'theme_adaptable'),
+        6  => get_string('frontpagetiles2', 'theme_adaptable'),
+        4  => get_string('frontpagetiles3', 'theme_adaptable'),
+        3  => get_string('frontpagetiles4', 'theme_adaptable'),
+        2  => get_string('frontpagetiles6', 'theme_adaptable'),
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, 4, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
 
     $name = 'theme_adaptable/frontpagerendererdefaultimage';
     $title = get_string('frontpagerendererdefaultimage', 'theme_adaptable');

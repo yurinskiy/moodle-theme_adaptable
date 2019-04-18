@@ -250,7 +250,8 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:tabbedlayoutdashboardcolorselected]]' => '#06c',
         '[[setting:tabbedlayoutdashboardcolorunselected]]' => '#eee',
         '[[setting:tabbedlayoutcoursepagetabcolorselected]]' => '#06c',
-        '[[setting:tabbedlayoutcoursepagetabcolorunselected]]' => '#eee'
+        '[[setting:tabbedlayoutcoursepagetabcolorunselected]]' => '#eee',
+        '[[setting:frontpagenumbertiles]]' => '4'
     );
 
     // Get all the defined settings for the theme and replace defaults.
