@@ -158,14 +158,14 @@
 
 .block_login .username label:before {
     content: "\f007";
-    font-family: "Font Awesome 5 Free";
+    font-family: "FontAwesome";
     margin-right: 5px;
     color: #999;
 }
 
 .block_login .password label:before {
     content: "\f084";
-    font-family: "Font Awesome 5 Free";
+    font-family: "FontAwesome";
     margin-right: 5px;
     color: #999;
 }
@@ -366,7 +366,7 @@ body.has_dock div#dock {
 
 /* Add or hide block icons */
 .showblockicons .block .header .title h2:before {
-    font-family: "Font Awesome 5 Free" !important;
+    font-family: "FontAwesome" !important;
     font-weight: 900 !important;
     font-size: [[setting:blockiconsheadersize]];
     font-style: normal;
