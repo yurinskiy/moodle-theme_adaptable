@@ -38,19 +38,23 @@
 /* Course Tiles             */
 /* ************************ */
 
-/* Remove 'Available courses' label. */
+/* Remove 'Available courses' label */
 #frontpage-available-course-list h2 {
     display: [[setting:enableavailablecourses]];
 }
 
 /* Display the course list container */
-#frontpage-available-course-list,
-.frontpage-course-list-all {
-  display: flex;
+#frontpage-available-course-list {
+  display: block;
   flex-flow: row wrap;
   justify-content: space-between;
   flex-grow: 1;
   flex-wrap: wrap;
+}
+
+.frontpage-course-list-all {
+    display: flex;
+    flex-flow: row wrap;
 }
 
 /* Media breakpoints for courses list area */
