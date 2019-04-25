@@ -125,7 +125,7 @@ fieldset {
     margin-left: 0;
 }
 
-.form-group  {
+.form-group {
     margin: 4px 0 !important;
 }
 
@@ -2050,9 +2050,9 @@ img.smallicon {
     color: #FFFFFF !important;
 }
 
-/* Filepicker area */
+/* Filepicker area. */
 .filepicker-filelist .filepicker-container, .filemanager.fm-noitems .fm-empty-container {
-/*    position: relative; */
+
 }
 
 /* Adaptable 2.0 */
@@ -2099,7 +2099,7 @@ img.smallicon {
     margin-top: 5px;
 }
 
-/* Block action classes lifted from previously used parent theme. */
+/* Block action classes lifted from previously used bootstrapbase parent theme. */
 
 .block.hidden .header .block_action .block-hider-hide {
     display: none;
@@ -2141,7 +2141,7 @@ img.smallicon {
     transition: ease [[setting:navbardropdowntransitiontime]];
 }
 
-/* Transform default value text in settings to Italic */
+/* Transform default value text in settings to Italic. */
 .form-item .form-setting .form-defaultinfo {
     font-style: italic;
 }
