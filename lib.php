@@ -251,7 +251,8 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:tabbedlayoutdashboardcolorunselected]]' => '#eee',
         '[[setting:tabbedlayoutcoursepagetabcolorselected]]' => '#06c',
         '[[setting:tabbedlayoutcoursepagetabcolorunselected]]' => '#eee',
-        '[[setting:frontpagenumbertiles]]' => '4'
+        '[[setting:frontpagenumbertiles]]' => '4',
+        '[[setting:sidebarnotlogged]]' => 'true'
     );
 
     // Get all the defined settings for the theme and replace defaults.

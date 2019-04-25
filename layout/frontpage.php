@@ -28,7 +28,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-// Let's go to include firt the common header file.
+// Let's go to include first the common header file.
 require_once(dirname(__FILE__) . '/includes/header.php');
 
 // And now we go to create the main layout.
@@ -95,12 +95,20 @@ if (!empty($PAGE->theme->settings->infobox2)) {
 
 // The main content goes here.
 ?>
-
 <div class="container outercont">
     <div id="page-content" class="row-fluid">
-     <div id="page-navbar" class="col-12">
-            <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
-            <?php echo $OUTPUT->navbar(); ?>
+        <?php
+        if (($PAGE->theme->settings->sidebarnotlogged) && (!isloggedin())) {
+        ?>
+        <div id="page-navbar" class="col-9">
+        <?php
+        } else {
+        ?>
+        <div id="page-navbar" class="col-12">
+        <?php } ?>
+
+        <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
+        <?php echo $OUTPUT->navbar(); ?>
     </div>
 
     <section id="region-main" class="<?php echo $regions['content'];?>">
@@ -111,11 +119,12 @@ if (!empty($PAGE->theme->settings->infobox2)) {
         ?>
     </section>
     <?php
-
         $classes = '';
-        // Hide sidebar on mobile.
-        if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
-            $classes = ' d-none d-md-block ';
+
+        // Hide sidebar on mobile of not logged users.
+        if (($PAGE->theme->settings->smallscreenhidesidebar) ||
+           (($PAGE->theme->settings->sidebarnotlogged) && (!isloggedin()))) {
+            $classes = ' d-none ';
         }
         echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
     ?>

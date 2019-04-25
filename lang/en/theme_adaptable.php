@@ -1309,6 +1309,9 @@ $string['blocksidedesc'] = 'Control whether blocks appear on the left or right o
 $string['rightblocks'] = 'Right side';
 $string['leftblocks'] = 'Left side';
 
+$string['sidebarnotlogged'] = 'Show sidebar when not logged';
+$string['sidebarnotloggeddesc'] = 'Show the blocks sidebar when the user is not logged';
+
 $string['emoticonsize'] = 'Emoticons size';
 $string['emoticonsizedesc'] = 'Set the height and width of the moodle emoticons.';
 
