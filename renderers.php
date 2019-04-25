@@ -2961,18 +2961,20 @@ EOT;
         $currentnode = end($items);
 
         $showcoursemenu = false;
+        $showfrontpagemenu = false;
+        $showusermenu = false;
 
         // We are on the course home page.
         if (($context->contextlevel == CONTEXT_COURSE) &&
-            !empty($currentnode) &&
-            ($currentnode->type == navigation_node::TYPE_COURSE || $currentnode->type == navigation_node::TYPE_SECTION)) {
+        !empty($currentnode) &&
+        ($currentnode->type == navigation_node::TYPE_COURSE || $currentnode->type == navigation_node::TYPE_SECTION)) {
             $showcoursemenu = true;
         }
 
         $courseformat = course_get_format($this->page->course);
         // This is a single activity course format, always show the course menu on the activity main page.
         if ($context->contextlevel == CONTEXT_MODULE &&
-                !$courseformat->has_view_page()) {
+        !$courseformat->has_view_page()) {
 
             $this->page->navigation->initialise();
             $activenode = $this->page->navigation->find_active_node();
@@ -2980,17 +2982,46 @@ EOT;
             if ($this->page->is_settings_menu_forced()) {
                 $showcoursemenu = true;
             } else if (!empty($activenode) && ($activenode->type == navigation_node::TYPE_ACTIVITY ||
-                    $activenode->type == navigation_node::TYPE_RESOURCE)) {
+                $activenode->type == navigation_node::TYPE_RESOURCE)) {
 
-                // We only want to show the menu on the first page of the activity. This means
-                // the breadcrumb has no additional nodes.
-                if ($currentnode && ($currentnode->key == $activenode->key && $currentnode->type == $activenode->type)) {
-                    $showcoursemenu = true;
+                    // We only want to show the menu on the first page of the activity. This means
+                    // the breadcrumb has no additional nodes.
+                    if ($currentnode && ($currentnode->key == $activenode->key && $currentnode->type == $activenode->type)) {
+                        $showcoursemenu = true;
+                    }
                 }
-            }
         }
 
-        if ($showcoursemenu) {
+        // This is the site front page.
+        if ($context->contextlevel == CONTEXT_COURSE &&
+            !empty($currentnode) &&
+            $currentnode->key === 'home') {
+                $showfrontpagemenu = true;
+        }
+
+        // This is the user profile page.
+        if ($context->contextlevel == CONTEXT_USER &&
+            !empty($currentnode) &&
+            ($currentnode->key === 'myprofile')) {
+                $showusermenu = true;
+        }
+
+        if ($showfrontpagemenu) {
+            $settingsnode = $this->page->settingsnav->find('frontpage', navigation_node::TYPE_SETTING);
+            if ($settingsnode) {
+                // Build an action menu based on the visible nodes from this navigation tree.
+                $skipped = $this->build_action_menu_from_navigation($menu, $settingsnode, false, true);
+
+                // We only add a list to the full settings menu if we didn't include every node in the short menu.
+                if ($skipped) {
+                    $text = get_string('morenavigationlinks');
+                    $url = new moodle_url('/course/admin.php', array('courseid' => $this->page->course->id));
+                    $link = new action_link($url, $text, null, null, new pix_icon('t/edit', ''));
+                    $menu->add_secondary_action($link);
+                }
+            }
+            return $this->render($menu);
+        } else if ($showcoursemenu) {
             $settingsnode = $this->page->settingsnav->find('courseadmin', navigation_node::TYPE_COURSE);
             if ($settingsnode) {
                 // Build an action menu based on the visible nodes from this navigation tree.
@@ -3003,6 +3034,14 @@ EOT;
                     $link = new action_link($url, $text, null, null, new pix_icon('t/edit', ''));
                     $menu->add_secondary_action($link);
                 }
+            }
+            return $this->render($menu);
+        } else if ($showusermenu) {
+            // Get the course admin node from the settings navigation.
+            $settingsnode = $this->page->settingsnav->find('useraccount', navigation_node::TYPE_CONTAINER);
+            if ($settingsnode) {
+                // Build an action menu based on the visible nodes from this navigation tree.
+                $this->build_action_menu_from_navigation($menu, $settingsnode);
             }
             return $this->render($menu);
         }
@@ -3059,7 +3098,8 @@ EOT;
             }
 
         } else {
-            $items = $this->page->navbar->get_items();
+            return '';
+            /* $items = $this->page->navbar->get_items();
             $navbarnode = end($items);
 
             if ($navbarnode && ($navbarnode->key === 'participants')) {
@@ -3069,7 +3109,7 @@ EOT;
                     $this->build_action_menu_from_navigation($menu, $node);
                 }
 
-            }
+            } */
         }
         return $this->render($menu);
     }

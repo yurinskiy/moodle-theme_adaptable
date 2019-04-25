@@ -157,7 +157,6 @@ echo $OUTPUT->doctype();
 echo $OUTPUT->standard_head_html() ?>
     <!-- CSS print media -->
     <link rel="stylesheet" type="text/css" href="<?php echo $wwwroot; ?>/theme/adaptable/style/print.css" media="print">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Twitter Card data -->
@@ -341,7 +340,10 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                                 $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'size' => 80, 'class' => 'userpicture'));
                                 echo $userpic;
                             ?>
+                                <span class="d-none d-md-inline-block">
+                                <?php echo fullname($USER); ?>
                                 <!-- span class="fa fa-angle-down"></span -->
+                                </span>
 
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarAboveHeaderDropdownMenuLink">
@@ -500,23 +502,63 @@ if (
 
                 <ul class="navbar-nav ml-auto">
 
-					<li class="nav-item mx-0">
-                        <div class="context-header-settings-menu">
-                            <?php echo $OUTPUT->context_header_settings_menu(); ?>
-	                    </div>
-                    </li>
+                    <?php
+                       $navbareditsettings = $PAGE->theme->settings->editsettingsbutton;
+                       $showcog = true;
+                       $showeditbuttons = false;
 
-                    <li class="nav-item mx-0">
-                        <div id="region-main-settings-menu" class="">
-                            <div> <?php echo $OUTPUT->region_main_settings_menu(); ?> </div>
-                        </div>
-                    </li>
+                       if ($navbareditsettings == 'button') {
+                           $showeditbuttons = true;
+                           $showcog = false;
+                       } else if ($navbareditsettings == 'cogandbutton') {
+                           $showeditbuttons = true;
+                       }
 
-                    <li class="nav-item mx-0">
-                 		<div id="edittingbutton" class="breadcrumb-button">
-                            <?php echo $OUTPUT->page_heading_button(); ?>
-                        </div>
-                    </li>
+                       $coursemenucontent = $OUTPUT->context_header_settings_menu();
+                        if ($showcog) {
+                            if ($coursemenucontent) {
+                     ?>
+                               <li class="nav-item mx-0">
+                                   <div class="context-header-settings-menu">
+                                       <?php echo $coursemenucontent; ?>
+                                   </div>
+                               </li>
+					<?php
+                            }
+                        }
+                        $othermenucontent = $OUTPUT->region_main_settings_menu();
+                        if ($showcog) {
+                            if ($othermenucontent ) {
+                    ?>
+                            <li class="nav-item mx-0">
+                                <div id="region-main-settings-menu" class="region-main-settings-menu">
+                                    <?php echo $othermenucontent; ?>
+                                </div>
+                            </li>
+                    <?php
+                            }
+                        }
+                    ?>
+
+					<?php
+					   // Ensure to only hide the button on relevant pages.  Some pages will need the button, such as the dashboard page.
+					   // Checking if the cog is being displayed above to figure out if it still needs to show (when there is no cog).
+					   // Also show mod pages (e.g. Forum, Lesson) as these sometimes have a button for a specific purpose.
+					   if ( ($showeditbuttons) || (
+				           (empty($coursemenucontent)) &&
+				           (empty($othermenucontent))
+				           ) ||
+				           (strstr($PAGE->pagetype, 'mod-'))
+				           ) {
+					?>
+                        <li class="nav-item mx-0">
+                             <div id="edittingbutton" class="breadcrumb-button">
+                                <?php echo $OUTPUT->page_heading_button(); ?>
+                            </div>
+                        </li>
+					<?php
+					    }
+                    ?>
 
                     <?php
                     if (isloggedin()) {

@@ -38,18 +38,19 @@
 /* Course Tiles             */
 /* ************************ */
 
-/* Remove 'Available courses' label */
+/* Remove 'Available courses' label. */
 #frontpage-available-course-list h2 {
     display: [[setting:enableavailablecourses]];
 }
 
 /* Display the course list container */
+
 #frontpage-available-course-list {
-  display: block;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  flex-grow: 1;
-  flex-wrap: wrap;
+    display: block;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    flex-grow: 1;
+    flex-wrap: wrap;
 }
 
 .frontpage-course-list-all {
@@ -871,7 +872,14 @@ div.activity-wrapper {
     padding: .1em;
 }
 
-.context-header-settings-menu {
+/* region-main-settings-menu is used on pages other than course pages, but included here to keep the settings together. */
+.context-header-settings-menu,
+.region-main-settings-menu {
     height: 2em;
     margin: 9px 5px 0;
 }
+
+#region-main-settings-menu > div {
+  position: static;
+  right: auto;
+  margin: 0; }

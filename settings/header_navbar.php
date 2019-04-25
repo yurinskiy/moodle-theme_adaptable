@@ -106,6 +106,19 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+// Settings icon and Edit button.
+$name = 'theme_adaptable/editsettingsbutton';
+$title = get_string('editsettingsbutton', 'theme_adaptable');
+$description = get_string('editsettingsbuttondesc', 'theme_adaptable');
+$choices = array(
+        'cog' => get_string('editsettingsbuttonshowcog', 'theme_adaptable'),
+        'button' => get_string('editsettingsbuttonshowbutton', 'theme_adaptable'),
+        'cogandbutton' => get_string('editsettingsbuttonshowcogandbutton', 'theme_adaptable'),
+);
+$setting = new admin_setting_configselect($name, $title, $description, 'cog', $choices );
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
 // Navbar styling.
 $temp->add(new admin_setting_heading('theme_adaptable_navbar_styling_heading',
         get_string('headernavbarstylingheading', 'theme_adaptable'),
