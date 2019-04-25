@@ -543,11 +543,13 @@ if (
 					<?php
 					   // Ensure to only hide the button on relevant pages.  Some pages will need the button, such as the dashboard page.
 					   // Checking if the cog is being displayed above to figure out if it still needs to show (when there is no cog).
-					   /*if ( ($showeditbuttons) || (
+					   // Also show mod pages (e.g. Forum, Lesson) as these sometimes have a button for a specific purpose.
+					   if ( ($showeditbuttons) || (
 				           (empty($coursemenucontent)) &&
 				           (empty($othermenucontent))
-				           )
-				           ) { */
+				           ) ||
+				           (strstr($PAGE->pagetype, 'mod-'))
+				           ) {
 					?>
                         <li class="nav-item mx-0">
                              <div id="edittingbutton" class="breadcrumb-button">
@@ -555,7 +557,7 @@ if (
                             </div>
                         </li>
 					<?php
-					    // }
+					    }
                     ?>
 
                     <?php
