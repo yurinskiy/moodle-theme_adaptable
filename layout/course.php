@@ -64,7 +64,7 @@ $regions = theme_adaptable_grid($left, $hassidepost);
 
         // If course page, display course top block region.
         if (!empty($PAGE->theme->settings->coursepageblocksenabled)): ?>
-            <div id="frontblockregion">
+            <div id="frontblockregion" class="container">
             <div class="row-fluid">
             <?php echo $OUTPUT->get_block_regions('coursepageblocklayoutlayouttoprow', 'course-top-'); ?>
             </div>

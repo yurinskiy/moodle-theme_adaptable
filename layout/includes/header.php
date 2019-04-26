@@ -518,7 +518,7 @@ if (
                         if ($showcog) {
                             if ($coursemenucontent) {
                      ?>
-                               <li class="nav-item mx-0">
+                               <li class="nav-item mr-2">
                                    <div class="context-header-settings-menu">
                                        <?php echo $coursemenucontent; ?>
                                    </div>
@@ -530,7 +530,7 @@ if (
                         if ($showcog) {
                             if ($othermenucontent ) {
                     ?>
-                            <li class="nav-item mx-0">
+                            <li class="nav-item mr-2">
                                 <div id="region-main-settings-menu" class="region-main-settings-menu">
                                     <?php echo $othermenucontent; ?>
                                 </div>

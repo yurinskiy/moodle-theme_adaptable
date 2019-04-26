@@ -1372,7 +1372,7 @@ div.questionbankwindow.block {
 
 #block-region-side-post {
     transition: all .5s ease-in-out;
-    padding: 0 5px 0 18px;
+    padding: 0 0 0 18px;
 }
 
 /* .nav .dropdown-menu li a i,
@@ -2069,7 +2069,6 @@ img.smallicon {
 }
 
 .row-fluid .col-3 {
-    max-width: 24.40425532%;
     width: 24.40425532%;
     *width: 24.35106383%;
 }

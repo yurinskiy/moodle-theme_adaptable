@@ -43,7 +43,7 @@ $hasfootnote = (!empty($PAGE->theme->settings->footnote));
 $dashblocksposition = $PAGE->theme->settings->dashblocksposition;
 
 if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition == 'abovecontent') ) { ?>
-    <div id="frontblockregion" class="container">
+    <div id="frontblockregion">
         <div class="row-fluid">
             <?php echo $OUTPUT->get_block_regions('dashblocklayoutlayoutrow'); ?>
         </div>
@@ -137,7 +137,7 @@ if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition
 </div>
 
 <?php if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition == 'belowcontent') ) { ?>
-    <div id="frontblockregion" class="container">
+    <div id="frontblockregion">
         <div class="row-fluid">
             <?php echo $OUTPUT->get_block_regions('dashblocklayoutlayoutrow'); ?>
         </div>

@@ -753,6 +753,24 @@ a.dropdown-menu > .active > a:focus,
     min-height: 30px
 }
 
+#adaptable-page-header-wrapper #main-navbar .action-menu .dropdown-toggle::after {
+    display: inline-block;
+    content: normal;
+    width: 0;
+    height: 0;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
+
+#adaptable-page-header-wrapper #main-navbar .action-menu a.dropdown-toggle i {
+    padding: 0;
+}
+
 
 @media only screen and (max-width: 991px) {
     #adaptable-page-header-wrapper .btco-hover-menu .show > .dropdown-toggle::after{

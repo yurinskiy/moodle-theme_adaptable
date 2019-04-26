@@ -1060,76 +1060,74 @@ EOT;
      */
     public function get_block_regions($settingsname = 'blocklayoutlayoutrow', $classnamebeginswith = 'frnt-market-'
             , $customrowsetting = null) {
-                global $PAGE, $OUTPUT, $USER, $COURSE;
-                $fields = array();
-                $retval = '';
-                $blockcount = 0;
-                $style = '';
-                $adminediting = false;
+        global $PAGE, $OUTPUT, $USER, $COURSE;
+        $fields = array();
+        $retval = '';
+        $blockcount = 0;
+        $style = '';
+        $adminediting = false;
 
-                // Check if user has capability to edit block on homepage.  This is used as part of checking if
-                // blocks should display the dotted borders and labels for editing. (Issue #809).
-                $context = context_course::instance($COURSE->id);
+        // Check if user has capability to edit block on homepage.  This is used as part of checking if
+        // blocks should display the dotted borders and labels for editing. (Issue #809).
+        $context = context_course::instance($COURSE->id);
 
-                // Check if front page and if has capability to edit blocks.  The $pageallowed variable will store
-                // the correct state of whether user can edit that page.
-                $caneditblock = has_capability('moodle/block:edit', $context);
-                if ( ($PAGE->pagelayout == "frontpage") && ($caneditblock !== true) ) {
-                    $pageallowed = false;
-                } else {
-                    $pageallowed = true;
-                }
+        // Check if front page and if has capability to edit blocks.  The $pageallowed variable will store
+        // the correct state of whether user can edit that page.
+        $caneditblock = has_capability('moodle/block:edit', $context);
+        if ( ($PAGE->pagelayout == "frontpage") && ($caneditblock !== true) ) {
+            $pageallowed = false;
+        } else {
+            $pageallowed = true;
+        }
 
-                if ( (isset($USER->editing) && $USER->editing == 1) && ($pageallowed == true) ) {
-                    $style = '" style="display: block; background: #EEEEEE; min-height: 50px; border: 2px dashed #BFBDBD; margin-top: 5px';
-                    $adminediting = true;
-                }
+        if ( (isset($USER->editing) && $USER->editing == 1) && ($pageallowed == true) ) {
+            $style = '" style="display: block; background: #EEEEEE; min-height: 50px; border: 2px dashed #BFBDBD; margin-top: 5px';
+            $adminediting = true;
+        }
 
-                if ($settingsname == 'customrowsetting') {
-                    $fields[] = $customrowsetting;
-                } else {
-                    for ($i = 1; $i <= 8; $i++) {
-                        $marketrow = $settingsname . $i;
+        if ($settingsname == 'customrowsetting') {
+            $fields[] = $customrowsetting;
+        } else {
+            for ($i = 1; $i <= 8; $i++) {
+                $marketrow = $settingsname . $i;
 
-                        // Need to check if the setting exists as this function is now
-                        // called for variable row numbers in block regions (e.g. course page
-                        // which is a single row of block regions).
+                // Need to check if the setting exists as this function is now
+                // called for variable row numbers in block regions (e.g. course page
+                // which is a single row of block regions).
 
-                                if (isset($PAGE->theme->settings->$marketrow)) {
-                                    $marketrow = $PAGE->theme->settings->$marketrow;
-                                } else {
-                                    $marketrow = '0-0-0-0';
-                                }
-
-                                if ($marketrow != '0-0-0-0') {
-                                    $fields[] = $marketrow;
-                                }
-                    }
-                }
-
-                foreach ($fields as $field) {
-                    $retval .= '<div class="row" style="margin-left: 0px;">';
-                    $vals = explode('-', $field);
-                    foreach ($vals as $val) {
-                        if ($val > 0) {
-                            $retval .= '<div class="col-' . $val . $style . '">';
-
-                            // Moodle does not seem to like numbers in region names so using letter instead.
-                            $blockcount ++;
-                            $block = $classnamebeginswith. chr(96 + $blockcount);
-
-                            if ($adminediting) {
-                                $retval .= '<span style="padding-left: 10px;"> ' . get_string('region-' . $block, 'theme_adaptable') .
-                                '' . '</span>';
-                            }
-
-                            $retval .= $OUTPUT->blocks($block, 'block-region-front');
-                            $retval .= '</div>';
+                        if (isset($PAGE->theme->settings->$marketrow)) {
+                            $marketrow = $PAGE->theme->settings->$marketrow;
+                        } else {
+                            $marketrow = '0-0-0-0';
                         }
+
+                        if ($marketrow != '0-0-0-0') {
+                            $fields[] = $marketrow;
+                        }
+            }
+        }
+
+        foreach ($fields as $field) {
+            $vals = explode('-', $field);
+            foreach ($vals as $val) {
+                if ($val > 0) {
+                    $retval .= '<div class="px-2 my-1 col-md-' . $val . $style . '">';
+
+                    // Moodle does not seem to like numbers in region names so using letter instead.
+                    $blockcount ++;
+                    $block = $classnamebeginswith. chr(96 + $blockcount);
+
+                    if ($adminediting) {
+                        $retval .= '<span style="padding-left: 10px;"> ' . get_string('region-' . $block, 'theme_adaptable') .
+                        '' . '</span>';
                     }
+
+                    $retval .= $OUTPUT->blocks($block, 'block-region-front');
                     $retval .= '</div>';
                 }
-                return $retval;
+            }
+        }
+        return $retval;
     }
 
     /**
@@ -1236,7 +1234,7 @@ EOT;
             $vals = explode('-', $field);
             foreach ($vals as $val) {
                 if ($val > 0) {
-                    $retval .= '<div class="col ' . $val . ' ' . $extramarketclass . ' first">';
+                    $retval .= '<div class="px-2 my-1 col-md-' . $val . ' ' . $extramarketclass . '">';
                     $blockcount ++;
                     $fieldname = $settingname . $blockcount;
                     if (isset($PAGE->theme->settings->$fieldname)) {
