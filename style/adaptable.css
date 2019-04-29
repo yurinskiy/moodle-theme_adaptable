@@ -67,7 +67,8 @@ textarea {
 a,
 a:visited,
 .tabtree .tabrow0 li a,
-.dropdown-menu.usermen > li > a {
+.dropdown-menu.usermen > li > a,
+.dropdown-menu > li > a.dropdown-item {
     color: [[setting:linkcolor]];
     text-decoration: none;
 }
@@ -75,7 +76,7 @@ a:visited,
 a:hover,
 a:active {
     color: [[setting:linkhover]];
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 a:focus {
