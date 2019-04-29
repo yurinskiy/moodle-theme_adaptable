@@ -844,7 +844,10 @@ input[type="radio"], input[type="checkbox"] {
     margin-top: 0;
     margin-left: 0;
     border: none;
-    padding: 0 5px;
+}
+
+.pagelayout-mydashboard #region-main {
+    padding: 0 1em 0 0;
 }
 
 #region-main .row {

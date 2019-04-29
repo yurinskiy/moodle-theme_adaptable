@@ -1100,7 +1100,9 @@ $string['viewselect'] = 'Default to full screen view.';
 $string['viewselectdesc'] = 'Make the default view of the site fullscreen (when zoom option is in use).';
 
 $string['enablezoom'] = 'Enable Zoom';
-$string['enablezoomdesc'] = 'Allow users to toggle between fullscreen and fixed width).';
+$string['enablezoomdesc'] = 'Allow users to toggle between fullscreen and fixed width.';
+$string['enablezoomshowtext'] = 'Show text for Enable Zoom';
+$string['enablezoomshowtextdesc'] = 'Allow users to toggle between showing the label for full screen and fixed width.';
 
 $string['enableshowhideblocks'] = 'Enable Show Hide Blocks';
 $string['enableshowhideblocksdesc'] = 'Allows users to show / hide all blocks.';
