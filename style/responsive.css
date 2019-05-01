@@ -539,9 +539,9 @@ Only screen and (max-width : 1200px)
 
 @media only screen and (min-width: 1200px) {
 
-    .container {
+.container {
         width: 1170px;
-        max-width: inherit;
+        max-width: 100%;
     }
 }
 
@@ -556,7 +556,7 @@ Only screen and (max-width : 1200px)
 @media (min-width: 768px) and (max-width: 991px) {
   #adaptable-page-header-wrapper .container,
   .container {
-  /*  width: 724px; */
+    width: 724px;
     max-width: inherit;
   }
 
@@ -568,8 +568,6 @@ Only screen and (max-width : 1200px)
         max-width: 747px;
     }
 }
-
-
 
 
 /*=====================================================

@@ -126,9 +126,9 @@ fieldset {
     margin-left: 0;
 }
 
-.form-group {
+/* .form-group {
     margin: 4px 0 !important;
-}
+} */
 
 @-moz-document url-prefix() {
     fieldset {
@@ -823,7 +823,7 @@ span2.mceEditor iframe, table.mceLayout2 iframe {
 
 
 input[type="radio"], input[type="checkbox"] {
-    margin-left: 15px;
+    /* margin-left: 15px; */
     margin-right: 1px;
 }
 
@@ -851,7 +851,7 @@ input[type="radio"], input[type="checkbox"] {
     padding: 0 1em 0 0;
 }
 
-#region-main .row {
+/* #region-main .row {
     margin: 0;
 }
 
@@ -1195,14 +1195,14 @@ a.carousel-control {
     background:none;
     background-color: [[setting:maincolor]];
     border-bottom: 1px solid #bbbbbb;
-    border-radius: 10px 10px 0 0;
+/*     border-radius: 10px 10px 0 0; */
     color: #ffffff !important;
     font-family: [[setting:fontheadername]], sans-serif !important;
     font-size: 15px;
     font-weight: normal;
     letter-spacing: 1px;
     margin: 0;
-    padding: 5px;
+    padding: 0.7em;
     text-align: center;
     text-shadow: 1px 1px 1px #666666 !important;
 }
@@ -1212,6 +1212,8 @@ a.carousel-control {
     font-family: [[setting:fontheadername]], sans-serif !important;
     color: #ffffff !important;
     text-shadow: 1px 1px 1px #666666 !important;
+    padding: 0;
+    text-align: center;
 }
 
 #page-navbar .breadcrumb-button {
@@ -2094,7 +2096,7 @@ img.smallicon {
 .form-inline input.form-control[type=text] {
     min-width: 180px;
     border-radius: 2px;
-    margin: 0 10px 0 0;
+    /* margin: 0 10px 0 0; */
     height: 32px;
 }
 
@@ -2147,4 +2149,39 @@ img.smallicon {
 /* Transform default value text in settings to Italic. */
 .form-item .form-setting .form-defaultinfo {
     font-style: italic;
+}
+
+.form-item .form-setting .form-defaultinfo {
+    padding-left: 5px;
+}
+
+/* Dialog box styling. */
+.moodle-dialogue-base .moodle-dialogue-wrap .container  {
+    width: 100%;
+}
+
+.moodle-dialogue-base button.closebutton {
+    opacity: 1;
+    line-height: 1.2em;
+    font-size: 1.4em;
+    border-radius: 3px;
+    background-color: #FFF;
+    width: 26px;
+
+}
+
+.moodle-dialogue-base .closebutton::after {
+    display: inline-block;
+    vertical-align: top;
+    opacity: 1;
+    background: none;
+    color: #000;
+}
+
+.form-group textarea.form-control {
+    margin: 0.7rem 0;
+}
+
+.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {
+    padding: 0.6em;
 }
