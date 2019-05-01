@@ -67,7 +67,8 @@ textarea {
 a,
 a:visited,
 .tabtree .tabrow0 li a,
-.dropdown-menu.usermen > li > a {
+.dropdown-menu.usermen > li > a,
+.dropdown-menu > li > a.dropdown-item {
     color: [[setting:linkcolor]];
     text-decoration: none;
 }
@@ -75,7 +76,7 @@ a:visited,
 a:hover,
 a:active {
     color: [[setting:linkhover]];
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 a:focus {
@@ -844,7 +845,10 @@ input[type="radio"], input[type="checkbox"] {
     margin-top: 0;
     margin-left: 0;
     border: none;
-    padding: 0 5px;
+}
+
+.pagelayout-mydashboard #region-main {
+    padding: 0 1em 0 0;
 }
 
 #region-main .row {

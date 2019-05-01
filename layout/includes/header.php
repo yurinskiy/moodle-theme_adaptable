@@ -582,13 +582,17 @@ if (
                             <li class="nav-item mx-0 hbll">
                                 <a class="nav-link moodlewidth" href="javascript:void(0);" title="<?php echo get_string('fullscreen', 'theme_adaptable') ?>">
                                     <i class="fa fa-expand fa-lg"></i>
+                                    <?php if ($PAGE->theme->settings->enablezoomshowtext) { ?>
                                     <span class="zoomdesc"><?php echo get_string('fullscreen', 'theme_adaptable') ?></span>
+                                    <?php } ?>
                                 </a>
                             </li>
                             <li class="nav-item mx-0 sbll">
                                 <a class="nav-link moodlewidth" href="javascript:void(0);" title="<?php echo get_string('standardview', 'theme_adaptable') ?>">
                                     <i class="fa fa-compress fa-lg"></i>
+                                    <?php if ($PAGE->theme->settings->enablezoomshowtext) { ?>
                                     <span class="zoomdesc"><?php echo get_string('standardview', 'theme_adaptable') ?></span>
+                                    <?php } ?>
                                 </a>
                             </li>
                     <?php

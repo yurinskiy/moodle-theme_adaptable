@@ -513,8 +513,8 @@ $string['headernavbarstylingheading'] = 'Navbar Styling';
 $string['headernavbarstylingheadingdesc'] = 'Styling options for the main navigation menu.';
 $string['navbardropdownborderradius'] = 'Dropdown menu border radius';
 $string['navbardropdownborderradiusdesc'] = 'Controls the border radius for dropdown menus (e.g. rounded corners).';
-$string['navbardropdownhovercolor'] = 'Dropdown menu hover colour';
-$string['navbardropdownhovercolordesc'] = 'Dropdown menu colour when hovering over menu items.';
+$string['navbardropdownhovercolor'] = 'Dropdown menu background hover colour';
+$string['navbardropdownhovercolordesc'] = 'Dropdown menu background colour when hovering over menu items.';
 $string['navbardropdowntransitiontime'] = 'Navbar transition time';
 $string['navbardropdowntransitiontimedesc'] = 'Navbar transition effect time in seconds.  Provides a fade-in animation effect when hovering over a menu that has sub-menus.';
 
@@ -1100,7 +1100,9 @@ $string['viewselect'] = 'Default to full screen view.';
 $string['viewselectdesc'] = 'Make the default view of the site fullscreen (when zoom option is in use).';
 
 $string['enablezoom'] = 'Enable Zoom';
-$string['enablezoomdesc'] = 'Allow users to toggle between fullscreen and fixed width).';
+$string['enablezoomdesc'] = 'Allow users to toggle between fullscreen and fixed width.';
+$string['enablezoomshowtext'] = 'Show text for Enable Zoom';
+$string['enablezoomshowtextdesc'] = 'Allow users to toggle between showing the label for full screen and fixed width.';
 
 $string['enableshowhideblocks'] = 'Enable Show Hide Blocks';
 $string['enableshowhideblocksdesc'] = 'Allows users to show / hide all blocks.';
