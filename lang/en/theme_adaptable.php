@@ -683,7 +683,7 @@ $string['sectionheadingcolor'] = 'Section Heading Text Colour';
 $string['sectionheadingcolordesc'] = 'Set the colour for section headings text';
 
 $string['homebk'] = 'Frontpage Background Image';
-$string['homebkdesc'] = 'Upload an image that will be a bacgkound image on the homepage.';
+$string['homebkdesc'] = 'Upload an image that will be a background image on the homepage.';
 
 $string['editonbk'] = 'Editing and Customize this page button background';
 $string['editonbkdesc'] = 'Set the background colour for the editing and customize this page button';
