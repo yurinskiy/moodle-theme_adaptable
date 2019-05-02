@@ -128,6 +128,7 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:coursesectionbordercolor]]' => '#e8eaeb',
         '[[setting:coursesectionborderradius]]' => '',
         '[[setting:coursesectionactivityiconsize]]' => '24px',
+        '[[setting:coursesectionactivityheadingcolour]]' => '#0066cc',
         '[[setting:coursesectionactivityborderwidth]]' => '2px',
         '[[setting:coursesectionactivityborderstyle]]' => 'dashed',
         '[[setting:coursesectionactivitybordercolor]]' => '#eeeeee',

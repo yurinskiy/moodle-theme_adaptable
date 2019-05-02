@@ -793,6 +793,9 @@ $string['coursesectionactivityuseadaptableiconsdesc'] = 'Turn this on to use Ada
 $string['coursesectionactivityiconsize'] = 'Course Section Activity Icon Size';
 $string['coursesectionactivityiconsizedesc'] = 'Set the icon size for activities / recursos (e.g. a value of 16px will set it at 16px x 16px).';
 
+$string['coursesectionactivityheadingcolour'] = 'Course Section Activity Heading Colour';
+$string['coursesectionactivityheadingcolourdesc'] = 'The colour for clickable activities displayed on the course homepage.';
+
 // These four settings actually refer to bottom border (it was originally all around border, but naming kept as it was originally).
 $string['coursesectionactivityborderwidth'] = 'Course Section Activity Bottom Border Width';
 $string['coursesectionactivityborderwidthdesc'] = 'Set width of the border that appears at the bottom of a course section activity.';

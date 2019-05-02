@@ -334,6 +334,15 @@ $setting = new admin_setting_configtext($name, $title, $description, '24px');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+// Course Activity heading colour.
+$name = 'theme_adaptable/coursesectionactivityheadingcolour';
+$title = get_string('coursesectionactivityheadingcolour', 'theme_adaptable');
+$description = get_string('coursesectionactivityheadingcolourdesc', 'theme_adaptable');
+$previewconfig = null;
+$setting = new admin_setting_configcolourpicker($name, $title, $description, '#0066cc', $previewconfig);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
 // Course Activity section bottom border width.
 // This border was originally used all around an activity but changed to just the bottom.
 $name = 'theme_adaptable/coursesectionactivityborderwidth';

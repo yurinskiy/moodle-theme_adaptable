@@ -119,7 +119,7 @@ li {
 /* Forms */
 fieldset {
     min-width: 0;
-    width: 90%;
+    /* width: 90%; */
 }
 
 .mform fieldset.collapsible legend a.fheader {
@@ -819,6 +819,7 @@ span2.mceEditor iframe, table.mceLayout2 iframe {
 .settingsform .form-item {
     border-bottom: 1px solid [[setting:blockbordercolor]];
     padding: 10px 0;
+    margin: 10px 0;
 }
 
 
@@ -2094,9 +2095,8 @@ img.smallicon {
 }
 
 .form-inline input.form-control[type=text] {
-    min-width: 180px;
+    min-width: 120px;
     border-radius: 2px;
-    /* margin: 0 10px 0 0; */
     height: 32px;
 }
 
@@ -2184,4 +2184,12 @@ img.smallicon {
 
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {
     padding: 0.6em;
+}
+
+.settingsform fieldset {
+    margin-bottom: 10px;
+}
+
+.settingsform .form-item .form-label {
+    padding-left: 0;
 }
