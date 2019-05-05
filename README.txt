@@ -83,7 +83,8 @@ http://fortawesome.github.io/Font-Awesome/examples/
 
 Front Page Slider Styles
 ------------------------
-Add images with at least 1900px x 400px. If you want to reduce or increase the height, Adaptable will resize the image automatically.
+Add images with at least 1900px x 400px.
+If you want to reduce or increase the height, Adaptable will resize the image automatically.
 There are two possible slider styles each with different markup required:
 
 

@@ -149,7 +149,7 @@ class theme_adaptable_core_renderer extends core_renderer {
                 $this->page->pagetype == 'course-view-socialwall' ||
                 $this->page->pagetype == 'site-index') {
                     $userpicture->size = 1;
-                }
+        }
                 return parent::render_user_picture($userpicture);
     }
 
@@ -257,45 +257,46 @@ class theme_adaptable_core_renderer extends core_renderer {
                 array('enablecalendar', false, $CFG->wwwroot.'/calendar/view.php', get_string('pluginname', 'block_calendar_month'),
                         'fa-calendar'));
 
-                $returnurl = $this->get_current_page_url(true);
-                $context = context_course::instance($COURSE->id);
+        $returnurl = $this->get_current_page_url(true);
+        $context = context_course::instance($COURSE->id);
 
-                if (($CFG->version > 2016120500) &&
-                        (!is_role_switched($COURSE->id)) && (has_capability('moodle/role:switchroles', $context))) {
-                            // TBR $returnurl = str_replace().
-                            $url = $CFG->wwwroot.'/course/switchrole.php?id='.$COURSE->id.'&switchrole=-1&returnurl='.$returnurl;
-                            $usermenuitems[] = array(false, false, $url, get_string('switchroleto'), 'fa-user-o');
-                        }
+        if (($CFG->version > 2016120500) &&
+            (!is_role_switched($COURSE->id)) && (has_capability('moodle/role:switchroles', $context))) {
+            // TBR $returnurl = str_replace().
+            $url = $CFG->wwwroot.'/course/switchrole.php?id='.$COURSE->id.'&switchrole=-1&returnurl='.$returnurl;
+                    $usermenuitems[] = array(false, false, $url, get_string('switchroleto'), 'fa-user-o');
+        }
 
-                        if (($CFG->version > 2016120500) && (is_role_switched($COURSE->id))) {
-                            $url = $CFG->wwwroot.'/course/switchrole.php?id='.$COURSE->id.'&sesskey='.sesskey().
-                            '&switchrole=0&returnurl='.$returnurl;
-                            $usermenuitems[] = array(false, false, $url, get_string('switchrolereturn'), 'fa-user-o');
-                        }
+        if (($CFG->version > 2016120500) && (is_role_switched($COURSE->id))) {
+            $url = $CFG->wwwroot.'/course/switchrole.php?id='.$COURSE->id.'&sesskey='.sesskey().
+            '&switchrole=0&returnurl='.$returnurl;
 
-                        $usermenuitems[] = array(false, false, $CFG->wwwroot.'/login/logout.php?sesskey='.sesskey(),
-                                get_string('logout'), 'fa-sign-out');
+            $usermenuitems[] = array(false, false, $url, get_string('switchrolereturn'), 'fa-user-o');
+        }
 
-                        for ($i = 0; $i < count($usermenuitems); $i++) {
-                            $additem = true;
+        $usermenuitems[] = array(false, false, $CFG->wwwroot.'/login/logout.php?sesskey='.sesskey(),
+                            get_string('logout'), 'fa-sign-out');
 
-                            // If theme setting is specified in array but not enabled in theme settings do not add to menu.
-                            $usermenuitem = $usermenuitems[$i][0];
-                            if (empty($PAGE->theme->settings->$usermenuitem) && $usermenuitems[$i][0]) {
-                                $additem = false;
-                            }
+        for ($i = 0; $i < count($usermenuitems); $i++) {
+            $additem = true;
 
-                            // If item requires version number and moodle is below that version to not add to menu.
-                            if ($usermenuitems[$i][1] && $CFG->version < $usermenuitems[$i][1]) {
-                                $additem = false;
-                            }
+            // If theme setting is specified in array but not enabled in theme settings do not add to menu.
+            $usermenuitem = $usermenuitems[$i][0];
+            if (empty($PAGE->theme->settings->$usermenuitem) && $usermenuitems[$i][0]) {
+                $additem = false;
+            }
 
-                            if ($additem) {
-                                $retval .= '<a class="dropdown-item" href="' . $usermenuitems[$i][2] . '" title="' . $usermenuitems[$i][3] . '">';
-                                $retval .= '<i class="fa ' . $usermenuitems[$i][4] . '"></i>' . $usermenuitems[$i][3] . '</a>';
-                            }
-                        }
-                        return $retval;
+            // If item requires version number and moodle is below that version to not add to menu.
+            if ($usermenuitems[$i][1] && $CFG->version < $usermenuitems[$i][1]) {
+                $additem = false;
+            }
+
+            if ($additem) {
+                $retval .= '<a class="dropdown-item" href="' . $usermenuitems[$i][2] . '" title="' . $usermenuitems[$i][3] . '">';
+                $retval .= '<i class="fa ' . $usermenuitems[$i][4] . '"></i>' . $usermenuitems[$i][3] . '</a>';
+            }
+        }
+        return $retval;
     }
 
     /**
@@ -1006,42 +1007,42 @@ EOT;
                     $msg = '';
                     $tickercount = $PAGE->theme->settings->newstickercount;
 
-                    for ($i = 1; $i <= $tickercount; $i++) {
-                        $textfield = 'tickertext' . $i;
-                        $profilefield = 'tickertext' . $i . 'profilefield';
+            for ($i = 1; $i <= $tickercount; $i++) {
+                $textfield = 'tickertext' . $i;
+                $profilefield = 'tickertext' . $i . 'profilefield';
 
-                        format_text($textfield, FORMAT_HTML);
+                format_text($textfield, FORMAT_HTML);
 
-                        $access = true;
+                $access = true;
 
-                        if (!empty($PAGE->theme->settings->$profilefield)) {
-                            $profilevals = explode('=', $PAGE->theme->settings->$profilefield);
-                            if (!$this->check_menu_access($profilevals[0], $profilevals[1], $textfield)) {
-                                $access = false;
-                            }
-                        }
-
-                        if ($access) {
-                            $msg .= format_text($PAGE->theme->settings->$textfield, FORMAT_HTML, array('trusted' => true));
-                        }
+                if (!empty($PAGE->theme->settings->$profilefield)) {
+                    $profilevals = explode('=', $PAGE->theme->settings->$profilefield);
+                    if (!$this->check_menu_access($profilevals[0], $profilevals[1], $textfield)) {
+                        $access = false;
                     }
-
-                    $msg = preg_replace('#\<[\/]{0,1}(li|ul|div|pre|blockquote)\>#', '', $msg);
-                    if ($msg == '') {
-                        $msg = '<p>' . get_string('tickerdefault', 'theme_adaptable') . '</p>';
-                    }
-
-                    $retval .= '<div id="ticker-wrap" class="clearfix container">';
-                    $retval .= '<div class="pull-left" id="ticker-announce">';
-                    $retval .= get_string('ticker', 'theme_adaptable');
-                    $retval .= '</div>';
-                    $retval .= '<ul id="ticker">';
-                    $retval .= $msg;
-                    $retval .= '</ul>';
-                    $retval .= '</div>';
                 }
 
-                return $retval;
+                if ($access) {
+                    $msg .= format_text($PAGE->theme->settings->$textfield, FORMAT_HTML, array('trusted' => true));
+                }
+            }
+
+            $msg = preg_replace('#\<[\/]{0,1}(li|ul|div|pre|blockquote)\>#', '', $msg);
+            if ($msg == '') {
+                $msg = '<p>' . get_string('tickerdefault', 'theme_adaptable') . '</p>';
+            }
+
+            $retval .= '<div id="ticker-wrap" class="clearfix container">';
+            $retval .= '<div class="pull-left" id="ticker-announce">';
+            $retval .= get_string('ticker', 'theme_adaptable');
+            $retval .= '</div>';
+            $retval .= '<ul id="ticker">';
+            $retval .= $msg;
+            $retval .= '</ul>';
+            $retval .= '</div>';
+        }
+
+        return $retval;
     }
 
 
@@ -1095,15 +1096,15 @@ EOT;
                 // called for variable row numbers in block regions (e.g. course page
                 // which is a single row of block regions).
 
-                        if (isset($PAGE->theme->settings->$marketrow)) {
-                            $marketrow = $PAGE->theme->settings->$marketrow;
-                        } else {
-                            $marketrow = '0-0-0-0';
-                        }
+                if (isset($PAGE->theme->settings->$marketrow)) {
+                    $marketrow = $PAGE->theme->settings->$marketrow;
+                } else {
+                    $marketrow = '0-0-0-0';
+                }
 
-                        if ($marketrow != '0-0-0-0') {
-                            $fields[] = $marketrow;
-                        }
+                if ($marketrow != '0-0-0-0') {
+                    $fields[] = $marketrow;
+                }
             }
         }
 
@@ -1594,214 +1595,215 @@ EOT;
             if (!empty($PAGE->theme->settings->mysitessortoverride) && $PAGE->theme->settings->mysitessortoverride != 'off'
                     && !empty($PAGE->theme->settings->mysitessortoverridefield)) {
 
-                        $overridetype = $PAGE->theme->settings->mysitessortoverride;
-                        $overridelist = $PAGE->theme->settings->mysitessortoverridefield;
+                $overridetype = $PAGE->theme->settings->mysitessortoverride;
+                $overridelist = $PAGE->theme->settings->mysitessortoverridefield;
 
-                        if ($overridetype == 'profilefields' || $overridetype == 'profilefieldscohort') {
-                            $overridelist = $this->get_profile_field_contents($overridelist);
+                if ($overridetype == 'profilefields' || $overridetype == 'profilefieldscohort') {
+                    $overridelist = $this->get_profile_field_contents($overridelist);
 
-                            if ($overridetype == 'profilefieldscohort') {
-                                $overridelist = array_merge($this->get_cohort_enrollments(), $overridelist);
-                            }
-                        }
+                    if ($overridetype == 'profilefieldscohort') {
+                        $overridelist = array_merge($this->get_cohort_enrollments(), $overridelist);
+                    }
+                }
 
-                        if ($PAGE->theme->settings->mysitessortoverride == 'strings') {
-                            $overridelist = explode(',', $overridelist);
-                        }
+                if ($PAGE->theme->settings->mysitessortoverride == 'strings') {
+                    $overridelist = explode(',', $overridelist);
+                }
+            }
+
+            if ($mysitesvisibility != 'disabled') {
+                $showmysites = true;
+
+                // Check custom profile field to restrict display of menu.
+                if (!empty($PAGE->theme->settings->enablemysitesrestriction)) {
+                    $fields = explode('=', $PAGE->theme->settings->enablemysitesrestriction);
+                    $ftype = $fields[0];
+                    $setvalue = $fields[1];
+
+                    if (!$this->check_menu_access($ftype, $setvalue, 'mysitesrestriction')) {
+                        $showmysites = false;
                     }
 
-                    if ($mysitesvisibility != 'disabled') {
+                }
 
-                        $showmysites = true;
+                if ($showmysites) {
+                    $branchtitle = get_string('mysites', 'theme_adaptable');
+                    $branchlabel = '';
 
-                        // Check custom profile field to restrict display of menu.
-                        if (!empty($PAGE->theme->settings->enablemysitesrestriction)) {
-                            $fields = explode('=', $PAGE->theme->settings->enablemysitesrestriction);
-                            $ftype = $fields[0];
-                            $setvalue = $fields[1];
-
-                            if (!$this->check_menu_access($ftype, $setvalue, 'mysitesrestriction')) {
-                                $showmysites = false;
-                            }
-
-                        }
-
-                        if ($showmysites) {
-                            $branchtitle = get_string('mysites', 'theme_adaptable');
-
-                            $branchlabel = '';
-
-                            if ($navbardisplayicons) {
-                                $branchlabel .= '<i class="fa fa-briefcase fa-lg"></i>';
-                            }
-                            $branchlabel .= ' ' . $branchtitle;
-
-                            $branchurl   = new moodle_url('#');
-                            $branchsort  = 10001;
-
-                            $menudisplayoption = '';
-                            // Check menu hover settings.
-                            if (isset($PAGE->theme->settings->mysitesmenudisplay)) {
-                                $menudisplayoption = $PAGE->theme->settings->mysitesmenudisplay;
-                            } else {
-                                $menudisplayoption = 'shortcodehover';
-                            }
-
-                            // The two variables below will control the 4 options available from the settings above for mysitesmenuhover.
-                            $showshortcode = true;  // If false, then display full course name.
-                            $showhover = true;
-
-                            switch ($menudisplayoption) {
-                                case 'shortcodenohover':
-                                    $showhover = false;
-                                    break;
-                                case 'fullnamenohover':
-                                    $showshortcode = false;
-                                    $showhover = false;
-                                case 'fullnamehover':
-                                    $showshortcode = false;
-                                    break;
-                            }
-
-                            // Calls a local method (render_mycourses) to get list of a user's current courses that they are enrolled on.
-                            list($sortedcourses) = $this->render_mycourses();
-
-                            // After finding out if there will be at least one course to display, check
-                            // for the option of displaying a sub-menu arrow symbol.
-                            if (!empty($PAGE->theme->settings->navbardisplaysubmenuarrow)) {
-                                $branchlabel .= ' &nbsp;<i class="fa fa-caret-down"></i>';
-                            }
-
-                            // Add top level menu option here after finding out if there will be at least one course to display.  This is
-                            // for the option of displaying a sub-menu arrow symbol above, if configured in the theme settings.
-                            $branch = $menu->add($branchlabel, $branchurl, '', $branchsort);
-
-                            $icon = '';
-
-                            if ($sortedcourses) {
-
-                                foreach ($sortedcourses as $course) {
-
-                                    $coursename = '';
-                                    $rawcoursename = ''; // Untrimmed course name.
-                                    if ($showshortcode) {
-                                        $coursename = mb_strimwidth(format_string($course->shortname), 0,
-                                                $mysitesmaxlength, '...', 'utf-8');
-                                        $rawcoursename = $course->shortname;
-                                    } else {
-                                        $coursename = mb_strimwidth(format_string($course->fullname), 0,
-                                                $mysitesmaxlength, '...', 'utf-8');
-                                        $rawcoursename = $course->fullname;
-                                    }
-
-                                    if ($showhover) {
-                                        $alttext = $course->fullname;
-                                    } else {
-                                        $alttext = '';
-                                    }
-
-                                    if ($course->visible) {
-                                        if (!$overridelist) { // Feature not in use, add to menu as normal.
-                                            $branch->add($coursename,
-                                                    new moodle_url('/course/view.php?id='.$course->id), $alttext);
-                                        } else { // We want to check against array from profile field.
-                                            if ((($overridetype == 'profilefields' ||
-                                                    $overridetype == 'profilefieldscohort') &&
-                                                    in_array($course->shortname, $overridelist)) ||
-                                                    ($overridetype == 'strings' &&
-                                                            $this->check_if_in_array_string($overridelist, $course->shortname))) {
-                                                                $icon = '';
-                                                                $branch->add($icon . $coursename,
-                                                                        new moodle_url('/course/view.php?id='.$course->id), $alttext, 100);
-                                                            } else { // If not in array add to sub menu item.
-                                                                if (!isset($parent)) {
-                                                                    $icon = '<i class="fa fa-history"></i> ';
-                                                                    $parent = $branch->add($icon . $trunc = rtrim(
-                                                                            mb_strimwidth(format_string(get_string('pastcourses', 'theme_adaptable')),
-                                                                                    0, $mysitesmaxlengthhidden)) . '...', $this->page->url, $alttext, 1000);
-                                                                }
-                                                                $parent->add($trunc = rtrim(mb_strimwidth(format_string($rawcoursename),
-                                                                        0, $mysitesmaxlengthhidden)) . '...',
-                                                                        new moodle_url('/course/view.php?id='.$course->id),
-                                                                        format_string($rawcoursename));
-                                                            }
-                                        }
-                                    }
-                                }
-
-                                $icon = '<i class="fa fa-eye-slash"></i> ';
-                                $parent = null;
-                                foreach ($sortedcourses as $course) {
-                                    if (!$course->visible && $mysitesvisibility == 'includehidden') {
-                                        if (empty($parent)) {
-                                            $parent = $branch->add($icon .
-                                                    $trunc = rtrim(mb_strimwidth(format_string(get_string('hiddencourses', 'theme_adaptable')),
-                                                            0, $mysitesmaxlengthhidden)) . '...', $this->page->url, '', 2000);
-                                        }
-                                        $parent->add($icon . $trunc = rtrim(mb_strimwidth(format_string($course->fullname),
-                                                0, $mysitesmaxlengthhidden)) . '...',
-                                                new moodle_url('/course/view.php?id='.$course->id), format_string($course->shortname));
-                                    }
-                                }
-                            } else {
-                                $noenrolments = get_string('noenrolments', 'theme_adaptable');
-                                $branch->add('<em>'.$noenrolments.'</em>', new moodle_url('/'), $noenrolments);
-                            }
-
-                        }
+                    if ($navbardisplayicons) {
+                        $branchlabel .= '<i class="fa fa-briefcase fa-lg"></i>';
                     }
 
-                    if (!empty($PAGE->theme->settings->enablethiscourse)) {
-                        if (ISSET($COURSE->id) && $COURSE->id > 1) {
+                    $branchlabel .= ' ' . $branchtitle;
 
-                            $branchtitle = get_string('thiscourse', 'theme_adaptable');
+                    $branchurl   = new moodle_url('#');
+                    $branchsort  = 10001;
 
-                            $branchlabel = '';
-                            if ($navbardisplayicons) {
-                                $branchlabel .= '<i class="fa fa-sitemap fa-lg"></i><span class="menutitle">';
+                    $menudisplayoption = '';
+
+                    // Check menu hover settings.
+                    if (isset($PAGE->theme->settings->mysitesmenudisplay)) {
+                        $menudisplayoption = $PAGE->theme->settings->mysitesmenudisplay;
+                    } else {
+                        $menudisplayoption = 'shortcodehover';
+                    }
+
+                    // The two variables below will control the 4 options available from the settings above for mysitesmenuhover.
+                    $showshortcode = true;  // If false, then display full course name.
+                    $showhover = true;
+
+                    switch ($menudisplayoption) {
+                        case 'shortcodenohover':
+                            $showhover = false;
+                            break;
+                        case 'fullnamenohover':
+                            $showshortcode = false;
+                            $showhover = false;
+                        case 'fullnamehover':
+                            $showshortcode = false;
+                            break;
+                    }
+
+                    // Calls a local method (render_mycourses) to get list of a user's current courses that they are enrolled on.
+                    list($sortedcourses) = $this->render_mycourses();
+
+                    // After finding out if there will be at least one course to display, check
+                    // for the option of displaying a sub-menu arrow symbol.
+                    if (!empty($PAGE->theme->settings->navbardisplaysubmenuarrow)) {
+                        $branchlabel .= ' &nbsp;<i class="fa fa-caret-down"></i>';
+                    }
+
+                    // Add top level menu option here after finding out if there will be at least one course to display.  This is
+                    // for the option of displaying a sub-menu arrow symbol above, if configured in the theme settings.
+                    $branch = $menu->add($branchlabel, $branchurl, '', $branchsort);
+                    $icon = '';
+
+                    if ($sortedcourses) {
+                        foreach ($sortedcourses as $course) {
+                            $coursename = '';
+                            $rawcoursename = ''; // Untrimmed course name.
+
+                            if ($showshortcode) {
+                                $coursename = mb_strimwidth(format_string($course->shortname), 0,
+                                        $mysitesmaxlength, '...', 'utf-8');
+                                $rawcoursename = $course->shortname;
+                            } else {
+                                $coursename = mb_strimwidth(format_string($course->fullname), 0, $mysitesmaxlength, '...', 'utf-8');
+                                $rawcoursename = $course->fullname;
                             }
-                            $branchlabel .= $branchtitle . '</span>';
 
-                            $data = theme_adaptable_get_course_activities();
-
-                            // Check the option of displaying a sub-menu arrow symbol.
-                            if (!empty($PAGE->theme->settings->navbardisplaysubmenuarrow)) {
-                                $branchlabel .= ' &nbsp;<i class="fa fa-caret-down"></i>';
+                            if ($showhover) {
+                                $alttext = $course->fullname;
+                            } else {
+                                $alttext = '';
                             }
 
-                            $branchurl = $this->page->url;
-                            $branch = $menu->add($branchlabel, $branchurl, '', 10002);
-
-                            // Display Participants.
-                            if ($PAGE->theme->settings->displayparticipants) {
-                                $branchtitle = get_string('people', 'theme_adaptable');
-                                $branchlabel = '<i class="fa fa-users fa-lg"></i>'.$branchtitle;
-                                $branchurl = new moodle_url('/user/index.php', array('id' => $PAGE->course->id));
-                                $branch->add($branchlabel, $branchurl, '', 100003);
-                            }
-
-                            // Display Grades.
-                            if ($PAGE->theme->settings->displaygrades) {
-                                $branchtitle = get_string('grades');
-                                $branchlabel = $OUTPUT->pix_icon('i/grades', '', '', array('class' => 'icon')).$branchtitle;
-                                $branchurl = new moodle_url('/grade/report/index.php', array('id' => $PAGE->course->id));
-                                $branch->add($branchlabel, $branchurl, '', 100004);
-                            }
-
-                            // Display activities.
-                            foreach ($data as $modname => $modfullname) {
-                                if ($modname === 'resources') {
-                                    $icon = $OUTPUT->pix_icon('icon', '', 'mod_page', array('class' => 'icon'));
-                                    $branch->add($icon.$modfullname, new moodle_url('/course/resources.php',
-                                            array('id' => $PAGE->course->id)));
+                            if ($course->visible) {
+                                if (!$overridelist) { // Feature not in use, add to menu as normal.
+                                    $branch->add($coursename,
+                                            new moodle_url('/course/view.php?id='.$course->id), $alttext);
                                 } else {
-                                    $icon = $OUTPUT->pix_icon('icon', '', $modname, array('class' => 'icon'));
-                                    $branch->add($icon.$modfullname, new moodle_url('/mod/'.$modname.'/index.php',
-                                            array('id' => $PAGE->course->id)));
+                                    // We want to check against array from profile field.
+                                    if ((($overridetype == 'profilefields' ||
+                                        $overridetype == 'profilefieldscohort') &&
+                                                        in_array($course->shortname, $overridelist)) ||
+                                                        ($overridetype == 'strings' &&
+                                                        $this->check_if_in_array_string($overridelist, $course->shortname))) {
+                                        $icon = '';
+
+                                        $branch->add($icon . $coursename,
+                                                    new moodle_url('/course/view.php?id='.$course->id), $alttext, 100);
+                                    } else {
+                                        // If not in array add to sub menu item.
+                                        if (!isset($parent)) {
+                                            $icon = '<i class="fa fa-history"></i> ';
+                                            $parent = $branch->add($icon . $trunc = rtrim(
+                                                        mb_strimwidth(format_string(get_string('pastcourses', 'theme_adaptable')),
+                                                        0, $mysitesmaxlengthhidden)) . '...', $this->page->url, $alttext, 1000);
+                                        }
+
+                                        $parent->add($trunc = rtrim(mb_strimwidth(format_string($rawcoursename),
+                                                            0, $mysitesmaxlengthhidden)) . '...',
+                                                            new moodle_url('/course/view.php?id='.$course->id),
+                                                            format_string($rawcoursename));
+                                    }
                                 }
                             }
                         }
+
+                        $icon = '<i class="fa fa-eye-slash"></i> ';
+                        $parent = null;
+                        foreach ($sortedcourses as $course) {
+                            if (!$course->visible && $mysitesvisibility == 'includehidden') {
+                                if (empty($parent)) {
+                                    $parent = $branch->add($icon .
+                                        $trunc = rtrim(mb_strimwidth(format_string(get_string('hiddencourses', 'theme_adaptable')),
+                                        0, $mysitesmaxlengthhidden)) . '...', $this->page->url, '', 2000);
+                                }
+
+                                $parent->add($icon . $trunc = rtrim(mb_strimwidth(format_string($course->fullname),
+                                        0, $mysitesmaxlengthhidden)) . '...',
+                                        new moodle_url('/course/view.php?id='.$course->id), format_string($course->shortname));
+                            }
+                        }
+                    } else {
+                        $noenrolments = get_string('noenrolments', 'theme_adaptable');
+                        $branch->add('<em>'.$noenrolments.'</em>', new moodle_url('/'), $noenrolments);
                     }
+                }
+            }
+
+            if (!empty($PAGE->theme->settings->enablethiscourse)) {
+                if (ISSET($COURSE->id) && $COURSE->id > 1) {
+                    $branchtitle = get_string('thiscourse', 'theme_adaptable');
+
+                    $branchlabel = '';
+                    if ($navbardisplayicons) {
+                        $branchlabel .= '<i class="fa fa-sitemap fa-lg"></i><span class="menutitle">';
+                    }
+
+                    $branchlabel .= $branchtitle . '</span>';
+
+                    $data = theme_adaptable_get_course_activities();
+
+                    // Check the option of displaying a sub-menu arrow symbol.
+                    if (!empty($PAGE->theme->settings->navbardisplaysubmenuarrow)) {
+                        $branchlabel .= ' &nbsp;<i class="fa fa-caret-down"></i>';
+                    }
+
+                    $branchurl = $this->page->url;
+                    $branch = $menu->add($branchlabel, $branchurl, '', 10002);
+
+                    // Display Participants.
+                    if ($PAGE->theme->settings->displayparticipants) {
+                        $branchtitle = get_string('people', 'theme_adaptable');
+                        $branchlabel = '<i class="fa fa-users fa-lg"></i>'.$branchtitle;
+                        $branchurl = new moodle_url('/user/index.php', array('id' => $PAGE->course->id));
+                        $branch->add($branchlabel, $branchurl, '', 100003);
+                    }
+
+                    // Display Grades.
+                    if ($PAGE->theme->settings->displaygrades) {
+                        $branchtitle = get_string('grades');
+                        $branchlabel = $OUTPUT->pix_icon('i/grades', '', '', array('class' => 'icon')).$branchtitle;
+                        $branchurl = new moodle_url('/grade/report/index.php', array('id' => $PAGE->course->id));
+                        $branch->add($branchlabel, $branchurl, '', 100004);
+                    }
+
+                    // Display activities.
+                    foreach ($data as $modname => $modfullname) {
+                        if ($modname === 'resources') {
+                            $icon = $OUTPUT->pix_icon('icon', '', 'mod_page', array('class' => 'icon'));
+                            $branch->add($icon.$modfullname, new moodle_url('/course/resources.php',
+                                    array('id' => $PAGE->course->id)));
+                        } else {
+                            $icon = $OUTPUT->pix_icon('icon', '', $modname, array('class' => 'icon'));
+                            $branch->add($icon.$modfullname, new moodle_url('/mod/'.$modname.'/index.php',
+                                    array('id' => $PAGE->course->id)));
+                        }
+                    }
+                }
+            }
         }
 
         if ($navbardisplayicons) {
@@ -2141,45 +2143,47 @@ EOT;
         if ($visibility) {
             if (!empty($PAGE->theme->settings->topmenuscount) && !empty($PAGE->theme->settings->enablemenus)
                     && (!$PAGE->theme->settings->disablemenuscoursepages || $COURSE->id == 1)) {
+                $topmenuscount = $PAGE->theme->settings->topmenuscount;
 
-                        $topmenuscount = $PAGE->theme->settings->topmenuscount;
-                        for ($i = 1; $i <= $topmenuscount; $i++) {
-                            $menunumber = 'menu' . $i;
-                            $newmenu = 'newmenu' . $i;
-                            $class = 'newmenu' . ($i + 4);
-                            $fieldsetting = 'newmenu' . $i . 'field';
-                            $valuesetting = 'newmenu' . $i . 'value';
-                            $newmenutitle = 'newmenu' . $i . 'title';
-                            $requirelogin = 'newmenu' . $i . 'requirelogin';
-                            $logincheck = true;
-                            $custommenuitems = '';
-                            $access = true;
+                for ($i = 1; $i <= $topmenuscount; $i++) {
+                    $menunumber = 'menu' . $i;
+                    $newmenu = 'newmenu' . $i;
+                    $class = 'newmenu' . ($i + 4);
+                    $fieldsetting = 'newmenu' . $i . 'field';
+                    $valuesetting = 'newmenu' . $i . 'value';
+                    $newmenutitle = 'newmenu' . $i . 'title';
+                    $requirelogin = 'newmenu' . $i . 'requirelogin';
+                    $logincheck = true;
+                    $custommenuitems = '';
+                    $access = true;
 
-                            if (empty($PAGE->theme->settings->$requirelogin) || isloggedin()) {
-                                if (!empty($PAGE->theme->settings->$fieldsetting)) {
-                                    $fields = explode('=', $PAGE->theme->settings->$fieldsetting);
-                                    $ftype = $fields[0];
-                                    $setvalue = $fields[1];
-                                    if (!$this->check_menu_access($ftype, $setvalue, $menunumber)) {
-                                        $access = false;
-                                    }
-                                }
-
-                                if (!empty($PAGE->theme->settings->$newmenu) && $access == true) {
-                                    $nummenus++;
-                                    $menu = ($PAGE->theme->settings->$newmenu);
-                                    $title = ($PAGE->theme->settings->$newmenutitle);
-                                    $custommenuitems = $this->parse_custom_menu($menu, format_string($title));
-                                    $custommenu = new custom_menu($custommenuitems, current_language());
-                                    $menus[] = $this->render_overlay_menu($custommenu);
-                                }
+                    if (empty($PAGE->theme->settings->$requirelogin) || isloggedin()) {
+                        if (!empty($PAGE->theme->settings->$fieldsetting)) {
+                            $fields = explode('=', $PAGE->theme->settings->$fieldsetting);
+                            $ftype = $fields[0];
+                            $setvalue = $fields[1];
+                            if (!$this->check_menu_access($ftype, $setvalue, $menunumber)) {
+                                $access = false;
                             }
                         }
+
+                        if (!empty($PAGE->theme->settings->$newmenu) && $access == true) {
+                            $nummenus++;
+                            $menu = ($PAGE->theme->settings->$newmenu);
+                            $title = ($PAGE->theme->settings->$newmenutitle);
+                            $custommenuitems = $this->parse_custom_menu($menu, format_string($title));
+                            $custommenu = new custom_menu($custommenuitems, current_language());
+                            $menus[] = $this->render_overlay_menu($custommenu);
+                        }
                     }
+                }
+            }
         }
+
         if ($nummenus == 0) {
             return '';
         }
+
         $template->rows = array();
 
         $grid = array(
@@ -2192,6 +2196,7 @@ EOT;
                 '11' => '4',
                 '12' => '4'
         );
+
         if ($nummenus <= 4) {
             $row = new stdClass();
             $row->span = (12 / $nummenus);
@@ -2512,31 +2517,28 @@ EOT;
 
         $addlangmenu = true;
         $langs = get_string_manager()->get_list_of_translations();
-        if (count($langs) < 2
-                || empty($CFG->langmenu)
-                || ($this->page->course != SITEID
-                        && !empty($this->page->course->lang))) {
-                            $addlangmenu = false;
-                        }
+        if (count($langs) < 2 || empty($CFG->langmenu) || ($this->page->course != SITEID && !empty($this->page->course->lang))) {
+            $addlangmenu = false;
+        }
 
-                        if ($addlangmenu) {
-                            $strlang = get_string('language');
-                            $currentlang = current_language();
+        if ($addlangmenu) {
+            $strlang = get_string('language');
+            $currentlang = current_language();
 
-                            if (isset($langs[$currentlang])) {
-                                $currentlang = $langs[$currentlang];
-                            } else {
-                                $currentlang = $strlang;
-                            }
+            if (isset($langs[$currentlang])) {
+                $currentlang = $langs[$currentlang];
+            } else {
+                $currentlang = $strlang;
+            }
 
-                            $this->language = $langmenu->add('<i class="fa fa-globe fa-lg"></i><span class="langdesc">'.$currentlang.'</span>',
-                                    new moodle_url($this->page->url), $strlang, 10000);
+            $this->language = $langmenu->add('<i class="fa fa-globe fa-lg"></i><span class="langdesc">'.$currentlang.'</span>',
+                                        new moodle_url($this->page->url), $strlang, 10000);
 
-                            foreach ($langs as $langtype => $langname) {
-                                $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
-                            }
-                        }
-                        return $this->render_custom_menu($langmenu, '', '', 'langmenu');
+            foreach ($langs as $langtype => $langname) {
+                $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
+            }
+        }
+        return $this->render_custom_menu($langmenu, '', '', 'langmenu');
     }
 
 
@@ -2547,6 +2549,7 @@ EOT;
      *
      * @return Custom menu html
      */
+
     public function custom_menu_drawer() {
         global $CFG;
 
@@ -2579,24 +2582,24 @@ EOT;
         if (count($langs) < 2
                 or empty($CFG->langmenu)
                 or ($this->page->course != SITEID and !empty($this->page->course->lang))) {
-                    $addlangmenu = false;
-                }
+            $addlangmenu = false;
+        }
 
-                if (!$menu->has_children() && $addlangmenu === false) {
-                    return '';
-                }
+        if (!$menu->has_children() && $addlangmenu === false) {
+            return '';
+        }
 
-                // $content = '<ul class="navbar-nav mr-auto">';
-                $content = '';
-                foreach ($menu->get_children() as $item) {
-                    if (stristr($menuid, 'drawer'))  {
-                        $content .= $this->render_custom_menu_item_drawer($item, 0, $menuid, false);
-                    } else {
-                        $content .= $this->render_custom_menu_item($item, 0, $menuid);
-                    }
-                }
-                $content = $wrappre . $content . $wrappost;
-                return $content;
+        // $content = '<ul class="navbar-nav mr-auto">';
+        $content = '';
+        foreach ($menu->get_children() as $item) {
+            if (stristr($menuid, 'drawer')) {
+                $content .= $this->render_custom_menu_item_drawer($item, 0, $menuid, false);
+            } else {
+                $content .= $this->render_custom_menu_item($item, 0, $menuid);
+            }
+        }
+        $content = $wrappre . $content . $wrappost;
+        return $content;
     }
 
     /**
@@ -2718,7 +2721,6 @@ EOT;
              } */
             $url = '#';
 
-
             /* $content = '<div class="list-group-item" data-key="' . $menuid . '" data-isexpandable="1" data-indent="0"';
             $content .= 'data-showdivider="0" data-type="0"';
             $content .= ' data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0" data-hidden="0"';
@@ -2750,7 +2752,7 @@ EOT;
                 $content .= $this->render_custom_menu_item_drawer($menunode, 1, $menuid . $submenucount, $indent);
             }
             $content .= '</ul>';
-            //$content .= '</ul></li>';
+            // $content .= '</ul></li>';
             // $content .= '</div>';
         } else {
 
@@ -2982,12 +2984,12 @@ EOT;
             } else if (!empty($activenode) && ($activenode->type == navigation_node::TYPE_ACTIVITY ||
                 $activenode->type == navigation_node::TYPE_RESOURCE)) {
 
-                    // We only want to show the menu on the first page of the activity. This means
-                    // the breadcrumb has no additional nodes.
-                    if ($currentnode && ($currentnode->key == $activenode->key && $currentnode->type == $activenode->type)) {
-                        $showcoursemenu = true;
-                    }
+                // We only want to show the menu on the first page of the activity. This means
+                // the breadcrumb has no additional nodes.
+                if ($currentnode && ($currentnode->key == $activenode->key && $currentnode->type == $activenode->type)) {
+                    $showcoursemenu = true;
                 }
+            }
         }
 
         // This is the site front page.
