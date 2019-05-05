@@ -340,6 +340,17 @@ div.signuppanel h2 {
     background-color: [[setting:msgbadgecolor]];
 }
 
+/* Badges */
+.badge-success {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+.badge-warning {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
 .slidewrap {
     margin-top: [[setting:slidermargintop]];
     margin-bottom: [[setting:slidermarginbottom]];
