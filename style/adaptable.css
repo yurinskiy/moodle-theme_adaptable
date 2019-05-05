@@ -341,16 +341,101 @@ div.signuppanel h2 {
 }
 
 /* Badges */
-.badge-success {
-    background-color: #28a745;
-    color: #ffffff;
+.badge-primary {
+    color: #fff;
+    background-color: #1177d1; }
+
+.badge-primary[href]:hover,
+.badge-primary[href]:focus {
+        color: #fff;
+        text-decoration: none;
+        background-color: #0d5ca2;
 }
 
-.badge-warning,
 .badge-secondary {
-    background-color: #dc3545;
-    color: #ffffff;
+    color: #212529;
+    background-color: #ced4da;
 }
+
+.badge-secondary[href]:hover,
+.badge-secondary[href]:focus {
+        color: #212529;
+        text-decoration: none;
+        background-color: #b1bbc4;
+}
+
+.badge-success {
+    color: #fff;
+    background-color: #5cb85c;
+}
+
+.badge-success[href]:hover,
+.badge-success[href]:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #449d44;
+}
+
+.badge-info {
+    color: #212529;
+    background-color: #5bc0de;
+}
+
+.badge-info[href]:hover,
+.badge-info[href]:focus {
+    color: #212529;
+    text-decoration: none;
+    background-color: #31b0d5;
+}
+
+.badge-warning {
+    color: #212529;
+    background-color: #f0ad4e;
+}
+
+.badge-warning[href]:hover,
+.badge-warning[href]:focus {
+    color: #212529;
+    text-decoration: none;
+    background-color: #ec971f;
+}
+
+.badge-danger {
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.badge-danger[href]:hover,
+.badge-danger[href]:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #c9302c;
+}
+
+.badge-light {
+    color: #212529;
+    background-color: #f8f9fa;
+}
+
+.badge-light[href]:hover,
+.badge-light[href]:focus {
+    color: #212529;
+    text-decoration: none;
+    background-color: #dae0e5;
+}
+
+.badge-dark {
+    color: #fff;
+    background-color: #373a3c;
+}
+
+.badge-dark[href]:hover,
+.badge-dark[href]:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #1f2021;
+}
+
 
 .slidewrap {
     margin-top: [[setting:slidermargintop]];
