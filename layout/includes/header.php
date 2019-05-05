@@ -345,12 +345,14 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                             </ul>
                         </li>
 
-                    <?php } ?>
+                    <?php
+                    }
+                ?>
 
                 </ul>
             </div>
         </nav>
-	</div>
+    </div>
 </div>
 
 <?php
@@ -456,7 +458,9 @@ if (
     </nav>
 
     <nav class="list-group m-t-1">
-        <a class="list-group-item list-group-item-action " href="<?php echo $CFG->wwwroot . '/admin/search.php'; ?>" data-key="sitesettings" data-isexpandable="0" data-indent="0" data-showdivider="1" data-type="71" data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0">
+        <a class="list-group-item list-group-item-action " href="<?php echo $CFG->wwwroot .
+        '/admin/search.php'; ?>" data-key="sitesettings" data-isexpandable="0" data-indent="0" data-showdivider="1" data-type="71"
+        data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0">
             <div class="m-l-0">
                 <div class="media">
                     <span class="media-left">
@@ -472,7 +476,9 @@ if (
 <div id="main-navbar" class="d-none d-lg-block">
     <div class="container">
         <nav class="navbar navbar-expand-md btco-hover-menu">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
             <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -497,32 +503,33 @@ if (
                 <ul class="navbar-nav ml-auto">
 
                     <?php
-                       $navbareditsettings = $PAGE->theme->settings->editsettingsbutton;
-                       $showcog = true;
-                       $showeditbuttons = false;
+                    $navbareditsettings = $PAGE->theme->settings->editsettingsbutton;
+                    $showcog = true;
+                    $showeditbuttons = false;
 
-                       if ($navbareditsettings == 'button') {
-                           $showeditbuttons = true;
-                           $showcog = false;
-                       } else if ($navbareditsettings == 'cogandbutton') {
-                           $showeditbuttons = true;
-                       }
+                    if ($navbareditsettings == 'button') {
+                        $showeditbuttons = true;
+                        $showcog = false;
+                    } else if ($navbareditsettings == 'cogandbutton') {
+                        $showeditbuttons = true;
+                    }
 
-                       $coursemenucontent = $OUTPUT->context_header_settings_menu();
-                        if ($showcog) {
-                            if ($coursemenucontent) {
-                     ?>
-                               <li class="nav-item mr-2">
-                                   <div class="context-header-settings-menu">
-                                       <?php echo $coursemenucontent; ?>
-                                   </div>
-                               </li>
+                    $coursemenucontent = $OUTPUT->context_header_settings_menu();
+                    if ($showcog) {
+                        if ($coursemenucontent) {
+                    ?>
+                            <li class="nav-item mr-2">
+                                <div class="context-header-settings-menu">
+                                    <?php echo $coursemenucontent; ?>
+                                </div>
+                            </li>
                     <?php
-                            }
                         }
-                        $othermenucontent = $OUTPUT->region_main_settings_menu();
-                        if ($showcog) {
-                            if ($othermenucontent ) {
+                    }
+
+                    $othermenucontent = $OUTPUT->region_main_settings_menu();
+                    if ($showcog) {
+                        if ($othermenucontent ) {
                     ?>
                             <li class="nav-item mr-2">
                                 <div id="region-main-settings-menu" class="region-main-settings-menu">
@@ -530,8 +537,8 @@ if (
                                 </div>
                             </li>
                     <?php
-                            }
                         }
+                    }
                     ?>
 
                     <?php
@@ -592,7 +599,7 @@ if (
                     <?php
                         }
                     }
-                        }
+    }
                         ?>
                 </ul>
 

@@ -50,66 +50,60 @@ if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition
 
 <?php
 
-    $sidebarclasses = '';
-    // Hide sidebar on mobile.
-    if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
-        $sidebarclasses = ' d-none d-md-block ';
-    }
-
-?>
+$sidebarclasses = '';
+// Hide sidebar on mobile.
+if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
+    $sidebarclasses = ' d-none d-md-block ';
+} ?>
 
 <div class="container outercont">
     <div id="page-content" class="row-fluid">
-        <?php if (!empty($PAGE->theme->settings->tabbedlayoutdashboard)) {
+        <?php
+        if (!empty($PAGE->theme->settings->tabbedlayoutdashboard)) {
+            $taborder = explode ('-', $PAGE->theme->settings->tabbedlayoutdashboard);
+            $count = 0;
+            echo '<section id="region-main" class="' . $regions['content']  . '">';
 
-        $taborder = explode ('-', $PAGE->theme->settings->tabbedlayoutdashboard);
-        $count = 0;
-        echo '<section id="region-main" class="' . $regions['content']  . '">';
+            echo '<main id="dashboardtabcontainer" class="tabcontentcontainer">';
 
-        echo '<main id="dashboardtabcontainer" class="tabcontentcontainer">';
+            foreach ($taborder as $tabnumber) {
+                if ($tabnumber == 0) {
+                    $tabname = 'dashboard-tab-content';
+                    $tablabel = get_string('tabbedlayouttablabeldashboard', 'theme_adaptable');
+                } else {
+                    $tabname = 'dashboard-tab' . $tabnumber;
+                    $tablabel = get_string('tabbedlayouttablabeldashboard' . $tabnumber, 'theme_adaptable');
+                }
 
-        foreach ($taborder as $tabnumber) {
-            if ($tabnumber == 0) {
-                $tabname = 'dashboard-tab-content';
-                $tablabel = get_string('tabbedlayouttablabeldashboard', 'theme_adaptable');
-            } else {
-                $tabname = 'dashboard-tab' . $tabnumber;
-                $tablabel = get_string('tabbedlayouttablabeldashboard' . $tabnumber, 'theme_adaptable');
+                echo '<input id="' . $tabname . '" type="radio" name="tabs" class="dashboardtab" ' .
+                    ($count == 0 ? ' checked ' : '') . '>' .
+                    '<label for="' . $tabname . '" class="dashboardtab">' . $tablabel .'</label>';
+                    $count++;
             }
 
-            echo '<input id="' . $tabname . '" type="radio" name="tabs" class="dashboardtab" ' .
-                 ($count == 0 ? ' checked ' : '') . '>' .
-                 '<label for="' . $tabname . '" class="dashboardtab">' . $tablabel .'</label>';
-            $count++;
-        }
 
+            // Basic array used by appropriately named blocks below (e.g. course-tab-one).  All this is due to the re-use of
+            // existing functionality and non-use of numbers in block region names.
+            $wordtonumber = array (1 => 'one', 2 => 'two');
+            foreach ($taborder as $tabnumber) {
+                if ($tabnumber == 0) {
+                    echo '<section id="adaptable-dashboard-tab-content" class="adaptable-tab-section tab-panel">';
 
-        // Basic array used by appropriately named blocks below (e.g. course-tab-one).  All this is due to the re-use of
-        // existing functionality and non-use of numbers in block region names.
-        $wordtonumber = array (1 => 'one', 2 => 'two');
-        foreach ($taborder as $tabnumber) {
-            if ($tabnumber == 0) {
-                echo '<section id="adaptable-dashboard-tab-content" class="adaptable-tab-section tab-panel">';
-
-                echo $OUTPUT->course_content_header();
-                echo $OUTPUT->main_content();
-                echo $OUTPUT->course_content_footer();
-                echo '</section>';
-
-            } else {
-                echo '<section id="adaptable-dashboard-tab-' . $tabnumber . '" class="adaptable-tab-section tab-panel">';
-                echo $OUTPUT->get_block_regions('customrowsetting', 'my-tab-' . $wordtonumber[$tabnumber] . '-', '12-0-0-0');
-                echo '</section>';
+                    echo $OUTPUT->course_content_header();
+                    echo $OUTPUT->main_content();
+                    echo $OUTPUT->course_content_footer();
+                    echo '</section>';
+                } else {
+                    echo '<section id="adaptable-dashboard-tab-' . $tabnumber . '" class="adaptable-tab-section tab-panel">';
+                    echo $OUTPUT->get_block_regions('customrowsetting', 'my-tab-' . $wordtonumber[$tabnumber] . '-', '12-0-0-0');
+                    echo '</section>';
+                }
             }
-        }
 
-        echo '</main>';
-        echo '</section>';
-        echo $OUTPUT->blocks('side-post', $regions['blocks'] .  $sidebarclasses);
-        ?>
-
-    <?php } else { ?>
-
+            echo '</main>';
+            echo '</section>';
+            echo $OUTPUT->blocks('side-post', $regions['blocks'] .  $sidebarclasses);
+        } else { ?>
         <section id="region-main" class="<?php echo $regions['content'];?>">
             <?php
                 echo $OUTPUT->course_content_header();
@@ -120,9 +114,7 @@ if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition
 
         <?php
             echo $OUTPUT->blocks('side-post', $regions['blocks']  . $sidebarclasses);
-        ?>
-
-    <?php } ?>
+        } ?>
 
 </div>
 

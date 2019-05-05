@@ -40,11 +40,6 @@ Only screen and (max-width : 1200px)
 480px
 ======================================================= */
 @media only screen and (max-width: 480px) {
-    /* .dropdown-menu.usermen {
-        left: 35%;
-        top: 15px;
-    } */
-
     .flex-caption {
         width: auto !important;
         padding: 5px 0 !important;
@@ -66,10 +61,6 @@ Only screen and (max-width : 1200px)
     #coursesearchbox2 {
         display: none;
     }
-
-    /* #above-header .headermenu .dropdown-menu {
-        margin-top: 15px;
-    } */
 }
 
 
@@ -156,10 +147,6 @@ Only screen and (max-width : 1200px)
         padding: 0;
     }
 
-    /* #page-header {
-        min-height: [[setting:pageheaderheight]];
-    } */
-
     .row-fluid .span3 {
         width: 100%;
     }
@@ -214,17 +201,6 @@ Only screen and (max-width : 1200px)
         margin: 0 10px 0 4px !important;
     }
 
-    /* .nav .dropdown-menu li a:hover,
-    .navbar .nav > li > a:hover {
-        background-color: #000;
-        background-color: rgba(255, 255, 255, 0.1);
-        color: [[setting:fontcolor]] !important;
-    }
-
-    div.navbar {
-        margin-left: auto;
-    } */
-
     #social-connect, .left-col.size2of16.span2 {
         clear: both;
         float: none;
@@ -258,10 +234,6 @@ Only screen and (max-width : 1200px)
     #page-navbar.span12 {
         background-color: transparent;
     }
-
-    /* .dropdown-toggle a {
-        height: 38px !important;
-    } */
 
     .userhead {
         height: 20px;
@@ -441,10 +413,6 @@ Only screen and (max-width : 1200px)
         display: none !important;
     }
 
-    /* .navbar .dropdown-toggle {
-        height: 38px;
-    } */
-
     .nav-collapse .nav {
         width: 100%;
         margin-left: 0 !important;
@@ -453,10 +421,6 @@ Only screen and (max-width : 1200px)
     #adaptable-page-header-wrapper #main-navbar {
         border-bottom: 0;
     }
-
-    /* #navwrap {
-        border-bottom: 0;
-    } */
 
     #page-header a img {
         margin: 0 auto;
@@ -496,17 +460,8 @@ Only screen and (max-width : 1200px)
         top: 30px;
         width: 300px;
     }
-    /* .navbar .nav .dropdown-menu, .headermenu .dropdown-menu, .langmenu .dropdown-menu {
-        min-width: 150px;
-    } */
 
-    /* .icon {
-        height: 48px;
-        width:  48px;
-    } */
-    
-    
-    /* New styles for Adaptable 2. */   
+    /* New styles for Adaptable 2. */
     #adaptable-page-header-wrapper .nav-link {
         padding: inherit;
     }
@@ -515,7 +470,6 @@ Only screen and (max-width : 1200px)
         height: 24px;
         width: 24px;
     }
-
 }
 
 /*=====================================================

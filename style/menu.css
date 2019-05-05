@@ -1,4 +1,3 @@
-
 /*
 * This file is part of Moodle - http://moodle.org/
 *
@@ -25,7 +24,7 @@
 *
 */
 
-/* #navwrap { */
+/* Navwrap */
 #adaptable-page-header-wrapper #main-navbar {
     clear: both;
     border-bottom: 3px solid [[setting:menubordercolor]];

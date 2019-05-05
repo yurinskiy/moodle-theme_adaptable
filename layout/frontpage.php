@@ -98,7 +98,7 @@ if (!empty($PAGE->theme->settings->infobox2)) {
     <div id="page-content" class="row-fluid">
         <div id="page-navbar" class="col-12">
            <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
-           <?php // echo $OUTPUT->navbar(); ?>
+            <?php // echo $OUTPUT->navbar(); ?>
     </div>
 
     <section id="region-main" class="<?php echo $regions['content'];?>">
@@ -112,10 +112,10 @@ if (!empty($PAGE->theme->settings->infobox2)) {
         $classes = '';
 
         // Hide sidebar on mobile.
-        if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
-             $classes = ' d-none d-md-block ';
-        }
-        echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
+    if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
+         $classes = ' d-none d-md-block ';
+    }
+    echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
     ?>
 </div>
 
