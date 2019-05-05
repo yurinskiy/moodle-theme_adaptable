@@ -346,7 +346,8 @@ div.signuppanel h2 {
     color: #ffffff;
 }
 
-.badge-warning {
+.badge-warning,
+.badge-secondary {
     background-color: #dc3545;
     color: #ffffff;
 }
