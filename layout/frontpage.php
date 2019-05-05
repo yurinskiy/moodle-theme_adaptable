@@ -97,18 +97,9 @@ if (!empty($PAGE->theme->settings->infobox2)) {
 ?>
 <div class="container outercont">
     <div id="page-content" class="row-fluid">
-        <?php
-        if (($PAGE->theme->settings->sidebarnotlogged) && (!isloggedin())) {
-        ?>
-        <div id="page-navbar" class="col-9">
-        <?php
-        } else {
-        ?>
         <div id="page-navbar" class="col-12">
-        <?php } ?>
-
-        <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
-        <?php echo $OUTPUT->navbar(); ?>
+           <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
+           <?php // echo $OUTPUT->navbar(); ?>
     </div>
 
     <section id="region-main" class="<?php echo $regions['content'];?>">
@@ -121,10 +112,9 @@ if (!empty($PAGE->theme->settings->infobox2)) {
     <?php
         $classes = '';
 
-        // Hide sidebar on mobile of not logged users.
-        if (($PAGE->theme->settings->smallscreenhidesidebar) ||
-           (($PAGE->theme->settings->sidebarnotlogged) && (!isloggedin()))) {
-            $classes = ' d-none ';
+        // Hide sidebar on mobile.
+        if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
+             $classes = ' d-none d-md-block ';
         }
         echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
     ?>
