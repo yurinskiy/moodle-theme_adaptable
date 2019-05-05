@@ -236,9 +236,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 <header id="adaptable-page-header-wrapper" <?php echo $headerbg; ?> >
 
 <div id="above-header" class="mb-2 mb-lg-3">
-
-	<div class="container">
-
+    <div class="container">
         <nav class="navbar navbar-expand btco-hover-menu">
 
              <div data-region="drawer-toggle" class="d-lg-none mr-3">
@@ -250,11 +248,10 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
             </div>
 
             <div class="collapse navbar-collapse">
-
             <?php
-                if (empty($PAGE->theme->settings->menuslinkright)) {
-                    echo $OUTPUT->get_top_menus();
-                }
+            if (empty($PAGE->theme->settings->menuslinkright)) {
+                echo $OUTPUT->get_top_menus();
+            }
             ?>
 
                 <ul class="navbar-nav ml-auto">
@@ -264,23 +261,23 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                     </div>
 
                     <?php
-                        if (!empty($PAGE->theme->settings->menuslinkright)) {
-                            echo $OUTPUT->get_top_menus();
-                        }
+                    if (!empty($PAGE->theme->settings->menuslinkright)) {
+                        echo $OUTPUT->get_top_menus();
+                    }
                     ?>
 
-					 <?php
-					   if (!empty($PAGE->theme->settings->smallscreenshowsearchicon)) {
-					       $classes = 'd-xs-block d-sm-block d-md-none';
-					   } else {
-					       $classes = 'd-none';
-					   }
-					 ?>
-					<li class="nav-item <?php echo $classes; ?> mx-1">
-						<a class="nav-link" href="<?php p($wwwroot) ?>/course/search.php">
-							<i class="icon fa fa-search fa-fw " title="Search" aria-label="Search"></i>
-						</a>
-					</li>
+                    <?php
+                    if (!empty($PAGE->theme->settings->smallscreenshowsearchicon)) {
+                        $classes = 'd-xs-block d-sm-block d-md-none';
+                    } else {
+                        $classes = 'd-none';
+                    }
+                    ?>
+                    <li class="nav-item <?php echo $classes; ?> mx-1">
+                        <a class="nav-link" href="<?php p($wwwroot) ?>/course/search.php">
+                            <i class="icon fa fa-search fa-fw " title="Search" aria-label="Search"></i>
+                        </a>
+                    </li>
 
                     <?php
 
@@ -291,17 +288,13 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                             echo $OUTPUT->navbar_plugin_output();
                         }
                     }
-                    ?>
 
-					<?php
                     if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
                         echo '<li class="nav-item dropdown ml-3">';
                         echo $OUTPUT->lang_menu();
                         echo '</li>';
                     }
-                    ?>
 
-                    <?php
                     if (!isloggedin() || isguestuser()) {
                         echo $OUTPUT->page_heading_menu();
 
@@ -309,22 +302,23 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                             // Login button.
                     ?>
                         <form class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php" method="post">
-                            <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
-                            <input type="text" name="username"
+                        <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
+                        <input type="text" name="username"
                                     placeholder="<?php echo get_string('loginplaceholder', 'theme_adaptable'); ?>" size="10">
-                            <input type="password" name="password"
+                        <input type="password" name="password"
                                     placeholder="<?php echo get_string('passwordplaceholder', 'theme_adaptable'); ?>"  size="10">
-                            <button class="btn-login" type="submit"><?php echo get_string('logintextbutton', 'theme_adaptable'); ?></button>
+                        <button class="btn-login" type="submit"><?php echo get_string('logintextbutton', 'theme_adaptable'); ?>
+                        </button>
                         </form>
                     <?php
                         } else if ($PAGE->theme->settings->displaylogin == 'button') {
                     ?>
-                            <form class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php" method="post">
-                                <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
-                                <button class="btn-login" type="submit">
-                                    <?php echo get_string('logintextbutton', 'theme_adaptable'); ?>
-                                </button>
-                            </form>
+                        <form class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php" method="post">
+                        <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
+                        <button class="btn-login" type="submit">
+                            <?php echo get_string('logintextbutton', 'theme_adaptable'); ?>
+                        </button>
+                        </form>
                     <?php
                         }
                     } else {
@@ -336,15 +330,15 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 
                             <?php
-                                // Show user avatar.
-                                $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'size' => 80, 'class' => 'userpicture'));
-                                echo $userpic;
+                            // Show user avatar.
+                            $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'size' => 80, 'class' => 'userpicture'));
+                            echo $userpic;
                             ?>
-                                <span class="d-none d-md-inline-block">
-                                <?php echo fullname($USER); ?>
-                                <!-- span class="fa fa-angle-down"></span -->
-                                </span>
 
+                            <span class="d-none d-md-inline-block">
+                            <?php echo fullname($USER); ?>
+                            <!-- span class="fa fa-angle-down"></span -->
+                            </span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarAboveHeaderDropdownMenuLink">
                                 <?php echo $OUTPUT->user_profile_menu() ?>
@@ -476,10 +470,10 @@ if (
 </div>
 
 <div id="main-navbar" class="d-none d-lg-block">
-	<div class="container">
+    <div class="container">
         <nav class="navbar navbar-expand-md btco-hover-menu">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -523,7 +517,7 @@ if (
                                        <?php echo $coursemenucontent; ?>
                                    </div>
                                </li>
-					<?php
+                    <?php
                             }
                         }
                         $othermenucontent = $OUTPUT->region_main_settings_menu();
@@ -540,24 +534,24 @@ if (
                         }
                     ?>
 
-					<?php
-					   // Ensure to only hide the button on relevant pages.  Some pages will need the button, such as the dashboard page.
-					   // Checking if the cog is being displayed above to figure out if it still needs to show (when there is no cog).
-					   // Also show mod pages (e.g. Forum, Lesson) as these sometimes have a button for a specific purpose.
-					   if ( ($showeditbuttons) || (
-				           (empty($coursemenucontent)) &&
-				           (empty($othermenucontent))
-				           ) ||
-				           (strstr($PAGE->pagetype, 'mod-'))
-				           ) {
-					?>
+                    <?php
+                    // Ensure to only hide the button on relevant pages.  Some pages will need the button, such as the dashboard page.
+                    // Checking if the cog is being displayed above to figure out if it still needs to show (when there is no cog).
+                    // Also show mod pages (e.g. Forum, Lesson) as these sometimes have a button for a specific purpose.
+                    if ( ($showeditbuttons) || (
+                        (empty($coursemenucontent)) &&
+                        (empty($othermenucontent))
+                        ) ||
+                        (strstr($PAGE->pagetype, 'mod-'))
+                    ) {
+                        ?>
                         <li class="nav-item mx-0">
                              <div id="edittingbutton" class="breadcrumb-button">
                                 <?php echo $OUTPUT->page_heading_button(); ?>
                             </div>
                         </li>
-					<?php
-					    }
+                        <?php
+                    }
                     ?>
 
                     <?php

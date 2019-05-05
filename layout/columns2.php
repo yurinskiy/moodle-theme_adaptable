@@ -74,11 +74,12 @@ $regions = theme_adaptable_grid($left, $hassidepost);
 
         <?php
 
-            $classes = '';
-            // Hide sidebar on mobile.
-            if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
-                $classes = ' d-none d-md-block ';
-            }
+        $classes = '';
+
+        // Hide sidebar on mobile.
+        if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
+            $classes = ' d-none d-md-block ';
+        }
 
             echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
         ?>

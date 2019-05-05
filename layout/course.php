@@ -63,21 +63,19 @@ $regions = theme_adaptable_grid($left, $hassidepost);
         echo $OUTPUT->page_navbar(false);
 
         // If course page, display course top block region.
-        if (!empty($PAGE->theme->settings->coursepageblocksenabled)): ?>
+        if (!empty($PAGE->theme->settings->coursepageblocksenabled)) { ?>
             <div id="frontblockregion" class="container">
             <div class="row-fluid">
             <?php echo $OUTPUT->get_block_regions('coursepageblocklayoutlayouttoprow', 'course-top-'); ?>
             </div>
             </div>
         <?php
-        endif;
+        }
         ?>
 
         <section id="region-main" class="<?php echo $regions['content'];?>">
 
-		<?php if (!empty($PAGE->theme->settings->tabbedlayoutcoursepage)): ?>
-            <?php
-
+            <?php if (!empty($PAGE->theme->settings->tabbedlayoutcoursepage)) {
             // Use Adaptable tabbed layout.
             $currentpage = theme_adaptable_get_current_page();
 
@@ -139,7 +137,7 @@ $regions = theme_adaptable_grid($left, $hassidepost);
             echo '</main>';
             ?>
 
-        <?php else: ?>
+        <?php } else { ?>
 
             <?php
             echo $OUTPUT->get_course_alerts();
@@ -150,13 +148,13 @@ $regions = theme_adaptable_grid($left, $hassidepost);
             echo $OUTPUT->main_content();
             echo $OUTPUT->course_content_footer(); ?>
 
-		<?php endif; ?>
+		<?php } ?>
 
         <?php // Check here if sidebar is configured to be in footer as we want to include
               // the sidebar information in the main content. ?>
-        <?php if ($movesidebartofooter == false): ?>
+        <?php if ($movesidebartofooter == false) { ?>
         </section>
-        <?php endif; ?>
+        <?php } ?>
 
         <?php
         // Check if the block regions are disabled in settings.  If it is and there were any blocks

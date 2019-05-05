@@ -116,7 +116,6 @@ $THEME->sheets = array(
         'extras',
         'menu',
         'responsive',
-/*        'fontawesome',*/
         'custom'
 );
 
@@ -139,12 +138,10 @@ if ($CFG->version >= 2016052300) {
 // Disabling block docking in old versions.
 $THEME->enable_dock = false;
 
-// But allowing the docking in moodle version 2.6.3 and higher.
-if (floatval($CFG->version) >= 2013111803.02) {
-//    $THEME->enable_dock = true;
-}
-
+// Call the renderer.
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
+
+// Load the theme layouts.
 $THEME->layouts = array(
     // Most backwards compatible layout without the blocks - this is the layout used by default.
     'base' => array(

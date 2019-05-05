@@ -35,11 +35,6 @@ $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $regions = theme_adaptable_grid($left, $hassidepost);
 
 $hasfootnote = (!empty($PAGE->theme->settings->footnote));
-
-?>
-
-<?php
-
 $dashblocksposition = $PAGE->theme->settings->dashblocksposition;
 
 if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition == 'abovecontent') ) { ?>
@@ -65,9 +60,7 @@ if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition
 
 <div class="container outercont">
     <div id="page-content" class="row-fluid">
-
-        <?php if (!empty($PAGE->theme->settings->tabbedlayoutdashboard)): ?>
-        <?php
+        <?php if (!empty($PAGE->theme->settings->tabbedlayoutdashboard)) {
 
         $taborder = explode ('-', $PAGE->theme->settings->tabbedlayoutdashboard);
         $count = 0;
@@ -90,9 +83,6 @@ if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition
             $count++;
         }
 
-        ?>
-
-        <?php
 
         // Basic array used by appropriately named blocks below (e.g. course-tab-one).  All this is due to the re-use of
         // existing functionality and non-use of numbers in block region names.
@@ -118,7 +108,7 @@ if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition
         echo $OUTPUT->blocks('side-post', $regions['blocks'] .  $sidebarclasses);
         ?>
 
-    <?php else: ?>
+    <?php } else { ?>
 
         <section id="region-main" class="<?php echo $regions['content'];?>">
             <?php
@@ -132,7 +122,7 @@ if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition
             echo $OUTPUT->blocks('side-post', $regions['blocks']  . $sidebarclasses);
         ?>
 
-    <?php endif; ?>
+    <?php } ?>
 
 </div>
 
