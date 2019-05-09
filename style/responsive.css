@@ -626,13 +626,6 @@ Other.
         margin-top: 10px;
         margin-right: 10px;
     }
-    .moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons button.yui3-button.closebutton {
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        background-color: #fff;
-        opacity: 0.4;
-        filter: alpha(opacity=40);
-    }
 
     .moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons button.yui3-button.closebutton:hover {
         opacity: 1;

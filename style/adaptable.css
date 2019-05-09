@@ -2246,21 +2246,28 @@ img.smallicon {
 }
 
 /* Dialog box styling. */
-.moodle-dialogue-base .moodle-dialogue-wrap .container  {
+.moodle-dialogue-base .moodle-dialogue-wrap .container,
+.moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .container
+  {
     width: 100%;
 }
 
-.moodle-dialogue-base button.closebutton {
+.moodle-dialogue-base button.closebutton,
+.moodle-dialogue-base .chooserdialogue button.closebutton,
+.moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons button.yui3-button.closebutton
+ {
     opacity: 1;
     line-height: 1.2em;
-    font-size: 1.4em;
     border-radius: 3px;
     background-color: #FFF;
     width: 26px;
 
 }
 
-.moodle-dialogue-base .closebutton::after {
+.moodle-dialogue-base .closebutton::after,
+.moodle-dialogue-base .chooserdialogue .closebutton::after
+.moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons button.yui3-button.closebutton:after
+ {
     display: inline-block;
     vertical-align: top;
     opacity: 1;
