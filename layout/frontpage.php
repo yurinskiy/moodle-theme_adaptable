@@ -135,6 +135,17 @@ if (is_siteadmin()) {
         if (!empty($PAGE->theme->settings->coursepageblockactivitybottomenabled)) {
             echo $OUTPUT->get_block_regions('customrowsetting', 'course-section-', '12-0-0-0');
         }
+
+        if (!empty($PAGE->theme->settings->tabbedlayoutcoursepage)) {
+            echo $OUTPUT->get_block_regions('customrowsetting', 'course-tab-one-', '12-0-0-0');
+            echo $OUTPUT->get_block_regions('customrowsetting', 'course-tab-two-', '12-0-0-0');
+        }
+
+        if (!empty($PAGE->theme->settings->tabbedlayoutdashboard)) {
+            echo $OUTPUT->get_block_regions('customrowsetting', 'my-tab-one-', '12-0-0-0');
+            echo $OUTPUT->get_block_regions('customrowsetting', 'my-tab-two-', '12-0-0-0');
+        }
+
         ?>
 
           <h3><?php echo get_string('frnt-footer', 'theme_adaptable') ?></h3>
