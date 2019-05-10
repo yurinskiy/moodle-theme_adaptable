@@ -7,16 +7,17 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
     return {
         init: function(hasaffix) {
             $(document).ready(function($) {
-                if (hasaffix) {
+
+                // Get the navbar, if present.
+                var navbar = document.getElementById("main-navbar");
+
+                if (hasaffix && navbar != null  ) {
 
                     // New way to handle sticky navbar requirement.
                     // Simply taken from https://www.w3schools.com/howto/howto_js_navbar_sticky.asp.
 
                     // When the user scrolls the page, execute makeNavbarSticky().
                     window.onscroll = function() {makeNavbarSticky()};
-
-                    // Get the navbar
-                    var navbar = document.getElementById("main-navbar");
 
                     // Get the offset position of the navbar
                     var sticky = navbar.offsetTop;
