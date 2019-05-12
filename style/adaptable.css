@@ -2194,6 +2194,10 @@ img.smallicon {
     margin-top: 5px;
 }
 
+#page-login-index .card-header {
+    display: none;
+}
+
 /* Block action classes lifted from previously used bootstrapbase parent theme. */
 
 .block.hidden .header .block_action .block-hider-hide {
