@@ -58,7 +58,7 @@ if (isset($PAGE->theme->settings->stickynavbar) && $PAGE->theme->settings->stick
     $fixedheader = false;
 }
 
-$PAGE->requires->js_call_amd('theme_adaptable/bsoptions', 'init', array($fixedheader));
+//$PAGE->requires->js_call_amd('theme_adaptable/bsoptions', 'init', array($fixedheader));
 $PAGE->requires->js_call_amd('theme_boost/drawer', 'init');
 
 // Layout.
