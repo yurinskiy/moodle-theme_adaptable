@@ -143,7 +143,7 @@ if ($CFG->version >= 2016052300) {
     $usedashboard = true;
 }
 
-// Disabling block docking in old versions.
+// Disabling block docking.
 $THEME->enable_dock = false;
 
 // Call the renderer.
