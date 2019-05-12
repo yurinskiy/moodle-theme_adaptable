@@ -548,8 +548,8 @@ class theme_adaptable_core_renderer extends core_renderer {
             $output .= '</h3></div>';
         }
 
-        // Deprecated moodle version (3.7dev).
-        if ($CFG->version < 2019050100) {
+        // Deprecated moodle version (< 3.6).
+        if ($CFG->version < 2018120300) {
             $output .= '<div id="beta"><center><h3>';
             $output .= get_string('deprecated', 'theme_adaptable');
             $output .= '</h3></center></div>';
