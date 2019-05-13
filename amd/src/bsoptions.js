@@ -1,5 +1,5 @@
 /* jshint ignore:start */
-//define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log) {
+define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log) {
     "use strict"; // ...jshint ;_; !!!
 
     log.debug('Adaptable Bootstrap AMD opt in functions');
@@ -84,7 +84,6 @@
 
                     return false;
                 } );
-
 
             });
 
