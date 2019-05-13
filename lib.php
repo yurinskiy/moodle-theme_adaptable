@@ -521,10 +521,6 @@ function theme_adaptable_page_init(moodle_page $page) {
         $page->requires->jquery_plugin('dropdown', 'theme_adaptable');
     } */
 
-//    $PAGE->requires->jquery_plugin('bootstrap', 'theme_boost');
-
-$page->requires->jquery();
-
     $page->requires->jquery_plugin('pace', 'theme_adaptable');
     $page->requires->jquery_plugin('flexslider', 'theme_adaptable');
     $page->requires->jquery_plugin('ticker', 'theme_adaptable');

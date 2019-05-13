@@ -946,7 +946,7 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .pagelayout-mydashboard #region-main {
-    padding: 0 1em 0 0;
+    padding: 0 1.5em 0 0;
 }
 
 /* #region-main .row {
@@ -1469,7 +1469,7 @@ div.questionbankwindow.block {
 
 #block-region-side-post {
     transition: all .5s ease-in-out;
-    padding: 0 0 0 18px;
+    padding: 0 0 0 28px;
 }
 
 /* .nav .dropdown-menu li a i,
