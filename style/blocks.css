@@ -520,6 +520,11 @@ body.has_dock div#dock {
     padding-left: 5px;
 }
 
+/* Add slightly extra margin on right. */
+.block_settings .block_tree p.hasicon .icon {
+    margin-right: 4px;
+}
+
 /* Tabbed layout for course and dashboard */
 
 main.tabcontentcontainer {
