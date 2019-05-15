@@ -109,6 +109,11 @@
     width: 18px;
 }
 
+/* Added for 3.7 to make dropdowns in blocks be like Boost default as Adaptable styling above for .block .content a makes it appear dark and not unreadable. */
+.block .content a.dropdown-item.active, .block .content a.dropdown-item:active {
+    color: #fff;
+}
+
 /** Some specific block styles for calendar block, login block, my profile block, etc. **/
 
 /* Navigation block */
@@ -120,24 +125,6 @@
 /* Fix wrong indentation */
 .block_navigation .block_tree p.hasicon img {
     padding-right: 0;
-}
-
-/* Course Overview block */
-.block .content .block-myoverview a:active,
-.block .content .block-myoverview li a:active,
-.block .content .block-myoverview td a:active,
-.block .content .block-myoverview a:focus,
-.block .content .block-myoverview li a:focus,
-.block .content .block-myoverview td a:focus {
-    color: [[setting:buttontextcolor]] !important;
-    background-color: [[setting:buttoncolor]] !important;
-}
-
-.block .content .block-myoverview a:hover,
-.block .content .block-myoverview li a:hover,
-.block .content .block-myoverview td a:hover {
-    color: [[setting:buttontextcolor]] !important;
-    background-color: [[setting:buttonhovercolor]] !important;
 }
 
 /* Course Timeline block */

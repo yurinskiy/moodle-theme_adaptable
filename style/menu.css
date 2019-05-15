@@ -841,6 +841,11 @@ a.dropdown-menu > .active > a:focus,
 
 }
 
+/* Increase width slightly of default nav-drawer. */
+[data-region="drawer"] {
+  width: 300px;
+}
+
 // Replacing old FA icons in menus.
 
 // Dashboard.

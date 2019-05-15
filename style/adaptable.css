@@ -67,8 +67,8 @@ textarea {
 a,
 a:visited,
 .tabtree .tabrow0 li a,
-.dropdown-menu.usermen > li > a,
-.dropdown-menu > li > a.dropdown-item {
+#adaptable-page-header-wrapper .dropdown-menu.usermen > li > a,
+#adaptable-page-header-wrapper .dropdown-menu > li > a.dropdown-item {
     color: [[setting:linkcolor]];
     text-decoration: none;
 }
@@ -97,10 +97,10 @@ li {
     line-height: 28px;
 }
 
-.dropdown-menu > li > a:hover,
-.dropdown-menu > li > a:focus,
-.dropdown-submenu:hover > a,
-.dropdown-submenu:focus > a {
+#adaptable-page-header-wrapper .dropdown-menu > li > a:hover,
+#adaptable-page-header-wrapper .dropdown-menu > li > a:focus,
+#adaptable-page-header-wrapper .dropdown-submenu:hover > a,
+#adaptable-page-header-wrapper .dropdown-submenu:focus > a {
     background-color: #fff;
     background-image: none;
 }

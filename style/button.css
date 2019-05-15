@@ -33,7 +33,6 @@
     font-family: [[setting:fontname]];
     font-size: 14px;
     line-height: 20px;
-    color: [[setting:buttontextcolor]] !important;
     text-align: center;
     text-shadow: none;
     vertical-align: middle;
@@ -50,7 +49,6 @@
 .btn-primary,
 .path-mod-workshop .assessment-summary.graded .singlebutton input[type="submit"],
 .path-mod-workshop .example-summary.graded .singlebutton input[type="submit"],
-.btn-link,
 .btn-default,
 [data-role="next"],
 [data-role="previous"],
@@ -94,12 +92,6 @@ td.submit input {
     margin-left: 3px;
 }
 
-/* Child buttons */
-.btn:first-child {
-    background-color: [[setting:buttoncolor]];
-    color: [[setting:buttontextcolor]] !important;
-}
-
 .btn-sm {
   margin-right: 3px;
 }
@@ -119,8 +111,6 @@ a.submit:hover,
 .submit.buttons input[name="cancel"]:hover,
 #page-login-index2 .forgetpass a:hover,
 .submitbutton:hover,
-.btn:hover,
-.btn:active,
 .nav-pills > .active > a:hover, .nav-pills > .active > a:focus {
     background: none;
     background-position: 0 -100%;
