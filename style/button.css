@@ -314,6 +314,7 @@ button[name="resetbutton"]:hover,
 
 /* Remove border from progress icon button styling that is present due to previous styles
    defined for a links used with button styling. */
-a.btn[data-toggle="popover" {
+a.btn[data-toggle="popover"] {
+    margin-left: 5px;
     border: none;
 }

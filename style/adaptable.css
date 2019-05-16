@@ -2191,10 +2191,6 @@ img.smallicon {
     height: 32px;
 }
 
-.form-inline input.form-control {
-    margin-top: 5px;
-}
-
 #page-login-index .card-header {
     display: none;
 }
@@ -2281,7 +2277,7 @@ img.smallicon {
 }
 
 .form-group textarea.form-control {
-    margin: 0.7rem 0;
+    margin: 0 0 0.7rem 0;
 }
 
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {
