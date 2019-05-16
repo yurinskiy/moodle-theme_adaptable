@@ -131,6 +131,10 @@ fieldset {
     margin: 4px 0 !important;
 } */
 
+.form-inline {
+    margin: 5px 0;
+}
+
 @-moz-document url-prefix() {
     fieldset {
         display: table-cell;
