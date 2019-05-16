@@ -2889,7 +2889,7 @@ EOT;
                 $secondrow = $this->tabtree($tab->subtree);
             }
         }
-        return html_writer::tag('ul', $firstrow, array('class' => 'nav nav-tabs')) . $secondrow;
+        return html_writer::tag('ul', $firstrow, array('class' => 'nav nav-tabs mb-3')) . $secondrow;
     }
 
     /**
@@ -2903,17 +2903,19 @@ EOT;
      */
     protected function render_tabobject(tabobject $tab) {
         if ($tab->selected or $tab->activated) {
-            return html_writer::tag('li', html_writer::tag('a', $tab->text), array('class' => 'active'));
+            return html_writer::tag('li', html_writer::tag('a', $tab->text,
+                array('class' => 'nav-link active')), array('class' => 'nav-item'));
         } else if ($tab->inactive) {
-            return html_writer::tag('li', html_writer::tag('a', $tab->text), array('class' => 'disabled'));
+            return html_writer::tag('li', html_writer::tag('a', $tab->text, array('class' => 'nav-link disabled')),
+                array('class' => 'nav-link'));
         } else {
             if (!($tab->link instanceof moodle_url)) {
-                // Backward compartibility when link was passed as quoted string.
+                // Backward compatibility when link was passed as quoted string.
                 $link = "<a href=\"$tab->link\" title=\"$tab->title\">$tab->text</a>";
             } else {
-                $link = html_writer::link($tab->link, $tab->text, array('title' => $tab->title));
+                $link = html_writer::link($tab->link, $tab->text, array('title' => $tab->title, 'class' => 'nav-link'));
             }
-            return html_writer::tag('li', $link);
+            return html_writer::tag('li', $link, array('class' => 'nav-item'));
         }
     }
 

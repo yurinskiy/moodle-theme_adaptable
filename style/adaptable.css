@@ -1138,34 +1138,6 @@ a.carousel-control {
     border-radius: 0 !important;
 }
 
-/* Tabs */
-.nav-tabs > li > a {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px 4px 0 0;
-    color: [[setting:maincolor]];
-}
-
-.nav-tabs > li > a:hover {
-    background-color: [[setting:maincolor]] !important;
-    color: #fff !important;
-    text-decoration: none;
-}
-
-.nav-tabs > .active > a,
-.nav-tabs > .active > a:hover,
-.nav-tabs > .active > a:focus {
-    color: #fff !important;
-    background-color: [[setting:maincolor]];
-    border-bottom-color: transparent;
-    cursor: pointer;
-}
-
-.nav-tabs > .active > a:focus {
-    color: [[setting:fontcolor]] !important;
-}
-
 /* Show modal pop-up. */
 #notice {
     margin: 30px auto;
