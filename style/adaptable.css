@@ -1151,6 +1151,10 @@ a.carousel-control {
 }
 
 /* Modal styles */
+.moodle-dialogue-base .closebutton::after {
+    color: #ff0000;
+}
+
 .modal-backdrop {
     position: fixed;
     top: 0;
