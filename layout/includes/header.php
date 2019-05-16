@@ -218,7 +218,7 @@ echo $OUTPUT->standard_head_html() ?>
 echo $OUTPUT->standard_top_of_body_html();
 
 // Development or wrong moodle version alert.
-echo $OUTPUT->get_dev_alert();
+// echo $OUTPUT->get_dev_alert();.
 ?>
 
 <div id="page" class="container-fluid <?php echo "$setfull $showiconsclass"; ?>">
