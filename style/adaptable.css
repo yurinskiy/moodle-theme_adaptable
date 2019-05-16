@@ -721,6 +721,11 @@ langmenu a:hover {
     margin: 5px 0;
 }
 
+.breadcrumb .fa {
+    display: inline;
+    margin: 12px 0;
+}
+
 .separator {
     margin: 9px;
 }
