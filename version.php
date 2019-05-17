@@ -34,7 +34,7 @@ $plugin->component = 'theme_adaptable';
 $plugin->version   = 2019051700;
 
 // Moodle required version is 3.6.1
-$plugin->requires  = 2018120301;
+$plugin->requires  = 2019051600;
 
 // Adaptable version using SemVer (https://semver.org).
 $plugin->release = '2.0.0';
