@@ -33,7 +33,7 @@ $plugin->component = 'theme_adaptable';
 // Adaptable version date (YYYYMMDDrr where rr is the release number).
 $plugin->version   = 2019051700;
 
-// Moodle required version is 3.6.1
+// Moodle required version is 3.7 Beta for testing.
 $plugin->requires  = 2019051600;
 
 // Adaptable version using SemVer (https://semver.org).
