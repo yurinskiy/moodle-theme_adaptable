@@ -336,6 +336,14 @@ div.signuppanel h2 {
     padding-right: 3px;
 }
 
+.badge {
+    padding: .4rem .6em;
+}
+
+a.component-expand .badge {
+    margin: 0.8em 0.8em 0.4em 0.8em;
+}
+
 .badge,
 .count-container {
     background-color: [[setting:msgbadgecolor]];
@@ -1005,10 +1013,6 @@ a.carousel-control {
 }
 
 /* alert messages */
-.alert {
-    margin-bottom: 0;
-    border-radius: 0;
-}
 
 .alert .close {
     text-decoration: none;
@@ -1069,6 +1073,8 @@ a.carousel-control {
     color: [[setting:alertcolorwarning]];
     background-color: [[setting:alertbackgroundcolorwarning]];
     border-color: [[setting:alertbordercolorwarning]];
+    margin: 0;
+    border-radius: 0;
 }
 .adaptable-alert-warning a, .adaptable-alert-warning a:hover {
     color: [[setting:alertcolorwarning]];
@@ -1102,6 +1108,17 @@ a.carousel-control {
 .path-mod-data .navbar form {
   margin: 0 0;
   line-height: 22px;
+}
+
+#adaptable-page-header-wrapper .navbar #pre-login-form input {
+    margin: 5px;
+    padding: 2px;
+}
+
+#adaptable-page-header-wrapper .navbar #pre-login-form .btn-login {
+    margin: 3px 1px 1px 10px;
+    padding: 0px 15px;
+    height: 30px;
 }
 
 .navbar input#navsearchbox {

@@ -218,7 +218,7 @@ echo $OUTPUT->standard_head_html() ?>
 echo $OUTPUT->standard_top_of_body_html();
 
 // Development or wrong moodle version alert.
-echo $OUTPUT->get_dev_alert();
+// echo $OUTPUT->get_dev_alert();
 ?>
 
 <div id="page" class="container-fluid <?php echo "$setfull $showiconsclass"; ?>">
@@ -301,19 +301,19 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         if ($PAGE->theme->settings->displaylogin == 'box') {
                             // Login button.
                     ?>
-                        <form class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php" method="post">
+                        <form id="pre-login-form" class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php" method="post">
                         <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
                         <input type="text" name="username"
-                                    placeholder="<?php echo get_string('loginplaceholder', 'theme_adaptable'); ?>" size="10">
+                                    placeholder="<?php echo get_string('loginplaceholder', 'theme_adaptable'); ?>" size="11">
                         <input type="password" name="password"
-                                    placeholder="<?php echo get_string('passwordplaceholder', 'theme_adaptable'); ?>"  size="10">
+                                    placeholder="<?php echo get_string('passwordplaceholder', 'theme_adaptable'); ?>"  size="11">
                         <button class="btn-login" type="submit"><?php echo get_string('logintextbutton', 'theme_adaptable'); ?>
                         </button>
                         </form>
                     <?php
                         } else if ($PAGE->theme->settings->displaylogin == 'button') {
                     ?>
-                        <form class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php" method="post">
+                        <form id="pre-login-form" class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php" method="post">
                         <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
                         <button class="btn-login" type="submit">
                             <?php echo get_string('logintextbutton', 'theme_adaptable'); ?>
