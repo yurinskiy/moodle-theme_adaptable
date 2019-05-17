@@ -318,3 +318,8 @@ a.btn[data-toggle="popover"] {
     margin-left: 5px;
     border: none;
 }
+
+/* btn-group */
+.btn-group .btn  {
+    margin-right: 5px;
+}

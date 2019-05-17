@@ -131,6 +131,10 @@ fieldset {
     margin: 4px 0 !important;
 } */
 
+.form-inline {
+    margin: 5px 0;
+}
+
 @-moz-document url-prefix() {
     fieldset {
         display: table-cell;
@@ -729,6 +733,11 @@ langmenu a:hover {
     margin: 5px 0;
 }
 
+.breadcrumb .fa {
+    display: inline;
+    margin: 12px 0;
+}
+
 .separator {
     margin: 9px;
 }
@@ -1163,6 +1172,10 @@ a.carousel-control {
 }
 
 /* Modal styles */
+.moodle-dialogue-base .closebutton::after {
+    color: #ff0000;
+}
+
 .modal-backdrop {
     position: fixed;
     top: 0;

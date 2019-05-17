@@ -209,9 +209,9 @@ $THEME->layouts = array(
     ),
     // Login page.
     'login' => array(
-        'file' => 'columns1.php',
+        'file' => 'login.php',
         'regions' => array(),
-        'options' => array('langmenu' => true, 'nonavbar' => true),
+        'options' => array('langmenu' => true),
     ),
     // Pages that appear in pop-up windows - no navigation, no blocks, no header.
     'popup' => array(
