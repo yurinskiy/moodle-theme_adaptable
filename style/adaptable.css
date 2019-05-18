@@ -1217,6 +1217,11 @@ a.carousel-control {
     top: 10%;
 }
 
+.modal-title h5 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
 .modal-header {
     padding: 9px 15px;
     border-bottom: 1px solid #ddd;
