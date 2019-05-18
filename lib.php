@@ -17,10 +17,11 @@
 /**
  * Version details
  *
- * @package    theme_adaptable
- * @copyright  2015-2016 Jeremy Hopkins (Coventry University)
- * @copyright  2015-2018 Fernando Acedo (3-bits.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   theme_adaptable
+ * @copyright 2015-2019 Jeremy Hopkins (Coventry University)
+ * @copyright 2015-2019 Fernando Acedo (3-bits.com)
+ * @copyright 2017-2019 Manoj Solanki (Coventry University)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
 
@@ -253,7 +254,8 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:tabbedlayoutcoursepagetabcolorselected]]' => '#06c',
         '[[setting:tabbedlayoutcoursepagetabcolorunselected]]' => '#eee',
         '[[setting:frontpagenumbertiles]]' => '4',
-        '[[setting:sidebarnotlogged]]' => 'true'
+        '[[setting:sidebarnotlogged]]' => 'true',
+        '[[setting:gdprbutton]]' => 1
     );
 
     // Get all the defined settings for the theme and replace defaults.
