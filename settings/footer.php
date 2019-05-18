@@ -136,7 +136,7 @@ $title = get_string('gdprbutton', 'theme_adaptable');
 $description = get_string('gdprbuttondesc', 'theme_adaptable');
 $radchoices = array(
     'none' => get_string('hide', 'theme_adaptable'),
-    'block' => get_string('show', 'theme_adaptable'),
+    'inline' => get_string('show', 'theme_adaptable'),
 );
 $setting = new admin_setting_configselect($name, $title, $description, 1, $radchoices);
 $setting->set_updatedcallback('theme_reset_all_caches');
