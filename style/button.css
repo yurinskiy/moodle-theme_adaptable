@@ -98,7 +98,7 @@ td.submit input {
 
 /* Action buttons */
 #notice .singlebutton + .singlebutton input,
-.submit.buttons input[name="cancel"] {
+submit.buttons input[name="cancel"] {
     background-color: [[setting:editoffbk]] !important;
     text-shadow: none;
 }
@@ -181,8 +181,7 @@ td.submit input[disabled] {
 
 #edittingbutton .btn,
 #edittingbutton input[type="submit"],
-#edittingbutton a
-{
+#edittingbutton a {
     background-image: none;
     background-color: [[setting:editonbk]];
     color: [[setting:editfont]] !important;
@@ -192,18 +191,25 @@ td.submit input[disabled] {
     box-shadow: 0 [[setting:buttondropshadow]] 0 0 rgba(0, 0, 0, 0.5) inset;
 }
 
-
 .editing #edittingbutton .btn,
 .editing #edittingbutton input[type="submit"],
 .editing #edittingbutton a:hover,
-.purgecaches a {
+.purgecaches a,
+.tool_dataprivacy a {
     color: [[setting:editfont]];
     background-image: none;
     background-color: [[setting:editoffbk]];
     margin-top: [[setting:edittopmargin]];
     padding: [[setting:editverticalpadding]] [[setting:edithorizontalpadding]];
-    text-decoration: none;
+    text-decoration: none !important;
+    box-shadow: 0 [[setting:buttondropshadow]] 0 0 rgba(0, 0, 0, 0.5) inset;
+    border-radius: [[setting:buttonradius]];
 }
+
+.fp-btn-choose {
+    margin-bottom: 10px;
+}
+
 
 /* Set Cancel button to a link instead a button to improve usability */
 .submit.buttons input[name="cancel"],

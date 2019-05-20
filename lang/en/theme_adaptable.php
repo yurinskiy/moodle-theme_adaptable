@@ -17,11 +17,11 @@
 /**
  * Version details
  *
- * @package    theme_adaptable
- * @copyright  2015-2018 Jeremy Hopkins (Coventry University)
- * @copyright  2015-2018 Fernando Acedo (3-bits.com)
- * @copyright  2017-2018 Manoj Solanki (Coventry University)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   theme_adaptable
+ * @copyright 2015-2019 Jeremy Hopkins (Coventry University)
+ * @copyright 2015-2019 Fernando Acedo (3-bits.com)
+ * @copyright 2017-2019 Manoj Solanki (Coventry University)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
 
@@ -424,6 +424,9 @@ $string['footercontentdesc'] = 'Add content to footer section ';
 $string['hidefootersocial'] = 'Show social icons';
 $string['hidefootersocialdesc'] = 'Show social icons in the footer below the blocks.';
 
+// Data Retention Summary Button.
+$string['gdprbutton'] = 'Data Retention Summary button';
+$string['gdprbuttondesc'] = 'Display the Data Retention Summary button in the footer.';
 
 // Moodle Docs link.
 $string['moodledocs'] = 'Moodle Docs link';

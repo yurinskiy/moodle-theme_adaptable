@@ -17,10 +17,11 @@
 /**
  * Version details
  *
- * @package    theme_adaptable
- * @copyright 2015 Jeremy Hopkins (Coventry University)
- * @copyright 2015 Fernando Acedo (3-bits.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   theme_adaptable
+ * @copyright 2015-2019 Jeremy Hopkins (Coventry University)
+ * @copyright 2015-2019 Fernando Acedo (3-bits.com)
+ * @copyright 2017-2019 Manoj Solanki (Coventry University)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
 
@@ -124,6 +125,18 @@ $description = get_string('hidefootersocialdesc', 'theme_adaptable');
 $radchoices = array(
     0 => get_string('hide', 'theme_adaptable'),
     1 => get_string('show', 'theme_adaptable'),
+);
+$setting = new admin_setting_configselect($name, $title, $description, 1, $radchoices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+// Show Data retention button link.
+$name = 'theme_adaptable/gdprbutton';
+$title = get_string('gdprbutton', 'theme_adaptable');
+$description = get_string('gdprbuttondesc', 'theme_adaptable');
+$radchoices = array(
+    'none' => get_string('hide', 'theme_adaptable'),
+    'inline' => get_string('show', 'theme_adaptable'),
 );
 $setting = new admin_setting_configselect($name, $title, $description, 1, $radchoices);
 $setting->set_updatedcallback('theme_reset_all_caches');

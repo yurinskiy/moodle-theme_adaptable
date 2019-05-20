@@ -591,6 +591,10 @@ span.fa-chevron-right.fa {
     display: block;
 }
 
+.tool_dataprivacy {
+    display: [[setting:gdprbutton]];
+}
+
 .screen-reader-text {
     left: -9999px;
     position: absolute;
@@ -1211,6 +1215,11 @@ a.carousel-control {
 
 .modal.fade.in {
     top: 10%;
+}
+
+.modal-title h5 {
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .modal-header {
