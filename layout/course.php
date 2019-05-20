@@ -75,7 +75,8 @@ $regions = theme_adaptable_grid($left, $hassidepost);
 
         <section id="region-main" class="<?php echo $regions['content'];?>">
 
-            <?php if (!empty($PAGE->theme->settings->tabbedlayoutcoursepage)) {
+            <?php
+            if (!empty($PAGE->theme->settings->tabbedlayoutcoursepage)) {
                 // Use Adaptable tabbed layout.
                 $currentpage = theme_adaptable_get_current_page();
 
@@ -141,16 +142,18 @@ $regions = theme_adaptable_grid($left, $hassidepost);
                     }
                 }
                 echo '</main>';
-} else {
-    echo $OUTPUT->get_course_alerts();
-    if (!empty($PAGE->theme->settings->coursepageblocksliderenabled) ) {
-        echo $OUTPUT->get_block_regions('customrowsetting', 'news-slider-', '12-0-0-0');
-    }
-    echo $OUTPUT->course_content_header();
-    echo $OUTPUT->main_content();
-    echo $OUTPUT->course_content_footer();
-}
+            } else {
+                echo $OUTPUT->get_course_alerts();
+                if (!empty($PAGE->theme->settings->coursepageblocksliderenabled) ) {
+                    echo $OUTPUT->get_block_regions('customrowsetting', 'news-slider-', '12-0-0-0');
+                }
+                echo $OUTPUT->course_content_header();
+                echo $OUTPUT->main_content();
+                echo $OUTPUT->course_content_footer();
+            }
+            ?>
 
+<?php
 // Check here if sidebar is configured to be in footer as we want to include
 // the sidebar information in the main content.
 

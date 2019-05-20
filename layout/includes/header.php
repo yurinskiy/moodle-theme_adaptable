@@ -301,20 +301,22 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         if ($PAGE->theme->settings->displaylogin == 'box') {
                             // Login button.
                     ?>
-                        <form id="pre-login-form" class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php" method="post">
-                        <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
-                        <input type="text" name="username"
-                                    placeholder="<?php echo get_string('loginplaceholder', 'theme_adaptable'); ?>" size="11">
-                        <input type="password" name="password"
-                                    placeholder="<?php echo get_string('passwordplaceholder', 'theme_adaptable'); ?>"  size="11">
-                        <button class="btn-login" type="submit"><?php echo get_string('logintextbutton', 'theme_adaptable'); ?>
-                        </button>
-                        </form>
+                    <form id="pre-login-form" class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php"
+                        method="post">
+                    <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
+                    <input type="text" name="username"
+                                placeholder="<?php echo get_string('loginplaceholder', 'theme_adaptable'); ?>" size="11">
+                    <input type="password" name="password"
+                                placeholder="<?php echo get_string('passwordplaceholder', 'theme_adaptable'); ?>"  size="11">
+                    <button class="btn-login" type="submit"><?php echo get_string('logintextbutton', 'theme_adaptable'); ?>
+                    </button>
+                    </form>
                     <?php
                         } else if ($PAGE->theme->settings->displaylogin == 'button') {
                     ?>
-                        <form id="pre-login-form" class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php" method="post">
-                        <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
+                        <form id="pre-login-form" class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php"
+                            method="post">
+                        <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>"/>
                         <button class="btn-login" type="submit">
                             <?php echo get_string('logintextbutton', 'theme_adaptable'); ?>
                         </button>
@@ -331,7 +333,8 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
                             <?php
                             // Show user avatar.
-                            $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'size' => 80, 'class' => 'userpicture'));
+                            $userpic = $OUTPUT->user_picture($USER, array('link' => false,
+                                                                          'size' => 80, 'class' => 'userpicture'));
                             echo $userpic;
                             ?>
 
@@ -542,9 +545,10 @@ if (
                     ?>
 
                     <?php
-                    // Ensure to only hide the button on relevant pages.  Some pages will need the button, such as the dashboard page.
-                    // Checking if the cog is being displayed above to figure out if it still needs to show (when there is no cog).
-                    // Also show mod pages (e.g. Forum, Lesson) as these sometimes have a button for a specific purpose.
+                    // Ensure to only hide the button on relevant pages.  Some pages will need the button, such as the
+                    // dashboard page. Checking if the cog is being displayed above to figure out if it still needs to
+                    // show (when there is no cog). Also show mod pages (e.g. Forum, Lesson) as these sometimes have
+                    // a button for a specific purpose.
                     if ( ($showeditbuttons) || (
                         (empty($coursemenucontent)) &&
                         (empty($othermenucontent))
@@ -565,13 +569,15 @@ if (
                     if (isloggedin()) {
                         if ($PAGE->theme->settings->enableshowhideblocks) { ?>
                            <li class="nav-item mr-1 hbl">
-                               <a href="javascript:void(0);" class="nav-link moodlezoom" title="<?php echo get_string('hideblocks', 'theme_adaptable') ?>">
+                               <a href="javascript:void(0);" class="nav-link moodlezoom"
+                                   title="<?php echo get_string('hideblocks', 'theme_adaptable') ?>">
                                    <i class="fa fa-indent fa-lg"></i>
                                    <span class="zoomdesc"><?php echo get_string('hideblocks', 'theme_adaptable') ?></span>
                                </a>
                            </li>
                            <li class="nav-item mr-1 sbl">
-                               <a href="javascript:void(0);" class="nav-link moodlezoom" title="<?php echo get_string('showblocks', 'theme_adaptable') ?>">
+                               <a href="javascript:void(0);" class="nav-link moodlezoom"
+                                   title="<?php echo get_string('showblocks', 'theme_adaptable') ?>">
                                    <i class="fa fa-outdent fa-lg"></i>
                                    <span class="zoomdesc"><?php echo get_string('showblocks', 'theme_adaptable') ?></span>
                                </a>
@@ -581,7 +587,8 @@ if (
 
                         if ($PAGE->theme->settings->enablezoom) { ?>
                             <li class="nav-item mx-0 hbll">
-                                <a class="nav-link moodlewidth" href="javascript:void(0);" title="<?php echo get_string('fullscreen', 'theme_adaptable') ?>">
+                                <a class="nav-link moodlewidth" href="javascript:void(0);"
+                                    title="<?php echo get_string('fullscreen', 'theme_adaptable') ?>">
                                     <i class="fa fa-expand fa-lg"></i>
                                     <?php if ($PAGE->theme->settings->enablezoomshowtext) { ?>
                                     <span class="zoomdesc"><?php echo get_string('fullscreen', 'theme_adaptable') ?></span>
@@ -589,7 +596,8 @@ if (
                                 </a>
                             </li>
                             <li class="nav-item mx-0 sbll">
-                                <a class="nav-link moodlewidth" href="javascript:void(0);" title="<?php echo get_string('standardview', 'theme_adaptable') ?>">
+                                <a class="nav-link moodlewidth" href="javascript:void(0);"
+                                    title="<?php echo get_string('standardview', 'theme_adaptable') ?>">
                                     <i class="fa fa-compress fa-lg"></i>
                                     <?php if ($PAGE->theme->settings->enablezoomshowtext) { ?>
                                     <span class="zoomdesc"><?php echo get_string('standardview', 'theme_adaptable') ?></span>
