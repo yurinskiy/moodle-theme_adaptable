@@ -587,10 +587,11 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol .singlese
     height: auto;
 }
 
-/* #page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscussion {
-    margin-top: 5px;
-} */
-
+/* For forum page, to add padding to each discussion in the table. Applies to Moodle 3.6 only. */
+.path-mod-forum .forumheaderlist tbody .discussion td {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
 
 /* Remove margin for form elements where it's not needed. */
 #page-mod-forum-discuss .discussioncontrols .form-inline,

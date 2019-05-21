@@ -76,7 +76,7 @@ td.submit input {
     border-radius: [[setting:buttonradius]];
     color: [[setting:buttontextcolor]] !important;
     cursor: pointer;
-    padding: .375rem .75rem;
+    padding: .4rem 1rem;
     -webkit-transition: background .2s ease-out;
     -moz-transition: background .2s ease-out;
     -ie-transition: background .2s ease-out;
