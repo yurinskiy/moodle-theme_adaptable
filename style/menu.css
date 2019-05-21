@@ -778,7 +778,6 @@ a.dropdown-menu > .active > a:focus,
 }
 
 @media only screen and (min-width: 991px) {
-
     #adaptable-page-header-wrapper .btco-hover-menu .collapse ul li {
         position:relative;
     }
@@ -790,21 +789,18 @@ a.dropdown-menu > .active > a:focus,
     #adaptable-page-header-wrapper .btco-hover-menu .collapse ul ul.dropdown-menu {
         position: absolute;
         top: 100%;
-        /* left: 0; */
         min-width: 180px;
         display: none;
     }
 
     #adaptable-page-header-wrapper #above-header .btco-hover-menu .collapse ul ul.dropdown-menu {
-        min-width: 160px;
+        min-width: 60px;
     }
 
     #adaptable-page-header-wrapper #above-header .btco-hover-menu .collapse ul [id^='langmenu']  {
         min-width: 135px;
-    /*    margin: 2px 0 0 15px; */
     }
 
-    /*******/
     #adaptable-page-header-wrapper .btco-hover-menu .collapse ul ul.dropdown-menu li {
         position: relative;
     }
@@ -821,7 +817,6 @@ a.dropdown-menu > .active > a:focus,
         display: none;
     }
 
-    /*******/
     #adaptable-page-header-wrapper .btco-hover-menu .collapse ul ul.dropdown-menu ul li {
         position: relative;
     }
@@ -838,7 +833,6 @@ a.dropdown-menu > .active > a:focus,
         display: none;
         z-index: 1
     }
-
 }
 
 /* Increase width slightly of default nav-drawer. */
@@ -847,7 +841,6 @@ a.dropdown-menu > .active > a:focus,
 }
 
 // Replacing old FA icons in menus.
-
 // Dashboard.
 .fa-dashboard::before,
 .fa-tachometer::before {
