@@ -76,7 +76,7 @@ td.submit input {
     border-radius: [[setting:buttonradius]];
     color: [[setting:buttontextcolor]] !important;
     cursor: pointer;
-    padding: 8px 15px 8px;
+    padding: .375rem .75rem;
     -webkit-transition: background .2s ease-out;
     -moz-transition: background .2s ease-out;
     -ie-transition: background .2s ease-out;
@@ -89,7 +89,7 @@ td.submit input {
     border-color: #cccccc !important;
     color: #292b2c !important;
     min-height: 32px;
-    margin-left: 3px;
+    margin-left: 6px;
 }
 
 .btn-sm {
