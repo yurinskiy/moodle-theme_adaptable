@@ -1210,7 +1210,7 @@ a.carousel-control {
 
 .modal.fade {
     transition: opacity .3s linear, top .3s ease-out;
-    top: -25%;
+    /* top: -25%; */
 }
 
 .modal.fade.in {
