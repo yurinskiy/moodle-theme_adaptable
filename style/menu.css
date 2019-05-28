@@ -265,7 +265,7 @@ adaptable-page-header-wrapper#affix {
 
 
 #adaptable-page-header-wrapper .navbar-nav .dropdown li a i,
-#adaptable-page-header-wrapper .navbar-nav li a i,
+#adaptable-page-header-wrapper #above-header a i,
 #adaptable-page-header-wrapper .navbar-nav .dropdown li a moodlezoom  i
  {
     padding-right: 4px;
@@ -444,7 +444,7 @@ j    padding: 0;
 }
 
 #adaptable-page-header-wrapper #above-header .langmenu a i,
-#adaptable-page-header-wrapper #above-header .linksmenu a i {
+#adaptable-page-header-wrapper #above-header a i {
     color: [[setting:headertextcolor]];
 }
 

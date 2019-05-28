@@ -240,22 +240,22 @@ class theme_adaptable_core_renderer extends core_renderer {
         // Link text in fourth parameter.
         // Icon fa-icon in fifth param.
         $usermenuitems = array(
-                array('enablemy', false, $CFG->wwwroot.'/my', get_string('myhome'), 'fa-dashboard'),
-                array('enableprofile', false, $CFG->wwwroot.'/user/profile.php', get_string('viewprofile'), 'fa-user'),
-                array('enableeditprofile', false, $CFG->wwwroot.'/user/edit.php', get_string('editmyprofile'), 'fa-cog'),
-                array('enableprivatefiles', false, $CFG->wwwroot.'/user/files.php', get_string('privatefiles', 'block_private_files'),
-                        'fa-file'),
-                array('enablegrades', false, $CFG->wwwroot.'/grade/report/overview/index.php', get_string('grades'), 'fa-list-alt'),
-                array('enablebadges', false, $CFG->wwwroot.'/badges/mybadges.php', get_string('badges'), 'fa-certificate'),
-                array('enablepref', '2015051100', $CFG->wwwroot.'/user/preferences.php', get_string('preferences'), 'fa-cog'),
-                array('enablenote', false, $CFG->wwwroot.'/message/edit.php', get_string('notifications'), 'fa-paper-plane'),
-                array('enableblog', false, $CFG->wwwroot.'/blog/index.php', get_string('enableblog', 'theme_adaptable'), 'fa-rss'),
-                array('enableposts', false, $CFG->wwwroot.'/mod/forum/user.php', get_string('enableposts', 'theme_adaptable'),
-                        'fa-commenting'),
-                array('enablefeed', false, $CFG->wwwroot.'/report/myfeedback/index.php', get_string('enablefeed',
-                        'theme_adaptable'), 'fa-bullhorn'),
-                array('enablecalendar', false, $CFG->wwwroot.'/calendar/view.php', get_string('pluginname', 'block_calendar_month'),
-                        'fa-calendar'));
+            array('enablemy', false, $CFG->wwwroot.'/my', get_string('myhome'), 'fa-dashboard'),
+            array('enableprofile', false, $CFG->wwwroot.'/user/profile.php', get_string('viewprofile'), 'fa-user'),
+            array('enableeditprofile', false, $CFG->wwwroot.'/user/edit.php', get_string('editmyprofile'), 'fa-cog'),
+            array('enableprivatefiles', false, $CFG->wwwroot.'/user/files.php', get_string('privatefiles', 'block_private_files'),
+                    'fa-file'),
+            array('enablegrades', false, $CFG->wwwroot.'/grade/report/overview/index.php', get_string('grades'), 'fa-list-alt'),
+            array('enablebadges', false, $CFG->wwwroot.'/badges/mybadges.php', get_string('badges'), 'fa-certificate'),
+            array('enablepref', '2015051100', $CFG->wwwroot.'/user/preferences.php', get_string('preferences'), 'fa-cog'),
+            array('enablenote', false, $CFG->wwwroot.'/message/edit.php', get_string('notifications'), 'fa-paper-plane'),
+            array('enableblog', false, $CFG->wwwroot.'/blog/index.php', get_string('enableblog', 'theme_adaptable'), 'fa-rss'),
+            array('enableposts', false, $CFG->wwwroot.'/mod/forum/user.php', get_string('enableposts', 'theme_adaptable'),
+                    'fa-commenting'),
+            array('enablefeed', false, $CFG->wwwroot.'/report/myfeedback/index.php', get_string('enablefeed',
+                    'theme_adaptable'), 'fa-bullhorn'),
+            array('enablecalendar', false, $CFG->wwwroot.'/calendar/view.php', get_string('pluginname', 'block_calendar_month'),
+                    'fa-calendar'));
 
         $returnurl = $this->get_current_page_url(true);
         $context = context_course::instance($COURSE->id);
@@ -675,21 +675,21 @@ EOT;
             $trackurl = '"'.str_replace('"', '\"', $trackurl).'"';
             // Here we go.
             $analytics .= '<!-- Start Piwik Code -->'."\n".
-                    '<script type="text/javascript">'."\n".
-                    '    var _paq = _paq || [];'."\n".
-                    '    _paq.push(["setDocumentTitle", '.$trackurl.']);'."\n".
-                    '    _paq.push(["trackPageView"]);'."\n".
-                    '    _paq.push(["enableLinkTracking"]);'."\n".
-                    '    (function() {'."\n".
-                    '      var u="//'.$siteurl.'/";'."\n".
-                    '      _paq.push(["setTrackerUrl", u+"piwik.php"]);'."\n".
-                    '      _paq.push(["setSiteId", '.$siteid.']);'."\n".
-                    '      var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];'."\n".
-                    '    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"piwik.js";s.parentNode.insertBefore(g,s);'."\n".
-                    '    })();'."\n".
-                    '</script>'.$addition."\n".
-                    '<!-- End Piwik Code -->'."\n".
-                    '';
+                '<script type="text/javascript">'."\n".
+                '   var _paq = _paq || [];'."\n".
+                '   _paq.push(["setDocumentTitle", '.$trackurl.']);'."\n".
+                '   _paq.push(["trackPageView"]);'."\n".
+                '   _paq.push(["enableLinkTracking"]);'."\n".
+                '   (function() {'."\n".
+                '     var u="//'.$siteurl.'/";'."\n".
+                '     _paq.push(["setTrackerUrl", u+"piwik.php"]);'."\n".
+                '     _paq.push(["setSiteId", '.$siteid.']);'."\n".
+                '     var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];'."\n".
+                '   g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"piwik.js";s.parentNode.insertBefore(g,s);'."\n".
+                '   })();'."\n".
+                '</script>'.$addition."\n".
+                '<!-- End Piwik Code -->'."\n".
+                '';
         }
         return $analytics;
     }
@@ -1523,18 +1523,12 @@ EOT;
         $overridelist = false;
         $overridestrings = false;
         $overridetype = 'off';
-        /* $sessttl = 0;
-        $cache = cache::make('theme_adaptable', 'userdata'); */
 
         if (!empty($PAGE->theme->settings->navbardisplayicons)) {
             $navbardisplayicons = true;
         } else {
             $navbardisplayicons = false;
         }
-
-        /* if ($sessttl > 0 && time() <= $cache->get('usernavbarttl')) {
-            return $cache->get('mysitesvisibility');
-        } */
 
         $usernavbar = 'excludehidden';
         if (!empty($PAGE->theme->settings->enablemysites)) {
@@ -1973,12 +1967,12 @@ EOT;
                         for ($i = 3; $i < count($cells); $i++) {
                             // Check if the current cell contain a valid capability or not.
                             if (!$capinfo = get_capability_info(trim($cells[$i]))) {
-                                // NOTE: echo $cells[$i]." is not a valid capability";.
 
                                 // Should we say to the user that the capability is not valid ?
                                 // It should be better to print this when the "admin" fill the toolmenu, not when we print it.
 
-                                // If it's not valid, check the next cell (here we could change the behaviour from "do nothing" to "delete the line").
+                                // If it's not valid, check the next cell (here we could change the behaviour from "do nothing"
+                                // to "delete the line").
                                 continue;
                             }
 
@@ -1991,7 +1985,8 @@ EOT;
                                 break;
 
                                 // NOTE: The behaviour here is "the user need to have ALL capabilities written on the line"
-                                // I.E: AND logic only, it needs a more complex traitement if we want to take in account some logics mixing OR and AND.
+                                // I.E: AND logic only, it needs a more complex traitement if we want to take in
+                                // account some logics mixing OR and AND.
                             }
                         }
                     }
@@ -2589,7 +2584,6 @@ EOT;
             return '';
         }
 
-        // $content = '<ul class="navbar-nav mr-auto">';
         $content = '';
         foreach ($menu->get_children() as $item) {
             if (stristr($menuid, 'drawer')) {
@@ -2614,43 +2608,22 @@ EOT;
 
         if ($menunode->has_children()) {
 
-            /*            if ($level == 1) {
-             $class = 'dropdown';
-             } else {
-             $class = 'dropdown-menu';
-             }
-
-             if ($menunode === $this->language) {
-             $class .= ' langmenu';
-             }
-
-             $content = html_writer::start_tag('li', array('class' => $class)); */
-            // $content .= '<li class="nav-item dropdown">';
-
-            // If the child has menus render it as a sub menu.
-            /* $submenucount++;
-             if ($menunode->get_url() !== null) {
-             $url = $menunode->get_url();
-             } else {
-             $url = '#cm_submenu_'.$submenucount;
-             } */
             $url = '#';
 
             $content = '<li class="nav-item dropdown">';
             $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'nav-link dropdown-toggle',
                     'id' => $menuid . $submenucount, 'aria-haspopup' => 'true',
                     'data-target' => $url, 'data-toggle' => 'dropdown',
-                    // 'data-toggle' => 'dropdown', 'role' => 'button', 'id' => 'navbarDropdown', 'aria-haspopup' => 'true',
-                    /* 'aria-expanded' => 'false', */ 'title' => $menunode->get_title()));
+                    'title' => $menunode->get_title()));
             $content .= $menunode->get_text();
             $content .= '</a>';
             $content .= '<ul class="dropdown-menu" aria-labelledby="' . $menuid . $submenucount . '">';
-            // $content .= '<div class="dropdown-menu" aria-labelledby="navbarDropdown">'
+
             foreach ($menunode->get_children() as $menunode) {
                 $content .= $this->render_custom_menu_item($menunode, 1, $menuid . $submenucount);
             }
             $content .= '</ul></li>';
-            // $content .= '</div>';
+
         } else {
             if ($level == 0) {
                 $content = '<li class="nav-item">';
@@ -2698,62 +2671,21 @@ EOT;
         if ($menunode->has_children()) {
 
             $submenucount++;
-
-            /*            if ($level == 1) {
-             $class = 'dropdown';
-             } else {
-             $class = 'dropdown-menu';
-             }
-
-             if ($menunode === $this->language) {
-             $class .= ' langmenu';
-             }
-
-             $content = html_writer::start_tag('li', array('class' => $class)); */
-            // $content .= '<li class="nav-item dropdown">';
-
-            // If the child has menus render it as a sub menu.
-            /* $submenucount++;
-             if ($menunode->get_url() !== null) {
-             $url = $menunode->get_url();
-             } else {
-             $url = '#cm_submenu_'.$submenucount;
-             } */
             $url = '#';
 
-            /* $content = '<div class="list-group-item" data-key="' . $menuid . '" data-isexpandable="1" data-indent="0"';
-            $content .= 'data-showdivider="0" data-type="0"';
-            $content .= ' data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="0" data-hidden="0"';
-            $content .= 'data-preceedwithhr="0" data-parent-key="' . $menuid . $submenucount . '">';
-            $content .= '<div class="m-l-0">';
-            $content .= $menunode->get_text();
-
-            $content .= '</div></div>'; */
-
-            /* $content = '<li class="nav-item dropdown">';
-            $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'nav-link dropdown-toggle',
-                    'id' => $menuid . $submenucount, 'aria-haspopup' => 'true',
-                    'data-target' => $url, 'data-toggle' => 'dropdown',
-                    // 'data-toggle' => 'dropdown', 'role' => 'button', 'id' => 'navbarDropdown', 'aria-haspopup' => 'true',
-                    /* 'aria-expanded' => 'false', */ /*  'title' => $menunode->get_title()));
-            $content .= $menunode->get_text();
-            $content .= '</a>'; */
-
-            $content = html_writer::start_tag('a', array('href' => '#' . $menuid . $submenucount, 'class' => 'list-group-item dropdown-toggle',
-                    'aria-haspopup' => 'true', 'data-target' => $url, 'data-toggle' => 'collapse',
-                    'title' => $menunode->get_title()));
+            $content = html_writer::start_tag('a', array('href' => '#' . $menuid . $submenucount,
+                        'class' => 'list-group-item dropdown-toggle',
+                        'aria-haspopup' => 'true', 'data-target' => $url, 'data-toggle' => 'collapse',
+                        'title' => $menunode->get_title()));
             $content .= $menunode->get_text();
             $content .= '</a>';
 
             $content .= '<ul class="collapse" id="' . $menuid . $submenucount . '">';
-            // $content .= '<div class="dropdown-menu" aria-labelledby="navbarDropdown">'
             $indent = true;
             foreach ($menunode->get_children() as $menunode) {
                 $content .= $this->render_custom_menu_item_drawer($menunode, 1, $menuid . $submenucount, $indent);
             }
             $content .= '</ul>';
-            // $content .= '</ul></li>';
-            // $content .= '</div>';
         } else {
 
             // The node doesn't have children so produce a final menuitem.
@@ -2771,106 +2703,21 @@ EOT;
                 $marginclass = ' m-l-1';
             }
 
-            /* $content = '<a class="list-group-item list-group-item-action active" href="' . $url . '"';
-            $content .= 'data-key="" data-isexpandable="0" data-indent="' . $dataindent . '" data-showdivider="0" data-type="1" data-nodetype="1"';
-            $content .= 'data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="' . $menuid . '">';
-            $content .= '<div class="' . $marginclass . '">';
-            $content .= $menunode->get_text(); */
-
             $content = '<li class="' . $marginclass . '">';
 
             $content = '<a class="list-group-item list-group-item-action" href="' . $url . '"';
-            $content .= 'data-key="" data-isexpandable="0" data-indent="' . $dataindent . '" data-showdivider="0" data-type="1" data-nodetype="1"';
-            $content .= 'data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="' . $menuid . '">';
+            $content .= 'data-key="" data-isexpandable="0" data-indent="' . $dataindent;
+            $content .= '" data-showdivider="0" data-type="1" data-nodetype="1"';
+            $content .= 'data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" ';
+            $content .= 'data-preceedwithhr="0" data-parent-key="' . $menuid . '">';
             $content .= '<div class="' . $marginclass . '">';
-            // $content .= '<a href="' . $url . '">';
             $content .= $menunode->get_text();
             $content .= '</div></a></li>';
 
-            /* This is a bit of a cludge, but allows us to pass url, of type moodle_url with a param of
-             * "helptarget", which when equal to "_blank", will create a link with target="_blank" to allow the link to open
-             * in a new window.  This param is removed once checked.
-             */
-            /* if (is_object($url) && (get_class($url) == 'moodle_url') && ($url->get_param('helptarget') != null)) {
-                $helptarget = $url->get_param('helptarget');
-                $url->remove_params('helptarget');
-                $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title(),
-                        'target' => $helptarget, 'class' => $linkclass));
-            } else {
-                $content .= html_writer::link($url, $menunode->get_text(),
-                        array('title' => $menunode->get_title(), 'class' => $linkclass));
-            } */
-
-            // $content .= "</div></a>";
         }
         return $content;
     }
 
-
-    /**
-     * This code renders the custom menu items for the bootstrap dropdown menu.
-     *
-     * @param custom_menu_item $menunode
-     * @param int $level = 0
-     * @return string
-     */
-    /* protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0) {
-     static $submenucount = 0;
-
-     if ($menunode->has_children()) {
-
-     if ($level == 1) {
-     $class = 'dropdown';
-     } else {
-     $class = 'dropdown-submenu';
-     }
-
-     if ($menunode === $this->language) {
-     $class .= ' langmenu';
-     }
-     $content = html_writer::start_tag('li', array('class' => $class));
-     // If the child has menus render it as a sub menu.
-     $submenucount++;
-     if ($menunode->get_url() !== null) {
-     $url = $menunode->get_url();
-     } else {
-     $url = '#cm_submenu_'.$submenucount;
-     }
-     $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'dropdown-toggle',
-     'data-toggle' => 'dropdown', 'title' => $menunode->get_title()));
-     $content .= $menunode->get_text();
-     $content .= '</a>';
-     $content .= '<ul class="dropdown-menu">';
-     foreach ($menunode->get_children() as $menunode) {
-     $content .= $this->render_custom_menu_item($menunode, 0);
-     }
-     $content .= '</ul>';
-     } else {
-     $content = '<li>';
-     // The node doesn't have children so produce a final menuitem.
-     if ($menunode->get_url() !== null) {
-     $url = $menunode->get_url();
-     } else {
-     $url = '#';
-     }
-
-     /* This is a bit of a cludge, but allows us to pass url, of type moodle_url with a param of
-     * "helptarget", which when equal to "_blank", will create a link with target="_blank" to allow the link to open
-     * in a new window.  This param is removed once checked.
-     */
-    /* if (is_object($url) && (get_class($url) == 'moodle_url') && ($url->get_param('helptarget') != null)) {
-     $helptarget = $url->get_param('helptarget');
-     $url->remove_params('helptarget');
-     $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title(),
-     'target' => $helptarget));
-     } else {
-     $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title()));
-     }
-
-     $content .= "</li>";
-     }
-     return $content;
-     } */
 
     /**
      * Renders tabtree
@@ -3101,17 +2948,6 @@ EOT;
 
         } else {
             return '';
-            /* $items = $this->page->navbar->get_items();
-            $navbarnode = end($items);
-
-            if ($navbarnode && ($navbarnode->key === 'participants')) {
-                $node = $this->page->settingsnav->find('users', navigation_node::TYPE_CONTAINER);
-                if ($node) {
-                    // Build an action menu based on the visible nodes from this navigation tree.
-                    $this->build_action_menu_from_navigation($menu, $node);
-                }
-
-            } */
         }
         return $this->render($menu);
     }

@@ -518,10 +518,6 @@ function theme_adaptable_performance_output($param) {
  */
 function theme_adaptable_page_init(moodle_page $page) {
     global $CFG;
-    // REMOVED: Deprecated function: error_log($CFG->version).
-    /* if ($CFG->version < 2015051100) {
-        $page->requires->jquery_plugin('dropdown', 'theme_adaptable');
-    } */
 
     $page->requires->jquery_plugin('pace', 'theme_adaptable');
     $page->requires->jquery_plugin('flexslider', 'theme_adaptable');
