@@ -49,7 +49,7 @@ use context_course;
 use moodle_url;
 use coursecat_helper;
 use lang_string;
-use course_in_list;
+use core_course_list_element;
 use stdClass;
 use renderable;
 use action_link;
@@ -98,7 +98,7 @@ class course_renderer extends \core_course_renderer {
                 require_once($CFG->libdir.'/coursecatlib.php');
             }
 
-            $course = new course_in_list($course);
+            $course = new core_course_list_element($course);
         }
 
         $content = '';
@@ -220,7 +220,7 @@ class course_renderer extends \core_course_renderer {
         }
         if ($course instanceof stdClass) {
             require_once($CFG->libdir. '/coursecatlib.php');
-            $course = new course_in_list($course);
+            $course = new core_course_list_element($course);
         }
         if ($type == 3 || $OUTPUT->body_id() != 'page-site-index') {
             return parent::coursecat_coursebox_content($chelper, $course);
@@ -288,7 +288,7 @@ class course_renderer extends \core_course_renderer {
         $coursecontacts = theme_adaptable_get_setting('tilesshowcontacts');
         if ($coursecontacts) {
             $coursecontacttitle = theme_adaptable_get_setting('tilescontactstitle');
-            // Display course contacts. See course_in_list::get_course_contacts().
+            // Display course contacts. See ::get_course_contacts().
             if ($course->has_course_contacts()) {
                 $content .= html_writer::start_tag('ul', array('class' => 'teachers'));
                 foreach ($course->get_course_contacts() as $userid => $coursecontact) {
