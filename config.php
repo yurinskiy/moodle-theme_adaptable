@@ -264,10 +264,11 @@ $THEME->layouts = array(
     ),
 );
 
-$THEME->csspostprocess = 'theme_adaptable_process_css';
-
 // Select the opposite sidebar when switch to RTL.
 $THEME->blockrtlmanipulations = array(
     'side-pre' => 'side-post',
     'side-post' => 'side-pre'
 );
+
+$THEME->usefallback = true;
+$THEME->csspostprocess = 'theme_adaptable_process_css';

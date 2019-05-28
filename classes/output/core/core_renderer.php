@@ -1,5 +1,5 @@
 <?php
-// This file is part of the classic theme for Moodle
+// This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,20 +14,27 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace theme_classic\output;
+/**
+ * Version details
+ *
+ * @package    theme_adaptable
+ * @copyright  2015-2019 Jeremy Hopkins (Coventry University)
+ * @copyright  2015-2019 Fernando Acedo (3-bits.com)
+ * @copyright  2017-2019 Manoj Solanki (Coventry University)
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
+ */
 
-use \theme_boost\output\core_renderer as boost_core_renderer;
+
+namespace theme_adaptable\output;
 
 defined('MOODLE_INTERNAL') || die;
 
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
- * @package    theme_classic
- * @copyright  2018 Bas Brands
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * Note: This class is required to avoid inheriting Boost's core_renderer
  */
 
-class core_renderer extends boost_core_renderer {
-
+class core_renderer extends \core_renderer {
 }
