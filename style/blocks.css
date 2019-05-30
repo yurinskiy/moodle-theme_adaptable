@@ -38,6 +38,7 @@
 }
 
 /* Reset border values */
+[class^="block-side-"] .card-body,
 .block {
     border: none !important;
     padding: 0 !important;
@@ -49,6 +50,7 @@
 
 /* Block titles */
 .block .header,
+.block > .card-body,
 #dockeditempanel .dockeditempanel_hd {
     border-width: [[setting:blockheaderbordertop]] [[setting:blockheaderborderright]] [[setting:blockheaderborderbottom]] [[setting:blockheaderborderleft]];
     border-color: [[setting:blockbordercolor]];
@@ -77,6 +79,10 @@
 .block .header .block_action {
     margin: 0;
     margin-top: -5px;
+}
+
+.block-controls {
+    border: none !important;
 }
 
 /* Block content */
@@ -359,7 +365,6 @@ body.has_dock div#dock {
     font-style: normal;
     font-variant: normal;
     text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
     content: "\f0c9";
     padding-right: 5px;
     display: inline-block;

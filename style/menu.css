@@ -38,8 +38,7 @@
 
 /* Remove caret from main navbar menu. */
 #adaptable-page-header-wrapper #main-navbar .dropdown-toggle::after,
-#adaptable-page-header-wrapper #nav-drawer .dropdown-toggle::after
- {
+#adaptable-page-header-wrapper #nav-drawer .dropdown-toggle::after {
     content: none;
 }
 
@@ -53,6 +52,14 @@ adaptable-page-header-wrapper#affix {
     width: 100%;
     z-index: 1010;
 }
+
+/* Usermenu */
+#adaptable-page-header-wrapper #above-header .dropdown-menu i {
+    color: 
+
+}
+
+
 
 /* .navbar {
     clear: none;
@@ -266,8 +273,7 @@ adaptable-page-header-wrapper#affix {
 
 #adaptable-page-header-wrapper .navbar-nav .dropdown li a i,
 #adaptable-page-header-wrapper #above-header a i,
-#adaptable-page-header-wrapper .navbar-nav .dropdown li a moodlezoom  i
- {
+#adaptable-page-header-wrapper .navbar-nav .dropdown li a moodlezoom  i {
     padding-right: 4px;
 }
 
@@ -485,12 +491,14 @@ j    padding: 0;
     background-color: #eee;
 }
 
-.newmenus .dropdown-toggle:hover, .newmenus .dropdown-toggle:active, .pull-left .usermenu2.nav a:hover {
+.newmenus .dropdown-toggle:hover,
+.newmenus .dropdown-toggle:active,
+.pull-left .usermenu2.nav a:hover {
     background-color: transparent !important;
 }
 
 .newmenus .dropdown-toggle::after {
-    font-family:"Font Awesome 5 Free";
+    font-family:"Font Awesome";
     margin-left:5px;
     content:"\f107";
     font-weight: normal;
@@ -524,6 +532,7 @@ j    padding: 0;
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
+
 .overlaymenu.open {
     height: 100%;
 }
@@ -845,14 +854,12 @@ a.dropdown-menu > .active > a:focus,
 .fa-dashboard::before,
 .fa-tachometer::before {
     content: "\f3fd" !important;
-    font-family: "Font Awesome 5 Free" !important;
     font-weight: 900 !important;
 }
 
 // General menu icon.
 .navicon {
     content: "\f013" !important;
-    font-family: "Font Awesome 5 Free";
     font-weight: 900;
 }
 
@@ -870,7 +877,6 @@ a.dropdown-menu > .active > a:focus,
 .fa-file-o::before {
     content: "\f15b" !important;
 }
-
 
 .nav-link img.userpicture {
     margin-right: 0;
