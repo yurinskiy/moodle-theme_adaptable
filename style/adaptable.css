@@ -123,13 +123,13 @@ fieldset {
     /* width: 90%; */
 }
 
-.mform fieldset.collapsible legend a.fheader {
+.mform fieldset {
     margin-left: 0;
 }
 
-/* .form-group {
-    margin: 4px 0 !important;
-} */
+.mform fieldset.collapsible legend a.fheader {
+    margin-left: 0;
+}
 
 .form-inline {
     margin: 5px 0;
@@ -657,8 +657,9 @@ span.fa-chevron-right.fa {
 }
 
 #intro.generalbox {
-    background-color: transparent;
-    border: 1px solid #d3d3d3;
+    background-color: #bce5f2;
+    border-color: #31b0d5;
+    color: #212529;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
     margin: 1em auto;
     padding: 10px;
@@ -831,9 +832,13 @@ div.redirectmessage {
 }
 
 #forummenu select {
-    margin-top: 10px;
     width: 100%;
 }
+
+#forummenu .btn-secondary {
+    display: inline;
+}
+
 
 #page-grade-export-xls-index #region-main table {
     display: block;
@@ -879,7 +884,7 @@ div.redirectmessage {
 }
 
 #page-mod-forum-post #id_subject {
-    width: 96%;
+    width: 100%;
 }
 
 #plugins-control-panel, #admindeviceselector {
