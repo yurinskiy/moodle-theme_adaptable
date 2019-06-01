@@ -65,7 +65,9 @@ input#id_submitbutton2,
 .path-admin .buttons input[type="submit"],
 .nav-pills > .active > a,
 td.submit input,
-.btn-outline-secondary {
+div.discussionsubscription > a.discussiontoggle,
+.btn-outline-secondary,
+.btn-link {
     font-family: [[setting:fontname]];
     background-image: none;
     background-color: [[setting:buttoncolor]];
@@ -114,7 +116,9 @@ a.submit:hover,
 #page-login-index2 .forgetpass a:hover,
 .submitbutton:hover,
 .nav-pills > .active > a:hover, .nav-pills > .active > a:focus,
-.btn-outline-secondary:hover {
+.btn-outline-secondary:hover,
+.btn-link:hover,
+div.discussionsubscription > a.discussiontoggle:hover {
     background: none;
     background-position: 0 -100%;
     background-color: [[setting:buttonhovercolor]] !important;
@@ -331,4 +335,26 @@ a.btn[data-toggle="popover"] {
 /* btn-group */
 .btn-group .btn  {
     margin-right: 5px;
+}
+
+/* btn-link */
+.btn-link,
+.discussiontoggle {
+    margin-right: 5px;
+    padding: 10px;
+}
+
+/* btn-icon */
+.btn-icon {
+    padding-top: 8px !important;
+}
+
+/* Forum subscribed button */
+div.discussionsubscription {
+    margin-top: -2px !important;
+}
+
+/* Forum Move discussion button */
+#forummenu .btn-secondary {
+    margin: 5px 0 !important;
 }
