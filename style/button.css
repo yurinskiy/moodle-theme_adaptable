@@ -46,6 +46,7 @@
     padding: 6px 12px 6px;
 }
 
+/* Primary button */
 .btn-primary,
 .path-mod-workshop .assessment-summary.graded .singlebutton input[type="submit"],
 .path-mod-workshop .example-summary.graded .singlebutton input[type="submit"],
@@ -63,7 +64,8 @@ input#id_submitbutton,
 input#id_submitbutton2,
 .path-admin .buttons input[type="submit"],
 .nav-pills > .active > a,
-td.submit input {
+td.submit input,
+.btn-outline-secondary {
     font-family: [[setting:fontname]];
     background-image: none;
     background-color: [[setting:buttoncolor]];
@@ -111,7 +113,8 @@ a.submit:hover,
 .submit.buttons input[name="cancel"]:hover,
 #page-login-index2 .forgetpass a:hover,
 .submitbutton:hover,
-.nav-pills > .active > a:hover, .nav-pills > .active > a:focus {
+.nav-pills > .active > a:hover, .nav-pills > .active > a:focus,
+.btn-outline-secondary:hover {
     background: none;
     background-position: 0 -100%;
     background-color: [[setting:buttonhovercolor]] !important;
@@ -210,7 +213,6 @@ td.submit input[disabled] {
     margin-bottom: 10px;
 }
 
-
 /* Set Cancel button to a link instead a button to improve usability */
 .submit.buttons input[name="cancel"],
 [data-role="end"],
@@ -258,6 +260,7 @@ button[name="resetbutton"]:hover,
     text-shadow: none;
 }
 
+/* Login */
 .btn-login {
     background-image: none;
     background-color: [[setting:buttonlogincolor]];
