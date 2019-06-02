@@ -257,10 +257,22 @@
     margin: 0 auto;
 }
 
-/* Course block */
+/* Course Overview block */
 .block_course_overview .content {
     margin: 0;
 }
+
+.coursemenubtn {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0% !important;
+    color: #000000 !important;
+}
+
+.coursemenubtn .fa {
+    color: #000000 !important;
+}
+
 
 /* Calendar block */
 .block_calendar_month table.minicalendar.calendartable td,
