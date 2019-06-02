@@ -288,6 +288,12 @@ button[name="resetbutton"]:hover,
     text-decoration: none;
 }
 
+/* Login page button */
+#loginbtn {
+    height: 50px;
+    font-size: larger;
+}
+
 .continuebutton {
     margin: 10px 0;
 }
