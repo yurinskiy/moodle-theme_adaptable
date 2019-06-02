@@ -47,7 +47,7 @@
     padding-top: 30px;
 }
 
-adaptable-page-header-wrapper#affix {
+.adaptable-page-header-wrapper#affix {
     top: 0;
     width: 100%;
     z-index: 1010;
@@ -55,11 +55,8 @@ adaptable-page-header-wrapper#affix {
 
 /* Usermenu */
 #adaptable-page-header-wrapper #above-header .dropdown-menu i {
-    color: 
-
+    color: #333 !important; */
 }
-
-
 
 /* .navbar {
     clear: none;
