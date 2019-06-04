@@ -405,7 +405,8 @@ j    padding: 0;
 }
 
 #adaptable-page-header-wrapper #above-header .navbar .popover-region i,
-#adaptable-page-header-wrapper #header2 .navbar .popover-region i {
+#adaptable-page-header-wrapper #header2 .navbar .popover-region i,
+#adaptable-page-header-wrapper #header2 .search-input-wrapper > div {
     color: [[setting:headertextcolor]];
     font-size: 1.1em;
 }
