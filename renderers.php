@@ -121,7 +121,78 @@ if (file_exists("$CFG->dirroot/course/format/grid/renderer.php")) {
                 $section0attop = 1;
             }
             $this->print_single_section_page_content($course, $sections, $mods, $modnames, $modnamesused, $displaysection,
-                    $section0attop);
+                $section0attop);
+        }
+    }
+}
+
+/******************************************************************************************
+ * @copyright 2019 Gareth J Barnard
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+ *
+ * Flexible format renderer for the Adaptable theme.
+ */
+
+// Check if Flexible is installed before trying to override it.
+if (file_exists("$CFG->dirroot/course/format/flexible/renderer.php")) {
+    include_once($CFG->dirroot."/course/format/flexible/renderer.php");
+
+    class theme_adaptable_format_flexible_renderer extends format_flexible_renderer {
+        use single_section_page;
+
+        /**
+         * Generate the html for the 'Jump to' menu on a single section page.
+         *
+         * @param stdClass $course The course entry from DB.
+         * @param array $sections The course_sections entries from the DB.
+         * @param $displaysection the current displayed section number.
+         *
+         * @return string HTML to output.
+         */
+        protected function section_nav_selection($course, $sections, $displaysection) {
+            if ($this->settings['section0attop'] == 2) { // One is 'Top' and two is 'Grid'.
+                $section = 0;
+            } else {
+                $section = 1;
+            }
+            return $this->section_nav_selection_content($course, $sections, $displaysection, $section);
+        }
+
+        /**
+         * Generate next/previous section links for navigation.
+         *
+         * @param stdClass $course The course entry from DB.
+         * @param array $sections The course_sections entries from the DB.
+         * @param int $sectionno The section number in the coruse which is being displayed.
+         * @return array associative array with previous and next section link.
+         */
+        public function get_nav_links($course, $sections, $sectionno) {
+            if ($this->settings['section0attop'] == 2) { // One is 'Top' and two is 'Grid'.
+                $buffer = -1;
+            } else {
+                $buffer = 0;
+            }
+            return $this->get_nav_links_content($course, $sections, $sectionno, $buffer);
+        }
+
+        /**
+         * Output the html for a single section page.
+         *
+         * @param stdClass $course The course entry from DB.
+         * @param array $sections (argument not used).
+         * @param array $mods (argument not used).
+         * @param array $modnames (argument not used).
+         * @param array $modnamesused (argument not used).
+         * @param int $displaysection The section number in the course which is being displayed.
+         */
+        public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
+            if ($this->settings['section0attop'] == 2) { // One is 'Top' and two is 'Grid'.
+                $section0attop = 0;
+            } else {
+                $section0attop = 1;
+            }
+            $this->print_single_section_page_content($course, $sections, $mods, $modnames, $modnamesused, $displaysection,
+                $section0attop);
         }
     }
 }
@@ -2119,7 +2190,7 @@ EOT;
      *
      * @return string
      */
-    public function get_top_menus() {
+    public function get_top_menus($showlinktext = false) {
         global $PAGE, $COURSE;
         $template = new stdClass();
         $menus = array();
@@ -2133,6 +2204,12 @@ EOT;
         $template->showright = false;
         if (!empty($PAGE->theme->settings->menuslinkright)) {
             $template->showright = true;
+        }
+
+        if (!empty($PAGE->theme->settings->menuslinkicon)) {
+            $template->menuslinkicon = $PAGE->theme->settings->menuslinkicon;
+        } else {
+            $template->menuslinkicon = 'fa-link';
         }
 
         if ($visibility) {
@@ -2209,6 +2286,12 @@ EOT;
                     $template->rows[] = $row;
                 }
             }
+        }
+
+        if ($showlinktext == false) {
+            $template->showlinktext = false;
+        } else {
+            $template->showlinktext = true;
         }
 
         return $this->render_from_template('theme_adaptable/overlaymenu', $template);
@@ -2506,7 +2589,7 @@ EOT;
      *
      * @return string
      */
-    public function lang_menu() {
+    public function lang_menu($showtext = true) {
         global $CFG;
         $langmenu = new custom_menu();
 
@@ -2526,6 +2609,10 @@ EOT;
                 $currentlang = $strlang;
             }
 
+            if ($showtext != true) {
+                $currentlang = '';
+            }
+
             $this->language = $langmenu->add('<i class="fa fa-globe fa-lg"></i><span class="langdesc">'.$currentlang.'</span>',
                                         new moodle_url($this->page->url), $strlang, 10000);
 
@@ -2536,7 +2623,6 @@ EOT;
         return $this->render_custom_menu($langmenu, '', '', 'langmenu');
     }
 
-
     /**
      * Display custom menu in the format required for the nav drawer. Slight cludge here to make this work.
      * The calling function cann't call the default custom_menu() method as there is no way to know to
@@ -2544,7 +2630,6 @@ EOT;
      *
      * @return Custom menu html
      */
-
     public function custom_menu_drawer() {
         global $CFG;
 

@@ -611,7 +611,7 @@ $string['messagingbackgroundcolor'] = 'Messages main window background colour';
 $string['messagingbackgroundcolordesc'] = 'Set the background colour for the messages main chat window.';
 
 $string['headerbkcolor2'] = 'Lower header background colour';
-$string['headerbkcolor2desc'] = 'Set the lower header background colour.';
+$string['headerbkcolor2desc'] = 'Set the lower header background colour.  Note that this also the colour for the background in Header style 2.';
 
 $string['headertextcolor'] = 'Top Header blocks text and link colour';
 $string['headertextcolordesc'] = 'Set the top header blocks text and link colour.';
@@ -1033,6 +1033,11 @@ $string['breadcrumbtitledesc'] = 'Set the mode to display the course title in th
 $string['breadcrumbtitlefullname'] = 'Course Full Name';
 $string['breadcrumbtitleshortname'] = 'Course Short Name / Code';
 
+$string['headerstyle'] = 'Header style';
+$string['headerstyledesc'] = 'Choose the style of header. Header 1 refers to the original 3 row Adaptable header.  Header 2 is a new minimal 2 row header.';
+$string['headerstyle1'] = 'Header 1';
+$string['headerstyle2'] = 'Header 2';
+
 $string['socialorsearch'] = 'Use Search Box or Social Icons';
 $string['socialorsearchdesc'] = 'You can set the theme to either display social icons or a search box in the header. <br />
 You can set social icons under the <a href="./../admin/settings.php?section=theme_adaptable_social">Header Social</a> settings page</strong>.';
@@ -1445,6 +1450,9 @@ $string['enablemenusdesc'] = 'It is recommended you leave this off if menus are 
 
 $string['menuslinkright'] = 'Show menus link in topright';
 $string['menuslinkrightdesc'] = 'If checked, show the link to the menus on the top right next to the messages menu';
+
+$string['menuslinkicon'] = "Links menu icon";
+$string['menuslinkicondesc'] = "Choose a custom font awesome icon.";
 
 $string['disablemenuscoursepages'] = 'Disable Menus on Course Pages';
 $string['disablemenuscoursepagesdesc'] = 'Turning this option on will limit the display of top menus to site pages, the homepage, and dashboard (My Home) etc. and will not show in any course pages';

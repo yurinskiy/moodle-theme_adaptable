@@ -43,9 +43,9 @@
 }
 
 /* Used to add padding to top of page when sticky top menu is used */
-.page-header-margin {
+/* .page-header-margin {
     padding-top: 30px;
-}
+} */
 
 .adaptable-page-header-wrapper#affix {
     top: 0;
@@ -417,7 +417,10 @@ j    padding: 0;
     position: static;
 } */
 
-#adaptable-page-header-wrapper #above-header .navbar-nav > li > a {
+#adaptable-page-header-wrapper #above-header .navbar-nav > li > a,
+#adaptable-page-header-wrapper #header2 .navbar-nav > div > li > a,
+#adaptable-page-header-wrapper #header2 .navbar-nav > li > a,
+#adaptable-page-header-wrapper #header2 .navbar-nav > a {
     color: [[setting:headertextcolor]];
     font-size: [[setting:topmenufontsize]];
     text-decoration: none;
@@ -425,8 +428,11 @@ j    padding: 0;
     /* cursor: pointer; */
 }
 
-#adaptable-page-header-wrapper #above-header .navbar .popover-region i {
+#adaptable-page-header-wrapper #above-header .navbar .popover-region i,
+#adaptable-page-header-wrapper #header2 .navbar .popover-region i,
+#adaptable-page-header-wrapper #header2 .search-input-wrapper > div {
     color: [[setting:headertextcolor]];
+    font-size: 1.1em;
 }
 
 /* #adaptable-page-header-wrapper #above-header .navbar li a:hover {
@@ -445,12 +451,9 @@ j    padding: 0;
     padding: .25rem 1.5rem;
 }
 
-#adaptable-page-header-wrapper #above-header .headermenu .dropdown-menu {
-/*    margin-top: 5px; */
-}
-
-#adaptable-page-header-wrapper #above-header .dropdown-menu a,
-#adaptable-page-header-wrapper #above-header .dropdown-toggle a {
+#adaptable-page-header-wrapper #above-header .dropdown-toggle a,
+#adaptable-page-header-wrapper #header2 .dropdown-menu a,
+#adaptable-page-header-wrapper #header2 .dropdown-toggle a {
     font-family: [[setting:fontname]], sans-serif;
     font-size: [[setting:topmenufontsize]];
     color: [[setting:linkcolor]];
@@ -465,19 +468,24 @@ j    padding: 0;
 }
 
 #adaptable-page-header-wrapper #above-header .langdesc,
-#adaptable-page-header-wrapper #above-header .linksdesc {
+#adaptable-page-header-wrapper #above-header .linksdesc,
+#adaptable-page-header-wrapper #header2 .langdesc,
+#adaptable-page-header-wrapper #header2 .linksdesc {
     color: [[setting:headertextcolor]];
     font-size: [[setting:topmenufontsize]];
 }
 
+#adaptable-page-header-wrapper #above-header .navbar .popover-region i
 #adaptable-page-header-wrapper #above-header .langmenu a i,
-#adaptable-page-header-wrapper #above-header a i {
+#adaptable-page-header-wrapper #above-header a i,
+#adaptable-page-header-wrapper #header2 .langmenu a i,
+#adaptable-page-header-wrapper #header2 a i {
     color: [[setting:headertextcolor]];
 }
 
-#adaptable-page-header-wrapper#above-header .dropdown-toggle::after {
+/* #adaptable-page-header-wrapper#above-header .dropdown-toggle::after {
     display: none;
-}
+} */
 
 #adaptable-page-header-wrapper #above-header a.dropdown-toggle {
     margin-top: 2px;
@@ -726,7 +734,7 @@ a.dropdown-menu > .active > a:focus,
 }
 
 #adaptable-page-header-wrapper .navbar .popover-region {
-    margin: 4px 0 0 0;
+    margin: 5px 0 0 4px;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -901,4 +909,9 @@ a.dropdown-menu > .active > a:focus,
 
 .nav-link img.userpicture {
     margin-right: 0;
+}
+
+
+#adaptable-page-header-wrapper button[aria-controls="nav-drawer"] {
+    font-size: 1.2em;
 }

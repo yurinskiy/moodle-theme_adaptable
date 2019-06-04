@@ -52,6 +52,14 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+// Links menu icon. Default is "fa-link".
+$name = 'theme_adaptable/menuslinkicon';
+$title = get_string('menuslinkicon', 'theme_adaptable');
+$description = get_string('menuslinkicondesc', 'theme_adaptable');
+$setting = new admin_setting_configtext($name, $title, $description, 'fa-link');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
 $name = 'theme_adaptable/disablemenuscoursepages';
 $title = get_string('disablemenuscoursepages', 'theme_adaptable');
 $description = get_string('disablemenuscoursepagesdesc', 'theme_adaptable');

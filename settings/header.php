@@ -198,6 +198,18 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    // Adaptable header style selection.
+    $name = 'theme_adaptable/headerstyle';
+    $title = get_string('headerstyle', 'theme_adaptable');
+    $description = get_string('headerstyledesc', 'theme_adaptable');
+    $radchoices = array(
+        'style1' => get_string('headerstyle1', 'theme_adaptable'),
+        'style2' => get_string('headerstyle2', 'theme_adaptable')
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, 'style1', $radchoices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
     // Choose to display search box or social icons.
     $name = 'theme_adaptable/socialorsearch';
     $title = get_string('socialorsearch', 'theme_adaptable');
