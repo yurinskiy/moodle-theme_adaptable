@@ -88,6 +88,12 @@ div.discussionsubscription > a.discussiontoggle,
     transition: background .2s ease-out;
 }
 
+.btn-primary:hover {
+    background-color: [[setting:buttonhovercolor]] !important;
+    text-decoration: none !important;
+    color: [[setting:buttontextcolor]] !important;
+}
+
 /* Secondary button */
 .btn-secondary {
     border-color: #cccccc !important;
