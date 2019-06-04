@@ -267,8 +267,8 @@ Only screen and (max-width : 1200px)
     }
 
     /* Links and Language menu, hide text on small screens. */
-#above-header .langdesc,
-#above-header .linksdesc {
+    #above-header .langdesc,
+    #above-header .linksdesc {
         display: none;
     }
 
@@ -279,6 +279,13 @@ Only screen and (max-width : 1200px)
     /* .fullin .container {
         width: 100%;
     } */
+
+    #header2,
+    #header2 .row,
+    #adaptable-page-header-wrapper > #header2 > div > div,
+    #adaptable-page-header-wrapper #header2 .navbar-nav {
+        min-height: 46px;
+    }
 
 }
 
@@ -651,4 +658,7 @@ Other.
         display: none;
     }
 
+    .page-header-margin {
+/*        padding-top: 30px; */
+    }
 }

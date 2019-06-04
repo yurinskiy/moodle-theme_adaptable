@@ -194,6 +194,36 @@ div.signuppanel h2 {
     margin-left: 30px;
 }
 
+#header2 {
+    border-bottom: none solid [[setting:maincolor]];
+    clear: both;
+    margin-bottom: 0;
+    background-color: transparent;
+    padding-top: 0;
+    min-height: [[setting:pageheaderheight]];
+    color: [[setting:headertextcolor2]];
+}
+
+/* Override default boost max height for header2. */
+#header2 .navbar {
+    max-height: 150px;
+}
+
+#header2 .row {
+    min-height: [[setting:pageheaderheight]];
+    margin: 0;
+}
+
+#adaptable-page-header-wrapper > #header2 > div > div,
+#adaptable-page-header-wrapper #header2 .navbar-nav {
+    min-height: [[setting:pageheaderheight]];
+}
+
+#adaptable-page-header-wrapper #header2 i,
+#adaptable-page-header-wrapper #page-header i {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.10);
+}
+
 /* Page */
 #page {
     clear: both;
@@ -1125,7 +1155,7 @@ a.carousel-control {
 .navbar .singlebutton div,
 .path-mod-data .navbar form {
   margin: 0 0;
-  line-height: 22px;
+  line-height: 18px;
 }
 
 #adaptable-page-header-wrapper .navbar #pre-login-form input {
@@ -1146,6 +1176,10 @@ a.carousel-control {
 #edittingbutton #coursesearchnavbar .form-group .btn {
     margin: 0 5px 0px 5px;
     padding: 4px 12px;
+}
+
+#adaptable-page-header-wrapper #header2 .search-input-wrapper>div .icon {
+    margin-top: 8px;
 }
 
 .navbar .singlebutton input {
@@ -1215,7 +1249,6 @@ a.carousel-control {
 
 .modal.fade {
     transition: opacity .3s linear, top .3s ease-out;
-    /* top: -25%; */
 }
 
 .modal.fade.in {
@@ -2116,9 +2149,14 @@ img.smallicon {
     border-radius: 50%;
 }
 
-#above-header .userpicture {
-    width: 25px ;
-    height: 25px;
+#adaptable-page-header-wrapper #above-header .userpicture {
+     width: 25px ;
+     height: 25px;
+}
+
+#adaptable-page-header-wrapper #header2 .userpicture {
+    width: 35px ;
+    height: 35px;
 }
 
 .comment-message .picture {
