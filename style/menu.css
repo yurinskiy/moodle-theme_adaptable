@@ -346,6 +346,30 @@ j    padding: 0;
     background-color: [[setting:navbardropdownhovercolor]];
 }
 
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: [[setting:navbardropdownhovercolor]]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* #above-header .navbar {
     max-height: 35px;
 }  */
