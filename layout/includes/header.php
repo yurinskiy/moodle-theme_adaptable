@@ -515,7 +515,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
                         <?php
 
-                        echo '<div class="my-auto m-1">' . $OUTPUT->navbar_plugin_output() . '</div>';
+                        echo '<div class="my-auto m-2">' . $OUTPUT->navbar_plugin_output() . '</div>';
 
                         $showlangtext = false;
 

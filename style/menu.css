@@ -407,6 +407,7 @@ j    padding: 0;
 #adaptable-page-header-wrapper #above-header .navbar .popover-region i,
 #adaptable-page-header-wrapper #header2 .navbar .popover-region i {
     color: [[setting:headertextcolor]];
+    font-size: 1.1em;
 }
 
 /* #adaptable-page-header-wrapper #above-header .navbar li a:hover {
@@ -708,7 +709,7 @@ a.dropdown-menu > .active > a:focus,
 }
 
 #adaptable-page-header-wrapper .navbar .popover-region {
-    margin: 4px 0 0 0;
+    margin: 5px 0 0 4px;
 }
 
 .navbar-light .navbar-nav .nav-link {
