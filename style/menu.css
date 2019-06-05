@@ -898,3 +898,7 @@ a.dropdown-menu > .active > a:focus,
 #adaptable-page-header-wrapper button[aria-controls="nav-drawer"] {
     font-size: 1.2em;
 }
+
+#adaptable-page-header-wrapper #main-navbar i {
+    padding-right: 2px;
+}
