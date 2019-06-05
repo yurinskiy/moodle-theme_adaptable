@@ -910,3 +910,10 @@ a.dropdown-menu > .active > a:focus,
 #adaptable-page-header-wrapper #main-navbar i {
     padding-right: 2px;
 }
+
+#adaptable-page-header-wrapper #adaptable-page-header-nav-drawer button {
+    border: 0;
+    background: none;
+    font-size: 1.5em;
+    color: [[setting:headertextcolor]];
+}

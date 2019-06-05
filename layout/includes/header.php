@@ -454,18 +454,8 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
     <div id="header2" class="container">
 
-      <?php
-      if (empty($PAGE->theme->settings->menuslinkright)) { ?>
-          <nav class="navbar topmenuleft">
-          <?php $showtext = false;
-          echo $OUTPUT->get_top_menus($showtext); ?>
-          </nav>
-      <?php  } ?>
-
       <div class="row">
         <div class="d-none d-lg-block col-lg-3">
-
-
 
             <?php
             // Site title or logo.
@@ -483,7 +473,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
             <nav class="navbar navbar-expand btco-hover-menu">
 
-                <div data-region="drawer-toggle" class="d-lg-none mr-3">
+                <div id="adaptable-page-header-nav-drawer" data-region="drawer-toggle" class="d-lg-none mr-3">
                     <button aria-expanded="false" aria-controls="nav-drawer" type="button" class="nav-link float-sm-left mr-1"
                     data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav">
                     <i class="fa fa-bars fa-fw " aria-hidden="true"></i>
@@ -508,6 +498,15 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         <div class="pull-left mr-2 my-auto">
                             <?php echo $OUTPUT->user_menu(); ?>
                         </div>
+
+                      <?php
+                      if (empty($PAGE->theme->settings->menuslinkright)) { ?>
+                          <nav class="navbar topmenuleft">
+                          <?php $showtext = false;
+                          echo $OUTPUT->get_top_menus($showtext); ?>
+                          </nav>
+                      <?php  } ?>
+
 
                         <?php
                         if (!empty($PAGE->theme->settings->smallscreenshowsearchicon)) {
