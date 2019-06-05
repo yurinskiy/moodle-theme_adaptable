@@ -601,6 +601,13 @@ j    padding: 0;
     }
 }
 
+/* Styling the top menu link when it's configured not to appear on the right. */
+#adaptable-page-header-wrapper .topmenuleft {
+    float: left;
+    margin: 0;
+    padding: 10px 0px 0 0;
+}
+
 /* New dropdown-related classes.  These are mainly for settings. */
 
 .navbar {

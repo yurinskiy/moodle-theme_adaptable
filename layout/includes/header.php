@@ -453,8 +453,19 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
     <header id="adaptable-page-header-wrapper" <?php echo $headerbg; ?> >
 
     <div id="header2" class="container">
+
+      <?php
+      if (empty($PAGE->theme->settings->menuslinkright)) { ?>
+          <nav class="navbar topmenuleft">
+          <?php $showtext = false;
+          echo $OUTPUT->get_top_menus($showtext); ?>
+          </nav>
+      <?php  } ?>
+
       <div class="row">
         <div class="d-none d-lg-block col-lg-3">
+
+
 
             <?php
             // Site title or logo.
@@ -482,21 +493,10 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
                 <div class="collapse navbar-collapse">
 
-                <?php
-                if (empty($PAGE->theme->settings->menuslinkright)) {
-                    $showtext = false;
-                    echo $OUTPUT->get_top_menus($showtext);
-                }
-                ?>
-
                     <ul class="navbar-nav ml-auto">
 
                         <div class="my-auto">
                             <?php echo $OUTPUT->search_box(); ?>
-                        </div>
-
-                        <div class="pull-left mr-2 my-auto">
-                            <?php echo $OUTPUT->user_menu(); ?>
                         </div>
 
                         <?php
@@ -504,6 +504,10 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                             echo '<div class="my-auto m-2">' . $OUTPUT->get_top_menus() . '</div>';
                         }
                         ?>
+
+                        <div class="pull-left mr-2 my-auto">
+                            <?php echo $OUTPUT->user_menu(); ?>
+                        </div>
 
                         <?php
                         if (!empty($PAGE->theme->settings->smallscreenshowsearchicon)) {
