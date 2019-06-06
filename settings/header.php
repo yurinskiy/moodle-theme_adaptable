@@ -39,6 +39,18 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    // Adaptable header style selection.
+    $name = 'theme_adaptable/headerstyle';
+    $title = get_string('headerstyle', 'theme_adaptable');
+    $description = get_string('headerstyledesc', 'theme_adaptable');
+    $radchoices = array(
+            'style1' => get_string('headerstyle1', 'theme_adaptable'),
+            'style2' => get_string('headerstyle2', 'theme_adaptable')
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, 'style1', $radchoices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
     // Enable front page login form in header.
     $name = 'theme_adaptable/frontpagelogin';
     $title = get_string('frontpagelogin', 'theme_adaptable');
@@ -195,18 +207,6 @@ defined('MOODLE_INTERNAL') || die;
     $title = get_string('breadcrumbseparator', 'theme_adaptable');
     $description = get_string('breadcrumbseparatordesc', 'theme_adaptable');
     $setting = new admin_setting_configtext($name, $title, $description, 'angle-right');
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Adaptable header style selection.
-    $name = 'theme_adaptable/headerstyle';
-    $title = get_string('headerstyle', 'theme_adaptable');
-    $description = get_string('headerstyledesc', 'theme_adaptable');
-    $radchoices = array(
-        'style1' => get_string('headerstyle1', 'theme_adaptable'),
-        'style2' => get_string('headerstyle2', 'theme_adaptable')
-    );
-    $setting = new admin_setting_configselect($name, $title, $description, 'style1', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 

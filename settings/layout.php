@@ -156,4 +156,18 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    $name = 'theme_adaptable/tabbedlayoutdashboardtab1condition';
+    $title = get_string('tabbedlayoutdashboardtab1condition', 'theme_adaptable');
+    $description = get_string('tabbedlayoutdashboardtab1conditiondesc', 'theme_adaptable');
+    $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_RAW, '');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    $name = 'theme_adaptable/tabbedlayoutdashboardtab2condition';
+    $title = get_string('tabbedlayoutdashboardtab2condition', 'theme_adaptable');
+    $description = get_string('tabbedlayoutdashboardtab2conditiondesc', 'theme_adaptable');
+    $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_RAW, '');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
     $ADMIN->add('theme_adaptable', $temp);

@@ -60,6 +60,43 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
     <div id="page-content" class="row-fluid">
         <?php
         if (!empty($PAGE->theme->settings->tabbedlayoutdashboard)) {
+
+            $showtabs = array (0 => true, 1 => true, 2 => true);
+            // Get any custom user profile field restriction for tab 1 and 2. (e.g. showtab1=false).
+            require_once($CFG->dirroot.'/user/profile/lib.php');
+            require_once($CFG->dirroot.'/user/lib.php');
+            profile_load_data($USER);
+
+            if (!empty($PAGE->theme->settings->tabbedlayoutdashboardtab1condition)) {
+                $fields = explode('=', $PAGE->theme->settings->tabbedlayoutdashboardtab1condition);
+                $ftype = $fields[0];
+                $setvalue = $fields[1];
+
+                // Get user profile field (if it exists).
+                $ftype = "profile_field_$ftype";
+                if (isset($USER->$ftype)) {
+                    if ($USER->$ftype == $setvalue) {
+                        // Condition is true, so don't show this tab.
+                        $showtabs[1] = false;
+                    }
+                }
+            }
+
+            if (!empty($PAGE->theme->settings->tabbedlayoutdashboardtab2condition)) {
+                $fields = explode('=', $PAGE->theme->settings->tabbedlayoutdashboardtab2condition);
+                $ftype = $fields[0];
+                $setvalue = $fields[1];
+
+                // Get user profile field (if it exists).
+                $ftype = "profile_field_$ftype";
+                if (isset($USER->$ftype)) {
+                    if ($USER->$ftype == $setvalue) {
+                        // Condition is true, so don't show this tab.
+                        $showtabs[2] = false;
+                    }
+                }
+            }
+
             $taborder = explode ('-', $PAGE->theme->settings->tabbedlayoutdashboard);
             $count = 0;
             echo '<section id="region-main" class="' . $regions['content']  . '">';
@@ -67,18 +104,21 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
             echo '<main id="dashboardtabcontainer" class="tabcontentcontainer">';
 
             foreach ($taborder as $tabnumber) {
-                if ($tabnumber == 0) {
-                    $tabname = 'dashboard-tab-content';
-                    $tablabel = get_string('tabbedlayouttablabeldashboard', 'theme_adaptable');
-                } else {
-                    $tabname = 'dashboard-tab' . $tabnumber;
-                    $tablabel = get_string('tabbedlayouttablabeldashboard' . $tabnumber, 'theme_adaptable');
-                }
+                if ( (!empty($showtabs[$tabnumber])) && ($showtabs[$tabnumber]== true)) {
+                    // Tab 0 is the original content tab.
+                    if ($tabnumber == 0) {
+                        $tabname = 'dashboard-tab-content';
+                        $tablabel = get_string('tabbedlayouttablabeldashboard', 'theme_adaptable');
+                    } else {
+                            $tabname = 'dashboard-tab' . $tabnumber;
+                            $tablabel = get_string('tabbedlayouttablabeldashboard' . $tabnumber, 'theme_adaptable');
+                    }
 
-                echo '<input id="' . $tabname . '" type="radio" name="tabs" class="dashboardtab" ' .
-                    ($count == 0 ? ' checked ' : '') . '>' .
-                    '<label for="' . $tabname . '" class="dashboardtab">' . $tablabel .'</label>';
-                    $count++;
+                    echo '<input id="' . $tabname . '" type="radio" name="tabs" class="dashboardtab" ' .
+                        ($count == 0 ? ' checked ' : '') . '>' .
+                        '<label for="' . $tabname . '" class="dashboardtab">' . $tablabel .'</label>';
+                        $count++;
+                }
             }
 
 
@@ -94,9 +134,11 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
                     echo $OUTPUT->course_content_footer();
                     echo '</section>';
                 } else {
-                    echo '<section id="adaptable-dashboard-tab-' . $tabnumber . '" class="adaptable-tab-section tab-panel">';
-                    echo $OUTPUT->get_block_regions('customrowsetting', 'my-tab-' . $wordtonumber[$tabnumber] . '-', '12-0-0-0');
-                    echo '</section>';
+                    if ($showtabs[$tabnumber] == true) {
+                        echo '<section id="adaptable-dashboard-tab-' . $tabnumber . '" class="adaptable-tab-section tab-panel">';
+                        echo $OUTPUT->get_block_regions('customrowsetting', 'my-tab-' . $wordtonumber[$tabnumber] . '-', '12-0-0-0');
+                        echo '</section>';
+                    }
                 }
             }
 

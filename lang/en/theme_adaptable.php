@@ -1034,9 +1034,9 @@ $string['breadcrumbtitlefullname'] = 'Course Full Name';
 $string['breadcrumbtitleshortname'] = 'Course Short Name / Code';
 
 $string['headerstyle'] = 'Header style';
-$string['headerstyledesc'] = 'Choose the style of header. Header 1 refers to the original 3 row Adaptable header.  Header 2 is a new minimal 2 row header.';
-$string['headerstyle1'] = 'Header 1';
-$string['headerstyle2'] = 'Header 2';
+$string['headerstyledesc'] = 'Choose the style of header. Header 1 refers to the original 3 row Adaptable header.  Header 2 is a new minimal 2 row header. Note that when using Header 2, for the setting "Use Search Box or Social Icons", this will always use a search box.';
+$string['headerstyle1'] = 'Header 1 (original 3 row header)';
+$string['headerstyle2'] = 'Header 2 (new 2 row header)';
 
 $string['socialorsearch'] = 'Use Search Box or Social Icons';
 $string['socialorsearchdesc'] = 'You can set the theme to either display social icons or a search box in the header. <br />
@@ -1736,6 +1736,10 @@ $string['tabbedlayoutdashboardtabcolorselected'] = 'Selected tab colour for dash
 $string['tabbedlayoutdashboardtabcolorselecteddesc'] = 'Choose the colour for the currently selected tab.';
 $string['tabbedlayoutdashboardtabcolorunselected'] = 'Unselected tab colour for dashboard';
 $string['tabbedlayoutdashboardtabcolorunselecteddesc'] = 'Choose the colour for any other tab.';
+$string['tabbedlayoutdashboardtab1condition'] = 'Tab 1 Custom Profile Field Restriction (optional)';
+$string['tabbedlayoutdashboardtab1conditiondesc'] = 'Add access rule for displaying Tab 1 using custom profile field eg: showtab1=true';
+$string['tabbedlayoutdashboardtab2condition'] = 'Tab 2 Custom Profile Field Restriction (optional)';
+$string['tabbedlayoutdashboardtab2conditiondesc'] = 'Add access rule for displaying Tab 2 using custom profile field eg: showtab1=true';
 
 $string['tabbedlayouttablabelcourse'] = 'Course Content';
 $string['tabbedlayouttablabelcourse1'] = 'Tab 1';
