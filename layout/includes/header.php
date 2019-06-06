@@ -302,7 +302,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         if ($CFG->version > 2016120400) {
                             // Remove Messages and Notifications icons in Quiz pages even if they don't use SEB.
                             if ($PAGE->pagetype != "mod-quiz-attempt") {
-                                echo $OUTPUT->navbar_plugin_output();
+                                echo '<div class="my-auto m-2">' . $OUTPUT->navbar_plugin_output() . '</div>';
                             }
                         }
 
