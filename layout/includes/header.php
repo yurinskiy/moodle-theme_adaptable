@@ -256,7 +256,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
         <div class="container">
             <nav class="navbar navbar-expand btco-hover-menu">
 
-                <div data-region="drawer-toggle" class="d-lg-none mr-3">
+                <div id="adaptable-page-header-nav-drawer" data-region="drawer-toggle" class="d-lg-none mr-3">
                     <button aria-expanded="false" aria-controls="nav-drawer" type="button" class="nav-link float-sm-left mr-1"
                     data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav">
                     <i class="fa fa-bars fa-fw " aria-hidden="true"></i>
@@ -271,7 +271,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                 }
                 ?>
 
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto my-auto">
 
                         <div class="pull-left">
                             <?php echo $OUTPUT->user_menu(); ?>
@@ -285,12 +285,12 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
                         <?php
                         if (!empty($PAGE->theme->settings->smallscreenshowsearchicon)) {
-                            $classes = 'd-xs-block d-sm-block d-md-none';
+                            $classes = 'd-xs-block d-sm-block d-md-none my-auto';
                         } else {
                             $classes = 'd-none';
                         }
                         ?>
-                        <li class="nav-item <?php echo $classes; ?> mx-1">
+                        <li class="nav-item <?php echo $classes; ?> mx-1 my-auto">
                             <a class="nav-link" href="<?php p($wwwroot) ?>/course/search.php">
                                 <i class="icon fa fa-search fa-fw " title="Search" aria-label="Search"></i>
                             </a>
@@ -307,7 +307,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         }
 
                         if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
-                            echo '<li class="nav-item dropdown ml-3">';
+                            echo '<li class="nav-item dropdown ml-3 my-auto">';
                             echo $OUTPUT->lang_menu();
                             echo '</li>';
                         }
