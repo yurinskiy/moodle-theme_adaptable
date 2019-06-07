@@ -267,7 +267,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                 <div class="collapse navbar-collapse">
                 <?php
                 if (empty($PAGE->theme->settings->menuslinkright)) {
-                    echo $OUTPUT->get_top_menus();
+                    echo '<div class="my-auto m-2">' . $OUTPUT->get_top_menus() . '</div>';
                 }
                 ?>
 
@@ -279,7 +279,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
                         <?php
                         if (!empty($PAGE->theme->settings->menuslinkright)) {
-                            echo $OUTPUT->get_top_menus();
+                            echo '<div class="my-auto m-2">' . $OUTPUT->get_top_menus() . '</div>';
                         }
                         ?>
 
@@ -307,7 +307,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         }
 
                         if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
-                            echo '<li class="nav-item dropdown ml-3 my-auto">';
+                            echo '<li class="nav-item dropdown ml-3">';
                             echo $OUTPUT->lang_menu();
                             echo '</li>';
                         }
@@ -346,7 +346,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                             ?>
 
                             <li class="nav-item dropdown ml-3 ml-md-4 mr-2 mr-md-0">
-                                <a class="nav-link dropdown-toggle" href="javascript:void(0);"
+                                <a class="nav-link dropdown-toggle my-auto" href="javascript:void(0);"
                                     id="navbarAboveHeaderDropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="true">
 
@@ -490,23 +490,12 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         </div>
 
                         <?php
-                        if (!empty($PAGE->theme->settings->menuslinkright)) {
-                            echo '<div class="my-auto m-2">' . $OUTPUT->get_top_menus() . '</div>';
-                        }
+                            echo '<div class="my-auto m-2">' . $OUTPUT->get_top_menus($showtext = false) . '</div>';
                         ?>
 
                         <div class="pull-left mr-2 my-auto">
                             <?php echo $OUTPUT->user_menu(); ?>
                         </div>
-
-                      <?php
-                      if (empty($PAGE->theme->settings->menuslinkright)) { ?>
-                          <nav class="navbar topmenuleft">
-                          <?php $showtext = false;
-                          echo $OUTPUT->get_top_menus($showtext); ?>
-                          </nav>
-                      <?php  } ?>
-
 
                         <?php
                         if (!empty($PAGE->theme->settings->smallscreenshowsearchicon)) {
@@ -572,7 +561,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                                 ?>
 
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-right my-auto" aria-labelledby="navbarAboveHeaderDropdownMenuLink">
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarAboveHeaderDropdownMenuLink">
                                     <?php echo $OUTPUT->user_profile_menu() ?>
                                 </ul>
                             </li>

@@ -2696,7 +2696,7 @@ EOT;
             $url = '#';
 
             $content = '<li class="nav-item dropdown">';
-            $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'nav-link dropdown-toggle',
+            $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'nav-link dropdown-toggle my-auto',
                     'id' => $menuid . $submenucount, 'aria-haspopup' => 'true',
                     'data-target' => $url, 'data-toggle' => 'dropdown',
                     'title' => $menunode->get_title()));
