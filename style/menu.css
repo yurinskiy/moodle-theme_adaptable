@@ -927,3 +927,8 @@ a.dropdown-menu > .active > a:focus,
     font-size: 1.5em;
     color: [[setting:headertextcolor]];
 }
+
+
+#adaptable-page-header-nav-drawer button {
+    cursor: pointer;
+}
