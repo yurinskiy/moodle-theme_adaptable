@@ -262,11 +262,16 @@
     margin: 0;
 }
 
-.coursemenubtn {
+.btn.coursemenubtn {
     background-color: transparent !important;
     border: none !important;
     border-radius: 0% !important;
     color: #000000 !important;
+}
+
+.btn.coursemenubtn:hover {
+    background-color: #f0f0f0 !important;
+    border-radius: 100% !important;
 }
 
 .coursemenubtn .fa {
