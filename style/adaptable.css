@@ -102,7 +102,7 @@ li {
 #adaptable-page-header-wrapper .dropdown-menu > li > a:focus,
 #adaptable-page-header-wrapper .dropdown-submenu:hover > a,
 #adaptable-page-header-wrapper .dropdown-submenu:focus > a {
-    background-color: #fff;
+/*    background-color: #fff; */
     background-image: none;
 }
 
