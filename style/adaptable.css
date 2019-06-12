@@ -2399,6 +2399,7 @@ img.smallicon {
     background-color: #f5f5f5;
 }
 
-.backup_stage .backup_stage_current {
+.backup_stage .backup_stage_current,
+.backup_stage .backup_stage_next {
     color: [[setting:maincolor]];
 }
