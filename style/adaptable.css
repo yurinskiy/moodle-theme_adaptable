@@ -2403,3 +2403,7 @@ img.smallicon {
 .backup_stage .backup_stage_next {
     color: [[setting:maincolor]];
 }
+
+.path-backup .detail-pair .detail-pair-value input[type="submit"] {
+    margin: 0;
+}

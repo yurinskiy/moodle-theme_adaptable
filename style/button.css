@@ -48,7 +48,7 @@
 
 /* Primary button */
 .btn-primary,
-.backup-restore .singlebutton input[type="submit"],
+.backup-restore .singlebutton button[type="submit"],
 .path-mod-workshop .assessment-summary.graded .singlebutton input[type="submit"],
 .path-mod-workshop .example-summary.graded .singlebutton input[type="submit"],
 .btn-default,
