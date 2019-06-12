@@ -371,3 +371,7 @@ div.discussionsubscription {
 #forummenu .btn-secondary {
     margin: 5px 0 !important;
 }
+
+.fp-upload-btn {
+    margin-top: 1rem;
+}
