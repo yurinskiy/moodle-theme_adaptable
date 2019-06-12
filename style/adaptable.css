@@ -2394,8 +2394,11 @@ img.smallicon {
 }
 
 .path-backup .backup_progress {
-    border: 1px solid;
     padding: 7px 5px;
     border-radius: 8px;
     background-color: #f5f5f5;
+}
+
+.backup_stage .backup_stage_current {
+    color: [[setting:maincolor]];
 }
