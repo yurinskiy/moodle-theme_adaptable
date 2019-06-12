@@ -2372,3 +2372,30 @@ img.smallicon {
 .path-backup .detail-pair .detail-pair-value input[type="submit"] {
     margin: 10px 0 0;
 }
+
+/* File Picker */
+.fp-setlicense select {
+    display: block;
+}
+
+/* Course restore */
+.detail-pair-label,
+.detail-pair-value {
+    font-size: 1.2rem !important;
+}
+
+.detail-pair-value .icon {
+    font-size: 24px !important;
+}
+
+.subheader h3 {
+    font-size: 1.6rem !important;
+    margin-top: 70px !important;
+}
+
+.path-backup .backup_progress {
+    border: 1px solid;
+    padding: 7px 5px;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+}
