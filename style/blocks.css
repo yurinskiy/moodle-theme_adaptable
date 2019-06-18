@@ -55,7 +55,7 @@
     border-width: [[setting:blockheaderbordertop]] [[setting:blockheaderborderright]] [[setting:blockheaderborderbottom]] [[setting:blockheaderborderleft]];
     border-color: [[setting:blockbordercolor]];
     border-style: [[setting:blockheaderbordertopstyle]];
-    padding: 10px 5px 5px 0;
+    padding: 10px 5px 5px 5px;
     background: [[setting:blockheaderbackgroundcolor]];
     border-radius: [[setting:blockheadertopradius]] [[setting:blockheadertopradius]] [[setting:blockheaderbottomradius]] [[setting:blockheaderbottomradius]];
 }
@@ -91,10 +91,14 @@
     border-width: [[setting:blockmainbordertop]] [[setting:blockmainborderright]] [[setting:blockmainborderbottom]] [[setting:blockmainborderleft]];
     border-color: [[setting:blockbordercolor]];
     border-style: [[setting:blockmainbordertopstyle]];
-    padding: 10px 0px;
+    padding: 10px 5px;
     font-weight: normal;
     background: [[setting:blockbackgroundcolor]];
     border-radius: [[setting:blockmaintopradius]] [[setting:blockmaintopradius]] [[setting:blockmainbottomradius]] [[setting:blockmainbottomradius]];
+}
+
+.block-region-front .block .content {
+    padding: 10px 5px;
 }
 
 .block .content a,

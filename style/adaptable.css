@@ -1805,6 +1805,7 @@ div.questionbankwindow.block {
 
 .hidden-blocks .block-region .block {
   width: 25%;
+  margin: 0 10px
 }
 
 .hidden-blocks .block-region .block .header {
