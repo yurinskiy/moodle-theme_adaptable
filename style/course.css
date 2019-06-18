@@ -658,6 +658,7 @@ div.fdescription.required {
     box-shadow: 0 0.05em 0.05em rgba(0,0,0,0.05);
 }
 
+.activity_footer,
 .section_footer {
   margin-top: 2em;
   padding: 1em 0;
@@ -675,7 +676,9 @@ div.fdescription.required {
 }
 
 @media screen and (min-width: 768px) {
+  .section_footer .previous_activity,
   .section_footer .previous_section,
+  .section_footer .next_activity,
   .section_footer .next_section {
     width: 50%;
     vertical-align: top;
@@ -687,6 +690,7 @@ div.fdescription.required {
   width: 100%;
 }
 
+.next_activity,
 .next_section {
   text-align: right;
   min-height: 1px;
@@ -696,7 +700,11 @@ div.fdescription.required {
   text-align: center;
   margin-top: 1em;
 }
+.jumpnav > .jumpmenu #jump-to-activity.custom-select {
+    width: auto;
+}
 
+.previous_activity,
 .previous_section {
   min-height: 1px;
 }
@@ -710,21 +718,26 @@ div.fdescription.required {
   min-width: 50px;
 }
 
+.previous_activity .nav_icon,
 .previous_section .nav_icon {
   margin-right: .3em;
   border-right: 1px solid #eee;
 }
+.previous_activity .text,
 .previous_section .text {
   padding-left: 9px;
 }
+.next_activity .nav_icon,
 .next_section .nav_icon {
   margin-left: .3em;
   border-left: 1px solid #eee;
 }
+.next_activity .text,
 .next_section .text {
   padding-right: 9px;
 }
 
+.activity_footer .text,
 .section_footer .text {
   display: table-cell;
   width: 10007px;

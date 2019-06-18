@@ -1616,9 +1616,12 @@ $string['jssectionrestricteddashboardonlydesc'] = 'Show the javascript only on t
 // Cache definitions.
 $string['cachedef_userdata'] = 'A session cache used to store user specific data.';
 
-// Section navigation ********************************.
+// Activity and section navigation ********************************.
+$string['nextactivity'] = 'Next Activity';
+$string['previousactivity'] = 'Previous Activity';
+
 $string['nextsection'] = 'Next Section';
-$string['previoussection'] = 'Previous section';
+$string['previoussection'] = 'Previous Section';
 
 $string['maincoursepage'] = 'Main Course Page';
 $string['jumpto'] = 'Jump to...';

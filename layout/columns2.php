@@ -68,6 +68,7 @@ $regions = theme_adaptable_grid($left, $hassidepost);
                 }
             }
 
+            echo $OUTPUT->activity_navigation();
             echo $OUTPUT->course_content_footer();
             ?>
         </section>
