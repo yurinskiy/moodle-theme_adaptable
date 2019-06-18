@@ -10,8 +10,7 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
 
                 // Get the navbar, if present.
                 var navbar = document.getElementById("main-navbar");
-
-                if (hasaffix && navbar != null  ) {
+                if (hasaffix && navbar != null) {
 
                     // New way to handle sticky navbar requirement.
                     // Simply taken from https://www.w3schools.com/howto/howto_js_navbar_sticky.asp.
@@ -22,13 +21,25 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                     // Get the offset position of the navbar
                     var sticky = navbar.offsetTop;
 
+                    // Changed?
+                    var isSticky = (window.pageYOffset < sticky); // Initial inverse logic to cause first check to work.
+
+                    // Check if we are already down the page because of an anchor etc.
+                    makeNavbarSticky();
+
                     // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
                     function makeNavbarSticky() {
-                      if (window.pageYOffset >= sticky) {
-                        navbar.classList.add("adaptable-navbar-sticky")
-                      } else {
-                        navbar.classList.remove("adaptable-navbar-sticky");
-                      }
+                        if (window.pageYOffset >= sticky) {
+                            if (isSticky == false) {
+                                navbar.classList.add("adaptable-navbar-sticky")
+                                isSticky = true;
+                            }
+                        } else {
+                            if (isSticky == true) {
+                                navbar.classList.remove("adaptable-navbar-sticky");
+                                isSticky = false;
+                            }
+                        }
                     }
 
                 }
