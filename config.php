@@ -120,6 +120,7 @@ $THEME->sheets = array(
         'adaptable',
         'blocks',
         'button',
+        'cardblocks',
         'course',
         'extras',
         'menu',

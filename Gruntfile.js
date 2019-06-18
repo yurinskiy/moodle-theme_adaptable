@@ -29,6 +29,8 @@
  * The nice user interface intended for everyday use. Provide a
  * high level of automation and convenience for specific use-cases.
  *
+ * grunt css     Create CSS from the SCSS.
+ *
  * grunt amd     Create the Asynchronous Module Definition JavaScript files.  See: MDL-49046.
  *               Done here as core Gruntfile.js currently *nix only.
  *
@@ -80,6 +82,22 @@ module.exports = function(grunt) { // jshint ignore:line
 
     // Project configuration.
     grunt.initConfig({
+        sass: {
+            dist: {
+                files: {
+                    "style/cardblocks.css": "scss/card-blocks.scss"
+                }
+            },
+            options: {
+                includePaths: ["scss/"]
+            }
+        },
+        stylelint: {
+            scss: {
+                options: {syntax: 'scss'},
+                src: ['scss/**/*.scss']
+            }
+        },
         exec: {
             decache: {
                 cmd: 'php -r "' + decachephp + '"',
@@ -116,12 +134,17 @@ module.exports = function(grunt) { // jshint ignore:line
 
     // Register tasks.
     grunt.loadNpmTasks("grunt-exec");
+    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-stylelint');
     grunt.registerTask("decache", ["exec:decache"]);
 
     // Load core tasks.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.registerTask("amd", ["jshint", "uglify", "decache"]);
+
+    // Register CSS taks.
+    grunt.registerTask('css', ['stylelint:scss', 'sass']);
 
     // Register the default task.
     grunt.registerTask('default', ['amd']);
