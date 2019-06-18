@@ -371,7 +371,7 @@ div.discussionsubscription {
 
 /* Forum Move discussion button */
 #forummenu .btn-secondary {
-    margin: 5px 0 !important;
+    margin-left: 5px;
 }
 
 .fp-upload-btn {
