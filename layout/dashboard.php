@@ -75,7 +75,7 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
                 // Get user profile field (if it exists).
                 $ftype = "profile_field_$ftype";
                 if (isset($USER->$ftype)) {
-                    if ($USER->$ftype == $setvalue) {
+                    if ($USER->$ftype != $setvalue) {
                         // Condition is true, so don't show this tab.
                         $showtabs[1] = false;
                     }
@@ -90,7 +90,7 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
                 // Get user profile field (if it exists).
                 $ftype = "profile_field_$ftype";
                 if (isset($USER->$ftype)) {
-                    if ($USER->$ftype == $setvalue) {
+                    if ($USER->$ftype != $setvalue) {
                         // Condition is true, so don't show this tab.
                         $showtabs[2] = false;
                     }
