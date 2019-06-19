@@ -448,8 +448,11 @@ j    padding: 0;
     color: [[setting:linkcolor]];
 }
 
-#adaptable-page-header-wrapper #above-header .dropdown-menu a {
-    /* margin-top: 0; */
+#adaptable-page-header-wrapper #above-header .dropdown-toggle a i,
+#adaptable-page-header-wrapper #header2 .dropdown-menu a i,
+#adaptable-page-header-wrapper #header2 .dropdown-toggle a i,
+#adaptable-page-header-wrapper #above-header .dropdown-menu a i {
+    color: [[setting:linkcolor]];
 }
 
 #adaptable-page-header-wrapper #above-header .linksmenu {
@@ -465,9 +468,7 @@ j    padding: 0;
 }
 
 #adaptable-page-header-wrapper #above-header .navbar .popover-region i
-#adaptable-page-header-wrapper #above-header .langmenu a i,
 #adaptable-page-header-wrapper #above-header a i,
-#adaptable-page-header-wrapper #header2 .langmenu a i,
 #adaptable-page-header-wrapper #header2 a i {
     color: [[setting:headertextcolor]];
 }
