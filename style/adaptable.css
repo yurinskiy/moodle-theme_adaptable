@@ -1271,7 +1271,8 @@ a.carousel-control {
 }
 
 .modal-header .close {
-    margin-top: 2px;
+    color: #777;
+    margin-top: -12px;
 }
 
 .modal-header h3 {
