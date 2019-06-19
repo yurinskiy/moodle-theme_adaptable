@@ -118,9 +118,12 @@ $THEME->parents = ['boost'];
 // Styles.
 $THEME->sheets = array(
         'adaptable',
+        'backup-restore',
         'blocks',
+        'bootstrap',
         'button',
         'cardblocks',
+        'core',
         'course',
         'extras',
         'menu',
