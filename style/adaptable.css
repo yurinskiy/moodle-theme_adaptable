@@ -998,8 +998,6 @@ input[type="radio"], input[type="checkbox"] {
 #region-main {
     background-color: [[setting:regionmaincolor]];
     border: none;
-    margin-left: 0;
-    margin-top: 0;
     padding: 0 15px;
 }
 
@@ -1524,11 +1522,7 @@ div.questionbankwindow.block {
 
 #block-region-side-post {
     transition: all .5s ease-in-out;
-    padding: 0 15px 0 0;
-}
-
-#block-region-side-post.order-first {
-    padding: 0 0 0 15px;
+    padding: 0 15px;
 }
 
 /* .nav .dropdown-menu li a i,

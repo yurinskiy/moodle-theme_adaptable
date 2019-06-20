@@ -39,7 +39,7 @@ $dashblocksposition = $PAGE->theme->settings->dashblocksposition;
 
 if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition == 'abovecontent') ) { ?>
     <div id="frontblockregion">
-        <div class="row-fluid">
+        <div class="row">
             <?php echo $OUTPUT->get_block_regions('dashblocklayoutlayoutrow'); ?>
         </div>
     </div>
@@ -57,7 +57,7 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
 } ?>
 
 <div class="container outercont">
-    <div id="page-content" class="row-fluid">
+    <div id="page-content" class="row<?php echo $regions['direction'];?>">
         <?php
         if (!empty($PAGE->theme->settings->tabbedlayoutdashboard)) {
 

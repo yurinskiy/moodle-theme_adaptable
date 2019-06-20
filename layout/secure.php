@@ -39,7 +39,7 @@ $regions = theme_adaptable_grid($left, $hassidepost);
     <?php
         echo $OUTPUT->page_navbar(false);
     ?>
-    <div id="page-content" class="row">
+    <div id="page-content" class="row<?php echo $regions['direction'];?>">
         <section id="region-main" class="<?php echo $regions['content']; ?>">
             <?php
             echo $OUTPUT->get_course_alerts();

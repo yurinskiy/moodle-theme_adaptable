@@ -61,7 +61,7 @@ $regions = theme_adaptable_grid($left, $hassidepost);
     <?php
         echo $OUTPUT->page_navbar(false);
     ?>
-    <div id="page-content" class="row">
+    <div id="page-content" class="row<?php echo $regions['direction'];?>">
         <?php
 
         // If course page, display course top block region.

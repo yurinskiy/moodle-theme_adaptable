@@ -552,16 +552,17 @@ function theme_adaptable_grid($left, $hassidepost) {
         if ('rtl' === get_string('thisdirection', 'langconfig')) {
             $left = !$left; // Invert.
         }
+        $regions = array('content' => 'col-md-9');
+        $regions['blocks'] = 'col-3';
         if ($left) {
-            $regions = array('content' => 'col-md-9 order-last');
-            $regions['blocks'] = 'col-3 order-first';
+            $regions['direction'] = ' flex-row-reverse';
         } else {
-            $regions = array('content' => 'col-md-9 order-first');
-            $regions['blocks'] = 'col-3';
+            $regions['direction'] = '';
         }
     } else {
         $regions = array('content' => 'col-12');
         $regions['blocks'] = 'empty';
+        $regions['direction'] = '';
         return $regions;
     }
 
