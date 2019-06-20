@@ -44,9 +44,10 @@ $regions = theme_adaptable_grid($left, $hassidepost);
 ?>
 
 <div class="container outercont">
-    <div id="page-content" class="row-fluid">
-        <?php echo $OUTPUT->page_navbar(false); ?>
-
+    <?php
+        echo $OUTPUT->page_navbar(false);
+    ?>
+    <div id="page-content" class="row">
         <section id="region-main" class="<?php echo $regions['content'];?>">
             <?php
             echo $OUTPUT->get_course_alerts();

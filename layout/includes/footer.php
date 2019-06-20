@@ -43,7 +43,7 @@ echo $OUTPUT->get_footer_blocks();
 
 if ($PAGE->theme->settings->hidefootersocial == 1) { ?>
         <div class="container">
-            <div class="row-fluid">
+            <div class="row">
                 <div class="col-12 pagination-centered">
 <?php
     echo $OUTPUT->socialicons();
@@ -64,7 +64,7 @@ if ($PAGE->theme->settings->showfooterblocks) {
 ?>
     <div class="info container2 clearfix">
         <div class="container">
-            <div class="row-fluid">
+            <div class="row">
                 <div class="<?php echo $footnoteclass; ?>">
 <?php echo $OUTPUT->get_setting('footnote', 'format_html');
 ?>

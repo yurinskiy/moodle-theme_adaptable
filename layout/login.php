@@ -32,7 +32,7 @@ require_once(dirname(__FILE__) . '/includes/header.php');
 ?>
 
 <div class="container outercont">
-    <div id="page-content" class="row-fluid">
+    <div id="page-content" class="row">
         <section id="region-main" class="col-12">
             <?php
             echo $OUTPUT->course_content_header();
