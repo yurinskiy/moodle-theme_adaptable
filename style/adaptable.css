@@ -861,14 +861,14 @@ div.redirectmessage {
     width: inherit;
 }
 
+#mode select,
 #forummenu select {
-    width: 100%;
+    height: 36px;
 }
 
-#forummenu .btn-secondary {
-    display: inline;
+[data-region='post-action'] {
+    margin: 5px 5px 0 0;
 }
-
 
 #page-grade-export-xls-index #region-main table {
     display: block;
@@ -1271,7 +1271,8 @@ a.carousel-control {
 }
 
 .modal-header .close {
-    margin-top: 2px;
+    color: #777;
+    margin-top: -12px;
 }
 
 .modal-header h3 {
@@ -1805,6 +1806,7 @@ div.questionbankwindow.block {
 
 .hidden-blocks .block-region .block {
   width: 25%;
+  margin: 0 10px
 }
 
 .hidden-blocks .block-region .block .header {

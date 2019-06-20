@@ -939,6 +939,48 @@ class course_renderer extends \core_course_renderer {
         return '';
     }
 
+    /**
+     * Renders the activity navigation.
+     *
+     * Defer to template.
+     *
+     * @param \core_course\output\activity_navigation $page
+     * @return string html for the page
+     */
+    public function render_activity_navigation(\core_course\output\activity_navigation $page) {
+        $data = $page->export_for_template($this->output);
+
+        /* Add in extra data for our own overridden activity_navigation template.
+           So manipulating the 'classes' and 'text' properties in 'action_link' and 'classes' in 'urlselect'. */
+        if (!empty($data->prevlink)) {
+            $data->prevlink->classes = 'previous_activity prevnext'; // Override the button!
+
+            $icon = html_writer::tag('i', '', array('class' => 'fa fa-angle-double-left'));
+            $previouslink = html_writer::tag('span', $icon, array('class' => 'nav_icon'));
+            $activityname = html_writer::tag('span', get_string('previousactivity', 'theme_adaptable'), array('class' => 'nav_guide')).'<br>';
+            $activityname .= $data->prevlink->attributes[0]['value'];
+            $previouslink .= html_writer::tag('span', $activityname, array('class' => 'text'));
+            $data->prevlink->text = $previouslink;
+        }
+
+        if (!empty($data->nextlink)) {
+            $data->nextlink->classes = 'next_activity prevnext'; // Override the button!
+
+            $activityname = html_writer::tag('span', get_string('nextactivity', 'theme_adaptable'), array('class' => 'nav_guide')).'<br>';
+            $activityname .= $data->nextlink->attributes[0]['value'];
+            $nextlink = html_writer::tag('span', $activityname, array('class' => 'text'));
+            $icon = html_writer::tag('i', '', array('class' => 'fa fa-angle-double-right'));
+            $nextlink .= html_writer::tag('span', $icon, array('class' => 'nav_icon'));
+            $data->nextlink->text = $nextlink;
+        }
+
+        if (!empty($data->activitylist)) {
+            $data->activitylist->classes = 'jumpmenu';
+        }
+
+        return $this->output->render_from_template('core_course/activity_navigation', $data);
+    }
+
     // End.
 
 }
