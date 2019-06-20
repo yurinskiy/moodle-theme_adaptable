@@ -148,7 +148,7 @@ a.submit:focus, #notice .singlebutton + .singlebutton input:focus,
 
 button.close {
     text-shadow: none !important;
-    color: #cc0000;    /* Red hardcoded. */
+    color: #777;
     opacity: 1 !important;
     box-shadow: none !important;
 }
