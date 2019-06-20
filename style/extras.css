@@ -1245,10 +1245,9 @@ html[xmlns] .slides {
     width: 0;
 }
 
-.zoomin #region-main,
-.zoomin #region-bs-main-and-pre {
-    width: 100%;
-    margin-left: 0;
+.zoomin #region-main {
+    flex: 0 0 100%;
+    max-width: 100%;
 }
 
 .sbl {
