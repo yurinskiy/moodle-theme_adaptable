@@ -682,7 +682,8 @@ main.tabcontentcontainer {
 
     .tabcontentcontainer label.dashboardtab:before,
     .tabcontentcontainer label.coursetab:before {
-        content: "\f101 ";
+        content: "\f101";
+        padding-right: 5px;
         font-family: "FontAwesome";
     }
 
