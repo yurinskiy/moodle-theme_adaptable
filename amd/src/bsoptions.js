@@ -10,6 +10,19 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
 
                 // Get the navbar, if present.
                 var navbar = document.getElementById("main-navbar");
+                var pageheader = document.getElementById("page-header"); // In header style 1.
+                var header2 = document.getElementById("header2"); // In header style 2.
+                var sticky = 0;
+
+                if (pageheader != null) {
+                    sticky = pageheader.offsetTop + pageheader.offsetHeight;
+                } else if (header2 != null) {
+                    sticky = header2.offsetTop + header2.offsetHeight;
+                } else if (navbar != null) {
+                    // Fallback!
+                    sticky = navbar.offsetTop;
+                }
+
                 if (hasaffix && navbar != null) {
 
                     // New way to handle sticky navbar requirement.
@@ -17,9 +30,6 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
 
                     // When the user scrolls the page, execute makeNavbarSticky().
                     window.onscroll = function() {makeNavbarSticky()};
-
-                    // Get the offset position of the navbar
-                    var sticky = navbar.offsetTop;
 
                     // Changed?
                     var isSticky = (window.pageYOffset < sticky); // Initial inverse logic to cause first check to work.

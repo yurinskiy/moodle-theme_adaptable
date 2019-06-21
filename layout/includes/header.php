@@ -213,7 +213,18 @@ echo $OUTPUT->standard_head_html() ?>
     ?>
 </head>
 
-<body <?php echo $OUTPUT->body_attributes(array('two-column', $setzoom)); ?>>
+<body <?php
+    // Choose the header style.  There styles available are:
+    // "style1"  (original header)
+    // "style2"  (2 row header).
+
+    $adaptableheaderstyle = "style1";
+
+    if (!empty($PAGE->theme->settings->headerstyle)) {
+        $adaptableheaderstyle = $PAGE->theme->settings->headerstyle;
+    }
+
+    echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle)); ?>>
 
 <?php
 echo $OUTPUT->standard_top_of_body_html();
@@ -232,20 +243,6 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 }
 
 // Background image in Header.
-?>
-
-<?php
-
-    // Choose the header style.  There styles available are:
-    // "style1"  (original header)
-    // "style2"  (2 row header).
-
-    $adaptableheaderstyle = "style1";
-
-    if (!empty($PAGE->theme->settings->headerstyle)) {
-        $adaptableheaderstyle = $PAGE->theme->settings->headerstyle;
-    }
-
 ?>
 
 <?php if ($adaptableheaderstyle == "style1") : ?>
