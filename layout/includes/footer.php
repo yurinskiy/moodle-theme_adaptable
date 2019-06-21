@@ -55,9 +55,9 @@ if ($PAGE->theme->settings->hidefootersocial == 1) { ?>
 <?php }
 
 if ($PAGE->theme->settings->moodledocs) {
-    $footnoteclass = 'col-4';
+    $footnoteclass = 'col-md-4 my-md-0 my-2';
 } else {
-    $footnoteclass = 'col-8';
+    $footnoteclass = 'col-md-8 my-md-0 my-2';
 }
 
 if ($PAGE->theme->settings->showfooterblocks) {
@@ -73,14 +73,14 @@ if ($PAGE->theme->settings->showfooterblocks) {
 <?php
 if ($PAGE->theme->settings->moodledocs) {
 ?>
-                <div class="col-4 helplink">
+                <div class="col-md-4 my-md-0 my-2 helplink">
 <?php
     echo $OUTPUT->page_doc_link(); ?>
                 </div>
 <?php
 }
 ?>
-                <div class="col-4">
+                <div class="col-md-4 my-md-0 my-2">
                     <?php echo $OUTPUT->standard_footer_html(); ?>
                 </div>
             </div>
