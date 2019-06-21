@@ -211,7 +211,7 @@ div.signuppanel h2 {
 
 #header2 .row {
     min-height: [[setting:pageheaderheight]];
-    margin: 0;
+    margin: 0 0 0 -15px;
 }
 
 #adaptable-page-header-wrapper > #header2 > div > div,
