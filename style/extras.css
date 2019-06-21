@@ -611,7 +611,7 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol .singlese
     font-size: 14px;
     line-height: 1.42857143;
     color: #555;
-    margin: 0 10px;
+    margin: 0 10px 0 0;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -652,8 +652,17 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscu
     height: auto;
 }
 
-#page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscussion.movediscussion {
-    float: left;
+@media screen and (max-width: 575px) {
+    #page-mod-forum-discuss .discussioncontrols .discussioncontrol {
+        float: none;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    #page-mod-forum-discuss .discussioncontrols .discussioncontrol,
+    #page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscussion.movediscussion {
+        float: left;
+    }
 }
 
 #page-mod-forum-discuss .forumpost .row .left.picture img,
