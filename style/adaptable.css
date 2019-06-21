@@ -2386,7 +2386,7 @@ img.smallicon {
     font-size: 1.2rem !important;
 }
 
-.form-control-static .icon 
+.form-control-static .icon
 .detail-pair-value .icon {
     font-size: 24px !important;
 }
@@ -2409,4 +2409,14 @@ img.smallicon {
 
 .path-backup .detail-pair .detail-pair-value input[type="submit"] {
     margin: 0;
+}
+
+/* Login Page */
+
+/* Background Image */
+#page-login-index {
+    background-image: url([[pix:theme|loginbgimage]]);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
 }

@@ -29,9 +29,16 @@ defined('MOODLE_INTERNAL') || die;
 // Include header.
 require_once(dirname(__FILE__) . '/includes/header.php');
 
+$loginbg = '';
+
+if (!empty($PAGE->theme->settings->loginbgimage)) {
+    $loginbg = ' style="background-image: url('.$PAGE->theme->setting_file_url('loginbgimage', 'loginbgimage').');
+                         background-position: 0 0; background-repeat: no-repeat; background-size: cover;"';
+}
+
+echo '<div class="container outercont loginbg>';
 ?>
 
-<div class="container outercont">
     <div id="page-content" class="row-fluid">
         <section id="region-main" class="col-12">
             <?php

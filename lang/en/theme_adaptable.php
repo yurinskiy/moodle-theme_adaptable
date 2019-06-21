@@ -1759,14 +1759,26 @@ $string['region-my-tab-two-a'] = 'Dashboard page tab region 2';
 // Number of course tiles in front page.
 $string['frontpagenumbertiles'] = 'Number of course tiles per row';
 $string['frontpagenumbertilesdesc'] = 'Number of course tiles to display per row in the front page courses list';
-$string['frontpagetiles1'] = '1 course tile';
-$string['frontpagetiles2'] = '2 course tiles';
-$string['frontpagetiles3'] = '3 course tiles';
-$string['frontpagetiles4'] = '4 course tiles';
-$string['frontpagetiles6'] = '6 course tiles';
+$string['frontpagetiles1'] = '1 tile';
+$string['frontpagetiles2'] = '2 tiles';
+$string['frontpagetiles3'] = '3 tiles';
+$string['frontpagetiles4'] = '4 tiles';
+$string['frontpagetiles6'] = '6 tiles';
 
 $string['editsettingsbutton'] = 'Edit settings and Button display';
 $string['editsettingsbuttondesc'] = 'Configure here what should appear in the Navbar for editing settings.  Note that these options do not apply to pages for which there are no related settings, such as the dashboard page.';
 $string['editsettingsbuttonshowcog'] = 'Show edit settings icon (cog / gear wheel icon) only.';
 $string['editsettingsbuttonshowbutton'] = 'Show edit button only. E.g. "Turn Editing on" button on course page.';
 $string['editsettingsbuttonshowcogandbutton'] = 'Show edit settings icon and cog.  Note that this takes up more space in navigation.';
+
+// Login *******************************************************.
+$string['loginsettings'] = 'Login Page';
+$string['loginsettingsheading'] = 'Customize the login page.';
+$string['loginbgimage'] = 'Background image';
+$string['loginbgimagedesc'] = 'Add a background image to the full size page.';
+$string['logintextboxtop'] = 'Top text box';
+$string['logintextboxtopdesc'] = 'Add a custom text above the login box.';
+$string['logintextboxbottom'] = 'Bottom text box';
+$string['logintextboxbottomdesc'] = 'Add a custom text below the login box.';
+$string['loginmoodletext'] = 'Show default moodle text';
+$string['loginmoodletextdesc'] = 'Show the default moodle text in the login page.';

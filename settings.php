@@ -15,14 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
+ * Settings
  *
  * @package    theme_adaptable
- * @copyright  2015-2017 Jeremy Hopkins (Coventry University)
- * @copyright  2015-2017 Fernando Acedo (3-bits.com)
+ * @copyright  2015-2019 Jeremy Hopkins (Coventry University)
+ * @copyright  2015-2019 Fernando Acedo (3-bits.com)
+ * @copyright  2017-2019 Manoj Solanki (Coventry University)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
+
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -55,6 +57,7 @@ if (is_siteadmin()) {
     include(dirname(__FILE__) . '/settings/frontpage_courses.php');
     include(dirname(__FILE__) . '/settings/footer.php');
     include(dirname(__FILE__) . '/settings/layout.php');
+    include(dirname(__FILE__) . '/settings/login.php');
     include(dirname(__FILE__) . '/settings/dash_block_regions.php');
     include(dirname(__FILE__) . '/settings/course_formats.php');
     include(dirname(__FILE__) . '/settings/mobile_settings.php');

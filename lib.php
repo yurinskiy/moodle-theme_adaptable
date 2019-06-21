@@ -255,7 +255,8 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:tabbedlayoutcoursepagetabcolorunselected]]' => '#eee',
         '[[setting:frontpagenumbertiles]]' => '4',
         '[[setting:sidebarnotlogged]]' => 'true',
-        '[[setting:gdprbutton]]' => 1
+        '[[setting:gdprbutton]]' => 1,
+        '[[setting:loginmoodletext]]' => 0
     );
 
     // Get all the defined settings for the theme and replace defaults.
@@ -550,8 +551,8 @@ function theme_adaptable_remove_site_fullname($heading) {
 function theme_adaptable_grid($left, $hassitepost) {
     if ($hassitepost) {
         if ($left) {
-            $regions = array('content' => 'col-9 pull-right');
-            $regions['blocks'] = 'col-3 desktop-first-column';
+            $regions = array('content' => 'col-9 float-right');
+            $regions['blocks'] = 'col-3 desktop-first-column float-left';
         } else {
             $regions = array('content' => 'col-9 desktop-first-column');
             $regions['blocks'] = 'col-3';
