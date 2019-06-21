@@ -1272,3 +1272,7 @@ html[xmlns] .slides {
 .zoomin .hbl {
     display: none;
 }
+
+.format-grid #region-main {
+    overflow-x: inherit;
+}

@@ -147,10 +147,6 @@ Only screen and (max-width : 1200px)
         padding: 0;
     }
 
-    .row-fluid .span3 {
-        width: 100%;
-    }
-
     .headermenu2 {
         float: none;
         padding: 10px 0;
