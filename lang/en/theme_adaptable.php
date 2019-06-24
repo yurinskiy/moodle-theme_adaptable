@@ -1773,6 +1773,10 @@ $string['editsettingsbuttonshowcogandbutton'] = 'Show edit settings icon and cog
 
 // Login *******************************************************.
 $string['loginsettings'] = 'Login Page';
+$string['loginsettingsheading'] = 'Customize the login page';
+$string['logindesc'] = 'Customize the login page with adding an image background and texts above and below the login box.';
+
+
 $string['loginsettingsheading'] = 'Customize the login page.';
 $string['loginbgimage'] = 'Background image';
 $string['loginbgimagedesc'] = 'Add a background image to the full size page.';
