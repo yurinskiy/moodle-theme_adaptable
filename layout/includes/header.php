@@ -598,12 +598,12 @@ if (
 
             <?php
             if (empty($PAGE->theme->settings->disablecustommenu)) {
-                    echo $OUTPUT->custom_menu_drawer();
+                echo $OUTPUT->custom_menu_drawer();
             }
             ?>
             <?php
             if ($PAGE->theme->settings->enabletoolsmenus) {
-                    echo $OUTPUT->tools_menu('tools-menu-drawer');
+                echo $OUTPUT->tools_menu('tools-menu-drawer');
             }
             ?>
 
@@ -612,13 +612,12 @@ if (
     </nav>
 
     <nav class="list-group m-t-1">
-        <a class="list-group-item list-group-item-action " href="<?php echo $CFG->wwwroot .
-        '/admin/search.php'; ?>" data-key="sitesettings" data-isexpandable="0" data-indent="0" data-showdivider="1" data-type="71"
-        data-nodetype="1" data-collapse="0" data-forceopen="0" data-isactive="0" data-hidden="0" data-preceedwithhr="0">
+        <?php echo $OUTPUT->context_mobile_settings_menu(); ?>
+        <a class="list-group-item list-group-item-action " href="<?php echo $CFG->wwwroot.'/admin/search.php'; ?>">
             <div class="m-l-0">
                 <div class="media">
                     <span class="media-left">
-                        <i class="icon fa fa-wrench fa-fw " aria-hidden="true"></i>
+                        <i class="icon fa fa-wrench fa-fw" aria-hidden="true"></i>
                     </span>
                     <span class="media-body "><?php echo get_string('administrationsite'); ?></span>
                 </div>

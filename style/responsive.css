@@ -469,8 +469,9 @@ Only screen and (max-width : 1200px)
         padding: inherit;
     }
 
-    #adaptable-page-header-wrapper .icon {
+    #adaptable-page-header-wrapper .fa {
         height: 24px;
+        margin-right: .5rem;
         width: 24px;
     }
 
