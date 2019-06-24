@@ -222,7 +222,7 @@ echo $OUTPUT->standard_top_of_body_html();
 // echo $OUTPUT->get_dev_alert();.
 ?>
 
-<div id="page" class="container-fluid <?php echo "$setfull $showiconsclass"; ?>">
+<div id="page" class="container <?php echo "$setfull $showiconsclass"; ?>">
 
 <?php
     // If the device is a mobile and the alerts are not hidden or it is a desktop then load and show the alerts.

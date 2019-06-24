@@ -1216,6 +1216,12 @@ html[xmlns] .slides {
     width: [[setting:fullscreenwidth]];
 }
 
+/* Prevent horizontal scroll bar on BS4 grid system. */
+.fullin .container > .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 /* .fullin #adaptable-page-header-wrapper .container {
     width: 100%;
 } */
@@ -1245,10 +1251,9 @@ html[xmlns] .slides {
     width: 0;
 }
 
-.zoomin #region-main,
-.zoomin #region-bs-main-and-pre {
-    width: 100%;
-    margin-left: 0;
+.zoomin #region-main {
+    flex: 0 0 100%;
+    max-width: 100%;
 }
 
 .sbl {

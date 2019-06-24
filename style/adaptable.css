@@ -997,9 +997,8 @@ input[type="radio"], input[type="checkbox"] {
 
 #region-main {
     background-color: [[setting:regionmaincolor]];
-    margin-top: 0;
-    margin-left: 0;
     border: none;
+    padding: 0 15px;
 }
 
 .pagelayout-mydashboard #region-main {
@@ -1216,7 +1215,7 @@ a.carousel-control {
 
 /* Modal styles */
 .moodle-dialogue-base .closebutton::after {
-    color: #ff0000;
+    color: #777;
 }
 
 .modal-backdrop {
@@ -1392,22 +1391,22 @@ a.carousel-control {
 }
 
 button.close {
-  -webkit-appearance: none;
-  padding: 0;
-  cursor: pointer;
-  background: none;
-  border: 0;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
 }
 
 .close {
-  float: right;
-  font-size: 21px;
-  font-weight: 700;
-  line-height: 1;
-  color: #000;
-  text-shadow: 0 1px 0 #fff;
-  filter: alpha(opacity=20);
-  opacity: .2;
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
 }
 
 #region-main .generaltable {
@@ -1513,14 +1512,17 @@ div.questionbankwindow.block {
     color: [[setting:fontcolor]];
 }
 
-#region-main,
 .container {
     transition: width .5s ease-in-out;
 }
 
+#region-main {
+    transition: all .5s ease-in-out;
+}
+
 #block-region-side-post {
     transition: all .5s ease-in-out;
-    padding: 0 0 0 28px;
+    padding: 0 15px;
 }
 
 /* .nav .dropdown-menu li a i,
@@ -2329,7 +2331,7 @@ img.smallicon {
     vertical-align: top;
     opacity: 1;
     background: none;
-    color: #000;
+    color: #777;
 }
 
 .form-group textarea.form-control {

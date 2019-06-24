@@ -58,14 +58,16 @@ $regions = theme_adaptable_grid($left, $hassidepost);
 ?>
 
 <div class="container outercont">
-    <div id="page-content" class="row-fluid">
-        <?php
+    <?php
         echo $OUTPUT->page_navbar(false);
+    ?>
+    <div id="page-content" class="row<?php echo $regions['direction'];?>">
+        <?php
 
         // If course page, display course top block region.
         if (!empty($PAGE->theme->settings->coursepageblocksenabled)) { ?>
             <div id="frontblockregion" class="container">
-            <div class="row-fluid">
+            <div class="row">
             <?php echo $OUTPUT->get_block_regions('coursepageblocklayoutlayouttoprow', 'course-top-'); ?>
             </div>
             </div>
@@ -183,13 +185,15 @@ if ($movesidebartofooter == false) {
 
     // Get any missing blocks from changing layout settings.  E.g. From 4-4-4-4 to 6-6-0-0, to recover
     // what was in the last 2 spans that are now 0.
-    echo $OUTPUT->get_missing_block_regions($blocksarray, $regions['blocks'], $displayall);
+    echo '<div class="row">';
+    echo $OUTPUT->get_missing_block_regions($blocksarray, 'col-12', $displayall);
+    echo '</div>';
 }
 
 // If course page, display course bottom block region.
 if (!empty($PAGE->theme->settings->coursepageblocksenabled)) { ?>
     <div id="frontblockregion" class="container">
-        <div class="row-fluid">
+        <div class="row">
     <?php echo $OUTPUT->get_block_regions('coursepageblocklayoutlayoutbottomrow', 'course-bottom-'); ?>
         </div>
     </div>

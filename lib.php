@@ -545,33 +545,33 @@ function theme_adaptable_remove_site_fullname($heading) {
 
 /**
  * Generate theme grid.
- * @param int $left
- * @param bool $hassitepost
+ * @param bool $left
+ * @param bool $hassidepost
  */
-function theme_adaptable_grid($left, $hassitepost) {
-    if ($hassitepost) {
+function theme_adaptable_grid($left, $hassidepost) {
+    if ($hassidepost) {
+        if ('rtl' === get_string('thisdirection', 'langconfig')) {
+            $left = !$left; // Invert.
+        }
+        $regions = array('content' => 'col-md-9');
+        $regions['blocks'] = 'col-3';
         if ($left) {
+<<<<<<< HEAD
             $regions = array('content' => 'col-9 float-right');
             $regions['blocks'] = 'col-3 desktop-first-column float-left';
+=======
+            $regions['direction'] = ' flex-row-reverse';
+>>>>>>> faeda3c9372bf17fd1d839876924e1a7732b8b85
         } else {
-            $regions = array('content' => 'col-9 desktop-first-column');
-            $regions['blocks'] = 'col-3';
+            $regions['direction'] = '';
         }
     } else {
         $regions = array('content' => 'col-12');
         $regions['blocks'] = 'empty';
+        $regions['direction'] = '';
         return $regions;
     }
 
-    if ('rtl' === get_string('thisdirection', 'langconfig')) {
-        if ($left) {
-            $regions = array('content' => 'col-9 desktop-first-column');
-            $regions['blocks'] = 'col-3';
-        } else {
-            $regions = array('content' => 'col-9 pull-right');
-            $regions['blocks'] = 'col-3 desktop-first-column';
-        }
-    }
     return $regions;
 }
 
