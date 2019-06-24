@@ -620,7 +620,7 @@ if (
                     <span class="media-left">
                         <i class="icon fa fa-wrench fa-fw " aria-hidden="true"></i>
                     </span>
-                    <span class="media-body ">Site administration</span>
+                    <span class="media-body "><?php echo get_string('administrationsite'); ?></span>
                 </div>
             </div>
         </a>
