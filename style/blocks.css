@@ -40,10 +40,9 @@
 /* Reset border values */
 [class^="block-side-"] .card-body,
 .block {
-    border: none !important;
-    padding: 0 !important;
-    box-shadow: none !important;
     background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
     border-radius: 0 !important;
     margin-bottom: 2px;
 }
