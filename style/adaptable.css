@@ -739,15 +739,13 @@ langmenu a:hover {
 
 /* Breadcrumb */
 #page-navbar {
-    background-color: [[setting:breadcrumb]] !important;
-    margin: 10px 0;
+    margin-top: 10px;
 }
 
 .breadcrumb {
-    padding: 5px;
-    margin: 0;
     background: none !important;
     background-color: [[setting:breadcrumb]] !important;
+    padding: 5px;
 }
 
 .breadcrumb li {
@@ -998,17 +996,9 @@ input[type="radio"], input[type="checkbox"] {
 #region-main {
     background-color: [[setting:regionmaincolor]];
     border: none;
-    padding: 0 15px;
 }
 
-.pagelayout-mydashboard #region-main {
-    padding: 0 1.5em 0 0;
-}
-
-/* #region-main .row {
-    margin: 0;
-}
-
+/*
 #region-main .settingsform .row {
     margin: 10px 0;
 }
@@ -1522,7 +1512,6 @@ div.questionbankwindow.block {
 
 #block-region-side-post {
     transition: all .5s ease-in-out;
-    padding: 0 15px;
 }
 
 /* .nav .dropdown-menu li a i,

@@ -96,33 +96,32 @@ if (!empty($PAGE->theme->settings->infobox2)) {
 <div class="container outercont">
     <div id="page-content" class="row<?php echo $regions['direction'];?>">
         <div id="page-navbar" class="col-12">
-           <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
+            <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
         </div>
 
-    <section id="region-main" class="<?php echo $regions['content'];?>">
+        <section id="region-main" class="<?php echo $regions['content'];?>">
+            <?php
+            echo $OUTPUT->course_content_header();
+            echo $OUTPUT->main_content();
+            echo $OUTPUT->course_content_footer();
+            ?>
+        </section>
         <?php
-        echo $OUTPUT->course_content_header();
-        echo $OUTPUT->main_content();
-        echo $OUTPUT->course_content_footer();
+            $classes = '';
+
+            // Hide sidebar on mobile.
+            if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
+                 $classes = ' d-none d-md-block ';
+            }
+            echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
         ?>
-    </section>
-    <?php
-        $classes = '';
-
-        // Hide sidebar on mobile.
-    if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
-         $classes = ' d-none d-md-block ';
-    }
-    echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
-    ?>
-</div>
-
+    </div>
 <?php
 
 // Let's show the hidden blocks region ONLY for administrators.
 if (is_siteadmin()) {
 ?>
-      <div class="hidden-blocks">
+    <div class="hidden-blocks">
         <div class="row">
 
         <?php
@@ -151,7 +150,7 @@ if (is_siteadmin()) {
             echo $OUTPUT->blocks('frnt-footer', 'col-10');
             ?>
         </div>
-      </div>
+    </div>
     <?php
 }
 ?>

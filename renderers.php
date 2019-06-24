@@ -1473,12 +1473,14 @@ EOT;
 
                 // Do not show navbar on dashboard / my home if news ticker is rendering.
                 if (!($PAGE->theme->settings->enabletickermy && $PAGE->bodyid == "page-my-index")) {
-                    $retval = '<div id="page-navbar">';
+                    $retval = '<div class="row">';
+                    $retval .= '<div id="page-navbar" class="col-12">';
                     if ($addbutton) {
                         $retval .= '<nav class="breadcrumb-button">' . $this->page_heading_button() . '</nav>';
                     }
 
                     $retval .= $this->navbar();
+                    $retval .= '</div>';
                     $retval .= '</div>';
                 }
             }

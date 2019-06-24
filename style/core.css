@@ -23,6 +23,11 @@
  *
  */
 
+#region-main,
+.pagelayout-mydashboard #region-main {
+    padding: 0 15px; /* Override Boost. */
+}
+
 .progressbar_container {
     max-width: none;
 }

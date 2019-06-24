@@ -143,10 +143,6 @@ Only screen and (max-width : 1200px)
         width: auto;
     }
 
-    #region-main {
-        padding: 0;
-    }
-
     .headermenu2 {
         float: none;
         padding: 10px 0;
