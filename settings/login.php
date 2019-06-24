@@ -33,26 +33,6 @@ defined('MOODLE_INTERNAL') || die;
     $temp->add(new admin_setting_heading('theme_adaptable_login', get_string('loginsettingsheading', 'theme_adaptable'),
                 format_text(get_string('logindesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
 
-
-    // Main colors heading.
-    $name = 'theme_adaptable/settingsmaincolors';
-    $heading = get_string('settingsmaincolors', 'theme_adaptable');
-    $setting = new admin_setting_heading($name, $heading, '');
-    $temp->add($setting);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // Page background image.
     $name = 'theme_adaptable/loginbgimage';
     $title = get_string('loginbgimage', 'theme_adaptable');
