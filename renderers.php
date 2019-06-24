@@ -1225,7 +1225,7 @@ EOT;
         if (!empty($blocksarray)) {
 
             $classes = (array)$classes;
-            $retval .= '<aside class="' . join(' ', $classes) . '">';
+            $missingblocks = '';
 
             foreach ($blocksarray as $block) {
 
@@ -1256,22 +1256,24 @@ EOT;
                                 // Check if the block actually has content to display before displaying.
                                 if (strip_tags($missingblock)) {
                                     if ($adminediting) {
-                                        $retval .= '<em>ORPHANED BLOCK - Originally displays in: <strong>' .
+                                        $missingblocks .= '<em>ORPHANED BLOCK - Originally displays in: <strong>' .
                                                 get_string('region-' . $blockclass, 'theme_adaptable') .'</strong></em>';
 
                                     }
-                                    $retval .= $missingblock;
+                                    $missingblocks .= $missingblock;
                                 }
 
                             }
                         } // End foreach.
                     }
-
                 }
-
             }
-            $retval .= '</aside>';
 
+            if (!empty($missingblocks)) {
+                $retval .= '<aside class="' . join(' ', $classes) . '">';
+                $retval .= $missingblocks;
+                $retval .= '</aside>';
+            }
         }
 
         return $retval;
@@ -3173,4 +3175,22 @@ EOT;
         return $skipped;
     }
 
+    /**
+     * Output all the blocks in a particular region.
+     *
+     * @param string $region the name of a region on this page.
+     * @return string the HTML to be output.
+     */
+    public function blocks_for_region($region) {
+        $output = parent::blocks_for_region($region);
+
+        if ((!empty($output)) && ($region == 'side-post')) {
+            $output = html_writer::tag('div',
+                html_writer::tag('i', '', array('class' => 'fa fa-chevron-left', 'aria-hidden' => 'true')),
+                array('id' => 'showsidebaricon')).$output;
+            $this->page->requires->js_call_amd('theme_adaptable/showsidebar', 'init');
+        }
+
+        return $output;
+    }
 }
