@@ -23,6 +23,10 @@
  *
  */
 
+#region-main {
+    overflow-x: visible; /* Override Boost. */
+}
+
 #region-main,
 .pagelayout-mydashboard #region-main {
     padding: 0 15px; /* Override Boost. */
