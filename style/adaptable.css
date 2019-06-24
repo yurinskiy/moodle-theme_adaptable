@@ -211,7 +211,7 @@ div.signuppanel h2 {
 
 #header2 .row {
     min-height: [[setting:pageheaderheight]];
-    margin: 0;
+    margin: 0 0 0 -15px;
 }
 
 #adaptable-page-header-wrapper > #header2 > div > div,
@@ -227,8 +227,8 @@ div.signuppanel h2 {
 /* Page */
 #page {
     clear: both;
-    margin: 0 0;
-    padding: 0 0;
+    margin: 0;
+    padding: 0;
     max-width: inherit;
     [[setting:homebkg]]
 }
@@ -237,7 +237,7 @@ div.signuppanel h2 {
 #adaptable-page-header-wrapper {
     background-color: [[setting:headerbkcolor2]];
     width: 100%;
-    z-index: 2;
+    z-index: 10;
 }
 
 #page-header {
@@ -1568,7 +1568,7 @@ div.questionbankwindow.block {
   position: relative;
   margin-right: -1px;
   transition: all .5s ease-in-out;
-  z-index: 10
+  z-index: 8
 }
 
 .coursebox-content {

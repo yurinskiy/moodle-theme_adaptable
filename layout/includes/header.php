@@ -213,29 +213,7 @@ echo $OUTPUT->standard_head_html() ?>
     ?>
 </head>
 
-<body <?php echo $OUTPUT->body_attributes(array('two-column', $setzoom)); ?>>
-
-<?php
-echo $OUTPUT->standard_top_of_body_html();
-
-// Development or wrong moodle version alert.
-// echo $OUTPUT->get_dev_alert();.
-?>
-
-<div id="page" class="container <?php echo "$setfull $showiconsclass"; ?>">
-
-<?php
-    // If the device is a mobile and the alerts are not hidden or it is a desktop then load and show the alerts.
-if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adaptable_is_desktop())) {
-    // Display alerts.
-    echo $OUTPUT->get_alert_messages();
-}
-
-// Background image in Header.
-?>
-
-<?php
-
+<body <?php
     // Choose the header style.  There styles available are:
     // "style1"  (original header)
     // "style2"  (2 row header).
@@ -246,6 +224,25 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
         $adaptableheaderstyle = $PAGE->theme->settings->headerstyle;
     }
 
+    echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle)); ?>>
+
+<?php
+echo $OUTPUT->standard_top_of_body_html();
+
+// Development or wrong moodle version alert.
+// echo $OUTPUT->get_dev_alert();.
+?>
+
+<div id="page" class="container-fluid <?php echo "$setfull $showiconsclass"; ?>">
+
+<?php
+    // If the device is a mobile and the alerts are not hidden or it is a desktop then load and show the alerts.
+if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adaptable_is_desktop())) {
+    // Display alerts.
+    echo $OUTPUT->get_alert_messages();
+}
+
+// Background image in Header.
 ?>
 
 <?php if ($adaptableheaderstyle == "style1") : ?>

@@ -10,16 +10,20 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
 
                 // Get the navbar, if present.
                 var navbar = document.getElementById("main-navbar");
+
                 if (hasaffix && navbar != null) {
 
                     // New way to handle sticky navbar requirement.
                     // Simply taken from https://www.w3schools.com/howto/howto_js_navbar_sticky.asp.
+                    
+                    // Initial sticky position.
+                    var sticky = navbar.offsetTop;
 
                     // When the user scrolls the page, execute makeNavbarSticky().
                     window.onscroll = function() {makeNavbarSticky()};
 
-                    // Get the offset position of the navbar
-                    var sticky = navbar.offsetTop;
+                    // When the page changes size, check the sticky.
+                    window.onresize = function() {checkSticky()};
 
                     // Changed?
                     var isSticky = (window.pageYOffset < sticky); // Initial inverse logic to cause first check to work.
@@ -29,16 +33,28 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
 
                     // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
                     function makeNavbarSticky() {
-                        if (window.pageYOffset >= sticky) {
-                            if (isSticky == false) {
-                                navbar.classList.add("adaptable-navbar-sticky")
-                                isSticky = true;
+                        if (sticky > 0) {
+                            if (window.pageYOffset >= sticky) {
+                                if (isSticky == false) {
+                                    navbar.classList.add("adaptable-navbar-sticky")
+                                    isSticky = true;
+                                }
+                            } else {
+                                if (isSticky == true) {
+                                    navbar.classList.remove("adaptable-navbar-sticky");
+                                    isSticky = false;
+                                }
                             }
-                        } else {
-                            if (isSticky == true) {
-                                navbar.classList.remove("adaptable-navbar-sticky");
-                                isSticky = false;
-                            }
+                        }
+                    }
+
+                    // Adjust sticky if 0 when window resizes.
+                    function checkSticky() {
+                        if (sticky == 0) {
+                            sticky = navbar.offsetTop;
+                            isSticky = (window.pageYOffset < sticky);
+                            // Check if we are already down the page because of an anchor etc.
+                            makeNavbarSticky();
                         }
                     }
 

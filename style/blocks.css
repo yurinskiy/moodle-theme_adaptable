@@ -676,5 +676,20 @@ main.tabcontentcontainer {
     .tabcontentcontainer label.dashboardtab,
     .tabcontentcontainer label.coursetab {
         font-size: 0.95em;
+        width: 100%; /* Make tabs full width at this resolution. */
+        margin: 2px 0;
     }
+
+    .tabcontentcontainer label.dashboardtab:before,
+    .tabcontentcontainer label.coursetab:before {
+        content: "\f101";
+        padding-right: 5px;
+        font-family: "FontAwesome";
+    }
+
+    #coursetabcontainer section.adaptable-tab-section,
+    #dashboardtabcontainer section.adaptable-tab-section {
+        border: 0;
+    }
+
 }

@@ -147,10 +147,6 @@ Only screen and (max-width : 1200px)
         padding: 0;
     }
 
-    .row-fluid .span3 {
-        width: 100%;
-    }
-
     .headermenu2 {
         float: none;
         padding: 10px 0;
@@ -285,6 +281,10 @@ Only screen and (max-width : 1200px)
     #adaptable-page-header-wrapper > #header2 > div > div,
     #adaptable-page-header-wrapper #header2 .navbar-nav {
         min-height: 46px;
+    }
+
+    .header-style2 #page {
+        margin-top: 46px;
     }
 
 }
@@ -487,7 +487,10 @@ Only screen and (max-width : 1200px)
     #adaptable-page-header-wrapper .navbar .popover-region {
         margin: 4px 0 0 4px;
     }
-
+    
+    .header-style1 #page {
+        margin-top: 112px;
+    }
 }
 
 /*=====================================================
