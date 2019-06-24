@@ -556,12 +556,7 @@ function theme_adaptable_grid($left, $hassidepost) {
         $regions = array('content' => 'col-md-9');
         $regions['blocks'] = 'col-3';
         if ($left) {
-<<<<<<< HEAD
-            $regions = array('content' => 'col-9 float-right');
-            $regions['blocks'] = 'col-3 desktop-first-column float-left';
-=======
             $regions['direction'] = ' flex-row-reverse';
->>>>>>> faeda3c9372bf17fd1d839876924e1a7732b8b85
         } else {
             $regions['direction'] = '';
         }

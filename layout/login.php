@@ -39,12 +39,8 @@ if (!empty($PAGE->theme->settings->loginbgimage)) {
 echo '<div class="container outercont loginbg>';
 ?>
 
-<<<<<<< HEAD
-    <div id="page-content" class="row-fluid">
-=======
 <div class="container outercont">
     <div id="page-content" class="row">
->>>>>>> faeda3c9372bf17fd1d839876924e1a7732b8b85
         <section id="region-main" class="col-12">
             <?php
             echo $OUTPUT->course_content_header();
