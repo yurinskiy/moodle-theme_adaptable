@@ -49,7 +49,6 @@
 
 /* Block titles */
 .block .header,
-.block > .card-body,
 #dockeditempanel .dockeditempanel_hd {
     border-width: [[setting:blockheaderbordertop]] [[setting:blockheaderborderright]] [[setting:blockheaderborderbottom]] [[setting:blockheaderborderleft]];
     border-color: [[setting:blockbordercolor]];
