@@ -177,7 +177,7 @@ if (empty($PAGE->theme->settings->coursepageblocksenabled)) {
 // Hide sidebar on mobile.
 $classes = '';
 if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
-    $classes = ' d-none d-md-block ';
+    $classes = ' d-none d-md-block d-print-none ';
 }
 
 if ($movesidebartofooter == false) {
@@ -185,9 +185,7 @@ if ($movesidebartofooter == false) {
 
     // Get any missing blocks from changing layout settings.  E.g. From 4-4-4-4 to 6-6-0-0, to recover
     // what was in the last 2 spans that are now 0.
-    echo '<div class="row">';
     echo $OUTPUT->get_missing_block_regions($blocksarray, 'col-12', $displayall);
-    echo '</div>';
 }
 
 // If course page, display course bottom block region.

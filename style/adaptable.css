@@ -102,7 +102,6 @@ li {
 #adaptable-page-header-wrapper .dropdown-menu > li > a:focus,
 #adaptable-page-header-wrapper .dropdown-submenu:hover > a,
 #adaptable-page-header-wrapper .dropdown-submenu:focus > a {
-/*    background-color: #fff; */
     background-image: none;
 }
 
@@ -998,46 +997,6 @@ input[type="radio"], input[type="checkbox"] {
     border: none;
 }
 
-/*
-#region-main .settingsform .row {
-    margin: 10px 0;
-}
-
-#region-main #coursesearch .btn {
-    margin-top: 10px;
-    margin-left: 38px;
-}
-
-#id_message_tbl {
-    width: 98%;
-}
-
-.pull-left .usermenu2 .dropdown-menu {
-    margin: 0;
-    width: 350px;
-}
-
-.pull-left .usermenu2.nav {
-    position: relative;
-    color: #fff;
-}
-
-.pull-left .usermenu2.nav a {
-    color: [[setting:headertextcolor]] !important;
-}
-
-.pull-left .usermenu2.nav .dropdown-menu a {
-    color: #333;
-}
-
-.submit {
-    white-space: nowrap;
-}
-
-a.carousel-control {
-    color: #fff;
-    line-height: 38px;
-}
 
 /* lang menu */
 .langmenu a {
@@ -1514,15 +1473,52 @@ div.questionbankwindow.block {
     transition: all .5s ease-in-out;
 }
 
-/* .nav .dropdown-menu li a i,
-.nav li a i {
-    padding-right: 5px;
+#showsidebaricon {
+    display: none;
 }
 
-.nav .dropdown-menu li a moodlezoom  i,
-.nav li a i {
-    padding-right: 5px;
-} */
+@media screen and (max-width: 767px) {
+    #block-region-side-post {
+        background-color: #fff;
+        display: block !important;
+        height: calc(100% - 45px);
+        overflow: hidden;
+        padding: 0;
+        position: fixed;
+        min-width: 90%;
+        right: -90%;
+        top: 45px;
+        transition: right 0.75s;
+    }
+    #block-region-side-post .block-controls {
+        display: none;
+    }
+    #block-region-side-post.sidebarshown {
+        border-left: 2px solid [[setting:headerbkcolor2]];
+        overflow-y: auto;
+        right: 0;
+        z-index: 2;
+    }
+    #showsidebaricon {
+        background-color: [[setting:headerbkcolor2]];
+        border-bottom: 4px solid [[setting:headerbkcolor2]];
+        border-left: 4px solid [[setting:headerbkcolor2]];
+        border-top: 4px solid [[setting:headerbkcolor2]];
+        border-radius: 16px 0 0 16px;
+        color: [[setting:headertextcolor]];
+        display: block;
+        font-size: 24px;
+        padding: 8px 8px 8px 0;
+        position: fixed;
+        right: 0;
+        top: 100px;
+        transition: right 0.75s;
+        z-index: 2;
+    }
+    .sidebarshown #showsidebaricon {
+        right: 90%;
+    }
+}
 
 .fselect #id_courses {
     width: 100% !important;
