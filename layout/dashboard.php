@@ -104,7 +104,7 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
             echo '<main id="dashboardtabcontainer" class="tabcontentcontainer">';
 
             foreach ($taborder as $tabnumber) {
-                if ( (!empty($showtabs[$tabnumber])) && ($showtabs[$tabnumber]== true)) {
+                if ((!empty($showtabs[$tabnumber])) && ($showtabs[$tabnumber] == true)) {
                     // Tab 0 is the original content tab.
                     if ($tabnumber == 0) {
                         $tabname = 'dashboard-tab-content';
@@ -136,7 +136,8 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
                 } else {
                     if ($showtabs[$tabnumber] == true) {
                         echo '<section id="adaptable-dashboard-tab-' . $tabnumber . '" class="adaptable-tab-section tab-panel">';
-                        echo $OUTPUT->get_block_regions('customrowsetting', 'my-tab-' . $wordtonumber[$tabnumber] . '-', '12-0-0-0');
+                        echo $OUTPUT->get_block_regions('customrowsetting', 'my-tab-' . $wordtonumber[$tabnumber] .
+                            '-', '12-0-0-0');
                         echo '</section>';
                     }
                 }

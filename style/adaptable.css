@@ -102,7 +102,6 @@ li {
 #adaptable-page-header-wrapper .dropdown-menu > li > a:focus,
 #adaptable-page-header-wrapper .dropdown-submenu:hover > a,
 #adaptable-page-header-wrapper .dropdown-submenu:focus > a {
-/*    background-color: #fff; */
     background-image: none;
 }
 
@@ -998,46 +997,6 @@ input[type="radio"], input[type="checkbox"] {
     border: none;
 }
 
-/*
-#region-main .settingsform .row {
-    margin: 10px 0;
-}
-
-#region-main #coursesearch .btn {
-    margin-top: 10px;
-    margin-left: 38px;
-}
-
-#id_message_tbl {
-    width: 98%;
-}
-
-.pull-left .usermenu2 .dropdown-menu {
-    margin: 0;
-    width: 350px;
-}
-
-.pull-left .usermenu2.nav {
-    position: relative;
-    color: #fff;
-}
-
-.pull-left .usermenu2.nav a {
-    color: [[setting:headertextcolor]] !important;
-}
-
-.pull-left .usermenu2.nav .dropdown-menu a {
-    color: #333;
-}
-
-.submit {
-    white-space: nowrap;
-}
-
-a.carousel-control {
-    color: #fff;
-    line-height: 38px;
-}
 
 /* lang menu */
 .langmenu a {
@@ -1513,16 +1472,6 @@ div.questionbankwindow.block {
 #block-region-side-post {
     transition: all .5s ease-in-out;
 }
-
-/* .nav .dropdown-menu li a i,
-.nav li a i {
-    padding-right: 5px;
-}
-
-.nav .dropdown-menu li a moodlezoom  i,
-.nav li a i {
-    padding-right: 5px;
-} */
 
 .fselect #id_courses {
     width: 100% !important;
