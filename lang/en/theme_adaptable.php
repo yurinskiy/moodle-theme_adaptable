@@ -120,7 +120,7 @@ $string['region-course-bottom-d'] = 'Course page bottom region 8';
 $string['settingsmaincolors'] = 'Main Colours';
 $string['settingsheadercolors'] = 'Header Colours';
 $string['settingsmenucolors'] = 'Menu Colours';
-$string['settingsmobilemenucolors'] = 'Mobile Menu Colours';
+$string['settingsmobilecolors'] = 'Mobile Colours';
 $string['settingsinfoboxcolors'] = 'Info Box Colours';
 $string['settingssecondinfoboxcolors'] = 'Second Info Box Colours';
 $string['settingsmarketingcolors'] = 'Marketing Block Colours';
@@ -732,6 +732,12 @@ $string['mobilemenubkcolordesc'] = 'Set the Main Menu background colour on mobil
 
 $string['mobilemenufontcolor'] = 'Mobile Menu font colour';
 $string['mobilemenufontcolordesc'] = 'Set a Main Menu font colour on mobile devices (collapsed)';
+
+$string['mobileslidebartabbkcolor'] = 'Sidebar tab background colour';
+$string['mobileslidebartabbkcolordesc'] = 'The sidebar background colour on mobile devices (collapsed)';
+
+$string['mobileslidebartabiconcolor'] = 'Sidebar tab icon colour';
+$string['mobileslidebartabiconcolordesc'] = 'The sidebar icon colour on mobile devices (collapsed)';
 
 $string['selectiontext'] = 'Selection text colour';
 $string['selectiontextdesc'] = 'Set the text colour when a text in the screen is selected.';

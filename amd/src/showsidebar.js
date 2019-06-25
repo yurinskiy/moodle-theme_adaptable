@@ -16,13 +16,13 @@ define(['jquery', 'core/log'], function($, log) {
                     $('#showsidebaricon').click(function() {
                         if (sidePostClosed === true) {
                             sidePost.addClass('sidebarshown');
-                            showSideBarIcon.removeClass('fa-chevron-left');
-                            showSideBarIcon.addClass('fa-chevron-right');
+                            showSideBarIcon.removeClass('fa-angle-left');
+                            showSideBarIcon.addClass('fa-angle-right');
                             sidePostClosed = false;
                         } else {
                             sidePost.removeClass('sidebarshown');
-                            showSideBarIcon.removeClass('fa-chevron-right');
-                            showSideBarIcon.addClass('fa-chevron-left');
+                            showSideBarIcon.removeClass('fa-angle-right');
+                            showSideBarIcon.addClass('fa-angle-left');
                             sidePostClosed = true;
                         }
                     });
