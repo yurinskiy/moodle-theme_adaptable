@@ -323,19 +323,13 @@
 }
 
 .site-topic ul.section, .course-content ul.section {
-    margin: 0em 0.4em;
+    margin: 0 0.4em;
 }
 
 .site-topic ul,
 .course-content ul {
-    padding-left: 0.5rem;
+    padding-left: 1.2rem;
 }
-
-.zoomin .site-topic ul,
-.zoomin .course-content ul {
-    padding-left: 0;
-}
-
 
 #newdiscussionform {
     text-align: center;
