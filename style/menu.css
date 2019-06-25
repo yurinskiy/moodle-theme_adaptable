@@ -573,7 +573,7 @@ a.dropdown-menu > .active > a:focus,
 
     #adaptable-page-header-wrapper .btco-hover-menu .collapse ul ul.dropdown-menu {
         position: absolute;
-        margin-top: 1px !important;
+        margin-top: 0 !important;
         min-width: 180px;
         display: none;
     }
