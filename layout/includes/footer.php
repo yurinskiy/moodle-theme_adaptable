@@ -95,7 +95,7 @@ if ($PAGE->theme->settings->moodledocs) {
 }
 ?>
 
-<a class="back-to-top" href="#top" ><i class="fa fa-angle-up "></i></a>
+<div id="back-to-top"><i class="fa fa-angle-up "></i></div>
 
 <?php
     // If admin settings page, show template for floating save / discard buttons.
