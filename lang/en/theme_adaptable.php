@@ -1811,3 +1811,20 @@ $string['logintextboxbottom'] = 'Bottom text box';
 $string['logintextboxbottomdesc'] = 'Add a custom text below the login box.';
 $string['loginmoodletext'] = 'Show default moodle text';
 $string['loginmoodletextdesc'] = 'Show the default moodle text in the login page.';
+
+// User profile
+$string['aboutme'] = 'About me';
+$string['course'] = 'Course';
+$string['courses'] = 'Courses';
+$string['more'] = 'More';
+
+// User & user profile settings.
+$string['usersettings'] = 'User';
+$string['usersettingsdesc'] = 'Set settings for the user.';
+$string['usersettingsheading'] = 'Control aspects of the user';
+$string['customcoursetitle'] = 'Custom course title';
+$string['customcoursetitledesc'] = 'Name of the user profile custom field for the course title.';
+$string['customcoursesubtitle'] = 'Custom course title';
+$string['customcoursesubtitledesc'] = 'Name of the user profile custom field for the course title.';
+$string['usernodescription'] = 'User has not updated their description yet.';
+$string['usernointerests'] = 'User has not updated their interests yet.';

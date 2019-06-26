@@ -205,6 +205,26 @@ class theme_adaptable_core_renderer extends core_renderer {
     protected $language = null;
 
     /**
+     * Constructor
+     *
+     * @param moodle_page $page the page we are doing output for.
+     * @param string $target one of rendering target constants
+     */
+    // Cannot make this work!
+    /*public function __construct(\moodle_page $page, $target) {
+        static $formdatanotprocessed = true;
+        if ($formdatanotprocessed) {
+            if ($page->state == moodle_page::STATE_BEFORE_HEADER) {
+                if (optional_param('aep', null, PARAM_ALPHA) == 'aep') {
+                    \theme_adaptable\output\core_user\myprofile\editprofile::process_form();
+                }
+                $formdatanotprocessed = false;
+            }
+        }
+        parent::__construct($page, $target);
+    }*/
+
+    /**
      * Renders an action menu component.
      *
      * @param action_menu $menu
@@ -3237,6 +3257,26 @@ EOT;
             $this->page->requires->js_call_amd('theme_adaptable/showsidebar', 'init');
         }
 
+        return $output;
+    }
+
+    /**
+     * Redirects the user by any means possible given the current state
+     *
+     * This function should not be called directly, it should always be called using
+     * the redirect function in lib/weblib.php
+     *
+     * The redirect function should really only be called before page output has started
+     * however it will allow itself to be called during the state STATE_IN_BODY
+     *
+     * @param string $encodedurl The URL to send to encoded if required
+     * @return string The HTML with javascript refresh...
+     */
+    public function adaptable_redirect($encodedurl) {
+        $url = str_replace('&amp;', '&', $encodedurl);
+        $this->page->requires->js_function_call('document.location.replace', array($url), false, '0');
+        $output = $this->opencontainers->pop_all_but_last();
+        $output .= $this->footer();
         return $output;
     }
 }
