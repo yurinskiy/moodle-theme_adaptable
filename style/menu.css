@@ -578,6 +578,14 @@ a.dropdown-menu > .active > a:focus,
         display: none;
     }
 
+     #adaptable-page-header-wrapper .btco-hover-menu .collapse ul ul.dropdown-menu ul {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        min-width: 180px;
+        display: none;
+    }
+
     #adaptable-page-header-wrapper #above-header .btco-hover-menu .collapse ul ul.dropdown-menu {
         min-width: 60px;
     }

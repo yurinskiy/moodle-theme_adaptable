@@ -55,8 +55,13 @@
     border-color: [[setting:blockbordercolor]];
     border-style: [[setting:blockheaderbordertopstyle]];
     padding: 10px 5px 5px 5px;
-    background: [[setting:blockheaderbackgroundcolor]];
     border-radius: [[setting:blockheadertopradius]] [[setting:blockheadertopradius]] [[setting:blockheaderbottomradius]] [[setting:blockheaderbottomradius]];
+}
+
+
+.block .header,
+#dockeditempanel .dockeditempanel_hd {
+    background: [[setting:blockheaderbackgroundcolor]];
 }
 
 .block .header {

@@ -214,9 +214,9 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    // Mobile Menu colors heading.
-    $name = 'theme_adaptable/settingsmobilemenucolors';
-    $heading = get_string('settingsmobilemenucolors', 'theme_adaptable');
+    // Mobile colors heading.
+    $name = 'theme_adaptable/settingsmobilecolors';
+    $heading = get_string('settingsmobilecolors', 'theme_adaptable');
     $setting = new admin_setting_heading($name, $heading, '');
     $temp->add($setting);
 
@@ -238,6 +238,23 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    // Mobile sidebar tab background colour.
+    $name = 'theme_adaptable/mobileslidebartabbkcolor';
+    $title = get_string('mobileslidebartabbkcolor', 'theme_adaptable');
+    $description = get_string('mobileslidebartabbkcolordesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#F9F9F9', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Mobile sidebar tab icon colour.
+    $name = 'theme_adaptable/mobileslidebartabiconcolor';
+    $title = get_string('mobileslidebartabiconcolor', 'theme_adaptable');
+    $description = get_string('mobileslidebartabiconcolordesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#000000', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
 
     // Market blocks colors heading.
     $name = 'theme_adaptable/settingsmarketingcolors';

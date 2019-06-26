@@ -270,11 +270,11 @@ div.signuppanel h2 {
 #sitetitle p,
 #sitetitle h1 {
     color: [[setting:fonttitlecolor]] !important;
-    display: inline;
+
     font-size: [[setting:fonttitlesize]];
     font-family: [[setting:fonttitlename]], sans-serif;
     font-weight: [[setting:fonttitleweight]] !important;
-    height: 110px;
+
     line-height: 120%;
     max-width: [[setting:sitetitlemaxwidth]];
     min-width: 50%;
@@ -1494,21 +1494,20 @@ div.questionbankwindow.block {
         display: none;
     }
     #block-region-side-post.sidebarshown {
-        border-left: 2px solid [[setting:headerbkcolor2]];
+        border-left: 2px solid [[setting:mobileslidebartabbkcolor]];
         overflow-y: auto;
         right: 0;
         z-index: 2;
     }
     #showsidebaricon {
-        background-color: [[setting:headerbkcolor2]];
-        border-bottom: 4px solid [[setting:headerbkcolor2]];
-        border-left: 4px solid [[setting:headerbkcolor2]];
-        border-top: 4px solid [[setting:headerbkcolor2]];
-        border-radius: 16px 0 0 16px;
-        color: [[setting:headertextcolor]];
+        background-color: [[setting:mobileslidebartabbkcolor]];
+        border-bottom: 4px solid [[setting:mobileslidebartabbkcolor]];
+        border-left: 4px solid [[setting:mobileslidebartabbkcolor]];
+        border-top: 4px solid [[setting:mobileslidebartabbkcolor]];
+        border-radius: 45px 0 0 45px;
+        color: [[setting:mobileslidebartabiconcolor]];
         display: block;
-        font-size: 24px;
-        padding: 8px 8px 8px 0;
+        padding: 6px;
         position: fixed;
         right: 0;
         top: 100px;
