@@ -270,11 +270,11 @@ div.signuppanel h2 {
 #sitetitle p,
 #sitetitle h1 {
     color: [[setting:fonttitlecolor]] !important;
-    display: inline;
+
     font-size: [[setting:fonttitlesize]];
     font-family: [[setting:fonttitlename]], sans-serif;
     font-weight: [[setting:fonttitleweight]] !important;
-    height: 110px;
+
     line-height: 120%;
     max-width: [[setting:sitetitlemaxwidth]];
     min-width: 50%;

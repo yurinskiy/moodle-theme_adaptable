@@ -380,62 +380,72 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
     ?>
 
     <div id="page-header" class="container">
+        <div class="row">
 
-    <?php
-    // Site title or logo.
-    if (!$hidesitetitle) {
-        echo $OUTPUT->get_logo_title();
-    }
-    ?>
-
-    <?php
-    // Remove Search Box or Social icons in Quiz pages even if they don't use SEB.
-    if ($PAGE->pagetype != "mod-quiz-attempt") {
-        // Social icons.
-        if ($PAGE->theme->settings->socialorsearch == 'social') {
-            // If it is a mobile and the social icons are not hidden or it is a desktop then load and show the social icons.
-            if (((theme_adaptable_is_mobile()) && ($hidesocialmobile == 1)) || (theme_adaptable_is_desktop())) {
-                ?>
-                <div class="socialbox pull-right">
-                    <?php
-                    echo $OUTPUT->socialicons();
-                    ?>
-                </div>
-                <?php
-            }
-        }
-            ?>
-
+        <div class="d-none d-lg-block col-lg-4">
         <?php
-        // Search box.
-        if ( (!$hidesitetitle) && ($PAGE->theme->settings->socialorsearch == 'search') ) { ?>
-            <div class="searchbox d-none d-lg-block">
-                <form action="<?php echo $wwwroot; ?>/course/search.php">
-                    <label class="hidden" for="search-1" style="display: none;"><?php echo get_string("searchcourses")?></label>
-                    <div class="search-box grey-box bg-white clear-fix">
-                        <input placeholder="<?php echo get_string("searchcourses", "theme_adaptable"); ?>"
-                                accesskey="6"
-                                class="search_tour bg-white no-border left search-box__input ui-autocomplete-input"
-                                type="text"
-                                name="search"
-                                id="search-1"
-                                autocomplete="off">
-                                <button title="<?php echo get_string("searchcourses", "theme_adaptable")?>"
-                                        type="submit" class="no-border bg-white pas search-box__button">
-                                        <abbr class="fa fa-search" title="<?php echo get_string("searchcourses", "theme_adaptable");?>">
-                                        </abbr>
-                                </button>
-                    </div>
-                </form>
-            </div>
-        <?php
+        // Site title or logo.
+        if (!$hidesitetitle) {
+            echo '<div class="d-flex align-items-start bd-highlight">';
+            echo $OUTPUT->get_logo_title();
+            echo '</div>';
         }
-    }
         ?>
-
-        <div id="course-header">
-            <?php echo $OUTPUT->course_header(); ?>
         </div>
+
+        <div class="col-lg-8 p-0 my-auto">
+            <?php
+            // Remove Search Box or Social icons in Quiz pages even if they don't use SEB.
+            if ($PAGE->pagetype != "mod-quiz-attempt") {
+                // Social icons.
+                if ($PAGE->theme->settings->socialorsearch == 'social') {
+                    // If it is a mobile and the social icons are not hidden or it is a desktop then load and show the social icons.
+                    if (((theme_adaptable_is_mobile()) && ($hidesocialmobile == 1)) || (theme_adaptable_is_desktop())) {
+                        ?>
+                        <div class="socialbox pull-right">
+                            <?php
+                            echo $OUTPUT->socialicons();
+                            ?>
+                        </div>
+                        <?php
+                    }
+                }
+                    ?>
+
+                <?php
+                // Search box.
+                if ( (!$hidesitetitle) && ($PAGE->theme->settings->socialorsearch == 'search') ) { ?>
+                    <div class="searchbox d-none d-lg-block">
+                        <form action="<?php echo $wwwroot; ?>/course/search.php">
+                            <label class="hidden" for="search-1" style="display: none;"><?php echo get_string("searchcourses")?></label>
+                            <div class="search-box grey-box bg-white clear-fix">
+                                <input placeholder="<?php echo get_string("searchcourses", "theme_adaptable"); ?>"
+                                        accesskey="6"
+                                        class="search_tour bg-white no-border left search-box__input ui-autocomplete-input"
+                                        type="text"
+                                        name="search"
+                                        id="search-1"
+                                        autocomplete="off">
+                                        <button title="<?php echo get_string("searchcourses", "theme_adaptable")?>"
+                                                type="submit" class="no-border bg-white pas search-box__button">
+                                                <abbr class="fa fa-search" title="<?php echo get_string("searchcourses", "theme_adaptable");?>">
+                                                </abbr>
+                                        </button>
+                            </div>
+                        </form>
+                    </div>
+                <?php
+                }
+            }
+                ?>
+
+                <div id="course-header">
+                    <?php echo $OUTPUT->course_header(); ?>
+                </div>
+
+            </div>
+            </div>
+
     </div>
 
     <?php
@@ -444,7 +454,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
 <?php endif; // End header style 1. ?>
 
-<?php // Begin header style 2.  This includes a css class ID called "header2". ?>
+<?php // Begin header style 2 (2 row header).  This includes a css class ID called "header2". ?>
 <?php if ($adaptableheaderstyle == "style2") : ?>
 
     <header id="adaptable-page-header-wrapper" <?php echo $headerbg; ?> >
@@ -452,7 +462,9 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
     <div id="header2" class="container">
 
       <div class="row">
-        <div class="d-none d-lg-block col-lg-3">
+
+        <div class="d-none d-lg-block col-lg-4">
+        <div class="d-flex align-items-start bd-highlight">
 
             <?php
             // Site title or logo.
@@ -465,8 +477,9 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                 <?php echo $OUTPUT->course_header(); ?>
             </div>
         </div>
+        </div>
 
-        <div class="col-lg-9 p-0">
+        <div class="col-lg-8 p-0 my-auto">
 
             <nav class="navbar navbar-expand btco-hover-menu">
 
