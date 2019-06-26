@@ -1897,6 +1897,12 @@ div.questionbankwindow.block {
     min-width: 30px;
 }
 
+/* Fix quiz page width */
+.path-mod-quiz #mod-quiz-attempt .container {
+    width: 100% !important;
+}
+
+
 /* Fix glossary print option */
 #page-mod-glossary-view .glossarycontrol {
     margin: -40px 5px;

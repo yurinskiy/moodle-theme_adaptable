@@ -484,7 +484,7 @@ Only screen and (max-width : 1200px)
     #adaptable-page-header-wrapper .navbar .popover-region {
         margin: 4px 0 0 4px;
     }
-    
+
     .header-style1 #page {
         margin-top: 112px;
     }
@@ -510,30 +510,26 @@ Only screen and (max-width : 1200px)
 ======================================================= */
 
 @media only screen and (min-width: 1200px) {
-
-.container {
-        width: 1170px;
+    .container {
+        min-width: 1170px;
         max-width: 100%;
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-
-.container {
-    max-width: inherit;
-    width: 960px;
-}
+    .container {
+        max-width: inherit;
+        width: 960px;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  #adaptable-page-header-wrapper .container,
-  .container {
-    width: 724px;
-    max-width: inherit;
-  }
-
+    #adaptable-page-header-wrapper .container,
+    .container {
+        width: 724px;
+        max-width: inherit;
+    }
 }
-
 
 @media (min-width: 576px) and (max-width: 767px) {
     .container {

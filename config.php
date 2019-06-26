@@ -181,7 +181,8 @@ $THEME->layouts = array(
     // Part of course, typical for modules - default page layout if $cm specified in require_login().
     'incourse' => array(
         'file' => 'columns2.php',
-        'regions' => array('side-post', 'course-section-a'),
+//        'regions' => array('side-post', 'course-section-a'),
+        'regions' => array('side-post'),
         'defaultregion' => 'side-post',
     ),
     // The site home page.
