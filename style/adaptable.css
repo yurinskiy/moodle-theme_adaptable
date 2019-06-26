@@ -2399,17 +2399,16 @@ img.smallicon {
 }
 
 /* Login Page */
-
 /* Background Image */
-#page-login-index {
-    background-image: url([[pix:theme|loginbgimage]]);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0 0;
-}
-
 #page-login-index .outercont {
-    height: 100vh;
     padding: 0 !important;
     margin: 0 !important;
+}
+
+#page-login-index #page-footer {
+    margin: 0 !important;
+}
+
+#page-login-index .fullin .container {
+    width: 100% !important;
 }

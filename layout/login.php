@@ -27,25 +27,24 @@
 defined('MOODLE_INTERNAL') || die;
 
 // Include header.
+global $PAGE, $OUTPUT;
 require_once(dirname(__FILE__) . '/includes/header.php');
 
-$loginbg = '';
+$loginbg = "";
 
 if (!empty($PAGE->theme->settings->loginbgimage)) {
     $loginbg = ' style="background-image: url('.$PAGE->theme->setting_file_url('loginbgimage', 'loginbgimage').');
                          background-position: 0 0; background-repeat: no-repeat; background-size: cover;"';
 }
 
-echo '<div class="container outercont loginbg>';
-?>
-
-<div class="container outercont">
+echo '<div class="container outercont" '.$loginbg.'>';
+echo $OUTPUT->page_navbar(false);
+    ?>
     <div id="page-content" class="row">
         <section id="region-main" class="col-12">
             <?php
-            echo $OUTPUT->course_content_header();
             echo $OUTPUT->main_content();
-            echo $OUTPUT->course_content_footer();
+            echo $OUTPUT->activity_navigation();
             ?>
         </section>
     </div>

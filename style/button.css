@@ -297,7 +297,8 @@ button[name="resetbutton"]:hover,
 }
 
 /* Login page button */
-#loginbtn {
+#loginbtn,
+#guestlogin .btn {
     height: 50px;
     font-size: larger;
 }
