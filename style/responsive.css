@@ -511,14 +511,14 @@ Only screen and (max-width : 1200px)
 
 @media only screen and (min-width: 1200px) {
     .container {
-        min-width: 1170px;
         max-width: 100%;
+        width: 1170px;
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .container {
-        max-width: inherit;
+        max-width: 100%;
         width: 960px;
     }
 }
@@ -526,14 +526,14 @@ Only screen and (max-width : 1200px)
 @media (min-width: 768px) and (max-width: 991px) {
     #adaptable-page-header-wrapper .container,
     .container {
+        max-width: 100%;
         width: 724px;
-        max-width: inherit;
     }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
     .container {
-        max-width: 747px;
+        max-width: 100%;
     }
 }
 
