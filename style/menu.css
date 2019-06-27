@@ -467,6 +467,11 @@
    opacity: 1;
 }
 
+/* Bootstrap hides/shows dropdowns onclick via the class .show */
+.dropdown-menu.show {
+    display: block !important; /* SHAME - using important as this seems to be overwriten elsewhere. */
+}
+
 #adaptable-page-header-wrapper .nav .dropdown-menu li a {
     color: [[setting:linkcolor]] /* !important */;
     background-color: none;
