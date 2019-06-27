@@ -1222,9 +1222,12 @@ input[type="radio"], input[type="checkbox"] {
     background-color: transparent !important;
     color: #777 !important;
     font-size: 1.5rem;
+    height: auto;
+    line-height: 1;
+    margin: 0;
     padding: 0;
-    margin: -5px -5px 0px 0px;
 }
+
 .modal-header .close:hover,
 .modal-header .close:focus {
     color: #000 !important;
