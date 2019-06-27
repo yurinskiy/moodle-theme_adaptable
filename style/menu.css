@@ -625,6 +625,11 @@ a.dropdown-menu > .active > a:focus,
   width: 300px;
 }
 
+/* When the nav-drawer is closed take it out of the dom so it is not read by screenreaders. */
+#nav-drawer.closed {
+    display: none;
+}
+
 // Replacing old FA icons in menus.
 // Dashboard.
 .fa-dashboard::before,
