@@ -1219,8 +1219,15 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .modal-header .close {
-    color: #777;
-    margin-top: -12px;
+    background-color: transparent !important;
+    color: #777 !important;
+    font-size: 1.5rem;
+    padding: 0;
+    margin: -5px -5px 0px 0px;
+}
+.modal-header .close:hover,
+.modal-header .close:focus {
+    color: #000 !important;
 }
 
 .modal-header h3 {
