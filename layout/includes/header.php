@@ -110,10 +110,10 @@ if (isloggedin()) {
     }
     // Set template data.
     $data = [
-        username => $username,
-        userpic => $userpic,
-        showusername => $showusername,
-        userprofilemenu => $OUTPUT->user_profile_menu(),
+        'username' => $username,
+        'userpic' => $userpic,
+        'showusername' => $showusername,
+        'userprofilemenu' => $OUTPUT->user_profile_menu(),
     ];
     $usermenu = $OUTPUT->render_from_template('theme_adaptable/usermenu', $data);
 }
