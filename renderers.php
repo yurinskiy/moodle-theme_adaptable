@@ -2101,12 +2101,17 @@ EOT;
             if (!empty($PAGE->theme->settings->logo)) {
                 // Logo.
                 $retval .= '<div class="p-2 bd-highlight">';
-                // Remove link to home page in logo when in a quiz page.
-                if ($PAGE->pagetype != "mod-quiz-attempt") {
-                    $retval .= '<a href=' . $CFG->wwwroot . '>';
+                $logo = '<img src=' . $PAGE->theme->setting_file_url('logo', 'logo') . ' id="logo" alt="" />';
+
+                // Exception - Quiz page - logo is not a link to site homepage.
+                if ($PAGE->pagetype == "mod-quiz-attempt") {
+                    $retval .=  $logo;
                 }
-                $retval .= '<img src=' . $PAGE->theme->setting_file_url('logo', 'logo') . ' alt="logo" id="logo" />';
-                if ($PAGE->pagetype != "mod-quiz-attempt") {
+
+                // Standard - Output the logo as a link to site homepage.
+                else {
+                    $retval .= '<a href=' . $CFG->wwwroot . ' aria-label="home" title="' . format_string($SITE->fullname). '">';
+                    $retval .=  $logo;
                     $retval .= '</a>';
                 }
                 $retval .= '</div>';
