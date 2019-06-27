@@ -81,6 +81,44 @@ if (!empty($PAGE->theme->settings->headerbgimage)) {
                          background-position: 0 0; background-repeat: no-repeat; background-size: cover;"';
 }
 
+// Choose the header style.  There styles available are:
+// "style1"  (original header)
+// "style2"  (2 row header).
+
+$adaptableheaderstyle = "style1";
+
+if (!empty($PAGE->theme->settings->headerstyle)) {
+    $adaptableheaderstyle = $PAGE->theme->settings->headerstyle;
+}
+
+// User image, name in user menu dropdown.
+$userpic = '';
+$username = '';
+$usermenu = '';
+// Only used when user is logged in.
+if (isloggedin()) {
+    // User icon.
+    $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'visibletoscreenreaders' => false, 'size' => 50, 'class' => 'userpicture'));
+    // User name.
+    $username = format_string(fullname($USER));
+
+    // User menu dropdown.
+    $showusername = '';
+    // Addaptable style1 shows username, style2 does not.
+    if ($adaptableheaderstyle == 'style1') {
+        $showusername = true;
+    }
+    // Set template data.
+    $data = [
+        username => $username,
+        userpic => $userpic,
+        showusername => $showusername,
+        userprofilemenu => $OUTPUT->user_profile_menu(),
+    ];
+    $usermenu = $OUTPUT->render_from_template('theme_adaptable/usermenu', $data);
+}
+
+
 // Select fonts used.
 $fontname = '';
 $fontheadername = '';
@@ -144,6 +182,8 @@ $defaultview = $PAGE->theme->settings->viewselect;
 if ($defaultview == 1 && $setfull == "") {
     $setfull = "fullin";
 }
+
+
 
 // HTML header.
 echo $OUTPUT->doctype();
@@ -213,20 +253,7 @@ echo $OUTPUT->standard_head_html() ?>
     ?>
 </head>
 
-<body
-    <?php
-    // Choose the header style.  There styles available are:
-    // "style1"  (original header)
-    // "style2"  (2 row header).
-
-    $adaptableheaderstyle = "style1";
-
-    if (!empty($PAGE->theme->settings->headerstyle)) {
-        $adaptableheaderstyle = $PAGE->theme->settings->headerstyle;
-    }
-
-    echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle));
-    ?>>
+<body <?php echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle)); ?>>
 
 <?php
 echo $OUTPUT->standard_top_of_body_html();
@@ -246,6 +273,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
 // Background image in Header.
 ?>
+
 
 <?php if ($adaptableheaderstyle == "style1") : ?>
 
@@ -345,25 +373,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                             ?>
 
                             <li class="nav-item dropdown ml-3 ml-md-4 mr-2 mr-md-0">
-                                <a class="nav-link dropdown-toggle my-auto" href="javascript:void(0);"
-                                    id="navbarAboveHeaderDropdownMenuLink" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="true">
-
-                                <?php
-                                // Show user avatar.
-                                $userpic = $OUTPUT->user_picture($USER, array('link' => false,
-                                                                              'size' => 80, 'class' => 'userpicture'));
-                                echo $userpic;
-                                ?>
-
-                                <span class="d-none d-md-inline-block">
-                                <?php echo fullname($USER); ?>
-                                <!-- span class="fa fa-angle-down"></span -->
-                                </span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarAboveHeaderDropdownMenuLink">
-                                    <?php echo $OUTPUT->user_profile_menu() ?>
-                                </ul>
+                                <?php echo $usermenu; ?>
                             </li>
 
                         <?php
@@ -535,7 +545,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                             if ($PAGE->theme->settings->displaylogin == 'box') {
                                 // Login button.
                         ?>
-                        <form id="pre-login-form" class="form-inline my-auto m-1" 
+                        <form id="pre-login-form" class="form-inline my-auto m-1"
                             action="<?php p($wwwroot) ?>/login/index.php" method="post">
                         <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
                         <input type="text" name="username"
@@ -563,21 +573,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                             ?>
 
                             <li class="nav-item dropdown ml-3 ml-md-2 mr-2 mr-md-0 my-auto">
-                                <a class="nav-link dropdown-toggle" href="javascript:void(0);"
-                                    id="navbarAboveHeaderDropdownMenuLink" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="true">
-
-                                <?php
-                                // Show user avatar.
-                                $userpic = $OUTPUT->user_picture($USER, array('link' => false,
-                                                                              'size' => 80, 'class' => 'userpicture'));
-                                echo $userpic;
-                                ?>
-
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarAboveHeaderDropdownMenuLink">
-                                    <?php echo $OUTPUT->user_profile_menu() ?>
-                                </ul>
+                                <?php echo $usermenu; ?>
                             </li>
 
                         <?php
