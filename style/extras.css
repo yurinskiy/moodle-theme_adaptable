@@ -798,8 +798,9 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscu
     padding-right: 15px;
 }
 
-#ticker-wrap #controls a {
+#ticker-wrap #controls .fa {
     color: [[setting:maincolor]];
+    cursor: pointer;
 }
 
 #ticker-wrap #newscontent {

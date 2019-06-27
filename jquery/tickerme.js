@@ -32,12 +32,10 @@
         $('body').prepend(control_definitions).prepend(control_styles);
 
         var controls = '<div id="ticker_container">';
-        controls += '<div id="newscontent"><div id="news"></div></div>';
+        controls += '<div id="newscontent"><div id="news" aria-live="polite"></div></div>';
         controls += '<div id="controls">';
-        controls += '<a href="#" id="pause_trigger"><i class="fa fa-pause"></i></a>';
-        controls += '<a href="#" id="play_trigger" style="display:none"><i class="fa fa-play"></i></a>';
-        //controls += '<a href="#" id="prev_trigger"><svg class="icon icon-prev" viewBox="0 0 32 32"><use xlink:href="#icon-prev"></use></svg></a>';
-        //controls += '<a href="#" id="next_trigger"><svg class="icon icon-next" viewBox="0 0 32 32"><use xlink:href="#icon-next"></use></svg></a>';
+        controls += '<span id="pause_trigger"><i class="fa fa-pause"></i></span>';
+        controls += '<span id="play_trigger" style="display:none"><i class="fa fa-play"></i></span>';
         controls += '</div>';
         controls += '</div>';
         $(controls).insertAfter(ticker);
@@ -71,14 +69,14 @@
 
       /* Control functions */
 
-      $('a#pause_trigger').click(function() {
+      $('#pause_trigger').click(function() {
         clearTimeout(timer);
         $(this).hide();
         $('#play_trigger').show();
         return false;
       });
 
-      $('a#play_trigger').click(function(){
+      $('#play_trigger').click(function(){
         load_container();
         $(this).hide();
         $('#pause_trigger').show();
@@ -92,7 +90,7 @@
           position--;
         }
         $('#newscontent').html('<div id="news" style="display:block">'+contents[position]+'</div>');
-        if (opts.auto_stop) $('a#pause_trigger').trigger('click');
+        if (opts.auto_stop) $('#pause_trigger').trigger('click');
         return false;
       });
 
@@ -103,7 +101,7 @@
           position++;
         }
         $('#newscontent').html('<div id="news" style="display:block">'+contents[position]+'</div>');
-        if (opts.auto_stop) $('a#pause_trigger').trigger('click');
+        if (opts.auto_stop) $('#pause_trigger').trigger('click');
         return false;
       });
 
