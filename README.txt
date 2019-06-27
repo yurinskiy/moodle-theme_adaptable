@@ -1,37 +1,33 @@
 Adaptable - the most adaptable moodle theme
 ===========================================
 
-Version 2.0.0 (2019051701) BETA
-
-NOTE: This Adaptable version is compatible with moodle 3.7 Beta ONLY.
-For older versions use Adaptable 1.7 or 1.3 branch.
-
+Version 2.0.0 (2019062700)
 
 Adaptable is a highly customizable responsive two column moodle theme based on the popular BCU theme adding:
 
--Customizable fonts (Google Fonts)
--Fully customizable colors
--Fully customizable block styles (including FA icons)
--Fully customizable buttons
--Additional header navigation
--News Ticker
--Alternative jQuery slider
--Alternative front page course styles
--Additional customizable marketing blocks
--Additional layout settings for width, slider width, padding of
- various elements
--Social icons
--Mobile settings (customize how theme looks on mobile devices)
--Dismissible bootstrap alerts
--Option to add login form in header on front page
--Logo and Favicon uploader
--Modern emojis (thanks to EmojiOne)
--Front Page layout builder
--Dashboard layout builder
--Course layout builder
--Activities status
--Privacy API (compatible with GDPR)
-
+- Customizable fonts (Google Fonts)
+- Fully customizable colors
+- Fully customizable block styles (including FA icons)
+- Fully customizable buttons
+- Additional header navigation
+- News Ticker
+- Alternative jQuery slider
+- Alternative front page course styles
+- Additional customizable marketing blocks
+- Additional layout settings for width, slider width, padding of
+  various elements
+- Social icons
+- Mobile settings (customize how theme looks on mobile devices)
+- Dismissible bootstrap alerts
+- Option to add login form in header on front page
+- Logo and Favicon uploader
+- Modern emojis (thanks to EmojiOne)
+- Front Page layout builder
+- Dashboard layout builder
+- Course layout builder
+- Activities status
+- Privacy API (compatible with GDPR)
+- 2 and 3 row header style options 
 
 In addition many fields (menus, news items, alerts and help links) can be targeted using custom profile fields, thus it is possible
 to present different users with different navigation items and notices. It is also possible for individual users to customize where
@@ -52,19 +48,14 @@ Developers
 Manoj Solanki (Coventry University)
 
 
-Change Log in 1.8
+Change Log in 2.0
 ------------------------------------
+
 What's new?
-- Set Adaptable styles in the new messages drawer
-- Add icons for hsuforum and customcert activities
-- Add a capability option to the Tool Menu
 
-
-Bugs fixed:
-- User menu doesn't render in correct position on test 3.6.1 system
-- Fix menus in the new Timeline block and Overview Courses
-- Buttons Font
-- Error "syntax error, unexpected end of file" in layout/secure.php
+- 2 and 3 row style header. Setting available in "Header" settings
+- New mobile header with better navigation
+- Edit button settings. Ablility to show cog icon and / or edit button in main menu navigation
 
 
 HTML/CSS sample code for block areas
