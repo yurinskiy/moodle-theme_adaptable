@@ -2100,7 +2100,7 @@ EOT;
         if (((theme_adaptable_is_mobile()) && ($hidelogomobile == 1)) || (theme_adaptable_is_desktop())) {
             if (!empty($PAGE->theme->settings->logo)) {
                 // Logo.
-                $retval .= '<div id="logocontainer">';
+                $retval .= '<div class="p-2 bd-highlight">';
                 // Remove link to home page in logo when in a quiz page.
                 if ($PAGE->pagetype != "mod-quiz-attempt") {
                     $retval .= '<a href=' . $CFG->wwwroot . '>';
@@ -2115,7 +2115,8 @@ EOT;
 
         $hidecoursetitlemobile = $PAGE->theme->settings->hidecoursetitlemobile;
 
-        $coursetitlemaxwidth = (!empty($PAGE->theme->settings->coursetitlemaxwidth) ? $PAGE->theme->settings->coursetitlemaxwidth : 0);
+        $coursetitlemaxwidth =
+            (!empty($PAGE->theme->settings->coursetitlemaxwidth) ? $PAGE->theme->settings->coursetitlemaxwidth : 0);
 
         // If it is a mobile and the site title/course is not hidden or it is a desktop then we display the site title / course.
         if (((theme_adaptable_is_mobile()) && ($hidecoursetitlemobile == 1)) || (theme_adaptable_is_desktop())) {
@@ -2146,19 +2147,22 @@ EOT;
                 switch ($PAGE->theme->settings->enableheading) {
                     case 'fullname':
                         // Full Course Name.
-                        $retval .= '<div id="sitetitle"><h1>' . format_string($coursetitle) . '<h1></div>';
+                        $retval .= '<div id="sitetitle" class="p-2 bd-highlight"><h1>'
+                                . format_string($coursetitle) . '<h1></div>';
                         break;
 
                     case 'shortname':
                         // Short Course Name.
-                        $retval .= '<div id="sitetitle"><h1>' . format_string($coursetitle) . '</h1></div>';
+                        $retval .= '<div id="sitetitle" class="p-2 bd-highlight"><h1>'
+                                . format_string($coursetitle) . '</h1></div>';
                         break;
 
                     default:
                         // None.
                         $header = theme_adaptable_remove_site_fullname($PAGE->theme->settings->sitetitletext);
                         $sitetitlehtml = $PAGE->theme->settings->sitetitletext;
-                        $retval .= '<div id="sitetitle">' . format_text($sitetitlehtml, FORMAT_HTML) . '</div>';
+                        $retval .= '<div id="sitetitle" class="p-2 bd-highlight"s>'
+                                . format_text($sitetitlehtml, FORMAT_HTML) . '</div>';
 
                         break;
                 }
@@ -2169,7 +2173,8 @@ EOT;
                 switch ($PAGE->theme->settings->sitetitle) {
                     case 'default':
                         // Default site title.
-                        $retval .= '<div id="sitetitle"><h1>' . format_string($SITE->fullname) . '</h1></div>';
+                        $retval .= '<div id="sitetitle" class="p-2 bd-highlight"><h1>'
+                                    . format_string($SITE->fullname) . '</h1></div>';
                         break;
 
                     case 'custom':
@@ -2180,7 +2185,8 @@ EOT;
                             $header = format_string($header);
                             $PAGE->set_heading($header);
 
-                            $retval .= '<div id="sitetitle">' . format_text($sitetitlehtml, FORMAT_HTML) . '</div>';
+                            $retval .= '<div id="sitetitle" class="p-2 bd-highlight">'
+                                        . format_text($sitetitlehtml, FORMAT_HTML) . '</div>';
                         }
                 }
             }

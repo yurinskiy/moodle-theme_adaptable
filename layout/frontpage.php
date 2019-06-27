@@ -107,13 +107,13 @@ if (!empty($PAGE->theme->settings->infobox2)) {
             ?>
         </section>
         <?php
-            $classes = '';
+        $classes = '';
 
-            // Hide sidebar on mobile.
-            if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
-                 $classes = ' d-none d-md-block ';
-            }
-            echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
+        // Hide sidebar on mobile.
+        if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
+            $classes = ' d-none d-md-block ';
+        }
+        echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
         ?>
     </div>
 

@@ -213,7 +213,8 @@ echo $OUTPUT->standard_head_html() ?>
     ?>
 </head>
 
-<body <?php
+<body
+    <?php
     // Choose the header style.  There styles available are:
     // "style1"  (original header)
     // "style2"  (2 row header).
@@ -224,7 +225,8 @@ echo $OUTPUT->standard_head_html() ?>
         $adaptableheaderstyle = $PAGE->theme->settings->headerstyle;
     }
 
-    echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle)); ?>>
+    echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle));
+    ?>>
 
 <?php
 echo $OUTPUT->standard_top_of_body_html();
@@ -417,7 +419,8 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                 if ( (!$hidesitetitle) && ($PAGE->theme->settings->socialorsearch == 'search') ) { ?>
                     <div class="searchbox d-none d-lg-block">
                         <form action="<?php echo $wwwroot; ?>/course/search.php">
-                            <label class="hidden" for="search-1" style="display: none;"><?php echo get_string("searchcourses")?></label>
+                            <label class="hidden" for="search-1" style="display: none;"><?php echo get_string("searchcourses")?>
+                            </label>
                             <div class="search-box grey-box bg-white clear-fix">
                                 <input placeholder="<?php echo get_string("searchcourses", "theme_adaptable"); ?>"
                                         accesskey="6"
@@ -428,7 +431,8 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                                         autocomplete="off">
                                         <button title="<?php echo get_string("searchcourses", "theme_adaptable")?>"
                                                 type="submit" class="no-border bg-white pas search-box__button">
-                                                <abbr class="fa fa-search" title="<?php echo get_string("searchcourses", "theme_adaptable");?>">
+                                                <abbr class="fa fa-search"
+                                                    title="<?php echo get_string("searchcourses", "theme_adaptable");?>">
                                                 </abbr>
                                         </button>
                             </div>
