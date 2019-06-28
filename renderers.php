@@ -2105,13 +2105,11 @@ EOT;
 
                 // Exception - Quiz page - logo is not a link to site homepage.
                 if ($PAGE->pagetype == "mod-quiz-attempt") {
-                    $retval .=  $logo;
-                }
-
-                // Standard - Output the logo as a link to site homepage.
-                else {
+                    $retval .= $logo;
+                } else {
+                    // Standard - Output the logo as a link to site homepage.
                     $retval .= '<a href=' . $CFG->wwwroot . ' aria-label="home" title="' . format_string($SITE->fullname). '">';
-                    $retval .=  $logo;
+                    $retval .= $logo;
                     $retval .= '</a>';
                 }
                 $retval .= '</div>';

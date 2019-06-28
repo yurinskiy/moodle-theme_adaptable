@@ -98,7 +98,8 @@ $usermenu = '';
 // Only used when user is logged in.
 if (isloggedin()) {
     // User icon.
-    $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'visibletoscreenreaders' => false, 'size' => 50, 'class' => 'userpicture'));
+    $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'visibletoscreenreaders' => false,
+               'size' => 50, 'class' => 'userpicture'));
     // User name.
     $username = format_string(fullname($USER));
 
@@ -117,7 +118,6 @@ if (isloggedin()) {
     ];
     $usermenu = $OUTPUT->render_from_template('theme_adaptable/usermenu', $data);
 }
-
 
 // Select fonts used.
 $fontname = '';
