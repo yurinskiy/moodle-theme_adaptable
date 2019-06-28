@@ -1108,10 +1108,12 @@ $string['enablemessagemenudesc'] = 'Enable Message menu in header (moot if messa
 $string['filteradminmessages'] = 'Filter Admin Messages';
 $string['filteradminmessagesdesc'] = 'Enable to remove messages from admin user, this can reduce system type messages appearing for students';
 
+
 $string['hideblocks'] = 'Hide blocks';
 $string['showblocks'] = 'Show blocks';
 $string['fullscreen'] = 'Full screen';
 $string['standardview'] = 'Standard view';
+$string['sitelinkslabel'] = 'Site links';
 
 $string['viewselect'] = 'Default to full screen view.';
 $string['viewselectdesc'] = 'Make the default view of the site fullscreen (when zoom option is in use).';
@@ -1384,6 +1386,7 @@ $string['activebreadcrumbdesc'] = 'Set the background colour of the active bread
 $string['breadcrumbseparator'] = 'Breadcrumb separator';
 $string['breadcrumbseparatordesc'] = 'Set the <a href="https://fortawesome.github.io/Font-Awesome/icons/" target="_blank">Font Awesome Icon</a> to be used as item separator in the breadcrumb. enter the icon name without the fa- prefix.';
 
+$string['breadcrumblabel'] = 'Breadcrumb';
 $string['breadcrumbhome'] = 'Breadcrumb home';
 $string['breadcrumbhomedesc'] = 'Display home breadcrumb as an icon or as a text.';
 

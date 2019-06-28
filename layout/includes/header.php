@@ -641,7 +641,7 @@ if (
 
 <div id="main-navbar" class="d-none d-lg-block">
     <div class="container">
-        <nav class="navbar navbar-expand-md btco-hover-menu">
+        <div class="navbar navbar-expand-md btco-hover-menu">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -650,21 +650,20 @@ if (
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
+            <nav role="navigation" aria-label="<?php echo get_string('sitelinkslabel', 'theme_adaptable'); ?>">
                 <ul class="navbar-nav">
+                    <?php echo $OUTPUT->navigation_menu('main-navigation'); ?>
 
-                <?php echo $OUTPUT->navigation_menu('main-navigation'); ?>
-
-                <?php
-                if (empty($PAGE->theme->settings->disablecustommenu)) {
-                        echo $OUTPUT->custom_menu();
-                }
-                ?>
-                <?php
-                if ($PAGE->theme->settings->enabletoolsmenus) {
-                        echo $OUTPUT->tools_menu();
-                }
-                ?>
+                    <?php
+                    if (empty($PAGE->theme->settings->disablecustommenu)) {
+                            echo $OUTPUT->custom_menu();
+                    }
+                    if ($PAGE->theme->settings->enabletoolsmenus) {
+                            echo $OUTPUT->tools_menu();
+                    }
+                    ?>
                 </ul>
+            </nav>
 
                 <ul class="navbar-nav ml-auto">
 
@@ -775,7 +774,7 @@ if (
                 </ul>
 
             </div>
-        </nav>
+        </div>
     </div>
 </div>
 

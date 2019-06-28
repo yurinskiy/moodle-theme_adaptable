@@ -1551,7 +1551,9 @@ EOT;
             $classes = 'd-none d-md-flex';
         }
 
-        return '<ul class="breadcrumb ' . $classes . '">'.$breadcrumbs.'</ul>';
+        return '<nav role="navigation" aria-label="'. get_string("breadcrumblabel", "theme_adaptable") .'">
+            <ol  class="breadcrumb ' . $classes . '">'.$breadcrumbs.'</ol>
+        </nav>';
     }
 
 
@@ -2709,13 +2711,18 @@ EOT;
             $url = '#';
 
             $content = '<li class="nav-item dropdown">';
-            $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'nav-link dropdown-toggle my-auto',
-                    'id' => $menuid . $submenucount, 'aria-haspopup' => 'true',
-                    'data-target' => $url, 'data-toggle' => 'dropdown',
+            $content .= html_writer::start_tag('a', array('href' => $url,
+                    'class' => 'nav-link dropdown-toggle my-auto', 'role' => 'button',
+                    'id' => $menuid . $submenucount,
+                    'aria-haspopup' => 'true',
+                    'aria-expanded' => 'false',
+                    'aria-controls' => 'dropdown' . $menuid . $submenucount,
+                    'data-target' => $url,
+                    'data-toggle' => 'dropdown',
                     'title' => $menunode->get_title()));
             $content .= $menunode->get_text();
             $content .= '</a>';
-            $content .= '<ul class="dropdown-menu" aria-labelledby="' . $menuid . $submenucount . '">';
+            $content .= '<ul role="menu" class="dropdown-menu" id="dropdown' . $menuid . $submenucount . '" aria-labelledby="' . $menuid . $submenucount . '">';
 
             foreach ($menunode->get_children() as $menunode) {
                 $content .= $this->render_custom_menu_item($menunode, 1, $menuid . $submenucount);
