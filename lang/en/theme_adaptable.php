@@ -611,7 +611,7 @@ $string['messagingbackgroundcolor'] = 'Messages main window background colour';
 $string['messagingbackgroundcolordesc'] = 'Set the background colour for the messages main chat window.';
 
 $string['headerbkcolor2'] = 'Lower header background colour';
-$string['headerbkcolor2desc'] = 'Set the lower header background colour.  Note that this also the colour for the background in Header style 2.';
+$string['headerbkcolor2desc'] = 'Set the lower header background colour. Note that this also sets the colour for the background in Header style 2.';
 
 $string['headertextcolor'] = 'Top Header blocks text and link colour';
 $string['headertextcolordesc'] = 'Set the top header blocks text and link colour.';
@@ -1754,7 +1754,7 @@ $string['tabbedlayoutdashboardtabcolorunselecteddesc'] = 'Choose the colour for 
 $string['tabbedlayoutdashboardtab1condition'] = 'Tab 1 Custom Profile Field Restriction (optional)';
 $string['tabbedlayoutdashboardtab1conditiondesc'] = 'Add access rule for displaying Tab 1 using custom profile field eg: showtab1=true';
 $string['tabbedlayoutdashboardtab2condition'] = 'Tab 2 Custom Profile Field Restriction (optional)';
-$string['tabbedlayoutdashboardtab2conditiondesc'] = 'Add access rule for displaying Tab 2 using custom profile field eg: showtab1=true';
+$string['tabbedlayoutdashboardtab2conditiondesc'] = 'Add access rule for displaying Tab 2 using custom profile field eg: showtab2=true';
 
 $string['tabbedlayouttablabelcourse'] = 'Course Content';
 $string['tabbedlayouttablabelcourse1'] = 'Tab 1';
