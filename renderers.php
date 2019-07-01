@@ -186,13 +186,8 @@ if (file_exists("$CFG->dirroot/course/format/flexible/renderer.php")) {
          * @param int $displaysection The section number in the course which is being displayed.
          */
         public function print_single_section_page($course, $sections, $mods, $modnames, $modnamesused, $displaysection) {
-            if ($this->settings['section0attop'] == 2) { // One is 'Top' and two is 'Grid'.
-                $section0attop = 0;
-            } else {
-                $section0attop = 1;
-            }
             $this->print_single_section_page_content($course, $sections, $mods, $modnames, $modnamesused, $displaysection,
-                $section0attop);
+                false);
         }
     }
 }
