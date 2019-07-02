@@ -1908,7 +1908,7 @@ div.questionbankwindow.block {
 }
 
 /* Fix quiz page width */
-.path-mod-quiz #mod-quiz-attempt .container {
+#page-mod-quiz-attempt .container {
     width: 100% !important;
 }
 
