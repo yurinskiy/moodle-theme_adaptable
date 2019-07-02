@@ -603,7 +603,6 @@ span.fa-chevron-right.fa {
     font-size: 10px;
 }
 
-
 #page-footer .block-list > li a {
     padding: 0;
 }
@@ -2412,6 +2411,21 @@ img.smallicon {
 .path-backup .detail-pair .detail-pair-value input[type="submit"] {
     margin: 0;
 }
+
+/* info icon */
+.text-info,
+.highlight {
+    color: [[setting:infoiconcolor]] !important;
+}
+
+/* danger icon */
+.text-danger,
+.notconnected,
+.que .validationerror,
+.text-error {
+    color: [[setting:dangericoncolor]] !important;
+}
+
 
 /* Login Page */
 /* Background Image */

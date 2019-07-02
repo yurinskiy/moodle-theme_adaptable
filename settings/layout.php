@@ -85,8 +85,26 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    // Adaptable Tabbed layout changes.
+    // Info icon colour.
+    $name = 'theme_adaptable/infoiconcolor';
+    $title = get_string('infoiconcolor', 'theme_adaptable');
+    $description = get_string('infoiconcolordesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#5bc0de', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
 
+    // Danger icon colour.
+    $name = 'theme_adaptable/dangericoncolor';
+    $title = get_string('dangericoncolor', 'theme_adaptable');
+    $description = get_string('dangericoncolordesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#d9534f', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+
+    // Adaptable Tabbed layout changes.
     $name = 'theme_adaptable/tabbedlayoutheading';
     $heading = get_string('tabbedlayoutheading', 'theme_adaptable');
     $setting = new admin_setting_heading($name, $heading, '');

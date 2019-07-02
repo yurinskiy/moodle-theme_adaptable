@@ -1336,6 +1336,12 @@ $string['sidebarnotloggeddesc'] = 'Show the blocks sidebar when the user is not 
 $string['emoticonsize'] = 'Emoticons size';
 $string['emoticonsizedesc'] = 'Set the height and width of the moodle emoticons.';
 
+$string['infoiconcolor'] = 'Help Icon colour';
+$string['infoiconcolordesc'] = 'Set the colour of the info/help icon used by tooltips.';
+
+$string['dangericoncolor'] = 'Warning Icon colour';
+$string['dangericoncolordesc'] = 'Set the colour of the warning/danger icon mainly used in mandatory fields.';
+
 $string['helptarget'] = 'Help target';
 $string['helptargetdesc'] = 'Do you want the help link to open in a new window?';
 

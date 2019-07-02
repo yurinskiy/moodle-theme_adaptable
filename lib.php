@@ -258,7 +258,9 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:frontpagenumbertiles]]' => '4',
         '[[setting:sidebarnotlogged]]' => 'true',
         '[[setting:gdprbutton]]' => 1,
-        '[[setting:loginmoodletext]]' => 0
+        '[[setting:loginmoodletext]]' => 0,
+        '[[setting:infoiconcolor]]' => '#5bc0de',
+        '[[setting:dangericoncolor]]' => '#d9534f'
     );
 
     // Get all the defined settings for the theme and replace defaults.
