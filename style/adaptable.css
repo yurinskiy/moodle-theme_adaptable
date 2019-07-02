@@ -2416,6 +2416,7 @@ img.smallicon {
 .text-info,
 .highlight {
     color: [[setting:infoiconcolor]] !important;
+    margin-top: 9px; /* fix vertical alignment */
 }
 
 /* danger icon */
