@@ -124,8 +124,9 @@
 }
 
 /* Added for 3.7 to make dropdowns in blocks be like Boost default as Adaptable styling above for .block .content a makes it appear dark and not unreadable. */
-.block .content a.dropdown-item.active, .block .content a.dropdown-item:active {
+.block .content a.dropdown-item:active {
     color: #fff;
+    background-color: [[setting:navbardropdownhovercolor]]
 }
 
 /** Some specific block styles for calendar block, login block, my profile block, etc. **/
