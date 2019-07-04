@@ -1787,11 +1787,14 @@ $string['frontpagetiles3'] = '3 tiles';
 $string['frontpagetiles4'] = '4 tiles';
 $string['frontpagetiles6'] = '6 tiles';
 
+// Edit settings.
 $string['editsettingsbutton'] = 'Edit settings and Button display';
 $string['editsettingsbuttondesc'] = 'Configure here what should appear in the Navbar for editing settings.  Note that these options do not apply to pages for which there are no related settings, such as the dashboard page.';
 $string['editsettingsbuttonshowcog'] = 'Show edit settings icon (cog / gear wheel icon) only.';
 $string['editsettingsbuttonshowbutton'] = 'Show edit button only. E.g. "Turn Editing on" button on course page.';
 $string['editsettingsbuttonshowcogandbutton'] = 'Show edit settings icon and cog.  Note that this takes up more space in navigation.';
+$string['displayeditingbuttontext'] = 'Editing button text';
+$string['displayeditingbuttontextdesc'] = 'Show or hide the text on the editing button.  Note: Only applies to the course editing button.';
 
 // Login *******************************************************.
 $string['loginsettings'] = 'Login Page';

@@ -128,6 +128,14 @@ $setting = new admin_setting_configselect($name, $title, $description, 'cog', $c
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+$name = 'theme_adaptable/displayeditingbuttontext';
+$title = get_string('displayeditingbuttontext', 'theme_adaptable');
+$description = get_string('displayeditingbuttontextdesc', 'theme_adaptable');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
 // Navbar styling.
 $temp->add(new admin_setting_heading('theme_adaptable_navbar_styling_heading',
         get_string('headernavbarstylingheading', 'theme_adaptable'),

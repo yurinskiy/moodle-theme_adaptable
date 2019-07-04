@@ -792,8 +792,15 @@ EOT;
             $title = get_string('turneditingon');
             $icon = 'fa-edit';
         }
-        return html_writer::tag('a', html_writer::start_tag('i', array('class' => $icon . ' fa fa-fw')) .
-                html_writer::end_tag('i') . $title, array('href' => $url, 'class' => 'btn ' . $btn, 'title' => $title));
+        $editingtext = get_config('theme_adaptable', 'displayeditingbuttontext');
+        $buttontitle = '';
+        if ($editingtext) {
+            $buttontitle = $title;
+        } else {
+            $icon .= ' only';
+        }
+        return html_writer::tag('a', html_writer::tag('i', '', array('class' => $icon.' fa fa-fw')).
+            $buttontitle, array('href' => $url, 'class' => 'btn '.$btn, 'title' => $title));
     }
 
     /**
