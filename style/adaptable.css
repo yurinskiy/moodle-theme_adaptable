@@ -1519,7 +1519,7 @@ div.questionbankwindow.block {
         padding: 6px;
         position: fixed;
         right: 0;
-        top: 100px;
+        top: 305px;
         transition: right 0.75s;
         z-index: 2;
     }
