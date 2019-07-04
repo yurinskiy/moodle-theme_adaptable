@@ -1178,7 +1178,7 @@ EOT;
             $vals = explode('-', $field);
             foreach ($vals as $val) {
                 if ($val > 0) {
-                    $retval .= '<div class="px-2 my-1 col-md-' . $val . $style . '">';
+                    $retval .= '<div class="my-1 col-md-' . $val . $style . '">';
 
                     // Moodle does not seem to like numbers in region names so using letter instead.
                     $blockcount ++;
@@ -1303,7 +1303,7 @@ EOT;
             $vals = explode('-', $field);
             foreach ($vals as $val) {
                 if ($val > 0) {
-                    $retval .= '<div class="px-2 my-1 col-md-' . $val . ' ' . $extramarketclass . '">';
+                    $retval .= '<div class="my-1 col-md-' . $val . ' ' . $extramarketclass . '">';
                     $blockcount ++;
                     $fieldname = $settingname . $blockcount;
                     if (isset($PAGE->theme->settings->$fieldname)) {
