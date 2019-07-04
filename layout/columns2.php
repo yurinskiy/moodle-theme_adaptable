@@ -29,8 +29,6 @@ defined('MOODLE_INTERNAL') || die;
 // Include header.
 require_once(dirname(__FILE__) . '/includes/header.php');
 
-user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
-
 $left = $PAGE->theme->settings->blockside;
 
 // If page is Grader report, override blockside setting to align left.

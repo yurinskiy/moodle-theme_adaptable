@@ -60,7 +60,7 @@ if (isset($PAGE->theme->settings->stickynavbar) && $PAGE->theme->settings->stick
 
 // JS calls.
 $PAGE->requires->js_call_amd('theme_adaptable/bsoptions', 'init', array($fixedheader));
-$PAGE->requires->js_call_amd('theme_boost/drawer', 'init');
+$PAGE->requires->js_call_amd('theme_adaptable/drawer', 'init');
 
 // Layout.
 $left = (!right_to_left());  // To know if to add 'pull-right' and 'desktop-first-column' classes in the layout for LTR.
@@ -284,10 +284,9 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
             <nav class="navbar navbar-expand btco-hover-menu">
 
                 <div id="adaptable-page-header-nav-drawer" data-region="drawer-toggle" class="d-lg-none mr-3">
-                    <button aria-expanded="false" aria-controls="nav-drawer" type="button" class="nav-link float-sm-left mr-1"
-                    data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav">
-                    <i class="fa fa-bars fa-fw " aria-hidden="true"></i>
-                    <span class="sr-only">Side panel</span>
+                    <button id="drawer" aria-expanded="false" aria-controls="nav-drawer" type="button" class="nav-link float-sm-left mr-1" data-side="left">
+                        <i class="fa fa-bars fa-fw " aria-hidden="true"></i>
+                        <span class="sr-only"><?php echo get_string('sidepanel'); ?></span>
                     </button>
                 </div>
 
@@ -498,10 +497,9 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
             <nav class="navbar navbar-expand btco-hover-menu">
 
                 <div id="adaptable-page-header-nav-drawer" data-region="drawer-toggle" class="d-lg-none mr-3">
-                    <button aria-expanded="false" aria-controls="nav-drawer" type="button" class="nav-link float-sm-left mr-1"
-                    data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav">
-                    <i class="fa fa-bars fa-fw " aria-hidden="true"></i>
-                    <span class="sr-only">Side panel</span>
+                    <button id="drawer" aria-expanded="false" aria-controls="nav-drawer" type="button" class="nav-link float-sm-left mr-1" data-side="left">
+                        <i class="fa fa-bars fa-fw " aria-hidden="true"></i>
+                        <span class="sr-only"><?php echo get_string('sidepanel'); ?></span>
                     </button>
                 </div>
 
