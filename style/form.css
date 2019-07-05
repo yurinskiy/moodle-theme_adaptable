@@ -32,6 +32,7 @@
         /* col-6 -> col4 */
             flex: 0 0 33.3333333333%;
             max-width: 33.3333333333%;
+            padding-bottom: 4px;
     }
 
     .availability-dialogue .list-unstyled li.row div:nth-child(2) {
