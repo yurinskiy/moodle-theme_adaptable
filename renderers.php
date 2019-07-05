@@ -205,6 +205,34 @@ class theme_adaptable_core_renderer extends core_renderer {
     protected $language = null;
 
     /**
+     * Renders an action menu component.
+     *
+     * @param action_menu $menu
+     * @return string HTML
+     */
+    public function render_action_menu(action_menu $menu) {
+        global $CFG;
+
+        if ($CFG->branch < 37) {
+            // We don't want the class icon there!
+            foreach ($menu->get_secondary_actions() as $action) {
+                if ($action instanceof \action_menu_link && $action->has_class('icon')) {
+                    $action->attributes['class'] = preg_replace('/(^|\s+)icon(\s+|$)/i', '', $action->attributes['class']);
+                }
+            }
+
+            if ($menu->is_empty()) {
+                return '';
+            }
+            $context = $menu->export_for_template($this);
+
+            return $this->render_from_template('core/action_menu', $context);
+        } else {
+            return parent::render_action_menu($menu);
+        }
+    }
+
+    /**
      * Internal implementation of user image rendering.
      *
      * @param user_picture $userpicture
