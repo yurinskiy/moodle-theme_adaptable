@@ -69,6 +69,7 @@ input#id_submitbutton2,
 td.submit input,
 div.discussionsubscription > a.discussiontoggle,
 .btn-outline-secondary,
+.paging-morelink a,
 .btn-link {
     font-family: [[setting:fontname]];
     background-image: none;

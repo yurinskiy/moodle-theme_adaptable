@@ -53,9 +53,16 @@
     flex-wrap: wrap;
 }
 
-.frontpage-course-list-all {
+.frontpage-course-list-all,
+.frontpage-course-list-enrolled {
     display: flex;
     flex-flow: row wrap;
+}
+
+.paging-morelink {
+    display: block;
+    clear:both;
+    width: 100%;
 }
 
 /* Media breakpoints for courses list area */
