@@ -289,9 +289,14 @@
 
 
 /* Calendar block */
-.block_calendar_month table.minicalendar.calendartable td,
+.block_calendar_month table.minicalendar.calendartable td {
+    border: none !important;
+}
+
 .block_calendar_month table.minicalendar.calendartable th {
     border: none !important;
+    border-radius: 0;
+    background-color: #e0e0e0;
 }
 
 .block_calendar_month table.minicalendar {
@@ -302,6 +307,22 @@
     border: none !important;
     text-decoration: none;
 }
+
+.block .calendar-controls .previous:before {
+    content: "\f053";
+    font-family: "FontAwesome";
+}
+
+.block .calendar-controls .next:before {
+    content: "\f054";
+    font-family: "FontAwesome";
+}
+
+.block .calendar-controls .previous .arrow,
+.block .calendar-controls .next .arrow {
+    display: none;
+}
+
 
 /* Comments block */
 .block_comments div.content li {
