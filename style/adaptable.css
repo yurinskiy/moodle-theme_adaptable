@@ -1656,10 +1656,6 @@ div.questionbankwindow.block {
   max-width: 300px;
 }
 
-.course-content ul.topics li.section .summary {
-    margin: 10px 5px;
-}
-
 .paging .paging-morelink {
     clear: both;
 }

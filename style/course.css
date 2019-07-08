@@ -382,6 +382,11 @@
     margin: 0;
 }
 
+.course-content ul.topics li.section .content .summarytext,
+.course-content ul.weeks li.section .content .summarytext {
+    margin-left: 25px;
+}
+
 .section-handle {
     margin: 0;
     position: relative;
