@@ -1368,7 +1368,6 @@ button.close {
 }
 
 #region-main .generaltable {
-    display: block;
     overflow-x: auto;
     overflow-y: visible;
 }
