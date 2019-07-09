@@ -200,8 +200,8 @@ $THEME->layouts = array(
     'admin' => array(
         'file' => 'columns2.php',
         'regions' => array('side-post'),
-        'defaultregion' => 'side-post',
-        'options' => array('nonavbar' => false),
+        'defaultregion' => 'side-post'
+
     ),
     // My dashboard page.
     'mydashboard' => array(
@@ -279,5 +279,4 @@ $THEME->blockrtlmanipulations = array(
     'side-post' => 'side-pre'
 );
 
-$THEME->usefallback = true;
 $THEME->csspostprocess = 'theme_adaptable_process_css';
