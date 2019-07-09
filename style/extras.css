@@ -727,6 +727,7 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscu
 }
 
 /* User Menu */
+/*
 .dropdown-menu.usermen {
     top: 23px;
     margin-left: -54px;
@@ -750,6 +751,7 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscu
     background: none;
     background-color: #eee;
 }
+*/
 
 .signuppanel .row .btn {
     display: none;

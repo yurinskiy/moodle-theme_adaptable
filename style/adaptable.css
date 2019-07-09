@@ -67,7 +67,7 @@ textarea {
 a,
 a:visited,
 .tabtree .tabrow0 li a,
-#adaptable-page-header-wrapper .dropdown-menu.usermen > li > a,
+/* #adaptable-page-header-wrapper .dropdown-menu.usermen > li > a, */
 #adaptable-page-header-wrapper .dropdown-menu > li > a.dropdown-item,
 #adaptable-page-header-wrapper .dropdown-item a {
     color: [[setting:linkcolor]];
@@ -1368,9 +1368,11 @@ button.close {
 }
 
 #region-main .generaltable {
-    display: block;
+/*    display: block; */
+/*
     overflow-x: auto;
     overflow-y: visible;
+*/
 }
 
 div.no-overflow, .yui3-datatable {
