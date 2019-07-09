@@ -1368,11 +1368,9 @@ button.close {
 }
 
 #region-main .generaltable {
-/*    display: block; */
-/*
+    display: block;
     overflow-x: auto;
     overflow-y: visible;
-*/
 }
 
 div.no-overflow, .yui3-datatable {
