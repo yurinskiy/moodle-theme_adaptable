@@ -1982,9 +1982,9 @@ Change the filter selector for other colours */
     padding-right: 0;
 }
 
-.message-drawer button {
-    padding: 0 8px;
-    background-color: [[setting:buttoncolor]];
+.message-drawer .btn-block, /* M3.6 */
+.message-app.drawer .btn-block { /* M3.7 */
+    margin-left: 0;
 }
 
 /* Dimmed text (courses or users) */
