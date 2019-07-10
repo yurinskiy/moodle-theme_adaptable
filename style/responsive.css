@@ -479,6 +479,10 @@ Only screen and (max-width : 1200px)
     .header-style1 #page {
         margin-top: 112px;
     }
+
+    .header-style2 #page {
+        margin-top: 72px;
+    }
 }
 
 /*=====================================================
