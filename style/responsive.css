@@ -483,6 +483,29 @@ Only screen and (max-width : 1200px)
     .header-style2 #page {
         margin-top: 72px;
     }
+
+    /* Course activity and section layout updates to remove
+       any extra padding on smaller screens. */
+    .site-topic ul,
+    .course-content ul {
+        padding-left: 0;
+    }
+
+    .section .activity .activityinstance {
+        min-width: 100%;
+    }
+
+    .activity-meta-container {
+        margin: 0 0 0 20px;
+    }
+
+    #region-main {
+        padding: 0 5px;
+    }
+
+    .section .label .mod-indent-outer {
+        padding-left: 4px;
+    }
 }
 
 /*=====================================================

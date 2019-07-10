@@ -335,7 +335,7 @@
 
 .site-topic ul,
 .course-content ul {
-    padding-left: 1.2rem;
+    padding-left: 0.2rem;
 }
 
 #newdiscussionform {
@@ -887,6 +887,10 @@ div.activity-wrapper {
 }
 
 .course-content ul.gtopics li.section .content {
+    margin: 0 10px;
+}
+
+.course-content ul.ftopics li.section .content {
     margin: 0 10px;
 }
 
