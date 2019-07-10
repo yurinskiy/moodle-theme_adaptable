@@ -107,8 +107,7 @@
 }
 
 #adaptable-page-header-wrapper #main-navbar li a:hover {
-    color: [[setting:menufontcolor]];
-    background-color: [[setting:menuhovercolor]];
+    color: [[setting:menuhovercolor]];
     text-decoration: none;
 }
 
