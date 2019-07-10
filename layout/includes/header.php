@@ -293,7 +293,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                 <div class="collapse navbar-collapse">
                 <?php
                 if (empty($PAGE->theme->settings->menuslinkright)) {
-                    echo '<div class="my-auto m-2">' . $OUTPUT->get_top_menus() . '</div>';
+                    echo '<div class="my-auto m-1">' . $OUTPUT->get_top_menus() . '</div>';
                 }
                 ?>
 
@@ -305,7 +305,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
                         <?php
                         if (!empty($PAGE->theme->settings->menuslinkright)) {
-                            echo '<div class="my-auto m-2">' . $OUTPUT->get_top_menus() . '</div>';
+                            echo '<div class="my-auto m-1">' . $OUTPUT->get_top_menus() . '</div>';
                         }
                         ?>
 
@@ -328,12 +328,12 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         if ($CFG->version > 2016120400) {
                             // Remove Messages and Notifications icons in Quiz pages even if they don't use SEB.
                             if ($PAGE->pagetype != "mod-quiz-attempt") {
-                                echo '<div class="my-auto m-2">' . $OUTPUT->navbar_plugin_output() . '</div>';
+                                echo '<div class="my-auto mx-1">' . $OUTPUT->navbar_plugin_output() . '</div>';
                             }
                         }
 
                         if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
-                            echo '<li class="nav-item dropdown ml-3">';
+                            echo '<li class="nav-item dropdown ml-2 my-auto">';
                             echo $OUTPUT->lang_menu();
                             echo '</li>';
                         }
@@ -512,7 +512,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         </div>
 
                         <?php
-                            echo '<div class="my-auto m-2">' . $OUTPUT->get_top_menus($showtext = false) . '</div>';
+                            echo '<div class="my-auto m-1">' . $OUTPUT->get_top_menus($showtext = false) . '</div>';
                         ?>
 
                         <div class="pull-left mr-2 my-auto">
@@ -529,7 +529,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
                         <?php
 
-                        echo '<div class="my-auto m-2">' . $OUTPUT->navbar_plugin_output() . '</div>';
+                        echo '<div class="my-auto mx-1">' . $OUTPUT->navbar_plugin_output() . '</div>';
 
                         $showlangtext = false;
 
