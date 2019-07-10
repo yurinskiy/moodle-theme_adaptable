@@ -239,6 +239,7 @@ div.signuppanel h2 {
     z-index: 10;
 }
 
+#above-header
 #page-header {
     border-bottom: none solid [[setting:maincolor]];
     clear: both;
@@ -369,6 +370,7 @@ div.signuppanel h2 {
     padding-right: 3px;
 }
 
+/* Badges */
 .badge {
     padding: .4rem .6em;
 }
@@ -382,7 +384,6 @@ a.component-expand .badge {
     background-color: [[setting:msgbadgecolor]];
 }
 
-/* Badges */
 .badge-primary {
     color: #fff;
     background-color: #1177d1; }
@@ -2412,12 +2413,17 @@ img.smallicon {
 }
 
 /* info icon */
-.text-info,
-.highlight {
+.text-info {
     color: [[setting:infoiconcolor]] !important;
     margin-top: 9px; /* fix vertical alignment */
 }
 
+/* Highlight results */
+.highlight {
+    background-color: #ff0;
+    color: #000 !important;
+
+}
 /* danger icon */
 .text-danger,
 .notconnected,
