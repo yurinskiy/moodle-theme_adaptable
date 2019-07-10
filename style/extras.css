@@ -726,33 +726,6 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscu
     padding: 15px 5px;
 }
 
-/* User Menu */
-/*
-.dropdown-menu.usermen {
-    top: 23px;
-    margin-left: -54px;
-    left: -65px;
-}
-
-.usermen li {
-    text-align: left;
-}
-
-.usermen {
-    padding: 10px 0;
-}
-
-.usermen i {
-    padding-right: 5px;
-}
-
-.dropdown-menu.usermen > li > a:hover,
-.dropdown-menu.usermen > li > a:active {
-    background: none;
-    background-color: #eee;
-}
-*/
-
 .signuppanel .row .btn {
     display: none;
 }
