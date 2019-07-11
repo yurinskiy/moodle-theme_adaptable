@@ -107,7 +107,7 @@
 }
 
 #adaptable-page-header-wrapper #main-navbar li a:hover {
-    color: [[setting:menuhovercolor]];
+    background-color: [[setting:menuhovercolor]];
     text-decoration: none;
 }
 
@@ -143,28 +143,9 @@
     background-color: [[setting:navbardropdownhovercolor]]
 }
 
-/* #above-header .navbar {
-    max-height: 35px;
-}  */
-
 .navbar .nav > li:last-child > a {
     border-right: 0 !important;
 }
-
-/* #adaptable-page-header-wrapper .navbar > li > a:hover {
-    color: [[setting:menufontcolor]];
-    background-color: [[setting:menuhovercolor]] !important;
-    text-decoration: none;
-} */
-
-/* .dropdown .fa.fa-briefcase {
-    padding-right: 4px;
-}
-
-.navbar .btn-group {
-    margin-top: 3px;
-} */
-
 
 #adaptable-page-header-wrapper .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
@@ -415,8 +396,8 @@
 /* New dropdown-related classes.  These are mainly for settings. */
 
 .navbar {
-    -webkit-box-shadow: none; /* 0 2px 4px rgba(0,0,0,.08); */
-    box-shadow: none; /*) 0 2px 4px rgba(0,0,0,.08); */
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 /* #adaptable-page-header-wrapper .navwrap .navbar > li > a {
@@ -474,20 +455,9 @@
 #adaptable-page-header-wrapper .nav .dropdown-menu li a {
     color: [[setting:linkcolor]] /* !important */;
     background-color: none;
-/*    font-size: 13px;
-    font-weight: 400;
-    padding: 6px 10px;
-    border-bottom: 1px !important; */
 }
 
 
-
-/*
-.navbar .nav > li > a:hover {
-    background-color: #fff;
-    color: #333;
-}
-*/
 
 a.dropdown-item:hover > a,
 a.dropdown-item:focus > a,
@@ -498,7 +468,6 @@ a.dropdown-menu > .active > a:focus,
 #adaptable-page-header-wrapper .dropdown-menu li a:hover { */
     background-color: [[setting:navbardropdownhovercolor]];
     background-image: none !important;
-    /* color: #333 !important; */
 }
 
 .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
@@ -509,7 +478,7 @@ a.dropdown-menu > .active > a:focus,
     border-radius: [[setting:navbardropdownborderradius]];
 }
 
-/* New bootstrap related css classes for hover menus. The below added for Adaptable for Moodle 3.7 onwards. */
+/* New bootstrap related css classes for hover menus. The below added for Adaptable for Moodle 3.6 onwards. */
 
 /*=-====Bootstrapthemes.co btco-hover-menu=====*/
 
