@@ -405,7 +405,6 @@
 .sectionname {
     background-color: [[setting:coursesectionheaderbg]] !important;
     color: [[setting:sectionheadingcolor]] !important;
-    font-size: 1.6em;
     margin-bottom: 20px;
     padding: 3px 10px;
     border-bottom: [[setting:coursesectionheaderborderstyle]] [[setting:coursesectionheaderbordercolor]] [[setting:coursesectionheaderborderwidth]];
@@ -888,7 +887,6 @@ div.activity-wrapper {
     right: 17px;
     top: 15px;
 }
-
 
 .section .activity .activityinstance {
     min-width: 60%;

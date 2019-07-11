@@ -137,7 +137,7 @@ trait single_section_page {
             $classes .= ' dimmed_text';
         }
         $sectionname = html_writer::tag('span', $this->section_title_without_link($thissection, $course));
-        $sectiontitle .= $this->output->heading($sectionname, 3, $classes);
+        $sectiontitle .= $this->output->heading($sectionname, 2, $classes);
 
         $sectiontitle .= html_writer::end_tag('div');
         echo $sectiontitle;
