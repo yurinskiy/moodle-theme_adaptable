@@ -1753,10 +1753,6 @@ div.questionbankwindow.block {
     text-align: center;
 }
 
-.helplink>a {
-    color: #fff;
-}
-
 /* Pace Settings */
 .pace {
   pointer-events: none;
