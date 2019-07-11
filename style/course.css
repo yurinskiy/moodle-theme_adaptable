@@ -879,6 +879,10 @@ div.activity-wrapper {
     padding-left: 0;
 }
 
+.topics .section .activity .mod-indent-outer {
+    padding-left: 24px;
+}
+
 .section .activity .actions-right .actions {
     position: absolute;
     right: 17px;
