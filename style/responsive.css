@@ -486,10 +486,6 @@ Only screen and (max-width : 1200px)
 
     /* Course activity and section layout updates to remove
        any extra padding on smaller screens. */
-    .site-topic ul,
-    .course-content ul {
-        padding-left: 0;
-    }
 
     .section .activity .activityinstance {
         min-width: 100%;
@@ -503,9 +499,6 @@ Only screen and (max-width : 1200px)
         padding: 0 5px;
     }
 
-    .section .label .mod-indent-outer {
-        padding-left: 4px;
-    }
 }
 
 /*=====================================================
