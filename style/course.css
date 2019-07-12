@@ -336,6 +336,7 @@
 .site-topic ul,
 .course-content ul {
     padding-left: 0;
+    margin-left: 10px;
 }
 
 #newdiscussionform {
@@ -384,7 +385,7 @@
 
 .course-content ul.topics li.section .content .summarytext,
 .course-content ul.weeks li.section .content .summarytext {
-    margin-left: 25px;
+    margin-left: 15px;
 }
 
 .section-handle {
@@ -430,10 +431,6 @@
     padding: 0 0 10px;
 }
 
-/* .path-course-view .section .summary {
-    padding: 0;
-} */
-
 #gridshadebox_content .content .summary,
 #gridshadebox_content .content ul.section {
     padding: 0 20px;
@@ -448,7 +445,6 @@
 .course-content ul li.section.hidden .content > div {
     margin-right: 40px;
 }
-
 
 /* ************* */
 /* Social Wall   */
@@ -879,7 +875,11 @@ div.activity-wrapper {
 }
 
 .topics .section .activity .mod-indent-outer {
-    padding-left: 24px;
+    margin-left: 15px;
+}
+
+.course-content ul.topics li.section .summary {
+    margin: 5px 5px 5px 10px;
 }
 
 .section .activity .actions-right .actions {
