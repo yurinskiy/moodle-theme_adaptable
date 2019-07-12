@@ -656,13 +656,13 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscu
     height: auto;
 }
 
-@media screen and (max-width: 575px) {
+@media (max-width: 575px) {
     #page-mod-forum-discuss .discussioncontrols .discussioncontrol {
         float: none;
     }
 }
 
-@media screen and (min-width: 576px) {
+@media (min-width: 576px) {
     #page-mod-forum-discuss .discussioncontrols .discussioncontrol,
     #page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscussion.movediscussion {
         float: left;

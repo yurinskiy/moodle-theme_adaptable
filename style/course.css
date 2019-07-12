@@ -683,7 +683,7 @@ div.fdescription.required {
   width: 100%;
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .section_footer .previous_activity,
   .section_footer .previous_section,
   .section_footer .next_activity,

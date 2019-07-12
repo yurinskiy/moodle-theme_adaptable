@@ -382,7 +382,7 @@
 }
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-@media screen and (max-height: 450px) {
+@media (max-height: 450px) {
     .overlaymenu a {font-size: 20px}
     .overlaymenu .closebtn {
         font-size: 40px;
@@ -534,13 +534,13 @@ a.dropdown-menu > .active > a:focus,
 }
 
 
-@media only screen and (max-width: 991px) {
+@media (max-width: 991px) {
     #adaptable-page-header-wrapper .btco-hover-menu .show > .dropdown-toggle::after{
         transform: rotate(-90deg);
     }
 }
 
-@media only screen and (min-width: 991px) {
+@media (min-width: 991px) {
     #adaptable-page-header-wrapper .btco-hover-menu .collapse ul li {
         position:relative;
     }

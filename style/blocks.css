@@ -676,7 +676,7 @@ main.tabcontentcontainer {
 }
 
 
-@media only screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
 
     .tabcontentcontainer dashboardtab.input[type="radio"],
     .tabcontentcontainer coursetab.input[type="radio"] {
@@ -691,14 +691,14 @@ main.tabcontentcontainer {
     }
 }
 
-@media screen and (max-width: 1023px) {
+@media (max-width: 1023px) {
     .tabcontentcontainer label.dashboardtab,
     .tabcontentcontainer label.coursetab {
         padding: 12px;
     }
 }
 
-@media screen and (max-width: 460px) {
+@media (max-width: 460px) {
     .tabcontentcontainer label.dashboardtab,
     .tabcontentcontainer label.coursetab {
         font-size: 0.95em;

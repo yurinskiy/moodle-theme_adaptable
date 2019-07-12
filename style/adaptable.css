@@ -1489,7 +1489,7 @@ div.questionbankwindow.block {
     display: none;
 }
 
-@media screen and (max-width: 767px) {
+@media(max-width: 767px) {
     #block-region-side-post {
         background-color: #fff;
         display: block !important;
@@ -2198,17 +2198,17 @@ img.smallicon {
     *width: 24.35106383%;
 }
 
-@media only screen and (max-width: 767px) {
+@media and (max-width: 767px) {
     .row-fluid .col-3 {
-        width: 100%;
-        max-width: 100%;
         flex: none;
+        max-width: 100%;
+        width: 100%;
     }
 
     .row-fluid .col-9 {
-    width: 100%;
-    flex: none;
-    max-width: none;
+        flex: none;
+        max-width: none;
+        width: 100%;
     }
 }
 

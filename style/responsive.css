@@ -30,16 +30,16 @@
 /* =====================================================
 Default Bootstrap 4 Media Queries
 
-Only screen and (max-width : 480px)
-Only screen and (max-width : 767px)
-Only screen and (max-width : 979px)
-Only screen and (max-width : 1200px)
+(max-width : 480px)
+(max-width : 767px)
+(max-width : 979px)
+(max-width : 1200px)
 ======================================================= */
 
 /*=====================================================
 480px
 ======================================================= */
-@media only screen and (max-width: 480px) {
+@media (max-width: 480px) {
     .flex-caption {
         width: auto !important;
         padding: 5px 0 !important;
@@ -68,7 +68,7 @@ Only screen and (max-width : 1200px)
 /*=====================================================
 767px
 ======================================================= */
-@media only screen and (max-width: 767px) {
+@media (max-width: 767px) {
     #page-login-index2 .forgetpass {
         clear: both;
         float: none;
@@ -289,7 +289,7 @@ Only screen and (max-width : 1200px)
 /*=====================================================
 979px
 ======================================================= */
-@media only screen and (max-width: 979px) {
+@media (max-width: 979px) {
     #page-header {
         min-height: 60px;
     }
@@ -505,7 +505,7 @@ Only screen and (max-width : 1200px)
 1200px
 ======================================================= */
 
-@media only screen and (max-width: 1199px) {
+@media (max-width: 1199px) {
     .zoomdesc {
         display: none;
     }
@@ -520,7 +520,7 @@ Only screen and (max-width : 1200px)
 1201px or higher
 ======================================================= */
 
-@media only screen and (min-width: 1200px) {
+@media (min-width: 1200px) {
     .container {
         max-width: 100%;
         width: 1170px;
@@ -552,7 +552,7 @@ Only screen and (max-width : 1200px)
 /*=====================================================
 Other.
 ======================================================= */
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+@media (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
     #coursesearchbox2 {
         min-width: 140px;
         margin-top: 5px;
@@ -560,7 +560,7 @@ Other.
 }
 
 /* Dropdown */
-@media only screen and (min-width: 481px) {
+@media (min-width: 481px) {
     /* On hover only for large screens adjusted to exclude ipad portrait.
        min-width changed to 481 to avoid problems with dropdown menus in tablets and some mobiles (resolutions under 1024px)
        probably the best option is remove min-width after testing in several screen resolutions.
@@ -667,7 +667,7 @@ Other.
 
 }
 
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
     #above-header .linksmenu {
         margin-left: 0px;
     }
