@@ -111,6 +111,11 @@
     text-decoration: none;
 }
 
+#adaptable-page-header-wrapper #main-navbar li .action-menu-trigger a:hover {
+    background-color: transparent;
+    color: [[setting:menuhovercolor]];
+}
+
 #adaptable-page-header-wrapper #main-navbar  li ul li a:hover {
     background-color: [[setting:navbardropdownhovercolor]]; /*  !important; */
     /* background-image: none !important;
