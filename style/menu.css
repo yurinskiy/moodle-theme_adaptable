@@ -245,6 +245,10 @@
     color: [[setting:headertextcolor]];
 }
 
+#adaptable-page-header-wrapper #header2 .popover-region-container a i {
+    color: inherit;
+}
+
 #adaptable-page-header-wrapper #header2 a i {
     padding-right: 4px;
 }
