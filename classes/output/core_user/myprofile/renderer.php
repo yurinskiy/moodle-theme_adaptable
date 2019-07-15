@@ -155,7 +155,9 @@ class renderer extends \core_user\output\myprofile\renderer {
                         $linkattributes = array('role' => 'button');
                     } else {
                         $linkattributes = \core_message\helper::messageuser_link_params($user->id);
-                        \core_message\helper::messageuser_requirejs();
+                        // Change the id to us instead of copying the method.
+                        $linkattributes['id'] = 'adaptable-message-user-button';
+                        self::adaptable_messageuser_requirejs();
                     }
                     $userbuttons['messages'] = array(
                         'buttontype' => 'message',
@@ -204,6 +206,28 @@ class renderer extends \core_user\output\myprofile\renderer {
         }
 
         return $output;
+    }
+
+    /**
+     * Requires the JS libraries for the Adaptable message user button.
+     *
+     * This is needed so that we have a different id to the core button that is hidden and the core JS picks up.
+     * Thus the 'trigger' of the message box would only happen on the 'first' '#message-user-button' the JS sees and
+     * not ours that comes afterwards.  So by having a different id we can solve this and not invoke the core JS with
+     * the core button's id in the first place.
+     *
+     * @return void
+     */
+    public static function adaptable_messageuser_requirejs() {
+        global $PAGE;
+
+        static $done = false;
+        if ($done) {
+            return;
+        }
+
+        $PAGE->requires->js_call_amd('core_message/message_user_button', 'send', array('#adaptable-message-user-button'));
+        $done = true;
     }
 
     /**
