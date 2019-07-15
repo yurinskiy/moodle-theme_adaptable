@@ -93,7 +93,6 @@ class renderer extends \core_user\output\myprofile\renderer {
         $output .= $this->tabs($categories, $tree);
         $output .= html_writer::end_tag('div');
 
-        //$output .= html_writer::tag('p', $this->developer($tree));
         $output .= html_writer::end_tag('div');
 
         return $output;
@@ -381,30 +380,6 @@ class renderer extends \core_user\output\myprofile\renderer {
         editprofile::process_form(true, $editprofileform);
 
         return $editprofile;
-    }
-
-    private function developer($tree) {
-        $output = html_writer::tag('h1', 'Developer information, please ignore!  Will be removed!');
-
-        $output .= html_writer::start_tag('ul');
-        foreach ($tree->categories as $category) {
-            $output .= html_writer::start_tag('li');
-            $output .= html_writer::tag('p', 'Category - '.$category->name);
-            $nodes = $category->nodes;
-            if (!empty($nodes)) {
-                $output .= html_writer::start_tag('ul');
-                foreach ($nodes as $node) {
-                    $output .= html_writer::start_tag('li');
-                    $output .= html_writer::tag('p', 'Node - '.$node->name);
-                    $output .= html_writer::end_tag('li');
-                }
-                $output .= html_writer::end_tag('ul');
-            }
-            $output .= html_writer::end_tag('li');
-        }
-        $output .= html_writer::end_tag('ul');
-
-        return $output;
     }
 
     protected function tabs($categories, $tree) {

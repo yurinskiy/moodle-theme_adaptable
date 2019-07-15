@@ -47,25 +47,6 @@
         border-top: 4px solid #06c;
     }
 
-    .tabcontentcontainer input.adaptabletab:checked + label {
-        border-color: #06c;
-        background-color: #06c;
-        border-top: 4px solid #06c;
-        color: #fff;
-    }
-
-    .tabcontentcontainer label.adaptabletab {
-        background-color: #eee;
-        position: relative;
-        display: inline-block;
-        padding: 15px 15px 25px;
-        margin: 0 4px 0 0;
-        border-bottom: 0;
-        cursor: pointer;
-        font-weight: 400;
-        transition: background-color .2s ease;
-    }
-
     {{#tabs}}
     #{{name}}:checked~#adaptable-tab-{{name}} {
         display: block;
