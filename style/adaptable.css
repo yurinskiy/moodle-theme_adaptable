@@ -133,6 +133,11 @@ fieldset {
     margin: 5px 0;
 }
 
+.col-form-label.d-inline {
+    float: right;
+    margin: 3px 5px 5px 0;
+}
+
 @-moz-document url-prefix() {
     fieldset {
         display: table-cell;
@@ -2400,6 +2405,7 @@ img.smallicon {
 .que .validationerror,
 .text-error {
     color: [[setting:dangericoncolor]] !important;
+    margin-right: 1px !important;
 }
 
 
