@@ -58,7 +58,7 @@ $title = get_string('showyourprogress', 'theme_adaptable');
 $description = get_string('showyourprogressdesc', 'theme_adaptable');
 $radchoices = array(
     'none' => get_string('hide', 'theme_adaptable'),
-    ''     => get_string('show', 'theme_adaptable'),
+    'inline' => get_string('show', 'theme_adaptable'),
 );
 $setting = new admin_setting_configselect($name, $title, $description, '', $radchoices);
 $setting->set_updatedcallback('theme_reset_all_caches');
