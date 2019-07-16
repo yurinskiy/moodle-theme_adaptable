@@ -495,7 +495,8 @@ Default Bootstrap 4 Media Queries
         margin: 0 0 0 20px;
     }
 
-    #region-main {
+    #region-main,
+    .pagelayout-mydashboard #region-main {
         padding: 0 5px;
     }
 
