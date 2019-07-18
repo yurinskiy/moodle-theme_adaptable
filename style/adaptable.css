@@ -1498,14 +1498,24 @@ div.questionbankwindow.block {
     #block-region-side-post {
         background-color: #fff;
         display: block !important;
-        height: calc(100% - 45px);
         overflow: hidden;
         padding: 0;
         position: fixed;
         min-width: 90%;
         right: -90%;
-        top: 45px;
         transition: right 0.75s;
+    }
+    .header-style1 #block-region-side-post {
+        height: calc(100% - 44px);
+        top: 44px;
+    }
+    .header-style1 .pageheadershown #block-region-side-post {
+        height: calc(100% - 104px);
+        top: 104px;
+    }
+    .header-style2 #block-region-side-post {
+        height: calc(100% - 72px);
+        top: 72px;
     }
     #block-region-side-post .block-controls {
         display: none;
@@ -2203,7 +2213,7 @@ img.smallicon {
     *width: 24.35106383%;
 }
 
-@media and (max-width: 767px) {
+@media (max-width: 767px) {
     .row-fluid .col-3 {
         flex: none;
         max-width: 100%;
