@@ -566,7 +566,6 @@ function theme_adaptable_grid($left, $hassidepost) {
         }
     } else {
         $regions = array('content' => 'col-12');
-        $regions['blocks'] = 'empty';
         $regions['direction'] = '';
         return $regions;
     }

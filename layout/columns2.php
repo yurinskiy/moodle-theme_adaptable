@@ -81,7 +81,9 @@ $regions = theme_adaptable_grid($left, $hassidepost);
             $classes = ' d-none d-md-block d-print-none ';
         }
 
+        if ($hassidepost) {
             echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
+        }
         ?>
     </div>
 </div>
