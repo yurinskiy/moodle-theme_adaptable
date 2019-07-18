@@ -2183,7 +2183,7 @@ EOT;
                     case 'fullname':
                         // Full Course Name.
                         $retval .= '<div id="sitetitle" class="p-2 bd-highlight"><h1>'
-                                . format_string($coursetitle) . '<h1></div>';
+                                . format_string($coursetitle) . '</h1></div>';
                         break;
 
                     case 'shortname':
