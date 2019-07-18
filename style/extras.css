@@ -1227,18 +1227,20 @@ html[xmlns] .slides {
     display: none;
 }
 
-.zoomin #block-region-side-post {
-    display: none;
-    height: 0;
-    margin-left: 0;
-    min-height: 0;
-    overflow: hidden;
-    width: 0;
-}
+@media (min-width: 768px) {
+    .zoomin #block-region-side-post {
+        display: none;
+        height: 0;
+        margin-left: 0;
+        min-height: 0;
+        overflow: hidden;
+        width: 0;
+    }
 
-.zoomin #region-main {
-    flex: 0 0 100%;
-    max-width: 100%;
+    .zoomin #region-main {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
 
 .sbl {
