@@ -724,21 +724,10 @@ span.fa-chevron-right.fa {
     margin: 0 0 0 0 !important;
 }
 
-.nav > li > a:hover,
-.nav > li > a:focus {
-    background: none !important;
-    text-decoration: none !important;
-}
-
 langmenu a:hover {
     background-color: none !important;
     text-decoration: none !important;
 }
-
-.nav > li > a:hover {
-    background-color: none !important;
-}
-
 
 /* Breadcrumb */
 #page-navbar {
