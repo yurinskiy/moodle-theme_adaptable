@@ -115,15 +115,19 @@ jQuery(document).ready(function($) {
         if (jQuery(this).scrollTop() > offset) {
             jQuery('#back-to-top').fadeIn(duration);
             if($('header').css("position") == "fixed") {
-                pageheader.hide();
-                page.removeClass('pageheadershown');
+                if (pageheader.length) {
+                    pageheader.hide();
+                    page.removeClass('pageheadershown');
+                }
                 Y.Global.fire('moodle-gradereport_grader:resized');
             }
         } else {
             jQuery('#back-to-top').fadeOut(duration);
             if($('header').css("position") == "fixed") {
-                pageheader.show();
-                page.addClass('pageheadershown');
+                if (pageheader.length) {
+                    pageheader.show();
+                    page.addClass('pageheadershown');
+                }
                 Y.Global.fire('moodle-gradereport_grader:resized');
             }
         }
