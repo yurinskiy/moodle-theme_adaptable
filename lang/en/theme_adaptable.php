@@ -1110,6 +1110,9 @@ $string['displayloginbutton'] = 'Button';
 $string['displayloginbox'] = 'Login Box';
 $string['displayloginno'] = 'No Login';
 
+$string['showusername'] = 'Show username';
+$string['showusernamedesc'] = 'Show the username on the user menu on the navbar.';
+
 $string['enablemessagemenu'] = 'Message menu';
 $string['enablemessagemenudesc'] = 'Enable Message menu in header (moot if messaging is globally turned off)';
 

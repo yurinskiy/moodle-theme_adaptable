@@ -104,12 +104,6 @@ if (isloggedin()) {
     $username = format_string(fullname($USER));
 
     // User menu dropdown.
-    $showusername = '';
-    // Adaptable style1 shows username, style2 does not.
-    if ($adaptableheaderstyle == 'style1') {
-        $showusername = true;
-    }
-
     if (!empty($PAGE->theme->settings->usernameposition)) {
         $usernameposition = $PAGE->theme->settings->usernameposition;
         if ($usernameposition == 'right') {
@@ -125,7 +119,7 @@ if (isloggedin()) {
     $data = [
         'username' => $username,
         'userpic' => $userpic,
-        'showusername' => $showusername,
+        'showusername' => $PAGE->theme->settings->showusername,
         'usernamepositionleft' => $usernamepositionleft,
         'userprofilemenu' => $OUTPUT->user_profile_menu(),
     ];

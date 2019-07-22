@@ -81,6 +81,14 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    // Show username.
+    $name = 'theme_adaptable/showusername';
+    $title = get_string('showusername', 'theme_adaptable');
+    $description = get_string('showusernamedesc', 'theme_adaptable');
+    $default = true;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    $temp->add($setting);
+
     // Enable messaging menu in header.
     $name = 'theme_adaptable/enablemessagemenu';
     $title = get_string('enablemessagemenu', 'theme_adaptable');
