@@ -189,11 +189,11 @@ class editprofile_form extends \moodleform {
 
         $stringman = get_string_manager();
 
-        $mform->addElement('editor', 'description_editor', get_string('userdescription'), null, $editoroptions);
+        $mform->addElement('editor', 'description_editor', get_string('userdescription'), 'class="adaptablemyeditprofile"', $editoroptions);
         $mform->setType('description_editor', PARAM_RAW);
         $mform->addHelpButton('description_editor', 'userdescription');
 
-        $mform->addElement('text', 'city', get_string('city'), 'maxlength="120" size="21"');
+        $mform->addElement('text', 'city', get_string('city'), 'maxlength="120" size="54" class="adaptablemyeditprofile"');
         $mform->setType('city', PARAM_TEXT);
         if (!empty($CFG->defaultcity)) {
             $mform->setDefault('city', $CFG->defaultcity);
@@ -218,10 +218,10 @@ class editprofile_form extends \moodleform {
             $mform->addElement('checkbox', 'deletepicture', get_string('deletepicture'));
             $mform->setDefault('deletepicture', 0);
 
-            $mform->addElement('filemanager', 'imagefile', get_string('newpicture'), '', $filemanageroptions);
+            $mform->addElement('filemanager', 'imagefile', get_string('newpicture'), 'class="adaptablemyeditprofile"', $filemanageroptions);
             $mform->addHelpButton('imagefile', 'newpicture');
 
-            $mform->addElement('text', 'imagealt', get_string('imagealt'), 'maxlength="100" size="30"');
+            $mform->addElement('text', 'imagealt', get_string('imagealt'), 'maxlength="100" size="54" class="adaptablemyeditprofile"');
             $mform->setType('imagealt', PARAM_TEXT);
         }
     }
