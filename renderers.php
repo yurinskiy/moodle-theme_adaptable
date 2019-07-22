@@ -840,88 +840,7 @@ EOT;
     protected function render_user_menu(custom_menu $menu) {
         global $CFG, $DB, $PAGE, $OUTPUT;
 
-        $addlangmenu = true;
-        $addmessagemenu = true;
-        $messagecount = 0;
-
-        // Let's add the Message item in the left.
-        if (!isloggedin() || isguestuser()) {
-            $addmessagemenu = false;
-        }
-
-        if (!$CFG->messaging || !$PAGE->theme->settings->enablemessagemenu) {
-            $addmessagemenu = false;
-        } else {
-            // Check whether or not the "popup" message output is enabled.
-            // This is after we check if messaging is enabled to possibly save a DB query.
-            $popup = $DB->get_record('message_processors', array('name' => 'popup'));
-            if (!$popup) {
-                $addmessagemenu = false;
-            }
-        }
-
-        if ($addmessagemenu) {
-            // In Moodle 3.1 or older we display a menu with a count badge.
-            if ($CFG->version < 2016120500) {
-                // First, go to count the number of unread messages.
-                $messages = $this->get_user_messages();
-                $messagecount = count($messages);
-
-                // Edit by Matthew Anguige, only display unread popover when unread messages are waiting.
-                if ($messagecount > 0) {
-                    // If got some message then we add the badge with the pending messages number and no link to the messages page.
-                    $messagemenu = $menu->add('<i class="fa fa-envelope"> </i>' . get_string('messages', 'message') .' '.
-                            '<span class="badge">' . $messagecount . '</span>', new moodle_url('/message/index.php'),
-                            get_string('messages', 'message'), 9999);
-                } else {
-                    // If no pending messages we add only a link to the messages page in the menu.
-                    $messagemenu = $menu->add('<i class="fa fa-envelope"> </i>' . get_string('messages', 'message'),
-                            new moodle_url('/message/index.php'), get_string('messages', 'message'), 9999);
-                }
-
-                // We display the messages in a pop-up.
-                foreach ($messages as $message) {
-                    if (!isset($message->from) || !isset($message->from->id) || !isset($message->from->firstname)) {
-                        continue;
-                    }
-                    // Following if to be removed once we are happy with check above correctly limits messages.
-                    if (!isset($message->from)) {
-                        $url = $OUTPUT->img_url('u/f2');
-                        $attributes = array(
-                                'src' => $url
-                        );
-                        $senderpicture = html_writer::empty_tag('img', $attributes);
-                    } else {
-                        $senderpicture = new user_picture($message->from);
-                        $senderpicture->link = false;
-                        $senderpicture = $this->render($senderpicture);
-                    }
-
-                    // Let's go to create the message to show in the screen.
-                    $messagecontent = $senderpicture;
-                    $messagecontent .= html_writer::start_tag('span', array('class' => 'msg-body'));
-                    $messagecontent .= html_writer::start_tag('span', array('class' => 'msg-title'));
-                    $messagecontent .= html_writer::tag('span', $message->from->firstname . ': ', array('class' => 'msg-sender'));
-                    $messagecontent .= $message->text;
-                    $messagecontent .= html_writer::end_tag('span');
-                    $messagecontent .= html_writer::start_tag('span', array('class' => 'msg-time'));
-                    $messagecontent .= html_writer::tag('i', '', array('class' => 'icon-time'));
-                    $messagecontent .= html_writer::tag('span', $message->date);
-                    $messagecontent .= html_writer::end_tag('span');
-
-                    $messagemenu->add($messagecontent, new moodle_url('/message/index.php', array('user1' => $USER->id,
-                            'user2' => $message->from->id)));
-                }
-            }
-        }
-
-        // Let's go to create the lang menu if available.
-        $langs = get_string_manager()->get_list_of_translations();
-        if (count($langs) < 2 || empty($CFG->langmenu) || ($this->page->course != SITEID and !empty($this->page->course->lang))) {
-            $addlangmenu = false;
-        }
-
-        // And finally let's go to add the custom usermenus.
+        // Add the custom usermenus.
         $content = html_writer::start_tag('ul', array('class' => 'navbar-nav mr-auto'));
         foreach ($menu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1, 'usermenu');
@@ -952,34 +871,6 @@ EOT;
         }
 
         return $messagelist;
-    }
-
-    /**
-     * Get list of user messages if there are any to process
-     *
-     * @return array
-     */
-    protected function get_user_messages() {
-        global $PAGE, $USER, $DB, $CFG;
-
-        $messagelist = array();
-        $newmessages = 0;
-
-        if ($CFG->version < 2016120500) {
-            // Moodle 3.1 or older.
-            $newmessagesql = "SELECT id, smallmessage, useridfrom, useridto, timecreated, fullmessageformat, notification
-                              FROM {message}
-                              WHERE useridto = :userid
-                              AND notification <> 1";
-
-            if ($PAGE->theme->settings->filteradminmessages) {
-                $newmessagesql .= " AND useridfrom > 2";
-
-                $newmessages = $DB->get_records_sql($newmessagesql, array('userid' => $USER->id));
-            }
-
-            return $messagelist;
-        }
     }
 
     /**

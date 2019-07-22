@@ -89,24 +89,6 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $temp->add($setting);
 
-    // Enable messaging menu in header.
-    $name = 'theme_adaptable/enablemessagemenu';
-    $title = get_string('enablemessagemenu', 'theme_adaptable');
-    $description = get_string('enablemessagemenudesc', 'theme_adaptable');
-    $default = true;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Filter admin messages.
-    $name = 'theme_adaptable/filteradminmessages';
-    $title = get_string('filteradminmessages', 'theme_adaptable');
-    $description = get_string('filteradminmessagesdesc', 'theme_adaptable');
-    $default = false;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
     // Logo.
     $name = 'theme_adaptable/logo';
     $title = get_string('logo', 'theme_adaptable');
