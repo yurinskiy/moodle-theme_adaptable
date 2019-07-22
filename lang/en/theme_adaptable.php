@@ -562,8 +562,6 @@ $string['mysitesmenudisplayshortcodefullnameonhover'] = 'Show short code and ful
 $string['mysitesmenudisplayfullnamenohover'] = 'Show full course title and no text on hover.';
 $string['mysitesmenudisplayfullnamefullnameonhover'] = 'Show full course title and full title on hover.';
 
-$string['usernavheading'] = 'Customize the user navigation dropdown';
-$string['usernavdesc'] = 'Allows you to control all of the elements that appear in the user navigation dropdown.';
 $string['enablehomedesc'] = 'Display a link to the frontpage.';
 
 $string['enablehomeredirect'] = 'Enable Home redirect=0';
@@ -1067,8 +1065,11 @@ $string['enablesavecanceloverlay'] = 'Enable Save / Cancel overlay on settings p
 $string['enablesavecanceloverlaydesc'] = 'Display a Save / Cancel button overlay at the top
  of a settings page to make it easier to save settings.';
 
-
+$string['usernavheading'] = 'Customize the user navigation dropdown';
 $string['usernav'] = 'Header User';
+$string['usernavdesc'] = 'Allows you to control all of the elements that appear in the user navigation dropdown.';
+$string['usernameposition'] = 'User name position';
+$string['usernamepositiondesc'] = 'Set the postion of the userame, \'Left\' or \'Right\'.';
 
 $string['menusettings'] = 'Header Menus';
 $string['menusettingsheading'] = 'Customize menus in the upper header the header of this theme.';

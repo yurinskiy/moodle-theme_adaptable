@@ -105,15 +105,28 @@ if (isloggedin()) {
 
     // User menu dropdown.
     $showusername = '';
-    // Addaptable style1 shows username, style2 does not.
+    // Adaptable style1 shows username, style2 does not.
     if ($adaptableheaderstyle == 'style1') {
         $showusername = true;
     }
+
+    if (!empty($PAGE->theme->settings->usernameposition)) {
+        $usernameposition = $PAGE->theme->settings->usernameposition;
+        if ($usernameposition == 'right') {
+            $usernamepositionleft = false;
+        } else {
+            $usernamepositionleft = true;
+        }
+    } else {
+        $usernamepositionleft = true;
+    }
+
     // Set template data.
     $data = [
         'username' => $username,
         'userpic' => $userpic,
         'showusername' => $showusername,
+        'usernamepositionleft' => $usernamepositionleft,
         'userprofilemenu' => $OUTPUT->user_profile_menu(),
     ];
     $usermenu = $OUTPUT->render_from_template('theme_adaptable/usermenu', $data);
