@@ -28,9 +28,16 @@ aria-controls="usermenu-dropdown"
 aria-label="{{#str}}usermenu, theme_adaptable{{/str}}"
 title="{{{username}}}">
     {{#showusername}}
+    {{#usernamepositionleft}}
         <span class="d-none d-md-inline-block mx-1">{{username}}</span>
+    {{/usernamepositionleft}}
     {{/showusername}}
     {{{userpic}}}
+    {{#showusername}}
+    {{^usernamepositionleft}}
+        <span class="d-none d-md-inline-block mx-1">{{username}}</span>
+    {{/usernamepositionleft}}
+    {{/showusername}}
 </a>
 
 <div class="dropdown-menu dropdown-menu-right" role="menu"

@@ -308,16 +308,23 @@ div.signuppanel h2 {
 }
 
 .socialbox {
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 15px;
     padding-top: [[setting:socialpaddingtop]];
-    padding-bottom: 5px;
-    font-size: [[setting:socialsize]];
-    display: inline;
     vertical-align: middle;
 }
 
 .socialbox a {
     color: [[setting:headertextcolor2]] !important;
-    padding-left: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.socialbox a i {
+    /* Make at least 29px, values look odd but on inspection they are needed to be so for FontAwesome. */
+    font-size: [[setting:socialsize]];
+    line-height: [[setting:socialsize]];
 }
 
 .headermenu {
@@ -724,21 +731,10 @@ span.fa-chevron-right.fa {
     margin: 0 0 0 0 !important;
 }
 
-.nav > li > a:hover,
-.nav > li > a:focus {
-    background: none !important;
-    text-decoration: none !important;
-}
-
 langmenu a:hover {
     background-color: none !important;
     text-decoration: none !important;
 }
-
-.nav > li > a:hover {
-    background-color: none !important;
-}
-
 
 /* Breadcrumb */
 #page-navbar {
@@ -1134,6 +1130,32 @@ input[type="radio"], input[type="checkbox"] {
     padding: 4px 12px;
 }
 
+@media (min-width: 576px) {
+    #adaptable-page-header-wrapper #header2 .search-input-wrapper.expandable,
+    #adaptable-page-header-wrapper #header2 .search-input-wrapper.expandable > form {
+        margin: 0;
+    }
+
+    #adaptable-page-header-wrapper #header2 .search-input-wrapper.expandable {
+        padding: 0;
+        position: relative;
+    }
+
+    #adaptable-page-header-wrapper #header2 .search-input-wrapper.expandable > div { /* The button! */
+        background-color: [[setting:backcolor]];
+        color: [[setting:fontcolor]];
+        height: 24px;
+        position: absolute;
+        right: 2px;
+        top: 2px;
+        width: 24px;
+    }
+
+    #adaptable-page-header-wrapper #header2 .search-input-wrapper.expandable > div .icon {
+        margin-top: 0;
+    }
+}
+
 #adaptable-page-header-wrapper #header2 .search-input-wrapper>div .icon {
     margin-top: 8px;
 }
@@ -1498,14 +1520,24 @@ div.questionbankwindow.block {
     #block-region-side-post {
         background-color: #fff;
         display: block !important;
-        height: calc(100% - 45px);
         overflow: hidden;
         padding: 0;
         position: fixed;
         min-width: 90%;
         right: -90%;
-        top: 45px;
         transition: right 0.75s;
+    }
+    .header-style1 #block-region-side-post {
+        height: calc(100% - 44px);
+        top: 44px;
+    }
+    .header-style1 .pageheadershown #block-region-side-post {
+        height: calc(100% - 104px);
+        top: 104px;
+    }
+    .header-style2 #block-region-side-post {
+        height: calc(100% - 72px);
+        top: 72px;
     }
     #block-region-side-post .block-controls {
         display: none;
@@ -2203,7 +2235,7 @@ img.smallicon {
     *width: 24.35106383%;
 }
 
-@media and (max-width: 767px) {
+@media (max-width: 767px) {
     .row-fluid .col-3 {
         flex: none;
         max-width: 100%;

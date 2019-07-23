@@ -15,7 +15,7 @@
  * along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
  *
  *
- * Adaptable Core style sheet
+ * Adaptable Search override styles style sheet
  *
  * @package    theme_adaptable
  * @copyright  2019 G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
@@ -23,15 +23,8 @@
  *
  */
 
-#region-main {
-    overflow-x: visible; /* Override Boost. */
-}
-
-#region-main
-.pagelayout-mydashboard #region-main {
-    padding: 0 5px; /* Override Boost. */
-}
-
-.progressbar_container {
-    max-width: none;
+@media (max-width: 575.98px) {
+    .search-input-wrapper.expanded {
+        width: 32px;
+    }
 }

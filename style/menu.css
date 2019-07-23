@@ -249,6 +249,10 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
     color: [[setting:headertextcolor]];
 }
 
+#adaptable-page-header-wrapper #header2 .popover-region-container a i {
+    color: inherit;
+}
+
 #adaptable-page-header-wrapper #header2 a i {
     padding-right: 4px;
 }
@@ -605,6 +609,20 @@ a.dropdown-menu > .active > a:focus,
 /* Increase width slightly of default nav-drawer. */
 [data-region="drawer"] {
     width: 300px;
+}
+
+/* Adjust height according to header style. */
+.header-style1 [data-region="drawer"] {
+    height: calc(100% - 44px);
+    top: 44px;
+}
+.header-style1 .pageheadershown [data-region="drawer"] {
+    height: calc(100% - 104px);
+    top: 104px;
+}
+.header-style2 [data-region="drawer"] {
+    height: calc(100% - 72px);
+    top: 72px;
 }
 
 /* When the nav-drawer is closed take it out of the dom so it is not read by screenreaders. */

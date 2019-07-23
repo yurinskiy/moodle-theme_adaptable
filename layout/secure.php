@@ -57,7 +57,9 @@ $regions = theme_adaptable_grid($left, $hassidepost);
         if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
             $classes = ' d-none d-md-block d-print-none ';
         }
-        echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
+        if ($hassidepost) {
+            echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
+        }
         ?>
     </div>
 </div>

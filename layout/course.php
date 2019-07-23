@@ -181,7 +181,9 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
 }
 
 if ($movesidebartofooter == false) {
-    echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
+    if ($hassidepost) {
+        echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
+    }
 
     // Get any missing blocks from changing layout settings.  E.g. From 4-4-4-4 to 6-6-0-0, to recover
     // what was in the last 2 spans that are now 0.
@@ -199,7 +201,9 @@ if (!empty($PAGE->theme->settings->coursepageblocksenabled)) { ?>
 }
 
 if ($movesidebartofooter) {
-    echo $OUTPUT->blocks('side-post', ' col-12 ' . $classes);
+    if ($hassidepost) {
+        echo $OUTPUT->blocks('side-post', ' col-12 ' . $classes);
+    }
 
     // Get any missing blocks from changing layout settings.  E.g. From 4-4-4-4 to 6-6-0-0, to recover
     // what was in the last 2 spans that are now 0.

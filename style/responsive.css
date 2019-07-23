@@ -73,9 +73,9 @@ Default Bootstrap 4 Media Queries
         clear: both;
         float: none;
         margin: 0 auto;
+        min-width: 200px;
         text-align: center;
         width: 50%;
-        min-width: 200px;
     }
 
     #ticker-announce {
@@ -85,11 +85,11 @@ Default Bootstrap 4 Media Queries
     }
 
     #ticker-wrap #newscontent {
+        line-height: normal;
         max-width: inherit;
         overflow: inherit;
-        white-space: normal;
         padding: 10px 10px 10px;
-        line-height: normal;
+        white-space: normal;
     }
 
     #ticker-wrap #newscontent #news {
@@ -101,26 +101,21 @@ Default Bootstrap 4 Media Queries
     }
 
     .slidestyle2 .flex-caption {
+        background-color: transparent !important;
+        left: 0;
         position: relative;
         top: auto;
-        left: 0;
-        background-color: transparent !important;
-    }
-
-    .slidestyle2 .flex-caption .span6 {
-        margin-left: 0;
     }
 
     .slidestyle2 .flex-caption a.submit {
-        margin: 0;
         float: none;
-        width: auto;
+        margin: 0;
         text-align: center;
+        width: auto;
     }
 
     .slidestyle2 .flex-caption h3 {
-        margin-left: 0;
-        background: #000;
+        background-color: #000;
         margin: 0 !important;
     }
 
@@ -144,23 +139,22 @@ Default Bootstrap 4 Media Queries
     }
 
     .headermenu2 {
+        clear: both;
         float: none;
         padding: 10px 0;
         text-align: center;
-        clear: both;
     }
 
     .flex-caption {
-        width: 100% !important;
-        padding: 5px 0 !important;
         font-size: 90% !important;
+        padding: 5px 0 !important;
+        width: 100% !important;
     }
 
     .flex-caption p {
         font-size: 90% !important;
-        margin: 0 5px !important;
-        margin-bottom: 5px !important;
         line-height: 1.4em;
+        margin: 0 5px !important;
     }
 
     .flex-caption h3 {
@@ -170,10 +164,10 @@ Default Bootstrap 4 Media Queries
     }
 
     a.submit {
-        width: 80%;
         display: block;
         margin: 5px auto;
         text-align: center;
+        width: 80%;
     }
 
     .block .header {
@@ -193,16 +187,10 @@ Default Bootstrap 4 Media Queries
         margin: 0 10px 0 4px !important;
     }
 
-    #social-connect, .left-col.size2of16.span2 {
+    #social-connect {
         clear: both;
         float: none;
         width: auto;
-    }
-
-    .socialbox a {
-        color: [[setting:headertextcolor2]];
-        font-size: [[setting:socialsizemobile]];
-        padding-left: 10px;
     }
 
     .message .contactselector {
@@ -221,10 +209,6 @@ Default Bootstrap 4 Media Queries
     .navbar .nav-collapse.in > .nav > li > a {
         border-radius: 0;
         padding-left: 0 !important;
-    }
-
-    #page-navbar.span12 {
-        background-color: transparent;
     }
 
     .userhead {
@@ -268,10 +252,6 @@ Default Bootstrap 4 Media Queries
         min-height: 37px;
     }
 
-    /* .fullin .container {
-        width: 100%;
-    } */
-
     #header2,
     #header2 .row,
     #adaptable-page-header-wrapper > #header2 > div > div,
@@ -282,9 +262,19 @@ Default Bootstrap 4 Media Queries
     .header-style2 #page {
         margin-top: 46px;
     }
-
 }
 
+@media (max-width: 767px) {
+    .socialbox a {
+        color: [[setting:headertextcolor2]];
+    }
+
+    .socialbox a i {
+        /* Make at least 29px, values look odd but on inspection they are needed to be so for FontAwesome. */
+        font-size: [[setting:socialsizemobile]];
+        line-height: [[setting:socialsizemobile]];
+    }
+}
 
 /*=====================================================
 979px
@@ -495,7 +485,8 @@ Default Bootstrap 4 Media Queries
         margin: 0 0 0 20px;
     }
 
-    #region-main {
+    #region-main,
+    .pagelayout-mydashboard #region-main {
         padding: 0 5px;
     }
 

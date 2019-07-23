@@ -145,7 +145,9 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
 
             echo '</main>';
             echo '</section>';
-            echo $OUTPUT->blocks('side-post', $regions['blocks'] .  $sidebarclasses);
+            if ($hassidepost) {
+                echo $OUTPUT->blocks('side-post', $regions['blocks'] . $sidebarclasses);
+            }
         } else { ?>
         <section id="region-main" class="<?php echo $regions['content'];?>">
             <?php
@@ -156,7 +158,9 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
         </section>
 
         <?php
-            echo $OUTPUT->blocks('side-post', $regions['blocks']  . $sidebarclasses);
+            if ($hassidepost) {
+                echo $OUTPUT->blocks('side-post', $regions['blocks'] . $sidebarclasses);
+            }
         } ?>
 
 </div>

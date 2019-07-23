@@ -562,8 +562,6 @@ $string['mysitesmenudisplayshortcodefullnameonhover'] = 'Show short code and ful
 $string['mysitesmenudisplayfullnamenohover'] = 'Show full course title and no text on hover.';
 $string['mysitesmenudisplayfullnamefullnameonhover'] = 'Show full course title and full title on hover.';
 
-$string['usernavheading'] = 'Customize the user navigation dropdown';
-$string['usernavdesc'] = 'Allows you to control all of the elements that appear in the user navigation dropdown.';
 $string['enablehomedesc'] = 'Display a link to the frontpage.';
 
 $string['enablehomeredirect'] = 'Enable Home redirect=0';
@@ -1048,6 +1046,9 @@ $string['headerstyledesc'] = 'Choose the style of header. Header 1 refers to the
 $string['headerstyle1'] = 'Header 1 (original 3 row header)';
 $string['headerstyle2'] = 'Header 2 (new 2 row header)';
 
+$string['header2searchbox'] = 'Header 2 search box expandable';
+$string['header2searchboxdesc'] = 'Expand and collapse functionality on the search box when using header 2.';
+
 $string['socialorsearch'] = 'Use Search Box or Social Icons';
 $string['socialorsearchdesc'] = 'You can set the theme to either display social icons or a search box in the header. <br />
 You can set social icons under the <a href="./../admin/settings.php?section=theme_adaptable_social">Header Social</a> settings page</strong>.';
@@ -1064,8 +1065,11 @@ $string['enablesavecanceloverlay'] = 'Enable Save / Cancel overlay on settings p
 $string['enablesavecanceloverlaydesc'] = 'Display a Save / Cancel button overlay at the top
  of a settings page to make it easier to save settings.';
 
-
+$string['usernavheading'] = 'Customize the user navigation dropdown';
 $string['usernav'] = 'Header User';
+$string['usernavdesc'] = 'Allows you to control all of the elements that appear in the user navigation dropdown.';
+$string['usernameposition'] = 'User name position';
+$string['usernamepositiondesc'] = 'Set the postion of the userame, \'Left\' or \'Right\'.';
 
 $string['menusettings'] = 'Header Menus';
 $string['menusettingsheading'] = 'Customize menus in the upper header the header of this theme.';
@@ -1106,12 +1110,8 @@ $string['displayloginbutton'] = 'Button';
 $string['displayloginbox'] = 'Login Box';
 $string['displayloginno'] = 'No Login';
 
-$string['enablemessagemenu'] = 'Message menu';
-$string['enablemessagemenudesc'] = 'Enable Message menu in header (moot if messaging is globally turned off)';
-
-$string['filteradminmessages'] = 'Filter Admin Messages';
-$string['filteradminmessagesdesc'] = 'Enable to remove messages from admin user, this can reduce system type messages appearing for students';
-
+$string['showusername'] = 'Show username';
+$string['showusernamedesc'] = 'Show the username on the user menu on the navbar.';
 
 $string['hideblocks'] = 'Hide blocks';
 $string['showblocks'] = 'Show blocks';
@@ -1552,8 +1552,11 @@ https://example.com|My Web|fa-globe
 For reference you can find the full list of <a href="https://fortawesome.github.io/Font-Awesome/icons/">Font Awesome Icons Here</a>';
 
 $string['socialsize'] = 'Set the font size of the social icons';
+$string['socialsizedesc'] = 'Due to the strange way that FontAwesome works this needs to be 5px greater than the desired actual size.';
 $string['socialsizemobile'] = 'Set the font size of the social icons on Mobile';
+$string['socialsizemobiledesc'] = 'Due to the strange way that FontAwesome works this needs to be 5px greater than the desired actual size.';
 $string['socialpaddingtop'] = 'Adjust padding above social icons (alters vertical position)';
+$string['socialpaddingtopdesc'] = 'This will be the minimum of 15px (set using the margin) plus this value.';
 
 $string['socialtarget'] = 'Social Links Open Target';
 $string['socialtargetdesc'] = 'How would you like social links to open (same or new window)';

@@ -34,21 +34,21 @@ defined('MOODLE_INTERNAL') || die;
 
     $name = 'theme_adaptable/socialsize';
     $title = get_string('socialsize', 'theme_adaptable');
-    $description = get_string('socialsize', 'theme_adaptable');
-    $setting = new admin_setting_configselect($name, $title, $description, '32px', $from14to42px);
+    $description = get_string('socialsizedesc', 'theme_adaptable');
+    $setting = new admin_setting_configselect($name, $title, $description, '37px', $from34to47px);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
     $name = 'theme_adaptable/socialsizemobile';
     $title = get_string('socialsizemobile', 'theme_adaptable');
-    $description = get_string('socialsizemobile', 'theme_adaptable');
-    $setting = new admin_setting_configselect($name, $title, $description, '22px', $from14to42px);
+    $description = get_string('socialsizemobiledesc', 'theme_adaptable');
+    $setting = new admin_setting_configselect($name, $title, $description, '34px', $from34to47px);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
     $name = 'theme_adaptable/socialpaddingtop';
     $title = get_string('socialpaddingtop', 'theme_adaptable');
-    $description = get_string('socialpaddingtop', 'theme_adaptable');
+    $description = get_string('socialpaddingtopdesc', 'theme_adaptable');
     $setting = new admin_setting_configselect($name, $title, $description, '0%', $from0to2point5percent);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);

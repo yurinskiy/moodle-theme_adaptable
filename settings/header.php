@@ -51,6 +51,14 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    // Header 2 search box.
+    $name = 'theme_adaptable/header2searchbox';
+    $title = get_string('header2searchbox', 'theme_adaptable');
+    $description = get_string('header2searchboxdesc', 'theme_adaptable');
+    $default = true;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    $temp->add($setting);
+
     // Enable front page login form in header.
     $name = 'theme_adaptable/frontpagelogin';
     $title = get_string('frontpagelogin', 'theme_adaptable');
@@ -73,22 +81,12 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    // Enable messaging menu in header.
-    $name = 'theme_adaptable/enablemessagemenu';
-    $title = get_string('enablemessagemenu', 'theme_adaptable');
-    $description = get_string('enablemessagemenudesc', 'theme_adaptable');
+    // Show username.
+    $name = 'theme_adaptable/showusername';
+    $title = get_string('showusername', 'theme_adaptable');
+    $description = get_string('showusernamedesc', 'theme_adaptable');
     $default = true;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Filter admin messages.
-    $name = 'theme_adaptable/filteradminmessages';
-    $title = get_string('filteradminmessages', 'theme_adaptable');
-    $description = get_string('filteradminmessagesdesc', 'theme_adaptable');
-    $default = false;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
     // Logo.

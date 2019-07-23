@@ -870,9 +870,9 @@ for ($i = 0; $i < 101; $i++) {
     $from0to100px[$i . 'px'] = $i . 'px';
 }
 
-$from14to42px = array();
-for ($i = 14; $i < 43; $i++) {
-    $from14to42px[$i . 'px'] = $i . 'px';
+$from34to47px = array();
+for ($i = 34; $i < 47; $i++) {
+    $from34to47px[$i . 'px'] = $i . 'px';
 }
 
 $standardfontsize = array(

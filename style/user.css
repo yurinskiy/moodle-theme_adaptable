@@ -82,3 +82,30 @@
 #adaptable_profile_tree .ucol1 .lastname {
     font-size: 140%;
 }
+
+.adaptablemyeditprofile .col-md-3,
+.adaptablemyeditprofile .col-md-9 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.adaptablemyeditprofile .col-md-3 span.float-sm-right {
+    float: none !important;
+}
+
+.adaptablemyeditprofile .col-md-3 label.col-form-label.d-inline {
+    float: left !important;
+}
+
+.adaptablemyeditprofile .col-md-3 .text-info,
+.adaptablemyeditprofile .col-md-3 label.col-form-label.d-inline {
+    margin: 0;
+}
+
+.adaptablemyeditprofile .col-md-3 .btn {
+    height: 26px;
+}
+
+.adaptablemyeditprofile .fp-restrictions {
+    text-align: left;
+}

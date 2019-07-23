@@ -31,6 +31,17 @@ defined('MOODLE_INTERNAL') || die;
     $temp->add(new admin_setting_heading('theme_adaptable_usernav', get_string('usernavheading', 'theme_adaptable'),
            format_text(get_string('usernavdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
 
+    // Position of the username.
+    $name = 'theme_adaptable/usernameposition';
+    $title = get_string('usernameposition', 'theme_adaptable');
+    $description = get_string('usernamepositiondesc', 'theme_adaptable');
+    $poschoices = array(
+        'left' => get_string('left', 'editor'),
+        'right' => get_string('right', 'editor')
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, 'left', $poschoices);
+    $temp->add($setting);
+
     $name = 'theme_adaptable/hideinforum';
     $title = get_string('hideinforum', 'theme_adaptable');
     $description = get_string('hideinforumdesc', 'theme_adaptable');
