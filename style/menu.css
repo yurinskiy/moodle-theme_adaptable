@@ -626,31 +626,31 @@ a.dropdown-menu > .active > a:focus,
     display: none;
 }
 
-// Replacing old FA icons in menus.
-// Dashboard.
+/* Replacing old FA icons in menus.
+   Dashboard. */
 .fa-dashboard::before,
 .fa-tachometer::before {
     content: "\f3fd" !important;
     font-weight: 900 !important;
 }
 
-// General menu icon.
+/* General menu icon. */
 .navicon {
     content: "\f013" !important;
     font-weight: 900;
 }
 
-// Competencies icon.
+/* Competencies icon. */
 .fa-check-square-o::before {
     content: "\f14a" !important;
 }
 
-// Badge icon.
+/* Badge icon. */
 .fa-shield::before {
     content: "\f0a3" !important;
 }
 
-// File icon.
+/* File icon. */
 .fa-file-o::before {
     content: "\f15b" !important;
 }

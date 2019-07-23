@@ -1552,8 +1552,11 @@ https://example.com|My Web|fa-globe
 For reference you can find the full list of <a href="https://fortawesome.github.io/Font-Awesome/icons/">Font Awesome Icons Here</a>';
 
 $string['socialsize'] = 'Set the font size of the social icons';
+$string['socialsizedesc'] = 'Due to the strange way that FontAwesome works this needs to be 5px greater than the desired actual size.';
 $string['socialsizemobile'] = 'Set the font size of the social icons on Mobile';
+$string['socialsizemobiledesc'] = 'Due to the strange way that FontAwesome works this needs to be 5px greater than the desired actual size.';
 $string['socialpaddingtop'] = 'Adjust padding above social icons (alters vertical position)';
+$string['socialpaddingtopdesc'] = 'This will be the minimum of 15px (set using the margin) plus this value.';
 
 $string['socialtarget'] = 'Social Links Open Target';
 $string['socialtargetdesc'] = 'How would you like social links to open (same or new window)';
