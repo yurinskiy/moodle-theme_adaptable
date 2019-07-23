@@ -264,7 +264,7 @@ Default Bootstrap 4 Media Queries
     }
 }
 
-@media (max-width: 767px)
+@media (max-width: 767px) {
     .socialbox a {
         color: [[setting:headertextcolor2]];
     }
