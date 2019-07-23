@@ -19,7 +19,7 @@
 *
 * @package    theme_adaptable
 * @copyright  2015-2016 Jeremy Hopkins (Coventry University)
-* @copyright  2015-2017 Fernando Acedo (3-bits.com)
+* @copyright  2015-2019 Fernando Acedo (3-bits.com)
 * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 *
 */
@@ -79,6 +79,10 @@
 #adaptable-page-header-wrapper #above-header a i,
 #adaptable-page-header-wrapper .navbar-nav .dropdown li a moodlezoom  i {
     padding-right: 4px;
+}
+
+a.dropdown-item.i.fa.fa-users.fa-lg {
+    marging-right: 3px;
 }
 
 /* New main navbar styling */
