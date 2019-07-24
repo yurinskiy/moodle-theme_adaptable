@@ -40,7 +40,7 @@
 /* Reset border values */
 [class^="block-side-"] .card-body,
 .block {
-    background: transparent !important;
+    background: [[setting:blockbackgroundcolor]] !important;
     border: none !important;
     box-shadow: none !important;
     border-radius: 0 !important;
