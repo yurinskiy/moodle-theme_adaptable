@@ -61,22 +61,29 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                 }
 
                 var screenmd = 992;
-
-                if (window.innerWidth <= screenmd) {
+                var isFixed = 0;
+                if (window.outerWidth <= screenmd) {
                     $("#adaptable-page-header-wrapper").addClass("fixed-top");
-                    $("body").addClass("page-header-margin")
+                    $("body").addClass("page-header-margin");
+                    isFixed = 1;
                 } else {
                     $("#adaptable-page-header-wrapper").removeClass("fixed-top");
                     $("body").removeClass("page-header-margin")
                 }
-                // if you want these classes to toggle when a desktop user shrinks the browser width to an xs width - or from xs to larger
+                // If you want these classes to toggle when a desktop user shrinks the browser width to an xs width - or from xs to larger.
                 $(window).resize(function() {
-                    if (window.innerWidth <= screenmd) {
-                        $("#adaptable-page-header-wrapper").addClass("fixed-top");
-                        $("body").addClass("page-header-margin")
+                    if (window.outerWidth <= screenmd) {
+                        if (isFixed == 0) {
+                            $("#adaptable-page-header-wrapper").addClass("fixed-top");
+                            $("body").addClass("page-header-margin");
+                            isFixed = 1;
+                        }
                     } else {
-                        $("#adaptable-page-header-wrapper").removeClass("fixed-top");
-                        $("body").removeClass("page-header-margin")
+                        if (isFixed == 1) {
+                            $("#adaptable-page-header-wrapper").removeClass("fixed-top");
+                            $("body").removeClass("page-header-margin");
+                            isFixed = 0;
+                        }
                     }
                 });
 
