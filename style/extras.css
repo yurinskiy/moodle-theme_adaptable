@@ -776,6 +776,7 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscu
 #ticker-wrap #controls .fa {
     color: [[setting:maincolor]];
     cursor: pointer;
+    margin-top: 10px;
 }
 
 #ticker-wrap #newscontent {
