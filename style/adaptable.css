@@ -2441,6 +2441,17 @@ img.smallicon {
     margin-top: 8px !important;
 }
 
+/* Success / Fail icon */
+.text-success,
+.green,
+.notifysuccess,
+.connected,
+.text-danger,
+.notconnected,
+.que .validationerror,
+.text-error {
+    font-size: 24px !important;
+}
 
 /* Login Page */
 /* Background Image */
