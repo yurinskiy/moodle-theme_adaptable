@@ -32,11 +32,11 @@
     z-index: 100;
 }
 
-#adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav li:first-child a {
+#adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav > li:first-child a {
     padding-left: 0;
 }
 
-#adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav li:last-child a {
+#adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav > li:last-child a {
     padding-right: 0;
 }
 
