@@ -32,8 +32,12 @@
     z-index: 100;
 }
 
-#adaptable-page-header-wrapper #main-navbar .navbar {
-    margin-left: -5px;
+#adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav > li:first-child a {
+    padding-left: 0;
+}
+
+#adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav > li:last-child a {
+    padding-right: 0;
 }
 
 /* Remove caret from main navbar menu. */

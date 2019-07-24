@@ -259,7 +259,7 @@ Default Bootstrap 4 Media Queries
         min-height: 46px;
     }
 
-    .header-style2 #page {
+    .page-header-margin.header-style2 #page {
         margin-top: 46px;
     }
 }
@@ -466,11 +466,11 @@ Default Bootstrap 4 Media Queries
         margin: 4px 0 0 4px;
     }
 
-    .header-style1 #page {
+    .page-header-margin.header-style1 #page {
         margin-top: 112px;
     }
 
-    .header-style2 #page {
+    .page-header-margin.header-style2 #page {
         margin-top: 72px;
     }
 
@@ -665,9 +665,5 @@ Other.
 
     .adaptable-drawer {
         display: none;
-    }
-
-    .page-header-margin {
-/*        padding-top: 30px; */
     }
 }
