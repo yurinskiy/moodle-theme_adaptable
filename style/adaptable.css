@@ -2438,6 +2438,7 @@ img.smallicon {
 .text-error {
     color: [[setting:dangericoncolor]] !important;
     margin-right: 1px !important;
+    margin-top: 8px !important;
 }
 
 
