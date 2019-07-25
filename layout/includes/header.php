@@ -608,40 +608,38 @@ if (
 ?>
 
 <div id="nav-drawer" data-region="drawer" class="d-print-none moodle-has-zindex closed" aria-hidden="true" tabindex="-1">
-    <nav class="list-group">
+    <div id="nav-drawer-inner">
+        <nav class="list-group">
+            <ul class="list-unstyled components">
 
-        <ul class="list-unstyled components">
+                <?php 
+                echo $OUTPUT->navigation_menu('main-navigation-drawer');
 
-            <?php echo $OUTPUT->navigation_menu('main-navigation-drawer'); ?>
+                if (empty($PAGE->theme->settings->disablecustommenu)) {
+                    echo $OUTPUT->custom_menu_drawer();
+                }
+                if ($PAGE->theme->settings->enabletoolsmenus) {
+                    echo $OUTPUT->tools_menu('tools-menu-drawer');
+                }
+                ?>
 
-            <?php
-            if (empty($PAGE->theme->settings->disablecustommenu)) {
-                echo $OUTPUT->custom_menu_drawer();
-            }
-            ?>
-            <?php
-            if ($PAGE->theme->settings->enabletoolsmenus) {
-                echo $OUTPUT->tools_menu('tools-menu-drawer');
-            }
-            ?>
+            </ul>
+        </nav>
 
-        </ul>
-
-    </nav>
-
-    <nav class="list-group m-t-1">
-        <?php echo $OUTPUT->context_mobile_settings_menu(); ?>
-        <a class="list-group-item list-group-item-action " href="<?php echo $CFG->wwwroot.'/admin/search.php'; ?>">
-            <div class="m-l-0">
-                <div class="media">
-                    <span class="media-left">
-                        <i class="icon fa fa-wrench fa-fw" aria-hidden="true"></i>
-                    </span>
-                    <span class="media-body "><?php echo get_string('administrationsite'); ?></span>
+        <nav class="list-group m-t-1">
+            <?php echo $OUTPUT->context_mobile_settings_menu(); ?>
+            <a class="list-group-item list-group-item-action " href="<?php echo $CFG->wwwroot.'/admin/search.php'; ?>">
+                <div class="m-l-0">
+                    <div class="media">
+                        <span class="media-left">
+                            <i class="icon fa fa-wrench fa-fw" aria-hidden="true"></i>
+                        </span>
+                        <span class="media-body "><?php echo get_string('administrationsite'); ?></span>
+                    </div>
                 </div>
-            </div>
-        </a>
-    </nav>
+            </a>
+        </nav>
+    </div>
 </div>
 
 <div id="main-navbar" class="d-none d-lg-block">
