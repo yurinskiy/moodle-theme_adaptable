@@ -254,6 +254,10 @@ div.signuppanel h2 {
     color: [[setting:headertextcolor2]];
 }
 
+#above-header .fa {
+    color: [[setting:headertextcolor2]];
+}
+
 #titlecontainer {
     width: [[setting:sitetitlemaxwidth]];
 }
