@@ -73,7 +73,7 @@
 }
 
 @media (min-width: 768px) {
-    .popover-region-container 
+    .popover-region-container {
         font-size: 125%;
         width: 400px;
     }
