@@ -21,6 +21,7 @@
  *
  * @package    theme_adaptable
  * @copyright  2017 Manoj Solanki (Coventry University)
+ * @author     2019 G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
@@ -39,7 +40,7 @@ if (($PAGE->pagetype == "grade-report-grader-index") ||
 }
 
 $movesidebartofooter = !empty(($PAGE->theme->settings->coursepagesidebarinfooterenabled)) ? true : false;
-$hassidepost = false;
+$hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 
 // Definition of block regions for top and bottom.  These are used in potentially retrieving
 // any missing block regions (due to layout changes that may hide blocks).
@@ -50,11 +51,12 @@ $blocksarray = array (
                 'classnamebeginswith' => 'course-bottom-')
 );
 
-if (!$movesidebartofooter) {
-        $hassidepost = true;
+if ($movesidebartofooter) {
+    // Side post in the footer so don't adjust the layout but pretend it is not there.
+    $regions = theme_adaptable_grid($left, false);
+} else {
+    $regions = theme_adaptable_grid($left, $hassidepost);
 }
-
-$regions = theme_adaptable_grid($left, $hassidepost);
 ?>
 
 <div class="container outercont">
@@ -210,7 +212,7 @@ if ($movesidebartofooter) {
     echo $OUTPUT->get_missing_block_regions($blocksarray, array(), $displayall);
 }
 
-if ($movesidebartofooter == true) { ?>
+if ($movesidebartofooter) { ?>
     </section>
 <?php } ?>
     </div>
