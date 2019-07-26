@@ -34,7 +34,7 @@
 }
 
 #adaptable_profile_tree .ucol1 .node_category.contact {
-    margin-top: 87px;
+    margin-top: 3.5em; /* Magic number to line up with tabs. */
 }
 
 #adaptable_profile_tree .ucol1 .node_category.contact .firstname,
