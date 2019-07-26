@@ -793,6 +793,10 @@ div.fdescription.required {
     background-color: [[setting:coursesectionactivityquizbgcolor]];
 }
 
+.activity img.activityicon {
+    margin-right: 0;
+}
+
 /* Label Info */
 .section .activity .availabilityinfo {
     margin-left: 30px;
