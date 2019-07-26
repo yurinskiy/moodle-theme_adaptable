@@ -26,9 +26,8 @@
 
 
 .tabcontentcontainer input.adaptabletab:checked + label {
-    background-color: #06c;
-    border-color: #06c;
-    border-top: 4px solid #06c;
+    background-color: [[setting:linkcolor]];
+    border-color: [[setting:linkcolor]];
     color: #fff;
 }
 
@@ -39,7 +38,34 @@
     display: inline-block;
     font-weight: 400;
     margin: 0 4px 0 0;
-    padding: 15px 15px 25px;
+    padding: 1em;
     position: relative;
     transition: background-color .2s ease;
+}
+
+/* Tab panel content. */
+#adaptable_profile_tree .adaptable-tab.tab-panel {
+    border: 1px solid rgba(0,0,0,.125); /* Same colour as profile card border. */
+    border-top: 4px solid [[setting:linkcolor]];
+}
+
+/* Remove borders on cards in the tabs. */
+.adaptable-tab.tab-panel .node_category {
+    border-color: transparent;
+}
+
+
+/* CSS for the one topic format tabs. */
+.onetopic .nav-tabs .nav-link {
+    margin: 2px; /* Magic number so tabs can have border. */
+    border: 1px solid #eee;
+    border-bottom-color: transparent;
+}
+
+/* Give active tabs brand colour background. */
+.onetopic .nav-tabs .nav-link.active,
+.onetopic .nav-tabs .nav-item.show .nav-link {
+    background-color: [[setting:linkcolor]];
+    color: white;
+    border-color: transparent;
 }
