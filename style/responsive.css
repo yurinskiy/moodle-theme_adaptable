@@ -238,7 +238,7 @@ Default Bootstrap 4 Media Queries
     .newmenu13,
     .newmenu14,
     .newmenu15,
-    .newmenu16[[setting:hidepagefootermobile]][[setting:hidebreadcrumbmobile]][[setting:hidealertsmobile]][[setting:hidesocialmobile]][[setting:hideheadermobile]][[setting:hidecoursetitlemobile]] {
+    .newmenu16 {
         display: none;
     }
 
