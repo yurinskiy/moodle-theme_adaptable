@@ -409,6 +409,8 @@ class renderer extends \core_user\output\myprofile\renderer {
     }
 
     protected function tabs($categories, $tree) {
+        global $USER;
+
         static $tabcategories = array('coursedetails');
 
         $tabdata = new \stdClass;
@@ -467,18 +469,21 @@ class renderer extends \core_user\output\myprofile\renderer {
         $tab->content = $misccontent;
         $tabdata->tabs[] = $tab;
 
-        // Edit profile tab.
-        $category = $this->create_editprofile();
-        $editprofiletab = new \stdClass;
-        $editprofiletab->name = $category->name;
-        $editprofiletab->displayname = $category->title;
-        $category->notitle = true;
-        $editprofiletab->content = $this->render($category);
-        $tabdata->tabs[] = $editprofiletab;
+        if ((is_siteadmin()) || ($USER->id == $this->user->id)) {
+            // Edit profile tab.
+            $category = $this->create_editprofile();
+            $editprofiletab = new \stdClass;
+            $editprofiletab->name = $category->name;
+            $editprofiletab->displayname = $category->title;
+            $category->notitle = true;
+            $editprofiletab->content = $this->render($category);
+            $tabdata->tabs[] = $editprofiletab;
 
-        global $USER;
-        if (($this->user->id == $USER->id) && ($aboutme['diempty'])) {
-            $editprofiletab->selected = true;
+            if ($aboutme['diempty']) {
+                $editprofiletab->selected = true;
+            } else {
+                $aboutmetab->selected = true;
+            }
         } else {
             $aboutmetab->selected = true;
         }
