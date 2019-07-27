@@ -1140,6 +1140,11 @@ $string['enablenavbarwhenloggedoutdesc'] = 'Shows the navbar even when logged ou
 $string['fullscreenwidth'] = 'Full screen width.';
 $string['fullscreenwidthdesc'] = 'Set the max width of the theme when it is in full screen mode / zoom.';
 
+$string['standardscreenwidth'] = 'Standard screen width.';
+$string['standardscreenwidthdesc'] = 'Set the width of the theme when it is in standard screen mode / no zoom.';
+$string['narrow'] = 'Narrow';
+$string['standard'] = 'Standard';
+
 $string['headernavbarhelpheading'] = 'Help Links and Options';
 $string['headernavbarhelpheadingdesc'] = 'Options for help menu links.';
 

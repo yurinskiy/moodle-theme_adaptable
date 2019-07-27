@@ -506,18 +506,32 @@ Default Bootstrap 4 Media Queries
 }
 
 /*=====================================================
-1201px or higher
+1201px or higher / nozoom
 ======================================================= */
 
 @media (min-width: 1200px) {
-    .container {
+    .standard .container {
         max-width: 100%;
         width: 1170px;
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-    .container {
+    .standard .container {
+        max-width: 100%;
+        width: 960px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .narrow .container {
+        max-width: 100%;
+        width: 1000px;
+    }
+}
+
+@media (max-width: 992px) and (max-width: 999px) {
+    .narrow .container {
         max-width: 100%;
         width: 960px;
     }

@@ -1202,7 +1202,8 @@ html[xmlns] .slides {
 }
 
 /* Fullscreen button */
-.fullin .container {
+.fullin.narrow .container,
+.fullin.standard .container {
     width: [[setting:fullscreenwidth]];
 }
 

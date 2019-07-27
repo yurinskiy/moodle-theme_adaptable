@@ -2472,6 +2472,7 @@ img.smallicon {
     margin: 0 !important;
 }
 
-#page-login-index .fullin .container {
+#page-login-index .fullin.narrow .container,
+#page-login-index .fullin.standard .container {
     width: 100% !important;
 }

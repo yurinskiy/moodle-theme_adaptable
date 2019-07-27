@@ -66,6 +66,17 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    // Standard screen width.
+    $name = 'theme_adaptable/standardscreenwidth';
+    $title = get_string('standardscreenwidth', 'theme_adaptable');
+    $description = get_string('standardscreenwidthdesc', 'theme_adaptable');
+    $choices = array(
+        'standard' => get_string('standard', 'theme_adaptable'),
+        'narrow' => get_string('narrow', 'theme_adaptable')
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, 'standard', $choices);
+    $temp->add($setting);
+
     // Show sidebar when not logged.
     $name = 'theme_adaptable/sidebarnotlogged';
     $title = get_string('sidebarnotlogged', 'theme_adaptable');

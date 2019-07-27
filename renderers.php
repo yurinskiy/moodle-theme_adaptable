@@ -1401,13 +1401,13 @@ EOT;
                         global $COURSE;
                         $retval .= '<div id="page-coursetitle" class="col-12">';
                         switch ($PAGE->theme->settings->breadcrumbdisplay) {
-                        case 'fullname':
-                            // Full Course Name.
-                            $coursetitle = $COURSE->fullname;
+                            case 'fullname':
+                                // Full Course Name.
+                                $coursetitle = $COURSE->fullname;
                             break;
-                        case 'shortname':
-                            // Short Course Name.
-                            $coursetitle = $COURSE->shortname;
+                            case 'shortname':
+                                // Short Course Name.
+                                $coursetitle = $COURSE->shortname;
                             break;
                         }
 
