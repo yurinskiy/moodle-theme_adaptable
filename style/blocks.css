@@ -603,6 +603,7 @@ main.tabcontentcontainer {
   display: none;
 }
 
+.tabcontentcontainer div.linktab,
 .tabcontentcontainer label.dashboardtab,
 .tabcontentcontainer label.coursetab {
   position: relative;
@@ -622,8 +623,18 @@ main.tabcontentcontainer {
     background-color: [[setting:tabbedlayoutdashboardcolorunselected]];
 }
 
+.tabcontentcontainer div.linktab,
 .tabcontentcontainer label.coursetab {
     background-color: [[setting:tabbedlayoutcoursepagetabcolorunselected]];
+}
+
+.tabcontentcontainer div.linktab {
+    line-height: 1;
+    vertical-align: top;
+}
+
+.tabcontentcontainer div.linktab a {
+    color: inherit;
 }
 
 .tabcontentcontainer > dashboardtab.label:hover::after,
@@ -638,6 +649,7 @@ main.tabcontentcontainer {
     background-color: [[setting:tabbedlayoutcoursepagetabcolorselected]];
 }
 
+.tabcontentcontainer div.linktab,
 .tabcontentcontainer input.dashboardtab:checked + label {
     border-color: [[setting:tabbedlayoutdashboardcolorselected]];
     background-color: [[setting:tabbedlayoutdashboardcolorselected]];
@@ -678,20 +690,30 @@ main.tabcontentcontainer {
 
 @media (min-width: 1024px) {
 
+    .tabcontentcontainer div.linktab,
     .tabcontentcontainer dashboardtab.input[type="radio"],
     .tabcontentcontainer coursetab.input[type="radio"] {
         font-size: 1.4em;
     }
 
+    .tabcontentcontainer div.linktab {
+        font-size: 3em;
+        padding: 10px 15px;
+    }
+
     .tabcontentcontainer label.dashboardtab,
     .tabcontentcontainer label.coursetab {
-        display: inline-block;
-        padding: 20px 40px;
         font-size: 1.25em;
+        padding: 20px 40px;
     }
 }
 
 @media (max-width: 1023px) {
+    .tabcontentcontainer div.linktab {
+        font-size: 1.6em;
+        padding: 10px 15px;
+    }
+
     .tabcontentcontainer label.dashboardtab,
     .tabcontentcontainer label.coursetab {
         padding: 12px;
@@ -699,9 +721,19 @@ main.tabcontentcontainer {
 }
 
 @media (max-width: 460px) {
+    .tabcontentcontainer div.linktab {
+        font-size: 1.5em;
+        padding: 12px;
+    }
+
     .tabcontentcontainer label.dashboardtab,
     .tabcontentcontainer label.coursetab {
         font-size: 0.95em;
+    }
+
+    .tabcontentcontainer div.linktab,
+    .tabcontentcontainer label.dashboardtab,
+    .tabcontentcontainer label.coursetab {
         width: 100%; /* Make tabs full width at this resolution. */
         margin: 2px 0;
     }

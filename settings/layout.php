@@ -131,6 +131,14 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    // Have a link back to the course page in the course tabs.
+    $name = 'theme_adaptable/tabbedlayoutcoursepagelink';
+    $title = get_string('tabbedlayoutcoursepagelink', 'theme_adaptable');
+    $description = get_string('tabbedlayoutcoursepagelinkdesc', 'theme_adaptable');
+    $default = false;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    $temp->add($setting);
+
     // Course page tab colour selected.
     $name = 'theme_adaptable/tabbedlayoutcoursepagetabcolorselected';
     $title = get_string('tabbedlayoutcoursepagetabcolorselected', 'theme_adaptable');

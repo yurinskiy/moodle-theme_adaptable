@@ -89,6 +89,12 @@ if ($movesidebartofooter) {
 
                 echo '<main id="coursetabcontainer" class="tabcontentcontainer">';
 
+                if (!empty($PAGE->theme->settings->tabbedlayoutcoursepagelink)) {
+                    global $COURSE;
+                    $courseurl = new moodle_url('/course/view.php', array('id' => $COURSE->id));
+                    echo '<div class="linktab"><a href="'.$courseurl->out(true).'"><i class="fa fa-th-large"></i></a></div>';
+                }
+
                 foreach ($taborder as $tabnumber) {
                     if ($tabnumber == 0) {
                         $tabname = 'tab-content';
