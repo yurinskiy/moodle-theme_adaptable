@@ -698,8 +698,8 @@ $string['dividinglinedesc'] = 'The colour for the dividing line found in the hea
 $string['dividingline2'] = 'Dividing line in footer';
 $string['dividingline2desc'] = 'The colour for the dividing line found in the footer';
 
-$string['breadcrumb'] = 'Breadcrumb background colour';
-$string['breadcrumbdesc'] = 'Set the background colour of the breadcrumb.';
+$string['breadcrumbbackgroundcolor'] = 'Breadcrumb background colour';
+$string['breadcrumbbackgroundcolordesc'] = 'Set the background colour of the breadcrumb.';
 
 $string['breadcrumbtextcolor'] = 'Breadcrumb text colour';
 $string['breadcrumbtextcolordesc'] = 'Set the text colour of the breadcrumb.';
@@ -1008,6 +1008,9 @@ $string['headerbgimagedesc'] = 'Set a background image in the header. Minimum si
 $string['enableheading'] = 'Header course title';
 $string['enableheadingdesc'] = 'Set the mode to display the course title in the header when the default Moodle site title is enabled.';
 
+$string['breadcrumbdisplay'] = 'Breadcrumb display';
+$string['breadcrumbdisplaydesc'] = 'Set the display of what should be in the breadcrumb area in a course.';
+
 $string['sitetitlecoursesdisabled'] = 'Disabled - only show course titles in course pages';
 $string['sitetitlecoursesenabled'] = 'Enabled - show site title and course titles in course pages';
 
@@ -1038,8 +1041,9 @@ $string['coursepageheaderhidesitetitledesc'] = 'Hide site title, logo and search
 $string['breadcrumbtitle'] = 'Breadcrumb course name';
 $string['breadcrumbtitledesc'] = 'Set the mode to display the course title in the breadcrumb.';
 
-$string['breadcrumbtitlefullname'] = 'Course Full Name';
-$string['breadcrumbtitleshortname'] = 'Course Short Name / Code';
+$string['breadcrumb'] = 'Breadcrumb';
+$string['coursetitlefullname'] = 'Course Full Name';
+$string['coursetitleshortname'] = 'Course Short Name / Code';
 
 $string['headerstyle'] = 'Header style';
 $string['headerstyledesc'] = 'Choose the style of header. Header 1 refers to the original 3 row Adaptable header.  Header 2 is a new minimal 2 row header. Note that when using Header 2, for the setting "Use Search Box or Social Icons", this will always use a search box.';
@@ -1384,42 +1388,18 @@ $string['dividingline2desc'] = 'The colour for the dividing line found in the fo
 $string['showfooterblocks'] = 'Show footer blocks';
 $string['showfooterblocksdesc'] = 'Show / hide the four configurable footer blocks';
 
-$string['breadcrumb'] = 'Breadcrumb background colour';
-$string['breadcrumbdesc'] = 'Set the background colour of the breadcrumb.';
-
-$string['breadcrumbtextcolor'] = 'Breadcrumb text colour';
-$string['breadcrumbtextcolordesc'] = 'Set the text colour of the breadcrumb.';
-
-$string['activebreadcrumb'] = 'Active breadcrumb background colour';
-$string['activebreadcrumbdesc'] = 'Set the background colour of the active breadcrumb colour, and remainder of the breadcrumb bar.';
-
 $string['breadcrumbseparator'] = 'Breadcrumb separator';
 $string['breadcrumbseparatordesc'] = 'Set the <a href="https://fortawesome.github.io/Font-Awesome/icons/" target="_blank">Font Awesome Icon</a> to be used as item separator in the breadcrumb. enter the icon name without the fa- prefix.';
 
-$string['breadcrumblabel'] = 'Breadcrumb';
 $string['breadcrumbhome'] = 'Breadcrumb home';
 $string['breadcrumbhomedesc'] = 'Display home breadcrumb as an icon or as a text.';
 
 $string['breadcrumbhometext'] = 'Text';
 $string['breadcrumbhomeicon'] = 'Icon';
 
-$string['menufontsize'] = 'Font size for navigation bar';
-$string['menufontsizedesc'] = 'Set the size of the font used in the main navigation bar.';
-
-$string['enablemysitesdesc'] = 'Display a dropdown with a users courses';
-
 $string['mysitesexclude'] = 'Enable excluding hidden courses';
 $string['mysitesinclude'] = 'Enable including hidden courses';
 $string['mysitesdisabled'] = 'Disable';
-
-$string['enableticker'] = 'Enable the news ticker on the homepage?';
-$string['enabletickerdesc'] = 'Check to enable the homepage ticker.';
-
-$string['enabletickermy'] = 'Enable the news ticker on the My Home / Dashboard page?';
-$string['enabletickermydesc'] = 'Check to enable the ticker on My Home / Dashboard.';
-
-$string['enabletickerc'] = 'Enable the news ticker on internal pages?';
-$string['enabletickercdesc'] = 'Check to enable the ticker on internal pages.';
 
 $string['newstickercount'] = 'Number of News Ticker Sections';
 $string['newstickercountdesc'] = 'Define multiple news ticker sections with access rules to target different audiences';

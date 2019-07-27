@@ -688,8 +688,8 @@ $string['dividinglinedesc'] = 'Establece el color de la línea divisoria de la c
 $string['dividingline2'] = 'Color de la línea divisoria del pie de página';
 $string['dividingline2desc'] = 'Establece el color de la línea divisoria del pie de página. Usar el mismo color que el pie para eliminarla.';
 
-$string['breadcrumb'] = 'Color de fondo de la guía de exploración';
-$string['breadcrumbdesc'] = 'Establece el color de fondo de la guía de exploración.';
+$string['breadcrumbbackgroundcolor'] = 'Color de fondo de la guía de exploración';
+$string['breadcrumbbackgroundcolordesc'] = 'Establece el color de fondo de la guía de exploración.';
 
 $string['breadcrumbtextcolor'] = 'Color de texto de la guía de exploración';
 $string['breadcrumbtextcolordesc'] = 'Establece el color de texto de la guía de exploración.';
@@ -1015,8 +1015,8 @@ $string['coursepageheaderhidesitetitledesc'] = 'Ocultar el título del sitio, lo
 $string['breadcrumbtitle'] = 'Nombre del curso en la guía de exploración';
 $string['breadcrumbtitledesc'] = 'Establece el modo de visualización del título del curso en la guía de exploración.';
 
-$string['breadcrumbtitlefullname'] = 'Nombre completo del curso';
-$string['breadcrumbtitleshortname'] = 'Nombre corto del curso / Código';
+$string['coursetitlefullname'] = 'Nombre completo del curso';
+$string['coursetitleshortname'] = 'Nombre corto del curso / Código';
 
 $string['socialorsearch'] = 'Mostrar cuadro de búsqueda o iconos sociales';
 $string['socialorsearchdesc'] = 'Puedes mostrar los iconos sociales o el cuadro de búsqueda en la cabecera. <br />
@@ -1335,15 +1335,6 @@ $string['dividingline2desc'] = 'Establece el color de la línea divisora del pie
 $string['showfooterblocks'] = 'Mostrar bloques en el pie de página';
 $string['showfooterblocksdesc'] = 'Mostrar / Ocultar los bloques personalizables del pie de página.';
 
-$string['breadcrumb'] = 'Color de fondo de la ruta de navegación';
-$string['breadcrumbdesc'] = 'Establece el color de fondo de la ruta de navegación.';
-
-$string['breadcrumbtextcolor'] = 'Color del texto de la ruta de navegación';
-$string['breadcrumbtextcolordesc'] = 'Establece el color del texto de la ruta de navegación.';
-
-$string['activebreadcrumb'] = 'Color de fondo de la ruta de navegación activa';
-$string['activebreadcrumbdesc'] = 'Establece el color de fondo de la ruta de navegación activa.';
-
 $string['breadcrumbseparator'] = 'Separador de la ruta de navegación';
 $string['breadcrumbseparatordesc'] = 'Establece el icono de <a href="https://fortawesome.github.io/Font-Awesome/icons/" target="_blank">Font Awesome</a>  usado como separador entre los ítems de la ruta de navegación. Introducir el nombre del icono SIN el prefijo fa-';
 
@@ -1353,23 +1344,9 @@ $string['breadcrumbhomedesc'] = 'Muestra el inicio de la ruta de navegación com
 $string['breadcrumbhometext'] = 'Texto';
 $string['breadcrumbhomeicon'] = 'Icono';
 
-$string['menufontsize'] = 'Tamaño de fuente de la barra de navegación';
-$string['menufontsizedesc'] = 'Establece el tamaño de fuente de la barra de navegación.';
-
-$string['enablemysitesdesc'] = 'Mostrar las actividades del curso';
-
 $string['mysitesexclude'] = 'Mostrar excluyendo los cursos ocultos';
 $string['mysitesinclude'] = 'Mostrar incluyendo los cursos ocultos';
 $string['mysitesdisabled'] = 'Desactivado';
-
-$string['enableticker'] = 'Mostrar los anuncios en la página principal';
-$string['enabletickerdesc'] = 'Muestra la barra de anuncios en la página principal.';
-
-$string['enabletickermy'] = 'Mostrar la barra de anuncios en Mi Área personal / Área Personal';
-$string['enabletickermydesc'] = 'Muestra la barra de anuncios en Mi Área personal / Área Personal.';
-
-$string['enabletickerc'] = 'Mostrar la barra de anuncios en las páginas internas';
-$string['enabletickercdesc'] = 'Muestra la barra de anuncios en las páginas internas de moodle.';
 
 $string['newstickercount'] = 'Número de barras de anuncios';
 $string['newstickercountdesc'] = 'Define barras de anuncios con diferentes reglas de acceso para mostrarlas a diferentes tipos de usuarios.';

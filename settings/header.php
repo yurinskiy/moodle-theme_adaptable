@@ -148,12 +148,23 @@ defined('MOODLE_INTERNAL') || die;
     $title = get_string('enableheading', 'theme_adaptable');
     $description = get_string('enableheadingdesc', 'theme_adaptable');
     $radchoices = array(
-        'fullname' => get_string('breadcrumbtitlefullname', 'theme_adaptable'),
-        'shortname' => get_string('breadcrumbtitleshortname', 'theme_adaptable'),
+        'fullname' => get_string('coursetitlefullname', 'theme_adaptable'),
+        'shortname' => get_string('coursetitleshortname', 'theme_adaptable'),
         'off' => get_string('hide'),
     );
     $setting = new admin_setting_configselect($name, $title, $description, 'fullname', $radchoices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Display Breadcrumb or Course title where the breadcrumb normally is.
+    $name = 'theme_adaptable/breadcrumbdisplay';
+    $title = get_string('breadcrumbdisplay', 'theme_adaptable');
+    $description = get_string('breadcrumbdisplaydesc', 'theme_adaptable');
+    $radchoices = array(
+        'breadcrumb' => get_string('breadcrumb', 'theme_adaptable'),
+        'fullname' => get_string('coursetitlefullname', 'theme_adaptable'),
+        'shortname' => get_string('coursetitleshortname', 'theme_adaptable')
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, 'breadcrumb', $radchoices);
     $temp->add($setting);
 
     // Site Title Padding Top.

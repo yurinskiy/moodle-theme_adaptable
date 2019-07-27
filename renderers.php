@@ -1397,13 +1397,45 @@ EOT;
                 // Do not show navbar on dashboard / my home if news ticker is rendering.
                 if (!($PAGE->theme->settings->enabletickermy && $PAGE->bodyid == "page-my-index")) {
                     $retval = '<div class="row">';
-                    $retval .= '<div id="page-navbar" class="col-12">';
-                    if ($addbutton) {
-                        $retval .= '<nav class="breadcrumb-button">' . $this->page_heading_button() . '</nav>';
-                    }
+                    if (($PAGE->theme->settings->breadcrumbdisplay != 'breadcrumb') && (($PAGE->pagelayout == 'course') || ($PAGE->pagelayout == 'incourse'))) {
+                        global $COURSE;
+                        $retval .= '<div id="page-coursetitle" class="col-12">';
+                        switch ($PAGE->theme->settings->breadcrumbdisplay) {
+                        case 'fullname':
+                            // Full Course Name.
+                            $coursetitle = $COURSE->fullname;
+                            break;
+                        case 'shortname':
+                            // Short Course Name.
+                            $coursetitle = $COURSE->shortname;
+                            break;
+                        }
 
-                    $retval .= $this->navbar();
-                    $retval .= '</div>';
+                        $coursetitlemaxwidth = (!empty($PAGE->theme->settings->coursetitlemaxwidth) ? $PAGE->theme->settings->coursetitlemaxwidth : 0);
+                        // Check max width of course title and trim if appropriate.
+                        if (($coursetitlemaxwidth > 0) && ($coursetitle <> '')) {
+                            if (strlen($coursetitle) > $coursetitlemaxwidth) {
+                                $coursetitle = core_text::substr($coursetitle, 0, $coursetitlemaxwidth) . " ...";
+                            }
+                        }
+
+                        switch ($PAGE->theme->settings->breadcrumbdisplay) {
+                            case 'fullname':
+                            case 'shortname':
+                                // Full / Short Course Name.
+                                $courseurl = new moodle_url('/course/view.php', array('id' => $COURSE->id));
+                                $retval .= '<div id="coursetitle" class="p-2 bd-highlight"><h1><a href ="'.$courseurl->out(true).'">'.format_string($coursetitle).'</a></h1></div>';
+                            break;
+                        }
+                        $retval .= '</div>';
+                    } else {
+                        $retval .= '<div id="page-navbar" class="col-12">';
+                        if ($addbutton) {
+                            $retval .= '<nav class="breadcrumb-button">' . $this->page_heading_button() . '</nav>';
+                        }
+                        $retval .= $this->navbar();
+                        $retval .= '</div>';
+                    }
                     $retval .= '</div>';
                 }
             }
@@ -1472,7 +1504,7 @@ EOT;
             $classes = 'd-none d-md-flex';
         }
 
-        return '<nav role="navigation" aria-label="'. get_string("breadcrumblabel", "theme_adaptable") .'">
+        return '<nav role="navigation" aria-label="'. get_string("breadcrumb", "theme_adaptable") .'">
             <ol  class="breadcrumb ' . $classes . '">'.$breadcrumbs.'</ol>
         </nav>';
     }

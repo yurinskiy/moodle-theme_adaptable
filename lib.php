@@ -222,8 +222,6 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:hidecoursetitlemobile]]' => 0,
         '[[setting:hidelogomobile]]' => 0,
         '[[setting:hideheadermobile]]' => 0,
-        '[[setting:enableheading]]' => 'fullname',
-        '[[setting:breadcrumbtitle]]' => 'shortname',
         '[[setting:enableavailablecourses]]' => 'display',
         '[[setting:enableticker]]' => true,
         '[[setting:enabletickermy]]' => true,
