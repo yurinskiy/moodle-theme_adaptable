@@ -184,12 +184,6 @@ $string['enabletickercdesc'] = 'Marcar para activar los anuncios en las páginas
 $string['tickerwidth'] = 'News Ticker Width';
 $string['tickerwidthdesc'] = 'You can use this setting to fix the news ticker at 100% width.';
 
-$string['tickertext1'] = 'Texto Anuncios 1';
-$string['tickertext1desc'] = 'Añadir los anuncios en formato de lista HTML. Ver <a href="adaptable/README.txt">README.txt</a> para más información.';
-
-$string['tickertext2'] = 'Texto Anuncios 2';
-$string['tickertext2desc'] = 'Añadir los anuncios en formato de lista HTML para un segundo tipo de usuario. Ver <a href="adaptable/README.txt">README.txt</a> para más información.';
-
 $string['tickertextprofilefield'] = 'Nombre del campo personalizado del perfíl Field Name=Value (opcional)';
 $string['tickertextprofilefielddesc'] = 'Añade una regla de acceso usando un campo de perfil personalizado. Ejemplo: usertype=alumno';
 

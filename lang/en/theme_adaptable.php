@@ -184,12 +184,6 @@ $string['enabletickercdesc'] = 'Check to enable the ticker on internal pages.';
 $string['tickerwidth'] = 'News Ticker Width';
 $string['tickerwidthdesc'] = 'You can use this setting to fix the news ticker at 100% width.';
 
-$string['tickertext1'] = 'News Ticker Text';
-$string['tickertext1desc'] = 'Add news ticker text in list format. See the read me for more info.';
-
-$string['tickertext2'] = 'News Ticker Text 2';
-$string['tickertext2desc'] = 'By controlling access on profile fields you can show different news ticker items to different types of user using this second text field';
-
 $string['tickertextprofilefield'] = 'Custom Profile Field Name=Value (optional)';
 $string['tickertextprofilefielddesc'] = 'Add access rule using for custom profile field eg: usertype=student';
 
