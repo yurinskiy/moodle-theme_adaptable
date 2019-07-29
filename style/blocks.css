@@ -83,8 +83,10 @@ h5.card-title.d-inline {
     margin-top: -5px;
 }
 
+
 .block-controls {
     border: none !important;
+    background-color: transparent !important;
 }
 
 /* Block content */
