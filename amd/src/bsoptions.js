@@ -57,12 +57,14 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                             makeNavbarSticky();
                         }
                     }
-
                 }
 
                 var screenmd = 992;
                 var isFixed = 0;
-                if (window.outerWidth <= screenmd) {
+                /* Ok, here's an odd one... desktops need to use the 'inner' variables and mobiles the 'outer' to be accurate!
+                   But... I've (GB) found that the jQuery height and width functions adapt and report close to correct values
+                   regardless of device, so use them instead without complicated device detection here! */
+                if ($(window).width() <= screenmd) {
                     $("#adaptable-page-header-wrapper").addClass("fixed-top");
                     $("body").addClass("page-header-margin");
                     isFixed = 1;
@@ -70,9 +72,16 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                     $("#adaptable-page-header-wrapper").removeClass("fixed-top");
                     $("body").removeClass("page-header-margin")
                 }
+
+                var showsidebaricon = $("#showsidebaricon");
+                if (showsidebaricon.length) {
+                    // Using 'css' and not 'offset' function as latter seems unreliable on mobiles as changes the value!
+                    showsidebaricon.css({ top: ($(window).height() / 2)+'px'}); 
+                }
+
                 // If you want these classes to toggle when a desktop user shrinks the browser width to an xs width - or from xs to larger.
                 $(window).resize(function() {
-                    if (window.outerWidth <= screenmd) {
+                    if ($(window).width() <= screenmd) {
                         if (isFixed == 0) {
                             $("#adaptable-page-header-wrapper").addClass("fixed-top");
                             $("body").addClass("page-header-margin");
@@ -84,6 +93,9 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                             $("body").removeClass("page-header-margin");
                             isFixed = 0;
                         }
+                    }
+                    if (showsidebaricon.length) {
+                        showsidebaricon.css({ top: ($(window).height() / 2)+'px'});
                     }
                 });
 
