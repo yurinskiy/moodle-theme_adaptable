@@ -2457,7 +2457,7 @@ img.smallicon {
 .green,
 .notifysuccess,
 .connected,
-.text-danger,
+.detail-pair-value .text-danger,
 .notconnected,
 .que .validationerror,
 .text-error {
