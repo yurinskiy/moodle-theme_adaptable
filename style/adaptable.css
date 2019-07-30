@@ -2458,6 +2458,7 @@ img.smallicon {
 .notifysuccess,
 .connected,
 .detail-pair-value .text-danger,
+.form-control-static .text-danger,
 .notconnected,
 .que .validationerror,
 .text-error {
