@@ -256,7 +256,7 @@ input[name="addcancel"]:hover,
 button[name="resetbutton"]:hover,
 #id_cancel:hover {
     color: [[setting:editoffbk]] !important;
-    text-decoration: underline !important;
+    text-decoration: none !important;
 }
 
 /* Disabled button hardcoded to grey. */
