@@ -100,7 +100,7 @@ div.discussionsubscription > a.discussiontoggle,
 /* Secondary button */
 .btn-secondary {
     border-color: #cccccc !important;
-    color: #292b2c !important;
+    color: [[setting:buttontextcolor]] !important;
     min-height: 32px;
     margin-left: 6px;
 }
