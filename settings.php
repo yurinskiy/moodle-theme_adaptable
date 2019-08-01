@@ -33,7 +33,7 @@ require_once(__DIR__.'/lib.php');
 
 $settings = null;
 
-if ((is_siteadmin()) && ($ADMIN->fulltree)) {
+if (is_siteadmin()) {
     // Adaptable theme settings page.
     global $PAGE;
     $ADMIN->add('themes', new admin_category('theme_adaptable', 'Adaptable'));
