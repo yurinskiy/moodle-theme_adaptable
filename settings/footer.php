@@ -26,7 +26,6 @@
  */
 
 defined('MOODLE_INTERNAL') || die;
-
 $temp = new admin_settingpage('theme_adaptable_footer', get_string('footersettings', 'theme_adaptable'));
 $temp->add(new admin_setting_heading('theme_adaptable_footer', get_string('footersettingsheading', 'theme_adaptable'),
     format_text(get_string('footerdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
