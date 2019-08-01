@@ -1286,6 +1286,11 @@ input[type="radio"], input[type="checkbox"] {
     border: none !important;
 }
 
+.modal-dialog .modal-content {
+    background-color: #fff !important;
+    border: 1 px solid [[setting:maincolor]] !important;
+}
+
 .modal-footer {
     padding: 14px 15px 15px;
     margin-bottom: 0;
