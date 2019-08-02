@@ -37,7 +37,7 @@ $plugin->version   = 2019072500;
 $plugin->requires  = 2018120301;
 
 // Adaptable version using SemVer (https://semver.org).
-$plugin->release = '2.0.0';
+$plugin->release = '2.1.0';
 
 // Adaptable maturity (do not use ALPHA or BETA versions in production sites).
 $plugin->maturity = MATURITY_BETA;
