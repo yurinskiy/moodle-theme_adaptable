@@ -449,14 +449,8 @@ $string['navbardisplaysubmenuarrow'] = 'Display sub-menu arrow';
 $string['navbardisplaysubmenuarrowdesc'] = 'Display sub-menu arrow (downward facing) when a menu heading has sub-menu options.';
 
 $string['home'] = 'Home';
-
-if ($CFG->version > 2015051100) {
-    $string['enablemy'] = 'Dashboard';
-    $string['enablemydesc'] = 'Display a link to the Dashboard page';
-} else {
-    $string['enablemy'] = 'My Home';
-    $string['enablemydesc'] = 'Display a link to My Home page';
-};
+$string['enablemy'] = 'Dashboard';
+$string['enablemydesc'] = 'Display a link to the Dashboard page';
 
 $string['enableprofile'] = 'User Profile';
 $string['enableprofiledesc'] = 'Display a link to the users profile';

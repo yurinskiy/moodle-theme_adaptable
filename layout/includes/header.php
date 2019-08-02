@@ -336,12 +336,9 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
                         <?php
 
-                        // Add messages / notifications (moodle 3.2 or higher).
-                        if ($CFG->version > 2016120400) {
-                            // Remove Messages and Notifications icons in Quiz pages even if they don't use SEB.
-                            if ($PAGE->pagetype != "mod-quiz-attempt") {
-                                echo '<div class="my-auto mx-1">' . $OUTPUT->navbar_plugin_output() . '</div>';
-                            }
+                        // Remove Messages and Notifications icons in Quiz pages even if they don't use SEB.
+                        if ($PAGE->pagetype != "mod-quiz-attempt") {
+                            echo '<div class="my-auto mx-1">' . $OUTPUT->navbar_plugin_output() . '</div>';
                         }
 
                         if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
@@ -617,7 +614,7 @@ if (
         <nav class="list-group">
             <ul class="list-unstyled components">
 
-                <?php 
+                <?php
                 echo $OUTPUT->navigation_menu('main-navigation-drawer');
 
                 if (empty($PAGE->theme->settings->disablecustommenu)) {

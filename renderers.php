@@ -32,10 +32,6 @@ require_once($CFG->dirroot.'/message/lib.php');
 require_once($CFG->dirroot.'/course/format/topics/renderer.php');
 require_once($CFG->dirroot.'/course/format/weeks/renderer.php');
 
-if ($CFG->version < 2018051799) {
-    require_once($CFG->libdir.'/coursecatlib.php');
-}
-
 use \theme_adaptable\traits\single_section_page;
 
 class theme_adaptable_format_topics_renderer extends format_topics_renderer {

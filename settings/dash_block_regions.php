@@ -27,13 +27,6 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$usedashboard = false;
-if ($CFG->version >= 2016052300) {
-    $usedashboard = true;
-}
-
-if ($usedashboard) {
-
     // Frontpage Block Regions Section.
     $temp = new admin_settingpage('theme_adaptable_dash_block_regions',
         get_string('dashboardblockregionsettings', 'theme_adaptable'));
@@ -106,6 +99,3 @@ if ($usedashboard) {
     $temp->add(new admin_setting_heading('theme_adaptable_dashlayoutbuilder', '', $imgblder));
 
     $ADMIN->add('theme_adaptable', $temp);
-
-}
-

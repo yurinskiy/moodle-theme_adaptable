@@ -110,10 +110,6 @@ class course_renderer extends \core_course_renderer {
         }
 
         if ($course instanceof stdClass) {
-            if ($CFG->version < 2018051799) {
-                require_once($CFG->libdir.'/coursecatlib.php');
-            }
-
             $course = new core_course_list_element($course);
         }
 

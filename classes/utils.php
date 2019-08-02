@@ -26,10 +26,6 @@ require_once($CFG->dirroot.'/grade/report/overview/lib.php');
 require_once($CFG->dirroot.'/mod/forum/lib.php');
 require_once($CFG->dirroot.'/lib/enrollib.php');
 
-if ($CFG->version < 2018051799) {
-    require_once($CFG->libdir.'/coursecatlib.php');
-}
-
 /**
  * General utility functions.
  *

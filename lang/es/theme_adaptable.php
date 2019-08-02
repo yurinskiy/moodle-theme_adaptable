@@ -437,14 +437,8 @@ $string['navbardisplaysubmenuarrow'] = 'Mostrar flecha de despliegue sub-menu';
 $string['navbardisplaysubmenuarrowdesc'] = 'Mostrar la flecha (hacia abajo) de despliegue de sub-menu cuando los menus tengan sub-menus.';
 
 $string['home'] = 'Inicio';
-
-if ($CFG->version > 2015051100) {
-    $string['enablemy'] = 'Área Personal';
-    $string['enablemydesc'] = 'Mostrar el enlace al Área Personal.';
-} else {
-    $string['enablemy'] = 'Inicio';
-    $string['enablemydesc'] = 'Mostrar el enlace a Inicio';
-};
+$string['enablemy'] = 'Área Personal';
+$string['enablemydesc'] = 'Mostrar el enlace al Área Personal.';
 
 $string['enableprofile'] = 'Perfil usuario';
 $string['enableprofiledesc'] = 'Mostrar el enlace del perfil de usuario.';

@@ -148,10 +148,7 @@ $THEME->plugins_exclude_sheets = array(
 );
 
 // Dashboard regions.
-$usedashboard = false;
-if ($CFG->version >= 2016052300) {
-    $usedashboard = true;
-}
+$usedashboard = true;
 
 // Disabling block docking.
 $THEME->enable_dock = false;
@@ -206,8 +203,8 @@ $THEME->layouts = array(
     ),
     // My dashboard page.
     'mydashboard' => array(
-        'file' => ( ($usedashboard == true) ? 'dashboard.php' : 'columns2.php'),
-        'regions' => ( ($usedashboard == true) ? $regions : array('side-post')),
+        'file' => 'dashboard.php',
+        'regions' => $regions,
         'defaultregion' => 'side-post',
         'options' => array('langmenu' => true),
     ),
