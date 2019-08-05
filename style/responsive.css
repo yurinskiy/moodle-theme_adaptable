@@ -370,7 +370,7 @@ Default Bootstrap 4 Media Queries
         padding: 5px;
         float: none;
         clear: both;
-        margin: 0 auto;
+        margin: 15px auto;
     }
 
     .coursebox .panel-body p {

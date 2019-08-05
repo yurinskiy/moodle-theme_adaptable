@@ -699,7 +699,7 @@ if (
 
                     $othermenucontent = $OUTPUT->region_main_settings_menu();
                     if ($showcog) {
-                        if ($othermenucontent ) {
+                        if ($othermenucontent) {
                     ?>
                             <li class="nav-item mr-2">
                                 <div id="region-main-settings-menu" class="region-main-settings-menu">
@@ -722,13 +722,16 @@ if (
                         ) ||
                         (strstr($PAGE->pagetype, 'mod-'))
                     ) {
+                        $pageheadingbutton = $OUTPUT->page_heading_button();
+                        if (!empty($pageheadingbutton)) {
                         ?>
                         <li class="nav-item mx-0">
                              <div id="edittingbutton" class="breadcrumb-button">
-                                <?php echo $OUTPUT->page_heading_button(); ?>
+                                <?php echo $pageheadingbutton; ?>
                             </div>
                         </li>
                         <?php
+                        }
                     }
                     ?>
 

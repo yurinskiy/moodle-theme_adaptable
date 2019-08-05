@@ -72,19 +72,7 @@
 }
 
 /* Media breakpoints for courses list area */
-@media (min-width: 576px) {
-    .frontpage-course-list-all {
-        max-width: 540px;
-    }
-}
-
-@media (min-width: 768px) {
-    .frontpage-course-list-all {
-        max-width: 720px;
-    }
-}
-
-@media (min-width: 992px) {
+@media (min-width: 990px) {
     .frontpage-course-list-all {
         max-width: 960px;
     }
