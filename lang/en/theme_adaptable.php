@@ -33,40 +33,40 @@ $string['choosereadme'] = '
 <p><img class="img-polaroid" src="adaptable/pix/screenshot.png" /></p>
 </div>
 <div class="well">
-<h2>Credits</h2>
 <h3>About</h3>
-<p>Adaptable is a Moodle 2-columns responsive theme highly customizable and based in the popular BCU theme.</p>
+<p>Adaptable is a Moodle 2-columns responsive theme highly customizable and based in the popular BCU theme. Version 2 is using
+ Boost as a base theme and therefore Bootstrap 4.</p>
 <p>The theme is licensed under the GPL (GNU General Public License). You can find a complete licence copy <a href="http://www.gnu.org/licenses/" target="_HERE">blank</a></p>
 <br>
 <h4>Modify it! - Improve it! - Share it!</h4>
 <br>
+<h3>Credits</h3>
 <p>This theme has been developed by:<br>
 Jeremy Hopkins (Coventry University)<br>
 Fernando Acedo (<a href="https://3-bits.com" target="_blank">3-bits.com</a>)</p>
+Manoj Solanki (Coventry University)<br>
 <br>
-<p>and many other developers, testers, translators and volunteers (See <a href="adaptable/README.txt" target="_blank">README.txt</a>)</p>
+<h2>Other Credits</h2>
+<p>In the development of version 2 they have also collaborated:<br>
+Gareth J. Barnard (http://moodle.org/user/profile.php?id=442195)
+Stuart Lamour
+Alistair Spark (University College London)
 <br>
-<p>Visit the adaptable website for more information, tips & tricks and technical support: <a href="https://adaptable.ws" target="_blank">adaptable.ws</a></p>
+<p>among many other developers, testers, translators and volunteers (See <a href="adaptable/README.txt" target="_blank">README.txt</a>)</p>
 <br>
 <h3>Bugs Report</h3>
-<p>You can report bugs (and please, <b>ONLY</b> bugs) in our <a href="https://bitbucket.org/covuni/moodle-theme_adaptable/issues" target="_blank">Bitbucket repository</a></p>
+<p>You can report bugs (and please, <b>ONLY</b> bugs) in our <a href="https://gitlab.com/3bits/moodle-theme_adaptable2" target="_blank">repository</a></p>
 <br>
 <h3>Technical Support</h3>
-<p>You can request technical support in the Adaptable website (only English) <a href="https://adaptable.ws/support/support-tickets" target="_blank">Get Technical Support</a></p>
-<br>
-<p>or your can ask your questions in the moodle forum:</p>
+<p>You can ask your questions in the moodle forum:</p>
 <ul>
 <li>English: <a href="https://moodle.org/mod/forum/discuss.php?d=340404" target="_blank">https://moodle.org/mod/forum/discuss.php?d=340404</a>
 <li>Español: <a href="https://moodle.org/mod/forum/discuss.php?d=326804" target="_blank">https://moodle.org/mod/forum/discuss.php?d=326804</a>
 <li>Català: <a href="https://moodle.org/mod/forum/discuss.php?d=340406" target="_blank">https://moodle.org/mod/forum/discuss.php?d=340406</a>
 </ul>
 <br>
-<h3>Documentation</h3>
-<p>Coming soon</p>
-<br>
 <h3>Demo</h3>
 <p>You can see a demo version <a href="https://adaptable.ws/demo" target="_blank">HERE</a></p>
-<br>
 </div>
 </div>';
 
@@ -309,10 +309,6 @@ $string['frontpageblocksenableddesc'] = 'You can enable / disable custom block r
 You can then drag and drop blocks into the regions you created';
 
 $string['dashblocksenabled'] = 'Enable custom block region on Dashboard page';
-$string['dashblocksenableddesc'] = 'You can enable / disable custom block regions on the Dashboard page.
-You can then drag and drop blocks into the regions you created';
-
-$string['dashblocksenabled'] = 'Enable Custom Block Region on Dashboard page';
 $string['dashblocksenableddesc'] = 'You can enable / disable custom block regions on the Dashboard page.
 You can then drag and drop blocks into the regions you created';
 
@@ -1026,17 +1022,17 @@ $string['pageheaderheightdesc'] = 'Set the height of the main header area (conta
 $string['coursepageheaderhidesitetitle'] = 'Hide site title on course pages';
 $string['coursepageheaderhidesitetitledesc'] = 'Hide site title, logo and search bar on course pages. Use this along with page header height setting to show a smaller header on course-related pages.';
 
+$string['breadcrumb'] = 'Breadcrumb';
 $string['breadcrumbtitle'] = 'Breadcrumb course name';
 $string['breadcrumbtitledesc'] = 'Set the mode to display the course title in the breadcrumb.';
 
-$string['breadcrumb'] = 'Breadcrumb';
 $string['coursetitlefullname'] = 'Course Full Name';
 $string['coursetitleshortname'] = 'Course Short Name / Code';
 
 $string['headerstyle'] = 'Header style';
-$string['headerstyledesc'] = 'Choose the style of header. Header 1 refers to the original 3 row Adaptable header.  Header 2 is a new minimal 2 row header. Note that when using Header 2, for the setting "Use Search Box or Social Icons", this will always use a search box.';
+$string['headerstyledesc'] = 'Choose the style of header. Header 1 refers to the original 3 row Adaptable header.  Header 2 is a minimal 2 row header. Note that when using Header 2, for the setting "Use Search Box or Social Icons", this will always use a search box.';
 $string['headerstyle1'] = 'Header 1 (original 3 row header)';
-$string['headerstyle2'] = 'Header 2 (new 2 row header)';
+$string['headerstyle2'] = 'Header 2 (2 row header)';
 
 $string['header2searchbox'] = 'Header 2 search box expandable';
 $string['header2searchboxdesc'] = 'Expand and collapse functionality on the search box when using header 2.';
@@ -1054,12 +1050,15 @@ $string['searchboxpadding'] = 'Search box padding';
 $string['searchboxpaddingdesc'] = 'Set padding above search box (if being used instead of social icons) <br />E.g. 5px 10px 5px 10px (top, right, bottom, left).<br> You can set social icons under the <a href="./../admin/settings.php?section=theme_adaptable_social">Header Social</a> settings page</strong>.';
 
 $string['enablesavecanceloverlay'] = 'Enable Save / Cancel overlay on settings pages';
-$string['enablesavecanceloverlaydesc'] = 'Display a Save / Cancel button overlay at the top
- of a settings page to make it easier to save settings.';
+$string['enablesavecanceloverlaydesc'] = 'Display a Save / Cancel button overlay at the top of a settings page to make it easier to save settings.';
 
 $string['usernavheading'] = 'Customize the user navigation dropdown';
 $string['usernav'] = 'Header User';
 $string['usernavdesc'] = 'Allows you to control all of the elements that appear in the user navigation dropdown.';
+
+$string['showusername'] = 'Show username';
+$string['showusernamedesc'] = 'Show the username on the user menu on the navbar.';
+
 $string['usernameposition'] = 'User name position';
 $string['usernamepositiondesc'] = 'Set the postion of the userame, \'Left\' or \'Right\'.';
 
@@ -1100,10 +1099,7 @@ $string['displaylogindesc'] = 'Select how to display the login in the screen (wh
 
 $string['displayloginbutton'] = 'Button';
 $string['displayloginbox'] = 'Login Box';
-$string['displayloginno'] = 'No Login';
-
-$string['showusername'] = 'Show username';
-$string['showusernamedesc'] = 'Show the username on the user menu on the navbar.';
+$string['displayloginno'] = 'No Login Box';
 
 $string['hideblocks'] = 'Hide blocks';
 $string['showblocks'] = 'Show blocks';
@@ -1117,7 +1113,7 @@ $string['viewselectdesc'] = 'Make the default view of the site fullscreen (when 
 $string['enablezoom'] = 'Enable Zoom';
 $string['enablezoomdesc'] = 'Allow users to toggle between fullscreen and fixed width.';
 $string['enablezoomshowtext'] = 'Show text for Enable Zoom';
-$string['enablezoomshowtextdesc'] = 'Allow users to toggle between showing the label for full screen and fixed width.';
+$string['enablezoomshowtextdesc'] = 'Shows the text beside the button.';
 
 $string['enableshowhideblocks'] = 'Enable Show Hide Blocks';
 $string['enableshowhideblocksdesc'] = 'Allows users to show / hide all blocks.';
@@ -1372,12 +1368,6 @@ $string['pastcourses'] = 'Past Courses';
 $string['people'] = 'Participants';
 $string['help'] = 'Help';
 
-$string['dividingline'] = 'Dividing line in header';
-$string['dividinglinedesc'] = 'The colour for the dividing line found in the header';
-
-$string['dividingline2'] = 'Dividing line in footer';
-$string['dividingline2desc'] = 'The colour for the dividing line found in the footer';
-
 $string['showfooterblocks'] = 'Show footer blocks';
 $string['showfooterblocksdesc'] = 'Show / hide the four configurable footer blocks';
 
@@ -1525,9 +1515,9 @@ https://example.com|My Web|fa-globe
 For reference you can find the full list of <a href="https://fortawesome.github.io/Font-Awesome/icons/">Font Awesome Icons Here</a>';
 
 $string['socialsize'] = 'Set the font size of the social icons';
-$string['socialsizedesc'] = 'Due to the strange way that FontAwesome works this needs to be 5px greater than the desired actual size.';
+$string['socialsizedesc'] = 'For a better view, the size needs to be 5px greater than the desired actual size.';
 $string['socialsizemobile'] = 'Set the font size of the social icons on Mobile';
-$string['socialsizemobiledesc'] = 'Due to the strange way that FontAwesome works this needs to be 5px greater than the desired actual size.';
+$string['socialsizemobiledesc'] = 'For a better view, the size needs to be 5px greater than the desired actual size.';
 $string['socialpaddingtop'] = 'Adjust padding above social icons (alters vertical position)';
 $string['socialpaddingtopdesc'] = 'This will be the minimum of 15px (set using the margin) plus this value.';
 
