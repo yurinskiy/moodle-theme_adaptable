@@ -18,9 +18,12 @@
  * myprofile renderer.
  *
  * @package    theme_adaptable
- * @copyright  &copy; 2019 - Coventry University
+ * @copyright  2015-2019 Jeremy Hopkins (Coventry University)
+ * @copyright  2015-2019 Fernando Acedo (3-bits.com)
+ * @copyright  2017-2019 Manoj Solanki (Coventry University)
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
  */
 
 namespace theme_adaptable\output\core_user\myprofile;
@@ -131,7 +134,7 @@ class renderer extends \core_user\output\myprofile\renderer {
 
         $messagebuttons = $this->message_user();
         if (!empty($messagebuttons)) {
-            foreach($messagebuttons as $button) {
+            foreach ($messagebuttons as $button) {
                 $node = new node('contact', $button['type'], '', null, null, $button['content']);
                 $contactcategory->add_node($node);
             }
@@ -340,7 +343,8 @@ class renderer extends \core_user\output\myprofile\renderer {
         // Interests.
         if (!empty($this->user->userdetails['interests'])) {
             global $OUTPUT;
-            $interests = $OUTPUT->tag_list(\core_tag_tag::get_item_tags('core', 'user', $this->user->id), ''); // Odd but just the way things can be!
+            // Odd but just the way things can be!
+            $interests = $OUTPUT->tag_list(\core_tag_tag::get_item_tags('core', 'user', $this->user->id), '');
         } else {
             $interests = get_string('usernointerests', 'theme_adaptable');
             $interestsempty = true;
@@ -358,12 +362,12 @@ class renderer extends \core_user\output\myprofile\renderer {
         $customcoursetitleprofilefield = get_config('theme_adaptable', 'customcoursetitle');
         $customcoursesubtitleprofilefield = get_config('theme_adaptable', 'customcoursesubtitle');
 
-        if ((!empty($this->user->userdetails['customfields'])) && 
+        if ((!empty($this->user->userdetails['customfields'])) &&
             ((!empty($customcoursetitleprofilefield)) || (!empty($customcoursesubtitleprofilefield)))) {
             $customcoursetitle = '';
             $customcoursesubtitle = '';
             $searcharray = array();
-            foreach($this->user->userdetails['customfields'] as $cfield) {
+            foreach ($this->user->userdetails['customfields'] as $cfield) {
                 $searcharray[$cfield['shortname']] = $cfield;
             }
 

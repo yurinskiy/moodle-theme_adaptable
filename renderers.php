@@ -1393,7 +1393,9 @@ EOT;
                 // Do not show navbar on dashboard / my home if news ticker is rendering.
                 if (!($PAGE->theme->settings->enabletickermy && $PAGE->bodyid == "page-my-index")) {
                     $retval = '<div class="row">';
-                    if (($PAGE->theme->settings->breadcrumbdisplay != 'breadcrumb') && (($PAGE->pagelayout == 'course') || ($PAGE->pagelayout == 'incourse'))) {
+                    if (($PAGE->theme->settings->breadcrumbdisplay != 'breadcrumb')
+                    && (($PAGE->pagelayout == 'course')
+                    || ($PAGE->pagelayout == 'incourse'))) {
                         global $COURSE;
                         $retval .= '<div id="page-coursetitle" class="col-12">';
                         switch ($PAGE->theme->settings->breadcrumbdisplay) {
@@ -1407,7 +1409,8 @@ EOT;
                             break;
                         }
 
-                        $coursetitlemaxwidth = (!empty($PAGE->theme->settings->coursetitlemaxwidth) ? $PAGE->theme->settings->coursetitlemaxwidth : 0);
+                        $coursetitlemaxwidth = (!empty($PAGE->theme->settings->coursetitlemaxwidth)
+                                                ? $PAGE->theme->settings->coursetitlemaxwidth : 0);
                         // Check max width of course title and trim if appropriate.
                         if (($coursetitlemaxwidth > 0) && ($coursetitle <> '')) {
                             if (strlen($coursetitle) > $coursetitlemaxwidth) {
@@ -1420,7 +1423,8 @@ EOT;
                             case 'shortname':
                                 // Full / Short Course Name.
                                 $courseurl = new moodle_url('/course/view.php', array('id' => $COURSE->id));
-                                $retval .= '<div id="coursetitle" class="p-2 bd-highlight"><h1><a href ="'.$courseurl->out(true).'">'.format_string($coursetitle).'</a></h1></div>';
+                                $retval .= '<div id="coursetitle" class="p-2 bd-highlight"><h1><a href ="'
+                                            .$courseurl->out(true).'">'.format_string($coursetitle).'</a></h1></div>';
                             break;
                         }
                         $retval .= '</div>';
@@ -2671,7 +2675,8 @@ EOT;
                     'title' => $menunode->get_title()));
             $content .= $menunode->get_text();
             $content .= '</a>';
-            $content .= '<ul role="menu" class="dropdown-menu" id="dropdown' . $menuid . $submenucount . '" aria-labelledby="' . $menuid . $submenucount . '">';
+            $content .= '<ul role="menu" class="dropdown-menu" id="dropdown' . $menuid . $submenucount . '" aria-labelledby="'
+                        .$menuid . $submenucount . '">';
 
             foreach ($menunode->get_children() as $menunode) {
                 $content .= $this->render_custom_menu_item($menunode, 1, $menuid . $submenucount);
@@ -3208,7 +3213,8 @@ EOT;
         }
 
         // JS to animate the form.
-        $this->page->requires->js_call_amd('theme_adaptable/search-input', 'init', array('data' => array('id' => $id, 'expandable' => $expandable)));
+        $this->page->requires->js_call_amd('theme_adaptable/search-input',
+                                           'init', array('data' => array('id' => $id, 'expandable' => $expandable)));
 
         $searchicon = html_writer::tag('div', $this->pix_icon('a/search', get_string('search', 'search'), 'moodle'),
             array('role' => 'button', 'tabindex' => 0));

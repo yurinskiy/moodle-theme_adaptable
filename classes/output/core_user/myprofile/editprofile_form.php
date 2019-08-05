@@ -15,18 +15,21 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Form for editing a users profile
+ * myprofile edit profile.
  *
  * @package    theme_adaptable
- * @copyright  &copy; 2019 - Coventry University
+ * @copyright  2015-2019 Jeremy Hopkins (Coventry University)
+ * @copyright  2015-2019 Fernando Acedo (3-bits.com)
+ * @copyright  2017-2019 Manoj Solanki (Coventry University)
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
  */
 
 namespace theme_adaptable\output\core_user\myprofile;
 
 if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.');    //  It must be included from a Moodle page.
+    die('Direct access to this script is forbidden.');    // It must be included from a Moodle page.
 }
 require_once($CFG->dirroot.'/lib/formslib.php');
 require_once($CFG->dirroot.'/user/lib.php');
@@ -36,10 +39,9 @@ require_once($CFG->dirroot.'/user/editlib.php');
  * Class editprofile_form.
  *
  * @package    theme_adaptable
- * @copyright  &copy; 2019 - Coventry University
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 class editprofile_form extends \moodleform {
 
     /**
@@ -127,7 +129,9 @@ class editprofile_form extends \moodleform {
             if ($user) {
                 $context = \context_user::instance($user->id, MUST_EXIST);
                 $fs = get_file_storage();
-                $hasuploadedpicture = ($fs->file_exists($context->id, 'user', 'icon', 0, '/', 'f2.png') || $fs->file_exists($context->id, 'user', 'icon', 0, '/', 'f2.jpg'));
+                $hasuploadedpicture = ($fs->file_exists($context->id, 'user', 'icon', 0, '/', 'f2.png')
+                || $fs->file_exists($context->id, 'user', 'icon', 0, '/', 'f2.jpg'));
+
                 if (!empty($user->picture) && $hasuploadedpicture) {
                     $imagevalue = $OUTPUT->user_picture($user, array('courseid' => SITEID, 'size' => 64));
                 } else {
@@ -136,6 +140,7 @@ class editprofile_form extends \moodleform {
             } else {
                 $imagevalue = get_string('none');
             }
+
             $imageelement = $mform->getElement('currentpicture');
             $imageelement->setValue($imagevalue);
 
@@ -172,14 +177,14 @@ class editprofile_form extends \moodleform {
         }
     }
 
-    /**
-    * Powerful function that is used by edit and editadvanced to add common form elements/rules/etc.
-    *
-    * @param moodleform $mform
-    * @param array $editoroptions
-    * @param array $filemanageroptions
-    * @param stdClass $user
-    */
+     /**
+      * Powerful function that is used by edit and editadvanced to add common form elements/rules/etc.
+      *
+      * @param moodleform $mform
+      * @param array $editoroptions
+      * @param array $filemanageroptions
+      * @param stdClass $user
+      */
     function editprofile_definition(&$mform, $editoroptions, $filemanageroptions, $user) {
         global $CFG, $USER, $DB;
 
@@ -189,7 +194,8 @@ class editprofile_form extends \moodleform {
 
         $stringman = get_string_manager();
 
-        $mform->addElement('editor', 'description_editor', get_string('userdescription'), 'class="adaptablemyeditprofile"', $editoroptions);
+        $mform->addElement('editor', 'description_editor', get_string('userdescription'),
+                           'class="adaptablemyeditprofile"', $editoroptions);
         $mform->setType('description_editor', PARAM_RAW);
         $mform->addHelpButton('description_editor', 'userdescription');
 
@@ -218,14 +224,14 @@ class editprofile_form extends \moodleform {
             $mform->addElement('checkbox', 'deletepicture', get_string('deletepicture'));
             $mform->setDefault('deletepicture', 0);
 
-            $mform->addElement('filemanager', 'imagefile', get_string('newpicture'), 'class="adaptablemyeditprofile"', $filemanageroptions);
+            $mform->addElement('filemanager', 'imagefile', get_string('newpicture'),
+                               'class="adaptablemyeditprofile"', $filemanageroptions);
             $mform->addHelpButton('imagefile', 'newpicture');
 
-            $mform->addElement('text', 'imagealt', get_string('imagealt'), 'maxlength="100" size="54" class="adaptablemyeditprofile"');
+            $mform->addElement('text', 'imagealt', get_string('imagealt'),
+                               'maxlength="100" size="54" class="adaptablemyeditprofile"');
             $mform->setType('imagealt', PARAM_TEXT);
         }
     }
 
 }
-
-

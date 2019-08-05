@@ -18,9 +18,12 @@
  * The modchooser renderable.
  *
  * @package    theme_adaptable
- * @copyright  &copy; 2019 - Coventry University
+ * @copyright  2015-2019 Jeremy Hopkins (Coventry University)
+ * @copyright  2015-2019 Fernando Acedo (3-bits.com)
+ * @copyright  2017-2019 Manoj Solanki (Coventry University)
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
  */
 
 namespace theme_adaptable\output\core_course\output;
@@ -39,9 +42,7 @@ use stdClass;
  * The modchooser renderable class.
  *
  * @package    theme_adaptable
- * @copyright  &copy; 2019 - Coventry University
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class modchooser extends \core\output\chooser {
 
@@ -65,7 +66,7 @@ class modchooser extends \core\output\chooser {
             if (count($modules)) {
                 $modnames = explode(',', $commonmodnames);
                 $commonmods = array();
-                foreach($modnames as $modname) {
+                foreach ($modnames as $modname) {
                     $modname = trim($modname);
                     if (array_key_exists($modname, $modules)) {
                         $commonmods[$modname] = $modules[$modname];

@@ -296,7 +296,8 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
             <nav class="navbar navbar-expand btco-hover-menu">
 
                 <div id="adaptable-page-header-nav-drawer" data-region="drawer-toggle" class="d-lg-none mr-3">
-                    <button id="drawer" aria-expanded="false" aria-controls="nav-drawer" type="button" class="nav-link float-sm-left mr-1" data-side="left">
+                    <button id="drawer" aria-expanded="false" aria-controls="nav-drawer" type="button"
+                            class="nav-link float-sm-left mr-1" data-side="left">
                         <i class="fa fa-bars fa-fw " aria-hidden="true"></i>
                         <span class="sr-only"><?php echo get_string('sidepanel'); ?></span>
                     </button>
@@ -506,7 +507,8 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
             <nav class="navbar navbar-expand btco-hover-menu">
 
                 <div id="adaptable-page-header-nav-drawer" data-region="drawer-toggle" class="d-lg-none mr-3">
-                    <button id="drawer" aria-expanded="false" aria-controls="nav-drawer" type="button" class="nav-link float-sm-left mr-1" data-side="left">
+                    <button id="drawer" aria-expanded="false" aria-controls="nav-drawer" type="button"
+                    class="nav-link float-sm-left mr-1" data-side="left">
                         <i class="fa fa-bars fa-fw " aria-hidden="true"></i>
                         <span class="sr-only"><?php echo get_string('sidepanel'); ?></span>
                     </button>

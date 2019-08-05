@@ -121,7 +121,6 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
                 }
             }
 
-
             // Basic array used by appropriately named blocks below (e.g. course-tab-one).  All this is due to the re-use of
             // existing functionality and non-use of numbers in block region names.
             $wordtonumber = array (1 => 'one', 2 => 'two');
@@ -158,10 +157,11 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
         </section>
 
         <?php
-            if ($hassidepost) {
-                echo $OUTPUT->blocks('side-post', $regions['blocks'] . $sidebarclasses);
-            }
-        } ?>
+        if ($hassidepost) {
+            echo $OUTPUT->blocks('side-post', $regions['blocks'] . $sidebarclasses);
+        }
+    }
+    ?>
 
 </div>
 

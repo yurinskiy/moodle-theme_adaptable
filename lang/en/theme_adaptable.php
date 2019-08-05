@@ -1790,7 +1790,7 @@ $string['logintextboxbottomdesc'] = 'Add a custom text below the login box.';
 $string['loginmoodletext'] = 'Show default moodle text';
 $string['loginmoodletextdesc'] = 'Show the default moodle text in the login page.';
 
-// User profile
+// User profile.
 $string['aboutme'] = 'About me';
 $string['course'] = 'Course';
 $string['courses'] = 'Courses';

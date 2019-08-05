@@ -18,9 +18,12 @@
  * myprofile edit profile.
  *
  * @package    theme_adaptable
- * @copyright  &copy; 2019 - Coventry University
+ * @copyright  2015-2019 Jeremy Hopkins (Coventry University)
+ * @copyright  2015-2019 Fernando Acedo (3-bits.com)
+ * @copyright  2017-2019 Manoj Solanki (Coventry University)
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
  */
 
 namespace theme_adaptable\output\core_user\myprofile;
@@ -29,7 +32,11 @@ defined('MOODLE_INTERNAL') || die;
 
 /**
  * myprofile editprofile.
+ *
+ * @package    theme_adaptable
+ * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  */
+
 class editprofile {
 
     static function generate_form() {
@@ -71,7 +78,7 @@ class editprofile {
             new \moodle_url(
                 $PAGE->url,
                 array(
-                    'id' => $user->id, 
+                    'id' => $user->id,
                     'course' => $course->id,
                     'aep' => 'aep'
                 )
@@ -159,7 +166,8 @@ class editprofile {
                 }
                 $usercreated = true;
             } else {
-                $usernew = file_postupdate_standard_editor($usernew, 'description', $editoroptions, $usercontext, 'user', 'profile', 0);
+                $usernew = file_postupdate_standard_editor($usernew, 'description', $editoroptions,
+                                                           $usercontext, 'user', 'profile', 0);
                 // Pass a true old $user here.
                 if (!$authplugin->user_update($user, $usernew)) {
                     // Auth update failed.
