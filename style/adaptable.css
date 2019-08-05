@@ -321,7 +321,15 @@ div.signuppanel h2 {
 
 .socialbox a {
     color: [[setting:headertextcolor2]] !important;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.socialbox a:first-of-type {
     padding-left: 15px;
+}
+
+.socialbox a:last-of-type {
     padding-right: 15px;
 }
 
