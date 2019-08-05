@@ -555,7 +555,7 @@ function theme_adaptable_grid($left, $hassidepost) {
         if ('rtl' === get_string('thisdirection', 'langconfig')) {
             $left = !$left; // Invert.
         }
-        $regions = array('content' => 'col-md-9');
+        $regions = array('content' => 'col-9');
         $regions['blocks'] = 'col-3';
         if ($left) {
             $regions['direction'] = ' flex-row-reverse';

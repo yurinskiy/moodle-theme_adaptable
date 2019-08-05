@@ -1528,7 +1528,11 @@ div.questionbankwindow.block {
     display: none;
 }
 
-@media(max-width: 767px) {
+@media(max-width: 979px) {
+    #region-main {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
     #block-region-side-post {
         background-color: #fff;
         display: block !important;
