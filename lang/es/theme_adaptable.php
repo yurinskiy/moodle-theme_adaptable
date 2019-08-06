@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
+ * Spanish Translation
  *
  * @package    theme adaptable
  * @copyright  2015-2018 Fernando Acedo (3-bits.com)
@@ -33,20 +33,29 @@ $string['choosereadme'] = '
 <p><img class="img-polaroid" src="adaptable/pix/screenshot.png" /></p>
 </div>
 <div class="well">
-<h2>Créditos</h2>
 <h3>Acerca de...</h3>
-<p>Adaptable es una plantilla para Moodle, de dos columnas y tipo responsive, altamente personalizable y basada en la popular plantilla BCU.</p>
+<p>Adaptable es una plantilla para Moodle, de dos columnas y tipo responsive, altamente personalizable y basada en la popular plantilla BCU.
+ La versión 2 utiliza Boost como base y por tanto Bootstrap 4.</p>
 <p>Esta plantilla está bajo licencia GPL (GNU General Public License). Puedes encontrar la licencia completa en: <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses</a></p>
-<p>Modifícala / Mejórala / Compártela</p>
 <br>
+<p>¡Modifícala! / ¡Mejórala! / ¡Compártela!</p>
+<br>
+<h3>Créditos</h3>
 <p>Este tema ha sido creada por:<br>
 Jeremy Hopkins (Coventry University)<br>
 Fernando Acedo (<a href="https://3-bits.com" target="_blank">3-bits.com</a>)</p>
+Manoj Solanki (Coventry University)<br>
 <br>
-<p>y otros desarrolladores, probadores, traductores y voluntarios (Ver <a href="adaptable/README.txt" target="_blank">README.txt</a>)</p>
+<h2>Otros créditos</h2>
+<p>En el desarrollo de la versión 2 han colaborado además:<br>
+Gareth J. Barnard (http://moodle.org/user/profile.php?id=442195)
+Stuart Lamour
+Alistair Spark (University College London)
+<br>
+<p> entre otros desarrolladores, probadores, traductores y voluntarios (Ver <a href="adaptable/README.txt" target="_blank">README.txt</a>)</p>
 <br>
 <h3>Informar de errores</h3>
-<p>Puedes informar de errores encontrados en este tema (y por favor, sólo errores) a través de nuestro <a href="https://bitbucket.org/covuni/moodle-theme_adaptable/issues" target="_blank">repositorio en Bitbucket</a></p>
+<p>Puedes informar de errores encontrados en este tema (y por favor, <b>sólo errores</b>) a través de nuestro <a href="https://gitlab.com/3bits/moodle-theme_adaptable2" target="_blank">repositorio</a></p>
 <br>
 <h3>Soporte Técnico</h3>
 <p>Puedes preguntar tus dudas y cuestiones a través de los foros oficiales en moodle.org:</p>
@@ -56,19 +65,10 @@ Fernando Acedo (<a href="https://3-bits.com" target="_blank">3-bits.com</a>)</p>
 <li>Català: <a href="https://moodle.org/mod/forum/discuss.php?d=340406" target="_blank">https://moodle.org/mod/forum/discuss.php?d=340406</a>
 </ul>
 <br>
-<h3>Documentación</h3>
-<p>Próximamente</p>
-<br>
 <h3>Demo</h3>
-<p>Puedes ver una demostración del sitio y descargar un archivo de instalación en <a href="https://adaptable.ws/demo">https://adaptable.ws/demo</a></p>
-<br>
-<p>En <a href="https://adaptable.ws">https://adaptable.ws</a> también encontrarás consejos, trucos, descargas y soporte técnico.</p>
-<br>
-<p>Traducción es-ES: Fernando Acedo (3-bits.com)</p>
-<p>Traducción es-MX: Germán Valero (UNAM)</p>
+<p>Puedes ver una demostración del sitio en <a href="https://adaptable.ws/demo">https://adaptable.ws/demo</a></p>
 </div>
 </div>';
-
 
 $string['pluginname'] = 'Adaptable';
 $string['configtitle'] = 'Adaptable';
@@ -274,18 +274,18 @@ $string['blocklayoutbuilderdesc'] = 'A continuación puedes crear tu propia dist
 Para añadir contenido a estas regiones necesitarás <strong>Activar edición en la página principal de Moodle</strong>.
 Entonces podrás arrastrar y soltar los bloques en las regiones creadas.';
 
-$string['dash_blocklayoutbuilder'] = 'Regiones del Área Personal';
-$string['dash_blocklayoutbuilderdesc'] = 'A continuación puedes crear tu propia estructura de regiones para bloques en el Área Personal.
+$string['dashblocklayoutbuilder'] = 'Regiones del Área Personal';
+$string['dashblocklayoutbuilderdesc'] = 'A continuación puedes crear tu propia estructura de regiones para bloques en el Área Personal.
 Para añadir dichas regiones necesitarás <strong>Activar Edición en la página del Área Personal</strong>.<br>
 Entonces podrás arrastrar y soltar bloques en las regiones que has creado';
 
-$string['coursepagesidebarinfooterenabledsection'] = 'Posición de la barra lateral';
-$string['coursepagesidebarinfooterenabledsectiondesc'] = 'Usa una estructura de página de curso de ancho completo moviendo la barra lateral al pie.';
+$string['coursepagesidebarinfooterenabledsection'] = 'Configuración común';
+$string['coursepagesidebarinfooterenabledsectiondesc'] = 'Parámetros comunes para la mayoría de formatos de curso.';
 
 $string['coursepageblocklayoutbuilder'] = 'Región para bloques en la página del curso';
 $string['coursepageblocklayoutbuilderdesc'] = 'Puedes construir en la parte inferior una región para bloques en la página del curso.
-To add content these regions you will need to <strong> turn editing on, on the course page of Moodle</strong>.
-Then you can begin to drag/drop blocks into the regions you create!';
+Para añadir contenido a esas regiones necesitarás <strong>Activar Edición en la página del curso</strong>.
+Entonces podrás comenzar a arrastrar y soltar los bloques en las regiones que has creado.';
 
 $string['blocklayoutlayoutcheck'] = 'Comprueba la distribución';
 $string['blocklayoutlayoutcheckdesc'] = 'Utiliza esta opción para ver la distribución creada y comprobar el número de bloques que has utilizado.';
@@ -295,7 +295,7 @@ $string['blocklayoutlayoutcount2'] = ' regiones para bloques. Ahora estás usand
 $string['blocklayoutlayoutrow'] = 'Filas de regiones para bloques';
 $string['blocklayoutlayoutrowdesc'] = 'Añade / establece la distribución de filas de las regiones para bloques de la página principal.';
 
-$string['dashblocklayoutlayoutrow'] = 'Fila de regiones del anel de Control ';
+$string['dashblocklayoutlayoutrow'] = 'Fila de regiones del Panel de Control ';
 $string['dashblocklayoutlayoutrowdesc'] = 'Añade / establece la estructura de las regiones para bloques en la página del Área Personal.';
 
 $string['coursepageblocklayoutlayouttoprow'] = 'Filas de la region superior de la página del curso ';
@@ -311,6 +311,11 @@ Puedes arrastrar y soltar los bloques en las regiones creadas.';
 $string['dashblocksenabled'] = 'Activar las regiones personalizadas en la página del Área Personal';
 $string['dashblocksenableddesc'] = 'Puedes activar / desactivar las regiones personalizadas de la página del Área Personal.
 Puedes arrastrar y soltar los bloques en las regiones que has creado';
+
+$string['dashblocksposition'] = 'Posición de la región de bloques personalizados';
+$string['dashblockspositiondesc'] = 'Al activar la región de bloques personalizados para el Panel de Control, escoge la posición.';
+$string['dashblocksabovecontent'] = 'Mostrar sobre el contenido';
+$string['dashblocksbelowcontent'] = 'Mostrar bajo el contenido';
 
 $string['coursepageblocksenabled'] = 'Mostrar las regiones personalizadas para bloques en la página del curso';
 $string['coursepageblocksenableddesc'] = 'Puedes mostrar la región de bloques personalizados (superior e inferior) en la página del curso.
@@ -409,6 +414,9 @@ $string['footercontentdesc'] = 'Añade el código HTML del bloque del pie de pá
 $string['hidefootersocial'] = 'Mostrar iconos sociales';
 $string['hidefootersocialdesc'] = 'Muestra los iconos sociales en el pie de página bajo los bloques.';
 
+// Data Retention Summary Button.
+$string['gdprbutton'] = 'Botón de Resumen de conservación de datos';
+$string['gdprbuttondesc'] = 'Muestra el botón de Resumen de conservación de datos en el pie.';
 
 // Moodle Docs link.
 $string['moodledocs'] = 'Mostrar enlace a Moodle Docs';
@@ -538,8 +546,6 @@ $string['mysitesmenudisplayshortcodefullnameonhover'] = 'Mostrar el código cort
 $string['mysitesmenudisplayfullnamenohover'] = 'Mostrar el título del curso sin texto al pasar el cursor';
 $string['mysitesmenudisplayfullnamefullnameonhover'] = 'Mostrar el título largo del curso en el menú y al pasar el cursor';
 
-$string['usernavheading'] = 'Personalizar el menú de usuario';
-$string['usernavdesc'] = 'Permite personalizar los elementos que aparecen en el menú de usuario.';
 $string['enablehomedesc'] = 'Mostrar enlace a Inicio';
 
 $string['enablehomeredirect'] = 'Activar redirect=0';
@@ -709,6 +715,12 @@ $string['mobilemenubkcolordesc'] = 'Establece el color de fondo del menú princi
 $string['mobilemenufontcolor'] = 'Color del texto del menú para móvil';
 $string['mobilemenufontcolordesc'] = 'Establece el color de texto del menú principal en móviles (colapsado)';
 
+$string['mobileslidebartabbkcolor'] = 'Color de fondo del panel lateral';
+$string['mobileslidebartabbkcolordesc'] = 'Establece el color de fondo del panel lateral en dispositivos móviles (colapsado)';
+
+$string['mobileslidebartabiconcolor'] = 'Color del icono del panel lateral';
+$string['mobileslidebartabiconcolordesc'] = 'Establece el color del icono del panel lateral en dispositivos móviles (colapsado)';
+
 $string['selectiontext'] = 'Color del texto seleccionado';
 $string['selectiontextdesc'] = 'Establece el color del texto seleccionado en pantalla.';
 
@@ -716,11 +728,15 @@ $string['selectionbackground'] = 'Color de fondo del texto seleccionado';
 $string['selectionbackgrounddesc'] = 'Establece el color de fondo del texto seleccionado en pantalla.';
 
 // Formatos de curso *********************************************************.
-$string['coursesettings'] = 'Secciones del curso';
-$string['coursesettingsheading'] = 'Configuración de las secciones del curso.';
-$string['coursedesc'] = 'Configura las opciones de las secciones de los cursos como el título, color de fondo y bordes.';
+$string['coursesettings'] = 'Formatos de curso';
+$string['coursesettingsheading'] = 'Configuración de los formatos de curso.';
+$string['coursesettingsdesc'] = 'Configura algunas de las opciones de los formatos de curso más utilizados en moodle para ajustarlos al diseño general.';
 
 // Common settings.
+$string['commonlyusedar'] = 'Actividades y recursos más utilizados';
+$string['commonlyusedardesc'] = 'Introduce aquí la lista de actividades/recursos (separadas por comas) que deseas ver al abrir la ventana de selección. Algunos de los nombres posibles son {$a}.';
+$string['commonlyusedartitle'] = 'Recursos y actividades más usadas';
+
 $string['showyourprogress'] = 'Mostrar la etiqueta &#39;Su progreso&#39; ';
 $string['showyourprogressdesc'] = 'Muestra / oculta la etiqueta &#39;Su progreso&#39; en la parte superior del contenido del curso. Esta etiqueta es sólo informativa y puede ocultarse al alumno.';
 
@@ -771,6 +787,9 @@ $string['coursesectionactivityuseadaptableiconsdesc'] = 'Usar el juego de iconos
 
 $string['coursesectionactivityiconsize'] = 'Tamaño de los iconos de actividades de las secciones del curso';
 $string['coursesectionactivityiconsizedesc'] = 'Establece el tamaño de los iconos de actividades / recursos (ejemplo: 16px establece un tamaño de 16px x 16px).';
+
+$string['coursesectionactivityheadingcolour'] = 'Color de la cabecera de sección del curso';
+$string['coursesectionactivityheadingcolourdesc'] = 'Establece el color de las actividades mostradas en la página del curso.';
 
 // These four settings actually refer to bottom border (it was originally all around border, but naming kept as it was originally).
 $string['coursesectionactivityborderwidth'] = 'Grueso del borde de las secciones de los cursos';
@@ -943,7 +962,7 @@ $string['buttonlogincolor'] = 'Color del botón Entrar';
 $string['buttonlogincolordesc'] = 'Color del botón Entrar.';
 
 $string['buttonloginhovercolor'] = 'Color Hover del botón Entrar';
-$string['buttonloginhovercolordesc'] = 'Color del botón Entrar al pasar el cursos por encima.';
+$string['buttonloginhovercolordesc'] = 'Color del botón Entrar al pasar el cursor por encima.';
 
 $string['buttonlogintextcolor'] = 'Color del texto del botón Entrar';
 $string['buttonlogintextcolordesc'] = 'Color del texto del botón Entrar.';
@@ -973,6 +992,9 @@ $string['headerbgimagedesc'] = 'Establece una imagen de fondo para la cabecera. 
 $string['enableheading'] = 'Mostrar nombre del curso';
 $string['enableheadingdesc'] = 'Establece el modo de visualización del título del curso en la cabecera.';
 
+$string['breadcrumbdisplay'] = 'Mostrar la guía de exploración';
+$string['breadcrumbdisplaydesc'] = 'Establece que se muestra en el área de la guía de exploración del curso.';
+
 $string['sitetitlecoursesdisabled'] = 'Desactivado - muestra solo el título del curso en las páginas del curso';
 $string['sitetitlecoursesenabled'] = 'Activado - muestra el nombre del sitio y el título del cursos en las páginas del curso';
 
@@ -1000,11 +1022,20 @@ $string['pageheaderheightdesc'] = 'Establece la altura de la cabecera (incluyend
 $string['coursepageheaderhidesitetitle'] = 'Ocultar el título del sitio en la página del curso';
 $string['coursepageheaderhidesitetitledesc'] = 'Ocultar el título del sitio, logo y caja de búsqueda en la página del curso. Usar junto a la configuración de la altura de la cabecera de página para mostrar una cabecera más reducida en las páginas relacionadas con cursos.';
 
-$string['breadcrumbtitle'] = 'Nombre del curso en la guía de exploración';
-$string['breadcrumbtitledesc'] = 'Establece el modo de visualización del título del curso en la guía de exploración.';
+$string['breadcrumb'] = 'Ruta de navegación';
+$string['breadcrumbtitle'] = 'Nombre del curso en la ruta de navegación';
+$string['breadcrumbtitledesc'] = 'Establece el modo de visualización del título del curso en la ruta de navegación.';
 
 $string['coursetitlefullname'] = 'Nombre completo del curso';
 $string['coursetitleshortname'] = 'Nombre corto del curso / Código';
+
+$string['headerstyle'] = 'Estilo de la cabecera';
+$string['headerstyledesc'] = 'Selecciona el estilo de la cabecera. Cabecera 1 es la original de 3 filas de Adaptable. Cabecera 2 es la cabecera reducida a 2 filas. Ten en cuenta que usando la Cabecera 2, el parámetro <i>"Mostrar cuadro de búsqueda o iconos sociales"</i> siempre mostrará el cuadro de búsqueda.';
+$string['headerstyle1'] = 'Cabecera 1 (3 filas)';
+$string['headerstyle2'] = 'Cabecera 2 (2 filas)';
+
+$string['header2searchbox'] = 'Cuadro de búsqueda expandible (Cabecera 2)';
+$string['header2searchboxdesc'] = 'Expande y colapsa el cuadro de búsqueda al utilizar la Cabecera 2.';
 
 $string['socialorsearch'] = 'Mostrar cuadro de búsqueda o iconos sociales';
 $string['socialorsearchdesc'] = 'Puedes mostrar los iconos sociales o el cuadro de búsqueda en la cabecera. <br />
@@ -1018,12 +1049,18 @@ $string['socialorsearchsearch'] = 'Mostrar cuadro de búsqueda';
 $string['searchboxpadding'] = 'Separación alrededor del cuadro de búsqueda';
 $string['searchboxpaddingdesc'] = 'Establece la separación de la parte superior del cuadro de búsqueda (si se muestra en lugar de los iconos sociales) <br />Ejemplo: 5px 10px 5px 10px (superior, derecha, inferior, izquierda).<br> Puedes establecer los iconos sociales en la sección <a href="./../admin/settings.php?section=theme_adaptable_social">Redes sociales</a></strong>.';
 
-$string['searchboxpaddingtop'] = 'Separación superior del cuadro de búsqueda';
-$string['searchboxpaddingtopdesc'] = 'Permite ajustar la separación, en píxeles, del cuadro de búsqueda (si se muestra en lugar de los iconos sociales)<br />'.
-        ' E.g. 5px 10px 5px 10px (top, right, bottom, left).<br>'.
-        'Los iconos sociales se pueden establecer en la sección <a href="./../admin/settings.php?section=theme_adaptable_social">Cabecersa Social</a></strong>.';
+$string['enablesavecanceloverlay'] = 'Guardar / Cancelar sobrepuesto en las páginas de configuración';
+$string['enablesavecanceloverlaydesc'] = 'Muestra los botones de Guardar / Cancelar sobrepuestos en la parte superior de las páginas de configuración para facilitar el guardado de los cambios.';
 
+$string['usernavheading'] = 'Personaliza el desplegable de la barra de usuario';
 $string['usernav'] = 'Barra de usuario';
+$string['usernavdesc'] = 'Permite mostrar los elementos que aparecen en el desplegable de la barra de usuario.';
+
+$string['showusername'] = 'Mostrar nombre del usuario';
+$string['showusernamedesc'] = 'Muestra el nombre de usuario en la barra de navegación.';
+
+$string['usernameposition'] = 'Posición del nombre de usuario';
+$string['usernamepositiondesc'] = 'Establece la posición del nombre de usuario (Derecha o Izquierda).';
 
 $string['menusettings'] = 'Menús de cabecera';
 $string['menusettingsheading'] = 'Personaliza los menús de la cabecera superior.';
@@ -1068,12 +1105,15 @@ $string['hideblocks'] = 'Ocultar bloques';
 $string['showblocks'] = 'Mostrar bloques';
 $string['fullscreen'] = 'Pantalla completa';
 $string['standardview'] = 'Vista estándar';
+$string['sitelinkslabel'] = 'Enlaces';
 
 $string['viewselect'] = 'Pantalla completa como vista por defecto';
 $string['viewselectdesc'] = 'Establecer la vista por defecto a pantalla completa (cuando la opción zoom está activada)';
 
 $string['enablezoom'] = 'Activar Zoom';
 $string['enablezoomdesc'] = 'Permite a los usuarios cambiar entre pantalla completa o ancho fijo de pantalla.';
+$string['enablezoomshowtext'] = 'Mostrar el texto Activar Zoom';
+$string['enablezoomshowtextdesc'] = 'Muestra el texto al lado del botón.';
 
 $string['enableshowhideblocks'] = 'Activar Mostrar/Ocultar bloques';
 $string['enableshowhideblocksdesc'] = 'Permite a los usuarios mostrar / ocultar los bloques laterales.';
@@ -1083,6 +1123,11 @@ $string['enablenavbarwhenloggedoutdesc'] = 'Shows the navbar even when logged ou
 
 $string['fullscreenwidth'] = 'Ancho de pantalla completa';
 $string['fullscreenwidthdesc'] = 'Establece el ancho máximo de la pantalla en modo pantalla completa / zoom.';
+
+$string['standardscreenwidth'] = 'Ancho estandar de la pantalla.';
+$string['standardscreenwidthdesc'] = 'Establece el ancho de la pantalla del tema en modo estandar / no zoom.';
+$string['narrow'] = 'Estrecho';
+$string['standard'] = 'Estandar';
 
 $string['headernavbarhelpheading'] = 'Enlaces de Ayuda y Opciones';
 $string['headernavbarhelpheadingdesc'] = 'Opciones para los items de los menus de ayuda.';
@@ -1282,8 +1327,17 @@ $string['blocksidedesc'] = 'Mostrar los bloques en la columna derecha o izquierd
 $string['rightblocks'] = 'Columna derecha';
 $string['leftblocks'] = 'Columna izquierda';
 
+$string['sidebarnotlogged'] = 'Mostrar el panel lateral a los visitantes';
+$string['sidebarnotloggeddesc'] = 'Muestra el panel lateral con bloques cuando los usuarios no han entrado.';
+
 $string['emoticonsize'] = 'Tamaño emoticonos';
 $string['emoticonsizedesc'] = 'Establece el tamaño (ancho y alto) de los emoticonos.';
+
+$string['infoiconcolor'] = 'Color del icono de ayuda';
+$string['infoiconcolordesc'] = 'Establece el color del icono de ayuda usado en los formularios.';
+
+$string['dangericoncolor'] = 'Color del icono de aviso';
+$string['dangericoncolordesc'] = 'Establece el color del icono de aviso/peligro usado principalmente en los campos obligatorios.';
 
 $string['helptarget'] = 'Nueva ventana de ayuda';
 $string['helptargetdesc'] = 'Abrir la ayuda en la misma ventana o en una nueva.';
@@ -1313,12 +1367,6 @@ $string['hiddencourses'] = 'Cursos ocultos';
 $string['pastcourses'] = 'Cursos anteriores';
 $string['people'] = 'Gente';
 $string['help'] = 'Ayuda';
-
-$string['dividingline'] = 'Línea divisora de la cabecera';
-$string['dividinglinedesc'] = 'Establece el color de la línea divisora de la cabecera.';
-
-$string['dividingline2'] = 'Línea divisora del pie de página';
-$string['dividingline2desc'] = 'Establece el color de la línea divisora del pie de página.';
 
 $string['showfooterblocks'] = 'Mostrar bloques en el pie de página';
 $string['showfooterblocksdesc'] = 'Mostrar / Ocultar los bloques personalizables del pie de página.';
@@ -1384,6 +1432,9 @@ $string['enablemenusdesc'] = 'Por motivos de rendimiento, se recomienda no activ
 
 $string['menuslinkright'] = 'Show menus link in topright';
 $string['menuslinkrightdesc'] = 'If checked, show the link to the menus on the top right next to the messages menu';
+
+$string['menuslinkicon'] = "Icono del menú de enlaces";
+$string['menuslinkicondesc'] = "Escoge el icono para el menú de enlaces.";
 
 $string['disablemenuscoursepages'] = 'Desactivar menús en las páginas de los cursos';
 $string['disablemenuscoursepagesdesc'] = 'Activando esta opción los menús solo se mostrarán en las páginas del sitio, la página inicial, el Área Personal, etc. y no se mostrará en las páginas de los cursos.';
@@ -1455,17 +1506,20 @@ url|titulo|icono
 
 Ejemplo:
 <pre>
-http://example.com/course/search.php|Buscar en Moodle|fa-search
+https://example.com/course/search.php|Buscar en Moodle|fa-search
 https://facebook.com/|Facebook|fa-facebook-square
 https://twitter.com/|Twitter|fa-twitter-square
 https://instagram.com|Instagram|fa-instagram
-http://example.com|Mi Web|fa-globe
+https://example.com|Mi Web|fa-globe
 </pre>
 El listado de iconos puedes encontrarlo en: <a href="http://fortawesome.github.io/Font-Awesome/icons">http://fortawesome.github.io/Font-Awesome/icons</a>Font-Awesome</pre>';
 
 $string['socialsize'] = 'Configurar tamaño de los iconos sociales';
+$string['socialsizedesc'] = 'Para una mejor visualización, el tamaño debe ser 5px mayor que el tamaño deseado.';
 $string['socialsizemobile'] = 'Configurar tamaño de los iconos sociales en móviles';
+$string['socialsizemobiledesc'] = 'Para una mejor visualización, el tamaño debe ser 5px mayor que el tamaño deseado.';
 $string['socialpaddingtop'] = 'Ajustar la separación debajo los iconos sociales (altera la posición vertical)';
+$string['socialpaddingtopdesc'] = 'Valor minimo de 15px (contando el margen) mas este valor.';
 
 $string['socialtarget'] = 'Formato de apertura de la ventana de enlaces sociales';
 $string['socialtargetdesc'] = 'Abrir la red social en la misma venta o en una nueva';
@@ -1547,7 +1601,10 @@ $string['jssectionrestricteddashboardonlydesc'] = 'Muestra el código Javascript
 // Cache definitions.
 $string['cachedef_userdata'] = 'El tiempo para guardar una sesión de un usuario específico.';
 
-// Section navigation ********************************.
+// Activity and section navigation ********************************.
+$string['nextactivity'] = 'Siguiente actividad';
+$string['previousactivity'] = 'Actividad anterior';
+
 $string['nextsection'] = 'Siguiente';
 $string['previoussection'] = 'Anterior';
 
@@ -1560,6 +1617,9 @@ $string['show'] = 'Mostrar';
 
 // Navbar Links menu *********************************.
 $string['linksmenu'] = 'Menu enlaces';
+
+// Navbar user menu *********************************.
+$string['usermenu'] = 'User menu';
 
 // Save / Discard button text *********************************.
 $string['savebuttontext'] = 'Guardar cambios';
@@ -1620,7 +1680,7 @@ $string['propertiessub'] = 'Configuración actual del tema';
 $string['propertiesdesc'] = 'En esta sección puedes importar / exportar la configuración de Adaptable (propiedades) en formato JSON. También puedes ver la configuración actual.';
 $string['propertiesproperty'] = 'Propiedad';
 $string['propertiesvalue'] = 'Valor';
-$string['propertiesexport'] = 'Exportar las propiedades en una cadena JSON';
+$string['propertiesexport'] = 'Exportar las propiedades en una cadena tipo JSON';
 $string['propertiesreturn'] = 'Volver';
 $string['putpropertiesheading'] = 'Importar configuración';
 $string['putpropertiesname'] = 'Importar propiedades';
@@ -1641,3 +1701,95 @@ $string['putpropertiesignored'] = 'Ignorados:';
 
 // Privacy.
 $string['privacy:metadata'] = 'Adaptable no almacena información personal de los usuarios.';
+
+// Small screen appearance settings.
+$string['settingssmallscreen'] = 'Apariencia de los bloques en pantallas reducidas';
+$string['smallscreenshowsearchicon'] = 'Mostrar icono de búsqueda';
+$string['smallscreenshowsearchicondesc'] = 'Mostrar el icono de búsqueda en pantallas reducidas.';
+$string['smallscreenhidebreadcrumb'] = 'Ocultar la tuta de navegación';
+$string['smallscreenhidebreadcrumbdesc'] = 'Ocultar la ruta de navegación en pantallas reducidas.';
+$string['smallscreenhidesidebar'] = 'Ocultar el panel lateral';
+$string['smallscreenhidesidebardesc'] = 'Ocultar el panel lateral en pantallas reducidas.';
+
+// Adaptable Tabbed layout changes.
+$string['tabbedlayoutheading'] = 'Diseño de pestañas';
+$string['tabbedlayoutcoursepage'] = 'Diseño de la página de curso por pestañas';
+$string['tabbedlayoutcoursepagedesc'] = 'Utiliza un diseño por pestañas para la página del curso. El contenido se mostrará en pestañas, con el contenido del curso en una pestaña y permitiendo distribuir el resto en otras pestañas. Usar este apartado para configurar el orden de las pestañas.';
+$string['tabbedlayoutcoursepagelink'] = 'Enlace al diseño de la página del curso por pestañas';
+$string['tabbedlayoutcoursepagelinkdesc'] = 'Mostrar una pestaña con un enlace a la página del curso.';
+$string['tabbedlayoutcoursepagetabcolorselected'] = 'Color de la pestaña seleccionada';
+$string['tabbedlayoutcoursepagetabcolorselecteddesc'] = 'Establece el color de fondo de la pestaña seleccionada.';
+$string['tabbedlayoutcoursepagetabcolorunselected'] = 'Color de las pestañas no seleccionadas';
+$string['tabbedlayoutcoursepagetabcolorunselecteddesc'] = 'Establece el color de fondo de la pestañas no seleccionadas.';
+$string['tabbedlayoutcoursepagetabpersistencetime'] = 'Tiempo de permanencia de la pestaña seleccionada';
+$string['tabbedlayoutcoursepagetabpersistencetimedesc'] = 'Tiempo de permanencia de la pestaña seleccionada después de un tiempo de inactividad. Establece el tiempo en minutos. Por ejemplo, introduce 30 para que la primera pestaña se seleccione después de 30 minutos de inactividad';
+$string['tabbedlayoutdashboard'] = 'Diseño por pestañas del Tablero';
+$string['tabbedlayoutdashboarddesc'] = 'Utiliza un diseño por pestañas para el Tablero. El contenido se mostrará en pestañas, con el contenido del curso en una pestaña y permitiendo distribuir el resto en otras pestañas. Usar este apartado para configurar el orden de las pestañas.';
+$string['tabbedlayoutdashboardtabcolorselected'] = 'Color de la pestaña seleccionada para el Tablero';
+$string['tabbedlayoutdashboardtabcolorselecteddesc'] = 'Establece el color de fondo de la pestaña seleccionada.';
+$string['tabbedlayoutdashboardtabcolorunselected'] = 'Color de fondo de la pestañas no seleccionadas del Tablero';
+$string['tabbedlayoutdashboardtabcolorunselecteddesc'] = 'Establece el color de fondo de las pestañas no seleccionadas del tablero.';
+$string['tabbedlayoutdashboardtab1condition'] = 'Restricción por campo personalizado del perfíl de la pestaña 1 (opcional)';
+$string['tabbedlayoutdashboardtab1conditiondesc'] = 'Añade una condición para mostrar la pestaña 1 utilizando un campo personalizado del perfíl. Ejemplo: mostrarpestaña1=true';
+$string['tabbedlayoutdashboardtab2condition'] = 'Restricción por campo personalizado del perfíl de la pestaña 2 (opcional)';
+$string['tabbedlayoutdashboardtab2conditiondesc'] = 'Añade una condición para mostrar la pestaña 2 utilizando un campo personalizado del perfíl. Ejemplo: mostrarpestaña2=true';
+
+$string['tabbedlayouttablabelcourse'] = 'Contenido';
+$string['tabbedlayouttablabelcourse1'] = 'Pestaña 1';
+$string['tabbedlayouttablabelcourse2'] = 'Pestaña 2';
+$string['tabbedlayouttablabeldashboard'] = 'Tablero';
+$string['tabbedlayouttablabeldashboard1'] = 'Pestaña 1';
+$string['tabbedlayouttablabeldashboard2'] = 'Pestaña 2';
+
+$string['region-course-tab-one-a'] = 'Región 1 para las pestañas del curso';
+$string['region-course-tab-two-a'] = 'Región 2 para las pestañas del curso';
+$string['region-my-tab-one-a'] = 'Región 1 para las pestañas del Tablero';
+$string['region-my-tab-two-a'] = 'Región 2 para las pestañas del Tablero';
+
+// Number of course tiles in front page.
+$string['frontpagenumbertiles'] = 'Número de bloques de curso por fila';
+$string['frontpagenumbertilesdesc'] = 'Número de bloques a mostrar en una fila en el listado de cursos de la portada del sitio.';
+$string['frontpagetiles1'] = '1 bloque';
+$string['frontpagetiles2'] = '2 bloques';
+$string['frontpagetiles3'] = '3 bloques';
+$string['frontpagetiles4'] = '4 bloques';
+$string['frontpagetiles6'] = '6 bloques';
+
+// Edit settings.
+$string['editsettingsbutton'] = 'Botón de edición ';
+$string['editsettingsbuttondesc'] = 'Configurar que debe aparecer en la barra de navegación para editar. Ten en cuenta qu estas opciones no se aplican a todas las páginas que no disponen de configuración como el Tablero.';
+$string['editsettingsbuttonshowcog'] = 'Muestra solo el icono de edición (rueda)';
+$string['editsettingsbuttonshowbutton'] = 'Muestra el botón "Activa la edición" en la página del curso.';
+$string['editsettingsbuttonshowcogandbutton'] = 'Muestra el botón y el icono. (utiliza más espacio en la barra de navegación)';
+$string['displayeditingbuttontext'] = 'Editar el texto del botón';
+$string['displayeditingbuttontextdesc'] = 'Miuestra u oculta el texto del botón. NOTA: Solo se aplica al botón.';
+
+// Login *******************************************************.
+$string['loginsettings'] = 'Página de entrada';
+$string['loginsettingsheading'] = 'Personalizar la página de entrada';
+$string['logindesc'] = 'Personalizar la página de entrada añadiendo una imagen de fondo y testo en la parte superior e inferior.';
+$string['loginbgimage'] = 'Imagen de fondo';
+$string['loginbgimagedesc'] = 'Añade una imagen para el fondo de la página de entrada.';
+$string['logintextboxtop'] = 'Texto de la parte superior';
+$string['logintextboxtopdesc'] = 'Añade un texto personalizado en la parte superior del formulario de entrada.';
+$string['logintextboxbottom'] = 'Texto de la parte inferior';
+$string['logintextboxbottomdesc'] = 'Añade un texto personalizado en la parte inferior del formulario de entrada.';
+$string['loginmoodletext'] = 'Mostrar el testo por defecto de Moodle';
+$string['loginmoodletextdesc'] = 'Muestra el texto por defecto de Moodle en la página de entrada.';
+
+// User profile.
+$string['aboutme'] = 'Sobre mí';
+$string['course'] = 'Curso';
+$string['courses'] = 'Cursos';
+$string['more'] = 'Más';
+
+// User & user profile settings.
+$string['usersettings'] = 'Usuario';
+$string['usersettingsdesc'] = 'Establece la configuración para el usuario.';
+$string['usersettingsheading'] = 'Controla parámetros del usuario';
+$string['customcoursetitle'] = 'Título del curso personalizado';
+$string['customcoursetitledesc'] = 'Nombre del campo de usuario personalizado para el título del curso.';
+$string['customcoursesubtitle'] = 'Subítulo del curso personalizado';
+$string['customcoursesubtitledesc'] = 'Nombre del campo de usuario personalizado para el subtítulo del curso.';
+$string['usernodescription'] = 'El usuario no ha actualizado todavía su descripción.';
+$string['usernointerests'] = 'El usuario no ha actualizado todavía sus intereses.';
