@@ -72,7 +72,17 @@ $hideheadermobile = $PAGE->theme->settings->hideheadermobile;
 $hidealertsmobile = $PAGE->theme->settings->hidealertsmobile;
 $hidesocialmobile = $PAGE->theme->settings->hidesocialmobile;
 
+// Navbar Menu.
+$shownavbar = false;
+if (
+    (isloggedin() && !isguestuser()) ||
+    (!empty($PAGE->theme->settings->enablenavbarwhenloggedout)) ) {
 
+    // Remove menu navbar in Quiz pages even if they don't use SEB.
+    if ($PAGE->pagetype != "mod-quiz-attempt") {
+        $shownavbar = true;
+    }
+}
 // Load header background image if exists.
 $headerbg = '';
 
@@ -295,6 +305,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
         <div class="container">
             <nav class="navbar navbar-expand btco-hover-menu">
 
+                <?php if ($shownavbar) { ?>
                 <div id="adaptable-page-header-nav-drawer" data-region="drawer-toggle" class="d-lg-none mr-3">
                     <button id="drawer" aria-expanded="false" aria-controls="nav-drawer" type="button"
                             class="nav-link float-sm-left mr-1" data-side="left">
@@ -302,6 +313,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         <span class="sr-only"><?php echo get_string('sidepanel'); ?></span>
                     </button>
                 </div>
+                <?php } ?>
 
                 <div class="collapse navbar-collapse">
                 <?php
@@ -506,6 +518,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
             <nav class="navbar navbar-expand btco-hover-menu">
 
+                <?php if ($shownavbar) { ?>
                 <div id="adaptable-page-header-nav-drawer" data-region="drawer-toggle" class="d-lg-none mr-3">
                     <button id="drawer" aria-expanded="false" aria-controls="nav-drawer" type="button"
                     class="nav-link float-sm-left mr-1" data-side="left">
@@ -513,6 +526,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         <span class="sr-only"><?php echo get_string('sidepanel'); ?></span>
                     </button>
                 </div>
+                <?php } ?>
 
                 <div class="collapse navbar-collapse">
 
@@ -599,16 +613,9 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 <?php endif; // End header style 2. ?>
 
 
-
 <?php
-
 // Navbar Menu.
-if (
-    (isloggedin() && !isguestuser()) ||
-    (!empty($PAGE->theme->settings->enablenavbarwhenloggedout)) ) {
-
-    // Remove menu navbar in Quiz pages even if they don't use SEB.
-    if ($PAGE->pagetype != "mod-quiz-attempt") {
+if ($shownavbar) {
 ?>
 
 <div id="nav-drawer" data-region="drawer" class="d-print-none moodle-has-zindex closed" aria-hidden="true" tabindex="-1">
@@ -779,8 +786,7 @@ if (
                     <?php
                         }
                     }
-    }
-                        ?>
+                    ?>
                 </ul>
 
             </div>
