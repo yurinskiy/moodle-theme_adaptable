@@ -2817,7 +2817,7 @@ EOT;
         } else {
             if (!($tab->link instanceof moodle_url)) {
                 // Backward compatibility when link was passed as quoted string.
-                $link = "<a href=\"$tab->link\" title=\"$tab->title\">$tab->text</a>";
+                $link = "<a class=\"nav-link\" href=\"$tab->link\" title=\"$tab->title\">$tab->text</a>";
             } else {
                 $link = html_writer::link($tab->link, $tab->text, array('title' => $tab->title, 'class' => 'nav-link'));
             }
