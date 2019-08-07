@@ -216,8 +216,6 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:hidepagefootermobile]]' => 0,
         '[[setting:hidealertsmobile]]' => 0,
         '[[setting:hidesocialmobile]]' => 0,
-        '[[setting:socialboxpaddingtopmobile]]' => '',
-        '[[setting:socialboxpaddingbottommobile]]' => '',
         '[[setting:hidefootersocial]]' => 1,
         '[[setting:hidecoursetitlemobile]]' => 0,
         '[[setting:hidelogomobile]]' => 0,

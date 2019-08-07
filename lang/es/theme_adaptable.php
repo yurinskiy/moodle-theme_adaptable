@@ -1298,9 +1298,6 @@ $string['hidesocialmobiledesc'] = 'Oculta los iconos sociales (si están activad
 $string['hidecoursetitlemobile'] = 'Oculta el título del curso';
 $string['hidecoursetitlemobiledesc'] = 'Oculta el título del curso y del sitio';
 
-$string['socialboxpaddingtopmobile'] = 'Separación superior del bloque de iconos sociales';
-$string['socialboxpaddingbottommobile'] = 'Establece la separación superior del bloque de iconos sociales';
-
 $string['hidelogomobile'] = 'Ocultar logo';
 $string['hidelogomobiledesc'] = 'Ocultar el logo.';
 

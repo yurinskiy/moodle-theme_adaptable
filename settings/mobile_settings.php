@@ -67,40 +67,6 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    // Top padding social icons.
-    $name = 'theme_adaptable/socialboxpaddingtopmobile';
-    $title = get_string('socialboxpaddingtopmobile', 'theme_adaptable');
-    $description = get_string('socialboxpaddingtopmobile', 'theme_adaptable');
-    $choices = array(
-        '5px' => "5px",
-        '6px' => "6px",
-        '7px' => "7px",
-        '8px' => "8px",
-        '9px' => "9px",
-        '10px' => "10px",
-        '12px' => "12px",
-        '14px' => "14px",
-        '16px' => "16px",
-        '18px' => "18px",
-        '20px' => "20px",
-        '22px' => "22px",
-    );
-    $default = '10px';
-    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-
-    // Bottom padding social icons.
-    $name = 'theme_adaptable/socialboxpaddingbottommobile';
-    $title = get_string('socialboxpaddingbottommobile', 'theme_adaptable');
-    $description = get_string('socialboxpaddingbottommobile', 'theme_adaptable');
-    $choices = $from0to12px;
-    $default = '10px';
-    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
     // Hide Logo.
     $name = 'theme_adaptable/hidelogomobile';
     $title = get_string('hidelogomobile', 'theme_adaptable');
