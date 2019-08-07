@@ -52,13 +52,10 @@ define(['jquery'], function($) {
                         });
 
                         var tabhasbeenset = false;
-                        var tabid;
-
                         $.each(tabValues, function(key, value) {
                             if (key == courseid) {
                                 $("#" + value).prop('checked', true);
                                 tabhasbeenset = true;
-                                tabid = value;
                             }
                         });
                         if (tabhasbeenset == false) {
