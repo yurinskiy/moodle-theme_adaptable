@@ -91,6 +91,18 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                         if (isFixed == 1) {
                             $("#adaptable-page-header-wrapper").removeClass("fixed-top");
                             $("body").removeClass("page-header-margin");
+
+                            var navDrawer = $("#nav-drawer");
+                            if (navDrawer.length) {
+                                if (!navDrawer.hasClass("closed")) {
+                                    navDrawer.addClass("closed");
+                                    navDrawer.attr("aria-hidden", "true");
+                                    $("#drawer").attr("aria-expanded", "false");
+                                    var side = $('#drawer').attr('data-side');
+                                    $("body").removeClass("drawer-open-" + side);
+                                }
+                            }
+
                             isFixed = 0;
                         }
                     }
