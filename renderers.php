@@ -595,6 +595,16 @@ class theme_adaptable_core_renderer extends core_renderer {
     }
 
     /**
+     * Renders preferences groups.
+     *
+     * @param  preferences_groups $renderable The renderable
+     * @return string The output.
+     */
+    public function render_preferences_groups(preferences_groups $renderable) {
+        return $this->render_from_template('core/preferences_groups', $renderable);
+    }
+
+    /**
      * Returns list of alert messages for the user
      *
      * @return string
