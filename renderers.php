@@ -497,6 +497,7 @@ class theme_adaptable_core_renderer extends core_renderer {
 
         if (($CFG->version > 2016120500) && (is_role_switched($COURSE->id))) {
             $alertindex = $alertcount + 1;
+            $alertkey = "undismissable";
 
             $returnurl = $this->get_current_page_url(true);
             $url = $CFG->wwwroot.'/course/switchrole.php?id='.$COURSE->id.'&sesskey='.sesskey().
@@ -504,7 +505,7 @@ class theme_adaptable_core_renderer extends core_renderer {
 
             $message = get_string('actingasrole', 'theme_adaptable') . '.  ';
             $message .= '<a href="' . $url . '">' . get_string('switchrolereturn') . '</a>';
-            $alerts = $this->get_alert_message($message, 'warning', $alertindex, 'logedinas') . $alerts;
+            $alerts = $this->get_alert_message($message, 'warning', $alertindex, $alertkey) . $alerts;
         }
 
         return $alerts;
@@ -527,7 +528,7 @@ class theme_adaptable_core_renderer extends core_renderer {
 
         $retval = '<div class="customalert alert alert-dismissable adaptable-alert-' . $type . ' fade in">';
         $retval .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close" data-alertkey="' . $alertkey.
-        '" data-alertindex="' . $alertindex . '">';
+            '" data-alertindex="' . $alertindex . '">';
 
         if ($alertkey != 'undismissable') {
             $retval .= '<span aria-hidden="true">&times;</span>';
