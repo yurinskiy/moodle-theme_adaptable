@@ -3024,7 +3024,7 @@ EOT;
         if ((!empty($output)) && ($region == 'side-post')) {
             $output .= html_writer::tag('div',
                 html_writer::tag('i', '', array('class' => 'fa fa-3x fa-angle-left', 'aria-hidden' => 'true')),
-                array('id' => 'showsidebaricon')).$output;
+                array('id' => 'showsidebaricon'));
             $this->page->requires->js_call_amd('theme_adaptable/showsidebar', 'init');
         }
 
