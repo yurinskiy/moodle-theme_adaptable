@@ -2842,16 +2842,17 @@ EOT;
      * @param string $tag
      * @return string
      */
-    public function adaptableblocks($region, $classes = array(), $tag = 'aside') {
-        $classes = (array)$classes;
-        $classes[] = 'block-region';
-        $attributes = array(
-                'id' => 'block-region-'.preg_replace('#[^a-zA-Z0-9_\-]+#', '-', $region),
-                'class' => join(' ', $classes),
-                'data-blockregion' => $region,
-                'data-droptarget' => '1'
-        );
-        return html_writer::tag($tag, $this->blocks_for_region($region), $attributes);
+    public function blocks($region, $classes = array(), $tag = 'aside') {
+        $output = parent::blocks($region, $classes, $tag);
+
+        if ((!empty($output)) && ($region == 'side-post')) {
+            $output .= html_writer::tag('div',
+                html_writer::tag('i', '', array('class' => 'fa fa-3x fa-angle-left', 'aria-hidden' => 'true')),
+                array('id' => 'showsidebaricon')).$output;
+            $this->page->requires->js_call_amd('theme_adaptable/showsidebar', 'init');
+        }
+
+        return $output;
     }
 
     /**
@@ -3143,25 +3144,6 @@ EOT;
             }
         }
         return $skipped;
-    }
-
-    /**
-     * Output all the blocks in a particular region.
-     *
-     * @param string $region the name of a region on this page.
-     * @return string the HTML to be output.
-     */
-    public function blocks_for_region($region) {
-        $output = parent::blocks_for_region($region);
-
-        if ((!empty($output)) && ($region == 'side-post')) {
-            $output = html_writer::tag('div',
-                html_writer::tag('i', '', array('class' => 'fa fa-3x fa-angle-left', 'aria-hidden' => 'true')),
-                array('id' => 'showsidebaricon')).$output;
-            $this->page->requires->js_call_amd('theme_adaptable/showsidebar', 'init');
-        }
-
-        return $output;
     }
 
     /**
