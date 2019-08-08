@@ -497,13 +497,12 @@ class theme_adaptable_core_renderer extends core_renderer {
 
         if (($CFG->version > 2016120500) && (is_role_switched($COURSE->id))) {
             $alertindex = $alertcount + 1;
-            $alertkey = "undismissable";
 
             $returnurl = $this->get_current_page_url(true);
             $url = $CFG->wwwroot.'/course/switchrole.php?id='.$COURSE->id.'&sesskey='.sesskey().
-            '&switchrole=0&returnurl='.$returnurl;
+                '&switchrole=0&returnurl='.$returnurl;
 
-            $message = get_string('actingasrole', 'theme_adaptable') . '. ';
+            $message = get_string('actingasrole', 'theme_adaptable') . '.  ';
             $message .= '<a href="' . $url . '">' . get_string('switchrolereturn') . '</a>';
             $alerts = $this->get_alert_message($message, 'warning', $alertindex, 'logedinas') . $alerts;
         }
