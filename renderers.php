@@ -1956,7 +1956,6 @@ EOT;
             if (!empty($PAGE->theme->settings->enablethiscourse)) {
                 if (ISSET($COURSE->id) && $COURSE->id > 1) {
                     $branchtitle = get_string('thiscourse', 'theme_adaptable');
-
                     $branchlabel = '';
                     if ($navbardisplayicons) {
                         $branchlabel .= '<i class="fa fa-sitemap fa-lg"></i><span class="menutitle">';
@@ -1974,12 +1973,17 @@ EOT;
                     $branchurl = $this->page->url;
                     $branch = $menu->add($branchlabel, $branchurl, '', 10002);
 
+                    // Course sections.
+                    if ($PAGE->theme->settings->enablecoursesections) {
+                        $this->create_course_sections_menu($branch);
+                    }
+
                     // Display Participants.
                     if ($PAGE->theme->settings->displayparticipants) {
                         $branchtitle = get_string('people', 'theme_adaptable');
                         $branchlabel = '<i class="fa fa-users fa-lg"></i>'.$branchtitle;
                         $branchurl = new moodle_url('/user/index.php', array('id' => $PAGE->course->id));
-                        $branch->add($branchlabel, $branchurl, '', 100003);
+                        $branch->add($branchlabel, $branchurl, '', 100004);
                     }
 
                     // Display Grades.
@@ -1987,7 +1991,7 @@ EOT;
                         $branchtitle = get_string('grades');
                         $branchlabel = $OUTPUT->pix_icon('i/grades', '', '', array('class' => 'icon')).$branchtitle;
                         $branchurl = new moodle_url('/grade/report/index.php', array('id' => $PAGE->course->id));
-                        $branch->add($branchlabel, $branchurl, '', 100004);
+                        $branch->add($branchlabel, $branchurl, '', 100005);
                     }
 
                     // Display activities.
@@ -2058,6 +2062,50 @@ EOT;
 
         return $menu;
 
+    }
+
+    /**
+     * Adds the course sections to the 'This course' menu.
+     *
+     * @param custom_menu_item $menu The menu to add to.
+     */
+    protected function create_course_sections_menu($menu) {
+        global $COURSE;
+
+        $courseformat = course_get_format($COURSE);
+        $modinfo = get_fast_modinfo($COURSE);
+        $numsections = $courseformat->get_last_section_number();
+        $sectionsformnenu = array();
+        foreach ($modinfo->get_section_info_all() as $section => $thissection) {
+            if ($section > $numsections) {
+                // Don't link to stealth sections.
+                continue;
+            }
+            /* Show the section if the user is permitted to access it, OR if it's not available
+               but there is some available info text which explains the reason & should display,
+               OR it is hidden but the course has a setting to display hidden sections as unavilable. */
+            $showsection = $thissection->uservisible ||
+                ($thissection->visible && !$thissection->available && !empty($thissection->availableinfo)) ||
+                (!$thissection->visible && !$course->hiddensections);
+            if (($showsection) || ($section == 0)) {
+                $sectionsformnenu[$section] = array(
+                    'sectionname' => $courseformat->get_section_name($section), 
+                    'url' => $courseformat->get_view_url($section)
+                );
+            }
+        }
+        
+        if (!empty($sectionsformnenu)) { // Rare but possible!
+            $branchtitle = get_string('coursesections', 'theme_adaptable');
+            $branchlabel = '<i class="fa fa-list-ol fa-lg"></i>'.$branchtitle;
+            $branch = $menu->add($branchlabel, null, '', 100003);
+
+            foreach ($sectionsformnenu as $sectionformenu) {
+                $branch->add($sectionformenu['sectionname'], $sectionformenu['url']);
+            }
+        }
+
+        return $sectionsformnenu;
     }
 
     /**
@@ -2769,7 +2817,7 @@ EOT;
 
     /**
      * Display custom menu in the format required for the nav drawer. Slight cludge here to make this work.
-     * The calling function cann't call the default custom_menu() method as there is no way to know to
+     * The calling function can't call the default custom_menu() method as there is no way to know to
      * render custom menu items in the format required for the drawer (which is different from displaying on the normal navbar).
      *
      * @return Custom menu html

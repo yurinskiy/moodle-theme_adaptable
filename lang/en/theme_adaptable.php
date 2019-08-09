@@ -493,7 +493,8 @@ $string['noenrolments'] = 'No enrolments found.';
 $string['enablemyhomedesc'] = 'Display a link to {$a}';
 $string['enableeventsdesc'] = 'Display a link to the calendar';
 
-$string['enablethiscoursedesc'] = 'Display a dropdown with activities from the current course';
+$string['enablethiscoursedesc'] = 'Display a dropdown with activities from the current course.';
+$string['enablecoursesectionsdesc'] = 'Display a sub-menu on the \'This course\' menu containg links to each shown section.';
 
 // Navbar styling *********************************************************.
 $string['headernavbarstylingheading'] = 'Navbar Styling';
@@ -1075,6 +1076,7 @@ $string['enableavailablecourses'] = 'Display "Available Courses"';
 $string['enableavailablecoursesdesc'] = 'Display "Available Courses" text in the frontpage';
 
 $string['thiscourse'] = 'This course';
+$string['coursesections'] = 'Course sections';
 
 $string['loadtime'] = 'Page loaded in';
 

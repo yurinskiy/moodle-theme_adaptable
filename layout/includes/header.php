@@ -670,10 +670,10 @@ if ($shownavbar) {
 
                     <?php
                     if (empty($PAGE->theme->settings->disablecustommenu)) {
-                            echo $OUTPUT->custom_menu();
+                        echo $OUTPUT->custom_menu();
                     }
                     if ($PAGE->theme->settings->enabletoolsmenus) {
-                            echo $OUTPUT->tools_menu();
+                        echo $OUTPUT->tools_menu();
                     }
                     ?>
                 </ul>

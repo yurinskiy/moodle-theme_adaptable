@@ -82,6 +82,13 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+$name = 'theme_adaptable/enablecoursesections';
+$title = get_string('coursesections', 'theme_adaptable');
+$description = get_string('enablecoursesectionsdesc', 'theme_adaptable');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$temp->add($setting);
+
 $name = 'theme_adaptable/enablezoom';
 $title = get_string('enablezoom', 'theme_adaptable');
 $description = get_string('enablezoomdesc', 'theme_adaptable');
