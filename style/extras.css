@@ -1229,7 +1229,7 @@ html[xmlns] .slides {
     display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 979px) {
     .zoomin #block-region-side-post {
         display: none;
         height: 0;
