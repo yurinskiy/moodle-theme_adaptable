@@ -93,15 +93,6 @@ $title = get_string('logintextboxbottom', 'theme_adaptable');
 $description = get_string('logintextboxbottomdesc', 'theme_adaptable');
 $default = '';
 $setting = new adaptable_setting_confightmleditor($name, $title, $description, $default);
-$temp->add($setting);
-
-// Remove moodle default text.
-$name = 'theme_adaptable/loginmoodletext';
-$title = get_string('loginmoodletext', 'theme_adaptable');
-$description = get_string('loginmoodletextdesc', 'theme_adaptable');
-$default = false;
-$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-$setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);*/
 
 $ADMIN->add('theme_adaptable', $temp);

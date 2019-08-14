@@ -1780,8 +1780,6 @@ $string['logintextboxtop'] = 'Top text box';
 $string['logintextboxtopdesc'] = 'Add a custom text above the login box.';
 $string['logintextboxbottom'] = 'Bottom text box';
 $string['logintextboxbottomdesc'] = 'Add a custom text below the login box.';
-$string['loginmoodletext'] = 'Show default moodle text';
-$string['loginmoodletextdesc'] = 'Show the default moodle text in the login page.';
 
 $string['stylecover'] = 'Cover';
 $string['stylestretch'] = 'Stretch';

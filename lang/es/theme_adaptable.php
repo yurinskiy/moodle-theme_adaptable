@@ -1771,8 +1771,6 @@ $string['logintextboxtop'] = 'Texto de la parte superior';
 $string['logintextboxtopdesc'] = 'Añade un texto personalizado en la parte superior del formulario de entrada.';
 $string['logintextboxbottom'] = 'Texto de la parte inferior';
 $string['logintextboxbottomdesc'] = 'Añade un texto personalizado en la parte inferior del formulario de entrada.';
-$string['loginmoodletext'] = 'Mostrar el testo por defecto de Moodle';
-$string['loginmoodletextdesc'] = 'Muestra el texto por defecto de Moodle en la página de entrada.';
 
 // User profile.
 $string['aboutme'] = 'Sobre mí';
