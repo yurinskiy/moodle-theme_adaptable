@@ -1544,7 +1544,7 @@ div.questionbankwindow.block {
     display: none;
 }
 
-@media(max-width: 979px) {
+@media(max-width: 991px) {
     #region-main {
         flex: 0 0 100%;
         max-width: 100%;

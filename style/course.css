@@ -72,7 +72,7 @@
 }
 
 /* Media breakpoints for courses list area */
-@media (min-width: 990px) {
+@media (min-width: 992px) {
     .frontpage-course-list-all {
         max-width: 960px;
     }
