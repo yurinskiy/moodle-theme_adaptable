@@ -1062,44 +1062,52 @@ input[type="radio"], input[type="checkbox"] {
     text-align: center;
 }
 
-/* course alerts */
+/* Alerts */
+.alert {
+    margin-bottom: 0;
+}
+
+/* Course alerts */
 .adaptable-alert-info {
-    color: [[setting:alertcolorinfo]];
     background-color: [[setting:alertbackgroundcolorinfo]];
     border-color: [[setting:alertbordercolorinfo]];
+    color: [[setting:alertcolorinfo]];
 }
-.adaptable-alert-info a, .adaptable-alert-info a:hover {
+
+.adaptable-alert-info a,
+.adaptable-alert-info a:hover {
     color: [[setting:alertcolorinfo]];
 }
 
 .adaptable-alert-success {
-    color: [[setting:alertcolorsuccess]];
     background-color: [[setting:alertbackgroundcolorsuccess]];
     border-color: [[setting:alertbordercolorsuccess]];
+    color: [[setting:alertcolorsuccess]];
 }
-.adaptable-alert-success a, .adaptable-alert-success a:hover {
+.adaptable-alert-success a,
+.adaptable-alert-success a:hover {
     color: [[setting:alertcolorsuccess]];
 }
 
 .adaptable-alert-warning {
-    color: [[setting:alertcolorwarning]];
     background-color: [[setting:alertbackgroundcolorwarning]];
     border-color: [[setting:alertbordercolorwarning]];
-    margin: 0;
     border-radius: 0;
+    color: [[setting:alertcolorwarning]];
 }
-.adaptable-alert-warning a, .adaptable-alert-warning a:hover {
+.adaptable-alert-warning a,
+.adaptable-alert-warning a:hover {
     color: [[setting:alertcolorwarning]];
 }
 
 /* admin errors */
 .adminerror {
-    margin-top: 50px;
     background-color: #f2dede;
     border-color: #ebcccc;
-    color: #a94442;
     border-radius: 0.25rem;
+    color: #a94442;
     margin-bottom: 1rem;
+    margin-top: 50px;
     padding: 0.75rem 1.25rem;
 }
 
