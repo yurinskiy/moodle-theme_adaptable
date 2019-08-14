@@ -282,11 +282,11 @@ class theme_adaptable_core_renderer extends core_renderer {
     /**
      * Returns the URL for the favicon.
      *
-     * @return string The favicon URL
+     * @return moodle_url The favicon Moodle URL.
      */
     public function favicon() {
         if (!empty($this->page->theme->settings->favicon)) {
-            return $this->page->theme->setting_file_url('favicon', 'favicon');
+            return new moodle_url($this->page->theme->setting_file_url('favicon', 'favicon'));
         }
         return parent::favicon();
     }
