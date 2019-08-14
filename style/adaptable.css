@@ -2505,3 +2505,12 @@ img.smallicon {
 #page-login-index .fullin.standard .container {
     width: 100% !important;
 }
+
+#page-login-index {
+    [[setting:loginbgimage]]
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    [[setting:loginbgstyle]]
+}
+
+[[setting:loginbgopacity]]

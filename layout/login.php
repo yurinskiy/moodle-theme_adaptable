@@ -20,6 +20,7 @@
  * @package    theme_adaptable
  * @copyright  2015-2016 Jeremy Hopkins (Coventry University)
  * @copyright  2015-2016 Fernando Acedo (3-bits.com)
+ * @copyright  2019 G J Barnard (http://moodle.org/user/profile.php?id=442195)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
@@ -30,14 +31,7 @@ defined('MOODLE_INTERNAL') || die;
 global $PAGE, $OUTPUT;
 require_once(dirname(__FILE__) . '/includes/header.php');
 
-$loginbg = "";
-
-if (!empty($PAGE->theme->settings->loginbgimage)) {
-    $loginbg = ' style="background-image: url('.$PAGE->theme->setting_file_url('loginbgimage', 'loginbgimage').');
-                         background-position: 0 0; background-repeat: no-repeat; background-size: cover;"';
-}
-
-echo '<div class="container outercont" '.$loginbg.'>';
+echo '<div class="container outercont">';
 echo $OUTPUT->page_navbar(false);
     ?>
     <div id="page-content" class="row">

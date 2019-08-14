@@ -55,7 +55,7 @@ function theme_adaptable_process_css($css, $theme) {
     }
     $css = theme_adaptable_set_customcss($css, $customcss);
 
-    // Define the default settings for the theme incase they've not been set.
+    // Define the default settings for the theme in case they've not been set.
     $defaults = array(
         '[[setting:linkcolor]]' => '#51666C',
         '[[setting:linkhover]]' => '#009688',
@@ -272,6 +272,35 @@ function theme_adaptable_process_css($css, $theme) {
         $homebkg = 'background-image: url("' . $homebkg . '");';
     }
     $defaults['[[setting:homebkg]]'] = $homebkg;
+
+    $loginbgimage = '';
+    if (!empty($theme->settings->loginbgimage)) {
+        $loginbgimage = $theme->setting_file_url('loginbgimage', 'loginbgimage');
+        $loginbgimage = 'background-image: url("' . $loginbgimage . '");';
+    }
+    $defaults['[[setting:loginbgimage]]'] = $loginbgimage;
+
+    $loginbgstyle = '';
+    if (!empty($theme->settings->loginbgstyle)) {
+        $replacementstyle = 'cover';
+        if ($theme->settings->loginbgstyle === 'stretch') {
+            $replacementstyle = '100% 100%';
+        }
+        $loginbgstyle = 'background-size: ' . $replacementstyle . ';';
+    }
+    $defaults['[[setting:loginbgstyle]]'] = $loginbgstyle;
+
+    $loginbgopacity = '';
+    if (!empty($theme->settings->loginbgopacity)) {
+            $loginbgopacity =
+            '#page-login-index header,'.PHP_EOL.
+            '#page-login-index #page-navbar,'.PHP_EOL.
+            '#page-login-index #page-content,'.PHP_EOL.
+            '#page-login-index #page-footer {';
+            $loginbgopacity .= 'opacity: '.$theme->settings->loginbgopacity.';'.PHP_EOL;
+            $loginbgopacity .= '}'.PHP_EOL;
+    }
+    $defaults['[[setting:loginbgopacity]]'] = $loginbgopacity;
 
     // Replace the CSS with values from the $defaults array.
     $css = strtr($css, $defaults);

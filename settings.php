@@ -57,7 +57,7 @@ if (is_siteadmin()) {
     include(dirname(__FILE__) . '/settings/frontpage_courses.php');
     include(dirname(__FILE__) . '/settings/footer.php');
     include(dirname(__FILE__) . '/settings/layout.php');
-    /* For use later on with new login page changes. include(dirname(__FILE__) . '/settings/login.php'); */
+    include(dirname(__FILE__) . '/settings/login.php');
     include(dirname(__FILE__) . '/settings/dash_block_regions.php');
     include(dirname(__FILE__) . '/settings/course_formats.php');
     include(dirname(__FILE__) . '/settings/mobile_settings.php');
