@@ -38,7 +38,6 @@ echo $OUTPUT->page_navbar(false);
         <section id="region-main" class="col-12">
             <?php
             echo $OUTPUT->main_content();
-            echo $OUTPUT->activity_navigation();
             ?>
         </section>
     </div>
