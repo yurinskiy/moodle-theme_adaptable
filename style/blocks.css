@@ -69,13 +69,13 @@
 }
 
 /* Block title */
-h5.card-title.d-inline {
-    padding: 0 0 10px;
-    text-transform: none;
-    font-size: [[setting:fontblockheadersize]] !important;
-    color: [[setting:fontblockheadercolor]] !important;
+.block .title h2 {
+    color: [[setting:fontblockheadercolor]];
+    font-size: [[setting:fontblockheadersize]];
     font-weight: [[setting:fontblockheaderweight]] !important;
+    padding: 0 0 10px;
     text-shadow: none;
+    text-transform: none;
 }
 
 .block .header .block_action {
