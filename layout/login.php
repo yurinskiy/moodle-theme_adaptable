@@ -42,7 +42,31 @@ echo '<div class="container outercont">';
     <div id="page-content" class="row">
         <section id="region-main" class="col-12">
             <?php
+            
+            $logintextboxtop = $OUTPUT->get_setting('logintextboxtop', 'format_html');
+            $logintextboxbottom = $OUTPUT->get_setting('logintextboxbottom', 'format_html');
+            $logintextstartwrapper = '';
+            $logintextendwrapper = '';
+            if ((!empty($logintextboxtop)) || (!empty($logintextboxbottom))) {
+                $logintextstartwrapper = '<div class="row justify-content-center"><div class="col-xl-6 col-sm-8 "><div class="card"><div class="card-block">';
+                $logintextendwrapper = '</div></div></div></div>';
+            }
+
+            if (!empty($logintextboxtop)) {
+                echo $logintextstartwrapper;
+                echo $logintextboxtop;
+                echo $logintextendwrapper;
+            }
+
             echo $OUTPUT->main_content();
+
+            if (!empty($logintextboxbottom)) {
+                echo '<div class="my-1 my-sm-5"></div>';
+                echo $logintextstartwrapper;
+                echo $logintextboxbottom;
+                echo $logintextendwrapper;
+            }
+
             ?>
         </section>
     </div>

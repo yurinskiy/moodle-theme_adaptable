@@ -102,7 +102,7 @@ $setting = new admin_setting_configselect($name, $title, $description, 1, $radch
 $temp->add($setting);
 
 // Top text.
-/*$name = 'theme_adaptable/logintextboxtop';
+$name = 'theme_adaptable/logintextboxtop';
 $title = get_string('logintextboxtop', 'theme_adaptable');
 $description = get_string('logintextboxtopdesc', 'theme_adaptable');
 $default = '';
@@ -115,6 +115,6 @@ $title = get_string('logintextboxbottom', 'theme_adaptable');
 $description = get_string('logintextboxbottomdesc', 'theme_adaptable');
 $default = '';
 $setting = new adaptable_setting_confightmleditor($name, $title, $description, $default);
-$temp->add($setting);*/
+$temp->add($setting);
 
 $ADMIN->add('theme_adaptable', $temp);
