@@ -17,11 +17,11 @@
 /**
  * Version details
  *
- * @package    theme_adaptable
- * @copyright  2015-2016 Jeremy Hopkins (Coventry University)
- * @copyright  2015-2016 Fernando Acedo (3-bits.com)
- * @copyright  2019 G J Barnard (http://moodle.org/user/profile.php?id=442195)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   theme_adaptable
+ * @copyright 2015-2016 Jeremy Hopkins (Coventry University)
+ * @copyright 2015-2016 Fernando Acedo (3-bits.com)
+ * @copyright 2019 G J Barnard (http://moodle.org/user/profile.php?id=442195)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
 
@@ -29,10 +29,15 @@ defined('MOODLE_INTERNAL') || die;
 
 // Include header.
 global $PAGE, $OUTPUT;
-require_once(dirname(__FILE__) . '/includes/header.php');
+
+if (!empty($PAGE->theme->settings->loginheader)) {
+    require_once(dirname(__FILE__) . '/includes/header.php');
+} else {
+    require_once(dirname(__FILE__) . '/includes/loginnoheader.php');
+}
 
 echo '<div class="container outercont">';
-echo $OUTPUT->page_navbar(false);
+    echo $OUTPUT->page_navbar(false);
     ?>
     <div id="page-content" class="row">
         <section id="region-main" class="col-12">
@@ -45,4 +50,6 @@ echo $OUTPUT->page_navbar(false);
 
 <?php
 // Include footer.
-require_once(dirname(__FILE__) . '/includes/footer.php');
+if (!empty($PAGE->theme->settings->loginfooter)) {
+    require_once(dirname(__FILE__) . '/includes/footer.php');
+}

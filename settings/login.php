@@ -79,6 +79,28 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+// Login page header.
+$name = 'theme_adaptable/loginheader';
+$title = get_string('loginheader', 'theme_adaptable');
+$description = get_string('loginheaderdesc', 'theme_adaptable');
+$radchoices = array(
+    0 => get_string('hide', 'theme_adaptable'),
+    1 => get_string('show', 'theme_adaptable'),
+);
+$setting = new admin_setting_configselect($name, $title, $description, 1, $radchoices);
+$temp->add($setting);
+
+// Login page footer.
+$name = 'theme_adaptable/loginfooter';
+$title = get_string('loginfooter', 'theme_adaptable');
+$description = get_string('loginfooterdesc', 'theme_adaptable');
+$radchoices = array(
+    0 => get_string('hide', 'theme_adaptable'),
+    1 => get_string('show', 'theme_adaptable'),
+);
+$setting = new admin_setting_configselect($name, $title, $description, 1, $radchoices);
+$temp->add($setting);
+
 // Top text.
 /*$name = 'theme_adaptable/logintextboxtop';
 $title = get_string('logintextboxtop', 'theme_adaptable');

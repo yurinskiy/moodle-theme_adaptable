@@ -1552,67 +1552,71 @@ EOT;
     /**
      * Renders the breadcrumb navbar.
      *
+     * @param boolean $addbutton Add the page heading button.
+     * return string Markup or empty string if 'nonavbar' for tge given page layout in the config.php file is true.
      */
     public function page_navbar($addbutton = false) {
         global $PAGE;
         $retval = '';
-        $hidebreadcrumbmobile = $PAGE->theme->settings->hidebreadcrumbmobile;
+        if (empty($PAGE->layout_options['nonavbar'])) { // Not disabled by 'nonavbar' in config.php.
+            $hidebreadcrumbmobile = $PAGE->theme->settings->hidebreadcrumbmobile;
 
-        // Remove breadcrumb in a quiz page.
-        if ($PAGE->pagetype != "mod-quiz-attempt") {
-            // If the device is a mobile and the breadcrumb is not hidden or it is a desktop then load and show the breadcrumb.
-            if (((theme_adaptable_is_mobile()) && $hidebreadcrumbmobile = 1) || theme_adaptable_is_desktop()) {
-                if (!isset($PAGE->theme->settings->enabletickermy)) {
-                    $PAGE->theme->settings->enabletickermy = 0;
-                }
+            // Remove breadcrumb in a quiz page.
+            if ($PAGE->pagetype != "mod-quiz-attempt") {
+                // If the device is a mobile and the breadcrumb is not hidden or it is a desktop then load and show the breadcrumb.
+                if (((theme_adaptable_is_mobile()) && $hidebreadcrumbmobile = 1) || theme_adaptable_is_desktop()) {
+                    if (!isset($PAGE->theme->settings->enabletickermy)) {
+                        $PAGE->theme->settings->enabletickermy = 0;
+                    }
 
-                // Do not show navbar on dashboard / my home if news ticker is rendering.
-                if (!($PAGE->theme->settings->enabletickermy && $PAGE->bodyid == "page-my-index")) {
-                    $retval = '<div class="row">';
-                    if (($PAGE->theme->settings->breadcrumbdisplay != 'breadcrumb')
-                    && (($PAGE->pagelayout == 'course')
-                    || ($PAGE->pagelayout == 'incourse'))) {
-                        global $COURSE;
-                        $retval .= '<div id="page-coursetitle" class="col-12">';
-                        switch ($PAGE->theme->settings->breadcrumbdisplay) {
-                            case 'fullname':
-                                // Full Course Name.
-                                $coursetitle = $COURSE->fullname;
-                            break;
-                            case 'shortname':
-                                // Short Course Name.
-                                $coursetitle = $COURSE->shortname;
-                            break;
-                        }
-
-                        $coursetitlemaxwidth = (!empty($PAGE->theme->settings->coursetitlemaxwidth)
-                                                ? $PAGE->theme->settings->coursetitlemaxwidth : 0);
-                        // Check max width of course title and trim if appropriate.
-                        if (($coursetitlemaxwidth > 0) && ($coursetitle <> '')) {
-                            if (strlen($coursetitle) > $coursetitlemaxwidth) {
-                                $coursetitle = core_text::substr($coursetitle, 0, $coursetitlemaxwidth) . " ...";
+                    // Do not show navbar on dashboard / my home if news ticker is rendering.
+                    if (!($PAGE->theme->settings->enabletickermy && $PAGE->bodyid == "page-my-index")) {
+                        $retval = '<div class="row">';
+                        if (($PAGE->theme->settings->breadcrumbdisplay != 'breadcrumb')
+                            && (($PAGE->pagelayout == 'course')
+                            || ($PAGE->pagelayout == 'incourse'))) {
+                            global $COURSE;
+                            $retval .= '<div id="page-coursetitle" class="col-12">';
+                            switch ($PAGE->theme->settings->breadcrumbdisplay) {
+                                case 'fullname':
+                                    // Full Course Name.
+                                    $coursetitle = $COURSE->fullname;
+                                break;
+                                case 'shortname':
+                                    // Short Course Name.
+                                    $coursetitle = $COURSE->shortname;
+                                break;
                             }
-                        }
 
-                        switch ($PAGE->theme->settings->breadcrumbdisplay) {
-                            case 'fullname':
-                            case 'shortname':
-                                // Full / Short Course Name.
-                                $courseurl = new moodle_url('/course/view.php', array('id' => $COURSE->id));
-                                $retval .= '<div id="coursetitle" class="p-2 bd-highlight"><h1><a href ="'
-                                            .$courseurl->out(true).'">'.format_string($coursetitle).'</a></h1></div>';
-                            break;
+                            $coursetitlemaxwidth = (!empty($PAGE->theme->settings->coursetitlemaxwidth)
+                                ? $PAGE->theme->settings->coursetitlemaxwidth : 0);
+                            // Check max width of course title and trim if appropriate.
+                            if (($coursetitlemaxwidth > 0) && ($coursetitle <> '')) {
+                                if (strlen($coursetitle) > $coursetitlemaxwidth) {
+                                    $coursetitle = core_text::substr($coursetitle, 0, $coursetitlemaxwidth) . " ...";
+                                }
+                            }
+
+                            switch ($PAGE->theme->settings->breadcrumbdisplay) {
+                                case 'fullname':
+                                case 'shortname':
+                                    // Full / Short Course Name.
+                                    $courseurl = new moodle_url('/course/view.php', array('id' => $COURSE->id));
+                                    $retval .= '<div id="coursetitle" class="p-2 bd-highlight"><h1><a href ="'
+                                        .$courseurl->out(true).'">'.format_string($coursetitle).'</a></h1></div>';
+                                break;
+                            }
+                            $retval .= '</div>';
+                        } else {
+                            $retval .= '<div id="page-navbar" class="col-12">';
+                            if ($addbutton) {
+                                $retval .= '<nav class="breadcrumb-button">' . $this->page_heading_button() . '</nav>';
+                            }
+                            $retval .= $this->navbar();
+                            $retval .= '</div>';
                         }
-                        $retval .= '</div>';
-                    } else {
-                        $retval .= '<div id="page-navbar" class="col-12">';
-                        if ($addbutton) {
-                            $retval .= '<nav class="breadcrumb-button">' . $this->page_heading_button() . '</nav>';
-                        }
-                        $retval .= $this->navbar();
                         $retval .= '</div>';
                     }
-                    $retval .= '</div>';
                 }
             }
         }

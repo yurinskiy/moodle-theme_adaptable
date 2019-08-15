@@ -255,7 +255,9 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:sidebarnotlogged]]' => 'true',
         '[[setting:gdprbutton]]' => 1,
         '[[setting:infoiconcolor]]' => '#5bc0de',
-        '[[setting:dangericoncolor]]' => '#d9534f'
+        '[[setting:dangericoncolor]]' => '#d9534f',
+        '[[setting:loginheader]]' => 1,
+        '[[setting:loginfooter]]' => 1
     );
 
     // Get all the defined settings for the theme and replace defaults.

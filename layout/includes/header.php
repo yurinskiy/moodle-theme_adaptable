@@ -178,12 +178,6 @@ switch ($PAGE->theme->settings->fontname) {
 // Get the HTML for the settings bits.
 $html = theme_adaptable_get_html_for_settings($OUTPUT, $PAGE);
 
-if (right_to_left()) {
-    $regionbsid = 'region-bs-main-and-post';
-} else {
-    $regionbsid = 'region-bs-main-and-pre';
-}
-
 // Social icons class.
 $showicons = "";
 $showicons = $PAGE->theme->settings->blockicons;
