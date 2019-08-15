@@ -37,18 +37,12 @@ $regions = theme_adaptable_grid($left, $hassidepost);
 $hasfootnote = (!empty($PAGE->theme->settings->footnote));
 $dashblocksposition = $PAGE->theme->settings->dashblocksposition;
 
-if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition == 'abovecontent') ) { ?>
-    <div id="frontblockregion">
-        <div class="row">
-            <?php echo $OUTPUT->get_block_regions('dashblocklayoutlayoutrow'); ?>
-        </div>
-    </div>
-<?php
+$dashblocklayoutlayoutrow = '';
+if (!empty($PAGE->theme->settings->dashblocksenabled)) {
+    $dashblocklayoutlayoutrow = '<div id="frontblockregion" class="row">';
+    $dashblocklayoutlayoutrow .= $OUTPUT->get_block_regions('dashblocklayoutlayoutrow');
+    $dashblocklayoutlayoutrow .= '</div>';
 }
-?>
-
-
-<?php
 
 $sidebarclasses = '';
 // Hide sidebar on mobile.
@@ -57,6 +51,10 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
 } ?>
 
 <div class="container outercont">
+    <?php
+    if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && (empty($PAGE->theme->settings->tabbedlayoutdashboard)) && ($dashblocksposition == 'abovecontent') ) {
+        echo $dashblocklayoutlayoutrow;
+    } ?>
     <div id="page-content" class="row<?php echo $regions['direction'];?>">
         <?php
         if (!empty($PAGE->theme->settings->tabbedlayoutdashboard)) {
@@ -99,7 +97,7 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
 
             $taborder = explode ('-', $PAGE->theme->settings->tabbedlayoutdashboard);
             $count = 0;
-            echo '<section id="region-main" class="' . $regions['content']  . '">';
+            echo '<section id="region-main" class="' . $regions['content'] . '">';
 
             echo '<main id="dashboardtabcontainer" class="tabcontentcontainer">';
 
@@ -128,9 +126,16 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
                 if ($tabnumber == 0) {
                     echo '<section id="adaptable-dashboard-tab-content" class="adaptable-tab-section tab-panel">';
 
+                    if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition == 'abovecontent') ) {
+                        echo $dashblocklayoutlayoutrow;
+                    }
                     echo $OUTPUT->course_content_header();
                     echo $OUTPUT->main_content();
                     echo $OUTPUT->course_content_footer();
+                    if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition == 'belowcontent') ) {
+                        echo $dashblocklayoutlayoutrow;
+                    }
+
                     echo '</section>';
                 } else {
                     if ($showtabs[$tabnumber] == true) {
@@ -165,13 +170,9 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
 
 </div>
 
-<?php if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && ($dashblocksposition == 'belowcontent') ) { ?>
-    <div id="frontblockregion">
-        <div class="row">
-            <?php echo $OUTPUT->get_block_regions('dashblocklayoutlayoutrow'); ?>
-        </div>
-    </div>
 <?php
+if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && (empty($PAGE->theme->settings->tabbedlayoutdashboard)) && ($dashblocksposition == 'belowcontent') ) {
+    echo $dashblocklayoutlayoutrow;
 }
 ?>
 
