@@ -341,6 +341,8 @@ $string['layoutcheckdesc'] = 'Use the tool below to check the number of blocks y
 $string['layoutcount1'] = 'You can set a maximum of ';
 $string['layoutcount2'] = ' block regions. You are currently using: ';
 
+$string['sidebaricon'] = 'Show / hide the sidebar';
+$string['zoominicon'] = 'Show / hide the blocks';
 
 // Marketing Blocks & Info Box *************************************.
 $string['marketingsettings'] = 'Marketing Blocks';
@@ -1103,8 +1105,6 @@ $string['displayloginbutton'] = 'Button';
 $string['displayloginbox'] = 'Login Box';
 $string['displayloginno'] = 'No Login Box';
 
-$string['hideblocks'] = 'Hide blocks';
-$string['showblocks'] = 'Show blocks';
 $string['fullscreen'] = 'Full screen';
 $string['standardview'] = 'Standard view';
 $string['sitelinkslabel'] = 'Site links';

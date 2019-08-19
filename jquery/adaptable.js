@@ -148,14 +148,4 @@ jQuery(document).ready(function($) {
             M.util.set_user_preference('theme_adaptable_full', 'fullin');
         }
     });
-
-    $('.moodlezoom').click(function() {
-        if ($('body').hasClass('zoomin') ) {
-            $('body').removeClass('zoomin');
-            M.util.set_user_preference('theme_adaptable_zoom', 'nozoom');
-        } else {
-            $('body').addClass('zoomin');
-            M.util.set_user_preference('theme_adaptable_zoom', 'zoomin');
-        }
-    });
 });

@@ -3076,8 +3076,29 @@ EOT;
         if ((!empty($output)) && ($region == 'side-post')) {
             $output .= html_writer::tag('div',
                 html_writer::tag('i', '', array('class' => 'fa fa-3x fa-angle-left', 'aria-hidden' => 'true')),
-                array('id' => 'showsidebaricon'));
+                array('id' => 'showsidebaricon', 'title' => get_string('sidebaricon', 'theme_adaptable')));
             $this->page->requires->js_call_amd('theme_adaptable/showsidebar', 'init');
+            if (!empty($this->page->theme->settings->enableshowhideblocks)) {
+                $zoomside = ((!empty($this->page->theme->settings->blockside)) && ($this->page->theme->settings->blockside == 1)) ? 'left' : 'right';
+                $getzoom = theme_adaptable_get_zoom();
+                if ((!empty($this->page->theme->settings->blockside)) && ($this->page->theme->settings->blockside == 1)) { // Left.
+                    if ($getzoom == 'zoomin') { // Blocks not shown.
+                        $icondirection = 'right';
+                    } else {
+                        $icondirection = 'left';
+                    }
+                } else { // Default to right.
+                    if ($getzoom == 'zoomin') { // Blocks not shown.
+                        $icondirection = 'left';
+                    } else {
+                        $icondirection = 'right';
+                    }
+                }
+                $output .= html_writer::tag('div',
+                    html_writer::tag('i', '', array('class' => 'fa fa-3x fa-angle-'.$icondirection, 'aria-hidden' => 'true')),
+                    array('id' => 'zoominicon', 'class' => $zoomside, 'title' => get_string('zoominicon', 'theme_adaptable')));
+                $this->page->requires->js_call_amd('theme_adaptable/zoomin', 'init');
+            }
         }
 
         return $output;

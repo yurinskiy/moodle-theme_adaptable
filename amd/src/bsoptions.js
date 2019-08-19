@@ -76,7 +76,12 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                 var showsidebaricon = $("#showsidebaricon");
                 if (showsidebaricon.length) {
                     // Using 'css' and not 'offset' function as latter seems unreliable on mobiles as changes the value!
-                    showsidebaricon.css({ top: ($(window).height() / 2)+'px'}); 
+                    showsidebaricon.css({ top: ($(window).height() / 2) + 'px'}); 
+                }
+
+                var zoominicon = $("#zoominicon");
+                if (zoominicon.length) {
+                    zoominicon.css({ top: (($(window).height() - $("#page-content").position().top) / 2) + 'px'}); 
                 }
 
                 // If you want these classes to toggle when a desktop user shrinks the browser width to an xs width - or from xs to larger.
@@ -107,7 +112,10 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                         }
                     }
                     if (showsidebaricon.length) {
-                        showsidebaricon.css({ top: ($(window).height() / 2)+'px'});
+                        showsidebaricon.css({ top: ($(window).height() / 2) + 'px'});
+                    }
+                    if (zoominicon.length) {
+                        zoominicon.css({ top: (($(window).height() - $("#page-content").position().top) / 2) + 'px'});
                     }
                 });
 

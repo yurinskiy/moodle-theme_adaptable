@@ -740,24 +740,6 @@ if ($shownavbar) {
 
                     <?php
                     if (isloggedin()) {
-                        if ($PAGE->theme->settings->enableshowhideblocks) { ?>
-                           <li class="nav-item mr-1 hbl">
-                               <a href="javascript:void(0);" class="nav-link moodlezoom"
-                                   title="<?php echo get_string('hideblocks', 'theme_adaptable') ?>">
-                                   <i class="fa fa-indent fa-lg"></i>
-                                   <span class="zoomdesc"><?php echo get_string('hideblocks', 'theme_adaptable') ?></span>
-                               </a>
-                           </li>
-                           <li class="nav-item mr-1 sbl">
-                               <a href="javascript:void(0);" class="nav-link moodlezoom"
-                                   title="<?php echo get_string('showblocks', 'theme_adaptable') ?>">
-                                   <i class="fa fa-outdent fa-lg"></i>
-                                   <span class="zoomdesc"><?php echo get_string('showblocks', 'theme_adaptable') ?></span>
-                               </a>
-                           </li>
-                    <?php
-                        }
-
                         if ($PAGE->theme->settings->enablezoom) { ?>
                             <li class="nav-item mx-0 hbll">
                                 <a class="nav-link moodlewidth" href="javascript:void(0);"

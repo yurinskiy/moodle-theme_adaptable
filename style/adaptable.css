@@ -160,6 +160,7 @@ select {
 /* main headings */
 #page-content {
     padding: 12px 0 20px;
+    position: relative;
     width: auto;
 }
 
@@ -1536,8 +1537,30 @@ div.questionbankwindow.block {
     transition: all .5s ease-in-out;
 }
 
-#block-region-side-post {
+#block-region-side-post,
+#zoominicon {
     transition: all .5s ease-in-out;
+}
+
+#zoominicon {
+    position: absolute;
+    top: 200px;
+}
+
+#zoominicon.right {
+    right: 25%; /* col-3 width */
+}
+
+.zoomin #zoominicon.right {
+    right: 0;
+}
+
+#zoominicon.left {
+    left: 25%; /* col-3 width */
+}
+
+.zoomin #zoominicon.left {
+    left: 0;
 }
 
 #showsidebaricon {
@@ -1558,6 +1581,9 @@ div.questionbankwindow.block {
         min-width: 90%;
         right: -90%;
         transition: right 0.75s;
+    }
+    #zoominicon {
+        display: none;
     }
     .header-style1 #block-region-side-post {
         height: calc(100% - 44px);
@@ -1604,19 +1630,18 @@ div.questionbankwindow.block {
     width: 100% !important;
 }
 
-.moodlewidth,
-.moodlezoom {
-  padding-right: 2px !important;
-  padding-left: 2px !important;
+.moodlewidth {
+    padding-right: 2px !important;
+    padding-left: 2px !important;
 }
 
 #edittingbutton {
-  padding-right: 10px;
+    padding-right: 10px;
 }
 
 .collapsibleregioncaption {
-  text-decoration: underline;
-  cursor: pointer;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .overview .name a {

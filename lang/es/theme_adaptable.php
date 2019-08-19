@@ -1101,8 +1101,6 @@ $string['displayloginbutton'] = 'Botón';
 $string['displayloginbox'] = 'Formulario de entrada';
 $string['displayloginno'] = 'Sin formulario de entrada';
 
-$string['hideblocks'] = 'Ocultar bloques';
-$string['showblocks'] = 'Mostrar bloques';
 $string['fullscreen'] = 'Pantalla completa';
 $string['standardview'] = 'Vista estándar';
 $string['sitelinkslabel'] = 'Enlaces';
