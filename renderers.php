@@ -286,7 +286,7 @@ class theme_adaptable_core_renderer extends core_renderer {
      */
     public function favicon() {
         if (!empty($this->page->theme->settings->favicon)) {
-            return new moodle_url($this->page->theme->setting_file_url('favicon', 'favicon'));
+            return \theme_adaptable\toolbox::get_setting_moodle_url('favicon', $this->page->theme);
         }
         return parent::favicon();
     }

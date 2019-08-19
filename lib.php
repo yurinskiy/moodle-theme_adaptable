@@ -464,6 +464,8 @@ function theme_adaptable_pluginfile($course, $cm, $context, $filearea, $args, $f
     if ($context->contextlevel == CONTEXT_SYSTEM) {
         if ($filearea === 'logo') {
             return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
+        } else if ($filearea === 'favicon') {
+            return $theme->setting_file_serve('favicon', $args, $forcedownload, $options);
         } else if ($filearea === 'style') {
             theme_essential_serve_css($args[1]);
         } else if ($filearea === 'homebk') {
