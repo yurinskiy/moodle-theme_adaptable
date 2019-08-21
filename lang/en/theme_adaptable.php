@@ -1517,6 +1517,8 @@ $string['socialsize'] = 'Set the font size of the social icons';
 $string['socialsizedesc'] = 'For a better view, the size needs to be 5px greater than the desired actual size.';
 $string['socialsizemobile'] = 'Set the font size of the social icons on Mobile';
 $string['socialsizemobiledesc'] = 'For a better view, the size needs to be 5px greater than the desired actual size.';
+$string['socialpaddingside'] = 'Adjust padding for the side of the social icon';
+$string['socialpaddingsidedesc'] = 'This will be space between the icon and another element or the gap between two icons.  i.e. the padding on the icon will be this value divided by two.  Default value follows Instagram branding guidelines.';
 $string['socialpaddingtop'] = 'Adjust padding above social icons (alters vertical position)';
 $string['socialpaddingtopdesc'] = 'This will be the minimum of 15px (set using the margin) plus this value.';
 

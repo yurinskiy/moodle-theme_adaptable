@@ -46,6 +46,13 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    $name = 'theme_adaptable/socialpaddingside';
+    $title = get_string('socialpaddingside', 'theme_adaptable');
+    $description = get_string('socialpaddingsidedesc', 'theme_adaptable');
+    $setting = new admin_setting_configselect($name, $title, $description, 16, $from10to30pxnovalueunit);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
     $name = 'theme_adaptable/socialpaddingtop';
     $title = get_string('socialpaddingtop', 'theme_adaptable');
     $description = get_string('socialpaddingtopdesc', 'theme_adaptable');

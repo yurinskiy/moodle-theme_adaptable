@@ -184,6 +184,7 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:socialsizemobile]]' => '34px',
         '[[setting:mobile]]' => '22',
         '[[setting:hideslidermobile]]' => '1',
+        '[[setting:socialpaddingside]]' => 16,
         '[[setting:socialpaddingtop]]' => '0%',
         '[[setting:fontname]]' => 'Open Sans',
         '[[setting:fontsize]]' => '95%',
@@ -302,6 +303,13 @@ function theme_adaptable_process_css($css, $theme) {
             $loginbgopacity .= '}'.PHP_EOL;
     }
     $defaults['[[setting:loginbgopacity]]'] = $loginbgopacity;
+
+    $socialpaddingsidehalf = '16';
+    if (!empty($theme->settings->socialpaddingside)) {
+        $socialpaddingsidehalf = ''.$theme->settings->socialpaddingside / 2;
+    }
+    $defaults['[[setting:socialpaddingsidehalf]]'] = $socialpaddingsidehalf;
+    
 
     // Replace the CSS with values from the $defaults array.
     $css = strtr($css, $defaults);

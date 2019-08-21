@@ -855,6 +855,11 @@ for ($i = 10; $i < 31; $i++) {
     $from10to30px[$i . 'px'] = $i . 'px';
 }
 
+$from10to30pxnovalueunit = array();
+for ($i = 10; $i < 31; $i++) {
+    $from10to30pxnovalueunit[$i] = $i . 'px';
+}
+
 $from0to30px = array();
 for ($i = 0; $i < 31; $i++) {
     $from0to30px[$i . 'px'] = $i . 'px';
