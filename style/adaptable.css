@@ -1152,7 +1152,6 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 @media (min-width: 576px) {
-    #adaptable-page-header-wrapper #header2 .search-input-wrapper.expandable,
     #adaptable-page-header-wrapper #header2 .search-input-wrapper.expandable > form {
         margin: 0;
     }
