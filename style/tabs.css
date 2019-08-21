@@ -26,9 +26,9 @@
 
 
 .tabcontentcontainer input.adaptabletab:checked + label {
-    background-color: [[setting:linkcolor]];
-    border-color: [[setting:linkcolor]];
-    color: #fff;
+    background-color: [[setting:headerbkcolor]];
+    border-color: [[setting:headerbkcolor]];
+    color: [[setting:headertextcolor]];
 }
 
 .tabcontentcontainer label.adaptabletab {
@@ -46,7 +46,7 @@
 /* Tab panel content. */
 #adaptable_profile_tree .adaptable-tab.tab-panel {
     border: 1px solid rgba(0,0,0,.125); /* Same colour as profile card border. */
-    border-top: 4px solid [[setting:linkcolor]];
+    border-top: 4px solid [[setting:headerbkcolor]];
 }
 
 /* Remove borders on cards in the tabs. */
@@ -65,7 +65,7 @@
 /* Give active tabs brand colour background. */
 .onetopic .nav-tabs .nav-link.active,
 .onetopic .nav-tabs .nav-item.show .nav-link {
-    background-color: [[setting:linkcolor]];
-    color: white;
+    background-color: [[setting:headerbkcolor]];
+    color: [[setting:headertextcolor]];
     border-color: transparent;
 }
