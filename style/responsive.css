@@ -503,6 +503,13 @@ Default Bootstrap 4 Media Queries
         padding: 2px 4px;
     }
 
+    #adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav > li:first-child a {
+        margin-left: -4px;
+    }
+
+    #adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav > li:last-child a {
+        margin-right: -4px;
+    }
 }
 
 /*=====================================================
