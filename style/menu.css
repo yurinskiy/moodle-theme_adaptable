@@ -26,18 +26,18 @@
 
 /* Navwrap */
 #adaptable-page-header-wrapper #main-navbar {
-    clear: both;
-    border-bottom: 3px solid [[setting:menubordercolor]];
     background-color: [[setting:menubkcolor]];
+    border-bottom: 3px solid [[setting:menubordercolor]];
+    clear: both;
     z-index: 100;
 }
 
 #adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav > li:first-child a {
-    padding-left: 0;
+    margin-left: -[[setting:menufontpadding]];
 }
 
 #adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav > li:last-child a {
-    padding-right: 0;
+    margin-right: -[[setting:menufontpadding]];
 }
 
 /* Remove caret from main navbar menu. */
