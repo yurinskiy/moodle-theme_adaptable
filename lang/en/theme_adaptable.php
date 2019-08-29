@@ -1067,7 +1067,7 @@ $string['menusettings'] = 'Header Menus';
 $string['menusettingsheading'] = 'Customize menus in the upper header the header of this theme.';
 
 $string['logo'] = 'Logo';
-$string['logodesc'] = 'Upload a logo for use on your site. Recommended size is 200px x 80px';
+$string['logodesc'] = 'Upload a logo for use on your site.  Recommended size is 200px by 80px.';
 
 $string['favicon'] = 'Favicon';
 $string['favicondesc'] = 'Upload a favicon for use on your site,';
@@ -1808,3 +1808,28 @@ $string['enabletabbedprofile'] = 'Enable tabbed profile';
 $string['enabletabbedprofiledesc'] = 'Enable the tabbed profile functionality.';
 $string['usernodescription'] = 'User has not updated their description yet.';
 $string['usernointerests'] = 'User has not updated their interests yet.';
+
+// Category headers settings.
+$string['categoryheaderssettings'] = 'Category headers';
+$string['categoryheaderssettingsdesc'] = 'Set settings for the headers within a category.';
+$string['categoryheaderssettingsheading'] = 'Change the header for one or more top level categories and below.';
+
+$string['categoryhavecustomheader'] = 'Category custom header';
+$string['categoryhavecustomheaderdesc'] = 'Select the top level categories that will have a custom header.  Save and refesh the page to update  Note: Sub-categories of the selected will inherit the setting values.';
+$string['categoryheaderheader'] = 'Settings for the top level category \'{$a->name}\' with id \'{$a->id}\'.';
+$string['categoryheaderheaderdesc'] = 'Set the settings for the top level category \'{$a->name}\' with id \'{$a->id}\'.';
+$string['categoryheaderheaderdescchildren'] = 'Set the settings for the top level category \'{$a->name}\' with id \'{$a->id}\' and its children \'{$a->children}\'.';
+$string['categoryheaderbgimage'] = 'Category \'{$a->name}\' with id \'{$a->id}\' background image';
+$string['categoryheaderbgimagedesc'] = 'Set a background image for the top level category \'{$a->name}\' with id \'{$a->id}\' in the header.  Minimum size is 1600x180px (1900x180px recommended).  The image will cover the full header.';
+$string['categoryheaderbgimagedescchildren'] = 'Set a background image for the top level category \'{$a->name}\' with id \'{$a->id}\' and its children \'{$a->children}\' in the header.  Minimum size is 1600x180px (1900x180px recommended).  The image will cover the full header.';
+$string['categoryheaderlogo'] = 'Category \'{$a->name}\' with id \'{$a->id}\' logo';
+$string['categoryheaderlogodesc'] = 'Set a logo for the top level category \'{$a->name}\' with id \'{$a->id}\' in the header.  Recommended size is 200px by 80px.';
+$string['categoryheaderlogodescchildren'] = 'Set a logo for the top level category \'{$a->name}\' with id \'{$a->id}\' and its children \'{$a->children}\' in the header.  Recommended size is 200px by 80px.';
+$string['categoryheadercustomtitle'] = 'Category \'{$a->name}\' with id \'{$a->id}\' custom title';
+$string['categoryheadercustomtitledesc'] = 'Set the custom title for the top level category \'{$a->name}\' with id \'{$a->id}\' in the header.  If blank then you will be presented with what has been configured by the \'sitetitle\' and \'sitetitletext\' settings on non-course pages or on course pages when \'enableheading\' is \'off\'.  When populated on non-course category linked pages then this will replace the site title.  When populated on course pages then will appear above the title as established by the \'enableheading\' setting.  But on mobiles any \'title\' will only appear depending on the \'hidecoursetitlemobile\' setting.';
+$string['categoryheadercustomtitledescchildren'] = 'Set the custom title for the top level category \'{$a->name}\' with id \'{$a->id}\' and its children \'{$a->children}\' in the header.  If blank then you will be presented with what has been configured by the \'sitetitle\' and \'sitetitletext\' settings on non-course pages or on course pages when \'enableheading\' is \'off\'.  When populated on non-course category linked pages then this will replace the site title.  When populated on course pages then will appear above the title as established by the \'enableheading\' setting.  But on mobiles any \'title\' will only appear depending on the \'hidecoursetitlemobile\' setting.';
+$string['categoryheadercustomcss'] = 'Category \'{$a->name}\' with id \'{$a->id}\' custom CSS';
+$string['categoryheadercustomcssdesc'] = 'Set custom CSS for the top level category \'{$a->name}\' with id \'{$a->id}\'.  This will generate CSS for the theme selector prefixed with \'.category-{$a->id}\'.  If the CSS does not appear to be applied, then check the PHP log file.';
+$string['categoryheadercustomcssdescchildren'] = 'Set custom CSS for the top level category \'{$a->name}\' with id \'{$a->id}\' and its children \'{$a->children}\'.  This will generate CSS for the theme selector prefixed with \'.category-{$a->id}\' and for all child ids.  If the CSS does not appear to be applied, then check the PHP log file.';
+$string['invalidcategorycss'] = 'Invalid category custom CSS for category \'{$a->topcatname}\' with id \'{$a->topcatid}\': \'{$a->css}\'.';
+$string['invalidcategorygeneratedcss'] = 'Invalid category custom generated CSS: \'{$a->css}\'.';
