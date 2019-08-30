@@ -383,3 +383,8 @@ div.discussionsubscription {
 .fp-upload-btn {
     margin-top: 1rem;
 }
+
+/* Message button margin (applies to all the elements) */
+#page-user-profile .node_category li, .path-user .node_category li {
+    margin-top: 15px;
+}
