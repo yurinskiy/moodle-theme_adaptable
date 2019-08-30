@@ -60,7 +60,7 @@
     border-width: [[setting:blockheaderbordertop]] [[setting:blockheaderborderright]] [[setting:blockheaderborderbottom]] [[setting:blockheaderborderleft]];
     border-color: [[setting:blockbordercolor]];
     border-style: [[setting:blockheaderbordertopstyle]];
-    padding: 5px 5px 0px 5px;
+    padding: 5px;
     border-radius: [[setting:blockheadertopradius]] [[setting:blockheadertopradius]] [[setting:blockheaderbottomradius]] [[setting:blockheaderbottomradius]];
 }
 
@@ -79,7 +79,7 @@
     color: [[setting:fontblockheadercolor]];
     font-size: [[setting:fontblockheadersize]];
     font-weight: [[setting:fontblockheaderweight]] !important;
-/*    padding: 0 0 10px;*/
+    margin-bottom: 0;
     text-shadow: none;
     text-transform: none;
 }
