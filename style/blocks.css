@@ -409,7 +409,7 @@ body.has_dock div#dock {
 }
 
 /* Add or hide block icons */
-.showblockicons h5:before {
+.showblockicons h2:before {
     font-family: "FontAwesome" !important;
     font-weight: 900 !important;
     font-size: [[setting:blockiconsheadersize]];
@@ -425,6 +425,7 @@ body.has_dock div#dock {
 .showblockicons .block h2:before {
     font-family: "FontAwesome";
     margin-right: 5px;
+    content: "\f0c9";
 }
 
 .showblockicons .block_news_items h2:before {
