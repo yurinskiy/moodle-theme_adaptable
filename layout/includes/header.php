@@ -354,7 +354,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                             echo '</li>';
                         }
 
-                        if (!isloggedin() || isguestuser()) {
+                        if ((!isloggedin() || isguestuser()) && ($PAGE->pagetype != "login-index")) {
                             echo $OUTPUT->page_heading_menu();
 
                             if ($PAGE->theme->settings->displaylogin == 'box') {
