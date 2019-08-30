@@ -1543,7 +1543,11 @@ div.questionbankwindow.block {
 
 #zoominicon {
     position: absolute;
-    top: 200px;
+    background-color: #bfbfbf;
+    padding: 20px 2px;
+    cursor: pointer;
+    color: #ffffff;
+    border-radius: 0px 100% 100% 0px;
 }
 
 #zoominicon.right {
@@ -1561,6 +1565,7 @@ div.questionbankwindow.block {
 .zoomin #zoominicon.left {
     left: 0;
 }
+
 
 #showsidebaricon {
     display: none;
