@@ -528,8 +528,9 @@ body.has_dock div#dock {
     content: "\f09e";
 }
 
-.showblockicons .block_search_forums h2:before {
-    content: "\f075";
+.showblockicons .block_search_forums h2:before,
+.showblockicons .block_globalsearch h2:before {
+    content: "\f002";
 }
 
 .showblockicons .block_myprofile h2:before {
@@ -567,6 +568,14 @@ body.has_dock div#dock {
 
 .showblockicons .block_timeline h2:before {
     content: "\f062";
+}
+
+.showblockicons .block_starredcourses h2:before {
+    content: "\f005";
+}
+
+.showblockicons .block_lp h2:before {
+    content: "\f277";
 }
 
 /* Overriden from Boost. */
