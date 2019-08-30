@@ -70,7 +70,8 @@ td.submit input,
 div.discussionsubscription > a.discussiontoggle,
 .btn-outline-secondary,
 .paging-morelink a,
-.btn-link {
+.btn-link,
+a#adaptable-message-user-button {
     font-family: [[setting:fontname]];
     background-image: none;
     background-color: [[setting:buttoncolor]];
@@ -127,7 +128,8 @@ a.submit:hover,
 .nav-pills > .active > a:hover, .nav-pills > .active > a:focus,
 .btn-outline-secondary:hover,
 .btn-link:hover,
-div.discussionsubscription > a.discussiontoggle:hover {
+div.discussionsubscription > a.discussiontoggle:hover,
+a#adaptable-message-user-button:hover {
     background: none;
     background-position: 0 -100%;
     background-color: [[setting:buttonhovercolor]] !important;
