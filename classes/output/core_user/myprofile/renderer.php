@@ -122,10 +122,6 @@ class renderer extends \core_user\output\myprofile\renderer {
             $contactcategory->add_node($node);
         }
 
-        if (!empty($oldcontactcategory->nodes['editprofile'])) {
-            $contactcategory->add_node($oldcontactcategory->nodes['editprofile']);
-        }
-
         if (!empty($this->user->userdetails['email'])) {
             $node = new node('contact', 'email', '', null, null,
                 $this->user->userdetails['email']);
