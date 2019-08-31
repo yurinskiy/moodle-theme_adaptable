@@ -1014,6 +1014,10 @@ input[type="radio"], input[type="checkbox"] {
     border: none;
 }
 
+#region-main
+.pagelayout-mydashboard #region-main {
+    padding: 0 5px; /* Override Boost. */
+}
 
 /* lang menu */
 .langmenu a {
@@ -1173,6 +1177,12 @@ input[type="radio"], input[type="checkbox"] {
 
     #adaptable-page-header-wrapper #header2 .search-input-wrapper.expandable > div .icon {
         margin-top: 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .search-input-wrapper.expanded {
+        width: 32px;
     }
 }
 
@@ -2540,6 +2550,10 @@ img.smallicon {
     background-position: 0 0;
     background-repeat: no-repeat;
     [[setting:loginbgstyle]]
+}
+
+.progressbar_container {
+    max-width: none;
 }
 
 [[setting:loginbgopacity]]
