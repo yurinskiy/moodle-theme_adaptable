@@ -1552,12 +1552,12 @@ div.questionbankwindow.block {
 }
 
 #zoominicon {
-    position: absolute;
     background-color: #bfbfbf;
-    padding: 20px 2px;
-    cursor: pointer;
+    border-radius: 0 50px 50px 0;
     color: #ffffff;
-    border-radius: 0px 100% 100% 0px;
+    cursor: pointer;
+    padding: 5px;
+    position: absolute;
 }
 
 #zoominicon.right {
