@@ -51,7 +51,10 @@ theme_adaptable_initialise_full($PAGE);
 $setfull = theme_adaptable_get_full();
 
 // Navbar.
-if (isset($PAGE->theme->settings->stickynavbar) && $PAGE->theme->settings->stickynavbar == 1
+if (theme_adaptable_is_mobile()) {
+    // Position: fixed; does not work correctly on mobiles.
+    $fixedheader = false;
+} else if (isset($PAGE->theme->settings->stickynavbar) && $PAGE->theme->settings->stickynavbar == 1
     && $PAGE->pagetype != "grade-report-grader-index" && $PAGE->bodyid != "page-grade-report-grader-index") {
     $fixedheader = true;
 } else {

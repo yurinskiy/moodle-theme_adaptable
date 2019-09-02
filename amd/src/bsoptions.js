@@ -60,17 +60,37 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                 }
 
                 var screenmd = 992;
-                var isFixed = 0;
-                /* Ok, here's an odd one... desktops need to use the 'inner' variables and mobiles the 'outer' to be accurate!
-                   But... I've (GB) found that the jQuery height and width functions adapt and report close to correct values
-                   regardless of device, so use them instead without complicated device detection here! */
-                if ($(window).width() <= screenmd) {
-                    $("#adaptable-page-header-wrapper").addClass("fixed-top");
-                    $("body").addClass("page-header-margin");
-                    isFixed = 1;
-                } else {
-                    $("#adaptable-page-header-wrapper").removeClass("fixed-top");
-                    $("body").removeClass("page-header-margin")
+                if (hasaffix) {
+                    var isFixed = 0;
+                    /* Ok, here's an odd one... desktops need to use the 'inner' variables and mobiles the 'outer' to be accurate!
+                    But... I've (GB) found that the jQuery height and width functions adapt and report close to correct values
+                    regardless of device, so use them instead without complicated device detection here!
+                    Update: postion:fixed does not work on mobiles at the moment so won't be for such, left comment for future info. */
+                    if ($(window).width() <= screenmd) {
+                        $("#adaptable-page-header-wrapper").addClass("fixed-top");
+                        $("body").addClass("page-header-margin");
+                        isFixed = 1;
+                    } else {
+                        $("#adaptable-page-header-wrapper").removeClass("fixed-top");
+                        $("body").removeClass("page-header-margin")
+                    }
+
+                    // If you want these classes to toggle when a desktop user shrinks the browser width to an xs width - or from xs to larger.
+                    $(window).resize(function() {
+                        if ($(window).width() <= screenmd) {
+                            if (isFixed == 0) {
+                                $("#adaptable-page-header-wrapper").addClass("fixed-top");
+                                $("body").addClass("page-header-margin");
+                                isFixed = 1;
+                            }
+                        } else {
+                            if (isFixed == 1) {
+                                $("#adaptable-page-header-wrapper").removeClass("fixed-top");
+                                $("body").removeClass("page-header-margin");
+                                isFixed = 0;
+                            }
+                        }
+                    });
                 }
 
                 var showsidebaricon = $("#showsidebaricon");
@@ -84,31 +104,17 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                     zoominicon.css({ top: (($(window).height() - $("#page-content").position().top) / 2) + 'px'}); 
                 }
 
-                // If you want these classes to toggle when a desktop user shrinks the browser width to an xs width - or from xs to larger.
                 $(window).resize(function() {
-                    if ($(window).width() <= screenmd) {
-                        if (isFixed == 0) {
-                            $("#adaptable-page-header-wrapper").addClass("fixed-top");
-                            $("body").addClass("page-header-margin");
-                            isFixed = 1;
-                        }
-                    } else {
-                        if (isFixed == 1) {
-                            $("#adaptable-page-header-wrapper").removeClass("fixed-top");
-                            $("body").removeClass("page-header-margin");
-
-                            var navDrawer = $("#nav-drawer");
-                            if (navDrawer.length) {
-                                if (!navDrawer.hasClass("closed")) {
-                                    navDrawer.addClass("closed");
-                                    navDrawer.attr("aria-hidden", "true");
-                                    $("#drawer").attr("aria-expanded", "false");
-                                    var side = $('#drawer').attr('data-side');
-                                    $("body").removeClass("drawer-open-" + side);
-                                }
+                    if ($(window).width() > screenmd) {
+                        var navDrawer = $("#nav-drawer");
+                        if (navDrawer.length) {
+                            if (!navDrawer.hasClass("closed")) {
+                                navDrawer.addClass("closed");
+                                navDrawer.attr("aria-hidden", "true");
+                                $("#drawer").attr("aria-expanded", "false");
+                                var side = $('#drawer').attr('data-side');
+                                $("body").removeClass("drawer-open-" + side);
                             }
-
-                            isFixed = 0;
                         }
                     }
                     if (showsidebaricon.length) {
@@ -128,7 +134,7 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
 
                 // Bootstrap sub-menu functionality.
                 // See: https://bootstrapthemes.co/demo/resource/bootstrap-4-multi-dropdown-hover-navbar/.
-                //
+
                 $( '.dropdown-menu a.dropdown-toggle' ).on( 'click', function ( e ) {
                     var $el = $( this );
                     var $parent = $( this ).offsetParent( ".dropdown-menu" );
