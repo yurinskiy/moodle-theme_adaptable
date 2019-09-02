@@ -50,19 +50,26 @@ $setzoom = theme_adaptable_get_zoom();
 theme_adaptable_initialise_full($PAGE);
 $setfull = theme_adaptable_get_full();
 
+$bsoptionsdata = array('data' => array());
 // Navbar.
 if (theme_adaptable_is_mobile()) {
-    // Position: fixed; does not work correctly on mobiles.
-    $fixedheader = false;
-} else if (isset($PAGE->theme->settings->stickynavbar) && $PAGE->theme->settings->stickynavbar == 1
+    // CSS 'position: fixed' does not work correctly on mobiles.
+    $bsoptionsdata['data']['fixedtop'] = false;
+} else {
+    $bsoptionsdata['data']['fixedtop'] = true;
+}
+
+// Main navbar.
+if (isset($PAGE->theme->settings->stickynavbar) && $PAGE->theme->settings->stickynavbar == 1
     && $PAGE->pagetype != "grade-report-grader-index" && $PAGE->bodyid != "page-grade-report-grader-index") {
     $fixedheader = true;
+    $bsoptionsdata['data']['stickynavbar'] = true;
 } else {
-    $fixedheader = false;
+    $bsoptionsdata['data']['stickynavbar'] = false;
 }
 
 // JS calls.
-$PAGE->requires->js_call_amd('theme_adaptable/bsoptions', 'init', array($fixedheader));
+$PAGE->requires->js_call_amd('theme_adaptable/bsoptions', 'init', $bsoptionsdata);
 $PAGE->requires->js_call_amd('theme_adaptable/drawer', 'init');
 
 // Layout.

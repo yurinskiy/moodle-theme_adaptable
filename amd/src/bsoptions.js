@@ -5,13 +5,13 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
     log.debug('Adaptable Bootstrap AMD opt in functions');
 
     return {
-        init: function(hasaffix) {
+        init: function(data) {
             $(document).ready(function($) {
 
                 // Get the navbar, if present.
                 var navbar = document.getElementById("main-navbar");
 
-                if (hasaffix && navbar != null) {
+                if (data.stickynavbar && navbar != null) {
 
                     // New way to handle sticky navbar requirement.
                     // Simply taken from https://www.w3schools.com/howto/howto_js_navbar_sticky.asp.
@@ -60,7 +60,7 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                 }
 
                 var screenmd = 992;
-                if (hasaffix) {
+                if (data.fixedtop) {
                     var isFixed = 0;
                     /* Ok, here's an odd one... desktops need to use the 'inner' variables and mobiles the 'outer' to be accurate!
                     But... I've (GB) found that the jQuery height and width functions adapt and report close to correct values
@@ -162,7 +162,7 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
             // Conditional javascript to resolve anchor link clicking issue with sticky navbar.
             // in old bootstrap version. Re: issue #919.
             // Original issue / solution discussion here: https://github.com/twbs/bootstrap/issues/1768.
-            if (hasaffix) {
+            if (data.stickynavbar) {
                 var shiftWindow = function() { scrollBy(0, -50) };
                 if (location.hash) {
                     shiftWindow();
