@@ -109,11 +109,23 @@ jQuery(document).ready(function($) {
 
     var offset = 50;
     var duration = 500;
+    var bttOn;
+    if (jQuery(this).scrollTop() > offset) {
+        bttOn = false;
+    } else {
+        bttOn = true;
+    }
     var scrollCheck = function() {
         if (jQuery(this).scrollTop() > offset) {
-            jQuery('#back-to-top').fadeIn(duration);
+            if (bttOn == false) {
+                jQuery('#back-to-top').fadeIn(duration);
+                bttOn = true;
+            }
         } else {
-            jQuery('#back-to-top').fadeOut(duration);
+            if (bttOn == true) {
+                jQuery('#back-to-top').fadeOut(duration);
+                bttOn = false;
+            }
         }
     };
     scrollCheck();
