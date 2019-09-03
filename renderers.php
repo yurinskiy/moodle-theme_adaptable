@@ -2891,7 +2891,7 @@ EOT;
 
             $url = '#';
 
-            $content = '<li class="nav-item dropdown">';
+            $content = '<li class="nav-item dropdown my-auto">';
             $content .= html_writer::start_tag('a', array('href' => $url,
                     'class' => 'nav-link dropdown-toggle my-auto', 'role' => 'button',
                     'id' => $menuid . $submenucount,

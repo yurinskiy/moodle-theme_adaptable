@@ -345,7 +345,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                             $classes = 'd-none';
                         }
                         ?>
-                        <li class="nav-item <?php echo $classes; ?> mx-1 my-auto">
+                        <li class="nav-item <?php echo $classes; ?> mx-md-1 my-auto">
                             <a class="nav-link" href="<?php p($wwwroot) ?>/course/search.php">
                                 <i class="icon fa fa-search fa-fw " title="Search" aria-label="Search"></i>
                             </a>
@@ -355,7 +355,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
 
                         // Remove Messages and Notifications icons in Quiz pages even if they don't use SEB.
                         if ($PAGE->pagetype != "mod-quiz-attempt") {
-                            echo '<div class="my-auto mx-1">' . $OUTPUT->navbar_plugin_output() . '</div>';
+                            echo '<div class="my-auto mx-md-1">' . $OUTPUT->navbar_plugin_output() . '</div>';
                         }
 
                         if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
@@ -383,7 +383,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         <?php
                             } else if ($PAGE->theme->settings->displaylogin == 'button') {
                         ?>
-                            <form id="pre-login-form" class="form-inline my-2 my-lg-0"
+                            <form id="pre-login-form" class="form-inline my-0 my-lg-1"
                                 action="<?php p($wwwroot) ?>/login/index.php" method="post">
                             <input type="hidden" name="logintoken"
                                 value="<?php echo s(\core\session\manager::get_login_token()); ?>"/>
