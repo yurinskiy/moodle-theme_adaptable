@@ -91,6 +91,29 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                             }
                         }
                     });
+
+                    var offset = 50;
+                    var page = $('#page');
+                    var pageheader = $('#page-header');
+                    var pageHeaderShown = function() {
+                        if ($(window).scrollTop() > offset) {
+                            if (pageheader.length) {
+                                pageheader.hide();
+                                page.removeClass('pageheadershown');
+                            }
+                            Y.Global.fire('moodle-gradereport_grader:resized');
+                        } else {
+                            if (pageheader.length) {
+                                pageheader.show();
+                                page.addClass('pageheadershown');
+                            }
+                            Y.Global.fire('moodle-gradereport_grader:resized');
+                        }
+                    };
+                    pageHeaderShown();
+                    $(window).scroll(function() {
+                        pageHeaderShown();
+                    });
                 }
 
                 var showsidebaricon = $("#showsidebaricon");

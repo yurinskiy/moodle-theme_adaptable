@@ -109,28 +109,16 @@ jQuery(document).ready(function($) {
 
     var offset = 50;
     var duration = 500;
-    var page = jQuery('#page');
-    var pageheader = jQuery('#page-header');
-    jQuery(window).scroll(function() {
+    var scrollCheck = function() {
         if (jQuery(this).scrollTop() > offset) {
             jQuery('#back-to-top').fadeIn(duration);
-            if($('header').css("position") == "fixed") {
-                if (pageheader.length) {
-                    pageheader.hide();
-                    page.removeClass('pageheadershown');
-                }
-                Y.Global.fire('moodle-gradereport_grader:resized');
-            }
         } else {
             jQuery('#back-to-top').fadeOut(duration);
-            if($('header').css("position") == "fixed") {
-                if (pageheader.length) {
-                    pageheader.show();
-                    page.addClass('pageheadershown');
-                }
-                Y.Global.fire('moodle-gradereport_grader:resized');
-            }
         }
+    };
+    scrollCheck();
+    jQuery(window).scroll(function () {
+        scrollCheck();
     });
 
     jQuery('#back-to-top').click(function(event) {
