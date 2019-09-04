@@ -118,13 +118,13 @@ jQuery(document).ready(function($) {
     var scrollCheck = function() {
         if (jQuery(this).scrollTop() > offset) {
             if (bttOn == false) {
-                jQuery('#back-to-top').fadeIn(duration);
                 bttOn = true;
+                jQuery('#back-to-top').fadeIn(duration);
             }
         } else {
             if (bttOn == true) {
-                jQuery('#back-to-top').fadeOut(duration);
                 bttOn = false;
+                jQuery('#back-to-top').fadeOut(duration);
             }
         }
     };
@@ -138,14 +138,4 @@ jQuery(document).ready(function($) {
         jQuery('html, body').animate({scrollTop: 0}, duration);
         return false;
     })
-
-    $('.moodlewidth').click(function() {
-        if ($('#page').hasClass('fullin') ) {
-            $('#page').removeClass('fullin');
-            M.util.set_user_preference('theme_adaptable_full', 'nofull');
-        } else {
-            $('#page').addClass('fullin');
-            M.util.set_user_preference('theme_adaptable_full', 'fullin');
-        }
-    });
 });

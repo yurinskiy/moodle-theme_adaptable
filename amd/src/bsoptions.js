@@ -123,9 +123,17 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                 }
 
                 var zoominicon = $("#zoominicon");
-                if (zoominicon.length) {
-                    zoominicon.css({ top: (($(window).height() - $("#page-content").position().top) / 2) + 'px'}); 
-                }
+                var pc = $("#page-content");
+                var pcp = pc.position();
+                var zoominiconPos = function() {
+                    if (zoominicon.length) {
+                        zoominicon.css({ top: ($(window).scrollTop() + ($(window).height() / 2) - pcp.top) + 'px'});
+                    }
+                };
+                zoominiconPos();
+                $(window).scroll(function() {
+                    zoominiconPos();
+                });
 
                 $(window).resize(function() {
                     if ($(window).width() > screenmd) {
@@ -143,9 +151,18 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                     if (showsidebaricon.length) {
                         showsidebaricon.css({ top: ($(window).height() / 2) + 'px'});
                     }
-                    if (zoominicon.length) {
-                        zoominicon.css({ top: (($(window).height() - $("#page-content").position().top) / 2) + 'px'});
+                    zoominiconPos();
+                });
+
+                $('.moodlewidth').click(function() {
+                    if ($('#page').hasClass('fullin') ) {
+                        $('#page').removeClass('fullin');
+                        M.util.set_user_preference('theme_adaptable_full', 'nofull');
+                    } else {
+                        $('#page').addClass('fullin');
+                        M.util.set_user_preference('theme_adaptable_full', 'fullin');
                     }
+                    zoominiconPos();
                 });
 
                 $('#openoverlaymenu').click(function() {

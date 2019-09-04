@@ -1552,7 +1552,7 @@ div.questionbankwindow.block {
 
 #zoominicon {
     background-color: #bfbfbf;
-    border-radius: 50px 0 0 50px;
+    border-radius: 0 50px 50px 0;
     color: #ffffff;
     cursor: pointer;
     padding: 5px;
@@ -1560,6 +1560,7 @@ div.questionbankwindow.block {
 }
 
 #zoominicon.right {
+    border-radius: 50px 0 0 50px;
     right: 25%; /* col-3 width */
 }
 
