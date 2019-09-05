@@ -1985,7 +1985,7 @@ EOT;
                     // Display Participants.
                     if ($PAGE->theme->settings->displayparticipants) {
                         $branchtitle = get_string('people', 'theme_adaptable');
-                        $branchlabel = '<i class="fa fa-users fa-lg"></i>'.$branchtitle;
+                        $branchlabel = '<i class="icon fa fa-users fa-lg"></i>'.$branchtitle;
                         $branchurl = new moodle_url('/user/index.php', array('id' => $PAGE->course->id));
                         $branch->add($branchlabel, $branchurl, '', 100004);
                     }
@@ -2101,7 +2101,7 @@ EOT;
         
         if (!empty($sectionsformnenu)) { // Rare but possible!
             $branchtitle = get_string('coursesections', 'theme_adaptable');
-            $branchlabel = '<i class="fa fa-list-ol fa-lg"></i>'.$branchtitle;
+            $branchlabel = '<i class="icon fa fa-list-ol fa-lg"></i>'.$branchtitle;
             $branch = $menu->add($branchlabel, null, '', 100003);
 
             foreach ($sectionsformnenu as $sectionformenu) {
