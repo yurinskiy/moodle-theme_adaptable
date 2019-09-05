@@ -16,6 +16,7 @@ define(['jquery', 'core/log'], function($, log) {
                 });
 
                 $("#adminsubmitbutton").click(function() {
+                    window.onbeforeunload = null;
                     $("#adminsettings").submit();
                 });
                 $("#adminresetbutton").click(function() {
