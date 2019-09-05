@@ -229,21 +229,6 @@ class theme_adaptable_core_renderer extends core_renderer {
     }
 
     /**
-     * Internal implementation of user image rendering.
-     *
-     * @param user_picture $userpicture
-     * @return string
-     */
-    protected function render_user_picture(\user_picture $userpicture) {
-        if ($this->page->pagetype == 'mod-forum-discuss' ||
-                $this->page->pagetype == 'course-view-socialwall' ||
-                $this->page->pagetype == 'site-index') {
-                    $userpicture->size = 1;
-        }
-                return parent::render_user_picture($userpicture);
-    }
-
-    /**
      * Return list of the user's courses
      *
      * @return array list of courses
