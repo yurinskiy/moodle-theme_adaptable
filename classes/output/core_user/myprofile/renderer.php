@@ -43,24 +43,29 @@ require_once($CFG->dirroot.'/user/lib.php');
 class renderer extends \core_user\output\myprofile\renderer {
     private $user = null;
     private $course = null;
+    private $enabletabbedprofile = true;
 
     function __construct(\moodle_page $page, $target) {
-        /* We need the user id!
-           From user/profile.php - technically by the time we are instantiated then the user id will have been validated. */
-        global $CFG, $DB, $USER;
-        $userid = optional_param('id', 0, PARAM_INT);
-        $userid = $userid ? $userid : $USER->id;
-        $this->user = \core_user::get_user($userid);
+        $this->enabletabbedprofile = get_config('theme_adaptable', 'enabletabbedprofile');
 
-        $courseid = optional_param('course', SITEID, PARAM_INT); // Course id (defaults to Site).
-        $this->course = $DB->get_record('course', array('id' => $courseid), '*', MUST_EXIST);
+        if ($this->enabletabbedprofile) {
+            /* We need the user id!
+            From user/profile.php - technically by the time we are instantiated then the user id will have been validated. */
+            global $CFG, $DB, $USER;
+            $userid = optional_param('id', 0, PARAM_INT);
+            $userid = $userid ? $userid : $USER->id;
+            $this->user = \core_user::get_user($userid);
 
-        /* Using this as the function copes with hidden fields and capabilities.  For example:
-         * If the you're allowed to see the description.
-         *
-         * This way because the DB user record from get_user can contain the description that
-         * the function user_get_user_details can exclude! */
-        $this->user->userdetails = user_get_user_details($this->user, $this->course);
+            $courseid = optional_param('course', SITEID, PARAM_INT); // Course id (defaults to Site).
+            $this->course = $DB->get_record('course', array('id' => $courseid), '*', MUST_EXIST);
+
+            /* Using this as the function copes with hidden fields and capabilities.  For example:
+             * If the you're allowed to see the description.
+             *
+             * This way because the DB user record from get_user can contain the description that
+             * the function user_get_user_details can exclude! */
+            $this->user->userdetails = user_get_user_details($this->user, $this->course);
+        }
 
         parent::__construct($page, $target);
     }
@@ -73,6 +78,10 @@ class renderer extends \core_user\output\myprofile\renderer {
      * @return string
      */
     public function render_tree(tree $tree) {
+        if (!$this->enabletabbedprofile) {
+            return parent::render_tree($tree);
+        }
+
         $categories = array();
         foreach ($tree->categories as $category) {
             $categories[$category->name] = $category;
@@ -239,6 +248,10 @@ class renderer extends \core_user\output\myprofile\renderer {
      * @return string
      */
     public function render_category(category $category) {
+        if (!$this->enabletabbedprofile) {
+            return parent::render_category($category);
+        }
+
         $nodes = $category->nodes;
         if (empty($nodes)) {
             // No nodes, nothing to render.
@@ -272,6 +285,9 @@ class renderer extends \core_user\output\myprofile\renderer {
      * @return string
      */
     public function render_node(node $node) {
+        if (!$this->enabletabbedprofile) {
+            return parent::render_node($node);
+        }
         $return = '';
         if (is_object($node->url)) {
             $header = \html_writer::link($node->url, $node->title);

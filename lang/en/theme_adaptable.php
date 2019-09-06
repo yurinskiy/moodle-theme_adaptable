@@ -1797,12 +1797,14 @@ $string['courses'] = 'Courses';
 $string['more'] = 'More';
 
 // User & user profile settings.
-$string['usersettings'] = 'User';
-$string['usersettingsdesc'] = 'Set settings for the user.';
-$string['usersettingsheading'] = 'Control aspects of the user';
+$string['usersettings'] = 'User Profile';
+$string['usersettingsdesc'] = 'Set settings for the user profile.';
+$string['usersettingsheading'] = 'Control aspects of the user profile';
 $string['customcoursetitle'] = 'Custom course title';
 $string['customcoursetitledesc'] = 'Name of the user profile custom field for the course title.';
 $string['customcoursesubtitle'] = 'Custom course title';
 $string['customcoursesubtitledesc'] = 'Name of the user profile custom field for the course title.';
+$string['enabletabbedprofile'] = 'Enable tabbed profile';
+$string['enabletabbedprofiledesc'] = 'Enable the tabbed profile functionality.';
 $string['usernodescription'] = 'User has not updated their description yet.';
 $string['usernointerests'] = 'User has not updated their interests yet.';

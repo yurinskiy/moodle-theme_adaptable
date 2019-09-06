@@ -44,4 +44,12 @@ $description = get_string('customcoursesubtitledesc', 'theme_adaptable');
 $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_TEXT);
 $temp->add($setting);
 
+// Enable or disable tabbed profile.
+$name = 'theme_adaptable/enabletabbedprofile';
+$title = get_string('enabletabbedprofile', 'theme_adaptable');
+$description = get_string('enabletabbedprofiledesc', 'theme_adaptable');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$temp->add($setting);
+
 $ADMIN->add('theme_adaptable', $temp);
