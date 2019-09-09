@@ -22,21 +22,21 @@ define(['jquery', 'core/log'], function($, log) {
                         if (body.hasClass('zoomin') ) { // Blocks not shown.
                             body.removeClass('zoomin');
                             if (zoomLeft) {
-                                zoomInIcon.removeClass('fa-angle-right');
-                                zoomInIcon.addClass('fa-angle-left');
+                                zoomInIcon.removeClass('fa-indent');
+                                zoomInIcon.addClass('fa-outdent');
                             } else {
-                                zoomInIcon.removeClass('fa-angle-left');
-                                zoomInIcon.addClass('fa-angle-right');
+                                zoomInIcon.removeClass('fa-outdent');
+                                zoomInIcon.addClass('fa-indent');
                             }
                             M.util.set_user_preference('theme_adaptable_zoom', 'nozoom');
                         } else {
                             body.addClass('zoomin');
                             if (zoomLeft) {
-                                zoomInIcon.removeClass('fa-angle-left');
-                                zoomInIcon.addClass('fa-angle-right');
+                                zoomInIcon.removeClass('fa-outdent');
+                                zoomInIcon.addClass('fa-indent');
                             } else {
-                                zoomInIcon.removeClass('fa-angle-right');
-                                zoomInIcon.addClass('fa-angle-left');
+                                zoomInIcon.removeClass('fa-indent');
+                                zoomInIcon.addClass('fa-outdent');
                             }
                             M.util.set_user_preference('theme_adaptable_zoom', 'zoomin');
                         }

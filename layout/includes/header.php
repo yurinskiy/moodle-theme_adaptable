@@ -750,6 +750,28 @@ if ($shownavbar) {
 
                     <?php
                     if (isloggedin()) {
+                        if (!empty($this->page->theme->settings->enableshowhideblocks)) {
+                            $zoomside = ((!empty($this->page->theme->settings->blockside)) && ($this->page->theme->settings->blockside == 1)) ? 'left' : 'right';
+                            if (theme_adaptable_get_zoom() == 'zoomin') { // Blocks not shown.
+                                if ($zoomside == 'right') {
+                                    $icontype = 'outdent';
+                                } else {
+                                    $icontype = 'indent';
+                                }
+                            } else {
+                                if ($zoomside == 'right') {
+                                    $icontype = 'indent';
+                                } else {
+                                    $icontype = 'outdent';
+                                }
+                            }
+                            echo html_writer::start_tag('li', array('class' => 'nav-item mr-1'));
+                            echo html_writer::tag('div',
+                                html_writer::tag('i', '', array('class' => 'fa fa-2x fa-'.$icontype, 'aria-hidden' => 'true')),
+                                    array('id' => 'zoominicon', 'class' => $zoomside, 'title' => get_string('zoominicon', 'theme_adaptable')));
+                            echo html_writer::end_tag('li');
+                            $PAGE->requires->js_call_amd('theme_adaptable/zoomin', 'init');
+                        }
                         if ($PAGE->theme->settings->enablezoom) { ?>
                             <li class="nav-item mx-0 hbll">
                                 <a class="nav-link moodlewidth" href="javascript:void(0);"

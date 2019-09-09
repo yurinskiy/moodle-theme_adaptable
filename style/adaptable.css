@@ -1545,37 +1545,13 @@ div.questionbankwindow.block {
     transition: all .5s ease-in-out;
 }
 
-#block-region-side-post,
-#zoominicon {
+#block-region-side-post {
     transition: all .5s ease-in-out;
 }
 
 #zoominicon {
-    background-color: #bfbfbf;
-    border-radius: 0 50px 50px 0;
-    color: #ffffff;
-    cursor: pointer;
-    padding: 5px;
-    position: absolute;
+    margin-top: 10px;
 }
-
-#zoominicon.right {
-    border-radius: 50px 0 0 50px;
-    right: 25%; /* col-3 width */
-}
-
-.zoomin #zoominicon.right {
-    right: 0;
-}
-
-#zoominicon.left {
-    left: 25%; /* col-3 width */
-}
-
-.zoomin #zoominicon.left {
-    left: 0;
-}
-
 
 #showsidebaricon {
     display: none;
@@ -1595,9 +1571,6 @@ div.questionbankwindow.block {
         min-width: 90%;
         right: -90%;
         transition: right 0.75s;
-    }
-    #zoominicon {
-        display: none;
     }
     .header-style1 #block-region-side-post {
         height: calc(100% - 44px);
