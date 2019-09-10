@@ -46,9 +46,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugins = array(
-    'flexslider' => array('files' => array('jquery-flexslider-min.js')),
+    'adaptable' => array('files' => array('adaptable_v2_1_1.js')),
     'easing' => array('files' => array('jquery-easing-min.js')),
-    'ticker' => array('files' => array('tickerme.js')),
-    'adaptable' => array('files' => array('adaptable.js')),
-    'pace' => array('files' => array('pace-min.js'))
+    'flexslider' => array('files' => array('jquery-flexslider-min.js')),
+    'pace' => array('files' => array('pace-min.js')),
+    'ticker' => array('files' => array('tickerme.js'))
 );

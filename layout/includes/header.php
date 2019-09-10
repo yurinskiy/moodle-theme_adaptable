@@ -69,6 +69,7 @@ if (isset($PAGE->theme->settings->stickynavbar) && $PAGE->theme->settings->stick
 }
 
 // JS calls.
+$PAGE->requires->js_call_amd('theme_adaptable/adaptable', 'init');
 $PAGE->requires->js_call_amd('theme_adaptable/bsoptions', 'init', $bsoptionsdata);
 $PAGE->requires->js_call_amd('theme_adaptable/drawer', 'init');
 

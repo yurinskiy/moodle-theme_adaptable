@@ -25,37 +25,12 @@
 // @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 
 jQuery(document).ready(function($) {
-    // Dismiss Alerts
-    //
-    // Bootstrap will close the alert because it spots the data-dismiss="alert" attribute
-    // Here we also handle the alert close event. We have added two custom tags data-alertindex
-    // and data-alertkey. e.g Alert1  has alertindex1. The alertkey value identifies the
-    // alert content, since Alert1 (2 and 3) will be reused. We use a YUI function to set
-    // the user preference for the key to the last dismissed key for the alertindex.
-    // alertkey undismissable is a special case for "loginas" alert which shouldn't really
-    // be permanently dismissed.
-    // Justin 2015/12/05
-
-   $('.close').click(function(){
-      var alertindex = $(this).data('alertindex');
-      var alertkey = $(this).data('alertkey');
-      if(alertkey!='undismissable' && alertkey != 'undefined' && alertkey){
-         M.util.set_user_preference('theme_adaptable_alertkey' + alertindex, alertkey);
-      }
-    });
-
     // Ticker
     $('#ticker').tickerme();
     //new for every three
     if($('header').css("position") == "fixed") {
         $('.outercont').css('padding-top', $('header').height());
     }
-
-    // Breadcrumb
-    $(".breadcrumb li:not(:last-child) span").not('.separator').addClass('');
-    $(".breadcrumb li a" );
-    $(".breadcrumb li:last-child").addClass("lastli");
-
 
     // Slider
     $('#main-slider').flexslider({
@@ -105,37 +80,5 @@ jQuery(document).ready(function($) {
     $(".container.slidewrap").on('transitionend', function() {
         var slider1 = $('#main-slider').data('flexslider');
         slider1.resize();
-    })
-
-    var offset = 50;
-    var duration = 500;
-    var bttOn;
-    if (jQuery(this).scrollTop() > offset) {
-        bttOn = false;
-    } else {
-        bttOn = true;
-    }
-    var scrollCheck = function() {
-        if (jQuery(this).scrollTop() > offset) {
-            if (bttOn == false) {
-                bttOn = true;
-                jQuery('#back-to-top').fadeIn(duration);
-            }
-        } else {
-            if (bttOn == true) {
-                bttOn = false;
-                jQuery('#back-to-top').fadeOut(duration);
-            }
-        }
-    };
-    scrollCheck();
-    jQuery(window).scroll(function () {
-        scrollCheck();
-    });
-
-    jQuery('#back-to-top').click(function(event) {
-        event.preventDefault();
-        jQuery('html, body').animate({scrollTop: 0}, duration);
-        return false;
     })
 });
