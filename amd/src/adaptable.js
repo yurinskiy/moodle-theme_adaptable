@@ -57,7 +57,6 @@ define(['jquery', 'core/log'], function($ , log) {
 
                 // Breadcrumb
                 $(".breadcrumb li:not(:last-child) span").not('.separator').addClass('');
-                $(".breadcrumb li a" );
                 $(".breadcrumb li:last-child").addClass("lastli");
 
                 var offset = 50;
