@@ -59,15 +59,6 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $temp->add($setting);
 
-    // Enable front page login form in header.
-    $name = 'theme_adaptable/frontpagelogin';
-    $title = get_string('frontpagelogin', 'theme_adaptable');
-    $description = get_string('frontpagelogindesc', 'theme_adaptable');
-    $default = true;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
     // Select type of login.
     $name = 'theme_adaptable/displaylogin';
     $title = get_string('displaylogin', 'theme_adaptable');

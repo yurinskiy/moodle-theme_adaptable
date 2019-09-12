@@ -1094,11 +1094,8 @@ $string['sitetitlecustom'] = 'Use custom site title (enter in text box below)';
 $string['sitetitletext'] = 'Site title';
 $string['sitetitletextdesc'] = 'Site title displayed in the header. You can use any HTML tag and apply inline styles. It is recommended to use an h1 HTML tag around the title, instead of the p tag that gets added as default when you type something in this field.';
 
-$string['frontpagelogin'] = 'Front Page Login';
-$string['frontpagelogindesc'] = 'Enable login form in header (will show button if turned off)';
-
 $string['displaylogin'] = 'Display login';
-$string['displaylogindesc'] = 'Select how to display the login in the screen (when enabled above).';
+$string['displaylogindesc'] = 'Select how to display the login box in header.';
 
 $string['displayloginbutton'] = 'Button';
 $string['displayloginbox'] = 'Login Box';

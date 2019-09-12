@@ -1091,9 +1091,6 @@ $string['sitetitlecustom'] = 'Mostrar nombre del sitio personalizado (introducir
 $string['sitetitletext'] = 'Nombre del sitio';
 $string['sitetitletextdesc'] = 'El nombre del sitio que se mostrará en la cabecera.';
 
-$string['frontpagelogin'] = 'Formulario de entrada en la cabecera';
-$string['frontpagelogindesc'] = 'Mostrar el formulario de entrada en la parte superior de la cabecera. En caso contrario, se mostrará solo el botón.';
-
 $string['displaylogin'] = 'Mostrar la entrada de usuario';
 $string['displaylogindesc'] = 'Selecciona el método de entrada del usuario (cuando esté activado)';
 
