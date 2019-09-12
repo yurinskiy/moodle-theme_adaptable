@@ -492,6 +492,7 @@ Default Bootstrap 4 Media Queries
 ======================================================= */
 
 @media (max-width: 1199px) {
+    .showhideblocksdesc,
     .zoomdesc {
         display: none;
     }

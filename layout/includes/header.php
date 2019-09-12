@@ -753,13 +753,17 @@ if ($shownavbar) {
                     if (isloggedin()) {
                         if (!empty($this->page->theme->settings->enableshowhideblocks)) {
                             $zoomside = ((!empty($this->page->theme->settings->blockside)) && ($this->page->theme->settings->blockside == 1)) ? 'left' : 'right';
+                            $hidetitle = get_string('hideblocks', 'theme_adaptable');
+                            $showtitle = get_string('showblocks', 'theme_adaptable');
                             if (theme_adaptable_get_zoom() == 'zoomin') { // Blocks not shown.
+                                $zoominicontitle = $showtitle;
                                 if ($zoomside == 'right') {
                                     $icontype = 'outdent';
                                 } else {
                                     $icontype = 'indent';
                                 }
                             } else {
+                                $zoominicontitle = $hidetitle;
                                 if ($zoomside == 'right') {
                                     $icontype = 'indent';
                                 } else {
@@ -769,7 +773,11 @@ if ($shownavbar) {
                             echo html_writer::start_tag('li', array('class' => 'nav-item mr-1'));
                             echo html_writer::tag('div',
                                 html_writer::tag('i', '', array('class' => 'fa fa-2x fa-'.$icontype, 'aria-hidden' => 'true')),
-                                    array('id' => 'zoominicon', 'class' => $zoomside, 'title' => get_string('zoominicon', 'theme_adaptable')));
+                                    array('id' => 'zoominicon', 'class' => $zoomside, 'title' => $zoominicontitle,
+                                        'data-hidetitle' => $hidetitle, 'data-showtitle' => $showtitle));
+                            if ($PAGE->theme->settings->enableshowhideblockstext) {
+                                echo html_writer::tag('span', $zoominicontitle, array('class' => 'showhideblocksdesc'));
+                            }
                             echo html_writer::end_tag('li');
                             $PAGE->requires->js_call_amd('theme_adaptable/zoomin', 'init');
                         }

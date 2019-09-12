@@ -342,7 +342,6 @@ $string['layoutcount1'] = 'You can set a maximum of ';
 $string['layoutcount2'] = ' block regions. You are currently using: ';
 
 $string['sidebaricon'] = 'Show / hide the sidebar';
-$string['zoominicon'] = 'Show / hide the blocks';
 
 // Marketing Blocks & Info Box *************************************.
 $string['marketingsettings'] = 'Marketing Blocks';
@@ -1105,6 +1104,8 @@ $string['displayloginbutton'] = 'Button';
 $string['displayloginbox'] = 'Login Box';
 $string['displayloginno'] = 'No Login Box';
 
+$string['hideblocks'] = 'Hide blocks';
+$string['showblocks'] = 'Show blocks';
 $string['fullscreen'] = 'Full screen';
 $string['standardview'] = 'Standard view';
 $string['sitelinkslabel'] = 'Site links';
@@ -1119,6 +1120,8 @@ $string['enablezoomshowtextdesc'] = 'Shows the text beside the button.';
 
 $string['enableshowhideblocks'] = 'Enable Show Hide Blocks';
 $string['enableshowhideblocksdesc'] = 'Allows users to show / hide all blocks.';
+$string['enableshowhideblockstext'] = 'Show text for Show Hide Blocks';
+$string['enableshowhideblockstextdesc'] = 'Shows the text beside the button.';
 
 $string['enablenavbarwhenloggedout'] = 'Enable Navbar when logged out';
 $string['enablenavbarwhenloggedoutdesc'] = 'Shows the navbar even when logged out. Limited to Help and Tools menu only.';

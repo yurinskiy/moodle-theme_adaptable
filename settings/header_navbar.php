@@ -114,6 +114,14 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+// Show / hide text for the show / hide blocks button.
+$name = 'theme_adaptable/enableshowhideblockstext';
+$title = get_string('enableshowhideblockstext', 'theme_adaptable');
+$description = get_string('enableshowhideblockstextdesc', 'theme_adaptable');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$temp->add($setting);
+
 $name = 'theme_adaptable/enablenavbarwhenloggedout';
 $title = get_string('enablenavbarwhenloggedout', 'theme_adaptable');
 $description = get_string('enablenavbarwhenloggedoutdesc', 'theme_adaptable');

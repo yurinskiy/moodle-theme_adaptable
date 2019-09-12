@@ -1550,7 +1550,13 @@ div.questionbankwindow.block {
 }
 
 #zoominicon {
+    cursor: pointer;
+    display: inline-block;
     margin-top: 10px;
+}
+
+.showhideblocksdesc {
+    vertical-align: super;
 }
 
 #showsidebaricon {

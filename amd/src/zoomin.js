@@ -9,38 +9,52 @@ define(['jquery', 'core/log'], function($, log) {
             $(document).ready(function($) {
                 log.debug('Adaptable AMD Zoom in init');
 
-                var sidePost = $('#block-region-side-post');
-                var zoomInIcon = $('#zoominicon i.fa');
-                var body = $('body');
-                var zoomLeft = false;
-                if ($('#zoominicon').hasClass('left')) {
-                    zoomLeft = true;
-                }
+                var zoomInIcon = $('#zoominicon');
+                if (zoomInIcon.length) {
+                    var sidePost = $('#block-region-side-post');
+                    var zoomInFaIcon = $('#showhideblocksicon i.fa');
+                    var body = $('body');
+                    var zoomLeft = false;
+                    if (zoomInIcon.hasClass('left')) {
+                        zoomLeft = true;
+                    }
+                    var hidestring = zoomInIcon.data('hidetitle');
+                    var showstring = zoomInIcon.data('showtitle');
+                    var showhideblocksdesc = $('.showhideblocksdesc');
 
-                if (typeof sidePost != 'undefined') {
-                    $('#zoominicon').click(function() {
-                        if (body.hasClass('zoomin') ) { // Blocks not shown.
-                            body.removeClass('zoomin');
-                            if (zoomLeft) {
-                                zoomInIcon.removeClass('fa-indent');
-                                zoomInIcon.addClass('fa-outdent');
+                    if (typeof sidePost != 'undefined') {
+                        zoomInIcon.click(function() {
+                            if (body.hasClass('zoomin') ) { // Blocks not shown.
+                                body.removeClass('zoomin');
+                                if (zoomLeft) {
+                                    zoomInFaIcon.removeClass('fa-indent');
+                                    zoomInFaIcon.addClass('fa-outdent');
+                                } else {
+                                    zoomInFaIcon.removeClass('fa-outdent');
+                                    zoomInFaIcon.addClass('fa-indent');
+                                }
+                                M.util.set_user_preference('theme_adaptable_zoom', 'nozoom');
+                                zoomInIcon.prop('title', hidestring);
+                                if (showhideblocksdesc.length) {
+                                    showhideblocksdesc.text(hidestring);
+                                }
                             } else {
-                                zoomInIcon.removeClass('fa-outdent');
-                                zoomInIcon.addClass('fa-indent');
+                                body.addClass('zoomin');
+                                if (zoomLeft) {
+                                    zoomInFaIcon.removeClass('fa-outdent');
+                                    zoomInFaIcon.addClass('fa-indent');
+                                } else {
+                                    zoomInFaIcon.removeClass('fa-indent');
+                                    zoomInFaIcon.addClass('fa-outdent');
+                                }
+                                M.util.set_user_preference('theme_adaptable_zoom', 'zoomin');
+                                zoomInIcon.prop('title', showstring);
+                                if (showhideblocksdesc.length) {
+                                    showhideblocksdesc.text(showstring);
+                                }
                             }
-                            M.util.set_user_preference('theme_adaptable_zoom', 'nozoom');
-                        } else {
-                            body.addClass('zoomin');
-                            if (zoomLeft) {
-                                zoomInIcon.removeClass('fa-outdent');
-                                zoomInIcon.addClass('fa-indent');
-                            } else {
-                                zoomInIcon.removeClass('fa-indent');
-                                zoomInIcon.addClass('fa-outdent');
-                            }
-                            M.util.set_user_preference('theme_adaptable_zoom', 'zoomin');
-                        }
-                    });
+                        });
+                    }
                 }
             });
         }
