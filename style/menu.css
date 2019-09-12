@@ -89,7 +89,8 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 }
 
 /* New main navbar styling */
-#adaptable-page-header-wrapper #main-navbar .navbar-nav > li > a {
+#adaptable-page-header-wrapper #main-navbar .navbar-nav > li > a,
+#adaptable-page-header-wrapper #main-navbar .navbar-nav > li > div.nav-link {
     color: [[setting:menufontcolor]];
     line-height: 40px;
     /* float: none; */
@@ -113,7 +114,8 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
     margin: 0;
 }
 
-#adaptable-page-header-wrapper #main-navbar li a:hover {
+#adaptable-page-header-wrapper #main-navbar li a:hover,
+#adaptable-page-header-wrapper #main-navbar li div.nav-link:hover {
     background-color: [[setting:menuhovercolor]];
     text-decoration: none;
 }
