@@ -51,13 +51,6 @@ theme_adaptable_initialise_full($PAGE);
 $setfull = theme_adaptable_get_full();
 
 $bsoptionsdata = array('data' => array());
-// Navbar.
-if (theme_adaptable_is_mobile()) {
-    // CSS 'position: fixed' does not work correctly on mobiles.
-    $bsoptionsdata['data']['fixedtop'] = false;
-} else {
-    $bsoptionsdata['data']['fixedtop'] = true;
-}
 
 // Main navbar.
 if (isset($PAGE->theme->settings->stickynavbar) && $PAGE->theme->settings->stickynavbar == 1
