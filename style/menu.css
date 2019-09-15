@@ -32,6 +32,11 @@
     z-index: 100;
 }
 
+#adaptable-page-header-wrapper #main-navbar a{
+color: [[setting:menufontcolor]] !important;
+}
+
+
 #adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav > li:first-child a {
     margin-left: -[[setting:menufontpadding]];
 }
