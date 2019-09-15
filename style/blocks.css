@@ -90,9 +90,13 @@
 }
 
 
-.block-controls {
+.block .header .action-menu {
     border: none !important;
     background-color: transparent !important;
+}
+
+.block .header .action-menu a {
+    color: [[setting:fontblockheadercolor]] !important;
 }
 
 /* Block content */
