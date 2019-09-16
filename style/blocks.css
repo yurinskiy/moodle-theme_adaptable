@@ -151,6 +151,20 @@
     padding-right: 0;
 }
 
+.block_navigation ul.block_tree > li > ul,
+.block_navigation ul.block_tree > li > ul > li p.tree_item.branch {
+    padding-left: 0;
+}
+
+.block_navigation ul.block_tree > li > ul > li p.hasicon {
+    padding-left: 1px;
+}
+.block_navigation ul.block_tree > li > p[aria-expanded="true"]:before {
+    content: "\f0e4";
+    font-family: "FontAwesome";
+    text-indent: -3px;
+}
+
 /* Course Timeline block */
 .block .content .block-timeline a:hover {
     background-color: [[setting:navbardropdownhovercolor]] !important;
