@@ -412,7 +412,7 @@ class renderer extends \core_user\output\myprofile\renderer {
     }
 
     protected function create_editprofile() {
-        $editprofile = new category('editprofile', 'Edit profile');
+        $editprofile = new category('editprofile', get_string('editmyprofile'));
 
         $editprofileform = editprofile::generate_form();
         $node = new node('editprofile', 'editprofile', '', null, null, $editprofileform['form']->render());
