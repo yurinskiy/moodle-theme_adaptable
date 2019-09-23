@@ -335,19 +335,18 @@ class theme_adaptable_core_renderer extends core_renderer {
         $returnurl = $this->get_current_page_url(true);
         $context = context_course::instance($COURSE->id);
 
-//        if (($CFG->version > 2016120500) &&
-            (!is_role_switched($COURSE->id)) && (has_capability('moodle/role:switchroles', $context))) {
+        if ((!is_role_switched($COURSE->id)) && (has_capability('moodle/role:switchroles', $context))) {
             // TBR $returnurl = str_replace().
             $url = $CFG->wwwroot.'/course/switchrole.php?id='.$COURSE->id.'&switchrole=-1&returnurl='.$returnurl;
                     $usermenuitems[] = array(false, false, $url, get_string('switchroleto'), 'fa-user-o');
-//        }
+        }
 
-//        if (($CFG->version > 2016120500) && (is_role_switched($COURSE->id))) {
+        if (is_role_switched($COURSE->id)) {
             $url = $CFG->wwwroot.'/course/switchrole.php?id='.$COURSE->id.'&sesskey='.sesskey().
             '&switchrole=0&returnurl='.$returnurl;
 
             $usermenuitems[] = array(false, false, $url, get_string('switchrolereturn'), 'fa-user-o');
-//        }
+        }
 
         $usermenuitems[] = array(false, false, $CFG->wwwroot.'/login/logout.php?sesskey='.sesskey(),
                             get_string('logout'), 'fa-sign-out');
@@ -656,7 +655,7 @@ class theme_adaptable_core_renderer extends core_renderer {
             }
         }
 
-//        if (($CFG->version > 2016120500) && (is_role_switched($COURSE->id))) {
+        if (is_role_switched($COURSE->id)) {
             $alertindex = $alertcount + 1;
             $alertkey = "undismissable";
 
@@ -667,7 +666,7 @@ class theme_adaptable_core_renderer extends core_renderer {
             $message = get_string('actingasrole', 'theme_adaptable') . '.  ';
             $message .= '<a href="' . $url . '">' . get_string('switchrolereturn') . '</a>';
             $alerts = $this->get_alert_message($message, 'warning', $alertindex, $alertkey) . $alerts;
-//        }
+        }
 
         return $alerts;
     }
