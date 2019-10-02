@@ -499,6 +499,24 @@ a.dropdown-menu > .active > a:focus,
     border-radius: [[setting:navbardropdownborderradius]];
 }
 
+#adaptable-page-header-wrapper #main-navbar .navbar-nav > .nav-item .dropdown-menu .dropdown-toggle:after  {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: [[setting:menufontcolor]];
+    margin-top: 9px;
+    margin-right: -12px;
+}
+
+#adaptable-page-header-wrapper #main-navbar .navbar-nav .nav-item .dropdown-menu > .nav-item .dropdown-menu {
+    top: -1px;
+}
+
 /* New bootstrap related css classes for hover menus. The below added for Adaptable for Moodle 3.6 onwards. */
 
 /*=-====Bootstrapthemes.co btco-hover-menu=====*/
