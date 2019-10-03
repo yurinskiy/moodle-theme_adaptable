@@ -767,7 +767,7 @@ if ($shownavbar) {
                             echo html_writer::start_tag('div',
                                 array('id' => 'zoominicon', 'class' => $zoomside. ' nav-link', 'title' => $zoominicontitle,
                                     'data-hidetitle' => $hidetitle, 'data-showtitle' => $showtitle));
-                            echo html_writer::tag('i', '', array('class' => 'fa fa-2x fa-'.$icontype, 'aria-hidden' => 'true'));
+                            echo html_writer::tag('i', '', array('class' => 'fa fa-lg fa-'.$icontype, 'aria-hidden' => 'true'));
                             if ($PAGE->theme->settings->enableshowhideblockstext) {
                                 echo html_writer::tag('span', $zoominicontitle, array('class' => 'showhideblocksdesc'));
                             }

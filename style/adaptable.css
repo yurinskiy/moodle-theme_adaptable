@@ -807,7 +807,7 @@ langmenu a:hover {
 }
 
 .breadcrumb-button {
-    margin-top: 6px;
+    margin-top: 1px;
 }
 
 .arrow-top {
@@ -1557,7 +1557,6 @@ div.questionbankwindow.block {
 
 .showhideblocksdesc {
     padding-left: 1px;
-    vertical-align: super;
 }
 
 #showsidebaricon {
