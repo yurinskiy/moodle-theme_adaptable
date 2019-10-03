@@ -428,6 +428,38 @@ class renderer extends \core_user\output\myprofile\renderer {
         return $category;
     }
 
+    protected function userprofilefields() {
+        $output = '';
+
+        if (!empty($this->user->userdetails['customfields'])) {
+            $customcoursetitleprofilefield = get_config('theme_adaptable', 'customcoursetitle');
+            $customcoursesubtitleprofilefield = get_config('theme_adaptable', 'customcoursesubtitle');
+
+            $customfieldscat = new category('customfields', get_string('customfields', 'customfield'));
+
+            $hasnodes = false;
+            foreach ($this->user->userdetails['customfields'] as $cfield) {
+                if ((!empty($customcoursetitleprofilefield)) && ($cfield['shortname'] == $customcoursetitleprofilefield)) {
+                    continue;
+                }
+                if ((!empty($customcoursesubtitleprofilefield)) && ($cfield['shortname'] == $customcoursesubtitleprofilefield)) {
+                    continue;
+                }
+                $node = new node('customfields', $cfield['shortname'], $cfield['name'], null, null, $cfield['value']);
+                $customfieldscat->add_node($node);
+                $hasnodes = true;
+            }
+
+            if ($hasnodes) {
+                $output .= html_writer::start_tag('div', array('class' => 'col-12 '.$customfieldscat->name));
+                $output .= $this->render($customfieldscat);
+                $output .= html_writer::end_tag('div');
+            }
+        }
+
+        return $output;
+    }
+
     protected function create_editprofile() {
         $editprofile = new category('editprofile', get_string('editmyprofile'));
 
@@ -495,6 +527,7 @@ class renderer extends \core_user\output\myprofile\renderer {
             $misccontent .= $this->render($category);
             $misccontent .= html_writer::end_tag('div');
         }
+        $misccontent .= $this->userprofilefields();
         $misccontent .= html_writer::end_tag('div');
         $tab = new \stdClass;
         $tab->name = 'more';
