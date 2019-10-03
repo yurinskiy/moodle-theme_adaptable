@@ -131,6 +131,10 @@ class renderer extends \core_user\output\myprofile\renderer {
             $contactcategory->add_node($node);
         }
 
+        $node = new node('contact', 'userpreferences', '', null, null,
+            $this->userpreferences());
+        $contactcategory->add_node($node);
+
         if (!empty($this->user->userdetails['email'])) {
             $node = new node('contact', 'email', '', null, null,
                 $this->user->userdetails['email']);
@@ -330,6 +334,19 @@ class renderer extends \core_user\output\myprofile\renderer {
             global $OUTPUT;
             $output .= html_writer::start_tag('li', array('class' => 'adaptableuserpicture'));
             $output .= $OUTPUT->user_picture($this->user, array('size' => '1'));
+            $output .= html_writer::end_tag('li');
+        }
+
+        return $output;
+    }
+
+    protected function userpreferences() {
+        global $USER;
+
+        $output = '';
+        if ($USER->id == $this->user->id) {
+            $output = html_writer::start_tag('li', array('class' => 'contentnode adaptableuserpreferences'));
+            $output .= html_writer::link(new \moodle_url('/user/preferences.php'), get_string('preferences', 'moodle'));
             $output .= html_writer::end_tag('li');
         }
 
