@@ -297,9 +297,9 @@ function theme_adaptable_process_css($css, $theme) {
             $loginbgopacity =
             '#page-login-index header,'.PHP_EOL.
             '#page-login-index #page-navbar,'.PHP_EOL.
-            '#page-login-index #page-content,'.PHP_EOL.
+            '#page-login-index .card,'.PHP_EOL.
             '#page-login-index #page-footer {';
-            $loginbgopacity .= 'opacity: '.$theme->settings->loginbgopacity.';'.PHP_EOL;
+            $loginbgopacity .= 'background-color: rgba(255, 255, 255, '.$theme->settings->loginbgopacity.') !important;'.PHP_EOL;
             $loginbgopacity .= '}'.PHP_EOL;
     }
     $defaults['[[setting:loginbgopacity]]'] = $loginbgopacity;
