@@ -2232,11 +2232,6 @@ img.smallicon {
     color: #fff !important;
 }
 
-.userprofile .profile_tree .contentnode dd
-{
-    word-break: break-all;
-}
-
 .searchbox abbr[title]{
     border-bottom:none;
     cursor:pointer;
