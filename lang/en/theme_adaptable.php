@@ -946,7 +946,6 @@ $string['editfontdesc'] = 'Set the Editing and Customize this page button font c
 
 $string['editverticalpadding'] = 'Set vertical padding of editing buttons';
 $string['edithorizontalpadding'] = 'Set Horizontal padding of editing buttons';
-$string['edittopmargin'] = 'Set top margin of editing buttons';
 
 $string['buttoncancelbackgroundcolor'] = 'Background colour for Cancel button';
 $string['buttoncancelbackgroundcolordesc'] = 'Background colour for Cancel button.  Type <i>transparent</i> in the box for transparency.';

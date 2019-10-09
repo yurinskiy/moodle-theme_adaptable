@@ -732,8 +732,8 @@ if ($shownavbar) {
                         $pageheadingbutton = $OUTPUT->page_heading_button();
                         if (!empty($pageheadingbutton)) {
                         ?>
-                        <li class="nav-item mx-0">
-                             <div id="edittingbutton" class="breadcrumb-button">
+                        <li class="nav-item mx-0 my-auto">
+                             <div id="edittingbutton">
                                 <?php echo $pageheadingbutton; ?>
                             </div>
                         </li>

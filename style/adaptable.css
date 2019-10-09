@@ -1149,10 +1149,6 @@ input[type="radio"], input[type="checkbox"] {
     margin-right: 5px;
 }
 
-#edittingbutton #coursesearchnavbar .form-group .btn {
-    margin: 0 5px 0px 5px;
-    padding: 4px 12px;
-}
 
 @media (min-width: 576px) {
     #adaptable-page-header-wrapper #header2 .search-input-wrapper.expandable > form {
@@ -1190,12 +1186,10 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .navbar .singlebutton input {
-    margin-top: 3px;
     padding: 4px 15px;
     margin-left: 5px;
 }
 
-.navbar .forumsearch,
 .navbar #coursesearchnavbar,
 .navbar .wikisearch {
     margin-top: 3px;
@@ -1203,13 +1197,6 @@ input[type="radio"], input[type="checkbox"] {
 
 .navbar .forumsearch input[type=text] {
     padding: 0;
-}
-
-#edittingbutton .helptooltip a {
-    background-color: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-    border-radius: 0 !important;
 }
 
 /* Show modal pop-up. */
@@ -1551,8 +1538,8 @@ div.questionbankwindow.block {
 
 #zoominicon {
     cursor: pointer;
-    padding-left: 2px !important;
-    padding-right: 2px !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
 }
 
 .showhideblocksdesc {
@@ -1624,12 +1611,8 @@ div.questionbankwindow.block {
 }
 
 .moodlewidth {
-    padding-right: 2px !important;
-    padding-left: 2px !important;
-}
-
-#edittingbutton {
-    padding-right: 10px;
+    padding-right: 4px !important;
+    padding-left: 4px !important;
 }
 
 .collapsibleregioncaption {

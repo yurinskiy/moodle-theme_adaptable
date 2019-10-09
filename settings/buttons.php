@@ -106,14 +106,6 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    $name = 'theme_adaptable/edittopmargin';
-    $title = get_string('edittopmargin', 'theme_adaptable');
-    $description = get_string('edittopmargin', 'theme_adaptable');
-    $radchoices = $from0to8px;
-    $setting = new admin_setting_configselect($name, $title, $description, '5px', $radchoices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
     $name = 'theme_adaptable/buttonlogincolor';
     $title = get_string('buttonlogincolor', 'theme_adaptable');
     $description = get_string('buttonlogincolordesc', 'theme_adaptable');

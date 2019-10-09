@@ -120,9 +120,16 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 }
 
 #adaptable-page-header-wrapper #main-navbar li a:hover,
-#adaptable-page-header-wrapper #main-navbar li div.nav-link:hover {
+#adaptable-page-header-wrapper #main-navbar li div.nav-link:hover,
+#adaptable-page-header-wrapper #main-navbar li #edittingbutton input[type="submit"]:hover
+{
     background-color: [[setting:menuhovercolor]];
     text-decoration: none;
+}
+
+#adaptable-page-header-wrapper #main-navbar .input-group {
+    display: flex;
+    align-items: center
 }
 
 #adaptable-page-header-wrapper #main-navbar li .action-menu-trigger a:hover {

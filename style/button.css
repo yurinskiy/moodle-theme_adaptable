@@ -160,6 +160,27 @@ button.close {
     color: [[setting:editfont]] !important;
 }
 
+#edittingbutton {
+    padding-right: 10px;
+    line-height: 22px;
+}
+
+.navbar #edittingbutton .singlebutton {
+    line-height: inherit;
+}
+
+#edittingbutton #coursesearchnavbar .form-group .btn {
+    margin: 0 5px 0px 5px;
+    padding: 4px 12px;
+}
+
+#edittingbutton .helptooltip a {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
 .path-mod-workshop .assessment-summary.graded .singlebutton input[type="submit"]:hover,
 .path-mod-workshop .example-summary.graded .singlebutton input[type="submit"]:hover,
 input.form-submit:hover,
@@ -198,8 +219,7 @@ td.submit input[disabled] {
 }
 
 #edittingbutton .btn,
-#edittingbutton input[type="submit"],
-#edittingbutton a {
+#edittingbutton input[type="submit"] {
     background-image: none;
     background-color: [[setting:editonbk]];
     border-radius: [[setting:buttonradius]];
@@ -207,8 +227,11 @@ td.submit input[disabled] {
     color: [[setting:editfont]] !important;
     height: 24px;
     line-height: 14px;
-    margin-top: [[setting:edittopmargin]];
     padding: [[setting:editverticalpadding]] [[setting:edithorizontalpadding]];
+}
+
+#adaptable-page-header-wrapper #main-navbar #edittingbutton a {
+    color: [[setting:editfont]] !important;
 }
 
 .editing #edittingbutton .btn,
@@ -219,7 +242,6 @@ td.submit input[disabled] {
     color: [[setting:editfont]];
     background-image: none;
     background-color: [[setting:editoffbk]];
-    margin-top: [[setting:edittopmargin]];
     padding: [[setting:editverticalpadding]] [[setting:edithorizontalpadding]];
     text-decoration: none !important;
     box-shadow: 0 [[setting:buttondropshadow]] 0 0 rgba(0, 0, 0, 0.5) inset;
