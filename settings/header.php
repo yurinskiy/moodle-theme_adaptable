@@ -26,8 +26,9 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-    // Header heading.
-    $temp = new admin_settingpage('theme_adaptable_header', get_string('headersettings', 'theme_adaptable'));
+// Header heading.
+$temp = new admin_settingpage('theme_adaptable_header', get_string('headersettings', 'theme_adaptable'));
+if ($ADMIN->fulltree) {
     $temp->add(new admin_setting_heading('theme_adaptable_header', get_string('headersettingsheading', 'theme_adaptable'),
     format_text(get_string('headerdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
 
@@ -36,7 +37,6 @@ defined('MOODLE_INTERNAL') || die;
     $title = get_string('headerbgimage', 'theme_adaptable');
     $description = get_string('headerbgimagedesc', 'theme_adaptable');
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'headerbgimage');
-    $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
     // Adaptable header style selection.
@@ -85,7 +85,6 @@ defined('MOODLE_INTERNAL') || die;
     $title = get_string('logo', 'theme_adaptable');
     $description = get_string('logodesc', 'theme_adaptable');
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo');
-    $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
     // Page Header Height.
@@ -141,7 +140,7 @@ defined('MOODLE_INTERNAL') || die;
     $radchoices = array(
         'fullname' => get_string('coursetitlefullname', 'theme_adaptable'),
         'shortname' => get_string('coursetitleshortname', 'theme_adaptable'),
-        'off' => get_string('hide'),
+        'off' => get_string('hide')
     );
     $setting = new admin_setting_configselect($name, $title, $description, 'fullname', $radchoices);
     $temp->add($setting);
@@ -239,5 +238,5 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-
-    $ADMIN->add('theme_adaptable', $temp);
+}
+$ADMIN->add('theme_adaptable', $temp);

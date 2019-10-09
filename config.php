@@ -127,6 +127,7 @@ $THEME->sheets = array(
         'course',
         'extras',
         'form',
+        'header',
         'menu',
         'messages',
         'notifications',
@@ -134,6 +135,7 @@ $THEME->sheets = array(
         'search',
         'tabs',
         'user',
+        'categorycustom',
         'custom'
 );
 

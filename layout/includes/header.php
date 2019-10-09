@@ -87,12 +87,17 @@ if (
         $shownavbar = true;
     }
 }
-// Load header background image if exists.
+// Load header background image if it exists.
 $headerbg = '';
-
-if (!empty($PAGE->theme->settings->headerbgimage)) {
-    $headerbg = ' style="background-image: url('.$PAGE->theme->setting_file_url('headerbgimage', 'headerbgimage').');
-                         background-position: 0 0; background-repeat: no-repeat; background-size: cover;"';
+$currenttopcat = \theme_adaptable\toolbox::get_current_top_level_catetgory();
+if (!empty($currenttopcat)) {
+    $categoryheaderbgimageset = 'categoryheaderbgimage'.$currenttopcat;
+    if (!empty($PAGE->theme->settings->$categoryheaderbgimageset)) {
+        $headerbg = ' class="headerbgimage" style="background-image: url('.$PAGE->theme->setting_file_url($categoryheaderbgimageset, $categoryheaderbgimageset).');"';
+    }
+}
+if ((empty($headerbg)) && (!empty($PAGE->theme->settings->headerbgimage))) {
+    $headerbg = ' class="headerbgimage" style="background-image: url('.$PAGE->theme->setting_file_url('headerbgimage', 'headerbgimage').');"';
 }
 
 // Choose the header style.  There styles available are:
@@ -418,7 +423,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
         // Site title or logo.
         if (!$hidesitetitle) {
             echo '<div class="d-flex align-items-start bd-highlight">';
-            echo $OUTPUT->get_logo_title();
+            echo $OUTPUT->get_logo_title($currenttopcat);
             echo '</div>';
         }
         ?>
@@ -502,7 +507,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
             <?php
             // Site title or logo.
             if (!$hidesitetitle) {
-                echo $OUTPUT->get_logo_title();
+                echo $OUTPUT->get_logo_title($currenttopcat);
             }
             ?>
 
