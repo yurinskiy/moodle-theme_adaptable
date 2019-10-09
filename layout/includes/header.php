@@ -89,12 +89,16 @@ if (
 }
 // Load header background image if it exists.
 $headerbg = '';
-$currenttopcat = \theme_adaptable\toolbox::get_current_top_level_catetgory();
-if (!empty($currenttopcat)) {
-    $categoryheaderbgimageset = 'categoryheaderbgimage'.$currenttopcat;
-    if (!empty($PAGE->theme->settings->$categoryheaderbgimageset)) {
-        $headerbg = ' class="headerbgimage" style="background-image: url('.$PAGE->theme->setting_file_url($categoryheaderbgimageset, $categoryheaderbgimageset).');"';
+if (!empty($PAGE->theme->settings->categoryhavecustomheader)) {
+    $currenttopcat = \theme_adaptable\toolbox::get_current_top_level_catetgory();
+    if (!empty($currenttopcat)) {
+        $categoryheaderbgimageset = 'categoryheaderbgimage'.$currenttopcat;
+        if (!empty($PAGE->theme->settings->$categoryheaderbgimageset)) {
+            $headerbg = ' class="headerbgimage" style="background-image: url('.$PAGE->theme->setting_file_url($categoryheaderbgimageset, $categoryheaderbgimageset).');"';
+        }
     }
+} else {
+    $currenttopcat = false;
 }
 if ((empty($headerbg)) && (!empty($PAGE->theme->settings->headerbgimage))) {
     $headerbg = ' class="headerbgimage" style="background-image: url('.$PAGE->theme->setting_file_url('headerbgimage', 'headerbgimage').');"';
