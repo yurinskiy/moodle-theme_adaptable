@@ -435,7 +435,7 @@ class renderer extends \core_user\output\myprofile\renderer {
             $customcoursetitleprofilefield = get_config('theme_adaptable', 'customcoursetitle');
             $customcoursesubtitleprofilefield = get_config('theme_adaptable', 'customcoursesubtitle');
 
-            $customfieldscat = new category('customfields', get_string('customfields', 'customfield'));
+            $customfieldscat = new category('customfields', get_string('customfields', 'theme_adaptable'));
 
             $hasnodes = false;
             foreach ($this->user->userdetails['customfields'] as $cfield) {

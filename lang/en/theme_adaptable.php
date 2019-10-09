@@ -1803,6 +1803,7 @@ $string['customcoursetitle'] = 'Custom course title';
 $string['customcoursetitledesc'] = 'Name of the user profile custom field for the course title.';
 $string['customcoursesubtitle'] = 'Custom course title';
 $string['customcoursesubtitledesc'] = 'Name of the user profile custom field for the course title.';
+$string['customfields'] = 'Custom fields';
 $string['enabletabbedprofile'] = 'Enable tabbed profile';
 $string['enabletabbedprofiledesc'] = 'Enable the tabbed profile functionality.';
 $string['usernodescription'] = 'User has not updated their description yet.';
