@@ -1815,7 +1815,7 @@ $string['categoryheaderssettingsdesc'] = 'Set settings for the headers within a 
 $string['categoryheaderssettingsheading'] = 'Change the header for one or more top level categories and below.';
 
 $string['categoryhavecustomheader'] = 'Category custom header';
-$string['categoryhavecustomheaderdesc'] = 'Select the top level categories that will have a custom header.  Save and refesh the page to update  Note: Sub-categories of the selected will inherit the setting values.';
+$string['categoryhavecustomheaderdesc'] = 'Select the top level categories that will have a custom header.  To select more than one or deselect a category, use the \'Ctrl\' key.  Save and refesh the page to update  Note: Sub-categories of the selected will inherit the setting values.';
 $string['categoryheaderheader'] = 'Settings for the top level category \'{$a->name}\' with id \'{$a->id}\'.';
 $string['categoryheaderheaderdesc'] = 'Set the settings for the top level category \'{$a->name}\' with id \'{$a->id}\'.';
 $string['categoryheaderheaderdescchildren'] = 'Set the settings for the top level category \'{$a->name}\' with id \'{$a->id}\' and its children \'{$a->children}\'.';
