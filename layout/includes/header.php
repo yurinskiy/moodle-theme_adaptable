@@ -282,7 +282,14 @@ echo $OUTPUT->standard_head_html() ?>
     ?>
 </head>
 
-<body <?php echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle)); ?>>
+<?php
+// If it is a mobile and the header is not hidden or it is a desktop there will be a page header.
+$pageheader = '';
+if (((theme_adaptable_is_mobile()) && ($hideheadermobile == 1)) || (theme_adaptable_is_desktop())) {
+    $pageheader = 'has-page-header';
+}
+?>
+<body <?php echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle, $pageheader)); ?>>
 
 <?php
 echo $OUTPUT->standard_top_of_body_html();

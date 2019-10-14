@@ -465,6 +465,10 @@ Default Bootstrap 4 Media Queries
     }
 
     .page-header-margin.header-style1 #page {
+        margin-top: 50px;
+    }
+
+    .has-page-header.page-header-margin.header-style1 #page {
         margin-top: 112px;
     }
 
