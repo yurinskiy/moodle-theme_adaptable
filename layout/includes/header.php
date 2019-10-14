@@ -288,8 +288,12 @@ $pageheader = '';
 if (((theme_adaptable_is_mobile()) && ($hideheadermobile == 1)) || (theme_adaptable_is_desktop())) {
     $pageheader = 'has-page-header';
 }
+$hasheaderbg = '';
+if (!empty($headerbg)) {
+    $hasheaderbg = 'has-header-bg';
+}
 ?>
-<body <?php echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle, $pageheader)); ?>>
+<body <?php echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle, $pageheader, $hasheaderbg)); ?>>
 
 <?php
 echo $OUTPUT->standard_top_of_body_html();
