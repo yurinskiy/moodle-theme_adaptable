@@ -439,6 +439,10 @@ $string['navbarsettings'] = 'Header Navbar';
 $string['navbarsettingsheading'] = 'Customize the navigation bar';
 $string['navbardesc'] = 'Allows you to control all of the elements that appear on the navigation bar.';
 
+$string['navbarlinkssettings'] = 'Navbar Links';
+$string['navbarlinksettingsheading'] = 'Customize the links on the navigation bar';
+$string['navbarlinksettingsdesc'] = 'Allows you to control the links that appear on the navigation bar.';
+
 $string['navbardisplayicons'] = 'Display icons';
 $string['navbardisplayiconsdesc'] = 'Display icons next to main menu headings';
 
@@ -1130,10 +1134,10 @@ $string['standardscreenwidthdesc'] = 'Set the width of the theme when it is in s
 $string['narrow'] = 'Narrow';
 $string['standard'] = 'Standard';
 
+// Help Links ******************************************************.
 $string['headernavbarhelpheading'] = 'Help Links and Options';
 $string['headernavbarhelpheadingdesc'] = 'Options for help menu links.';
 
-// Help Links ******************************************************.
 $string['enablehelp'] = 'Help Link';
 $string['enablehelpdesc'] = 'Add a help link in the navbar.';
 

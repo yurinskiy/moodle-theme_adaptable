@@ -299,47 +299,5 @@ $setting = new admin_setting_configselect($name, $title, $description, 1, $radch
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
-
-// Help section.
-$temp->add(new admin_setting_heading('theme_adaptable_help_heading',
-        get_string('headernavbarhelpheading', 'theme_adaptable'),
-        format_text(get_string('headernavbarhelpheadingdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
-
-// Enable help link.
-$name = 'theme_adaptable/enablehelp';
-$title = get_string('enablehelp', 'theme_adaptable');
-$description = get_string('enablehelpdesc', 'theme_adaptable');
-$setting = new admin_setting_configtext($name, $title, $description, '', PARAM_URL);
-$temp->add($setting);
-
-$name = 'theme_adaptable/helpprofilefield';
-$title = get_string('helpprofilefield', 'theme_adaptable');
-$description = get_string('helpprofilefielddesc', 'theme_adaptable');
-$setting = new admin_setting_configtext($name, $title, $description, '', PARAM_RAW);
-$temp->add($setting);
-
-$name = 'theme_adaptable/enablehelp2';
-$title = get_string('enablehelp', 'theme_adaptable');
-$description = get_string('enablehelpdesc', 'theme_adaptable');
-$setting = new admin_setting_configtext($name, $title, $description, '', PARAM_URL);
-$temp->add($setting);
-
-$name = 'theme_adaptable/helpprofilefield2';
-$title = get_string('helpprofilefield', 'theme_adaptable');
-$description = get_string('helpprofilefielddesc', 'theme_adaptable');
-$setting = new admin_setting_configtext($name, $title, $description, '', PARAM_RAW);
-$temp->add($setting);
-
-$name = 'theme_adaptable/helptarget';
-$title = get_string('helptarget', 'theme_adaptable');
-$description = get_string('helptargetdesc', 'theme_adaptable');
-$choices = array(
-    '_blank' => get_string('targetnewwindow', 'theme_adaptable'),
-    '_self' => get_string('targetsamewindow', 'theme_adaptable'),
-);
-$setting = new admin_setting_configselect($name, $title, $description, '_blank', $choices);
-$temp->add($setting);
-
-
 // Create page.
 $ADMIN->add('theme_adaptable', $temp);
