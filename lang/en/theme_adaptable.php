@@ -431,8 +431,8 @@ $string['stickynavbardesc'] = 'Stick the Navbar at the top of the screen when sc
 $string['navbarcachetime'] = 'Navbar Cache Time';
 $string['navbarcachetimedesc'] = 'The number of minutes the navigation bar is cached for.';
 
-$string['navbarmenusettings'] = 'Navbar Tools Menu';
-$string['navbarmenusettingsheading'] = 'Customize the menu in the navigation bar. See the layout <a href="./../theme/adaptable/pix/layout.png" target="_blank"> here</a>';
+$string['navbarmenusettings'] = 'Navbar Custom Menu';
+$string['navbarmenusettingsheading'] = 'Customize the menu in the navigation bar. See the layout <a href="./../theme/adaptable/pix/layout.png" target="_blank"> here</a>.';
 $string['navbarmenusettingsdesc'] = 'Allows you to add a menu to the navigation bar.';
 
 $string['navbarsettings'] = 'Header Navbar';
