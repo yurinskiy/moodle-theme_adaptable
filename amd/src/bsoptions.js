@@ -98,13 +98,16 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                 });
 
                 if ($('#page-header').length) {
-                    var offset = 50;
+                    // See #394 as to why this is the way it is.
+                    var shownOffset = 50;
+                    var hideOffset = 120;
                     var page = $('#page');
                     var currentTimerId = null;
                     var pageHeaderShown = function() {
-                        if ($(window).scrollTop() > offset) {
+                        var st = $(window).scrollTop();
+                        if (st > hideOffset) {
                             page.removeClass('pageheadershown');
-                        } else {
+                        } else if (st <= shownOffset) {
                             page.addClass('pageheadershown');
                         }
                         currentTimerId = null;
