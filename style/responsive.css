@@ -473,12 +473,7 @@ Default Bootstrap 4 Media Queries
     }
 
     .mobiletheme.page-header-margin.header-style1.has-header-bg .headerbgimage {
-        background-position: 0 37px;
-        padding-bottom: 50px;
-    }
-
-    .mobiletheme.page-header-margin.header-style1 #page {
-        margin-top: 96px;
+        background-image: none !important;
     }
 
     .page-header-margin.header-style2 #page {

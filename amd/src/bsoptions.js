@@ -120,21 +120,6 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                     pageHeaderShown();
                 });
 
-                if ($(".mobiletheme.header-style1.has-header-bg").length) {
-                    var headerbg = $('.headerbgimage');
-                    var headerPos = function() {
-                        if ($(window).scrollTop() > offset) {
-                            headerbg.css({"padding-bottom": 0});
-                        } else {
-                            headerbg.css({"padding-bottom": offset - $(window).scrollTop()});
-                        }
-                    }
-                    headerPos();
-                    $(window).scroll(function() {
-                        headerPos();
-                    });
-                }
-
                 var showsidebaricon = $("#showsidebaricon");
                 if (showsidebaricon.length) {
                     // Using 'css' and not 'offset' function as latter seems unreliable on mobiles as changes the value!
