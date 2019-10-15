@@ -131,9 +131,17 @@ class renderer extends \core_user\output\myprofile\renderer {
             $contactcategory->add_node($node);
         }
 
-        $node = new node('contact', 'userpreferences', '', null, null,
-            $this->userpreferences());
-        $contactcategory->add_node($node);
+        if (theme_adaptable_get_setting('enabledtabbedprofileuserpreferenceslink')) {
+            $node = new node('contact', 'userpreferences', '', null, null,
+                $this->userpreferences());
+            $contactcategory->add_node($node);
+        }
+
+        if (theme_adaptable_get_setting('enabledtabbedprofileeditprofilelink')) {
+            if (!empty($oldcontactcategory->nodes['editprofile'])) {
+                $contactcategory->add_node($oldcontactcategory->nodes['editprofile']);
+            }
+        }
 
         if (!empty($this->user->userdetails['email'])) {
             $node = new node('contact', 'email', '', null, null,

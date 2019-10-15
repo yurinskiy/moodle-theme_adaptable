@@ -1810,6 +1810,11 @@ $string['customcoursesubtitledesc'] = 'Name of the user profile custom field for
 $string['customfields'] = 'Custom fields';
 $string['enabletabbedprofile'] = 'Enable tabbed profile';
 $string['enabletabbedprofiledesc'] = 'Enable the tabbed profile functionality.';
+$string['enabledtabbedprofileeditprofilelink'] = 'Enable edit profile link';
+$string['enabledtabbedprofileeditprofilelinkdesc'] = 'Enable the tabbed profile edit profile link.  Note: When enabled will only show if the viewing user has permission to edit the profile.';
+$string['enabledtabbedprofileuserpreferenceslink'] = 'Enable preferences link';
+$string['enabledtabbedprofileuserpreferenceslinkdesc'] = 'Enable the tabbed profile user preferences link.';
+
 $string['usernodescription'] = 'User has not updated their description yet.';
 $string['usernointerests'] = 'User has not updated their interests yet.';
 
