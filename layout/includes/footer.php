@@ -64,6 +64,7 @@ if ($PAGE->theme->settings->showfooterblocks) {
         <div class="container">
             <div class="row">
                 <div class="<?php echo $footnoteclass; ?>">
+                    <div class="tool_usertours-resettourcontainer"></div>
 <?php echo $OUTPUT->get_setting('footnote', 'format_html');
 ?>
                 </div>
