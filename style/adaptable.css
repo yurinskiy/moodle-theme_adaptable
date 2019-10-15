@@ -245,13 +245,18 @@ div.signuppanel h2 {
 }
 
 #page-header {
+    background-color: transparent;
     border-bottom: none solid [[setting:maincolor]];
     clear: both;
-    margin-bottom: 0;
-    background-color: transparent;
-    padding-top: 0;
-    min-height: [[setting:pageheaderheight]];
     color: [[setting:headertextcolor2]];
+    display: none;
+    margin-bottom: 0;
+    min-height: [[setting:pageheaderheight]];
+    padding-top: 0;
+}
+
+#page.pageheadershown #page-header {
+    display: block;
 }
 
 #above-header .fa {

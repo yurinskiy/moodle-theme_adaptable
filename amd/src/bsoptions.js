@@ -97,28 +97,27 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                     }
                 });
 
-                var offset = 50;
-                var page = $('#page');
-                var pageheader = $('#page-header');
-                var pageHeaderShown = function() {
-                    if ($(window).scrollTop() > offset) {
-                        if (pageheader.length) {
-                            pageheader.hide();
+                if ($('#page-header').length) {
+                    var offset = 50;
+                    var page = $('#page');
+                    var currentTimerId = null;
+                    var pageHeaderShown = function() {
+                        if ($(window).scrollTop() > offset) {
                             page.removeClass('pageheadershown');
-                        }
-                        Y.Global.fire('moodle-gradereport_grader:resized');
-                    } else {
-                        if (pageheader.length) {
-                            pageheader.show();
+                        } else {
                             page.addClass('pageheadershown');
                         }
-                        Y.Global.fire('moodle-gradereport_grader:resized');
-                    }
-                };
-                pageHeaderShown();
-                $(window).scroll(function() {
+                        currentTimerId = null;
+                    };
                     pageHeaderShown();
-                });
+                    $(window).scroll(function() {
+                        if (currentTimerId == null) {
+                            currentTimerId = window.setTimeout(function() {
+                                pageHeaderShown();
+                            }, 375);
+                        }
+                    });
+                }
 
                 var showsidebaricon = $("#showsidebaricon");
                 if (showsidebaricon.length) {
