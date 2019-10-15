@@ -101,7 +101,7 @@ $temp->add($setting);
 $name = 'theme_adaptable/enablezoomshowtext';
 $title = get_string('enablezoomshowtext', 'theme_adaptable');
 $description = get_string('enablezoomshowtextdesc', 'theme_adaptable');
-$default = false;
+$default = true;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
