@@ -812,17 +812,17 @@ $string['coursesectionactivitycolors'] = 'Course Section Activity Options';
 $string['coursesectionactivityassignleftbordercolor'] = 'Assignment activity left border display colour';
 $string['coursesectionactivityassignleftbordercolordesc'] = 'Set the colour of the left border.';
 $string['coursesectionactivityassignbgcolor'] = 'Assignment activity background colour';
-$string['coursesectionactivityassignbgcolordesc'] = 'Set the Assignment activity background colour.';
+$string['coursesectionactivityassignbgcolordesc'] = 'Set the Assignment activity background colour. Type <strong>transparent</strong> in the box for transparency.';
 
 $string['coursesectionactivityforumleftbordercolor'] = 'Forum activity left border display colour';
 $string['coursesectionactivityforumleftbordercolordesc'] = 'Set the colour of the left border.';
 $string['coursesectionactivityforumbgcolor'] = 'Forum activity background colour';
-$string['coursesectionactivityforumbgcolordesc'] = 'Set the Forum activity background colour.';
+$string['coursesectionactivityforumbgcolordesc'] = 'Set the Forum activity background colour. Type <strong>transparent</strong> in the box for transparency.';
 
 $string['coursesectionactivityquizleftbordercolor'] = 'Quiz activity left border display colour';
 $string['coursesectionactivityquizleftbordercolordesc'] = 'Set the colour of the left border.';
 $string['coursesectionactivityquizbgcolor'] = 'Quiz activity background colour';
-$string['coursesectionactivityquizbgcolordesc'] = 'Set the Quiz activity background colour.';
+$string['coursesectionactivityquizbgcolordesc'] = 'Set the Quiz activity background colour. Type <strong>transparent</strong> in the box for transparency.';
 
 // Social Wall Settings.
 $string['socialwall'] = 'Social Wall';
