@@ -1501,7 +1501,7 @@ $string['toolsmenufielddesc'] = 'Add access rule using for custom profile field 
 $string['socialsettings'] = 'Header Social';
 $string['socialheading'] = 'Social Icon Settings';
 $string['socialtitledesc'] = 'You can disable the sitewide search box and enable social icons / links in its place.
-To setup icons enter a de-limited list into the "Social Icon List" field below.
+To setup icons enter a delimited list into the "Social Icon List" field below.
 This should be in the format:
 
 url|title|icon
