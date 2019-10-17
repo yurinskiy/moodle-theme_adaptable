@@ -50,7 +50,7 @@ defined('MOODLE_INTERNAL') || die;
         0 => get_string('hide', 'theme_adaptable'),
         1 => get_string('show', 'theme_adaptable'),
     );
-    $setting = new admin_setting_configselect($name, $title, $description, 1, $radchoices);
+    $setting = new admin_setting_configselect($name, $title, $description, 0, $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
