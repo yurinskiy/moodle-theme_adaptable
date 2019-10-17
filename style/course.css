@@ -301,11 +301,12 @@
 }
 
 .covtiles .coursebox-content:hover {
-    height: 80%;
-    position: absolute;
-    width: auto;
     background-color: [[setting:covbkcolor]];
+    height: calc(100% - 5px);
+    position: absolute;
     transition: all .5s ease-in-out;
+    width: auto;
+    z-index: 9; /* Override .cimbox class. */
 }
 
 /* ************************ */
