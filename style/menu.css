@@ -646,10 +646,6 @@ a.dropdown-menu > .active > a:focus,
 
 /* Adjust height according to header style. */
 .header-style1 [data-region="drawer"] {
-    height: calc(100% - 45px);
-    top: 45px;
-}
-.header-style1 .pageheadershown [data-region="drawer"] {
     height: calc(100% - 105px);
     top: 105px;
 }

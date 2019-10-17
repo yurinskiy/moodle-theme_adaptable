@@ -249,14 +249,9 @@ div.signuppanel h2 {
     border-bottom: none solid [[setting:maincolor]];
     clear: both;
     color: [[setting:headertextcolor2]];
-    display: none;
     margin-bottom: 0;
     min-height: [[setting:pageheaderheight]];
     padding-top: 0;
-}
-
-#page.pageheadershown #page-header {
-    display: block;
 }
 
 #above-header .fa {

@@ -97,31 +97,6 @@ define(['jquery', 'theme_boost/loader', 'core/log'], function($, bootstrap, log)
                     }
                 });
 
-                if ($('#page-header').length) {
-                    // See #394 as to why this is the way it is.
-                    var shownOffset = 50;
-                    var hideOffset = 120;
-                    var page = $('#page');
-                    var currentTimerId = null;
-                    var pageHeaderShown = function() {
-                        var st = $(window).scrollTop();
-                        if (st > hideOffset) {
-                            page.removeClass('pageheadershown');
-                        } else if (st <= shownOffset) {
-                            page.addClass('pageheadershown');
-                        }
-                        currentTimerId = null;
-                    };
-                    pageHeaderShown();
-                    $(window).scroll(function() {
-                        if (currentTimerId == null) {
-                            currentTimerId = window.setTimeout(function() {
-                                pageHeaderShown();
-                            }, 375);
-                        }
-                    });
-                }
-
                 var showsidebaricon = $("#showsidebaricon");
                 if (showsidebaricon.length) {
                     // Using 'css' and not 'offset' function as latter seems unreliable on mobiles as changes the value!
