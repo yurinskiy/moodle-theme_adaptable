@@ -1487,6 +1487,20 @@ EOT;
         $noslides = $PAGE->theme->settings->slidercount;
         $retval = '';
 
+        // Will we have any slides?
+        $haveslides = false;
+        for ($i = 1; $i <= $noslides; $i++) {
+            $sliderimage = 'p' . $i;
+            if (!empty($PAGE->theme->settings->$sliderimage)) {
+                $haveslides = true;
+                break;
+            }
+        }
+
+        if (!$haveslides) {
+            return '';
+        }
+
         if (!empty($PAGE->theme->settings->sliderfullscreen)) {
             $retval .= '<div class="slidewrap';
         } else {

@@ -46,7 +46,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugins = array(
-    'adaptable' => array('files' => array('adaptable_v2_1_1.js')),
+    'adaptable' => array('files' => array('adaptable_v2_1_1_2.js')),
     'easing' => array('files' => array('jquery-easing-min.js')),
     'flexslider' => array('files' => array('jquery-flexslider-min.js')),
     'pace' => array('files' => array('pace-min.js')),
