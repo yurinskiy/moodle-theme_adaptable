@@ -718,9 +718,6 @@ $string['menuhovercolordesc'] = 'Set a Main Menu hover colour';
 $string['mobilemenubkcolor'] = 'Mobile Menu background colour';
 $string['mobilemenubkcolordesc'] = 'Set the Main Menu background colour on mobile devices (collapsed)';
 
-$string['mobilemenufontcolor'] = 'Mobile Menu font colour';
-$string['mobilemenufontcolordesc'] = 'Set a Main Menu font colour on mobile devices (collapsed)';
-
 $string['mobileslidebartabbkcolor'] = 'Sidebar tab background colour';
 $string['mobileslidebartabbkcolordesc'] = 'The sidebar background colour on mobile devices (collapsed)';
 

@@ -158,7 +158,6 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:menuhovercolor]]' => '#00B3A1',
         '[[setting:menubordercolor]]' => '#00B3A1',
         '[[setting:mobilemenubkcolor]]' => '#F9F9F9',
-        '[[setting:mobilemenufontcolor]]' => '#000000',
         '[[setting:mobileslidebartabbkcolor]]' => '#F9F9F9',
         '[[setting:mobileslidebartabiconcolor]]' => '#000000',
         '[[setting:navbardropdownborderradius]]' => '0px',
