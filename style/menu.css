@@ -32,11 +32,6 @@
     z-index: 100;
 }
 
-#adaptable-page-header-wrapper #main-navbar a{
-color: [[setting:menufontcolor]] !important;
-}
-
-
 #adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav > li:first-child a {
     margin-left: -[[setting:menufontpadding]];
 }
@@ -515,7 +510,7 @@ a.dropdown-menu > .active > a:focus,
     border-color: transparent;
     border-style: solid;
     border-width: 5px 0 5px 5px;
-    border-left-color: [[setting:menufontcolor]];
+    border-left-color: [[setting:linkcolor]];
     margin-top: 9px;
     margin-right: -12px;
 }
