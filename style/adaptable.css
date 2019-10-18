@@ -1648,7 +1648,7 @@ div.questionbankwindow.block {
   position: absolute;
   text-align: center;
   color: [[setting:rendereroverlayfontcolor]] !important;
-  padding: 15px;
+  padding: 20px;
   top: 0;
   left: 0;
   display: none;
@@ -1676,11 +1676,10 @@ div.questionbankwindow.block {
 }
 
 .coursebox.hover:hover .summary {
-  height: auto;
-  width: auto;
-  min-width: 90%;
-  min-height: 50px;
-  display: block;
+    display: block;
+    height: auto;
+    min-width: 90%;
+    width: auto;
 }
 
 .coursebox.panel.hover .panel-body:hover {
