@@ -121,9 +121,29 @@ Default Bootstrap 4 Media Queries
         padding: 10px 0;
     }
 
-    .coursebox .coursebtn {
-        right: 22%;
-        width: auto;
+    /* 1 tile. */
+    .coursebox.col-12 .coursebtn {
+        width: 30% !important;
+    }
+
+    /* 2 tiles. */
+    .coursebox.col-6 .coursebtn {
+        width: 55% !important;
+    }
+
+    /* 3 tiles. */
+    .coursebox.col-4 .coursebtn {
+        width: 70% !important;
+    }
+
+    /* 4 tiles. */
+    .coursebox.col-3 .coursebtn {
+        width: 80% !important;
+    }
+
+    /* 6 tiles. */
+    .coursebox.col-2 .coursebtn {
+        width: 95% !important;
     }
 
     #page-site-index a.submit {

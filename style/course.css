@@ -85,11 +85,10 @@
 
 /* Course tiles */
 .coursebox.panel {
-    border-radius: 2px;
-    position: relative;
     background-color: #fafafa !important;
     border: 5px solid rgba(255,255,255,1);
-    height: 210px;
+    border-radius: 2px;
+    position: relative;
 }
 
 .coursebox .boxfooter {
@@ -99,9 +98,35 @@
 
 .coursebox .coursebtn {
     bottom: 10px;
+    left: 0;
+    margin: 0 auto;
     position: absolute;
-    right: 28%;
-    width: 30%;
+    right: 0;
+}
+
+/* 1 tile. */
+.coursebox.col-12 .coursebtn {
+    width: 20%;
+}
+
+/* 2 tiles. */
+.coursebox.col-6 .coursebtn {
+    width: 40%;
+}
+
+/* 3 tiles. */
+.coursebox.col-4 .coursebtn {
+    width: 50%;
+}
+
+/* 4 tiles. */
+.coursebox.col-3 .coursebtn {
+    width: 50%;
+}
+
+/* 6 tiles. */
+.coursebox.col-2 .coursebtn {
+    width: 80%;
 }
 
 .coursebox.panel ul.teachers li {
