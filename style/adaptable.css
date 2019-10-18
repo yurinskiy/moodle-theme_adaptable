@@ -1627,11 +1627,6 @@ div.questionbankwindow.block {
     text-decoration: underline;
 }
 
-/* Renderer temporary changes */
-.coursebox.panel.hover .panel-heading {
-    display: none;
-}
-
 .cimbox {
     background-color: #fff;
     background-position: center center;
