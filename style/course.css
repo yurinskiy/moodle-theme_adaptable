@@ -289,24 +289,20 @@
 }
 
 .covtiles .coursebox-content {
+    background-color: [[setting:covbkcolor]];
     bottom: 5px;
+    height: 38px;
     left: 5px;
     right: 4px;
-    height: 38px;
     position: absolute;
-    width: auto;
-    transition: all .5s ease-in-out;
     overflow: hidden;
-    background-color: [[setting:covbkcolor]];
+    transition: height .5s ease-in-out;
+    width: auto;
+    z-index: 9; /* Override .cimbox class. */
 }
 
 .covtiles .coursebox-content:hover {
-    background-color: [[setting:covbkcolor]];
     height: calc(100% - 5px);
-    position: absolute;
-    transition: all .5s ease-in-out;
-    width: auto;
-    z-index: 9; /* Override .cimbox class. */
 }
 
 /* ************************ */
