@@ -114,12 +114,16 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
     margin: 0;
 }
 
-#adaptable-page-header-wrapper #main-navbar li a:hover,
+#adaptable-page-header-wrapper #main-navbar ul.navbar-nav > li > a.dropdown-toggle:hover,
 #adaptable-page-header-wrapper #main-navbar li div.nav-link:hover,
-#adaptable-page-header-wrapper #main-navbar li #edittingbutton input[type="submit"]:hover
-{
+#adaptable-page-header-wrapper #main-navbar li #edittingbutton input[type="submit"]:hover {
     background-color: [[setting:menuhovercolor]];
     text-decoration: none;
+}
+
+#adaptable-page-header-wrapper #main-navbar li .action-menu-trigger a.dropdown-toggle:hover {
+    background-color: transparent;
+    color: [[setting:menuhovercolor]];
 }
 
 #adaptable-page-header-wrapper #main-navbar .input-group {
@@ -127,15 +131,18 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
     align-items: center
 }
 
-#adaptable-page-header-wrapper #main-navbar li .action-menu-trigger a:hover {
-    background-color: transparent;
-    color: [[setting:menuhovercolor]];
+#adaptable-page-header-wrapper #main-navbar li ul li a:hover,
+#adaptable-page-header-wrapper #main-navbar li .action-menu-trigger .dropdown-item:hover {
+    background-color: [[setting:navbardropdownhovercolor]];
+    color: [[setting:navbardropdowntexthovercolor]];
 }
 
-#adaptable-page-header-wrapper #main-navbar  li ul li a:hover {
-    background-color: [[setting:navbardropdownhovercolor]]; /*  !important; */
-    /* background-image: none !important;
-    color: #333 !important; */
+#adaptable-page-header-wrapper #main-navbar li .action-menu-trigger .dropdown-item:hover a {
+    color: [[setting:navbardropdowntexthovercolor]];
+}
+
+#adaptable-page-header-wrapper #main-navbar .navbar-nav>.nav-item .dropdown-menu .dropdown-toggle:hover:after {
+    border-left-color: [[setting:navbardropdowntexthovercolor]];
 }
 
 #adaptable-page-header-wrapper #above-header li a:hover {
@@ -148,20 +155,17 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
     font-size: 16px;
 }
 
-#adaptable-page-header-wrapper #above-header li a.dropdown-item:hover {
-    background-color: [[setting:navbardropdownhovercolor]]
-}
-
+#adaptable-page-header-wrapper #above-header li a.dropdown-item:hover,
 #adaptable-page-header-wrapper #above-header li ul li a:hover {
     background-color: [[setting:navbardropdownhovercolor]];
+    color: [[setting:navbardropdowntexthovercolor]];
 }
-
 
 .dropdown-item.active,
 .dropdown-item:active {
-    color: #333;
+    background-color: [[setting:navbardropdownhovercolor]];
+    color: [[setting:navbardropdowntexthovercolor]];
     text-decoration: none;
-    background-color: [[setting:navbardropdownhovercolor]]
 }
 
 .navbar .nav > li:last-child > a {
@@ -491,10 +495,12 @@ a.dropdown-menu > .active > a:focus,
 #adaptable-page-header-wrapper .dropdown-menu li a:hover { */
     background-color: [[setting:navbardropdownhovercolor]];
     background-image: none !important;
+    color: [[setting:navbardropdowntexthovercolor]];
 }
 
 .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
     background-color: [[setting:navbardropdownhovercolor]];
+    color: [[setting:navbardropdowntexthovercolor]];
 }
 
 .dropdown-submenu>.dropdown-menu {
