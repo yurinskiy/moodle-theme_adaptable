@@ -386,6 +386,14 @@ a.btn[data-toggle="popover"] {
     margin-right: 5px;
 }
 
+.btn-link {
+    height: 46px;
+}
+
+.btn-link .menu-action-text .icon {
+    margin-top: 8px;
+}
+
 .discussiontoggle {
     padding: 10px;
 }
