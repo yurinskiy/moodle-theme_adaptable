@@ -383,6 +383,8 @@ $string['bcustyle'] = 'BCU style';
 $string['coventrystyle'] = 'Coventry style';
 $string['nostyle'] = 'No style';
 $string['disabled'] = 'Disabled';
+$string['expandable'] = 'Expandable';
+$string['static'] = 'Static';
 
 
 // Footer **********************************************************.
@@ -1041,7 +1043,7 @@ $string['headerstyle1'] = 'Header 1 (original 3 row header)';
 $string['headerstyle2'] = 'Header 2 (2 row header)';
 
 $string['header2searchbox'] = 'Header 2 search box expandable';
-$string['header2searchboxdesc'] = 'Expand and collapse functionality on the search box when using header 2.';
+$string['header2searchboxdesc'] = 'Disabled, static or expand and collapse functionality on the search box when using header 2.';
 
 $string['socialorsearch'] = 'Use Search Box or Social Icons';
 $string['socialorsearchdesc'] = 'You can set the theme to either display social icons or a search box in the header. <br />

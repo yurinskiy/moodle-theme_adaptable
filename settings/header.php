@@ -55,8 +55,13 @@ if ($ADMIN->fulltree) {
     $name = 'theme_adaptable/header2searchbox';
     $title = get_string('header2searchbox', 'theme_adaptable');
     $description = get_string('header2searchboxdesc', 'theme_adaptable');
-    $default = true;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    $default = 'expandable';
+    $radchoices = array(
+        'expandable' => get_string('expandable', 'theme_adaptable'),
+        'static' => get_string('static', 'theme_adaptable'),
+        'disabled' => get_string('disabled', 'theme_adaptable')
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $radchoices);
     $temp->add($setting);
 
     // Select type of login.
