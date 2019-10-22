@@ -254,8 +254,7 @@ class course_renderer extends \core_course_renderer {
                     $contentimages .= html_writer::link($link, html_writer::empty_tag('img', array('src' => $url)));
                     $contentimages .= html_writer::end_tag('div');
                 } else {
-                    $contentimages .= "<div class='cimbox' style='background: #FFF url($url) no-repeat center center;
-                    background-size: contain;'></div>";
+                    $contentimages .= html_writer::tag('div', '', array('class' => 'cimbox', 'style' => 'background-image: url(\''.$url.'\');'));
                 }
             } else {
                 $image = $this->output->pix_icon(file_file_icon($file, 24), $file->get_filename(), 'moodle');
@@ -269,11 +268,9 @@ class course_renderer extends \core_course_renderer {
         if (strlen($contentimages) == 0 && $type == 2) {
             // Default image.
             $url = $PAGE->theme->setting_file_url('frontpagerendererdefaultimage', 'frontpagerendererdefaultimage');
-            $contentimages .= "<div class='cimbox' style='background: #FFF url($url) no-repeat center center;
-            background-size: contain;'></div>";
+            $contentimages .= html_writer::tag('div', '', array('class' => 'cimbox', 'style' => 'background-image: url(\''.$url.'\');'));
         }
-        $content .= html_writer::link(new moodle_url('/course/view.php',
-                array('id' => $course->id)), $contentimages. $contentfiles);
+        $content .= $contentimages.$contentfiles;
 
         if ($type == 2) {
             $content .= $this->coursecat_coursebox_enrolmenticons($course);

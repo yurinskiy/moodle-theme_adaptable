@@ -1633,11 +1633,15 @@ div.questionbankwindow.block {
 }
 
 .cimbox {
-  height: 175px;
-  position: relative;
-  margin-right: -1px;
-  transition: all .5s ease-in-out;
-  z-index: 8
+    background-color: #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 175px;
+    position: relative;
+    margin-right: -1px;
+    transition: all .5s ease-in-out;
+    z-index: 8
 }
 
 .coursebox-content {
