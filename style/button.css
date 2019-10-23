@@ -394,6 +394,15 @@ a.btn[data-toggle="popover"] {
     margin-top: 8px;
 }
 
+.path-mod-forum .btn-link {
+    background-color: transparent;
+    color: [[setting:linkcolor]] !important;
+}
+
+.path-mod-forum .btn-link:hover {
+    background-color: transparent !important;
+}
+
 .discussiontoggle {
     padding: 10px;
 }
