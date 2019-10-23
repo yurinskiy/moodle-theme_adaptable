@@ -94,11 +94,23 @@ if ($ADMIN->fulltree) {
     $description = get_string('hidecoursetitlemobiledesc', 'theme_adaptable');
     $radchoices = array(
         0 => get_string('hide', 'theme_adaptable'),
-        1 => get_string('show', 'theme_adaptable'),
+        1 => get_string('show', 'theme_adaptable')
     );
     $default = 0;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Hide activity / section navigation.
+    $name = 'theme_adaptable/hideasnavmobile';
+    $title = get_string('hideasnavmobile', 'theme_adaptable');
+    $description = get_string('hideasnavmobiledesc', 'theme_adaptable');
+    $radchoices = array(
+        0 => get_string('show', 'theme_adaptable'),
+        1 => get_string('hide', 'theme_adaptable'),
+    );
+    $default = 0;
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $radchoices);
     $temp->add($setting);
 
     // Hide Slider.

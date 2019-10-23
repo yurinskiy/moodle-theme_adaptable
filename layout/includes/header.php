@@ -292,8 +292,13 @@ $hasheaderbg = '';
 if (!empty($headerbg)) {
     $hasheaderbg = 'has-header-bg';
 }
+
+$nomobilenavigation = '';
+if (!empty($PAGE->theme->settings->hideasnavmobile)) {
+    $nomobilenavigation = 'nomobilenavigation';
+}
 ?>
-<body <?php echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle, $pageheader, $hasheaderbg)); ?>>
+<body <?php echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle, $pageheader, $hasheaderbg, $nomobilenavigation)); ?>>
 
 <?php
 echo $OUTPUT->standard_top_of_body_html();
