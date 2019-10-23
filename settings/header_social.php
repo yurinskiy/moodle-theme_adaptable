@@ -39,13 +39,6 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    $name = 'theme_adaptable/socialsizemobile';
-    $title = get_string('socialsizemobile', 'theme_adaptable');
-    $description = get_string('socialsizemobiledesc', 'theme_adaptable');
-    $setting = new admin_setting_configselect($name, $title, $description, '34px', $from14to46px);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
     $name = 'theme_adaptable/socialpaddingside';
     $title = get_string('socialpaddingside', 'theme_adaptable');
     $description = get_string('socialpaddingsidedesc', 'theme_adaptable');

@@ -25,7 +25,8 @@
  */
 
 defined('MOODLE_INTERNAL') || die;
-    $temp = new admin_settingpage('theme_adaptable_mobile', get_string('mobilesettings', 'theme_adaptable'));
+$temp = new admin_settingpage('theme_adaptable_mobile', get_string('mobilesettings', 'theme_adaptable'));
+if ($ADMIN->fulltree) {
     $temp->add(new admin_setting_heading('theme_adaptable_mobile', get_string('mobilesettingsheading', 'theme_adaptable'),
         '', FORMAT_MARKDOWN));
 
@@ -64,6 +65,13 @@ defined('MOODLE_INTERNAL') || die;
     );
     $default = 0;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $radchoices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    $name = 'theme_adaptable/socialsizemobile';
+    $title = get_string('socialsizemobile', 'theme_adaptable');
+    $description = get_string('socialsizemobiledesc', 'theme_adaptable');
+    $setting = new admin_setting_configselect($name, $title, $description, '34px', $from14to46px);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
@@ -130,4 +138,37 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    $ADMIN->add('theme_adaptable', $temp);
+    // Mobile colors heading.
+    $name = 'theme_adaptable/settingsmobilecolors';
+    $heading = get_string('settingsmobilecolors', 'theme_adaptable');
+    $setting = new admin_setting_heading($name, $heading, '');
+    $temp->add($setting);
+
+    // Mobile menu background color.
+    $name = 'theme_adaptable/mobilemenubkcolor';
+    $title = get_string('mobilemenubkcolor', 'theme_adaptable');
+    $description = get_string('mobilemenubkcolordesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#F9F9F9', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Mobile sidebar tab background colour.
+    $name = 'theme_adaptable/mobileslidebartabbkcolor';
+    $title = get_string('mobileslidebartabbkcolor', 'theme_adaptable');
+    $description = get_string('mobileslidebartabbkcolordesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#F9F9F9', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Mobile sidebar tab icon colour.
+    $name = 'theme_adaptable/mobileslidebartabiconcolor';
+    $title = get_string('mobileslidebartabiconcolor', 'theme_adaptable');
+    $description = get_string('mobileslidebartabiconcolordesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#000000', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+}
+$ADMIN->add('theme_adaptable', $temp);
