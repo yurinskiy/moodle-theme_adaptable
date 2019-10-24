@@ -71,7 +71,14 @@ div.discussionsubscription > a.discussiontoggle,
 .btn-outline-secondary,
 .paging-morelink a,
 .btn-link,
-a#adaptable-message-user-button {
+a#adaptable-message-user-button,
+
+/* Add Restrictions Dialogue */
+#availability_addrestriction_date.btn.btn-secondary,
+#availability_addrestriction_grade.btn.btn-secondary,
+#availability_addrestriction_profile.btn.btn-secondary,
+#availability_addrestriction_list_.btn.btn-secondary,
+#availability_addrestriction_completion.btn.btn-secondary {
     font-family: [[setting:fontname]];
     background-image: none;
     background-color: [[setting:buttoncolor]];
@@ -79,14 +86,10 @@ a#adaptable-message-user-button {
     text-shadow: none;
     box-shadow: 0 [[setting:buttondropshadow]] 0 0 rgba(0, 0, 0, 0.5) inset;
     border: 0;
-    -webkit-border-radius: [[setting:buttonradius]];
-    -moz-border-radius: [[setting:buttonradius]];
     border-radius: [[setting:buttonradius]];
     color: [[setting:buttontextcolor]] !important;
     cursor: pointer;
     padding: .4rem 1rem;
-    -webkit-transition: background .2s ease-out;
-    -moz-transition: background .2s ease-out;
     -ie-transition: background .2s ease-out;
     -o-transition: background .2s ease-out;
     transition: background .2s ease-out;
@@ -100,8 +103,6 @@ a#adaptable-message-user-button {
 
 /* Secondary button */
 .btn-secondary {
-    border-color: #cccccc !important;
-    color: #292b2c !important;
     min-height: 32px;
     margin-left: 6px;
 }
@@ -129,7 +130,14 @@ a.submit:hover,
 .btn-outline-secondary:hover,
 .btn-link:hover,
 div.discussionsubscription > a.discussiontoggle:hover,
-a#adaptable-message-user-button:hover {
+a#adaptable-message-user-button:hover,
+
+/* Add Restrictions Dialogue */
+#availability_addrestriction_date.btn.btn-secondary:hover,
+#availability_addrestriction_grade.btn.btn-secondary:hover,
+#availability_addrestriction_profile.btn.btn-secondary:hover,
+#availability_addrestriction_list_.btn.btn-secondary:hover,
+#availability_addrestriction_completion.btn.btn-secondary:hover {
     background: none;
     background-position: 0 -100%;
     background-color: [[setting:buttonhovercolor]] !important;
