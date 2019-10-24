@@ -441,6 +441,10 @@ $string['navbarsettings'] = 'Navbar Settings';
 $string['navbarsettingsheading'] = 'Customize the navigation bar';
 $string['navbardesc'] = 'Allows you to control all of the elements that appear on the navigation bar.';
 
+$string['navbarstyles'] = 'Navbar Styles';
+$string['navbarstylesheading'] = 'Customize the navigation bar styles';
+$string['navbarstylesdesc'] = 'Allows you to control the styles of the elements that appear on the navigation bar.';
+
 $string['navbarlinkssettings'] = 'Navbar Links';
 $string['navbarlinksettingsheading'] = 'Customize the links on the navigation bar';
 $string['navbarlinksettingsdesc'] = 'Allows you to control the links that appear on the navigation bar.';
@@ -505,8 +509,6 @@ $string['enablecoursesectionsdesc'] = 'Display a sub-menu on the \'This course\'
 $string['sections'] = 'Sections';
 
 // Navbar styling *********************************************************.
-$string['headernavbarstylingheading'] = 'Navbar Styling';
-$string['headernavbarstylingheadingdesc'] = 'Styling options for the main navigation menu.';
 $string['navbardropdownborderradius'] = 'Dropdown menu border radius';
 $string['navbardropdownborderradiusdesc'] = 'Controls the border radius for dropdown menus (e.g. rounded corners).';
 $string['navbardropdownhovercolor'] = 'Dropdown menu background hover colour';

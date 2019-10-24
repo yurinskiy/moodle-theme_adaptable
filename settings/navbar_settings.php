@@ -27,11 +27,10 @@
 defined('MOODLE_INTERNAL') || die;
 
 // Header Navbar.
-$temp = new admin_settingpage('theme_adaptable_navbar', get_string('navbarsettings', 'theme_adaptable'));
+$temp = new admin_settingpage('theme_adaptable_navbar_settings', get_string('navbarsettings', 'theme_adaptable'));
 if ($ADMIN->fulltree) {
-    $temp->add(new admin_setting_heading('theme_adaptable_navbar', get_string('navbarsettingsheading', 'theme_adaptable'),
+    $temp->add(new admin_setting_heading('theme_adaptable_navbar_settings', get_string('navbarsettingsheading', 'theme_adaptable'),
         format_text(get_string('navbardesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
-
 
     // Sticky Navbar at the top. See issue #278.
     $name = 'theme_adaptable/stickynavbar';
@@ -121,7 +120,7 @@ if ($ADMIN->fulltree) {
     $description = get_string('enableshowhideblockstextdesc', 'theme_adaptable');
     $default = true;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-$temp->add($setting);
+    $temp->add($setting);
 
     $name = 'theme_adaptable/enablenavbarwhenloggedout';
     $title = get_string('enablenavbarwhenloggedout', 'theme_adaptable');
@@ -149,73 +148,6 @@ $temp->add($setting);
     $description = get_string('displayeditingbuttontextdesc', 'theme_adaptable');
     $default = true;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Navbar styling.
-    $temp->add(new admin_setting_heading('theme_adaptable_navbar_styling_heading',
-        get_string('headernavbarstylingheading', 'theme_adaptable'),
-        format_text(get_string('headernavbarstylingheadingdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
-
-    $name = 'theme_adaptable/navbardisplayicons';
-    $title = get_string('navbardisplayicons', 'theme_adaptable');
-    $description = get_string('navbardisplayiconsdesc', 'theme_adaptable');
-    $default = true;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    $name = 'theme_adaptable/navbardisplaysubmenuarrow';
-    $title = get_string('navbardisplaysubmenuarrow', 'theme_adaptable');
-    $description = get_string('navbardisplaysubmenuarrowdesc', 'theme_adaptable');
-    $default = false;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Dropdown border radius.
-    $name = 'theme_adaptable/navbardropdownborderradius';
-    $title = get_string('navbardropdownborderradius', 'theme_adaptable');
-    $description = get_string('navbardropdownborderradiusdesc', 'theme_adaptable');
-    $setting = new admin_setting_configselect($name, $title, $description, '0px', $from0to20px);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Dropdown Menu Item Link background hover colour.
-    $name = 'theme_adaptable/navbardropdownhovercolor';
-    $title = get_string('navbardropdownhovercolor', 'theme_adaptable');
-    $description = get_string('navbardropdownhovercolordesc', 'theme_adaptable');
-    $default = '#EEE';
-    $previewconfig = null;
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Dropdown Menu Item Link text colour.
-    $name = 'theme_adaptable/navbardropdowntextcolor';
-    $title = get_string('navbardropdowntextcolor', 'theme_adaptable');
-    $description = get_string('navbardropdowntextcolordesc', 'theme_adaptable');
-    $default = '#007';
-    $previewconfig = null;
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Dropdown Menu Item Link text hover colour.
-    $name = 'theme_adaptable/navbardropdowntexthovercolor';
-    $title = get_string('navbardropdowntexthovercolor', 'theme_adaptable');
-    $description = get_string('navbardropdowntexthovercolordesc', 'theme_adaptable');
-    $default = '#000';
-    $previewconfig = null;
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Dropdown transition time.
-    $name = 'theme_adaptable/navbardropdowntransitiontime';
-    $title = get_string('navbardropdowntransitiontime', 'theme_adaptable');
-    $description = get_string('navbardropdowntransitiontimedesc', 'theme_adaptable');
-    $setting = new admin_setting_configselect($name, $title, $description, '0.2s', $from0to1second);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
