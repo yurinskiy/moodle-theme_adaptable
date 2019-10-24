@@ -162,6 +162,7 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:mobileslidebartabiconcolor]]' => '#000000',
         '[[setting:navbardropdownborderradius]]' => '0px',
         '[[setting:navbardropdownhovercolor]]' => '#EEE',
+        '[[setting:navbardropdowntextcolor]]' => '#007',
         '[[setting:navbardropdowntexthovercolor]]' => '#000',
         '[[setting:navbardropdowntransitiontime]]' => '0.0s',
         '[[setting:covbkcolor]]' => '#3A454b',

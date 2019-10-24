@@ -130,6 +130,7 @@ $THEME->sheets = array(
         'header',
         'menu',
         'messages',
+        'navigation',
         'notifications',
         'responsive',
         'search',

@@ -89,7 +89,10 @@ if ($movesidebartofooter) {
 
                 echo '<main id="coursetabcontainer" class="tabcontentcontainer">';
 
-                if (!empty($PAGE->theme->settings->tabbedlayoutcoursepagelink)) {
+                $sectionid = optional_param('sectionid', 0, PARAM_INT);
+                $section = optional_param('section', 0, PARAM_INT);
+                if ((!empty($PAGE->theme->settings->tabbedlayoutcoursepagelink)) &&
+                    (($sectionid) || ($section))) {
                     global $COURSE;
                     $courseurl = new moodle_url('/course/view.php', array('id' => $COURSE->id));
                     echo '<div class="linktab"><a href="'.$courseurl->out(true).'"><i class="fa fa-th-large"></i></a></div>';
@@ -121,7 +124,6 @@ if ($movesidebartofooter) {
                     $checkedstatus . ' >' .
                     '<label for="' . $tabname . '" class="coursetab" ' . $extrastyles . '>' . $tablabel .'</label>';
 
-                    $checkedstatus = '';
                     $count++;
                 }
 

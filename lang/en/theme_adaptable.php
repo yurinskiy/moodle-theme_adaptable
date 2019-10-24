@@ -383,6 +383,8 @@ $string['bcustyle'] = 'BCU style';
 $string['coventrystyle'] = 'Coventry style';
 $string['nostyle'] = 'No style';
 $string['disabled'] = 'Disabled';
+$string['expandable'] = 'Expandable';
+$string['static'] = 'Static';
 
 
 // Footer **********************************************************.
@@ -508,6 +510,8 @@ $string['navbardropdownborderradius'] = 'Dropdown menu border radius';
 $string['navbardropdownborderradiusdesc'] = 'Controls the border radius for dropdown menus (e.g. rounded corners).';
 $string['navbardropdownhovercolor'] = 'Dropdown menu background hover colour';
 $string['navbardropdownhovercolordesc'] = 'Dropdown menu background colour when hovering over menu items.';
+$string['navbardropdowntextcolor'] = 'Dropdown menu text colour';
+$string['navbardropdowntextcolordesc'] = 'Dropdown menu item text colour.';
 $string['navbardropdowntexthovercolor'] = 'Dropdown menu text hover colour';
 $string['navbardropdowntexthovercolordesc'] = 'Dropdown menu text colour when hovering over menu items.';
 $string['navbardropdowntransitiontime'] = 'Navbar transition time';
@@ -1039,7 +1043,7 @@ $string['headerstyle1'] = 'Header 1 (original 3 row header)';
 $string['headerstyle2'] = 'Header 2 (2 row header)';
 
 $string['header2searchbox'] = 'Header 2 search box expandable';
-$string['header2searchboxdesc'] = 'Expand and collapse functionality on the search box when using header 2.';
+$string['header2searchboxdesc'] = 'Disabled, static or expand and collapse functionality on the search box when using header 2.';
 
 $string['socialorsearch'] = 'Use Search Box or Social Icons';
 $string['socialorsearchdesc'] = 'You can set the theme to either display social icons or a search box in the header. <br />
@@ -1301,6 +1305,9 @@ $string['hidesocialmobiledesc'] = 'Hide will remove social icons on mobile devic
 
 $string['hidecoursetitlemobile'] = 'Hide Course / Site Title on mobile';
 $string['hidecoursetitlemobiledesc'] = 'Hide the course title AND site title on mobile devices';
+
+$string['hideasnavmobile'] = 'Show / hide the activity / section nagivation on mobile';
+$string['hideasnavmobiledesc'] = 'Show / hide the activity / section on mobile devices';
 
 $string['hidelogomobile'] = 'Hide Logo on mobile';
 $string['hidelogomobiledesc'] = 'Hide will remove the logo on mobile devices';

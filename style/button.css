@@ -380,18 +380,35 @@ a.btn[data-toggle="popover"] {
     margin-right: 5px;
 }
 
-/* btn-link */
-.btn-link,
 .discussiontoggle {
     margin-right: 5px;
 }
 
-.discussiontoggle {
-    padding: 10px;
+/* .btn-link styles. */
+.btn-link {
+    background-color: transparent;
+    color: [[setting:linkcolor]] !important;
+    box-shadow: none;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+    background-color: transparent !important;
+    color: [[setting:linkhover]] !important;
 }
 
 .btn-link .icon {
     margin-right: 0;
+}
+
+.btn-link .menu-action-text .icon {
+    margin-top: 8px;
+}
+
+
+
+.discussiontoggle {
+    padding: 10px;
 }
 
 /* btn-icon */

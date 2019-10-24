@@ -114,7 +114,7 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
     margin: 0;
 }
 
-#adaptable-page-header-wrapper #main-navbar ul.navbar-nav > li > a.dropdown-toggle:hover,
+#adaptable-page-header-wrapper #main-navbar ul.navbar-nav > li > a.nav-link:hover,
 #adaptable-page-header-wrapper #main-navbar li div.nav-link:hover,
 #adaptable-page-header-wrapper #main-navbar li #edittingbutton input[type="submit"]:hover {
     background-color: [[setting:menuhovercolor]];
@@ -129,6 +129,11 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 #adaptable-page-header-wrapper #main-navbar .input-group {
     display: flex;
     align-items: center
+}
+
+#adaptable-page-header-wrapper #main-navbar li ul li a,
+#adaptable-page-header-wrapper #main-navbar li .action-menu-trigger .dropdown-item {
+    color: [[setting:navbardropdowntextcolor]];
 }
 
 #adaptable-page-header-wrapper #main-navbar li ul li a:hover,
@@ -155,13 +160,21 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
     font-size: 16px;
 }
 
+#adaptable-page-header-wrapper #above-header li a.dropdown-item,
+#adaptable-page-header-wrapper #above-header li ul li a {
+    color: [[setting:navbardropdowntextcolor]];
+}
+
 #adaptable-page-header-wrapper #above-header li a.dropdown-item:hover,
 #adaptable-page-header-wrapper #above-header li ul li a:hover {
     background-color: [[setting:navbardropdownhovercolor]];
     color: [[setting:navbardropdowntexthovercolor]];
 }
 
-.dropdown-item.active,
+.dropdown-item.active {
+    color: [[setting:navbardropdowntextcolor]];
+}
+
 .dropdown-item:active {
     background-color: [[setting:navbardropdownhovercolor]];
     color: [[setting:navbardropdowntexthovercolor]];
@@ -485,20 +498,29 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 }
 
 
+a.dropdown-item > a,
+a.dropdown-menu > .active,
+a.dropdown-menu > .active > a,
+#adaptable-page-header-wrapper .dropdown-menu li a {
+    color: [[setting:navbardropdowntextcolor]];
+}
 
 a.dropdown-item:hover > a,
 a.dropdown-item:focus > a,
-a.dropdown-menu > .active,
-a.dropdown-menu > .active > a,
 a.dropdown-menu > .active > a:hover,
 a.dropdown-menu > .active > a:focus,
-#adaptable-page-header-wrapper .dropdown-menu li a:hover { */
+#adaptable-page-header-wrapper .dropdown-menu li a:hover {
     background-color: [[setting:navbardropdownhovercolor]];
     background-image: none !important;
     color: [[setting:navbardropdowntexthovercolor]];
 }
 
-.dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
+.dropdown-submenu > a {
+    color: [[setting:navbardropdowntextcolor]];
+}
+
+.dropdown-submenu:hover > a,
+.dropdown-submenu:focus > a {
     background-color: [[setting:navbardropdownhovercolor]];
     color: [[setting:navbardropdowntexthovercolor]];
 }

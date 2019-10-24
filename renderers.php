@@ -2075,7 +2075,8 @@ EOT;
         global $COURSE;
 
         $courseformat = course_get_format($COURSE);
-        $modinfo = get_fast_modinfo($COURSE);
+        $course = $courseformat->get_course();
+        $modinfo = get_fast_modinfo($course);
         $numsections = $courseformat->get_last_section_number();
         $sectionsformnenu = array();
         foreach ($modinfo->get_section_info_all() as $section => $thissection) {
@@ -2098,7 +2099,7 @@ EOT;
         }
 
         if (!empty($sectionsformnenu)) { // Rare but possible!
-            $branchtitle = get_string('coursesections', 'theme_adaptable');
+            $branchtitle = get_string('sections');
             $branchlabel = '<i class="icon fa fa-list-ol fa-lg"></i>'.$branchtitle;
             $branch = $menu->add($branchlabel, null, '', 100003);
 
@@ -3132,7 +3133,9 @@ EOT;
         // We are on the course home page.
         if (($context->contextlevel == CONTEXT_COURSE) &&
         !empty($currentnode) &&
-        ($currentnode->type == navigation_node::TYPE_COURSE || $currentnode->type == navigation_node::TYPE_SECTION)) {
+        ($currentnode->type == navigation_node::TYPE_COURSE ||
+         $currentnode->type == navigation_node::TYPE_SECTION ||
+         $currentnode->type == navigation_node::TYPE_SETTING)) { // Show cog on grade report page.
             $showcoursemenu = true;
         }
 
@@ -3438,6 +3441,19 @@ EOT;
             return '';
         }
 
+        $header2searchbox = 'expandable';
+        if (!empty($this->page->theme->settings->header2searchbox)) {
+            $header2searchbox = $this->page->theme->settings->header2searchbox;
+        }
+
+        if ($header2searchbox == 'disabled') {
+            return '';
+        } else if ($header2searchbox == 'static') {
+            $expandable = false;
+        } else {
+            $expandable = true;
+        }
+
         if ($id == false) {
             $id = uniqid();
         } else {
@@ -3445,14 +3461,9 @@ EOT;
             $id = clean_param($id, PARAM_ALPHANUMEXT);
         }
 
-        $expandable = false;
-        if (!empty($this->page->theme->settings->header2searchbox)) {
-            $expandable = $this->page->theme->settings->header2searchbox;
-        }
-
         // JS to animate the form.
         $this->page->requires->js_call_amd('theme_adaptable/search-input',
-                                           'init', array('data' => array('id' => $id, 'expandable' => $expandable)));
+            'init', array('data' => array('id' => $id, 'expandable' => $expandable)));
 
         $searchicon = html_writer::tag('div', $this->pix_icon('a/search', get_string('search', 'search'), 'moodle'),
             array('role' => 'button', 'tabindex' => 0));

@@ -191,6 +191,16 @@ $temp->add($setting);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    // Dropdown Menu Item Link text colour.
+    $name = 'theme_adaptable/navbardropdowntextcolor';
+    $title = get_string('navbardropdowntextcolor', 'theme_adaptable');
+    $description = get_string('navbardropdowntextcolordesc', 'theme_adaptable');
+    $default = '#007';
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
     // Dropdown Menu Item Link text hover colour.
     $name = 'theme_adaptable/navbardropdowntexthovercolor';
     $title = get_string('navbardropdowntexthovercolor', 'theme_adaptable');

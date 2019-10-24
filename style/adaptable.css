@@ -66,11 +66,14 @@ textarea {
 /* Links */
 a,
 a:visited,
-.tabtree .tabrow0 li a,
-#adaptable-page-header-wrapper .dropdown-menu > li > a.dropdown-item,
-#adaptable-page-header-wrapper .dropdown-item a {
+.tabtree .tabrow0 li a {
     color: [[setting:linkcolor]];
     text-decoration: none;
+}
+
+#adaptable-page-header-wrapper .dropdown-menu > li > a.dropdown-item,
+#adaptable-page-header-wrapper .dropdown-item a {
+    color: [[setting:navbardropdowntextcolor]];
 }
 
 a:hover,
@@ -706,16 +709,6 @@ span.fa-chevron-right.fa {
 #page-footer ol, #page-footer ul {
     list-style: none outside none;
     margin: 0 0;
-}
-
-#intro.generalbox {
-    background-color: #bce5f2;
-    border-color: #31b0d5;
-    color: #212529;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
-    margin: 1em auto;
-    padding: 10px;
-    width: 85%;
 }
 
 #page-my-index #page-navbar {
@@ -1624,17 +1617,16 @@ div.questionbankwindow.block {
     text-decoration: underline;
 }
 
-/* Renderer temporary changes */
-.coursebox.panel.hover .panel-heading {
-    display: none;
-}
-
 .cimbox {
-  height: 175px;
-  position: relative;
-  margin-right: -1px;
-  transition: all .5s ease-in-out;
-  z-index: 8
+    background-color: #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 175px;
+    position: relative;
+    margin-right: -1px;
+    transition: all .5s ease-in-out;
+    z-index: 8
 }
 
 .coursebox-content {
