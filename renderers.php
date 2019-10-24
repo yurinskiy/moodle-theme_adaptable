@@ -2075,8 +2075,7 @@ EOT;
         global $COURSE;
 
         $courseformat = course_get_format($COURSE);
-        $course = $courseformat->get_course();
-        $modinfo = get_fast_modinfo($course);
+        $modinfo = get_fast_modinfo($COURSE);
         $numsections = $courseformat->get_last_section_number();
         $sectionsformnenu = array();
         foreach ($modinfo->get_section_info_all() as $section => $thissection) {
@@ -2085,11 +2084,10 @@ EOT;
                 continue;
             }
             /* Show the section if the user is permitted to access it, OR if it's not available
-               but there is some available info text which explains the reason & should display,
-               OR it is hidden but the course has a setting to display hidden sections as unavilable. */
+               but there is some available info text which explains the reason & should display. */
             $showsection = $thissection->uservisible ||
-                ($thissection->visible && !$thissection->available && !empty($thissection->availableinfo)) ||
-                (!$thissection->visible && !$course->hiddensections);
+                ($thissection->visible && !$thissection->available && !empty($thissection->availableinfo));
+
             if (($showsection) || ($section == 0)) {
                 $sectionsformnenu[$section] = array(
                     'sectionname' => $courseformat->get_section_name($section),
