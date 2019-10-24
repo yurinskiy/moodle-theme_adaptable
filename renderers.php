@@ -2075,7 +2075,8 @@ EOT;
         global $COURSE;
 
         $courseformat = course_get_format($COURSE);
-        $modinfo = get_fast_modinfo($COURSE);
+        $course = $courseformat->get_course();
+        $modinfo = get_fast_modinfo($course);
         $numsections = $courseformat->get_last_section_number();
         $sectionsformnenu = array();
         foreach ($modinfo->get_section_info_all() as $section => $thissection) {
