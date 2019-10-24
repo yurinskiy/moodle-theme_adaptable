@@ -32,6 +32,42 @@ if ($ADMIN->fulltree) {
     $temp->add(new admin_setting_heading('theme_adaptable_navbar_styles', get_string('navbarstylesheading', 'theme_adaptable'),
         format_text(get_string('navbarstylesdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
 
+    // Main menu background color.
+    $name = 'theme_adaptable/menubkcolor';
+    $title = get_string('menubkcolor', 'theme_adaptable');
+    $description = get_string('menubkcolordesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#ffffff', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Main menu text color.
+    $name = 'theme_adaptable/menufontcolor';
+    $title = get_string('menufontcolor', 'theme_adaptable');
+    $description = get_string('menufontcolordesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#222222', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Main menu hover color.
+    $name = 'theme_adaptable/menuhovercolor';
+    $title = get_string('menuhovercolor', 'theme_adaptable');
+    $description = get_string('menuhovercolordesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#00B3A1', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Main menu bottom border color.
+    $name = 'theme_adaptable/menubordercolor';
+    $title = get_string('menubordercolor', 'theme_adaptable');
+    $description = get_string('menubordercolordesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#00B3A1', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
     $name = 'theme_adaptable/navbardisplayicons';
     $title = get_string('navbardisplayicons', 'theme_adaptable');
     $description = get_string('navbardisplayiconsdesc', 'theme_adaptable');

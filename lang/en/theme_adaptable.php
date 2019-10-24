@@ -119,7 +119,6 @@ $string['region-course-bottom-d'] = 'Course page bottom region 8';
 // Settings page headings ******************************************.
 $string['settingsmaincolors'] = 'Main Colours';
 $string['settingsheadercolors'] = 'Header Colours';
-$string['settingsmenucolors'] = 'Menu Colours';
 $string['settingsmobilecolors'] = 'Mobile Colours';
 $string['settingsinfoboxcolors'] = 'Info Box Colours';
 $string['settingssecondinfoboxcolors'] = 'Second Info Box Colours';

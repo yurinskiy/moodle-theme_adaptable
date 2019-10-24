@@ -172,48 +172,6 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    // Menu colors heading.
-    $name = 'theme_adaptable/settingsmenucolors';
-    $heading = get_string('settingsmenucolors', 'theme_adaptable');
-    $setting = new admin_setting_heading($name, $heading, '');
-    $temp->add($setting);
-
-    // Main menu background color.
-    $name = 'theme_adaptable/menubkcolor';
-    $title = get_string('menubkcolor', 'theme_adaptable');
-    $description = get_string('menubkcolordesc', 'theme_adaptable');
-    $previewconfig = null;
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#ffffff', $previewconfig);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Main menu text color.
-    $name = 'theme_adaptable/menufontcolor';
-    $title = get_string('menufontcolor', 'theme_adaptable');
-    $description = get_string('menufontcolordesc', 'theme_adaptable');
-    $previewconfig = null;
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#222222', $previewconfig);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Main menu hover color.
-    $name = 'theme_adaptable/menuhovercolor';
-    $title = get_string('menuhovercolor', 'theme_adaptable');
-    $description = get_string('menuhovercolordesc', 'theme_adaptable');
-    $previewconfig = null;
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#00B3A1', $previewconfig);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Main menu bottom border color.
-    $name = 'theme_adaptable/menubordercolor';
-    $title = get_string('menubordercolor', 'theme_adaptable');
-    $description = get_string('menubordercolordesc', 'theme_adaptable');
-    $previewconfig = null;
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#00B3A1', $previewconfig);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
     // Market blocks colors heading.
     $name = 'theme_adaptable/settingsmarketingcolors';
     $heading = get_string('settingsmarketingcolors', 'theme_adaptable');
