@@ -29,15 +29,16 @@ defined('MOODLE_INTERNAL') || die;
 // Include header.
 require_once(dirname(__FILE__) . '/includes/header.php');
 
-$left = $PAGE->theme->settings->blockside;
 
-// If page is Grader report, override blockside setting to align left.
+// If page is Grader report don't show side post.
 if (($PAGE->pagetype == "grade-report-grader-index") ||
     ($PAGE->bodyid == "page-grade-report-grader-index")) {
     $left = true;
+    $hassidepost = false;
+} else {
+    $left = $PAGE->theme->settings->blockside;
+    $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 }
-
-$hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $regions = theme_adaptable_grid($left, $hassidepost);
 ?>
 

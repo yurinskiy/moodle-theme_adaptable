@@ -3132,7 +3132,9 @@ EOT;
         // We are on the course home page.
         if (($context->contextlevel == CONTEXT_COURSE) &&
         !empty($currentnode) &&
-        ($currentnode->type == navigation_node::TYPE_COURSE || $currentnode->type == navigation_node::TYPE_SECTION)) {
+        ($currentnode->type == navigation_node::TYPE_COURSE ||
+         $currentnode->type == navigation_node::TYPE_SECTION ||
+         $currentnode->type == navigation_node::TYPE_SETTING)) { // Show cog on grade report page.
             $showcoursemenu = true;
         }
 
