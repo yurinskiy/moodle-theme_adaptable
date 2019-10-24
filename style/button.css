@@ -101,7 +101,7 @@ a#adaptable-message-user-button {
 /* Secondary button */
 .btn-secondary {
     border-color: #cccccc !important;
-    color: [[setting:buttontextcolor]] !important;
+    color: #292b2c !important;
     min-height: 32px;
     margin-left: 6px;
 }
