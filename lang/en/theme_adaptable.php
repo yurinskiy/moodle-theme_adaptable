@@ -502,6 +502,7 @@ $string['enableeventsdesc'] = 'Display a link to the calendar';
 
 $string['enablethiscoursedesc'] = 'Display a dropdown with activities from the current course.';
 $string['enablecoursesectionsdesc'] = 'Display a sub-menu on the \'This course\' menu containing links to each shown section.';
+$string['sections'] = 'Sections';
 
 // Navbar styling *********************************************************.
 $string['headernavbarstylingheading'] = 'Navbar Styling';
