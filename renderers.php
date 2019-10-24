@@ -2098,7 +2098,7 @@ EOT;
         }
 
         if (!empty($sectionsformnenu)) { // Rare but possible!
-            $branchtitle = get_string('coursesections', 'theme_adaptable');
+            $branchtitle = get_string('sections');
             $branchlabel = '<i class="icon fa fa-list-ol fa-lg"></i>'.$branchtitle;
             $branch = $menu->add($branchlabel, null, '', 100003);
 

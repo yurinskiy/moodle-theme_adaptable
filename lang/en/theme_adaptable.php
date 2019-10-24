@@ -1083,7 +1083,7 @@ $string['enableavailablecourses'] = 'Display "Available Courses"';
 $string['enableavailablecoursesdesc'] = 'Display "Available Courses" text in the frontpage';
 
 $string['thiscourse'] = 'This course';
-$string['coursesections'] = 'Sections';
+$string['coursesections'] = 'Course sections';
 
 $string['loadtime'] = 'Page loaded in';
 
