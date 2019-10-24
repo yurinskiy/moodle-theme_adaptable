@@ -711,16 +711,6 @@ span.fa-chevron-right.fa {
     margin: 0 0;
 }
 
-#intro.generalbox {
-    background-color: #bce5f2;
-    border-color: #31b0d5;
-    color: #212529;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
-    margin: 1em auto;
-    padding: 10px;
-    width: 85%;
-}
-
 #page-my-index #page-navbar {
     display: inline;
 }
