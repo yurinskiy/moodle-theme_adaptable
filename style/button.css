@@ -98,14 +98,6 @@ a#adaptable-message-user-button {
     color: [[setting:buttontextcolor]] !important;
 }
 
-/* Secondary button */
-.btn-secondary {
-    border-color: #cccccc !important;
-    color: [[setting:buttontextcolor]] !important;
-    min-height: 32px;
-    margin-left: 6px;
-}
-
 .btn-sm {
   margin-right: 3px;
 }
