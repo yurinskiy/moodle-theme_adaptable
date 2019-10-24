@@ -437,7 +437,7 @@ $string['navbarmenusettings'] = 'Navbar Custom Menu';
 $string['navbarmenusettingsheading'] = 'Customize the menu in the navigation bar. See the layout <a href="./../theme/adaptable/pix/layout.png" target="_blank"> here</a>.';
 $string['navbarmenusettingsdesc'] = 'Allows you to add a menu to the navigation bar.';
 
-$string['navbarsettings'] = 'Header Navbar';
+$string['navbarsettings'] = 'Navbar Settings';
 $string['navbarsettingsheading'] = 'Customize the navigation bar';
 $string['navbardesc'] = 'Allows you to control all of the elements that appear on the navigation bar.';
 
