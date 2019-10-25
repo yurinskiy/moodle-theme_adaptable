@@ -43,12 +43,7 @@ if (!empty($PAGE->theme->settings->dashblocksenabled)) {
     $dashblocklayoutlayoutrow .= $OUTPUT->get_block_regions('dashblocklayoutlayoutrow');
     $dashblocklayoutlayoutrow .= '</div>';
 }
-
-$sidebarclasses = '';
-// Hide sidebar on mobile.
-if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
-    $sidebarclasses = ' d-none d-md-block d-print-none ';
-} ?>
+?>
 
 <div class="container outercont">
     <?php
@@ -150,7 +145,7 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
             echo '</main>';
             echo '</section>';
             if ($hassidepost) {
-                echo $OUTPUT->blocks('side-post', $regions['blocks'] . $sidebarclasses);
+                echo $OUTPUT->blocks('side-post', $regions['blocks'].' d-print-none ');
             }
         } else { ?>
         <section id="region-main" class="<?php echo $regions['content'];?>">
@@ -163,7 +158,7 @@ if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
 
         <?php
         if ($hassidepost) {
-            echo $OUTPUT->blocks('side-post', $regions['blocks'] . $sidebarclasses);
+            echo $OUTPUT->blocks('side-post', $regions['blocks'].' d-print-none ');
         }
     }
     ?>

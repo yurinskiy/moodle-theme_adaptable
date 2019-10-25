@@ -107,14 +107,8 @@ if (!empty($PAGE->theme->settings->infobox2)) {
             ?>
         </section>
         <?php
-        $classes = '';
-
-        // Hide sidebar on mobile.
-        if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
-            $classes = ' d-none d-md-block ';
-        }
         if ($hassidepost) {
-            echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
+            echo $OUTPUT->blocks('side-post', $regions['blocks'].' d-print-none ');
         }
         ?>
     </div>

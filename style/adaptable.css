@@ -1550,7 +1550,6 @@ div.questionbankwindow.block {
     }
     #block-region-side-post {
         background-color: #fff;
-        display: block !important;
         overflow: hidden;
         padding: 0;
         position: fixed;

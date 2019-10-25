@@ -150,6 +150,30 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+
+    // Small screen (mobile) appearance heading.
+    $name = 'theme_adaptable/settingssmallscreen';
+    $heading = get_string('settingssmallscreen', 'theme_adaptable');
+    $setting = new admin_setting_heading($name, $heading, '');
+    $temp->add($setting);
+
+    // Show search icon on small screens.
+    $name = 'theme_adaptable/smallscreenshowsearchicon';
+    $title = get_string('smallscreenshowsearchicon', 'theme_adaptable');
+    $description = get_string('smallscreenshowsearchicondesc', 'theme_adaptable');
+    $default = true;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    $temp->add($setting);
+
+
+    // Hide breadcrumbs on small screens.
+    $name = 'theme_adaptable/smallscreenhidebreadcrumb';
+    $title = get_string('smallscreenhidebreadcrumb', 'theme_adaptable');
+    $description = get_string('smallscreenhidebreadcrumbdesc', 'theme_adaptable');
+    $default = true;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    $temp->add($setting);
+
     // Mobile colors heading.
     $name = 'theme_adaptable/settingsmobilecolors';
     $heading = get_string('settingsmobilecolors', 'theme_adaptable');

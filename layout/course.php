@@ -183,16 +183,9 @@ if (empty($PAGE->theme->settings->coursepageblocksenabled)) {
     $displayall = true;
 }
 
-
-// Hide sidebar on mobile.
-$classes = '';
-if (!empty($PAGE->theme->settings->smallscreenhidesidebar)) {
-    $classes = ' d-none d-md-block d-print-none ';
-}
-
 if ($movesidebartofooter == false) {
     if ($hassidepost) {
-        echo $OUTPUT->blocks('side-post', $regions['blocks'] . $classes);
+        echo $OUTPUT->blocks('side-post', $regions['blocks'].' d-print-none ');
     }
 
     // Get any missing blocks from changing layout settings.  E.g. From 4-4-4-4 to 6-6-0-0, to recover
@@ -212,7 +205,7 @@ if (!empty($PAGE->theme->settings->coursepageblocksenabled)) { ?>
 
 if ($movesidebartofooter) {
     if ($hassidepost) {
-        echo $OUTPUT->blocks('side-post', ' col-12 ' . $classes);
+        echo $OUTPUT->blocks('side-post', ' col-12 d-print-none ');
     }
 
     // Get any missing blocks from changing layout settings.  E.g. From 4-4-4-4 to 6-6-0-0, to recover

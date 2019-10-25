@@ -1734,8 +1734,6 @@ $string['smallscreenshowsearchicon'] = 'Show search icon';
 $string['smallscreenshowsearchicondesc'] = 'Show search icon on small screen devices.';
 $string['smallscreenhidebreadcrumb'] = 'Hide Beadcrumb navigation';
 $string['smallscreenhidebreadcrumbdesc'] = 'Hide breadcrumb navigation on small screen devices.';
-$string['smallscreenhidesidebar'] = 'Hide sidebar';
-$string['smallscreenhidesidebardesc'] = 'Hide sidebar on small screen devices';
 
 // Adaptable Tabbed layout changes.
 $string['tabbedlayoutheading'] = 'Adaptable Tabbed Layout';
