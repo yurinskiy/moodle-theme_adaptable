@@ -456,7 +456,7 @@ class theme_adaptable_core_renderer extends core_renderer {
         if (!empty($bc->controls)) {
             $bc->add_class('block_with_controls');
         }
-
+        $bc->add_class('mb-3');
 
         if (empty($skiptitle)) {
             $output = '';
