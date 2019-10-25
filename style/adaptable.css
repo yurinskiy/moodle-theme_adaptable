@@ -2395,7 +2395,6 @@ img.smallicon {
 
 .path-backup .detail-pair .detail-pair-label {
     width: 20%;
-    font-size: 1.5em;
 }
 
 .path-backup .detail-pair-value .ics-search input[type="submit"] {
@@ -2406,15 +2405,19 @@ img.smallicon {
     margin: 10px 0 0;
 }
 
-/* File Picker */
-.fp-setlicense select {
-    display: block;
-}
-
 /* Course restore */
 .detail-pair-label,
 .detail-pair-value {
-    font-size: 1.2rem !important;
+    font-size: 1rem !important;
+}
+
+.path-backup .form-group {
+    margin-bottom: 0;
+}
+
+/* File Picker */
+.fp-setlicense select {
+    display: block;
 }
 
 .form-control-static .icon
