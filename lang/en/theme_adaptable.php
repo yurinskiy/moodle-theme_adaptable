@@ -1152,14 +1152,16 @@ $string['standard'] = 'Standard';
 $string['headernavbarhelpheading'] = 'Help Links and Options';
 $string['headernavbarhelpheadingdesc'] = 'Options for help menu links.';
 
-$string['enablehelp'] = 'Help Link';
-$string['enablehelpdesc'] = 'Add a help link in the navbar.';
+$string['helplinkscount'] = 'Number of help links';
+$string['helplinkscountdesc'] = 'Set the number of help links you want to add to the main navigation bar.';
 
-$string['helptitle'] = 'Help';
-$string['helptitle2'] = 'Second Help link';
+$string['enablehelp'] = 'Help Link \'{$a->number}\'';
+$string['enablehelpdesc'] = 'Add a help link \'{$a->number}\' in the navbar.';
 
-$string['helpprofilefield'] = 'Help custom profile field (optional)';
-$string['helpprofilefielddesc'] = 'Add access rule using for custom profile field eg: usertype=student';
+$string['helptitle'] = 'Help {$a->number}';
+
+$string['helpprofilefield'] = 'Help link \'{$a->number}\' custom profile field (optional)';
+$string['helpprofilefielddesc'] = 'Add help link \'{$a->number}\' access rule using for custom profile field eg: usertype=student';
 
 
 // Courses Overlay *************************************************.

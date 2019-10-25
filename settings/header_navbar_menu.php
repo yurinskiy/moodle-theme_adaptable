@@ -54,7 +54,7 @@ $name = 'theme_adaptable/toolsmenuscount';
 $title = get_string('toolsmenuscount', 'theme_adaptable');
 $description = get_string('toolsmenuscountdesc', 'theme_adaptable');
 $default = THEME_ADAPTABLE_DEFAULT_TOOLSMENUSCOUNT;
-$setting = new admin_setting_configselect($name, $title, $description, $default, $choices1to12);
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices0to12);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 

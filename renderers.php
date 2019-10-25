@@ -2028,47 +2028,31 @@ EOT;
             $helpicon = '';
         }
 
-        if (!empty($PAGE->theme->settings->enablehelp)) {
-            $access = true;
+        if (!empty($PAGE->theme->settings->helplinkscount)) {
+            for ($helpcount = 1; $helpcount <= $PAGE->theme->settings->helplinkscount; $helpcount++) {
+                $enablehelpsetting = 'enablehelp'.$helpcount;
+                if (!empty($PAGE->theme->settings->$enablehelpsetting)) {
+                    $access = true;
+                    $helpprofilefieldsetting = 'helpprofilefield'.$helpcount;
+                    if (!empty($PAGE->theme->settings->$helpprofilefieldsetting)) {
+                        $fields = explode('=', $PAGE->theme->settings->$helpprofilefieldsetting);
+                        $ftype = $fields[0];
+                        $setvalue = $fields[1];
+                        if (!$this->check_menu_access($ftype, $setvalue, 'help'.$helpcount)) {
+                            $access = false;
+                        }
+                    }
 
-            if (!empty($PAGE->theme->settings->helpprofilefield)) {
-                $fields = explode('=', $PAGE->theme->settings->helpprofilefield);
-                $ftype = $fields[0];
-                $setvalue = $fields[1];
-                if (!$this->check_menu_access($ftype, $setvalue, 'help1')) {
-                    $access = false;
+                    if ($access && !$this->hideinforum()) {
+                        $branchtitle = get_string('helptitle', 'theme_adaptable', array('number' => $helpcount));
+                        $branchlabel = $helpicon.$branchtitle;
+                        $branchurl = new moodle_url($PAGE->theme->settings->$enablehelpsetting,
+                            array('helptarget' => $PAGE->theme->settings->helptarget));
+
+                        $branchsort  = 10003;
+                        $branch = $menu->add($branchlabel, $branchurl, '', $branchsort);
+                    }
                 }
-            }
-
-            if ($access && !$this->hideinforum()) {
-                $branchtitle = get_string('helptitle', 'theme_adaptable');
-                $branchlabel = $helpicon . $branchtitle;
-                $branchurl = new moodle_url($PAGE->theme->settings->enablehelp,
-                        array('helptarget' => $PAGE->theme->settings->helptarget));
-
-                $branchsort  = 10003;
-                $branch = $menu->add($branchlabel, $branchurl, '', $branchsort);
-            }
-        }
-
-        if (!empty($PAGE->theme->settings->enablehelp2 )) {
-            $access = true;
-            if (!empty($PAGE->theme->settings->helpprofilefield2)) {
-                $fields = explode('=', $PAGE->theme->settings->helpprofilefield2);
-                $ftype = $fields[0];
-                $setvalue = $fields[1];
-                if (!$this->check_menu_access($ftype, $setvalue, 'help2')) {
-                    $access = false;
-                }
-            }
-
-            if ($access && !$this->hideinforum()) {
-                $branchtitle = get_string('helptitle2', 'theme_adaptable');
-                $branchlabel = $helpicon . $branchtitle;
-                $branchurl   = new moodle_url($PAGE->theme->settings->enablehelp2,
-                        array('helptarget' => $PAGE->theme->settings->helptarget));
-                $branchsort  = 10003;
-                $branch = $menu->add($branchlabel, $branchurl, '', $branchsort);
             }
         }
 

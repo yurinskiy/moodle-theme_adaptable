@@ -921,9 +921,9 @@ for ($i = 0; $i < 61; $i += 5) {
     $from0to60inc5[$i] = $i;
 }
 
-$choices1to12 = array();
+$choices0to12 = array();
 for ($i = 0; $i < 13; $i++) {
-    $choices1to12[$i] = $i;
+    $choices0to12[$i] = $i;
 }
 
 $from100to900  = array();

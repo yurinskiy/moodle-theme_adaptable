@@ -64,7 +64,7 @@ $name = 'theme_adaptable/analyticscount';
 $title = get_string('analyticscount', 'theme_adaptable');
 $description = get_string('analyticscountdesc', 'theme_adaptable');
 $default = THEME_ADAPTABLE_DEFAULT_ANALYTICSCOUNT;
-$setting = new admin_setting_configselect($name, $title, $description, $default, $choices1to12);
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices0to12);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 

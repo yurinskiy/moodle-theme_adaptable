@@ -170,7 +170,7 @@ $name = 'theme_adaptable/slidercount';
 $title = get_string('slidercount', 'theme_adaptable');
 $description = get_string('slidercountdesc', 'theme_adaptable');
 $default = THEME_ADAPTABLE_DEFAULT_SLIDERCOUNT;
-$setting = new admin_setting_configselect($name, $title, $description, $default, $choices1to12);
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices0to12);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 

@@ -100,7 +100,7 @@ $name = 'theme_adaptable/topmenuscount';
 $title = get_string('topmenuscount', 'theme_adaptable');
 $description = get_string('topmenuscountdesc', 'theme_adaptable');
 $default = THEME_ADAPTABLE_DEFAULT_TOPMENUSCOUNT;
-$setting = new admin_setting_configselect($name, $title, $description, $default, $choices1to12);
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices0to12);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
