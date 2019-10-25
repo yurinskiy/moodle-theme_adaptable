@@ -101,7 +101,16 @@ if ($ADMIN->fulltree) {
     $description = get_string('enablezoomdesc', 'theme_adaptable');
     $default = true;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    $name = 'theme_adaptable/defaultzoom';
+    $title = get_string('defaultzoom', 'theme_adaptable');
+    $description = get_string('defaultzoomdesc', 'theme_adaptable');
+    $choices = array(
+        'normal' => get_string('normal', 'theme_adaptable'),
+        'wide' => get_string('wide', 'theme_adaptable')
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, 'normal', $choices);
     $temp->add($setting);
 
     // Show / hide text for the Full screen button.
@@ -144,7 +153,7 @@ if ($ADMIN->fulltree) {
     $choices = array(
         'cog' => get_string('editsettingsbuttonshowcog', 'theme_adaptable'),
         'button' => get_string('editsettingsbuttonshowbutton', 'theme_adaptable'),
-        'cogandbutton' => get_string('editsettingsbuttonshowcogandbutton', 'theme_adaptable'),
+        'cogandbutton' => get_string('editsettingsbuttonshowcogandbutton', 'theme_adaptable')
     );
     $setting = new admin_setting_configselect($name, $title, $description, 'cog', $choices );
     $setting->set_updatedcallback('theme_reset_all_caches');
@@ -169,7 +178,7 @@ if ($ADMIN->fulltree) {
     $choices = array(
         'excludehidden' => get_string('mysitesexclude', 'theme_adaptable'),
         'includehidden' => get_string('mysitesinclude', 'theme_adaptable'),
-        'disabled' => get_string('mysitesdisabled', 'theme_adaptable'),
+        'disabled' => get_string('mysitesdisabled', 'theme_adaptable')
     );
     $setting->set_updatedcallback('theme_reset_all_caches');
     $setting = new admin_setting_configselect($name, $title, $description, 'excludehidden', $choices);
@@ -240,7 +249,7 @@ if ($ADMIN->fulltree) {
     $description = get_string('displayparticipantsdesc', 'theme_adaptable');
     $radchoices = array(
         0 => get_string('hide', 'theme_adaptable'),
-        1 => get_string('show', 'theme_adaptable'),
+        1 => get_string('show', 'theme_adaptable')
     );
     $setting = new admin_setting_configselect($name, $title, $description, 1, $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
@@ -252,7 +261,7 @@ if ($ADMIN->fulltree) {
     $description = get_string('displaygradesdesc', 'theme_adaptable');
     $radchoices = array(
         0 => get_string('hide', 'theme_adaptable'),
-        1 => get_string('show', 'theme_adaptable'),
+        1 => get_string('show', 'theme_adaptable')
     );
     $setting = new admin_setting_configselect($name, $title, $description, 1, $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');

@@ -1127,6 +1127,11 @@ $string['enablezoomdesc'] = 'Allow users to toggle between fullscreen and fixed 
 $string['enablezoomshowtext'] = 'Show text for Enable Zoom';
 $string['enablezoomshowtextdesc'] = 'Shows the text beside the button.';
 
+$string['defaultzoom'] = 'Default Zoom';
+$string['defaultzoomdesc'] = 'Default screen size when enable zoom is disabled or the user has not made a preference.  Choose between fullscreen and fixed width.';
+$string['normal'] = 'Fixed width';
+$string['wide'] = 'Fullscreen';
+
 $string['enableshowhideblocks'] = 'Enable Show Hide Blocks';
 $string['enableshowhideblocksdesc'] = 'Allows users to show / hide all blocks.';
 $string['enableshowhideblockstext'] = 'Show text for Show Hide Blocks';

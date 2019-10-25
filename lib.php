@@ -449,14 +449,33 @@ function theme_adaptable_initialise_zoom(moodle_page $page) {
  * @return void
  */
 function theme_adaptable_initialise_full(moodle_page $page) {
-    user_preference_allow_ajax_update('theme_adaptable_full', PARAM_TEXT);
+    if (theme_adaptable_get_setting('enablezoom')) {
+        user_preference_allow_ajax_update('theme_adaptable_full', PARAM_TEXT);
+    }
 }
 
 /**
  * Get the user preference for the zoom function.
  */
 function theme_adaptable_get_full() {
-    return get_user_preferences('theme_adaptable_full', '');
+    $fullpref = '';
+    if (theme_adaptable_get_setting('enablezoom')) {
+        $fullpref = get_user_preferences('theme_adaptable_full', '');
+    }
+
+    if (empty($fullpref)) { // Zoom disabled or user not chosen preference.
+        $defaultzoom = theme_adaptable_get_setting('defaultzoom');
+        if (empty($defaultzoom)) {
+            $defaultzoom = 'normal';
+        }
+        if ($defaultzoom == 'normal') {
+            $fullpref = 'nofull';
+        } else {
+            $fullpref = 'fullin';
+        }
+    }
+
+    return $fullpref;
 }
 
 /**

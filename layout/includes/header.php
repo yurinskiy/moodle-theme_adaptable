@@ -773,7 +773,7 @@ if ($shownavbar) {
                             $zoomside = ((!empty($this->page->theme->settings->blockside)) && ($this->page->theme->settings->blockside == 1)) ? 'left' : 'right';
                             $hidetitle = get_string('hideblocks', 'theme_adaptable');
                             $showtitle = get_string('showblocks', 'theme_adaptable');
-                            if (theme_adaptable_get_zoom() == 'zoomin') { // Blocks not shown.
+                            if ($setzoom == 'zoomin') { // Blocks not shown.
                                 $zoominicontitle = $showtitle;
                                 if ($zoomside == 'right') {
                                     $icontype = 'outdent';
