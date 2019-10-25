@@ -65,6 +65,13 @@ if ($ADMIN->fulltree) {
         $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_URL);
         $temp->add($setting);
 
+        // Help link title.
+        $name = 'theme_adaptable/helplinktitle'.$helpcount;
+        $title = get_string('helplinktitle', 'theme_adaptable', array('number' => $helpcount));
+        $description = get_string('helplinktitledesc', 'theme_adaptable', array('number' => $helpcount));
+        $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_TEXT);
+        $temp->add($setting);
+
         $name = 'theme_adaptable/helpprofilefield'.$helpcount;
         $title = get_string('helpprofilefield', 'theme_adaptable', array('number' => $helpcount));
         $description = get_string('helpprofilefielddesc', 'theme_adaptable', array('number' => $helpcount));

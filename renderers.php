@@ -2044,7 +2044,12 @@ EOT;
                     }
 
                     if ($access && !$this->hideinforum()) {
-                        $branchtitle = get_string('helptitle', 'theme_adaptable', array('number' => $helpcount));
+                        $helplinktitlesetting = 'helplinktitle'.$helpcount;
+                        if (empty($PAGE->theme->settings->$helplinktitlesetting)) {
+                            $branchtitle = get_string('helptitle', 'theme_adaptable', array('number' => $helpcount));
+                        } else {
+                            $branchtitle = $PAGE->theme->settings->$helplinktitlesetting;
+                        }
                         $branchlabel = $helpicon.$branchtitle;
                         $branchurl = new moodle_url($PAGE->theme->settings->$enablehelpsetting,
                             array('helptarget' => $PAGE->theme->settings->helptarget));

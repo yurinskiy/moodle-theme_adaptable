@@ -1158,6 +1158,9 @@ $string['helplinkscountdesc'] = 'Set the number of help links you want to add to
 $string['enablehelp'] = 'Help Link \'{$a->number}\'';
 $string['enablehelpdesc'] = 'Add a help link \'{$a->number}\' in the navbar.';
 
+$string['helplinktitle'] = 'Help Link \'{$a->number}\' title';
+$string['helplinktitledesc'] = 'The title for help link \'{$a->number}\' in the navbar.  If empty then defaults to \'Help {$a->number}\'.';
+
 $string['helptitle'] = 'Help {$a->number}';
 
 $string['helpprofilefield'] = 'Help link \'{$a->number}\' custom profile field (optional)';
