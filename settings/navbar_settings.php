@@ -89,6 +89,13 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $temp->add($setting);
 
+    $name = 'theme_adaptable/enablecompetencieslink';
+    $title = get_string('enablecompetencieslink', 'theme_adaptable');
+    $description = get_string('enablecompetencieslinkdesc', 'theme_adaptable');
+    $default = false;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    $temp->add($setting);
+
     $name = 'theme_adaptable/enablezoom';
     $title = get_string('enablezoom', 'theme_adaptable');
     $description = get_string('enablezoomdesc', 'theme_adaptable');

@@ -1996,6 +1996,16 @@ EOT;
                         $branch->add($branchlabel, $branchurl, '', 100005);
                     }
 
+                    // Display Competencies.
+                    if (get_config('core_competency', 'enabled')) {
+                        if ($PAGE->theme->settings->enablecompetencieslink) {
+                            $branchtitle = get_string('competencies', 'competency');
+                            $branchlabel = $OUTPUT->pix_icon('i/competencies', '', '', array('class' => 'icon')).$branchtitle;
+                            $branchurl = new moodle_url('/admin/tool/lp/coursecompetencies.php', array('courseid' => $PAGE->course->id));
+                            $branch->add($branchlabel, $branchurl, '', 100006);
+                        }
+                    }
+
                     // Display activities.
                     foreach ($data as $modname => $modfullname) {
                         if ($modname === 'resources') {

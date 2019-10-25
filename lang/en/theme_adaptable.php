@@ -507,6 +507,10 @@ $string['enablethiscoursedesc'] = 'Display a dropdown with activities from the c
 $string['enablecoursesectionsdesc'] = 'Display a sub-menu on the \'This course\' menu containing links to each shown section.';
 $string['sections'] = 'Sections';
 
+$string['enablecompetencieslink'] = 'Competencies link';
+$string['enablecompetencieslinkdesc'] = 'Display competencies link in the \'This course\' menu.  Note: \'core_competency|enabled\' needs to be ticked.';
+
+
 // Navbar styling *********************************************************.
 $string['navbardropdownborderradius'] = 'Dropdown menu border radius';
 $string['navbardropdownborderradiusdesc'] = 'Controls the border radius for dropdown menus (e.g. rounded corners).';
