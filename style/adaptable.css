@@ -1973,10 +1973,6 @@ div.questionbankwindow.block {
     margin: -40px 5px;
 }
 
-/* Backup / restore */
-.path-backup .mform .grouped_settings.section_level {
-    padding: 10px 0 0 10px;
-}
 
 .rcs-search {
     margin: auto 0 0 5px;
@@ -2383,7 +2379,10 @@ img.smallicon {
     z-index: 1;
 }
 
-/* Course import page. */
+/* Backup / restore and Course import page. */
+.path-backup .mform .grouped_settings.section_level {
+    padding: 10px 0 0 10px;
+}
 
 .path-backup .backup-section .header {
     margin-bottom: 20px;
@@ -2413,6 +2412,11 @@ img.smallicon {
 
 .path-backup .form-group {
     margin-bottom: 0;
+}
+
+.path-backup .mform .root_setting:nth-of-type(odd),
+.path-backup .mform .grouped_settings:nth-of-type(odd) {
+    background-color: transparent;
 }
 
 /* File Picker */
