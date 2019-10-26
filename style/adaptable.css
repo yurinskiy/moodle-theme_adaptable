@@ -2413,6 +2413,10 @@ img.smallicon {
     margin-bottom: 0;
 }
 
+.path-backup .form-check .icon-post {
+    margin-left: .5rem;
+}
+
 .path-backup .mform .root_setting:nth-of-type(odd),
 .path-backup .mform .grouped_settings:nth-of-type(odd) {
     background-color: transparent;
