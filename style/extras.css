@@ -529,6 +529,9 @@ ul.teachers {
     margin-top: 15px;
 }
 
+.block .content .box {
+    margin-top: 0;
+}
 
 /* Forum Activity */
 #page-mod-forum-discuss .discussioncontrol.displaymode {
