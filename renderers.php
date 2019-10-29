@@ -201,6 +201,22 @@ class theme_adaptable_core_renderer extends core_renderer {
     protected $language = null;
 
     /**
+      * Outputs the opening section of a box.
+      *
+      * @param string $classes A space-separated list of CSS classes
+      * @param string $id An optional ID
+      * @param array $attributes An array of other
+      * attributes to give the box.
+      * @return string the HTML to output.
+      */
+    public function box_start($classes = 'generalbox', $id = null, $attributes = array()) {
+      $this->opencontainers->push('box', html_writer::end_tag('div'));
+      $attributes['id'] = $id;
+      $attributes['class'] = 'box ' . renderer_base::prepare_classes($classes);
+      return html_writer::start_tag('div', $attributes);
+    }
+
+    /**
      * Renders an action menu component.
      *
      * @param action_menu $menu
