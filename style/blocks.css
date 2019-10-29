@@ -109,6 +109,7 @@
     font-weight: normal;
     background: [[setting:blockbackgroundcolor]];
     border-radius: [[setting:blockmaintopradius]] [[setting:blockmaintopradius]] [[setting:blockmainbottomradius]] [[setting:blockmainbottomradius]];
+    margin-left: 5px;
 }
 
 .block-region-front .block .content {
@@ -628,8 +629,7 @@ main.tabcontentcontainer {
 }
 
 #dashboardtabcontainer input.dashboardtab,
-#coursetabcontainer input.coursetab
- {
+#coursetabcontainer input.coursetab {
   display: none;
 }
 
