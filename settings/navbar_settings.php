@@ -110,7 +110,7 @@ if ($ADMIN->fulltree) {
         'normal' => get_string('normal', 'theme_adaptable'),
         'wide' => get_string('wide', 'theme_adaptable')
     );
-    $setting = new admin_setting_configselect($name, $title, $description, 'normal', $choices);
+    $setting = new admin_setting_configselect($name, $title, $description, 'wide', $choices);
     $temp->add($setting);
 
     // Show / hide text for the Full screen button.
