@@ -657,7 +657,7 @@ class activity {
             // Get the number of contributions for this data activity.
             $sql = '
              SELECT d.id, count(dataid) as total FROM {data_records} r, {data} d
-                WHERE r.dataid = d.id AND r.dataid = :dataid';
+                WHERE r.dataid = d.id AND r.dataid = :dataid GROUP BY d.id';
 
             $modtotalsbyid['data'][$modid] = $DB->get_records_sql($sql, $params);
         }
