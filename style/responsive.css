@@ -548,7 +548,7 @@ Default Bootstrap 4 Media Queries
         max-width: 100%;
     }
 }
-
+429
 @media (min-width: 992px) and (max-width: 1199px) {
     .standard .container {
         max-width: 100%;
