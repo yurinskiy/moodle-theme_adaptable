@@ -1556,6 +1556,7 @@ div.questionbankwindow.block {
         min-width: 90%;
         right: -90%;
         transition: right 0.75s;
+        z-index: 11;
     }
     .header-style1 #block-region-side-post {
         height: calc(100% - 44px);
@@ -1576,7 +1577,6 @@ div.questionbankwindow.block {
         border-left: 2px solid [[setting:mobileslidebartabbkcolor]];
         overflow-y: auto;
         right: 0;
-        z-index: 11;
     }
     #showsidebaricon {
         background-color: [[setting:mobileslidebartabbkcolor]];
@@ -1591,7 +1591,7 @@ div.questionbankwindow.block {
         right: 0;
         top: 305px;
         transition: right 0.75s;
-        z-index: 2;
+        z-index: 11;
     }
     .sidebarshown #showsidebaricon {
         right: 90%;
