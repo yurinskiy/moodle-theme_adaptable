@@ -1210,12 +1210,6 @@ html[xmlns] .slides {
     width: [[setting:fullscreenwidth]];
 }
 
-/* Prevent horizontal scroll bar on BS4 grid system. */
-.fullin .container > .row {
-    margin-left: 0;
-    margin-right: 0;
-}
-
 .sbll {
     display: none;
 }

@@ -614,6 +614,7 @@ main.tabcontentcontainer {
   min-height: 400px;
   padding: 0;
   background: #fff;
+  margin: 5px 0;
 }
 
 #dashboardtabcontainer section.adaptable-tab-section {
