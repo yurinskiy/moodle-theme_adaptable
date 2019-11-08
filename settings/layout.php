@@ -49,15 +49,6 @@ defined('MOODLE_INTERNAL') || die;
         ));
     $temp->add($setting);
 
-    // View default.
-    $name = 'theme_adaptable/viewselect';
-    $title = get_string('viewselect', 'theme_adaptable');
-    $description = get_string('viewselectdesc', 'theme_adaptable');
-    $default = true;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
     // Fullscreen width.
     $name = 'theme_adaptable/fullscreenwidth';
     $title = get_string('fullscreenwidth', 'theme_adaptable');

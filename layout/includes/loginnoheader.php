@@ -77,15 +77,6 @@ if (!empty($PAGE->theme->settings->standardscreenwidth)) {
     $standardscreenwidthclass = $PAGE->theme->settings->standardscreenwidth;
 }
 
-// Setting for default screen view. Does not override user's preference.
-$defaultview = "";
-$defaultview = $PAGE->theme->settings->viewselect;
-$setfull = theme_adaptable_get_full();
-if ($defaultview == 1 && $setfull == "") {
-    $setfull = "fullin";
-}
-
-
 // HTML header.
 echo $OUTPUT->doctype();
 ?>
