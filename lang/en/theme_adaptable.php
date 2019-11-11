@@ -1141,7 +1141,7 @@ $string['fullscreenwidth'] = 'Full screen width.';
 $string['fullscreenwidthdesc'] = 'Set the max width of the theme when it is in full screen mode / zoom.';
 
 $string['standardscreenwidth'] = 'Standard screen width.';
-$string['standardscreenwidthdesc'] = '"Set the width of the screen when toggled to "standard" view (also see related enablezoom and defaultzoom settings).';
+$string['standardscreenwidthdesc'] = 'Set the width of the screen when toggled to "standard" view (also see related enablezoom and defaultzoom settings).';
 $string['narrow'] = '1000px';
 $string['standard'] = '1170px';
 
