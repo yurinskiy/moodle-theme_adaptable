@@ -1,7 +1,7 @@
 Adaptable - the most adaptable moodle theme
 ===========================================
 
-Version 2.0.0 (2019062800)
+Version 2.2 (2019110800)
 
 Adaptable is a highly customizable responsive two column moodle theme based on the popular BCU theme adding:
 
@@ -28,6 +28,7 @@ Adaptable is a highly customizable responsive two column moodle theme based on t
 - Activities status
 - Privacy API (compatible with GDPR)
 - 2 and 3 row header style options 
+- 2 User profile layouts
 
 In addition many fields (menus, news items, alerts and help links) can be targeted using custom profile fields, thus it is possible
 to present different users with different navigation items and notices. It is also possible for individual users to customize where
@@ -48,14 +49,30 @@ Developers
 Manoj Solanki (Coventry University)
 
 
-Change Log in 2.0
+Change Log in 2.2
 ------------------------------------
+
+Main fixes & Enhancements done in this release.
+
+-	Use of mobile sidebar on Tablet to improve usability and navigation
+-	Fix Navbar overlapping content in portrait view on Tablet
+-	Remove cog icon duplication in main navbar
+-	Fix occasional Javascript user preference errors on mobile
+-	Fix Block font settings not working
+-	Fix arrow not appearing for sub-menus under main navigation
+-	New profile page with tabs is now optional and there is a setting called “Enable Tabbed Profile” to use the previous profile page layout. See settings at Adaptable -> User Profile
+-	Improve icon alignment in top header
+-	Automatic purging of caches during upgrade
+
 
 What's new?
 
 - 2 and 3 row style header. Setting available in "Header" settings
 - New mobile header with better navigation
 - Edit button settings. Ablility to show cog icon and / or edit button in main menu navigation
+- 2 User profile layouts
+- New background image setting for login page, including opacity, available. See settings at Adaptable -> Login Page
+- New category header option allows you to have a different background image in the header for categories. Settings can be found under Adaptable -> Category headers
 
 
 HTML/CSS sample code for block areas
