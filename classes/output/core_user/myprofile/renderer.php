@@ -543,7 +543,9 @@ class renderer extends \core_user\output\myprofile\renderer {
         $tab->content = $misccontent;
         $tabdata->tabs[] = $tab;
 
-        if ((is_siteadmin()) || ($USER->id == $this->user->id)) {
+        if ((is_siteadmin()) ||
+            (($USER->id == $this->user->id)) &&
+             (has_capability('moodle/user:editownprofile', \context_user::instance($this->user->id)))) {
             // Edit profile tab.
             $category = $this->create_editprofile();
             $editprofiletab = new \stdClass;
