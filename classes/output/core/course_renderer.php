@@ -54,13 +54,21 @@ use stdClass;
 use renderable;
 use action_link;
 
+/**
+ * Course renderer implementation.
+ *
+ * @package   theme_adaptable
+ * @copyright 2017 Manoj Solanki (Coventry University)
+ * @copyright Copyright (c) 2016 Moodlerooms Inc. (http://www.moodlerooms.com)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class course_renderer extends \core_course_renderer {
 
     /**
      * Build the HTML for the module chooser javascript popup
      *
-     * @param array $modules A set of modules as returned form @see
-     * get_module_metadata
+     * @param array $modules A set of modules as returned form
+     * @see get_module_metadata
      * @param object $course The course that will be displayed
      * @return string The composed HTML for the module
      */
@@ -145,7 +153,8 @@ class course_renderer extends \core_course_renderer {
         if ($showcourses < self::COURSECAT_SHOW_COURSES_EXPANDED) {
             $arrow = html_writer::tag('span', '', array('class' => 'fa fp-chevron ml-1'));
             $content .= html_writer::link('#coursecollapse' . $course->id , '' . $arrow,
-                array('class' => 'fpcombocollapse collapsed', 'data-toggle' => 'collapse', 'data-parent' => '#frontpage-category-combo'));
+                array('class' => 'fpcombocollapse collapsed', 'data-toggle' => 'collapse',
+                      'data-parent' => '#frontpage-category-combo'));
         }
 
         if ($type == 1) {
@@ -248,7 +257,8 @@ class course_renderer extends \core_course_renderer {
                     $contentimages .= html_writer::link($link, html_writer::empty_tag('img', array('src' => $url)));
                     $contentimages .= html_writer::end_tag('div');
                 } else {
-                    $contentimages .= html_writer::tag('div', '', array('class' => 'cimbox', 'style' => 'background-image: url(\''.$url.'\');'));
+                    $contentimages .= html_writer::tag('div', '', array('class' => 'cimbox',
+                                                       'style' => 'background-image: url(\''.$url.'\');'));
                 }
             } else {
                 $image = $this->output->pix_icon(file_file_icon($file, 24), $file->get_filename(), 'moodle');
@@ -262,7 +272,8 @@ class course_renderer extends \core_course_renderer {
         if (strlen($contentimages) == 0 && $type == 2) {
             // Default image.
             $url = $PAGE->theme->setting_file_url('frontpagerendererdefaultimage', 'frontpagerendererdefaultimage');
-            $contentimages .= html_writer::tag('div', '', array('class' => 'cimbox', 'style' => 'background-image: url(\''.$url.'\');'));
+            $contentimages .= html_writer::tag('div', '', array('class' => 'cimbox',
+                                               'style' => 'background-image: url(\''.$url.'\');'));
         }
         $content .= $contentimages.$contentfiles;
 

@@ -17,8 +17,7 @@
 /**
  * Get properties setting.
  *
- * @package    theme
- * @subpackage adaptable
+ * @package    theme_adaptable
  * @copyright  &copy; 2018 G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,12 +25,28 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+/**
+ * Get properties class.
+ *
+ * @package   theme_adaptable
+ * @copyright &copy; 2018 G J Barnard.
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class adaptable_admin_setting_getprops extends admin_setting {
 
+    /** @var string Store properties. */
     private $props;
+
+    /** @var string Return button name. */
     private $returnbuttonname;
+
+    /** @var string Section name. */
     private $settingsectionname;
+
+    /** @var string Save properties. */
     private $saveprops;
+
+    /** @var string Save properties button name. */
     private $savepropsbuttonname;
 
     /**
@@ -40,6 +55,11 @@ class adaptable_admin_setting_getprops extends admin_setting {
      * or 'myplugin/mysetting' for ones in config_plugins.
      * @param string $heading Heading.
      * @param string $information Text in box.
+     * @param string $props Properties
+     * @param string $settingsectionname Setting section name
+     * @param string $returnbuttonname Return button name
+     * @param string $savepropsbuttonname Save properties button name
+     * @param string $saveprops Save properties
      */
     public function __construct($name, $heading, $information, $props, $settingsectionname,
                                 $returnbuttonname, $savepropsbuttonname, $saveprops) {
@@ -52,16 +72,27 @@ class adaptable_admin_setting_getprops extends admin_setting {
         parent::__construct($name, $heading, $information, ''); // Last parameter is default.
     }
 
+    /**
+     * Get setting method.
+     * @return none
+     */
     public function get_setting() {
         return '';
     }
 
+    /**
+     * Get default settings method.
+     * @return string ''
+     */
     public function get_defaultsetting() {
         return '';
     }
 
     /**
      * Never write settings
+     *
+     * @param string $data setting to write
+     *
      * @return string Always returns an empty string
      */
     public function write_setting($data) {
@@ -70,6 +101,10 @@ class adaptable_admin_setting_getprops extends admin_setting {
 
     /**
      * Returns an HTML string
+     *
+     * @param string $data Data
+     * @param string $query Query
+     *
      * @return string Returns an HTML string
      */
     public function output_html($data, $query='') {

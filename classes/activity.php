@@ -14,6 +14,18 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Activity-related functions.
+ *
+ * This defines the activity class that is used to retrieve activity-related information, such as submission status,
+ * due dates etc.
+ *
+ * @package   theme_adaptable
+ * @copyright 2018 Manoj Solanki (Coventry University)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
+ */
+
 namespace theme_adaptable;
 
 defined('MOODLE_INTERNAL') || die();
@@ -24,6 +36,7 @@ require_once($CFG->dirroot.'/mod/assign/locallib.php');
 
 /**
  * Activity functions.
+ *
  * These functions are in a class purely for auto loading convenience.
  *
  * @package   theme_adaptable
@@ -34,6 +47,9 @@ require_once($CFG->dirroot.'/mod/assign/locallib.php');
 class activity {
 
     /**
+     *
+     * Main method that calls relevant activity-related method based on the mod name.
+     *
      * @param \cm_info $mod
      * @return activity_meta
      */
@@ -554,6 +570,8 @@ class activity {
      * @param string $maintable
      * @param string $mainkey
      * @param string $submittable
+     * @param string $extraselect
+     *
      * @return int
      */
     protected static function std_num_submissions($courseid,
@@ -675,7 +693,7 @@ class activity {
      * Get number of answers for specific choice
      *
      * @param int $courseid
-     * @param int $choiceid
+     * @param int $modid
      * @return int
      */
     public static function choice_num_submissions($courseid, $modid) {
@@ -686,7 +704,7 @@ class activity {
      * Get number of submissions for feedback activity
      *
      * @param int $courseid
-     * @param int $feedbackid
+     * @param int $modid
      * @return int
      */
     public static function feedback_num_submissions($courseid, $modid) {
@@ -697,7 +715,7 @@ class activity {
      * Get number of submissions for lesson activity
      *
      * @param int $courseid
-     * @param int $feedbackid
+     * @param int $modid
      * @return int
      */
     public static function lesson_num_submissions($courseid, $modid) {
@@ -708,7 +726,7 @@ class activity {
      * Get number of attempts for specific quiz
      *
      * @param int $courseid
-     * @param int $quizid
+     * @param int $modid
      * @return int
      */
     public static function quiz_num_submissions($courseid, $modid) {
@@ -764,10 +782,12 @@ class activity {
     /**
      * Get activity submission row
      *
-     * @param $mod
-     * @param $submissiontable
-     * @param $modfield
-     * @param $tabrow
+     * @param int $courseid
+     * @param stdClass $mod
+     * @param string $submissiontable
+     * @param string $modfield
+     * @param string $extraselect
+     *
      * @return mixed
      */
     public static function get_submission_row($courseid, $mod, $submissiontable, $modfield, $extraselect='') {
@@ -851,7 +871,7 @@ class activity {
     /**
      * Get the activity dates for a specific module instance
      *
-     * @param $courseid
+     * @param int $courseid
      * @param stdClass $mod
      * @param string $timeopenfld
      * @param string $timeclosefld
@@ -966,9 +986,9 @@ class activity {
     /**
      * Return grade row for specific module instance.
      *
-     * @param $courseid
-     * @param $mod
-     * @param $modfield
+     * @param int $courseid
+     * @param stdClass $mod
+     *
      * @return bool
      */
     public static function grade_row($courseid, $mod) {

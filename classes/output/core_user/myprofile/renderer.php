@@ -41,11 +41,25 @@ require_once($CFG->dirroot.'/user/lib.php');
  * myprofile renderer.
  */
 class renderer extends \core_user\output\myprofile\renderer {
+
+    /** @var Obj $user U*/
     private $user = null;
+
+    /** @var Obj $course */
     private $course = null;
+
+    /** @var bool $enabletabbedprofile */
     private $enabletabbedprofile = true;
 
-    function __construct(\moodle_page $page, $target) {
+    /**
+     * Constructor for class.
+     *
+     * @param moodle_page $page
+     * @param string $target
+     *
+     * @return Obj
+     */
+    public function __construct(\moodle_page $page, $target) {
         $this->enabletabbedprofile = get_config('theme_adaptable', 'enabletabbedprofile');
 
         if ($this->enabletabbedprofile) {
@@ -110,6 +124,13 @@ class renderer extends \core_user\output\myprofile\renderer {
         return $output;
     }
 
+    /**
+     * Transform contact category.
+     *
+     * @param Obj $oldcontactcategory
+     *
+     * @return Obj
+     */
     protected function transform_contact_category($oldcontactcategory) {
         $contactcategory = new category('contact', '');
 
@@ -160,6 +181,11 @@ class renderer extends \core_user\output\myprofile\renderer {
         return $contactcategory;
     }
 
+    /**
+     * Message user.
+     *
+     * @return array
+     */
     protected function message_user() {
         global $CFG, $PAGE, $USER;
         $output = array();
@@ -335,6 +361,11 @@ class renderer extends \core_user\output\myprofile\renderer {
         return $return;
     }
 
+    /**
+     * Output user image.
+     *
+     * @return string
+     */
     protected function userimage() {
         $output = '';
 
@@ -348,6 +379,11 @@ class renderer extends \core_user\output\myprofile\renderer {
         return $output;
     }
 
+    /**
+     * Get user preferences.
+     *
+     * @return string
+     */
     protected function userpreferences() {
         global $USER;
 
@@ -361,6 +397,13 @@ class renderer extends \core_user\output\myprofile\renderer {
         return $output;
     }
 
+    /**
+     * About me.
+     *
+     * @param string $tree
+     *
+     * @return array
+     */
     protected function create_aboutme($tree) {
         $aboutme = new category('aboutme', get_string('aboutme', 'theme_adaptable'));
         $descriptionempty = false;
@@ -393,6 +436,11 @@ class renderer extends \core_user\output\myprofile\renderer {
         return array('category' => $aboutme, 'diempty' => (($descriptionempty) && ($interestsempty)));
     }
 
+    /**
+     * Custom user profile.
+     *
+     * @return Obj
+     */
     protected function customuserprofile() {
         $category = null;
 
@@ -436,6 +484,11 @@ class renderer extends \core_user\output\myprofile\renderer {
         return $category;
     }
 
+    /**
+     * User profile fields.
+     *
+     * @return string
+     */
     protected function userprofilefields() {
         $output = '';
 
@@ -468,6 +521,11 @@ class renderer extends \core_user\output\myprofile\renderer {
         return $output;
     }
 
+    /**
+     * Create edit profile form.
+     *
+     * @return string
+     */
     protected function create_editprofile() {
         $editprofile = new category('editprofile', get_string('editmyprofile'));
 
@@ -481,6 +539,14 @@ class renderer extends \core_user\output\myprofile\renderer {
         return $editprofile;
     }
 
+    /**
+     * Create tabs.
+     *
+     * @param array $categories
+     * @param string $tree
+     *
+     * @return string
+     */
     protected function tabs($categories, $tree) {
         global $USER;
 

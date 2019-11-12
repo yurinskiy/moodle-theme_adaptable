@@ -120,7 +120,7 @@ class modchooser extends \core\output\chooser {
     /**
      * Export for template.
      *
-     * @param renderer_base  The renderer.
+     * @param renderer_base  $output The renderer.
      * @return stdClass
      */
     public function export_for_template(renderer_base $output) {

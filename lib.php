@@ -299,14 +299,16 @@ function theme_adaptable_process_css($css, $theme) {
     $loginbgopacity = '';
     if (!empty($theme->settings->loginbgopacity)) {
             $loginbgopacity = '#page-login-index header {'.PHP_EOL;
-            $loginbgopacity .= 'background-color: '.\theme_adaptable\toolbox::hex2rgba($theme->settings->headerbkcolor2, $theme->settings->loginbgopacity).') !important;'.PHP_EOL;
+            $loginbgopacity .= 'background-color: '.\theme_adaptable\toolbox::hex2rgba($theme->settings->headerbkcolor2,
+                               $theme->settings->loginbgopacity).') !important;'.PHP_EOL;
             $loginbgopacity .= '}'.PHP_EOL;
             $loginbgopacity .= '#page-login-index #page-navbar,'.PHP_EOL.
             '#page-login-index .card {';
             $loginbgopacity .= 'background-color: rgba(255, 255, 255, '.$theme->settings->loginbgopacity.') !important;'.PHP_EOL;
             $loginbgopacity .= '}'.PHP_EOL;
             $loginbgopacity .= '#page-login-index #page-footer {'.PHP_EOL;
-            $loginbgopacity .= 'background-color: '.\theme_adaptable\toolbox::hex2rgba($theme->settings->footerbkcolor, $theme->settings->loginbgopacity).') !important;'.PHP_EOL;
+            $loginbgopacity .= 'background-color: '.\theme_adaptable\toolbox::hex2rgba($theme->settings->footerbkcolor,
+                               $theme->settings->loginbgopacity).') !important;'.PHP_EOL;
             $loginbgopacity .= '}'.PHP_EOL;
     }
     $defaults['[[setting:loginbgopacity]]'] = $loginbgopacity;
@@ -316,7 +318,6 @@ function theme_adaptable_process_css($css, $theme) {
         $socialpaddingsidehalf = ''.$theme->settings->socialpaddingside / 2;
     }
     $defaults['[[setting:socialpaddingsidehalf]]'] = $socialpaddingsidehalf;
-    
 
     // Replace the CSS with values from the $defaults array.
     $css = strtr($css, $defaults);
@@ -365,9 +366,13 @@ function theme_adaptable_set_categorycustomcss($css, $settings) {
                     $categoryscss .= $settings->$categoryheadercustomcssset;
                     $categoryscss .= PHP_EOL.'}'.PHP_EOL;
                 } catch (Leafo\ScssPhp\Exception\ParserException $e) {
-                    debugging(get_string('invalidcategorycss', 'theme_adaptable', array('css' => $settings->$categoryheadercustomcssset, 'topcatname' => $catinfo['name'], 'topcatid' => $customheaderid)), DEBUG_NONE);
+                    debugging(get_string('invalidcategorycss', 'theme_adaptable',
+                                array('css' => $settings->$categoryheadercustomcssset,
+                                'topcatname' => $catinfo['name'], 'topcatid' => $customheaderid)), DEBUG_NONE);
                 } catch (Leafo\ScssPhp\Exception\CompilerException $e) {
-                    debugging(get_string('invalidcategorycss', 'theme_adaptable', array('css' => $settings->$categoryheadercustomcssset, 'topcatname' => $catinfo['name'], 'topcatid' => $customheaderid)), DEBUG_NONE);
+                    debugging(get_string('invalidcategorycss', 'theme_adaptable',
+                                array('css' => $settings->$categoryheadercustomcssset,
+                                'topcatname' => $catinfo['name'], 'topcatid' => $customheaderid)), DEBUG_NONE);
                 }
             }
         }
@@ -382,7 +387,6 @@ function theme_adaptable_set_categorycustomcss($css, $settings) {
             }
         }
     }
-
 
     $tag = '[[setting:catgorycustomcss]]';
 
@@ -574,9 +578,9 @@ function theme_adaptable_pluginfile($course, $cm, $context, $filearea, $args, $f
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if ((substr($filearea, 0, 9) === 'marketing') && (substr($filearea, 10, 5) === 'image')) {
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
-        } else if (preg_match("/^categoryheaderbgimage[1-9][0-9]*$/", $filearea) !== false) { // http://regexpal.com/ useful.
+        } else if (preg_match("/^categoryheaderbgimage[1-9][0-9]*$/", $filearea) !== false) { // Link: http://regexpal.com/ useful.
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
-        } else if (preg_match("/^categoryheaderlogo[1-9][0-9]*$/", $filearea) !== false) { // http://regexpal.com/ useful.
+        } else if (preg_match("/^categoryheaderlogo[1-9][0-9]*$/", $filearea) !== false) { // Link: http://regexpal.com/ useful.
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if ($filearea === 'iphoneicon') {
             return $theme->setting_file_serve('iphoneicon', $args, $forcedownload, $options);
@@ -704,7 +708,7 @@ function theme_adaptable_grid($left, $hassidepost) {
 }
 
 /**
- * Detect device.
+ * Detect if device is desktop.
  */
 function theme_adaptable_is_desktop() {
     $useragent = $_SERVER['HTTP_USER_AGENT'];
@@ -712,16 +716,25 @@ function theme_adaptable_is_desktop() {
         stripos($useragent, 'tablet') === false && stripos($useragent, 'ipad') === false;
 }
 
+/**
+ * Detect if tablet.
+ */
 function theme_adaptable_is_tablet() {
     $useragent = $_SERVER['HTTP_USER_AGENT'];
     return stripos($useragent, 'tablet') !== false || stripos($useragent, 'tab') !== false;
 }
 
+/**
+ * Detect if ipad.
+ */
 function theme_adaptable_is_ipad() {
     $useragent = $_SERVER['HTTP_USER_AGENT'];
     return stripos($useragent, 'ipad') !== false;
 }
 
+/**
+ * Detect if mobile.
+ */
 function theme_adaptable_is_mobile() {
     $useragent = $_SERVER['HTTP_USER_AGENT'];
     return stripos($useragent, 'mobile') !== false ||

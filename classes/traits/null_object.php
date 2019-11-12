@@ -14,12 +14,22 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * For the null object pattern - https://www.wikiwand.com/en/Null_Object_pattern.
+ *
+ * @package   theme_adaptable
+ * @author    gthomas2
+ * @copyright Copyright (c) 2016 Moodlerooms Inc. (http://www.moodlerooms.com)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 namespace theme_adaptable\traits;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
  * Facilitates the null object pattern - https://www.wikiwand.com/en/Null_Object_pattern.
+ *
  * @package   theme_adaptable
  * @author    gthomas2
  * @copyright Copyright (c) 2016 Moodlerooms Inc. (http://www.moodlerooms.com)
@@ -30,7 +40,9 @@ trait null_object {
     protected $_defaults = [];
 
     /**
-     * Has this class been set?
+     * Has this class been set.
+     *
+     * @package theme_adaptable
      * @param bool $ignoreinitialstate - if true, will consider an object with default values set by set_default as
      * not set.
      * @return bool
@@ -55,8 +67,11 @@ trait null_object {
 
     /**
      * Set and track default value
-     * @param $prop
-     * @param $val
+     *
+     * @package theme_adaptable
+     *
+     * @param string $prop
+     * @param string $val
      */
     protected function set_default($prop, $val) {
 

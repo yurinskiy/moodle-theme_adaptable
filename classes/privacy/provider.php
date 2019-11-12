@@ -14,10 +14,24 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Provider class file. As required for any data privacy information required.
+ *
+ * @package   theme_adaptable
+ * @copyright 2019 Manoj Solanki (Coventry University)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 namespace theme_adaptable\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Provider class.
+ *
+ * @package   theme_adaptable
+ * @copyright 2019 Manoj Solanki (Coventry University)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class provider implements
     // This theme does not store any personal user data.
     \core_privacy\local\metadata\null_provider {

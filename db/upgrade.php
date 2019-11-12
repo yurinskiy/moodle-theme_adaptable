@@ -26,6 +26,12 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+/**
+ * Automatically purge caches during upgrades.
+ *
+ * @param int   $oldversion Is this an old version
+ * @return bool Return true
+ */
 function xmldb_theme_adaptable_upgrade($oldversion = 0) {
 
     // Automatic 'Purge all caches'....

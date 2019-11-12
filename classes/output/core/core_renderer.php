@@ -25,7 +25,6 @@
  *
  */
 
-
 namespace theme_adaptable\output;
 
 defined('MOODLE_INTERNAL') || die;
@@ -35,6 +34,5 @@ defined('MOODLE_INTERNAL') || die;
  *
  * Note: This class is required to avoid inheriting Boost's core_renderer
  */
-
 class core_renderer extends \core_renderer {
 }

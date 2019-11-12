@@ -34,10 +34,18 @@ require_once($CFG->dirroot.'/course/format/weeks/renderer.php');
 
 use \theme_adaptable\traits\single_section_page;
 
+/**
+ * Class for implementing topics format rendering.
+ *
+ */
 class theme_adaptable_format_topics_renderer extends format_topics_renderer {
     use single_section_page;
 }
 
+/**
+ * Class for implementing weeks format rendering.
+ *
+ */
 class theme_adaptable_format_weeks_renderer extends format_weeks_renderer {
     use single_section_page;
 }
@@ -53,6 +61,10 @@ class theme_adaptable_format_weeks_renderer extends format_weeks_renderer {
 if (file_exists("$CFG->dirroot/course/format/grid/renderer.php")) {
     include_once($CFG->dirroot."/course/format/grid/renderer.php");
 
+    /**
+     * Class for implementing grid format rendering.
+     *
+     */
     class theme_adaptable_format_grid_renderer extends format_grid_renderer {
         use single_section_page;
 
@@ -61,7 +73,7 @@ if (file_exists("$CFG->dirroot/course/format/grid/renderer.php")) {
          *
          * @param stdClass $course The course entry from DB.
          * @param array $sections The course_sections entries from the DB.
-         * @param $displaysection the current displayed section number.
+         * @param bool $displaysection the current displayed section number.
          *
          * @return string HTML to output.
          */
@@ -122,17 +134,16 @@ if (file_exists("$CFG->dirroot/course/format/grid/renderer.php")) {
     }
 }
 
-/******************************************************************************************
- * @copyright 2019 Gareth J Barnard
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
- *
- * Flexible format renderer for the Adaptable theme.
- */
-
 // Check if Flexible is installed before trying to override it.
 if (file_exists("$CFG->dirroot/course/format/flexible/renderer.php")) {
     include_once($CFG->dirroot."/course/format/flexible/renderer.php");
 
+    /**
+     * @copyright 2019 Gareth J Barnard
+     * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+     *
+     * Flexible format renderer for the Adaptable theme.
+     */
     class theme_adaptable_format_flexible_renderer extends format_flexible_renderer {
         use single_section_page;
 
@@ -141,7 +152,7 @@ if (file_exists("$CFG->dirroot/course/format/flexible/renderer.php")) {
          *
          * @param stdClass $course The course entry from DB.
          * @param array $sections The course_sections entries from the DB.
-         * @param $displaysection the current displayed section number.
+         * @param bool $displaysection the current displayed section number.
          *
          * @return string HTML to output.
          */
@@ -188,32 +199,33 @@ if (file_exists("$CFG->dirroot/course/format/flexible/renderer.php")) {
     }
 }
 
-/******************************************************************************************
+/**
+ * Class for core renderer.
+ *
  * @copyright 2015 Jeremy Hopkins (Coventry University)
  * @copyright 2015 Fernando Acedo (3-bits.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  * Core renderers for Adaptable theme
  */
-
 class theme_adaptable_core_renderer extends core_renderer {
     /** @var custom_menu_item language The language menu if created */
     protected $language = null;
 
     /**
-      * Outputs the opening section of a box.
-      *
-      * @param string $classes A space-separated list of CSS classes
-      * @param string $id An optional ID
-      * @param array $attributes An array of other
-      * attributes to give the box.
-      * @return string the HTML to output.
-      */
+     * Outputs the opening section of a box.
+     *
+     * @param string $classes A space-separated list of CSS classes
+     * @param string $id An optional ID
+     * @param array $attributes An array of other
+     * attributes to give the box.
+     * @return string the HTML to output.
+     */
     public function box_start($classes = 'generalbox', $id = null, $attributes = array()) {
-      $this->opencontainers->push('box', html_writer::end_tag('div'));
-      $attributes['id'] = $id;
-      $attributes['class'] = 'box ' . renderer_base::prepare_classes($classes);
-      return html_writer::start_tag('div', $attributes);
+        $this->opencontainers->push('box', html_writer::end_tag('div'));
+        $attributes['id'] = $id;
+        $attributes['class'] = 'box ' . renderer_base::prepare_classes($classes);
+        return html_writer::start_tag('div', $attributes);
     }
 
     /**
@@ -391,6 +403,9 @@ class theme_adaptable_core_renderer extends core_renderer {
 
     /**
      * Returns current url minus the value of $CFG->wwwroot
+     *
+     * @param bool $stripwwwroot
+     *
      * Should be replaced with inbuilt Moodle function if one can be found
      */
     public function get_current_page_url($stripwwwroot = false) {
@@ -524,7 +539,9 @@ class theme_adaptable_core_renderer extends core_renderer {
 
         $output = '';
         if ($title || $controlshtml) {
-            $output .= html_writer::tag('div', html_writer::tag('div', html_writer::tag('div', '', array('class'=>'block_action')). $title . $controlshtml, array('class' => 'title')), array('class' => 'header'));
+            $output .= html_writer::tag('div', html_writer::tag('div',
+                       html_writer::tag('div', '', array('class' => 'block_action')) .
+                       $title . $controlshtml, array('class' => 'title')), array('class' => 'header'));
         }
         return $output;
     }
@@ -538,7 +555,7 @@ class theme_adaptable_core_renderer extends core_renderer {
     protected function block_content(block_contents $bc) {
         $output = html_writer::start_tag('div', array('class' => 'content'));
         if (!$bc->title && !$this->block_controls($bc->controls)) {
-            $output .= html_writer::tag('div', '', array('class'=>'block_action notitle'));
+            $output .= html_writer::tag('div', '', array('class' => 'block_action notitle'));
         }
         $output .= $bc->content;
         $output .= $this->block_footer($bc);
@@ -1638,10 +1655,8 @@ EOT;
         return $retval;
     }
 
-    /*
-     * Render the breadcrumb
-     * @param array $items
-     * @param string $breadcrumbs
+    /**
+     * Render the navbar
      *
      * return string
      */
@@ -2017,7 +2032,8 @@ EOT;
                         if ($PAGE->theme->settings->enablecompetencieslink) {
                             $branchtitle = get_string('competencies', 'competency');
                             $branchlabel = $OUTPUT->pix_icon('i/competencies', '', '', array('class' => 'icon')).$branchtitle;
-                            $branchurl = new moodle_url('/admin/tool/lp/coursecompetencies.php', array('courseid' => $PAGE->course->id));
+                            $branchurl = new moodle_url('/admin/tool/lp/coursecompetencies.php',
+                                         array('courseid' => $PAGE->course->id));
                             $branch->add($branchlabel, $branchurl, '', 100006);
                         }
                     }
@@ -2384,7 +2400,7 @@ EOT;
                         break;
 
                     default:
-                        // 'off'.
+                        // Default 'off'.
                         $usedefault = true;
                         break;
                 }
@@ -2425,6 +2441,8 @@ EOT;
 
     /**
      * Returns html to render top menu items
+     *
+     * @param bool $showlinktext
      *
      * @return string
      */
@@ -2557,6 +2575,8 @@ EOT;
      * Render the overlay menu items.
      *
      * @param custom_menu_item $item
+     * @param int $level
+     *
      * @return string html for item
      */
     private function render_overlay_menu_item(custom_menu_item $item, $level = 0) {
@@ -2825,6 +2845,8 @@ EOT;
     /**
      * Returns language menu
      *
+     * @param bool $showtext
+     *
      * @return string
      */
     public function lang_menu($showtext = true) {
@@ -2888,6 +2910,8 @@ EOT;
      * @param custom_menu $menu
      * @param string $wrappre
      * @param string $wrappost
+     * @param string $menuid
+     *
      * @return string
      */
     protected function render_custom_menu(custom_menu $menu, $wrappre = '', $wrappost = '', $menuid = '') {
@@ -2924,6 +2948,8 @@ EOT;
      *
      * @param custom_menu_item $menunode
      * @param int $level = 0
+     * @param int $menuid
+     *
      * @return string
      */
     protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0, $menuid = '') {
@@ -2992,6 +3018,9 @@ EOT;
      *
      * @param custom_menu_item $menunode
      * @param int $level = 0
+     * @param int $menuid
+     * @param bool $indent
+     *
      * @return string
      */
     protected function render_custom_menu_item_drawer(custom_menu_item $menunode, $level = 0, $menuid = '', $indent = false) {

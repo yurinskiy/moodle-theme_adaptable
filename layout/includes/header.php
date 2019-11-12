@@ -94,14 +94,16 @@ if (!empty($PAGE->theme->settings->categoryhavecustomheader)) {
     if (!empty($currenttopcat)) {
         $categoryheaderbgimageset = 'categoryheaderbgimage'.$currenttopcat;
         if (!empty($PAGE->theme->settings->$categoryheaderbgimageset)) {
-            $headerbg = ' class="headerbgimage" style="background-image: url('.$PAGE->theme->setting_file_url($categoryheaderbgimageset, $categoryheaderbgimageset).');"';
+            $headerbg = ' class="headerbgimage" style="background-image: ' .
+            ' url('.$PAGE->theme->setting_file_url($categoryheaderbgimageset, $categoryheaderbgimageset).');"';
         }
     }
 } else {
     $currenttopcat = false;
 }
 if ((empty($headerbg)) && (!empty($PAGE->theme->settings->headerbgimage))) {
-    $headerbg = ' class="headerbgimage" style="background-image: url('.$PAGE->theme->setting_file_url('headerbgimage', 'headerbgimage').');"';
+    $headerbg = ' class="headerbgimage" style="background-image: ' .
+    ' url('.$PAGE->theme->setting_file_url('headerbgimage', 'headerbgimage').');"';
 }
 
 // Choose the header style.  There styles available are:
@@ -289,7 +291,8 @@ if (!empty($PAGE->theme->settings->hideasnavmobile)) {
     $nomobilenavigation = 'nomobilenavigation';
 }
 ?>
-<body <?php echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle, $pageheader, $hasheaderbg, $nomobilenavigation)); ?>>
+<body <?php echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle,
+        $pageheader, $hasheaderbg, $nomobilenavigation)); ?>>
 
 <?php
 echo $OUTPUT->standard_top_of_body_html();
@@ -382,7 +385,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         ?>
                         <form id="pre-login-form" class="form-inline my-2 my-lg-0" action="<?php p($wwwroot) ?>/login/index.php"
                             method="post">
-                        <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
+                        <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>"/>
                         <input type="text" name="username"
                                     placeholder="<?php echo get_string('loginplaceholder', 'theme_adaptable'); ?>" size="11">
                         <input type="password" name="password"
@@ -584,7 +587,7 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                         ?>
                         <form id="pre-login-form" class="form-inline my-auto m-1"
                             action="<?php p($wwwroot) ?>/login/index.php" method="post">
-                        <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>" />
+                        <input type="hidden" name="logintoken" value="<?php echo s(\core\session\manager::get_login_token()); ?>"/>
                         <input type="text" name="username"
                                     placeholder="<?php echo get_string('loginplaceholder', 'theme_adaptable'); ?>" size="11">
                         <input type="password" name="password"
@@ -761,7 +764,8 @@ if ($shownavbar) {
                     <?php
                     if (isloggedin()) {
                         if (!empty($this->page->theme->settings->enableshowhideblocks)) {
-                            $zoomside = ((!empty($this->page->theme->settings->blockside)) && ($this->page->theme->settings->blockside == 1)) ? 'left' : 'right';
+                            $zoomside = ((!empty($this->page->theme->settings->blockside)) &&
+                                        ($this->page->theme->settings->blockside == 1)) ? 'left' : 'right';
                             $hidetitle = get_string('hideblocks', 'theme_adaptable');
                             $showtitle = get_string('showblocks', 'theme_adaptable');
                             if ($setzoom == 'zoomin') { // Blocks not shown.

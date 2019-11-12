@@ -14,6 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * General utility functions.
+ *
+ * @package   theme_adaptable
+ * @copyright 2017 Manoj Solanki (Coventry University)
+ * @copyright Copyright (c) 2016 Moodlerooms Inc. (http://www.moodlerooms.com)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 
 namespace theme_adaptable;
 
@@ -27,7 +35,7 @@ require_once($CFG->dirroot.'/mod/forum/lib.php');
 require_once($CFG->dirroot.'/lib/enrollib.php');
 
 /**
- * General utility functions.
+ * Utils class.
  *
  * @package   theme_adaptable
  * @copyright 2017 Manoj Solanki (Coventry University)
@@ -40,8 +48,8 @@ class utils {
      * Get total participant count for specific courseid. Originally from
      * the snap theme by Moodlerooms.
      *
-     * @param $courseid
-     * @param $modname the name of the module, used to build a capability check
+     * @param int $courseid
+     * @param string $modname the name of the module, used to build a capability check
      * @return int
      */
     public static function course_participant_count($courseid, $modname = null) {

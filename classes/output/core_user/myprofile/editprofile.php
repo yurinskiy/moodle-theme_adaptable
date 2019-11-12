@@ -36,10 +36,14 @@ defined('MOODLE_INTERNAL') || die;
  * @package    theme_adaptable
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  */
-
 class editprofile {
 
-    static function generate_form() {
+    /**
+     * Generate form.
+     *
+     * @return array
+     */
+    public static function generate_form() {
         global $CFG, $DB, $PAGE, $SITE, $USER;
 
         $userid = optional_param('id', 0, PARAM_INT);
@@ -99,7 +103,13 @@ class editprofile {
             );
     }
 
-    static function process_form($redirect = true, $editprofile = null) {
+    /**
+     * Process form.
+     *
+     * @param bool $redirect
+     * @param array $editprofile
+     */
+    public static function process_form($redirect = true, $editprofile = null) {
         global $CFG, $DB, $SITE, $USER;
 
         if (is_null($editprofile)) {
@@ -282,7 +292,12 @@ class editprofile {
         }
     }
 
-    static function redirect($url) {
+    /**
+     * Redirect function.
+     *
+     * @param string $url
+     */
+    public static function redirect($url) {
         global $CFG, $OUTPUT, $PAGE;
 
         // Adapted from function of same name in lib/weblib.php.

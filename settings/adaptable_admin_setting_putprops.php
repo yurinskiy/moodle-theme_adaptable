@@ -17,8 +17,7 @@
 /**
  * Put properties with validation setting.
  *
- * @package    theme
- * @subpackage adaptable
+ * @package    theme_adaptable
  * @copyright  &copy; 2018 G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,6 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+/**
+ * Set properties class.
+ *
+ * @package   theme_adaptable
+ * @copyright &copy; 2018 G J Barnard.
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class adaptable_admin_setting_putprops extends admin_setting_configtextarea {
 
     /** @var string Name of the theme. */
@@ -42,7 +48,6 @@ class adaptable_admin_setting_putprops extends admin_setting_configtextarea {
      * config_plugins.
      * @param string $visiblename localised
      * @param string $description long localised info
-     * @param string $defaultsetting
      * @param string $themename Name of the theme.
      * @param string $callme Name of the 'callable' function to call with the name of the theme and the properties as an array.
      */
@@ -52,10 +57,21 @@ class adaptable_admin_setting_putprops extends admin_setting_configtextarea {
         parent::__construct($name, $visiblename, $description, ''); // Last parameter is default.
     }
 
+    /**
+     * Get default settings.
+     * @return string ''
+     */
     public function get_defaultsetting() {
         return '';
     }
 
+    /**
+     * Write settings.
+     *
+     * @param string $data Data
+     *
+     * @return mixed Result of write
+     */
     public function write_setting($data) {
         $validated = $this->validate($data);
         if ($validated !== true) {
@@ -67,7 +83,9 @@ class adaptable_admin_setting_putprops extends admin_setting_configtextarea {
 
     /**
      * Validate data before storage.
-     * @param string data.
+     *
+     * @param string $data Data
+     *
      * @return mixed true if alright, string if error found.
      */
     public function validate($data) {
@@ -100,6 +118,10 @@ class adaptable_admin_setting_putprops extends admin_setting_configtextarea {
 
     /**
      * Returns an HTML string
+     *
+     * @param string $data Data
+     * @param string $query Query
+     *
      * @return string Returns an HTML string
      */
     public function output_html($data, $query='') {

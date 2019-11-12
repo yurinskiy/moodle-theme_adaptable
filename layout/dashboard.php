@@ -47,7 +47,8 @@ if (!empty($PAGE->theme->settings->dashblocksenabled)) {
 
 <div class="container outercont">
     <?php
-    if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && (empty($PAGE->theme->settings->tabbedlayoutdashboard)) && ($dashblocksposition == 'abovecontent') ) {
+    if ( (!empty($PAGE->theme->settings->dashblocksenabled)) &&
+         (empty($PAGE->theme->settings->tabbedlayoutdashboard)) && ($dashblocksposition == 'abovecontent') ) {
         echo $dashblocklayoutlayoutrow;
     } ?>
     <div id="page-content" class="row<?php echo $regions['direction'];?>">
@@ -160,13 +161,14 @@ if (!empty($PAGE->theme->settings->dashblocksenabled)) {
         if ($hassidepost) {
             echo $OUTPUT->blocks('side-post', $regions['blocks'].' d-print-none ');
         }
-    }
+        }
     ?>
 
 </div>
 
 <?php
-if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && (empty($PAGE->theme->settings->tabbedlayoutdashboard)) && ($dashblocksposition == 'belowcontent') ) {
+if ( (!empty($PAGE->theme->settings->dashblocksenabled)) && (empty($PAGE->theme->settings->tabbedlayoutdashboard))
+        && ($dashblocksposition == 'belowcontent') ) {
     echo $dashblocklayoutlayoutrow;
 }
 ?>

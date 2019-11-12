@@ -15,8 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    theme
- * @subpackage adaptable
+ *
+ * File for toolbox class.
+ *
+ * @package    theme_adaptable
  * @copyright  &copy; 2018 G J Barnard.
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,13 +28,28 @@ namespace theme_adaptable;
 
 defined('MOODLE_INTERNAL') || die;
 
+/**
+ *
+ * Class definition for toolbox.
+ *
+ * @package    theme_adaptable
+ * @copyright  &copy; 2018 G J Barnard.
+ * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class toolbox {
+
     /**
      * Gets the setting moodle_url for the given setting if it exists and set.
      *
      * See: https://moodle.org/mod/forum/discuss.php?d=371252#p1516474 and change if theme_config::setting_file_url
      * changes.
      * My need to do: $url = preg_replace('|^https?://|i', '//', $url->out(false)); separately.
+     *
+     * @param string $setting Setting
+     * @param Obj $theconfig
+     *
+     * return string Setting url
      */
     static public function get_setting_moodle_url($setting, $theconfig = null) {
         $settingurl = null;
@@ -47,23 +64,34 @@ class toolbox {
                 $itemid = \theme_get_revision();
                 $syscontext = \context_system::instance();
 
-                $settingurl = \moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php", "/$syscontext->id/theme_$theconfig->name/$setting/$itemid".$thesetting);
+                $settingurl = \moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php",
+                              "/$syscontext->id/theme_$theconfig->name/$setting/$itemid".$thesetting);
             }
         }
         return $settingurl;
     }
 
-    static function get_top_level_categories() {
+    /**
+     * Get top level categories.
+     *
+     * @return array category ids
+     */
+    public static function get_top_level_categories() {
         $categoryids = array();
         $categories = \core_course_category::get(0)->get_children(); // Parent = 0 i.e. top-level categories only.
 
-        foreach($categories as $category){
+        foreach ($categories as $category) {
             $categoryids[$category->id] = $category->name;
         }
 
         return $categoryids;
     }
 
+    /**
+     * Get the current top level category.
+     *
+     * @return int category id
+     */
     static public function get_current_top_level_catetgory() {
         global $PAGE;
         $catid = false;
@@ -85,10 +113,15 @@ class toolbox {
         return $catid;
     }
 
+    /**
+     * Get top level categories with sub-categories.
+     *
+     * @return array category list
+     */
     static public function get_top_categories_with_children() {
         static $catlist = null;
         static $dbcatlist = null;
-        
+
         if (empty($catlist)) {
             global $DB;
             $dbcatlist = $DB->get_records('course_categories', null, 'sortorder', 'id, name, depth, path');
@@ -116,6 +149,14 @@ class toolbox {
         return $catlist;
     }
 
+    /**
+     * Compile properties.
+     *
+     * @param string $themename Theme name
+     * @param bool $array Is this an array (confusing variable name)
+     *
+     * @return array properties
+     */
     static public function compile_properties($themename, $array = true) {
         global $CFG, $DB;
 
@@ -164,6 +205,13 @@ class toolbox {
         return $props;
     }
 
+    /**
+     * Store properties.
+     *
+     * @param string $themename Theme name
+     * @param string $props Properties
+     * @return string
+     */
     static public function put_properties($themename, $props) {
         global $DB;
 
@@ -248,6 +296,13 @@ class toolbox {
         return $report;
     }
 
+    /**
+     * Property to add
+     *
+     * @param int $propkey
+
+     * @return array matches
+     */
     static protected function to_add_property($propkey) {
         static $matches = '('.
              // Slider ....
@@ -293,6 +348,14 @@ class toolbox {
         return (preg_match($matches, $propkey) === 1);
     }
 
+    /**
+     * Pre process properties file.
+     *
+     * @param int $key
+     * @param array $props
+     * @param string $filestoreport
+     *
+     */
     static private function put_prop_file_preprocess($key, &$props, &$filestoreport) {
         if (!empty($props[$key])) {
             $filestoreport .= '\''.$key.'\' '.get_string('putpropertiesvalue', 'theme_adaptable').' \''.

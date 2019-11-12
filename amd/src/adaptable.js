@@ -22,7 +22,7 @@
 // @copyright  2015-2019 Fernando Acedo (3-bits.com)
 // @copyright  2018-2019 Manoj Solanki (Coventry University)
 //
-// @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
 
 /* jshint ignore:start */
 define(['jquery', 'core/log'], function($ , log) {
@@ -45,17 +45,17 @@ define(['jquery', 'core/log'], function($ , log) {
                 // the user preference for the key to the last dismissed key for the alertindex.
                 // alertkey undismissable is a special case for "loginas" alert which shouldn't really
                 // be permanently dismissed.
-                // Justin 2015/12/05
+                // Justin 2015/12/05.
 
                 $('.close').click(function() {
                     var alertindex = $(this).data('alertindex');
                     var alertkey = $(this).data('alertkey');
-                    if (alertkey!='undismissable' && alertkey != 'undefined' && alertkey) {
+                    if (alertkey != 'undismissable' && alertkey != 'undefined' && alertkey) {
                         M.util.set_user_preference('theme_adaptable_alertkey' + alertindex, alertkey);
                     }
                 });
 
-                // Breadcrumb
+                // Breadcrumb.
                 $(".breadcrumb li:not(:last-child) span").not('.separator').addClass('');
                 $(".breadcrumb li:last-child").addClass("lastli");
 

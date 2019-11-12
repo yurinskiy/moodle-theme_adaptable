@@ -54,16 +54,16 @@ Change Log in 2.2
 
 Main fixes & Enhancements done in this release.
 
--	Use of mobile sidebar on Tablet to improve usability and navigation
--	Fix Navbar overlapping content in portrait view on Tablet
--	Remove cog icon duplication in main navbar
--	Fix occasional Javascript user preference errors on mobile
--	Fix Block font settings not working
--	Fix arrow not appearing for sub-menus under main navigation
--	New profile page with tabs is now optional and there is a setting called “Enable Tabbed Profile” to use the previous profile page layout. See settings at Adaptable -> User Profile
--	Improve icon alignment in top header
--	Automatic purging of caches during upgrade
-
+- Use of mobile sidebar on Tablet to improve usability and navigation
+- Fix Navbar overlapping content in portrait view on Tablet
+- Remove cog icon duplication in main navbar
+- Fix occasional Javascript user preference errors on mobile
+- Fix Block font settings not working
+- Fix arrow not appearing for sub-menus under main navigation
+- New profile page with tabs is now optional and there is a setting called “Enable Tabbed Profile” to use the previous 
+ profile page layout. See settings at Adaptable -> User Profile
+- Improve icon alignment in top header
+- Automatic purging of caches during upgrade
 
 What's new?
 
@@ -72,7 +72,8 @@ What's new?
 - Edit button settings. Ablility to show cog icon and / or edit button in main menu navigation
 - 2 User profile layouts
 - New background image setting for login page, including opacity, available. See settings at Adaptable -> Login Page
-- New category header option allows you to have a different background image in the header for categories. Settings can be found under Adaptable -> Category headers
+- New category header option allows you to have a different background image in the header for categories. Settings can be 
+ found under Adaptable -> Category headers
 
 
 HTML/CSS sample code for block areas

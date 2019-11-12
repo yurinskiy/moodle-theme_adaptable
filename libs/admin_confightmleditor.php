@@ -24,6 +24,8 @@
  *
  */
 
+defined('MOODLE_INTERNAL') || die;
+
 /**
  * @copyright 2015 Jeremy Hopkins (Coventry University)
  * @copyright 2015 Fernando Acedo (3-bits.com)
@@ -35,9 +37,6 @@
  * This post laid the ground work for most of the code featured in this file.
  *
  */
-
-defined('MOODLE_INTERNAL') || die;
-
 class adaptable_setting_confightmleditor extends admin_setting_configtext {
 
     /** @var int number of rows */

@@ -41,7 +41,6 @@ require_once($CFG->dirroot.'/user/editlib.php');
  * @package    theme_adaptable
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  */
-
 class editprofile_form extends \moodleform {
 
     /**
@@ -185,7 +184,7 @@ class editprofile_form extends \moodleform {
       * @param array $filemanageroptions
       * @param stdClass $user
       */
-    function editprofile_definition(&$mform, $editoroptions, $filemanageroptions, $user) {
+    public function editprofile_definition(&$mform, $editoroptions, $filemanageroptions, $user) {
         global $CFG, $USER, $DB;
 
         if ($user->id > 0) {

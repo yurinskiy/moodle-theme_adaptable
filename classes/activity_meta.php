@@ -14,6 +14,18 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Activity-related meta data.
+ *
+ * This defines the activity_meta class that is used to store information such as submission status,
+ * due dates etc.
+ *
+ * @package   theme_adaptable
+ * @copyright 2018 Manoj Solanki (Coventry University)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
+ */
+
 namespace theme_adaptable;
 
 defined('MOODLE_INTERNAL') || die();
