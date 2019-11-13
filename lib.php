@@ -463,11 +463,11 @@ function theme_adaptable_initialise_full(moodle_page $page) {
  */
 function theme_adaptable_get_full() {
     $fullpref = '';
-    if (theme_adaptable_get_setting('enablezoom')) {
+    if ((isloggedin()) && (theme_adaptable_get_setting('enablezoom'))) {
         $fullpref = get_user_preferences('theme_adaptable_full', '');
     }
 
-    if (empty($fullpref)) { // Zoom disabled or user not chosen preference.
+    if (empty($fullpref)) { // Zoom disabled, not logged in or user not chosen preference.
         $defaultzoom = theme_adaptable_get_setting('defaultzoom');
         if (empty($defaultzoom)) {
             $defaultzoom = 'normal';
