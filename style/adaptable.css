@@ -1067,6 +1067,7 @@ input[type="radio"], input[type="checkbox"] {
 /* Course alerts */
 .adaptable-alert-info {
     background-color: [[setting:alertbackgroundcolorinfo]];
+    border-width: 1px;
     border-color: [[setting:alertbordercolorinfo]];
     color: [[setting:alertcolorinfo]];
 }
@@ -1078,6 +1079,7 @@ input[type="radio"], input[type="checkbox"] {
 
 .adaptable-alert-success {
     background-color: [[setting:alertbackgroundcolorsuccess]];
+    border-width: 1px;
     border-color: [[setting:alertbordercolorsuccess]];
     color: [[setting:alertcolorsuccess]];
 }
@@ -1088,8 +1090,8 @@ input[type="radio"], input[type="checkbox"] {
 
 .adaptable-alert-warning {
     background-color: [[setting:alertbackgroundcolorwarning]];
+    border-width: 1px;
     border-color: [[setting:alertbordercolorwarning]];
-    border-radius: 0;
     color: [[setting:alertcolorwarning]];
 }
 .adaptable-alert-warning a,
