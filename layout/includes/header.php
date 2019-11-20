@@ -277,10 +277,8 @@ echo $OUTPUT->standard_head_html() ?>
 
 <?php
 // If it is a mobile and the header is not hidden or it is a desktop there will be a page header.
-$pageheader = '';
-if (((theme_adaptable_is_mobile()) && ($hideheadermobile == 1)) || (theme_adaptable_is_desktop())) {
-    $pageheader = 'has-page-header';
-}
+$pageheader = 'has-page-header';
+
 $hasheaderbg = '';
 if (!empty($headerbg)) {
     $hasheaderbg = 'has-header-bg';
@@ -304,13 +302,7 @@ echo $OUTPUT->standard_top_of_body_html();
 <div id="page" class="container-fluid <?php echo "$setfull $showiconsclass $standardscreenwidthclass"; ?>">
 
 <?php
-    // If the device is a mobile and the alerts are not hidden or it is a desktop then load and show the alerts.
-if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adaptable_is_desktop())) {
-    // Display alerts.
     echo $OUTPUT->get_alert_messages();
-}
-
-// Background image in Header.
 ?>
 
 
@@ -424,11 +416,6 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
         </div>
     </div>
 
-    <?php
-    // If it is a mobile and the header is not hidden or it is a desktop then load and show the header.
-    if (((theme_adaptable_is_mobile()) && ($hideheadermobile == 1)) || (theme_adaptable_is_desktop())) {
-    ?>
-
     <div id="page-header" class="container">
         <div class="row">
 
@@ -450,7 +437,6 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                 // Social icons.
                 if ($PAGE->theme->settings->socialorsearch == 'social') {
                     // If it is a mobile and the social icons are not hidden or it is a desktop then load and show the social icons.
-                    if (((theme_adaptable_is_mobile()) && ($hidesocialmobile == 1)) || (theme_adaptable_is_desktop())) {
                         ?>
                         <div class="socialbox pull-right">
                             <?php
@@ -488,7 +474,6 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
                     </div>
                 <?php
                 }
-            }
                 ?>
 
                 <div id="course-header">
@@ -499,10 +484,6 @@ if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adapta
             </div>
 
     </div>
-
-    <?php
-    }
-    ?>
 
 <?php endif; // End header style 1. ?>
 

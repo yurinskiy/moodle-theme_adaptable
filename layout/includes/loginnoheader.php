@@ -157,8 +157,5 @@ echo $OUTPUT->standard_top_of_body_html();
 <div id="page" class="container-fluid <?php echo "$setfull $standardscreenwidthclass"; ?>">
 
 <?php
-    // If the device is a mobile and the alerts are not hidden or it is a desktop then load and show the alerts.
-if (((theme_adaptable_is_mobile()) && ($hidealertsmobile == 1)) || (theme_adaptable_is_desktop())) {
     // Display alerts.
     echo $OUTPUT->get_alert_messages();
-}

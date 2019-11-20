@@ -708,40 +708,6 @@ function theme_adaptable_grid($left, $hassidepost) {
 }
 
 /**
- * Detect if device is desktop.
- */
-function theme_adaptable_is_desktop() {
-    $useragent = $_SERVER['HTTP_USER_AGENT'];
-    return stripos($useragent, 'mobile') === false &&
-        stripos($useragent, 'tablet') === false && stripos($useragent, 'ipad') === false;
-}
-
-/**
- * Detect if tablet.
- */
-function theme_adaptable_is_tablet() {
-    $useragent = $_SERVER['HTTP_USER_AGENT'];
-    return stripos($useragent, 'tablet') !== false || stripos($useragent, 'tab') !== false;
-}
-
-/**
- * Detect if ipad.
- */
-function theme_adaptable_is_ipad() {
-    $useragent = $_SERVER['HTTP_USER_AGENT'];
-    return stripos($useragent, 'ipad') !== false;
-}
-
-/**
- * Detect if mobile.
- */
-function theme_adaptable_is_mobile() {
-    $useragent = $_SERVER['HTTP_USER_AGENT'];
-    return stripos($useragent, 'mobile') !== false ||
-        stripos($useragent, 'nokia') !== false || stripos($useragent, 'phone') !== false;
-}
-
-/**
  *
  * Get the current page to allow us to check if the block is allowed to display.
  *

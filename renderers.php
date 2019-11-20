@@ -1594,60 +1594,57 @@ EOT;
 
             // Remove breadcrumb in a quiz page.
             if ($PAGE->pagetype != "mod-quiz-attempt") {
-                // If the device is a mobile and the breadcrumb is not hidden or it is a desktop then load and show the breadcrumb.
-                if (((theme_adaptable_is_mobile()) && $hidebreadcrumbmobile = 1) || theme_adaptable_is_desktop()) {
-                    if (!isset($PAGE->theme->settings->enabletickermy)) {
-                        $PAGE->theme->settings->enabletickermy = 0;
-                    }
+                if (!isset($PAGE->theme->settings->enabletickermy)) {
+                    $PAGE->theme->settings->enabletickermy = 0;
+                }
 
-                    // Do not show navbar on dashboard / my home if news ticker is rendering.
-                    if (!($PAGE->theme->settings->enabletickermy && $PAGE->bodyid == "page-my-index")) {
-                        $retval = '<div class="row">';
-                        if (($PAGE->theme->settings->breadcrumbdisplay != 'breadcrumb')
-                            && (($PAGE->pagelayout == 'course')
-                            || ($PAGE->pagelayout == 'incourse'))) {
-                            global $COURSE;
-                            $retval .= '<div id="page-coursetitle" class="col-12">';
-                            switch ($PAGE->theme->settings->breadcrumbdisplay) {
-                                case 'fullname':
-                                    // Full Course Name.
-                                    $coursetitle = $COURSE->fullname;
-                                break;
-                                case 'shortname':
-                                    // Short Course Name.
-                                    $coursetitle = $COURSE->shortname;
-                                break;
-                            }
+                // Do not show navbar on dashboard / my home if news ticker is rendering.
+                if (!($PAGE->theme->settings->enabletickermy && $PAGE->bodyid == "page-my-index")) {
+                    $retval = '<div class="row">';
+                    if (($PAGE->theme->settings->breadcrumbdisplay != 'breadcrumb')
+                        && (($PAGE->pagelayout == 'course')
+                        || ($PAGE->pagelayout == 'incourse'))) {
+                        global $COURSE;
+                        $retval .= '<div id="page-coursetitle" class="col-12">';
+                        switch ($PAGE->theme->settings->breadcrumbdisplay) {
+                            case 'fullname':
+                                // Full Course Name.
+                                $coursetitle = $COURSE->fullname;
+                            break;
+                            case 'shortname':
+                                // Short Course Name.
+                                $coursetitle = $COURSE->shortname;
+                            break;
+                        }
 
-                            $coursetitlemaxwidth = (!empty($PAGE->theme->settings->coursetitlemaxwidth)
-                                ? $PAGE->theme->settings->coursetitlemaxwidth : 0);
-                            // Check max width of course title and trim if appropriate.
-                            if (($coursetitlemaxwidth > 0) && ($coursetitle <> '')) {
-                                if (strlen($coursetitle) > $coursetitlemaxwidth) {
-                                    $coursetitle = core_text::substr($coursetitle, 0, $coursetitlemaxwidth) . " ...";
-                                }
+                        $coursetitlemaxwidth = (!empty($PAGE->theme->settings->coursetitlemaxwidth)
+                            ? $PAGE->theme->settings->coursetitlemaxwidth : 0);
+                        // Check max width of course title and trim if appropriate.
+                        if (($coursetitlemaxwidth > 0) && ($coursetitle <> '')) {
+                            if (strlen($coursetitle) > $coursetitlemaxwidth) {
+                                $coursetitle = core_text::substr($coursetitle, 0, $coursetitlemaxwidth) . " ...";
                             }
+                        }
 
-                            switch ($PAGE->theme->settings->breadcrumbdisplay) {
-                                case 'fullname':
-                                case 'shortname':
-                                    // Full / Short Course Name.
-                                    $courseurl = new moodle_url('/course/view.php', array('id' => $COURSE->id));
-                                    $retval .= '<div id="coursetitle" class="p-2 bd-highlight"><h1><a href ="'
-                                        .$courseurl->out(true).'">'.format_string($coursetitle).'</a></h1></div>';
-                                break;
-                            }
-                            $retval .= '</div>';
-                        } else {
-                            $retval .= '<div id="page-navbar" class="col-12">';
-                            if ($addbutton) {
-                                $retval .= '<nav class="breadcrumb-button">' . $this->page_heading_button() . '</nav>';
-                            }
-                            $retval .= $this->navbar();
-                            $retval .= '</div>';
+                        switch ($PAGE->theme->settings->breadcrumbdisplay) {
+                            case 'fullname':
+                            case 'shortname':
+                                // Full / Short Course Name.
+                                $courseurl = new moodle_url('/course/view.php', array('id' => $COURSE->id));
+                                $retval .= '<div id="coursetitle" class="p-2 bd-highlight"><h1><a href ="'
+                                    .$courseurl->out(true).'">'.format_string($coursetitle).'</a></h1></div>';
+                            break;
                         }
                         $retval .= '</div>';
+                    } else {
+                        $retval .= '<div id="page-navbar" class="col-12">';
+                        if ($addbutton) {
+                            $retval .= '<nav class="breadcrumb-button">' . $this->page_heading_button() . '</nav>';
+                        }
+                        $retval .= $this->navbar();
+                        $retval .= '</div>';
                     }
+                    $retval .= '</div>';
                 }
             }
         }
@@ -2309,33 +2306,31 @@ EOT;
 
         $hidelogomobile = $PAGE->theme->settings->hidelogomobile;
 
-        if (((theme_adaptable_is_mobile()) && ($hidelogomobile == 1)) || (theme_adaptable_is_desktop())) {
-            $logosetarea = '';
-            if (!empty($currenttopcat)) {
-                $categoryheaderlogoset = 'categoryheaderlogo'.$currenttopcat;
-                if (!empty($PAGE->theme->settings->$categoryheaderlogoset)) {
-                    $logosetarea = $categoryheaderlogoset;
-                }
+        $logosetarea = '';
+        if (!empty($currenttopcat)) {
+            $categoryheaderlogoset = 'categoryheaderlogo'.$currenttopcat;
+            if (!empty($PAGE->theme->settings->$categoryheaderlogoset)) {
+                $logosetarea = $categoryheaderlogoset;
             }
-            if ((empty($logosetarea)) && (!empty($PAGE->theme->settings->logo))) {
-                $logosetarea = 'logo';
-            }
-            if (!empty($logosetarea)) {
-                // Logo.
-                $retval .= '<div class="p-2 bd-highlight">';
-                $logo = '<img src=' . $PAGE->theme->setting_file_url($logosetarea, $logosetarea) . ' id="logo" alt="" />';
+        }
+        if ((empty($logosetarea)) && (!empty($PAGE->theme->settings->logo))) {
+            $logosetarea = 'logo';
+        }
+        if (!empty($logosetarea)) {
+            // Logo.
+            $retval .= '<div class="p-2 bd-highlight">';
+            $logo = '<img src=' . $PAGE->theme->setting_file_url($logosetarea, $logosetarea) . ' id="logo" alt="" />';
 
-                // Exception - Quiz page - logo is not a link to site homepage.
-                if ($PAGE->pagetype == "mod-quiz-attempt") {
-                    $retval .= $logo;
-                } else {
-                    // Standard - Output the logo as a link to site homepage.
-                    $retval .= '<a href=' . $CFG->wwwroot . ' aria-label="home" title="' . format_string($SITE->fullname). '">';
-                    $retval .= $logo;
-                    $retval .= '</a>';
-                }
-                $retval .= '</div>';
+            // Exception - Quiz page - logo is not a link to site homepage.
+            if ($PAGE->pagetype == "mod-quiz-attempt") {
+                $retval .= $logo;
+            } else {
+                // Standard - Output the logo as a link to site homepage.
+                $retval .= '<a href=' . $CFG->wwwroot . ' aria-label="home" title="' . format_string($SITE->fullname). '">';
+                $retval .= $logo;
+                $retval .= '</a>';
             }
+            $retval .= '</div>';
         }
 
         $hidecoursetitlemobile = $PAGE->theme->settings->hidecoursetitlemobile;
@@ -2345,93 +2340,91 @@ EOT;
 
         // If it is a mobile and the site title/course is not hidden or it is a desktop then we display the site title / course.
         $usedefault = false;
-        if (((theme_adaptable_is_mobile()) && ($hidecoursetitlemobile == 1)) || (theme_adaptable_is_desktop())) {
-            $categoryheadercustomtitle = '';
-            if (!empty($currenttopcat)) {
-                $categoryheadercustomtitleset = 'categoryheadercustomtitle'.$currenttopcat;
-                if (!empty($PAGE->theme->settings->$categoryheadercustomtitleset)) {
-                    $categoryheadercustomtitle = $PAGE->theme->settings->$categoryheadercustomtitleset;
+        $categoryheadercustomtitle = '';
+        if (!empty($currenttopcat)) {
+            $categoryheadercustomtitleset = 'categoryheadercustomtitle'.$currenttopcat;
+            if (!empty($PAGE->theme->settings->$categoryheadercustomtitleset)) {
+                $categoryheadercustomtitle = $PAGE->theme->settings->$categoryheadercustomtitleset;
+            }
+        }
+
+        // If course id is greater than 1 we display course title.
+        if ($COURSE->id > 1) {
+            // Select title.
+            $coursetitle = '';
+
+            switch ($PAGE->theme->settings->enableheading) {
+                case 'fullname':
+                    // Full Course Name.
+                    $coursetitle = $COURSE->fullname;
+                    break;
+
+                case 'shortname':
+                    // Short Course Name.
+                    $coursetitle = $COURSE->shortname;
+                    break;
+            }
+
+            // Check max width of course title and trim if appropriate.
+            if (($coursetitlemaxwidth > 0) && ($coursetitle <> '')) {
+                if (strlen($coursetitle) > $coursetitlemaxwidth) {
+                    $coursetitle = core_text::substr($coursetitle, 0, $coursetitlemaxwidth) . " ...";
                 }
             }
 
-            // If course id is greater than 1 we display course title.
-            if ($COURSE->id > 1) {
-                // Select title.
-                $coursetitle = '';
-
-                switch ($PAGE->theme->settings->enableheading) {
-                    case 'fullname':
-                        // Full Course Name.
-                        $coursetitle = $COURSE->fullname;
-                        break;
-
-                    case 'shortname':
-                        // Short Course Name.
-                        $coursetitle = $COURSE->shortname;
-                        break;
-                }
-
-                // Check max width of course title and trim if appropriate.
-                if (($coursetitlemaxwidth > 0) && ($coursetitle <> '')) {
-                    if (strlen($coursetitle) > $coursetitlemaxwidth) {
-                        $coursetitle = core_text::substr($coursetitle, 0, $coursetitlemaxwidth) . " ...";
-                    }
-                }
-
-                switch ($PAGE->theme->settings->enableheading) {
-                    case 'fullname':
-                        // Full Course Name.
-                        $retval .= '<div id="sitetitle" class="p-2 bd-highlight">';
-                        if (!empty($categoryheadercustomtitle)) {
-                            $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
-                        }
-                        $retval .= '<h1>'. format_string($coursetitle) . '</h1>';
-                        $retval .= '</div>';
-                        break;
-
-                    case 'shortname':
-                        // Short Course Name.
-                        $retval .= '<div id="sitetitle" class="p-2 bd-highlight">';
-                        if (!empty($categoryheadercustomtitle)) {
-                            $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
-                        }
-                        $retval .= '<h1>'. format_string($coursetitle) . '</h1>';
-                        $retval .= '</div>';
-                        break;
-
-                    default:
-                        // Default 'off'.
-                        $usedefault = true;
-                        break;
-                }
-            }
-
-            // If course id is one or 'enableheading' was 'off' above then we display the site title.
-            if (($COURSE->id == 1) || ($usedefault)) {
-                if (!empty($categoryheadercustomtitle)) {
+            switch ($PAGE->theme->settings->enableheading) {
+                case 'fullname':
+                    // Full Course Name.
                     $retval .= '<div id="sitetitle" class="p-2 bd-highlight">';
-                    $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
-                    $retval .= '</div>';
-                } else {
-                    switch ($PAGE->theme->settings->sitetitle) {
-                        case 'default':
-                            $sitetitle = $SITE->fullname;
-                            $retval .= '<div id="sitetitle" class="p-2 bd-highlight"><h1>'
-                                . format_string($sitetitle) . '</h1></div>';
-                            break;
-
-                        case 'custom':
-                            // Custom site title.
-                            if (!empty($PAGE->theme->settings->sitetitletext)) {
-                                $header = theme_adaptable_remove_site_fullname($PAGE->theme->settings->sitetitletext);
-                                $sitetitlehtml = $PAGE->theme->settings->sitetitletext;
-                                $header = format_string($header);
-                                $PAGE->set_heading($header);
-
-                                $retval .= '<div id="sitetitle" class="p-2 bd-highlight">'
-                                    . format_text($sitetitlehtml, FORMAT_HTML) . '</div>';
-                            }
+                    if (!empty($categoryheadercustomtitle)) {
+                        $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
                     }
+                    $retval .= '<h1>'. format_string($coursetitle) . '</h1>';
+                    $retval .= '</div>';
+                    break;
+
+                case 'shortname':
+                    // Short Course Name.
+                    $retval .= '<div id="sitetitle" class="p-2 bd-highlight">';
+                    if (!empty($categoryheadercustomtitle)) {
+                        $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
+                    }
+                    $retval .= '<h1>'. format_string($coursetitle) . '</h1>';
+                    $retval .= '</div>';
+                    break;
+
+                default:
+                    // Default 'off'.
+                    $usedefault = true;
+                    break;
+            }
+        }
+
+        // If course id is one or 'enableheading' was 'off' above then we display the site title.
+        if (($COURSE->id == 1) || ($usedefault)) {
+            if (!empty($categoryheadercustomtitle)) {
+                $retval .= '<div id="sitetitle" class="p-2 bd-highlight">';
+                $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
+                $retval .= '</div>';
+            } else {
+                switch ($PAGE->theme->settings->sitetitle) {
+                    case 'default':
+                        $sitetitle = $SITE->fullname;
+                        $retval .= '<div id="sitetitle" class="p-2 bd-highlight"><h1>'
+                            . format_string($sitetitle) . '</h1></div>';
+                        break;
+
+                    case 'custom':
+                        // Custom site title.
+                        if (!empty($PAGE->theme->settings->sitetitletext)) {
+                            $header = theme_adaptable_remove_site_fullname($PAGE->theme->settings->sitetitletext);
+                            $sitetitlehtml = $PAGE->theme->settings->sitetitletext;
+                            $header = format_string($header);
+                            $PAGE->set_heading($header);
+
+                            $retval .= '<div id="sitetitle" class="p-2 bd-highlight">'
+                                . format_text($sitetitlehtml, FORMAT_HTML) . '</div>';
+                        }
                 }
             }
         }

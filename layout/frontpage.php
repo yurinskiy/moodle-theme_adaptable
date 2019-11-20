@@ -41,10 +41,7 @@ $hideslidermobile = $PAGE->theme->settings->hideslidermobile;
 
 // Let's include the images slider if enabled.
 if (!empty($PAGE->theme->settings->sliderenabled)) {
-    // If it is a mobile and the header is not hidden or it is a desktop then load and show the header.
-    if (((theme_adaptable_is_mobile()) && ($hideslidermobile == 1)) || (theme_adaptable_is_desktop())) {
-        echo $OUTPUT->get_frontpage_slider();
-    }
+    echo $OUTPUT->get_frontpage_slider();
 }
 
 // And let's show Infobox 1 if enabled.
