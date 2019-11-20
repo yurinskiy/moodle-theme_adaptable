@@ -217,7 +217,6 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:coursetitlemaxwidth]]' => '20',
         '[[setting:sitetitlemaxwidth]]' => '50%',
         '[[setting:coursetitlepaddingtop]]' => '0px',
-        '[[setting:hidebreadcrumbmobile]]' => 1,
         '[[setting:hidepagefootermobile]]' => 0,
         '[[setting:hidealertsmobile]]' => 0,
         '[[setting:hidesocialmobile]]' => 0,

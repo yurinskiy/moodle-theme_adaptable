@@ -1590,8 +1590,7 @@ EOT;
         global $PAGE;
         $retval = '';
         if (empty($PAGE->layout_options['nonavbar'])) { // Not disabled by 'nonavbar' in config.php.
-            $hidebreadcrumbmobile = $PAGE->theme->settings->hidebreadcrumbmobile;
-
+            
             // Remove breadcrumb in a quiz page.
             if ($PAGE->pagetype != "mod-quiz-attempt") {
                 if (!isset($PAGE->theme->settings->enabletickermy)) {
@@ -1705,10 +1704,7 @@ EOT;
 
         } // End loop.
 
-        $classes = '';
-        if (!empty($PAGE->theme->settings->smallscreenhidebreadcrumb) ) {
-            $classes = 'd-none d-md-flex';
-        }
+        $classes = $PAGE->theme->settings->smallscreenhidebreadcrumb;
 
         return '<nav role="navigation" aria-label="'. get_string("breadcrumb", "theme_adaptable") .'">
             <ol  class="breadcrumb ' . $classes . '">'.$breadcrumbs.'</ol>

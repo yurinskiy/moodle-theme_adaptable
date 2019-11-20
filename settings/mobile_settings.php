@@ -35,7 +35,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('hidealertsmobile', 'theme_adaptable');
     $description = get_string('hidealertsmobiledesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
-    $choices = $screensize;
+    $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
@@ -45,7 +45,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('hideheadermobile', 'theme_adaptable');
     $description = get_string('hideheadermobiledesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
-    $choices = $screensize;
+    $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
@@ -55,7 +55,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('hidesocialmobile', 'theme_adaptable');
     $description = get_string('hidesocialmobiledesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
-    $choices = $screensize;
+    $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
@@ -72,7 +72,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('hidelogomobile', 'theme_adaptable');
     $description = get_string('hidelogomobiledesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
-    $choices = $screensize;
+    $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
@@ -82,7 +82,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('hidecoursetitlemobile', 'theme_adaptable');
     $description = get_string('hidecoursetitlemobiledesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
-    $choices = $screensize;
+    $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
@@ -92,7 +92,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('hideasnavmobile', 'theme_adaptable');
     $description = get_string('hideasnavmobiledesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
-    $choices = $screensize;
+    $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
@@ -102,17 +102,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('hideslidermobile', 'theme_adaptable');
     $description = get_string('hideslidermobiledesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
-    $choices = $screensize;
-    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Hide Breadcrumb.
-    $name = 'theme_adaptable/hidebreadcrumbmobile';
-    $title = get_string('hidebreadcrumbmobile', 'theme_adaptable');
-    $description = get_string('hidebreadcrumbmobiledesc', 'theme_adaptable');
-    $default = 'd-none d-lg-block';
-    $choices = $screensize;
+    $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
@@ -122,7 +112,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('hidepagefootermobile', 'theme_adaptable');
     $description = get_string('hidepagefootermobiledesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
-    $choices = $screensize;
+    $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
@@ -131,8 +121,8 @@ if ($ADMIN->fulltree) {
     $name = 'theme_adaptable/smallscreenhidebreadcrumb';
     $title = get_string('smallscreenhidebreadcrumb', 'theme_adaptable');
     $description = get_string('smallscreenhidebreadcrumbdesc', 'theme_adaptable');
-    $default = 'd-none d-lg-block';
-    $choices = $screensize;
+    $default = 'd-none d-md-flex';
+    $choices = $screensizeflex;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);

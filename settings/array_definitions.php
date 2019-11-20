@@ -910,13 +910,22 @@ $standardfontsize = array(
     '96px' => '96px'
 );
 
-$screensize = array(
-    '.d-block' => get_string('d-block', 'theme_adaptable'),
-    'd-none d-sm-block' => get_string('d-none-d-sm-block', 'theme_adaptable'),
-    'd-none d-md-block' => get_string('d-none-d-md-block', 'theme_adaptable'),
-    'd-none d-lg-block' => get_string('d-none-d-lg-block', 'theme_adaptable'),
-    'd-none d-xl-block' => get_string('d-none-d-xl-block', 'theme_adaptable'),
-    'd-none' => get_string('d-none', 'theme_adaptable')
+$screensizeblock = array(
+    '.d-block' => get_string('bs4all', 'theme_adaptable'),
+    'd-none d-sm-block' => get_string('bs4small', 'theme_adaptable'),
+    'd-none d-md-block' => get_string('bs4medium', 'theme_adaptable'),
+    'd-none d-lg-block' => get_string('bs4large', 'theme_adaptable'),
+    'd-none d-xl-block' => get_string('bs4extralarge', 'theme_adaptable'),
+    'd-none' => get_string('bs4none', 'theme_adaptable')
+);
+
+$screensizeflex = array(
+    '.d-flex' => get_string('bs4all', 'theme_adaptable'),
+    'd-none d-sm-flex' => get_string('bs4small', 'theme_adaptable'),
+    'd-none d-md-flex' => get_string('bs4medium', 'theme_adaptable'),
+    'd-none d-lg-flex' => get_string('bs4large', 'theme_adaptable'),
+    'd-none d-xl-flex' => get_string('bs4extralarge', 'theme_adaptable'),
+    'd-none' => get_string('bs4none', 'theme_adaptable')
 );
 
 // Numbers.

@@ -1333,9 +1333,6 @@ $string['hidelogomobiledesc'] = 'Hide will remove the logo on mobile devices';
 $string['hideheadermobile'] = 'Hide header on mobile';
 $string['hideheadermobiledesc'] = 'Hide will remove the header with logo / social icons / search box on mobile devices';
 
-$string['hidebreadcrumbmobile'] = 'Hide breadcrumb on mobile';
-$string['hidebreadcrumbmobiledesc'] = 'Checking this option will remove the breadcrumb on mobile devices';
-
 $string['hidepagefootermobile'] = 'Hide footer on mobile';
 $string['hidepagefootermobiledesc'] = 'Checking this option will remove the footer on mobile devices';
 
@@ -1343,12 +1340,12 @@ $string['hideslidermobile'] = 'Hide slider on mobile';
 $string['hideslidermobiledesc'] = 'Hide will remove the front page slider on mobile devices';
 
 // Bootstrap class descriptions used in array definitions
-$string['d-block'] = 'All';
-$string['d-none-d-sm-block'] = 'Smaller - Extra Large';
-$string['d-none-d-md-block'] = 'Medium - Extra Large';
-$string['d-none-d-lg-block'] = 'Large - Extra Large';
-$string['d-none-d-xl-block'] = 'Extra Large Only';
-$string['d-none'] = 'None';
+$string['bs4all'] = 'Extra Small - Extra Large';
+$string['bs4small'] = 'Small - Extra Large';
+$string['bs4medium'] = 'Medium - Extra Large';
+$string['bs4large'] = 'Large - Extra Large';
+$string['bs4extralarge'] = 'Extra Large Only';
+$string['bs4none'] = 'None';
 
 // Layout **********************************************************.
 $string['layoutsettings'] = 'Layout';
