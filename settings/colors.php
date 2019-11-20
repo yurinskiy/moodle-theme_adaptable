@@ -34,7 +34,8 @@ defined('MOODLE_INTERNAL') || die;
     // Main colors heading.
     $name = 'theme_adaptable/settingsmaincolors';
     $heading = get_string('settingsmaincolors', 'theme_adaptable');
-    $setting = new admin_setting_heading($name, $heading, '');
+    $description = "fdsfds";
+    $setting = new admin_setting_heading($name, $heading, $description);
     $temp->add($setting);
 
     // Site main color.

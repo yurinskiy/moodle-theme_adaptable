@@ -1043,6 +1043,11 @@ $string['breadcrumbtitledesc'] = 'Set the mode to display the course title in th
 $string['coursetitlefullname'] = 'Course Full Name';
 $string['coursetitleshortname'] = 'Course Short Name / Code';
 
+$string['headerstyleheading'] = 'Header Style Settings';
+$string['headerstyleheadingdesc'] = 'Adaptable supports two header styles, the original three row header and a newer simplified two row header. 
+Be aware that if you switch to the newer two row header you will <strong>NOT</strong> be able to: <br />
+<ol><li>Show social icons in the header</li><li>Display the site logo on mobile devices</li></ol>';
+
 $string['headerstyle'] = 'Header style';
 $string['headerstyledesc'] = 'Choose the style of header. Header 1 refers to the original 3 row Adaptable header.  Header 2 is a minimal 2 row header. Note that when using Header 2, for the setting "Use Search Box or Social Icons", this will always use a search box.';
 $string['headerstyle1'] = 'Header 1 (original 3 row header)';

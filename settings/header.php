@@ -39,31 +39,6 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'headerbgimage');
     $temp->add($setting);
 
-    // Adaptable header style selection.
-    $name = 'theme_adaptable/headerstyle';
-    $title = get_string('headerstyle', 'theme_adaptable');
-    $description = get_string('headerstyledesc', 'theme_adaptable');
-    $radchoices = array(
-            'style1' => get_string('headerstyle1', 'theme_adaptable'),
-            'style2' => get_string('headerstyle2', 'theme_adaptable')
-    );
-    $setting = new admin_setting_configselect($name, $title, $description, 'style1', $radchoices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    // Header 2 search box.
-    $name = 'theme_adaptable/header2searchbox';
-    $title = get_string('header2searchbox', 'theme_adaptable');
-    $description = get_string('header2searchboxdesc', 'theme_adaptable');
-    $default = 'expandable';
-    $radchoices = array(
-        'expandable' => get_string('expandable', 'theme_adaptable'),
-        'static' => get_string('static', 'theme_adaptable'),
-        'disabled' => get_string('disabled', 'theme_adaptable')
-    );
-    $setting = new admin_setting_configselect($name, $title, $description, $default, $radchoices);
-    $temp->add($setting);
-
     // Select type of login.
     $name = 'theme_adaptable/displaylogin';
     $title = get_string('displaylogin', 'theme_adaptable');
@@ -243,5 +218,35 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
+ 
+    // My courses section.
+    $temp->add(new admin_setting_heading('theme_adaptable_headerstyle_heading',
+        get_string('headerstyleheading', 'theme_adaptable'),
+        format_text(get_string('headerstyleheadingdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
+        
+    // Adaptable header style selection.
+    $name = 'theme_adaptable/headerstyle';
+    $title = get_string('headerstyle', 'theme_adaptable');
+    $description = get_string('headerstyledesc', 'theme_adaptable');
+    $radchoices = array(
+        'style1' => get_string('headerstyle1', 'theme_adaptable'),
+        'style2' => get_string('headerstyle2', 'theme_adaptable')
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, 'style1', $radchoices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    // Header 2 search box.
+    $name = 'theme_adaptable/header2searchbox';
+    $title = get_string('header2searchbox', 'theme_adaptable');
+    $description = get_string('header2searchboxdesc', 'theme_adaptable');
+    $default = 'expandable';
+    $radchoices = array(
+        'expandable' => get_string('expandable', 'theme_adaptable'),
+        'static' => get_string('static', 'theme_adaptable'),
+        'disabled' => get_string('disabled', 'theme_adaptable')
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $radchoices);
+    $temp->add($setting);    
 }
 $ADMIN->add('theme_adaptable', $temp);
