@@ -910,6 +910,15 @@ $standardfontsize = array(
     '96px' => '96px'
 );
 
+$screensize = array(
+    '.d-block' => get_string('d-block', 'theme_adaptable'),
+    'd-none d-sm-block' => get_string('d-none-d-sm-block', 'theme_adaptable'),
+    'd-none d-md-block' => get_string('d-none-d-md-block', 'theme_adaptable'),
+    'd-none d-lg-block' => get_string('d-none-d-lg-block', 'theme_adaptable'),
+    'd-none d-xl-block' => get_string('d-none-d-xl-block', 'theme_adaptable'),
+    'd-none' => get_string('d-none', 'theme_adaptable')
+);
+
 // Numbers.
 $from20to40 = array();
 for ($i = 20; $i < 41; $i++) {

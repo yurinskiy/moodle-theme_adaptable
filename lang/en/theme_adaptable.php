@@ -1342,6 +1342,14 @@ $string['hidepagefootermobiledesc'] = 'Checking this option will remove the foot
 $string['hideslidermobile'] = 'Hide slider on mobile';
 $string['hideslidermobiledesc'] = 'Hide will remove the front page slider on mobile devices';
 
+// Bootstrap class descriptions used in array definitions
+$string['d-block'] = 'All';
+$string['d-none-d-sm-block'] = 'Smaller - Extra Large';
+$string['d-none-d-md-block'] = 'Medium - Extra Large';
+$string['d-none-d-lg-block'] = 'Large - Extra Large';
+$string['d-none-d-xl-block'] = 'Extra Large Only';
+$string['d-none'] = 'None';
+
 // Layout **********************************************************.
 $string['layoutsettings'] = 'Layout';
 $string['layoutdesc'] = 'Set the default layout that users see.';
