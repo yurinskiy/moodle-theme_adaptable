@@ -28,12 +28,9 @@ defined('MOODLE_INTERNAL') || die;
 
 // Load messages / notifications.
 echo $OUTPUT->standard_after_main_region_html();
-
-// If the device is a mobile and the footer is not hidden or it is a desktop then load and show the footer.
-$hidepagefootermobile = $PAGE->theme->settings->hidepagefootermobile;
 ?>
 
-<footer id="page-footer">
+<footer id="page-footer" class="<?php echo $PAGE->theme->settings->hidepagefootermobile?>">
 
 <?php
 echo $OUTPUT->get_footer_blocks();
