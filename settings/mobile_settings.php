@@ -91,10 +91,12 @@ if ($ADMIN->fulltree) {
     $name = 'theme_adaptable/hideasnavmobile';
     $title = get_string('hideasnavmobile', 'theme_adaptable');
     $description = get_string('hideasnavmobiledesc', 'theme_adaptable');
-    $default = 'd-none d-lg-block';
-    $choices = $screensizeblock;
-    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
+    $radchoices = array(
+        0 => get_string('show', 'theme_adaptable'),
+        1 => get_string('hide', 'theme_adaptable'),
+    );
+    $default = 1;
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $radchoices);
     $temp->add($setting);
 
     // Hide Slider.
