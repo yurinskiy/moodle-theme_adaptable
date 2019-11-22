@@ -911,7 +911,7 @@ $standardfontsize = array(
 );
 
 $screensizeblock = array(
-    '.d-block' => get_string('bs4all', 'theme_adaptable'),
+    'd-block' => get_string('bs4all', 'theme_adaptable'),
     'd-none d-sm-block' => get_string('bs4small', 'theme_adaptable'),
     'd-none d-md-block' => get_string('bs4medium', 'theme_adaptable'),
     'd-none d-lg-block' => get_string('bs4large', 'theme_adaptable'),
@@ -920,7 +920,7 @@ $screensizeblock = array(
 );
 
 $screensizeflex = array(
-    '.d-flex' => get_string('bs4all', 'theme_adaptable'),
+    'd-flex' => get_string('bs4all', 'theme_adaptable'),
     'd-none d-sm-flex' => get_string('bs4small', 'theme_adaptable'),
     'd-none d-md-flex' => get_string('bs4medium', 'theme_adaptable'),
     'd-none d-lg-flex' => get_string('bs4large', 'theme_adaptable'),
