@@ -72,7 +72,6 @@ $left = (!right_to_left());  // To know if to add 'pull-right' and 'desktop-firs
 $hasmiddle = $PAGE->blocks->region_has_content('middle', $OUTPUT);
 $hasfootnote = (!empty($PAGE->theme->settings->footnote));
 
-$hideheadermobile = $PAGE->theme->settings->hideheadermobile;
 $hidealertsmobile = $PAGE->theme->settings->hidealertsmobile;
 
 // Navbar Menu.
@@ -415,7 +414,7 @@ echo $OUTPUT->standard_top_of_body_html();
         </div>
     </div>
 
-    <div id="page-header" class="container">
+    <div id="page-header" class="container <?php echo $PAGE->theme->settings->hideheadermobile;?>">
         <div class="row">
 
         <div class="d-none d-lg-block col-lg-4">
