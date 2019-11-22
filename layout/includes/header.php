@@ -74,7 +74,6 @@ $hasfootnote = (!empty($PAGE->theme->settings->footnote));
 
 $hideheadermobile = $PAGE->theme->settings->hideheadermobile;
 $hidealertsmobile = $PAGE->theme->settings->hidealertsmobile;
-$hidesocialmobile = $PAGE->theme->settings->hidesocialmobile;
 
 // Navbar Menu.
 $shownavbar = false;
@@ -438,7 +437,7 @@ echo $OUTPUT->standard_top_of_body_html();
                 if ($PAGE->theme->settings->socialorsearch == 'social') {
                     // If it is a mobile and the social icons are not hidden or it is a desktop then load and show the social icons.
                         ?>
-                        <div class="socialbox pull-right">
+                       		<div class="socialbox pull-right <?php echo $PAGE->theme->settings->hidesocialmobile; ?>">
                             <?php
                             echo $OUTPUT->socialicons();
                             ?>
