@@ -2314,7 +2314,7 @@ EOT;
         }
         if (!empty($logosetarea)) {
             // Logo.
-            $retval .= '<div class="p-2 bd-highlight">';
+            $retval .= '<div class="p-2 bd-highlight ' . $hidelogomobile . '">';
             $logo = '<img src=' . $PAGE->theme->setting_file_url($logosetarea, $logosetarea) . ' id="logo" alt="" />';
 
             // Exception - Quiz page - logo is not a link to site homepage.

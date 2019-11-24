@@ -417,7 +417,7 @@ echo $OUTPUT->standard_top_of_body_html();
     <div id="page-header" class="container <?php echo $PAGE->theme->settings->hideheadermobile;?>">
         <div class="row">
 
-        <div class="d-none d-lg-block col-lg-4">
+        <div class="col-lg-4">
         <?php
         // Site title or logo.
         if (!$hidesitetitle) {
