@@ -2301,6 +2301,7 @@ EOT;
         $retval = '';
 
         $hidelogomobile = $PAGE->theme->settings->hidelogomobile;
+        $hidecoursetitlemobile = $PAGE->theme->settings->hidecoursetitlemobile;
 
         $logosetarea = '';
         if (!empty($currenttopcat)) {
@@ -2328,8 +2329,6 @@ EOT;
             }
             $retval .= '</div>';
         }
-
-        $hidecoursetitlemobile = $PAGE->theme->settings->hidecoursetitlemobile;
 
         $coursetitlemaxwidth =
             (!empty($PAGE->theme->settings->coursetitlemaxwidth) ? $PAGE->theme->settings->coursetitlemaxwidth : 0);
@@ -2371,7 +2370,7 @@ EOT;
             switch ($PAGE->theme->settings->enableheading) {
                 case 'fullname':
                     // Full Course Name.
-                    $retval .= '<div id="sitetitle" class="p-2 bd-highlight">';
+                    $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $hidecoursetitlemobile . '">';
                     if (!empty($categoryheadercustomtitle)) {
                         $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
                     }
@@ -2381,7 +2380,7 @@ EOT;
 
                 case 'shortname':
                     // Short Course Name.
-                    $retval .= '<div id="sitetitle" class="p-2 bd-highlight">';
+                    $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $hidecoursetitlemobile . '">';
                     if (!empty($categoryheadercustomtitle)) {
                         $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
                     }
@@ -2399,14 +2398,14 @@ EOT;
         // If course id is one or 'enableheading' was 'off' above then we display the site title.
         if (($COURSE->id == 1) || ($usedefault)) {
             if (!empty($categoryheadercustomtitle)) {
-                $retval .= '<div id="sitetitle" class="p-2 bd-highlight">';
+                $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $hidecoursetitlemobile . '">';
                 $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
                 $retval .= '</div>';
             } else {
                 switch ($PAGE->theme->settings->sitetitle) {
                     case 'default':
                         $sitetitle = $SITE->fullname;
-                        $retval .= '<div id="sitetitle" class="p-2 bd-highlight"><h1>'
+                        $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $hidecoursetitlemobile . '"><h1>'
                             . format_string($sitetitle) . '</h1></div>';
                         break;
 
@@ -2418,7 +2417,7 @@ EOT;
                             $header = format_string($header);
                             $PAGE->set_heading($header);
 
-                            $retval .= '<div id="sitetitle" class="p-2 bd-highlight">'
+                            $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $hidecoursetitlemobile . '">'
                                 . format_text($sitetitlehtml, FORMAT_HTML) . '</div>';
                         }
                 }
