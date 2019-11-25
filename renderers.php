@@ -1518,6 +1518,8 @@ EOT;
     public function get_frontpage_slider() {
         global $PAGE, $OUTPUT;
         $noslides = $PAGE->theme->settings->slidercount;
+        $hideslidermobile = $PAGE->theme->settings->hideslidermobile;
+        
         $retval = '';
 
         // Will we have any slides?
@@ -1544,7 +1546,7 @@ EOT;
             $retval .= " slidestyle2";
         }
 
-        $retval .= '">
+        $retval .= ' ' . $hideslidermobile . '">
             <div id="main-slider" class="flexslider">
             <ul class="slides">';
 

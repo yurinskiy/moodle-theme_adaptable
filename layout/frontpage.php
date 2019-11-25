@@ -37,7 +37,6 @@ $regions = theme_adaptable_grid($left, $hassidepost);
 
 // We need to load some settings.
 $hasfootnote = (!empty($PAGE->theme->settings->footnote));
-$hideslidermobile = $PAGE->theme->settings->hideslidermobile;
 
 // Let's include the images slider if enabled.
 if (!empty($PAGE->theme->settings->sliderenabled)) {
