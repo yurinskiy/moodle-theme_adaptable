@@ -1173,7 +1173,7 @@ EOT;
      * @return string
      */
     public function get_news_ticker() {
-        global $PAGE, $OUTPUT;
+        global $PAGE, $OUTPUT;        
         $retval = '';
 
         if (!isset($PAGE->theme->settings->enabletickermy)) {
@@ -1213,7 +1213,7 @@ EOT;
                 $msg = '<p>' . get_string('tickerdefault', 'theme_adaptable') . '</p>';
             }
 
-            $retval .= '<div id="ticker-wrap" class="clearfix container">';
+            $retval .= '<div id="ticker-wrap" class="clearfix container ' . $PAGE->theme->settings->hidetickermobile . '">';
             $retval .= '<div class="pull-left" id="ticker-announce">';
             $retval .= get_string('ticker', 'theme_adaptable');
             $retval .= '</div>';

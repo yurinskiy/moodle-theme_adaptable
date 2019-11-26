@@ -1339,6 +1339,9 @@ $string['hideheadermobiledesc'] = 'What sized screens would you like the main he
     Removing the header entirely will also remove elements contained within it:<br/>
     <ul><li>Social Icons</li><li>Logo</li><li>Site / Course Title</li></ul>';
 
+$string['hidetickermobile'] = 'News Ticker';
+$string['hidetickermobiledesc'] = 'What sized screens would you like the News Ticker to be displayed on?';
+
 $string['hidepagefootermobile'] = 'Footer';
 $string['hidepagefootermobiledesc'] = 'What sized screens would you like the Footer to be displayed on?';
 

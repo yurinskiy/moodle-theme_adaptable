@@ -99,26 +99,24 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $radchoices);
     $temp->add($setting);
 
-    // Hide Slider.
-    $name = 'theme_adaptable/hideslidermobile';
-    $title = get_string('hideslidermobile', 'theme_adaptable');
-    $description = get_string('hideslidermobiledesc', 'theme_adaptable');
+    // Show search icon on small screens.
+    $name = 'theme_adaptable/smallscreenshowsearchicon';
+    $title = get_string('smallscreenshowsearchicon', 'theme_adaptable');
+    $description = get_string('smallscreenshowsearchicondesc', 'theme_adaptable');
+    $default = true;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    $temp->add($setting);
+    
+    // Hide Ticker.
+    $name = 'theme_adaptable/hidetickermobile';
+    $title = get_string('hidetickermobile', 'theme_adaptable');
+    $description = get_string('hidetickermobiledesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
     $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    // Hide Footer.
-    $name = 'theme_adaptable/hidepagefootermobile';
-    $title = get_string('hidepagefootermobile', 'theme_adaptable');
-    $description = get_string('hidepagefootermobiledesc', 'theme_adaptable');
-    $default = 'd-none d-lg-block';
-    $choices = $screensizeblock;
-    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-    
     // Hide breadcrumbs on small screens.
     $name = 'theme_adaptable/smallscreenhidebreadcrumb';
     $title = get_string('smallscreenhidebreadcrumb', 'theme_adaptable');
@@ -128,13 +126,25 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-
-    // Show search icon on small screens.
-    $name = 'theme_adaptable/smallscreenshowsearchicon';
-    $title = get_string('smallscreenshowsearchicon', 'theme_adaptable');
-    $description = get_string('smallscreenshowsearchicondesc', 'theme_adaptable');
-    $default = true;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    
+    // Hide Slider.
+    $name = 'theme_adaptable/hideslidermobile';
+    $title = get_string('hideslidermobile', 'theme_adaptable');
+    $description = get_string('hideslidermobiledesc', 'theme_adaptable');
+    $default = 'd-none d-lg-block';
+    $choices = $screensizeblock;
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    // Hide Footer.
+    $name = 'theme_adaptable/hidepagefootermobile';
+    $title = get_string('hidepagefootermobile', 'theme_adaptable');
+    $description = get_string('hidepagefootermobiledesc', 'theme_adaptable');
+    $default = 'd-none d-lg-block';
+    $choices = $screensizeblock;
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
     
     // Mobile colors heading.
