@@ -1327,8 +1327,8 @@ $string['hidecoursetitlemobile'] = 'Course / Site Title';
 $string['hidecoursetitlemobiledesc'] = 'What sized screens would you like the Site / Course titles to be displayed on?';
 
 $string['hideasnavmobile'] = 'Activity / Section Nagivation';
-$string['hideasnavmobiledesc'] = 'What sized screens would you like the <strong>text</strong> for <prev> <next> activty / section navigation label text to be displayed on?<br/>
-        By default, on smaller screens only the icons for <prev> <next> links display as the text often spills making the site look messy.';
+$string['hideasnavmobiledesc'] = 'Show / Hide the the <strong>text</strong> for "prev" "next" activty / section navigation on small screens.
+        By default we hide this text on smaller screens so only the icons for <prev> <next> links display and not the full section / activity name.';        
 
 $string['hidelogomobile'] = 'Logo';
 $string['hidelogomobiledesc'] = 'What sized screens would you like the logo to be displayed on?';
