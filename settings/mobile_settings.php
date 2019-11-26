@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die;
 $temp = new admin_settingpage('theme_adaptable_mobile', get_string('mobilesettings', 'theme_adaptable'));
 if ($ADMIN->fulltree) {
     $temp->add(new admin_setting_heading('theme_adaptable_mobile', get_string('mobilesettingsheading', 'theme_adaptable'),
-        '', FORMAT_MARKDOWN));
+        format_text(get_string('mobilesettingsdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
 
     // Hide Alerts.
     $name = 'theme_adaptable/hidealertsmobile';
@@ -135,12 +135,6 @@ if ($ADMIN->fulltree) {
     $description = get_string('smallscreenshowsearchicondesc', 'theme_adaptable');
     $default = true;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $temp->add($setting);
-
-    // Small screen (mobile) appearance heading.
-    $name = 'theme_adaptable/settingssmallscreen';
-    $heading = get_string('settingssmallscreen', 'theme_adaptable');
-    $setting = new admin_setting_heading($name, $heading, '');
     $temp->add($setting);
     
     // Mobile colors heading.

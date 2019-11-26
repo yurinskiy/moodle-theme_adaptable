@@ -1310,34 +1310,45 @@ $string['alerticonsuccessdesc'] = 'Set the <a href="http://fortawesome.github.io
 
 // Mobile **********************************************************.
 $string['mobilesettings'] = 'Mobile Settings';
-$string['mobilesettingsheading'] = 'Control how your site looks on mobile devices';
+$string['mobilesettingsheading'] = 'Control how your site behaves at different screen sizes';
+$string['mobilesettingsdesc'] = 'Here you can control the responsive behaviour of your site (which elements appear on screens of different sizes).<br/>
+    By default most non essential items are hidden on mobile devices, being set to appear only on larger screens.<br/>
+    You can make elements appears on smaller screens by choosing to display them on "Extra Small" or "Small screens".<br/>
+    To gain a better understanding of how these settings work please refer to the Bootstrap 4 documentation:<br/><br/> 
+    https://getbootstrap.com/docs/4.0/utilities/display/ <br/><br/>';
 
-$string['layoutmobilesettings'] = 'Mobile Settings';
-$string['layoutmobilesettingsdesc'] = 'Alter settings for mobile devices';
+$string['hidealertsmobile'] = 'Alerts';
+$string['hidealertsmobiledesc'] = 'What sized screens would you like alerts to be displayed on?';
 
-$string['hidealertsmobile'] = 'Hide Alerts (if in use) on mobile';
-$string['hidealertsmobiledesc'] = 'Hide will remove alerts on mobile devices';
+$string['hidesocialmobile'] = 'Social Icons';
+$string['hidesocialmobiledesc'] = 'What sized screens would you like social icons to be displayed on?';
 
-$string['hidesocialmobile'] = 'Hide Social Icons (if in use) on mobile';
-$string['hidesocialmobiledesc'] = 'Hide will remove social icons on mobile devices';
+$string['hidecoursetitlemobile'] = 'Course / Site Title';
+$string['hidecoursetitlemobiledesc'] = 'What sized screens would you like the Site / Course titles to be displayed on?';
 
-$string['hidecoursetitlemobile'] = 'Hide Course / Site Title on mobile';
-$string['hidecoursetitlemobiledesc'] = 'Hide the course title AND site title on mobile devices';
+$string['hideasnavmobile'] = 'Activity / Section Nagivation';
+$string['hideasnavmobiledesc'] = 'What sized screens would you like the <strong>text</strong> for <prev> <next> activty / section navigation label text to be displayed on?<br/>
+        By default, on smaller screens only the icons for <prev> <next> links display as the text often spills making the site look messy.';
 
-$string['hideasnavmobile'] = 'Show / hide the activity / section nagivation on mobile';
-$string['hideasnavmobiledesc'] = 'Show / hide the activity / section on mobile devices';
+$string['hidelogomobile'] = 'Logo';
+$string['hidelogomobiledesc'] = 'What sized screens would you like the logo to be displayed on?';
 
-$string['hidelogomobile'] = 'Hide Logo on mobile';
-$string['hidelogomobiledesc'] = 'Hide will remove the logo on mobile devices';
+$string['hideheadermobile'] = 'Main Header';
+$string['hideheadermobiledesc'] = 'What sized screens would you like the main header to be displayed on?<br/>
+    This setting only applies if you are using the default / original 3 row header.<br/>
+    Removing the header entirely will also remove elements contained within it:<br/>
+    <ul><li>Social Icons</li><li>Logo</li><li>Site / Course Title</li></ul>';
 
-$string['hideheadermobile'] = 'Hide header on mobile';
-$string['hideheadermobiledesc'] = 'Hide will remove the header with logo / social icons / search box on mobile devices';
+$string['hidepagefootermobile'] = 'Footer';
+$string['hidepagefootermobiledesc'] = 'What sized screens would you like the Footer to be displayed on?';
 
-$string['hidepagefootermobile'] = 'Hide footer on mobile';
-$string['hidepagefootermobiledesc'] = 'Checking this option will remove the footer on mobile devices';
+$string['hideslidermobile'] = 'Frontpage Slider';
+$string['hideslidermobiledesc'] = 'What sized screens would you like the Frontpage Slider to be displayed on?';
 
-$string['hideslidermobile'] = 'Hide slider on mobile';
-$string['hideslidermobiledesc'] = 'Hide will remove the front page slider on mobile devices';
+$string['smallscreenshowsearchicon'] = 'Show search icon';
+$string['smallscreenshowsearchicondesc'] = 'Show search icon on small screen devices.';
+$string['smallscreenhidebreadcrumb'] = 'Beadcrumb Navigation';
+$string['smallscreenhidebreadcrumbdesc'] = 'What sized screens would you like Breadcrumb Navigation to be displayed on?';
 
 // Bootstrap class descriptions used in array definitions
 $string['bs4all'] = 'Extra Small - Extra Large';
@@ -1734,13 +1745,6 @@ $string['putpropertiesignored'] = 'Ignored:';
 
 // Privacy.
 $string['privacy:metadata'] = 'Adaptable do not store any individual user data.';
-
-// Small screen appearance settings.
-$string['settingssmallscreen'] = 'Small screen Block Appearance';
-$string['smallscreenshowsearchicon'] = 'Show search icon';
-$string['smallscreenshowsearchicondesc'] = 'Show search icon on small screen devices.';
-$string['smallscreenhidebreadcrumb'] = 'Hide Beadcrumb navigation';
-$string['smallscreenhidebreadcrumbdesc'] = 'Hide breadcrumb navigation on small screen devices.';
 
 // Adaptable Tabbed layout changes.
 $string['tabbedlayoutheading'] = 'Adaptable Tabbed Layout';
