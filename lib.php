@@ -206,7 +206,7 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:customfontheadername]]' => '',
         '[[setting:customfonttitlename]]' => '',
         '[[setting:sitetitlepadding]]' => '0px 0px 15px 0px',
-        '[[setting:searchboxpadding]]' => '15px 0px 0px 0px',
+        '[[setting:searchboxpadding]]' => '0px 0px 10px 0px',
         '[[setting:enablesavecanceloverlay]]' => true,
         '[[setting:pageheaderheight]]' => '72px',
         '[[setting:emoticonsize]]' => '16px',
