@@ -1309,49 +1309,49 @@ $string['alerticonsuccess'] = 'Announcement Icon';
 $string['alerticonsuccessdesc'] = 'Set the <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome Icon</a> to be usedin in Announcement type alert boxes. Enter the icon name without the fa- prefix.';
 
 // Mobile **********************************************************.
-$string['mobilesettings'] = 'Mobile Settings';
-$string['mobilesettingsheading'] = 'Control how your site behaves at different screen sizes';
-$string['mobilesettingsdesc'] = 'Here you can control the responsive behaviour of your site (which elements appear on screens of different sizes).<br/>
+$string['responsivesettings'] = 'Layout Responsive';
+$string['responsivesettingsheading'] = 'Control how your site behaves at different screen sizes';
+$string['responsivesettingsdesc'] = 'Here you can control the responsive behaviour of your site (which elements appear on screens of different sizes).<br/>
     By default most non essential items are hidden on mobile devices, being set to appear only on larger screens.<br/>
     You can make elements appears on smaller screens by choosing to display them on "Extra Small" or "Small screens".<br/>
     To gain a better understanding of how these settings work please refer to the Bootstrap 4 documentation:<br/><br/> 
     https://getbootstrap.com/docs/4.0/utilities/display/ <br/><br/>';
 
-$string['hidealertsmobile'] = 'Alerts';
-$string['hidealertsmobiledesc'] = 'What sized screens would you like alerts to be displayed on?';
+$string['responsivealerts'] = 'Alerts';
+$string['responsivealertsdesc'] = 'What sized screens would you like alerts to be displayed on?';
 
-$string['hidesocialmobile'] = 'Social Icons';
-$string['hidesocialmobiledesc'] = 'What sized screens would you like social icons to be displayed on?';
+$string['responsivesocial'] = 'Social Icons';
+$string['responsivesocialdesc'] = 'What sized screens would you like social icons to be displayed on?';
 
-$string['hidecoursetitlemobile'] = 'Course / Site Title';
-$string['hidecoursetitlemobiledesc'] = 'What sized screens would you like the Site / Course titles to be displayed on?';
+$string['responsivecoursetitle'] = 'Course / Site Title';
+$string['responsivecoursetitledesc'] = 'What sized screens would you like the Site / Course titles to be displayed on?';
 
-$string['hideasnavmobile'] = 'Activity / Section Nagivation';
-$string['hideasnavmobiledesc'] = 'Show / Hide the the <strong>text</strong> for "prev" "next" activty / section navigation on small screens.
+$string['responsivesectionnav'] = 'Activity / Section Nagivation';
+$string['responsivesectionnavdesc'] = 'Show / Hide the the <strong>text</strong> for "prev" "next" activty / section navigation on small screens.
         By default we hide this text on smaller screens so only the icons for <prev> <next> links display and not the full section / activity name.';        
 
-$string['hidelogomobile'] = 'Logo';
-$string['hidelogomobiledesc'] = 'What sized screens would you like the logo to be displayed on?';
+$string['responsivelogo'] = 'Logo';
+$string['responsivelogodesc'] = 'What sized screens would you like the logo to be displayed on?';
 
-$string['hideheadermobile'] = 'Main Header';
-$string['hideheadermobiledesc'] = 'What sized screens would you like the main header to be displayed on?<br/>
+$string['responsiveheader'] = 'Main Header';
+$string['responsiveheaderdesc'] = 'What sized screens would you like the main header to be displayed on?<br/>
     This setting only applies if you are using the default / original 3 row header.<br/>
     Removing the header entirely will also remove elements contained within it:<br/>
     <ul><li>Social Icons</li><li>Logo</li><li>Site / Course Title</li></ul>';
 
-$string['hidetickermobile'] = 'News Ticker';
-$string['hidetickermobiledesc'] = 'What sized screens would you like the News Ticker to be displayed on?';
+$string['responsiveticker'] = 'News Ticker';
+$string['responsivetickerdesc'] = 'What sized screens would you like the News Ticker to be displayed on?';
 
-$string['hidepagefootermobile'] = 'Footer';
-$string['hidepagefootermobiledesc'] = 'What sized screens would you like the Footer to be displayed on?';
+$string['responsivepagefooter'] = 'Footer';
+$string['responsivepagefooterdesc'] = 'What sized screens would you like the Footer to be displayed on?';
 
-$string['hideslidermobile'] = 'Frontpage Slider';
-$string['hideslidermobiledesc'] = 'What sized screens would you like the Frontpage Slider to be displayed on?';
+$string['responsiveslider'] = 'Frontpage Slider';
+$string['responsivesliderdesc'] = 'What sized screens would you like the Frontpage Slider to be displayed on?';
 
-$string['smallscreenshowsearchicon'] = 'Show search icon';
-$string['smallscreenshowsearchicondesc'] = 'Show search icon on small screen devices.';
-$string['smallscreenhidebreadcrumb'] = 'Beadcrumb Navigation';
-$string['smallscreenhidebreadcrumbdesc'] = 'What sized screens would you like Breadcrumb Navigation to be displayed on?';
+$string['responsivesearchicon'] = 'Show search icon';
+$string['responsivesearchicondesc'] = 'Show search icon on small screen devices.';
+$string['responsivebreadcrumb'] = 'Beadcrumb Navigation';
+$string['responsivebreadcrumbdesc'] = 'What sized screens would you like Breadcrumb Navigation to be displayed on?';
 
 // Bootstrap class descriptions used in array definitions
 $string['bs4all'] = 'Extra Small - Extra Large';
@@ -1561,8 +1561,8 @@ For reference you can find the full list of <a href="https://fortawesome.github.
 
 $string['socialsize'] = 'Set the font size of the social icons';
 $string['socialsizedesc'] = 'For a better view, the size needs to be 5px greater than the desired actual size.';
-$string['socialsizemobile'] = 'Set the font size of the social icons on Mobile';
-$string['socialsizemobiledesc'] = 'For a better view, the size needs to be 5px greater than the desired actual size.';
+$string['responsivesocialsize'] = 'Set the font size of the social icons on Mobile';
+$string['responsivesocialsizedesc'] = 'For a better view, the size needs to be 5px greater than the desired actual size.';
 $string['socialpaddingside'] = 'Adjust padding for the side of the social icon';
 $string['socialpaddingsidedesc'] = 'This will be space between the icon and another element or the gap between two icons.  i.e. the padding on the icon will be this value divided by two.  Default value follows Instagram branding guidelines.';
 $string['socialpaddingtop'] = 'Adjust padding above social icons (alters vertical position)';
@@ -1869,8 +1869,8 @@ $string['categoryheaderlogo'] = 'Category \'{$a->name}\' with id \'{$a->id}\' lo
 $string['categoryheaderlogodesc'] = 'Set a logo for the top level category \'{$a->name}\' with id \'{$a->id}\' in the header.  Recommended size is 200px by 80px.';
 $string['categoryheaderlogodescchildren'] = 'Set a logo for the top level category \'{$a->name}\' with id \'{$a->id}\' and its children \'{$a->children}\' in the header.  Recommended size is 200px by 80px.';
 $string['categoryheadercustomtitle'] = 'Category \'{$a->name}\' with id \'{$a->id}\' custom title';
-$string['categoryheadercustomtitledesc'] = 'Set the custom title for the top level category \'{$a->name}\' with id \'{$a->id}\' in the header.  If blank then you will be presented with what has been configured by the \'sitetitle\' and \'sitetitletext\' settings on non-course pages or on course pages when \'enableheading\' is \'off\'.  When populated on non-course category linked pages then this will replace the site title.  When populated on course pages then will appear above the title as established by the \'enableheading\' setting.  But on mobiles any \'title\' will only appear depending on the \'hidecoursetitlemobile\' setting.';
-$string['categoryheadercustomtitledescchildren'] = 'Set the custom title for the top level category \'{$a->name}\' with id \'{$a->id}\' and its children \'{$a->children}\' in the header.  If blank then you will be presented with what has been configured by the \'sitetitle\' and \'sitetitletext\' settings on non-course pages or on course pages when \'enableheading\' is \'off\'.  When populated on non-course category linked pages then this will replace the site title.  When populated on course pages then will appear above the title as established by the \'enableheading\' setting.  But on mobiles any \'title\' will only appear depending on the \'hidecoursetitlemobile\' setting.';
+$string['categoryheadercustomtitledesc'] = 'Set the custom title for the top level category \'{$a->name}\' with id \'{$a->id}\' in the header.  If blank then you will be presented with what has been configured by the \'sitetitle\' and \'sitetitletext\' settings on non-course pages or on course pages when \'enableheading\' is \'off\'.  When populated on non-course category linked pages then this will replace the site title.  When populated on course pages then will appear above the title as established by the \'enableheading\' setting.  But on mobiles any \'title\' will only appear depending on the \'responsivecoursetitle\' setting.';
+$string['categoryheadercustomtitledescchildren'] = 'Set the custom title for the top level category \'{$a->name}\' with id \'{$a->id}\' and its children \'{$a->children}\' in the header.  If blank then you will be presented with what has been configured by the \'sitetitle\' and \'sitetitletext\' settings on non-course pages or on course pages when \'enableheading\' is \'off\'.  When populated on non-course category linked pages then this will replace the site title.  When populated on course pages then will appear above the title as established by the \'enableheading\' setting.  But on mobiles any \'title\' will only appear depending on the \'responsivecoursetitle\' setting.';
 $string['categoryheadercustomcss'] = 'Category \'{$a->name}\' with id \'{$a->id}\' custom CSS';
 $string['categoryheadercustomcssdesc'] = 'Set custom CSS for the top level category \'{$a->name}\' with id \'{$a->id}\'.  This will generate CSS for the theme selector prefixed with \'.category-{$a->id}\'.  If the CSS does not appear to be applied, then check the PHP log file.';
 $string['categoryheadercustomcssdescchildren'] = 'Set custom CSS for the top level category \'{$a->name}\' with id \'{$a->id}\' and its children \'{$a->children}\'.  This will generate CSS for the theme selector prefixed with \'.category-{$a->id}\' and for all child ids.  If the CSS does not appear to be applied, then check the PHP log file.';

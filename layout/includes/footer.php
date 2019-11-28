@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die;
 echo $OUTPUT->standard_after_main_region_html();
 ?>
 
-<footer id="page-footer" class="<?php echo $PAGE->theme->settings->hidepagefootermobile?>">
+<footer id="page-footer" class="<?php echo $PAGE->theme->settings->responsivepagefooter?>">
 
 <?php
 echo $OUTPUT->get_footer_blocks();

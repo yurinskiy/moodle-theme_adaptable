@@ -32,7 +32,7 @@ if (empty($CFG->loginhttps)) {
     $wwwroot = str_replace("http://", "https://", $CFG->wwwroot);
 }
 
-$hidealertsmobile = $PAGE->theme->settings->hidealertsmobile;
+$responsivealerts = $PAGE->theme->settings->responsivealerts;
 
 // Select fonts used.
 $fontname = '';

@@ -72,7 +72,7 @@ $left = (!right_to_left());  // To know if to add 'pull-right' and 'desktop-firs
 $hasmiddle = $PAGE->blocks->region_has_content('middle', $OUTPUT);
 $hasfootnote = (!empty($PAGE->theme->settings->footnote));
 
-$hidealertsmobile = $PAGE->theme->settings->hidealertsmobile;
+$responsivealerts = $PAGE->theme->settings->responsivealerts;
 
 // Navbar Menu.
 $shownavbar = false;
@@ -283,7 +283,7 @@ if (!empty($headerbg)) {
 }
 
 $nomobilenavigation = '';
-if (!empty($PAGE->theme->settings->hideasnavmobile)) {
+if (!empty($PAGE->theme->settings->responsivesectionnav)) {
     $nomobilenavigation = 'nomobilenavigation';
 }
 ?>
@@ -342,7 +342,7 @@ echo $OUTPUT->standard_top_of_body_html();
                         ?>
 
                         <?php
-                        if (!empty($PAGE->theme->settings->smallscreenshowsearchicon)) {
+                        if (!empty($PAGE->theme->settings->responsivesearchicon)) {
                             $classes = 'd-xs-block d-sm-block d-md-none my-auto';
                         } else {
                             $classes = 'd-none';
@@ -414,7 +414,7 @@ echo $OUTPUT->standard_top_of_body_html();
         </div>
     </div>
 
-    <div id="page-header" class="container <?php echo $PAGE->theme->settings->hideheadermobile;?>">
+    <div id="page-header" class="container <?php echo $PAGE->theme->settings->responsiveheader;?>">
         <div class="row">
 
         <div class="col-lg-4">
@@ -435,7 +435,7 @@ echo $OUTPUT->standard_top_of_body_html();
                 // Social icons.
                 if ($PAGE->theme->settings->socialorsearch == 'social') {                    
                         ?>
-                   		<div class="socialbox pull-right <?php echo $PAGE->theme->settings->hidesocialmobile; ?>">
+                   		<div class="socialbox pull-right <?php echo $PAGE->theme->settings->responsivesocial; ?>">
                             <?php
                             echo $OUTPUT->socialicons();
                             ?>
@@ -540,7 +540,7 @@ echo $OUTPUT->standard_top_of_body_html();
                         </div>
 
                         <?php
-                        if (!empty($PAGE->theme->settings->smallscreenshowsearchicon)) {
+                        if (!empty($PAGE->theme->settings->responsivesearchicon)) {
                             $classes = 'd-xs-block d-sm-block d-md-none';
                         } else {
                             $classes = 'd-none';

@@ -1213,7 +1213,7 @@ EOT;
                 $msg = '<p>' . get_string('tickerdefault', 'theme_adaptable') . '</p>';
             }
 
-            $retval .= '<div id="ticker-wrap" class="clearfix container ' . $PAGE->theme->settings->hidetickermobile . '">';
+            $retval .= '<div id="ticker-wrap" class="clearfix container ' . $PAGE->theme->settings->responsiveticker . '">';
             $retval .= '<div class="pull-left" id="ticker-announce">';
             $retval .= get_string('ticker', 'theme_adaptable');
             $retval .= '</div>';
@@ -1518,7 +1518,7 @@ EOT;
     public function get_frontpage_slider() {
         global $PAGE, $OUTPUT;
         $noslides = $PAGE->theme->settings->slidercount;
-        $hideslidermobile = $PAGE->theme->settings->hideslidermobile;
+        $responsiveslider = $PAGE->theme->settings->responsiveslider;
         
         $retval = '';
 
@@ -1546,7 +1546,7 @@ EOT;
             $retval .= " slidestyle2";
         }
 
-        $retval .= ' ' . $hideslidermobile . '">
+        $retval .= ' ' . $responsiveslider . '">
             <div id="main-slider" class="flexslider">
             <ul class="slides">';
 
@@ -1706,7 +1706,7 @@ EOT;
 
         } // End loop.
 
-        $classes = $PAGE->theme->settings->smallscreenhidebreadcrumb;
+        $classes = $PAGE->theme->settings->responsivebreadcrumb;
 
         return '<nav role="navigation" aria-label="'. get_string("breadcrumb", "theme_adaptable") .'">
             <ol  class="breadcrumb ' . $classes . '">'.$breadcrumbs.'</ol>
@@ -2302,8 +2302,8 @@ EOT;
         global $PAGE, $COURSE, $CFG, $SITE;
         $retval = '';
 
-        $hidelogomobile = $PAGE->theme->settings->hidelogomobile;
-        $hidecoursetitlemobile = $PAGE->theme->settings->hidecoursetitlemobile;
+        $responsivelogo = $PAGE->theme->settings->responsivelogo;
+        $responsivecoursetitle = $PAGE->theme->settings->responsivecoursetitle;
 
         $logosetarea = '';
         if (!empty($currenttopcat)) {
@@ -2317,7 +2317,7 @@ EOT;
         }
         if (!empty($logosetarea)) {
             // Logo.
-            $retval .= '<div class="p-2 bd-highlight ' . $hidelogomobile . '">';
+            $retval .= '<div class="p-2 bd-highlight ' . $responsivelogo . '">';
             $logo = '<img src=' . $PAGE->theme->setting_file_url($logosetarea, $logosetarea) . ' id="logo" alt="" />';
 
             // Exception - Quiz page - logo is not a link to site homepage.
@@ -2372,7 +2372,7 @@ EOT;
             switch ($PAGE->theme->settings->enableheading) {
                 case 'fullname':
                     // Full Course Name.
-                    $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $hidecoursetitlemobile . '">';
+                    $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $responsivecoursetitle . '">';
                     if (!empty($categoryheadercustomtitle)) {
                         $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
                     }
@@ -2382,7 +2382,7 @@ EOT;
 
                 case 'shortname':
                     // Short Course Name.
-                    $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $hidecoursetitlemobile . '">';
+                    $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $responsivecoursetitle . '">';
                     if (!empty($categoryheadercustomtitle)) {
                         $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
                     }
@@ -2400,14 +2400,14 @@ EOT;
         // If course id is one or 'enableheading' was 'off' above then we display the site title.
         if (($COURSE->id == 1) || ($usedefault)) {
             if (!empty($categoryheadercustomtitle)) {
-                $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $hidecoursetitlemobile . '">';
+                $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $responsivecoursetitle . '">';
                 $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
                 $retval .= '</div>';
             } else {
                 switch ($PAGE->theme->settings->sitetitle) {
                     case 'default':
                         $sitetitle = $SITE->fullname;
-                        $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $hidecoursetitlemobile . '"><h1>'
+                        $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $responsivecoursetitle . '"><h1>'
                             . format_string($sitetitle) . '</h1></div>';
                         break;
 
@@ -2419,7 +2419,7 @@ EOT;
                             $header = format_string($header);
                             $PAGE->set_heading($header);
 
-                            $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $hidecoursetitlemobile . '">'
+                            $retval .= '<div id="sitetitle" class="p-2 bd-highlight ' . $responsivecoursetitle . '">'
                                 . format_text($sitetitlehtml, FORMAT_HTML) . '</div>';
                         }
                 }

@@ -25,15 +25,15 @@
  */
 
 defined('MOODLE_INTERNAL') || die;
-$temp = new admin_settingpage('theme_adaptable_mobile', get_string('mobilesettings', 'theme_adaptable'));
+$temp = new admin_settingpage('theme_adaptable_mobile', get_string('responsivesettings', 'theme_adaptable'));
 if ($ADMIN->fulltree) {
-    $temp->add(new admin_setting_heading('theme_adaptable_mobile', get_string('mobilesettingsheading', 'theme_adaptable'),
-        format_text(get_string('mobilesettingsdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
+    $temp->add(new admin_setting_heading('theme_adaptable_mobile', get_string('responsivesettingsheading', 'theme_adaptable'),
+        format_text(get_string('responsivesettingsdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
 
     // Hide Alerts.
-    $name = 'theme_adaptable/hidealertsmobile';
-    $title = get_string('hidealertsmobile', 'theme_adaptable');
-    $description = get_string('hidealertsmobiledesc', 'theme_adaptable');
+    $name = 'theme_adaptable/responsivealerts';
+    $title = get_string('responsivealerts', 'theme_adaptable');
+    $description = get_string('responsivealertsdesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
     $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
@@ -41,9 +41,9 @@ if ($ADMIN->fulltree) {
     $temp->add($setting);
 
     // Hide Full Header.
-    $name = 'theme_adaptable/hideheadermobile';
-    $title = get_string('hideheadermobile', 'theme_adaptable');
-    $description = get_string('hideheadermobiledesc', 'theme_adaptable');
+    $name = 'theme_adaptable/responsiveheader';
+    $title = get_string('responsiveheader', 'theme_adaptable');
+    $description = get_string('responsiveheaderdesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
     $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
@@ -51,26 +51,26 @@ if ($ADMIN->fulltree) {
     $temp->add($setting);
 
     // Hide Social icons.
-    $name = 'theme_adaptable/hidesocialmobile';
-    $title = get_string('hidesocialmobile', 'theme_adaptable');
-    $description = get_string('hidesocialmobiledesc', 'theme_adaptable');
+    $name = 'theme_adaptable/responsivesocial';
+    $title = get_string('responsivesocial', 'theme_adaptable');
+    $description = get_string('responsivesocialdesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
     $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    $name = 'theme_adaptable/socialsizemobile';
-    $title = get_string('socialsizemobile', 'theme_adaptable');
-    $description = get_string('socialsizemobiledesc', 'theme_adaptable');
+    $name = 'theme_adaptable/responsivesocialsize';
+    $title = get_string('responsivesocialsize', 'theme_adaptable');
+    $description = get_string('responsivesocialsizedesc', 'theme_adaptable');
     $setting = new admin_setting_configselect($name, $title, $description, '34px', $from14to46px);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
     // Hide Logo.
-    $name = 'theme_adaptable/hidelogomobile';
-    $title = get_string('hidelogomobile', 'theme_adaptable');
-    $description = get_string('hidelogomobiledesc', 'theme_adaptable');
+    $name = 'theme_adaptable/responsivelogo';
+    $title = get_string('responsivelogo', 'theme_adaptable');
+    $description = get_string('responsivelogodesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
     $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
@@ -78,9 +78,9 @@ if ($ADMIN->fulltree) {
     $temp->add($setting);
 
     // Hide course title.
-    $name = 'theme_adaptable/hidecoursetitlemobile';
-    $title = get_string('hidecoursetitlemobile', 'theme_adaptable');
-    $description = get_string('hidecoursetitlemobiledesc', 'theme_adaptable');
+    $name = 'theme_adaptable/responsivecoursetitle';
+    $title = get_string('responsivecoursetitle', 'theme_adaptable');
+    $description = get_string('responsivecoursetitledesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
     $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
@@ -88,9 +88,9 @@ if ($ADMIN->fulltree) {
     $temp->add($setting);
 
     // Hide activity / section navigation.
-    $name = 'theme_adaptable/hideasnavmobile';
-    $title = get_string('hideasnavmobile', 'theme_adaptable');
-    $description = get_string('hideasnavmobiledesc', 'theme_adaptable');
+    $name = 'theme_adaptable/responsivesectionnav';
+    $title = get_string('responsivesectionnav', 'theme_adaptable');
+    $description = get_string('responsivesectionnavdesc', 'theme_adaptable');
     $radchoices = array(
         0 => get_string('show', 'theme_adaptable'),
         1 => get_string('hide', 'theme_adaptable'),
@@ -100,17 +100,17 @@ if ($ADMIN->fulltree) {
     $temp->add($setting);
 
     // Show search icon on small screens.
-    $name = 'theme_adaptable/smallscreenshowsearchicon';
-    $title = get_string('smallscreenshowsearchicon', 'theme_adaptable');
-    $description = get_string('smallscreenshowsearchicondesc', 'theme_adaptable');
+    $name = 'theme_adaptable/responsivesearchicon';
+    $title = get_string('responsivesearchicon', 'theme_adaptable');
+    $description = get_string('responsivesearchicondesc', 'theme_adaptable');
     $default = true;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $temp->add($setting);
     
     // Hide Ticker.
-    $name = 'theme_adaptable/hidetickermobile';
-    $title = get_string('hidetickermobile', 'theme_adaptable');
-    $description = get_string('hidetickermobiledesc', 'theme_adaptable');
+    $name = 'theme_adaptable/responsiveticker';
+    $title = get_string('responsiveticker', 'theme_adaptable');
+    $description = get_string('responsivetickerdesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
     $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
@@ -118,9 +118,9 @@ if ($ADMIN->fulltree) {
     $temp->add($setting);
 
     // Hide breadcrumbs on small screens.
-    $name = 'theme_adaptable/smallscreenhidebreadcrumb';
-    $title = get_string('smallscreenhidebreadcrumb', 'theme_adaptable');
-    $description = get_string('smallscreenhidebreadcrumbdesc', 'theme_adaptable');
+    $name = 'theme_adaptable/responsivebreadcrumb';
+    $title = get_string('responsivebreadcrumb', 'theme_adaptable');
+    $description = get_string('responsivebreadcrumbdesc', 'theme_adaptable');
     $default = 'd-none d-md-flex';
     $choices = $screensizeflex;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
@@ -128,9 +128,9 @@ if ($ADMIN->fulltree) {
     $temp->add($setting);
     
     // Hide Slider.
-    $name = 'theme_adaptable/hideslidermobile';
-    $title = get_string('hideslidermobile', 'theme_adaptable');
-    $description = get_string('hideslidermobiledesc', 'theme_adaptable');
+    $name = 'theme_adaptable/responsiveslider';
+    $title = get_string('responsiveslider', 'theme_adaptable');
+    $description = get_string('responsivesliderdesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
     $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
@@ -138,9 +138,9 @@ if ($ADMIN->fulltree) {
     $temp->add($setting);
     
     // Hide Footer.
-    $name = 'theme_adaptable/hidepagefootermobile';
-    $title = get_string('hidepagefootermobile', 'theme_adaptable');
-    $description = get_string('hidepagefootermobiledesc', 'theme_adaptable');
+    $name = 'theme_adaptable/responsivepagefooter';
+    $title = get_string('responsivepagefooter', 'theme_adaptable');
+    $description = get_string('responsivepagefooterdesc', 'theme_adaptable');
     $default = 'd-none d-lg-block';
     $choices = $screensizeblock;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
