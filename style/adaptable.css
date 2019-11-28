@@ -291,10 +291,9 @@ div.signuppanel h2 {
     max-width: [[setting:sitetitlemaxwidth]];
     min-width: 50%;
     overflow: visible;
-    padding-left: [[setting:sitetitlepaddingleft]];
+    padding: [[setting:sitetitlepadding]];
     position: relative;
     text-overflow: ellipsis;
-    top: [[setting:sitetitlepaddingtop]];
     width: auto;
     white-space: nowrap;
     margin: 0;

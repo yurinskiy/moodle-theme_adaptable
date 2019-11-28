@@ -137,20 +137,11 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, 'breadcrumb', $radchoices);
     $temp->add($setting);
 
-    // Site Title Padding Top.
-    $name = 'theme_adaptable/sitetitlepaddingtop';
-    $title = get_string('sitetitlepaddingtop', 'theme_adaptable');
-    $description = get_string('sitetitlepaddingtopdesc', 'theme_adaptable');
-    $setting = new admin_setting_configtext($name, $title, $description, '0px');
-    $setting = new admin_setting_configselect($name, $title, $description, '0px', $from0to20px);
-    $temp->add($setting);
-
-    // Site Title Padding Left.
-    $name = 'theme_adaptable/sitetitlepaddingleft';
-    $title = get_string('sitetitlepaddingleft', 'theme_adaptable');
-    $description = get_string('sitetitlepaddingleftdesc', 'theme_adaptable');
-    $setting = new admin_setting_configselect($name, $title, $description, '0px', $from0to20px);
-    $setting->set_updatedcallback('theme_reset_all_caches');
+    // Site Title Padding.
+    $name = 'theme_adaptable/sitetitlepadding';
+    $title = get_string('sitetitlepadding', 'theme_adaptable');
+    $description = get_string('sitetitlepaddingdesc', 'theme_adaptable');
+    $setting = new admin_setting_configtext($name, $title, $description, '0px 0px 15px 0px');
     $temp->add($setting);
 
     // Site Title Maximum Width.
