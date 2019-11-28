@@ -1018,12 +1018,6 @@ $string['sitetitlepaddingdesc'] = 'Set padding for the site / course title e.g. 
 $string['sitetitlemaxwidth'] = 'Site Title Maximum Width';
 $string['sitetitlemaxwidthdesc'] = 'Set the maximum width of the site title area';
 
-$string['coursetitlepaddingtop'] = 'Course Title Padding Top';
-$string['coursetitlepaddingtopdesc'] = 'Set padding above course title to adjust position';
-
-$string['coursetitlepaddingleft'] = 'Course Title Padding Left';
-$string['coursetitlepaddingleftdesc'] = 'Set padding left of course title to adjust position';
-
 $string['coursetitlemaxwidth'] = 'Course Title Maximum Length';
 $string['coursetitlemaxwidthdesc'] = 'Set the maximum number of characters of the course title area';
 
