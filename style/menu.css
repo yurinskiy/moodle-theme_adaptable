@@ -171,8 +171,9 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
     color: [[setting:navbardropdowntexthovercolor]];
 }
 
+.block a.dropdown-item.active,
 .dropdown-item.active {
-    color: [[setting:navbardropdowntextcolor]];
+    color: [[setting:navbardropdownhovercolor]];
 }
 
 .dropdown-item:active {
