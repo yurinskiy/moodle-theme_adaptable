@@ -2337,6 +2337,7 @@ img.smallicon {
 
 .moodle-dialogue-base button.closebutton,
 .moodle-dialogue-base .chooserdialogue button.closebutton,
+.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .closebutton,
 .moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons button.yui3-button.closebutton
  {
     opacity: 1;
@@ -2344,6 +2345,8 @@ img.smallicon {
     border-radius: 3px;
     background-color: #FFF;
     width: 26px;
+	padding:0;
+	margin:0;
 
 }
 
@@ -2361,9 +2364,9 @@ img.smallicon {
 .form-group textarea.form-control {
     margin: 0 0 0.7rem 0;
 }
-
+.moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {padding:0.6em;} 
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {
-    padding: 0.6em;
+    padding: 1em;
 }
 
 .settingsform fieldset {
