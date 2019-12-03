@@ -588,8 +588,7 @@ span.fa-chevron-right.fa {
     display: [[setting:enableavailablecourses]];
 }
 
-#page-footer,
-#page-footer p {
+#page-footer  {
     background-color: [[setting:footerbkcolor]];
     margin: 10px 0 0;
     text-align: left;
