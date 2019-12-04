@@ -154,7 +154,7 @@ echo $OUTPUT->standard_top_of_body_html();
 // echo $OUTPUT->get_dev_alert();.
 ?>
 
-<div id="page" class="container-fluid <?php echo "$setfull $standardscreenwidthclass"; ?>">
+<div id="page" class="container-fluid <?php echo "$standardscreenwidthclass"; ?>">
 
 <?php
     // Display alerts.
