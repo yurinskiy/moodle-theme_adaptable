@@ -366,5 +366,19 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '#ffffff', $previewconfig);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
+    
+    // Activity colors.
+    $name = 'theme_adaptable/activitiesheading';
+    $heading = get_string('activitiesheading', 'theme_adaptable');
+    $setting = new admin_setting_heading($name, $heading, '');
+    $temp->add($setting);
+    
+    $name = 'theme_adaptable/introboxbackgroundcolor';
+    $title = get_string('introboxbackgroundcolor', 'theme_adaptable');
+    $description = get_string('introboxbackgroundcolordesc', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#ffffff', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
 
     $ADMIN->add('theme_adaptable', $temp);

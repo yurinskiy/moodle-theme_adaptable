@@ -250,6 +250,7 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:alertbordercolorwarning]]' => '#fbeed5',
         '[[setting:forumheaderbackgroundcolor]]' => '#ffffff',
         '[[setting:forumbodybackgroundcolor]]' => '#ffffff',
+        '[[setting:introboxbackgroundcolor]]' => '#ffffff',
         '[[setting:showyourprogress]]' => '',
         '[[setting:tabbedlayoutdashboardcolorselected]]' => '#06c',
         '[[setting:tabbedlayoutdashboardcolorunselected]]' => '#eee',
