@@ -1665,7 +1665,7 @@ $string['discardbuttontext'] = 'Cancel';
 
 // Activity settings.
 $string['activitiesheading'] = 'Activities';
-$string['introboxbackgroundcolor'] = 'Intro box background background color';
+$string['introboxbackgroundcolor'] = 'Intro Box background color';
 $string['introboxbackgroundcolordesc'] = 'Background colour for the intro box (highlights activity description) used in forums and other activities';
 
 // Forum settings.
