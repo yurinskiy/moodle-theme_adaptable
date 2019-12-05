@@ -433,16 +433,16 @@ echo $OUTPUT->standard_top_of_body_html();
             // Remove Search Box or Social icons in Quiz pages even if they don't use SEB.
             if ($PAGE->pagetype != "mod-quiz-attempt") {
                 // Social icons.
-                if ($PAGE->theme->settings->socialorsearch == 'social') {                    
+                if ($PAGE->theme->settings->socialorsearch == 'social') {
                         ?>
-                   		<div class="socialbox pull-right <?php echo $PAGE->theme->settings->responsivesocial; ?>">
+                        <div class="socialbox pull-right <?php echo $PAGE->theme->settings->responsivesocial; ?>">
                             <?php
                             echo $OUTPUT->socialicons();
                             ?>
                         </div>
                         <?php
-                    }
                 }
+            }
                     ?>
 
                 <?php
