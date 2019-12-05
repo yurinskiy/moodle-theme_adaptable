@@ -2514,6 +2514,10 @@ img.smallicon {
     [[setting:loginbgstyle]]
 }
 
+#page-login-index #page {
+	background:none;
+}
+
 .progressbar_container {
     max-width: none;
 }
