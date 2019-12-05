@@ -86,6 +86,10 @@ echo $OUTPUT->doctype();
     <link rel="icon" href="<?php echo $OUTPUT->favicon(); ?>" />
 
 <?php
+
+theme_adaptable_initialise_full($PAGE);
+$setfull = theme_adaptable_get_full();
+
 // HTML head.
 echo $OUTPUT->standard_head_html() ?>
     <!-- CSS print media -->
@@ -154,7 +158,7 @@ echo $OUTPUT->standard_top_of_body_html();
 // echo $OUTPUT->get_dev_alert();.
 ?>
 
-<div id="page" class="container-fluid <?php echo "$standardscreenwidthclass"; ?>">
+<div id="page" class="container-fluid <?php echo "$setfull $standardscreenwidthclass"; ?>">
 
 <?php
     // Display alerts.
