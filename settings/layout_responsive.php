@@ -106,7 +106,7 @@ if ($ADMIN->fulltree) {
     $default = true;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $temp->add($setting);
-    
+
     // Hide Ticker.
     $name = 'theme_adaptable/responsiveticker';
     $title = get_string('responsiveticker', 'theme_adaptable');
@@ -126,7 +126,7 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Hide Slider.
     $name = 'theme_adaptable/responsiveslider';
     $title = get_string('responsiveslider', 'theme_adaptable');
@@ -136,7 +136,7 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Hide Footer.
     $name = 'theme_adaptable/responsivepagefooter';
     $title = get_string('responsivepagefooter', 'theme_adaptable');
@@ -146,7 +146,7 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Mobile colors heading.
     $name = 'theme_adaptable/settingsmobilecolors';
     $heading = get_string('settingsmobilecolors', 'theme_adaptable');
