@@ -1035,7 +1035,7 @@ $string['coursetitlefullname'] = 'Course Full Name';
 $string['coursetitleshortname'] = 'Course Short Name / Code';
 
 $string['headerstyleheading'] = 'Header Style Settings';
-$string['headerstyleheadingdesc'] = 'Adaptable supports two header styles, the original three row header and a newer simplified two row header. 
+$string['headerstyleheadingdesc'] = 'Adaptable supports two header styles, the original three row header and a newer simplified two row header.
 Be aware that if you switch to the newer two row header you will <strong>NOT</strong> be able to: <br />
 <ol><li>Show social icons in the header</li><li>Display the site logo on mobile devices</li></ol>';
 
@@ -1305,7 +1305,7 @@ $string['responsivesettingsheading'] = 'Control how your site behaves at differe
 $string['responsivesettingsdesc'] = 'Here you can control the responsive behaviour of your site (which elements appear on screens of different sizes).<br/>
     By default most non essential items are hidden on mobile devices, being set to appear only on larger screens.<br/>
     You can make elements appears on smaller screens by choosing to display them on "Extra Small" or "Small screens".<br/>
-    To gain a better understanding of how these settings work please refer to the Bootstrap 4 documentation:<br/><br/> 
+    To gain a better understanding of how these settings work please refer to the Bootstrap 4 documentation:<br/><br/>
     https://getbootstrap.com/docs/4.0/utilities/display/ <br/><br/>';
 
 $string['responsivealerts'] = 'Alerts';
@@ -1319,7 +1319,7 @@ $string['responsivecoursetitledesc'] = 'What sized screens would you like the Si
 
 $string['responsivesectionnav'] = 'Activity / Section Nagivation';
 $string['responsivesectionnavdesc'] = 'Show / Hide the the <strong>text</strong> for "prev" "next" activty / section navigation on small screens.
-        By default we hide this text on smaller screens so only the icons for <prev> <next> links display and not the full section / activity name.';        
+        By default we hide this text on smaller screens so only the icons for <prev> <next> links display and not the full section / activity name.';
 
 $string['responsivelogo'] = 'Logo';
 $string['responsivelogodesc'] = 'What sized screens would you like the logo to be displayed on?';
@@ -1344,7 +1344,7 @@ $string['responsivesearchicondesc'] = 'Show search icon on small screen devices.
 $string['responsivebreadcrumb'] = 'Beadcrumb Navigation';
 $string['responsivebreadcrumbdesc'] = 'What sized screens would you like Breadcrumb Navigation to be displayed on?';
 
-// Bootstrap class descriptions used in array definitions
+// Bootstrap class descriptions used in array definitions.
 $string['bs4all'] = 'Extra Small - Extra Large';
 $string['bs4small'] = 'Small - Extra Large';
 $string['bs4medium'] = 'Medium - Extra Large';
