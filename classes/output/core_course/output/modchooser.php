@@ -43,6 +43,8 @@ use stdClass;
  *
  * @package    theme_adaptable
  * @author     G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
+ * @copyright Copyright (c) 2017 Manoj Solanki (Coventry University)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class modchooser extends \core\output\chooser {
 

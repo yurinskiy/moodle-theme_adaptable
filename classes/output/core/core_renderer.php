@@ -33,6 +33,9 @@ defined('MOODLE_INTERNAL') || die;
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
  * Note: This class is required to avoid inheriting Boost's core_renderer
+ * 
+ * @copyright Copyright (c) 2017 Manoj Solanki (Coventry University)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_renderer extends \core_renderer {
 }
