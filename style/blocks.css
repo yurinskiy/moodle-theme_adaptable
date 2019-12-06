@@ -99,6 +99,11 @@
     color: [[setting:fontblockheadercolor]] !important;
 }
 
+.menubar{
+    justify-content: flex-end;
+}
+
+
 /* Block content */
 .block > .content,
 #dockeditempanel .dockeditempanel_bd {
