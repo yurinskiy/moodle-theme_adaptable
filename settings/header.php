@@ -209,12 +209,12 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
- 
+
     // My courses section.
     $temp->add(new admin_setting_heading('theme_adaptable_headerstyle_heading',
         get_string('headerstyleheading', 'theme_adaptable'),
         format_text(get_string('headerstyleheadingdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
-        
+
     // Adaptable header style selection.
     $name = 'theme_adaptable/headerstyle';
     $title = get_string('headerstyle', 'theme_adaptable');
@@ -226,7 +226,7 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, 'style1', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
-    
+
     // Header 2 search box.
     $name = 'theme_adaptable/header2searchbox';
     $title = get_string('header2searchbox', 'theme_adaptable');
@@ -238,6 +238,6 @@ if ($ADMIN->fulltree) {
         'disabled' => get_string('disabled', 'theme_adaptable')
     );
     $setting = new admin_setting_configselect($name, $title, $description, $default, $radchoices);
-    $temp->add($setting);    
+    $temp->add($setting);
 }
 $ADMIN->add('theme_adaptable', $temp);

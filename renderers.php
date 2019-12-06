@@ -1173,7 +1173,7 @@ EOT;
      * @return string
      */
     public function get_news_ticker() {
-        global $PAGE, $OUTPUT;        
+        global $PAGE, $OUTPUT;
         $retval = '';
 
         if (!isset($PAGE->theme->settings->enabletickermy)) {
@@ -1519,7 +1519,7 @@ EOT;
         global $PAGE, $OUTPUT;
         $noslides = $PAGE->theme->settings->slidercount;
         $responsiveslider = $PAGE->theme->settings->responsiveslider;
-        
+
         $retval = '';
 
         // Will we have any slides?
@@ -1592,7 +1592,7 @@ EOT;
         global $PAGE;
         $retval = '';
         if (empty($PAGE->layout_options['nonavbar'])) { // Not disabled by 'nonavbar' in config.php.
-            
+
             // Remove breadcrumb in a quiz page.
             if ($PAGE->pagetype != "mod-quiz-attempt") {
                 if (!isset($PAGE->theme->settings->enabletickermy)) {
