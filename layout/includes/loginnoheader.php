@@ -32,6 +32,9 @@ if (empty($CFG->loginhttps)) {
     $wwwroot = str_replace("http://", "https://", $CFG->wwwroot);
 }
 
+// JS call. Fix for #85 where alerts could not be dismissed.
+$PAGE->requires->js_call_amd('theme_adaptable/bsoptions', 'init', array());
+
 $responsivealerts = $PAGE->theme->settings->responsivealerts;
 
 // Select fonts used.
