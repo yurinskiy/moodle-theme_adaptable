@@ -94,7 +94,7 @@
     color: #fff !important;
 }
 [data-region='message-drawer'] [data-region='content-messages-footer-container'] .btn-link {
-	display: flex;
+    display: flex;
     padding: 1px 1px 0 0 !important;
     -ms-flex-pack: center;
     justify-content: center;
