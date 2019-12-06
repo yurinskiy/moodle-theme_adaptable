@@ -58,7 +58,6 @@ Main fixes & Enhancements done in this release.
 - Fix issue of footer riding up on short pages with little content
 - Fix close icon for activity chooser in Moodle 3.8
 - Fix combo list on mobile, now collapses into single columnpgrade
-- Fix position of block editing icons, now right aligned
 
 What's new?
 
