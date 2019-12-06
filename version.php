@@ -37,10 +37,10 @@ $plugin->version   = 2019112600;
 $plugin->requires  = 2018120301;
 
 // Adaptable version using SemVer (https://semver.org).
-$plugin->release = '2.2.1';
+$plugin->release = '2.2.2';
 
 // Adaptable maturity (do not use ALPHA or BETA versions in production sites).
-$plugin->maturity = MATURITY_BETA;
+$plugin->maturity = MATURITY_STABLE;
 
 // Adaptable dependencies (Only Boost as it's the parent theme).
 $plugin->dependencies = array(
