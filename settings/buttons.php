@@ -66,6 +66,60 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
+    // Secondary Buttons background color.
+    $name = 'theme_adaptable/buttoncolorscnd';
+    $title = get_string('buttoncolorscnd', 'theme_adaptable');
+    $description = get_string('buttoncolordescscnd', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#51666C', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Secondary Buttons background hover color.
+    $name = 'theme_adaptable/buttonhovercolorscnd';
+    $title = get_string('buttonhovercolorscnd', 'theme_adaptable');
+    $description = get_string('buttonhovercolordescscnd', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#009688', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Secondary Buttons text color.
+    $name = 'theme_adaptable/buttontextcolorscnd';
+    $title = get_string('buttontextcolorscnd', 'theme_adaptable');
+    $description = get_string('buttontextcolordescscnd', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#ffffff', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Cancel Buttons background color.
+    $name = 'theme_adaptable/buttoncolorcancel';
+    $title = get_string('buttoncolorcancel', 'theme_adaptable');
+    $description = get_string('buttoncolordesccancel', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#ef5350', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Cancel Buttons background hover color.
+    $name = 'theme_adaptable/buttonhovercolorcancel';
+    $title = get_string('buttonhovercolorcancel', 'theme_adaptable');
+    $description = get_string('buttonhovercolordesccancel', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#e53935', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Cancel Buttons text color.
+    $name = 'theme_adaptable/buttontextcolorcancel';
+    $title = get_string('buttontextcolorcancel', 'theme_adaptable');
+    $description = get_string('buttontextcolordesccancel', 'theme_adaptable');
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#ffffff', $previewconfig);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
     $name = 'theme_adaptable/editonbk';
     $title = get_string('editonbk', 'theme_adaptable');
     $description = get_string('editonbkdesc', 'theme_adaptable');
@@ -162,22 +216,6 @@ defined('MOODLE_INTERNAL') || die;
     $description = get_string('buttonloginmargintopdesc', 'theme_adaptable');
     $radchoices = $from0to12px;
     $setting = new admin_setting_configselect($name, $title, $description, '2px', $radchoices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    $name = 'theme_adaptable/buttoncancelbackgroundcolor';
-    $title = get_string('buttoncancelbackgroundcolor', 'theme_adaptable');
-    $description = get_string('buttoncancelbackgroundcolordesc', 'theme_adaptable');
-    $previewconfig = null;
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#d8d5d5', $previewconfig);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
-
-    $name = 'theme_adaptable/buttoncancelcolor';
-    $title = get_string('buttoncancelcolor', 'theme_adaptable');
-    $description = get_string('buttoncancelcolordesc', 'theme_adaptable');
-    $previewconfig = null;
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#1d1c1c', $previewconfig);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 

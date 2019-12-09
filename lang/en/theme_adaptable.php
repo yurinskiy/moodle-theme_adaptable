@@ -954,17 +954,29 @@ $string['buttonhovercolordesc'] = 'The colour that the button changes to when ho
 $string['buttontextcolor'] = 'Button text colour';
 $string['buttontextcolordesc'] = 'The colour of text used on buttons';
 
+$string['buttoncolorscnd'] = 'Secondary Button colour';
+$string['buttoncolordescscnd'] = 'The colour of the secondary buttons used throughout the site.';
+
+$string['buttonhovercolorscnd'] = 'Secondary Button colour (When hovering)';
+$string['buttonhovercolordescscnd'] = 'The colour that the secondary button changes to when hovering over the button.';
+
+$string['buttontextcolorscnd'] = 'Secondary Button text colour';
+$string['buttontextcolordescscnd'] = 'The colour of text used on secondary buttons.';
+
+$string['buttoncolorcancel'] = 'Cancel Button colour';
+$string['buttoncolordesccancel'] = 'Background colour for Cancel button.<br />Type transparent in the box for transparency.';
+
+$string['buttonhovercolorcancel'] = 'Cancel Button colour (When hovering)';
+$string['buttonhovercolordesccancel'] = 'The colour that the cancel button changes to when hovering over the button. <br />Type transparent in the box for transparency.';
+
+$string['buttontextcolorcancel'] = 'Cancel Button text colour';
+$string['buttontextcolordesccancel'] = 'The colour of text used on cancel buttons.';
+
 $string['editfont'] = 'Editing and Customize this page button font colour';
 $string['editfontdesc'] = 'Set the Editing and Customize this page button font colour';
 
 $string['editverticalpadding'] = 'Set vertical padding of editing buttons';
 $string['edithorizontalpadding'] = 'Set Horizontal padding of editing buttons';
-
-$string['buttoncancelbackgroundcolor'] = 'Background colour for Cancel button';
-$string['buttoncancelbackgroundcolordesc'] = 'Background colour for Cancel button.  Type <i>transparent</i> in the box for transparency.';
-
-$string['buttoncancelcolor'] = 'Cancel button colour';
-$string['buttoncancelcolordesc'] = 'Choose the colour for the Cancel button.';
 
 $string['buttondropshadow'] = 'Drop shadow decoration on bottom of button';
 $string['buttondropshadowdesc'] = 'Show a drop shadow (shading) on bottom of button.';
