@@ -2490,7 +2490,7 @@ img.smallicon {
 /* Login Page */
 /* Background Image */
 #page-login-index .outercont {
-    padding: 0 !important;
+    padding: 0 15px !important;
     margin: 0 !important;
 }
 
