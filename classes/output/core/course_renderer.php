@@ -132,7 +132,7 @@ class course_renderer extends \core_course_renderer {
 
         // Number of tiles per row: 12=1 tile / 6=2 tiles / 4 (default)=3 tiles / 3=4 tiles / 2=6 tiles.
         $spanclass = $PAGE->theme->settings->frontpagenumbertiles;
-        
+
         // Display course tiles depending the number per row.
         $content .= html_writer::start_tag('div',
               array('class' => 'col-xs-12 col-sm-'.$spanclass.' panel panel-default coursebox '.$additionalcss));
@@ -994,5 +994,4 @@ class course_renderer extends \core_course_renderer {
     }
 
     // End.
-
 }

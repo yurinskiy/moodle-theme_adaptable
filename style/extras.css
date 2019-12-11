@@ -437,6 +437,10 @@ ul.teachers {
     left: auto;
 }
 
+#intro.generalbox {
+	background-color: [[setting:introboxbackgroundcolor]];
+}
+
 /* Forum */
 .forumpost .maincontent .left {
     padding: 0 10px 0 10px;

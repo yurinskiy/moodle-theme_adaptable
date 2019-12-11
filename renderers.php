@@ -36,6 +36,8 @@ use \theme_adaptable\traits\single_section_page;
 
 /**
  * Class for implementing topics format rendering.
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+ * @copyright 2017 Gareth J Barnard
  *
  */
 class theme_adaptable_format_topics_renderer extends format_topics_renderer {
@@ -44,6 +46,8 @@ class theme_adaptable_format_topics_renderer extends format_topics_renderer {
 
 /**
  * Class for implementing weeks format rendering.
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+ * @copyright 2017 Gareth J Barnard
  *
  */
 class theme_adaptable_format_weeks_renderer extends format_weeks_renderer {
@@ -53,6 +57,7 @@ class theme_adaptable_format_weeks_renderer extends format_weeks_renderer {
 /******************************************************************************************
  * @copyright 2017 Gareth J Barnard
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+ * @copyright 2017 Gareth J Barnard
  *
  * Grid format renderer for the Adaptable theme.
  */
@@ -63,6 +68,8 @@ if (file_exists("$CFG->dirroot/course/format/grid/renderer.php")) {
 
     /**
      * Class for implementing grid format rendering.
+     * @copyright 2017 Gareth J Barnard
+     * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
      *
      */
     class theme_adaptable_format_grid_renderer extends format_grid_renderer {
@@ -1173,7 +1180,7 @@ EOT;
      * @return string
      */
     public function get_news_ticker() {
-        global $PAGE, $OUTPUT;        
+        global $PAGE, $OUTPUT;
         $retval = '';
 
         if (!isset($PAGE->theme->settings->enabletickermy)) {
@@ -1519,7 +1526,7 @@ EOT;
         global $PAGE, $OUTPUT;
         $noslides = $PAGE->theme->settings->slidercount;
         $responsiveslider = $PAGE->theme->settings->responsiveslider;
-        
+
         $retval = '';
 
         // Will we have any slides?
@@ -1592,7 +1599,7 @@ EOT;
         global $PAGE;
         $retval = '';
         if (empty($PAGE->layout_options['nonavbar'])) { // Not disabled by 'nonavbar' in config.php.
-            
+
             // Remove breadcrumb in a quiz page.
             if ($PAGE->pagetype != "mod-quiz-attempt") {
                 if (!isset($PAGE->theme->settings->enabletickermy)) {

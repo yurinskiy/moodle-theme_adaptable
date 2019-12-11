@@ -39,6 +39,8 @@ require_once($CFG->dirroot.'/user/lib.php');
 
 /**
  * myprofile renderer.
+ * @copyright Copyright (c) 2017 Manoj Solanki (Coventry University)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class renderer extends \core_user\output\myprofile\renderer {
 

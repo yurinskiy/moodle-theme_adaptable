@@ -27,6 +27,8 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Toolbox unit tests for the Adaptable theme.
  * @group theme_adaptable
+ * @copyright Copyright (c) 2017 Manoj Solanki (Coventry University)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class theme_adaptable_toolbox_testcase extends advanced_testcase {
 

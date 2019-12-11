@@ -104,7 +104,16 @@ a#adaptable-message-user-button,
 /* Secondary button */
 .btn-secondary {
     min-height: 32px;
-    margin-left: 6px;
+    margin-left: 6px;    
+    background-color: [[setting:buttoncolorscnd]];
+    color: [[setting:buttontextcolorscnd]];
+    text-decoration: none !important;
+}
+
+.btn-secondary:hover {    
+    background-color: [[setting:buttonhovercolorscnd]];
+    color: [[setting:buttontextcolorscnd]];
+    text-decoration: none !important;
 }
 
 .btn-sm {
@@ -273,9 +282,9 @@ button[name="resetbutton"] {
     line-height: 20px;
     height: 36px;
     cursor: pointer;
-    color: [[setting:buttoncancelcolor]] !important;
+    color: [[setting:buttontextcolorcancel]] !important;
     background-image: none !important;
-    background-color: [[setting:buttoncancelbackgroundcolor]] !important;
+    background-color: [[setting:buttoncolorcancel]] !important;
     box-shadow: none;
     border: none;
 }
@@ -287,7 +296,8 @@ button[name="resetbutton"] {
 input[name="addcancel"]:hover,
 button[name="resetbutton"]:hover,
 #id_cancel:hover {
-    color: [[setting:editoffbk]] !important;
+    color: [[setting:buttontextcolorcancel]] !important;
+    background-color: [[setting:buttonhovercolorcancel]] !important;
     text-decoration: none !important;
 }
 

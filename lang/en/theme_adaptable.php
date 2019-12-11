@@ -954,17 +954,29 @@ $string['buttonhovercolordesc'] = 'The colour that the button changes to when ho
 $string['buttontextcolor'] = 'Button text colour';
 $string['buttontextcolordesc'] = 'The colour of text used on buttons';
 
+$string['buttoncolorscnd'] = 'Secondary Button colour';
+$string['buttoncolordescscnd'] = 'The colour of the secondary buttons used throughout the site.';
+
+$string['buttonhovercolorscnd'] = 'Secondary Button colour (When hovering)';
+$string['buttonhovercolordescscnd'] = 'The colour that the secondary button changes to when hovering over the button.';
+
+$string['buttontextcolorscnd'] = 'Secondary Button text colour';
+$string['buttontextcolordescscnd'] = 'The colour of text used on secondary buttons.';
+
+$string['buttoncolorcancel'] = 'Cancel Button colour';
+$string['buttoncolordesccancel'] = 'Background colour for Cancel button.<br />Type transparent in the box for transparency.';
+
+$string['buttonhovercolorcancel'] = 'Cancel Button colour (When hovering)';
+$string['buttonhovercolordesccancel'] = 'The colour that the cancel button changes to when hovering over the button. <br />Type transparent in the box for transparency.';
+
+$string['buttontextcolorcancel'] = 'Cancel Button text colour';
+$string['buttontextcolordesccancel'] = 'The colour of text used on cancel buttons.';
+
 $string['editfont'] = 'Editing and Customize this page button font colour';
 $string['editfontdesc'] = 'Set the Editing and Customize this page button font colour';
 
 $string['editverticalpadding'] = 'Set vertical padding of editing buttons';
 $string['edithorizontalpadding'] = 'Set Horizontal padding of editing buttons';
-
-$string['buttoncancelbackgroundcolor'] = 'Background colour for Cancel button';
-$string['buttoncancelbackgroundcolordesc'] = 'Background colour for Cancel button.  Type <i>transparent</i> in the box for transparency.';
-
-$string['buttoncancelcolor'] = 'Cancel button colour';
-$string['buttoncancelcolordesc'] = 'Choose the colour for the Cancel button.';
 
 $string['buttondropshadow'] = 'Drop shadow decoration on bottom of button';
 $string['buttondropshadowdesc'] = 'Show a drop shadow (shading) on bottom of button.';
@@ -1035,7 +1047,7 @@ $string['coursetitlefullname'] = 'Course Full Name';
 $string['coursetitleshortname'] = 'Course Short Name / Code';
 
 $string['headerstyleheading'] = 'Header Style Settings';
-$string['headerstyleheadingdesc'] = 'Adaptable supports two header styles, the original three row header and a newer simplified two row header. 
+$string['headerstyleheadingdesc'] = 'Adaptable supports two header styles, the original three row header and a newer simplified two row header.
 Be aware that if you switch to the newer two row header you will <strong>NOT</strong> be able to: <br />
 <ol><li>Show social icons in the header</li><li>Display the site logo on mobile devices</li></ol>';
 
@@ -1305,7 +1317,7 @@ $string['responsivesettingsheading'] = 'Control how your site behaves at differe
 $string['responsivesettingsdesc'] = 'Here you can control the responsive behaviour of your site (which elements appear on screens of different sizes).<br/>
     By default most non essential items are hidden on mobile devices, being set to appear only on larger screens.<br/>
     You can make elements appears on smaller screens by choosing to display them on "Extra Small" or "Small screens".<br/>
-    To gain a better understanding of how these settings work please refer to the Bootstrap 4 documentation:<br/><br/> 
+    To gain a better understanding of how these settings work please refer to the Bootstrap 4 documentation:<br/><br/>
     https://getbootstrap.com/docs/4.0/utilities/display/ <br/><br/>';
 
 $string['responsivealerts'] = 'Alerts';
@@ -1319,7 +1331,7 @@ $string['responsivecoursetitledesc'] = 'What sized screens would you like the Si
 
 $string['responsivesectionnav'] = 'Activity / Section Nagivation';
 $string['responsivesectionnavdesc'] = 'Show / Hide the the <strong>text</strong> for "prev" "next" activty / section navigation on small screens.
-        By default we hide this text on smaller screens so only the icons for <prev> <next> links display and not the full section / activity name.';        
+        By default we hide this text on smaller screens so only the icons for <prev> <next> links display and not the full section / activity name.';
 
 $string['responsivelogo'] = 'Logo';
 $string['responsivelogodesc'] = 'What sized screens would you like the logo to be displayed on?';
@@ -1344,7 +1356,7 @@ $string['responsivesearchicondesc'] = 'Show search icon on small screen devices.
 $string['responsivebreadcrumb'] = 'Beadcrumb Navigation';
 $string['responsivebreadcrumbdesc'] = 'What sized screens would you like Breadcrumb Navigation to be displayed on?';
 
-// Bootstrap class descriptions used in array definitions
+// Bootstrap class descriptions used in array definitions.
 $string['bs4all'] = 'Extra Small - Extra Large';
 $string['bs4small'] = 'Small - Extra Large';
 $string['bs4medium'] = 'Medium - Extra Large';
@@ -1662,6 +1674,11 @@ $string['usermenu'] = 'User menu';
 // Save / Discard button text *********************************.
 $string['savebuttontext'] = 'Save changes';
 $string['discardbuttontext'] = 'Cancel';
+
+// Activity settings.
+$string['activitiesheading'] = 'Activities';
+$string['introboxbackgroundcolor'] = 'Intro Box background color';
+$string['introboxbackgroundcolordesc'] = 'Background colour for the intro box (highlights activity description) used in forums and other activities';
 
 // Forum settings.
 $string['settingsforumheading'] = 'Forum';

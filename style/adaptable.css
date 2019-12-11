@@ -588,7 +588,8 @@ span.fa-chevron-right.fa {
     display: [[setting:enableavailablecourses]];
 }
 
-#page-footer  {
+
+#page-footer {
     background-color: [[setting:footerbkcolor]];
     margin: 10px 0 0;
     text-align: left;
@@ -2337,6 +2338,7 @@ img.smallicon {
 
 .moodle-dialogue-base button.closebutton,
 .moodle-dialogue-base .chooserdialogue button.closebutton,
+.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .closebutton,
 .moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons button.yui3-button.closebutton
  {
     opacity: 1;
@@ -2344,6 +2346,8 @@ img.smallicon {
     border-radius: 3px;
     background-color: #FFF;
     width: 26px;
+	padding:0;
+	margin:0;
 
 }
 
@@ -2361,9 +2365,9 @@ img.smallicon {
 .form-group textarea.form-control {
     margin: 0 0 0.7rem 0;
 }
-
+.moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {padding:0.6em;} 
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {
-    padding: 0.6em;
+    padding: 1em;
 }
 
 .settingsform fieldset {
@@ -2490,7 +2494,7 @@ img.smallicon {
 /* Login Page */
 /* Background Image */
 #page-login-index .outercont {
-    padding: 0 !important;
+    padding: 0 15px !important;
     margin: 0 !important;
 }
 
@@ -2508,6 +2512,10 @@ img.smallicon {
     background-position: 0 0;
     background-repeat: no-repeat;
     [[setting:loginbgstyle]]
+}
+
+#page-login-index #page {
+	background:none;
 }
 
 .progressbar_container {

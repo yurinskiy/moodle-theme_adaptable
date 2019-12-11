@@ -32,6 +32,9 @@ if (empty($CFG->loginhttps)) {
     $wwwroot = str_replace("http://", "https://", $CFG->wwwroot);
 }
 
+// JS call. Fix for #85 where alerts could not be dismissed.
+$PAGE->requires->js_call_amd('theme_adaptable/bsoptions', 'init', array());
+
 $responsivealerts = $PAGE->theme->settings->responsivealerts;
 
 // Select fonts used.
@@ -86,6 +89,10 @@ echo $OUTPUT->doctype();
     <link rel="icon" href="<?php echo $OUTPUT->favicon(); ?>" />
 
 <?php
+
+theme_adaptable_initialise_full($PAGE);
+$setfull = theme_adaptable_get_full();
+
 // HTML head.
 echo $OUTPUT->standard_head_html() ?>
     <!-- CSS print media -->

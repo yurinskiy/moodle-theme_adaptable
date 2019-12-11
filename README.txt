@@ -1,7 +1,7 @@
 Adaptable - the most adaptable moodle theme
 ===========================================
 
-Version 2.2.1 (2019110801)
+Version 2.2.2 (2019112601)
 
 Adaptable is a highly customizable responsive two column moodle theme based on the popular BCU theme adding:
 
@@ -44,36 +44,25 @@ This theme has been developed by:
 Lead Developers
 Jeremy Hopkins (Coventry University)
 Fernando Acedo (3bits elearning solutions)
-
-Developers
 Manoj Solanki (Coventry University)
 
 
-Change Log in 2.2
+Change Log in 2.2.2
 ------------------------------------
 
 Main fixes & Enhancements done in this release.
 
-- Use of mobile sidebar on Tablet to improve usability and navigation
-- Fix Navbar overlapping content in portrait view on Tablet
-- Remove cog icon duplication in main navbar
-- Fix occasional Javascript user preference errors on mobile
-- Fix Block font settings not working
-- Fix arrow not appearing for sub-menus under main navigation
-- New profile page with tabs is now optional and there is a setting called “Enable Tabbed Profile” to use the previous 
- profile page layout. See settings at Adaptable -> User Profile
-- Improve icon alignment in top header
-- Automatic purging of caches during upgrade
+- Fix mobile responsive settings in "layout responsive" settings page
+- Fix ability to set general box color in forums
+- Fix issues with login page when no header in use
+- Fix issue of footer riding up on short pages with little content
+- Fix close icon for activity chooser in Moodle 3.8
+- Fix combo list on mobile, now collapses into single column
 
 What's new?
 
-- 2 and 3 row style header. Setting available in "Header" settings
-- New mobile header with better navigation
-- Edit button settings. Ablility to show cog icon and / or edit button in main menu navigation
-- 2 User profile layouts
-- New background image setting for login page, including opacity, available. See settings at Adaptable -> Login Page
-- New category header option allows you to have a different background image in the header for categories. Settings can be 
- found under Adaptable -> Category headers
+- Layout responsive settings page
+- Setting to control color of forum "general box" background where forum description is displayed
 
 
 HTML/CSS sample code for block areas
@@ -182,9 +171,9 @@ Block using multi-lang filter:
 <div style="width: 100%; height: 240px; background-color: #cccccc;">
 <h1 style="text-align: center; line-height: 120px;">
       <span class="multilang" lang="en">text in english</span>
-      <span class="multilang" lang="es">texto en espaÃ±ol</span>
-      <span class="multilang" lang="fr">texte en franÃ§ais</span>
-      <span class="multilang" lang="ca">text en catalÃ </span>
+      <span class="multilang" lang="es">texto en espaÃƒÂ±ol</span>
+      <span class="multilang" lang="fr">texte en franÃƒÂ§ais</span>
+      <span class="multilang" lang="ca">text en catalÃƒ </span>
 </div>
 
 
@@ -278,14 +267,14 @@ support to develop the most adaptable theme for moodle.
 Development:
 - Justin Hunt
 - Leonid Chernyavskiy
-- COMETE (Université Paris Nanterre)
+- COMETE (UniversitÃ© Paris Nanterre)
 - Marina Glancy
 - Nick Phillips
-- Björn Bettzüche
+- BjÃ¶rn BettzÃ¼che
 - Michael Milette
 - Bas Brands
 - Gareth Barnard
-- Konrád Lőrinczi
+- KonrÃ¡d LÅ‘rinczi
 - Mathieu Domingo
 
 Testing:
@@ -293,8 +282,8 @@ Testing:
 - Alexander Goryntsev
 
 Translation:
-- Germán Valero (Español - México)
-- Jordi Rodilla (Català  - Andorra)
+- GermÃ¡n Valero (EspaÃ±ol - MÃ©xico)
+- Jordi Rodilla (CatalÃ   - Andorra)
 
 
 Contributions
