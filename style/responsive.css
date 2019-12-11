@@ -288,6 +288,10 @@ Default Bootstrap 4 Media Queries
         font-size: [[setting:responsivesocialsize]];
         line-height: [[setting:responsivesocialsize]];
     }
+    .custom-select {
+        max-width:100%;
+    }
+    
 }
 
 /*=====================================================
@@ -511,7 +515,7 @@ Default Bootstrap 4 Media Queries
 
     #region-main,
     .pagelayout-mydashboard #region-main {
-        padding: 0 5px;
+        padding: 0 15px;
     }
 }
 
