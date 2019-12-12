@@ -84,7 +84,7 @@
 
 /* Course tiles */
 .coursebox.panel {
-    background-color: #fafafa !important;
+    background-color: [[setting:tilesbordercolor]];
     border: 5px solid rgba(255,255,255,1);
     border-radius: 2px;
 }
@@ -149,7 +149,7 @@
 }
 
 .courses .coursebox {
-  background-color: #f0f0f0 !important;
+  background-color: [[setting:tilesbordercolor]];
   padding: 4px;
   border-radius: 6px;
 }
