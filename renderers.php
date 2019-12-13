@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die;
 
 // Load libraries.
 require_once($CFG->dirroot.'/course/renderer.php');
+require_once($CFG->dirroot.'/course/lib.php');
 require_once($CFG->dirroot.'/message/lib.php');
 require_once($CFG->dirroot.'/course/format/topics/renderer.php');
 require_once($CFG->dirroot.'/course/format/weeks/renderer.php');
@@ -206,6 +207,12 @@ if (file_exists("$CFG->dirroot/course/format/flexible/renderer.php")) {
     }
 }
 
+define('ADAPTABLE_COURSE_STARRED', 'starred');
+define('ADAPTABLE_COURSE_IN_PROGRESS', 'inprogress');
+define('ADAPTABLE_COURSE_PAST', 'past');
+define('ADAPTABLE_COURSE_FUTURE', 'future');
+define('ADAPTABLE_COURSE_HIDDEN', 'hidden');
+
 /**
  * Class for core renderer.
  *
@@ -269,15 +276,15 @@ class theme_adaptable_core_renderer extends core_renderer {
      * @return array list of courses
      */
     public function render_mycourses() {
-        global $USER;
-
         // Set limit of courses to show in dropdown from setting.
         $coursedisplaylimit = '20';
         if (isset($this->page->theme->settings->mycoursesmenulimit)) {
             $coursedisplaylimit = $this->page->theme->settings->mycoursesmenulimit;
         }
 
-        $courses = enrol_get_my_courses();
+        $courses = enrol_get_my_courses(
+            join(',', array_keys(\core_course\external\course_summary_exporter::define_properties()))
+        );
 
         $sortedcourses = array();
         $counter = 0;
@@ -1827,23 +1834,27 @@ EOT;
                 $branch = $menu->add($branchlabel, $branchurl, '', $branchsort);
             }
 
-            if (!empty($PAGE->theme->settings->mysitessortoverride) && $PAGE->theme->settings->mysitessortoverride != 'off'
-                    && !empty($PAGE->theme->settings->mysitessortoverridefield)) {
+            $overridetype = null;
+            $overridelist = null;
 
+            if (!empty($PAGE->theme->settings->mysitessortoverride)){
                 $overridetype = $PAGE->theme->settings->mysitessortoverride;
+            }
+
+            if (!empty($PAGE->theme->settings->mysitessortoverridefield)) {
                 $overridelist = $PAGE->theme->settings->mysitessortoverridefield;
+            }
 
-                if ($overridetype == 'profilefields' || $overridetype == 'profilefieldscohort') {
-                    $overridelist = $this->get_profile_field_contents($overridelist);
+            if (($overridetype == 'profilefields' || $overridetype == 'profilefieldscohort') && (isset($overridelist))){
+                $overridelist = $this->get_profile_field_contents($overridelist);
 
-                    if ($overridetype == 'profilefieldscohort') {
-                        $overridelist = array_merge($this->get_cohort_enrollments(), $overridelist);
-                    }
+                if ($overridetype == 'profilefieldscohort') {
+                    $overridelist = array_merge($this->get_cohort_enrollments(), $overridelist);
                 }
+            }
 
-                if ($PAGE->theme->settings->mysitessortoverride == 'strings') {
-                    $overridelist = explode(',', $overridelist);
-                }
+            if ($overridetype == 'strings' && isset($overridelist)) {
+                $overridelist = explode(',', $overridelist);
             }
 
             if ($mysitesvisibility != 'disabled') {
@@ -1914,71 +1925,121 @@ EOT;
                     $icon = '';
 
                     if ($sortedcourses) {
-                        foreach ($sortedcourses as $course) {
-                            $coursename = '';
-                            $rawcoursename = ''; // Untrimmed course name.
+                        if ($overridetype == 'myoverview') {
+                            $myoverviewcourses = $this->parsemyoverview($sortedcourses);
 
-                            if ($showshortcode) {
-                                $coursename = mb_strimwidth(format_string($course->shortname), 0,
-                                        $mysitesmaxlength, '...', 'utf-8');
-                                $rawcoursename = $course->shortname;
-                            } else {
-                                $coursename = mb_strimwidth(format_string($course->fullname), 0, $mysitesmaxlength, '...', 'utf-8');
-                                $rawcoursename = $course->fullname;
+                            if (!empty($myoverviewcourses[ADAPTABLE_COURSE_STARRED])) {
+                                $icon = '<i class="fa fa-star-o"></i> ';
+                                $this->addcoursestomenu($branch, $myoverviewcourses[ADAPTABLE_COURSE_STARRED],
+                                    $showshortcode, $showhover, $mysitesmaxlength, $icon);
                             }
 
-                            if ($showhover) {
-                                $alttext = $course->fullname;
-                            } else {
-                                $alttext = '';
+                            if (!empty($myoverviewcourses[ADAPTABLE_COURSE_IN_PROGRESS])) {
+                                $icon = '<i class="fa fa-tasks"></i> ';
+                                $child = $branch->add($icon . $trunc = rtrim(
+                                    mb_strimwidth(format_string(get_string('inprogress', 'theme_adaptable')),
+                                    0, $mysitesmaxlengthhidden)) . '...', $this->page->url, '', 1000);
+                                $this->addcoursestomenu($child, $myoverviewcourses[ADAPTABLE_COURSE_IN_PROGRESS],
+                                    $showshortcode, $showhover, $mysitesmaxlength);
                             }
 
-                            if ($course->visible) {
-                                if (!$overridelist) { // Feature not in use, add to menu as normal.
-                                    $branch->add($coursename,
-                                            new moodle_url('/course/view.php?id='.$course->id), $alttext);
-                                } else {
-                                    // We want to check against array from profile field.
-                                    if ((($overridetype == 'profilefields' ||
-                                        $overridetype == 'profilefieldscohort') &&
-                                                        in_array($course->shortname, $overridelist)) ||
-                                                        ($overridetype == 'strings' &&
-                                                        $this->check_if_in_array_string($overridelist, $course->shortname))) {
-                                        $icon = '';
+                            if (!empty($myoverviewcourses[ADAPTABLE_COURSE_PAST])) {
+                                $icon = '<i class="fa fa-history"></i> ';
+                                $child = $branch->add($icon . $trunc = rtrim(
+                                    mb_strimwidth(format_string(get_string('past', 'theme_adaptable')),
+                                    0, $mysitesmaxlengthhidden)) . '...', $this->page->url, '', 1000);
+                                $this->addcoursestomenu($child, $myoverviewcourses[ADAPTABLE_COURSE_PAST],
+                                    $showshortcode, $showhover, $mysitesmaxlength);
+                            }
 
-                                        $branch->add($icon . $coursename,
-                                                    new moodle_url('/course/view.php?id='.$course->id), $alttext, 100);
+                            if (!empty($myoverviewcourses[ADAPTABLE_COURSE_FUTURE])) {
+                                $icon = '<i class="fa fa-clock-o"></i> ';
+                                $child = $branch->add($icon . $trunc = rtrim(
+                                    mb_strimwidth(format_string(get_string('future', 'theme_adaptable')),
+                                    0, $mysitesmaxlengthhidden)) . '...', $this->page->url, '', 1000);
+                                $this->addcoursestomenu($child, $myoverviewcourses[ADAPTABLE_COURSE_FUTURE],
+                                    $showshortcode, $showhover, $mysitesmaxlength);
+                            }
+
+                            if (!empty($myoverviewcourses[ADAPTABLE_COURSE_HIDDEN])) {
+                                $icon = '<i class="fa fa-eye-slash"></i> ';
+                                $child = $branch->add($icon . $trunc = rtrim(
+                                    mb_strimwidth(format_string(get_string('hiddenfromview', 'theme_adaptable')),
+                                    0, $mysitesmaxlengthhidden)) . '...', $this->page->url, '', 1000);
+                                $this->addcoursestomenu($child, $myoverviewcourses[ADAPTABLE_COURSE_HIDDEN],
+                                    $showshortcode, $showhover, $mysitesmaxlength);
+                            }
+                        } else {
+                            foreach ($sortedcourses as $course) {
+                                if ($course->visible) {
+                                    $coursename = '';
+                                    $rawcoursename = ''; // Untrimmed course name.
+
+                                    if ($showshortcode) {
+                                        $coursename = mb_strimwidth(format_string($course->shortname), 0,
+                                            $mysitesmaxlength, '...', 'utf-8');
                                     } else {
-                                        // If not in array add to sub menu item.
-                                        if (!isset($parent)) {
-                                            $icon = '<i class="fa fa-history"></i> ';
-                                            $parent = $branch->add($icon . $trunc = rtrim(
-                                                        mb_strimwidth(format_string(get_string('pastcourses', 'theme_adaptable')),
-                                                        0, $mysitesmaxlengthhidden)) . '...', $this->page->url, $alttext, 1000);
-                                        }
+                                        $coursename = mb_strimwidth(format_string($course->fullname), 0,
+                                            $mysitesmaxlength, '...', 'utf-8');
+                                    }
 
-                                        $parent->add($trunc = rtrim(mb_strimwidth(format_string($rawcoursename),
-                                                            0, $mysitesmaxlengthhidden)) . '...',
-                                                            new moodle_url('/course/view.php?id='.$course->id),
-                                                            format_string($rawcoursename));
+                                    if ($showhover) {
+                                        $alttext = $course->fullname;
+                                    } else {
+                                        $alttext = '';
+                                    }
+
+                                    if (!$overridelist) { // Feature not in use, add to menu as normal.
+                                        $branch->add($coursename,
+                                            new moodle_url('/course/view.php?id='.$course->id), $alttext);
+                                    } else {
+                                        // We want to check against array from profile field.
+                                        if ((($overridetype == 'profilefields' ||
+                                            $overridetype == 'profilefieldscohort') &&
+                                                in_array($course->shortname, $overridelist)) ||
+                                                ($overridetype == 'strings' &&
+                                                 $this->check_if_in_array_string($overridelist, $course->shortname))) {
+                                            $icon = '';
+
+                                            $branch->add($icon . $coursename,
+                                                new moodle_url('/course/view.php?id='.$course->id), $alttext, 100);
+                                        } else {
+                                            // If not in array add to sub menu item.
+                                            if (!isset($child)) {
+                                                $icon = '<i class="fa fa-history"></i> ';
+                                                $child = $branch->add($icon . $trunc = rtrim(
+                                                    mb_strimwidth(format_string(get_string('pastcourses', 'theme_adaptable')),
+                                                    0, $mysitesmaxlengthhidden)) . '...', $this->page->url, $alttext, 1000);
+                                            }
+                                            if ($showshortcode) {
+                                                $rawcoursename = $course->shortname;
+                                            } else {
+                                                $rawcoursename = $course->fullname;
+                                            }
+
+                                            $child->add($trunc = rtrim(mb_strimwidth(format_string($rawcoursename),
+                                                0, $mysitesmaxlengthhidden)) . '...',
+                                                new moodle_url('/course/view.php?id='.$course->id),
+                                                format_string($rawcoursename));
+                                        }
                                     }
                                 }
                             }
-                        }
 
-                        $icon = '<i class="fa fa-eye-slash"></i> ';
-                        $parent = null;
-                        foreach ($sortedcourses as $course) {
-                            if (!$course->visible && $mysitesvisibility == 'includehidden') {
-                                if (empty($parent)) {
-                                    $parent = $branch->add($icon .
-                                        $trunc = rtrim(mb_strimwidth(format_string(get_string('hiddencourses', 'theme_adaptable')),
-                                        0, $mysitesmaxlengthhidden)) . '...', $this->page->url, '', 2000);
-                                }
+                            $icon = '<i class="fa fa-eye-slash"></i> ';
+                            $child = null;
+                            foreach ($sortedcourses as $course) {
+                                if (!$course->visible && $mysitesvisibility == 'includehidden') {
+                                    if (empty($child)) {
+                                        $child = $branch->add($icon .
+                                            $trunc = rtrim(mb_strimwidth(format_string(get_string('hiddencourses', 'theme_adaptable')),
+                                            0, $mysitesmaxlengthhidden)) . '...', $this->page->url, '', 2000);
+                                    }
 
-                                $parent->add($icon . $trunc = rtrim(mb_strimwidth(format_string($course->fullname),
+                                    $child->add($icon . $trunc = rtrim(mb_strimwidth(format_string($course->fullname),
                                         0, $mysitesmaxlengthhidden)) . '...',
                                         new moodle_url('/course/view.php?id='.$course->id), format_string($course->shortname));
+                                }
                             }
                         }
                     } else {
@@ -2096,7 +2157,93 @@ EOT;
         }
 
         return $menu;
+    }
 
+    /**
+     * Classify the courses in the same way that the My Overview block does non the dashboard.
+     *
+     * @param array $sortedcourses Array of courses - must contain the fields by 'define_properties' in 'course_summary_exporter'.
+     *
+     * @return array array of arrays that classify the courses.
+     */
+     protected function parsemyoverview($sortedcourses) {
+        global $CFG, $USER;
+
+        $ufservice = \core_favourites\service_factory::get_service_for_user_context(\context_user::instance($USER->id));
+        $starred = $ufservice->find_favourites_by_type('core_course', 'courses');
+        $starredids = array();
+
+        if ($starred) {
+            $starredids = array_map(
+                function($favourite) {
+                    return $favourite->itemid;
+                }, $starred);
+        }
+
+        $hiddenids = get_hidden_courses_on_timeline($USER);
+
+        $myoverviewcourses = array(
+            ADAPTABLE_COURSE_STARRED => array(),
+            ADAPTABLE_COURSE_IN_PROGRESS => array(),
+            ADAPTABLE_COURSE_PAST => array(),
+            ADAPTABLE_COURSE_FUTURE => array(),
+            ADAPTABLE_COURSE_HIDDEN => array()
+        );
+
+        foreach($sortedcourses as $course) {
+            if (in_array($course->id, $starredids)) {
+                $myoverviewcourses[ADAPTABLE_COURSE_STARRED][] = $course;
+            } // Starred can also appear in the respective sub-menu.
+            if (in_array($course->id, $hiddenids)) {
+                $myoverviewcourses[ADAPTABLE_COURSE_HIDDEN][] = $course;
+            } else {
+                switch (course_classify_for_timeline($course, $USER)) {
+                    case COURSE_TIMELINE_PAST:
+                        $myoverviewcourses[ADAPTABLE_COURSE_PAST][] = $course;
+                    break;
+                    case COURSE_TIMELINE_FUTURE:
+                        $myoverviewcourses[ADAPTABLE_COURSE_FUTURE][] = $course;
+                    break;
+                    case COURSE_TIMELINE_INPROGRESS:
+                        $myoverviewcourses[ADAPTABLE_COURSE_IN_PROGRESS][] = $course;
+                    break;
+                }
+            }
+        }
+
+        return $myoverviewcourses;
+    }
+
+    /**
+     * Adds the given array of courses to the supplied menu.
+     *
+     * @param custom_menu_item $menu The menu to add to.
+     * @param array $courses Array of courses.
+     * @param bool $showshortcode Use the course shortname instead of full.
+     * @param bool $showhover Put the course full name in the alternative text.
+     * @param int $mysitesmaxlength Max lenghth of the course name string displayed.
+     * @param string $icon Prefix an icon (HTML markup) if any.
+     */
+    protected function addcoursestomenu(&$menu, $courses, $showshortcode, $showhover, $mysitesmaxlength, $icon = '') {
+        foreach ($courses as $course) {
+            if (($course->visible) || (has_capability('moodle/course:viewhiddencourses', $this->page->context))) {
+                if ($showshortcode) {
+                    $coursename = mb_strimwidth(format_string($course->shortname), 0,
+                        $mysitesmaxlength, '...', 'utf-8');
+                } else {
+                    $coursename = mb_strimwidth(format_string($course->fullname), 0,
+                        $mysitesmaxlength, '...', 'utf-8');
+                }
+
+                if ($showhover) {
+                    $alttext = $course->fullname;
+                } else {
+                    $alttext = '';
+                }
+
+                $menu->add($icon.$coursename, new moodle_url('/course/view.php?id='.$course->id), $alttext);
+            }
+        }
     }
 
     /**

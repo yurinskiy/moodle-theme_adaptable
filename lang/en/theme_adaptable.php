@@ -550,6 +550,7 @@ $string['mysitessortoverrideoff'] = 'Display all enrolled courses in single flat
 $string['mysitessortoverridestrings'] = 'Display enrolled containing strings in first list, others in sub menu';
 $string['mysitessortoverrideprofilefields'] = 'Display courses found in profile fields in first list, others in sub menu';
 $string['mysitessortoverrideprofilefieldscohort'] = 'Display courses found in profile fields + cohorts in first list, others in sub menu';
+$string['mysitessortoverridemyoverview'] = 'Use list from my overview';
 
 $string['mysitesmaxlength'] = 'My Courses Max Length';
 $string['mysitesmaxlengthdesc'] = 'Adjust the max length of coursenames in the My Courses dropdown to optimise for your font.';
@@ -1410,8 +1411,12 @@ Moodle.com|http://moodle.com/
 $string['toolsmenulabel'] = 'Tools';
 $string['toolsmenulabel2'] = 'Tools 2';
 $string['events'] = 'Events';
-$string['mysites'] = 'My Courses';
+$string['future'] = 'Future';
 $string['hiddencourses'] = 'Hidden Courses';
+$string['hiddenfromview'] = 'Hidden From View';
+$string['inprogress'] = 'In Progress';
+$string['mysites'] = 'My Courses';
+$string['past'] = 'Past';
 $string['pastcourses'] = 'Past Courses';
 $string['people'] = 'Participants';
 $string['help'] = 'Help';
