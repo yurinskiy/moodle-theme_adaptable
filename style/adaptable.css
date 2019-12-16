@@ -237,9 +237,18 @@ div.signuppanel h2 {
     margin: 0;
     padding: 0;
     max-width: inherit;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
     [[setting:homebkg]]
 }
 
+.container.outercont {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
 /* Header */
 #adaptable-page-header-wrapper {
     background-color: [[setting:headerbkcolor2]];
@@ -2365,7 +2374,10 @@ img.smallicon {
 .form-group textarea.form-control {
     margin: 0 0 0.7rem 0;
 }
-.moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {padding:0.6em;} 
+.moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {
+    padding:0.6em;
+}
+ 
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {
     padding: 1em;
 }
@@ -2496,10 +2508,15 @@ img.smallicon {
 #page-login-index .outercont {
     padding: 0 15px !important;
     margin: 0 !important;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    position:relative;
+    transform: translateX(-50%);
+    left: 50%;
 }
 
 #page-login-index #page-footer {
-    margin: 0 !important;
+    margin: auto 0 0 !important;
 }
 
 #page-login-index .fullin.narrow .container,
