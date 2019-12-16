@@ -600,7 +600,7 @@ span.fa-chevron-right.fa {
 
 #page-footer {
     background-color: [[setting:footerbkcolor]];
-    margin: 10px 0 0;
+    margin: auto 0 0;
     text-align: left;
     color: [[setting:footertextcolor]] !important;
     border-top: 0;
