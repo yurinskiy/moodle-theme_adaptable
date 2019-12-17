@@ -474,7 +474,16 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
     -moz-transition: all [[setting:navbardropdowntransitiontime]];
     -ms-transition: all [[setting:navbardropdowntransitiontime]];
     -o-transition: all [[setting:navbardropdowntransitiontime]];
-    transition: all [[setting:navbardropdowntransitiontime]];
+    transition: all [[setting:navbardropdowntransitiontime]];    
+}
+
+#region-main-settings-menu .dropdown-menu {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+.adaptable-navbar-sticky #region-main-settings-menu .dropdown-menu {
+    max-height: calc(100vh - 44px);    
 }
 
 .dropdown-menu.fade {
@@ -703,6 +712,10 @@ a.dropdown-menu > .active > a:focus,
 #adaptable-page-header-wrapper #main-navbar .nav-item i,
 #adaptable-page-header-wrapper #main-navbar a.dropdown-item img.icon {
     padding-right: 2px;
+}
+#adaptable-page-header-wrapper #main-navbar .nav-item i.fa-circle {
+    font-size: 10px;
+    margin-right: .25rem;
 }
 
 #adaptable-page-header-wrapper #main-navbar .nav-item i.only {
