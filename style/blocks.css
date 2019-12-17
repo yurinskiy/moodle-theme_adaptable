@@ -608,6 +608,12 @@ body.has_dock div#dock {
     margin-right: 4px;
 }
 
+/* Circle icon size decreased */
+.block_settings .fa-circle {
+    font-size: 10px;
+    margin-right: .25rem;
+}
+
 /* Tabbed layout for course and dashboard */
 
 main.tabcontentcontainer {
