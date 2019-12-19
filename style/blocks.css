@@ -721,6 +721,10 @@ main.tabcontentcontainer {
     min-height: 200px;
 }
 
+#dashboard-tab-content:checked ~ #adaptable-dashboard-tab-content.adaptable-tab-section.tab-panel {
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
 @media (min-width: 1024px) {
 
