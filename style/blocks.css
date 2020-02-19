@@ -444,12 +444,6 @@ body.has_dock div#dock {
 }
 
 /* Block Icons */
-.showblockicons .block h2:before {
-    font-family: "FontAwesome";
-    margin-right: 5px;
-    content: "\f0c9";
-}
-
 .showblockicons .block_news_items h2:before {
     content: "\f0a1";
 }
