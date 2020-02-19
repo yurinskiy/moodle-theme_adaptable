@@ -431,7 +431,7 @@ body.has_dock div#dock {
 }
 
 /* Add or hide block icons */
-.showblockicons h2:before {
+.showblockicons .block .header .title h2:before {
     font-family: "FontAwesome" !important;
     font-weight: 900 !important;
     font-size: [[setting:blockiconsheadersize]];
