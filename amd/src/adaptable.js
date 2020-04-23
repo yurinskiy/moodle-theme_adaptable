@@ -59,6 +59,28 @@ define(['jquery', 'core/log'], function($ , log) {
                 $(".breadcrumb li:not(:last-child) span").not('.separator').addClass('');
                 $(".breadcrumb li:last-child").addClass("lastli");
 
+                // Edit button keep position.  Needs session storage!
+                try {
+                    $('.context-header-settings-menu .dropdown-menu .dropdown-item a[href*="edit"]').click(function(event) {
+                        event.preventDefault();
+
+                        var to = $(window).scrollTop();
+                        sessionStorage.setItem('scrollTo', to);
+                        var url = $(this).prop('href');
+                        window.location.replace(url);
+
+                        return false;
+                    });
+                    var scrollTo = sessionStorage.getItem('scrollTo');
+                    if (scrollTo != null) {
+                        window.scrollTo(0, scrollTo);
+                        sessionStorage.removeItem('scrollTo');
+                    }
+                } catch(e) {
+                    log.debug('Adaptable: Session storage exception: ' + e.name);
+                }
+
+                // Scroll to top.
                 var offset = 50;
                 var duration = 500;
                 var bttOn;
