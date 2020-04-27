@@ -112,6 +112,14 @@ define(['jquery', 'core/log'], function($ , log) {
                     $('html, body').animate({scrollTop: 0}, duration);
                     return false;
                 })
+
+                // Anchor.
+                if (window.location.hash) {
+                    if ($("body").hasClass("pagelayout-course")) {
+                        var anchorTop = $(window.location.hash).offset().top;
+                        $('html, body').animate({scrollTop: anchorTop - 102}, duration);
+                    }
+                }
             });
         }
     };
