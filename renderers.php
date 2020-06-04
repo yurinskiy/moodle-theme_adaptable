@@ -355,24 +355,36 @@ class theme_adaptable_core_renderer extends core_renderer {
         // False or Moodle version number to second param (only some links check version).
         // URL for link in third param.
         // Link text in fourth parameter.
-        // Icon fa-icon in fifth param.
-        $usermenuitems = array(
-            array('enablemy', false, $CFG->wwwroot.'/my', get_string('myhome'), 'fa-dashboard'),
-            array('enableprofile', false, $CFG->wwwroot.'/user/profile.php', get_string('viewprofile'), 'fa-user'),
-            array('enableeditprofile', false, $CFG->wwwroot.'/user/edit.php', get_string('editmyprofile'), 'fa-cog'),
-            array('enableprivatefiles', false, $CFG->wwwroot.'/user/files.php', get_string('privatefiles', 'block_private_files'),
-                    'fa-file'),
-            array('enablegrades', false, $CFG->wwwroot.'/grade/report/overview/index.php', get_string('grades'), 'fa-list-alt'),
-            array('enablebadges', false, $CFG->wwwroot.'/badges/mybadges.php', get_string('badges'), 'fa-certificate'),
-            array('enablepref', '2015051100', $CFG->wwwroot.'/user/preferences.php', get_string('preferences'), 'fa-cog'),
-            array('enablenote', false, $CFG->wwwroot.'/message/edit.php', get_string('notifications'), 'fa-paper-plane'),
-            array('enableblog', false, $CFG->wwwroot.'/blog/index.php', get_string('enableblog', 'theme_adaptable'), 'fa-rss'),
-            array('enableposts', false, $CFG->wwwroot.'/mod/forum/user.php', get_string('enableposts', 'theme_adaptable'),
-                    'fa-commenting'),
-            array('enablefeed', false, $CFG->wwwroot.'/report/myfeedback/index.php', get_string('enablefeed',
-                    'theme_adaptable'), 'fa-bullhorn'),
-            array('enablecalendar', false, $CFG->wwwroot.'/calendar/view.php', get_string('pluginname', 'block_calendar_month'),
-                    'fa-calendar'));
+        // Icon in fifth param.
+        $usermenuitems = array();
+        $usermenuitems[] = array('enablemy', false, $CFG->wwwroot.'/my', get_string('myhome'),
+            \theme_adaptable\toolbox::getfontawesomemarkup('dashboard'));
+        $usermenuitems[] = array('enableprofile', false, $CFG->wwwroot.'/user/profile.php', get_string('viewprofile'),
+            \theme_adaptable\toolbox::getfontawesomemarkup('user'));
+        $usermenuitems[] = array('enableeditprofile', false, $CFG->wwwroot.'/user/edit.php', get_string('editmyprofile'),
+            \theme_adaptable\toolbox::getfontawesomemarkup('cog'));
+        $usermenuitems[] = array('enableprivatefiles', false, $CFG->wwwroot.'/user/files.php', get_string('privatefiles', 'block_private_files'),
+             \theme_adaptable\toolbox::getfontawesomemarkup('file'));
+        if (\theme_adaptable\toolbox::kalturaplugininstalled()) {
+            $usermenuitems[] = array(false, false, $CFG->wwwroot.'/local/mymedia/mymedia.php', get_string('nav_mymedia', 'local_mymedia'),
+                $this->pix_icon('my-media', '', 'local_mymedia'));
+        }
+        $usermenuitems[] = array('enablegrades', false, $CFG->wwwroot.'/grade/report/overview/index.php', get_string('grades'),
+            \theme_adaptable\toolbox::getfontawesomemarkup('list-alt'));
+        $usermenuitems[] = array('enablebadges', false, $CFG->wwwroot.'/badges/mybadges.php', get_string('badges'),
+            \theme_adaptable\toolbox::getfontawesomemarkup('certificate'));
+        $usermenuitems[] = array('enablepref', '2015051100', $CFG->wwwroot.'/user/preferences.php', get_string('preferences'),
+            \theme_adaptable\toolbox::getfontawesomemarkup('cog'));
+        $usermenuitems[] = array('enablenote', false, $CFG->wwwroot.'/message/edit.php', get_string('notifications'),
+            \theme_adaptable\toolbox::getfontawesomemarkup('paper-plane'));
+        $usermenuitems[] = array('enableblog', false, $CFG->wwwroot.'/blog/index.php', get_string('enableblog', 'theme_adaptable'),
+            \theme_adaptable\toolbox::getfontawesomemarkup('rss'));
+        $usermenuitems[] = array('enableposts', false, $CFG->wwwroot.'/mod/forum/user.php', get_string('enableposts', 'theme_adaptable'),
+            \theme_adaptable\toolbox::getfontawesomemarkup('commenting'));
+        $usermenuitems[] = array('enablefeed', false, $CFG->wwwroot.'/report/myfeedback/index.php',
+            get_string('enablefeed', 'theme_adaptable'), \theme_adaptable\toolbox::getfontawesomemarkup('bullhorn'));
+        $usermenuitems[] = array('enablecalendar', false, $CFG->wwwroot.'/calendar/view.php', get_string('pluginname', 'block_calendar_month'),
+            \theme_adaptable\toolbox::getfontawesomemarkup('calendar'));
 
         $returnurl = $this->get_current_page_url(true);
         $context = context_course::instance($COURSE->id);
@@ -380,18 +392,20 @@ class theme_adaptable_core_renderer extends core_renderer {
         if ((!is_role_switched($COURSE->id)) && (has_capability('moodle/role:switchroles', $context))) {
             // TBR $returnurl = str_replace().
             $url = $CFG->wwwroot.'/course/switchrole.php?id='.$COURSE->id.'&switchrole=-1&returnurl='.$returnurl;
-                    $usermenuitems[] = array(false, false, $url, get_string('switchroleto'), 'fa-user-o');
+                $usermenuitems[] = array(false, false, $url, get_string('switchroleto'),
+                \theme_adaptable\toolbox::getfontawesomemarkup('user-o'));
         }
 
         if (is_role_switched($COURSE->id)) {
             $url = $CFG->wwwroot.'/course/switchrole.php?id='.$COURSE->id.'&sesskey='.sesskey().
             '&switchrole=0&returnurl='.$returnurl;
 
-            $usermenuitems[] = array(false, false, $url, get_string('switchrolereturn'), 'fa-user-o');
+            $usermenuitems[] = array(false, false, $url, get_string('switchrolereturn'),
+                \theme_adaptable\toolbox::getfontawesomemarkup('user-o'));
         }
 
-        $usermenuitems[] = array(false, false, $CFG->wwwroot.'/login/logout.php?sesskey='.sesskey(),
-                            get_string('logout'), 'fa-sign-out');
+        $usermenuitems[] = array(false, false, $CFG->wwwroot.'/login/logout.php?sesskey='.sesskey(), get_string('logout'),
+            \theme_adaptable\toolbox::getfontawesomemarkup('sign-out'));
 
         for ($i = 0; $i < count($usermenuitems); $i++) {
             $additem = true;
@@ -409,11 +423,13 @@ class theme_adaptable_core_renderer extends core_renderer {
 
             if ($additem) {
                 $retval .= '<a class="dropdown-item" href="' . $usermenuitems[$i][2] . '" title="' . $usermenuitems[$i][3] . '">';
-                $retval .= '<i class="fa ' . $usermenuitems[$i][4] . '"></i>' . $usermenuitems[$i][3] . '</a>';
+                $retval .= $usermenuitems[$i][4].$usermenuitems[$i][3].'</a>';
             }
         }
         return $retval;
     }
+
+    
 
     /**
      * Returns current url minus the value of $CFG->wwwroot
@@ -2090,6 +2106,15 @@ EOT;
                         $branch->add($branchlabel, $branchurl, '', 100005);
                     }
 
+                    // Kaltura video gallery.
+                    if (\theme_adaptable\toolbox::kalturaplugininstalled()) {
+                        $branchtitle = get_string('nav_mediagallery', 'local_kalturamediagallery');
+                        $branchlabel = $OUTPUT->pix_icon('media-gallery', '', 'local_kalturamediagallery').$branchtitle;
+                        $branchurl = new moodle_url('/local/kalturamediagallery/index.php',
+                            array('courseid' => $PAGE->course->id));
+                        $branch->add($branchlabel, $branchurl, '', 100006);
+                    }
+
                     // Display Competencies.
                     if (get_config('core_competency', 'enabled')) {
                         if ($PAGE->theme->settings->enablecompetencieslink) {
@@ -2097,7 +2122,7 @@ EOT;
                             $branchlabel = $OUTPUT->pix_icon('i/competencies', '', '', array('class' => 'icon')).$branchtitle;
                             $branchurl = new moodle_url('/admin/tool/lp/coursecompetencies.php',
                                          array('courseid' => $PAGE->course->id));
-                            $branch->add($branchlabel, $branchurl, '', 100006);
+                            $branch->add($branchlabel, $branchurl, '', 100007);
                         }
                     }
 
@@ -3276,6 +3301,48 @@ EOT;
     protected function theme_switch_links() {
         // We're just going to return nothing and fail nicely, whats the point in bootstrap if not for responsive?
         return '';
+    }
+
+    /**
+     * Output all the blocks in a particular region.
+     *
+     * @param string $region the name of a region on this page.
+     * @return string the HTML to be output.
+     */
+    public function blocks_for_region($region) {
+        /* If 'shownavigationblockoncoursepage' is false and we are in a 'course' or 'incourse' page then
+           the navigation block will not be shown. */
+        if ((!empty($this->page->theme->settings->shownavigationblockoncoursepage)) ||
+            (($this->page->pagelayout != 'course') && ($this->page->pagelayout != 'incourse'))) {
+            return parent::blocks_for_region($region);
+        }
+        $blockcontents = $this->page->blocks->get_content_for_region($region, $this);
+        $blocks = $this->page->blocks->get_blocks_for_region($region);
+
+        $lastblock = null;
+        $zones = array();
+        foreach ($blocks as $block) {
+            if ($block->instance->blockname == 'navigation') {
+                continue;
+            }
+            $zones[] = $block->title;
+        }
+        $output = '';
+
+        foreach ($blockcontents as $bc) {
+            if ($bc->attributes['data-block'] == 'navigation') {
+                continue;
+            }
+            if ($bc instanceof block_contents) {
+                $output .= $this->block($bc, $region);
+                $lastblock = $bc->title;
+            } else if ($bc instanceof block_move_target) {
+                $output .= $this->block_move_target($bc, $zones, $lastblock, $region);
+            } else {
+                throw new coding_exception('Unexpected type of thing (' . get_class($bc) . ') found in list of block contents.');
+            }
+        }
+        return $output;
     }
 
     /**
