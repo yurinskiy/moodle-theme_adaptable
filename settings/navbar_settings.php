@@ -213,7 +213,8 @@ if ($ADMIN->fulltree) {
         'strings' => get_string('mysitessortoverridestrings', 'theme_adaptable'),
         'profilefields' => get_string('mysitessortoverrideprofilefields', 'theme_adaptable'),
         'profilefieldscohort' => get_string('mysitessortoverrideprofilefieldscohort', 'theme_adaptable'),
-        'myoverview' => get_string('mysitessortoverridemyoverview', 'theme_adaptable')
+        'myoverview' => get_string('mysitessortoverridemyoverview', 'theme_adaptable'),
+        'last' => get_string('mysitessortoverridelast', 'theme_adaptable')
     );
     $setting = new admin_setting_configselect($name, $title, $description, 'myoverview', $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
@@ -237,6 +238,34 @@ if ($ADMIN->fulltree) {
     );
     $setting->set_updatedcallback('theme_reset_all_caches');
     $setting = new admin_setting_configselect($name, $title, $description, 'shortcodehover', $displaychoices);
+    $temp->add($setting);
+
+    $name = 'theme_adaptable/chiddenicon';
+    $title = get_string('chiddenicon', 'theme_adaptable');
+    $description = get_string('chiddenicondesc', 'theme_adaptable');
+    $default = 'eye-slash';
+    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
+    $temp->add($setting);
+
+    $name = 'theme_adaptable/cfrozenicon';
+    $title = get_string('cfrozenicon', 'theme_adaptable');
+    $description = get_string('cfrozenicondesc', 'theme_adaptable');
+    $default = 'snowflake-o';
+    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
+    $temp->add($setting);
+
+    $name = 'theme_adaptable/cneveraccessedicon';
+    $title = get_string('cneveraccessedicon', 'theme_adaptable');
+    $description = get_string('cneveraccessedicondesc', 'theme_adaptable');
+    $default = 'exclamation-circle';
+    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
+    $temp->add($setting);
+
+    $name = 'theme_adaptable/cdefaulticon';
+    $title = get_string('cdefaulticon', 'theme_adaptable');
+    $description = get_string('cdefaulticondesc', 'theme_adaptable');
+    $default = 'graduation-cap';
+    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
     $temp->add($setting);
 
     // This course section.

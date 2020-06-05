@@ -1774,6 +1774,40 @@ EOT;
     }
 
     /**
+     * Compares two course entries against their access time for a user to see which is first.
+     *
+     * @param stdClass $a A course.
+     * @param stdClass $b A course.
+     *
+     * @return int -1 'a' is first, 1 'b' is first or 0 they are equal.
+     */
+    protected static function timeaccesscompare($a, $b) {
+        // The timeaccess is lastaccess entry and timestart an enrol entry.
+        if ((!empty($a->timeaccess)) && (!empty($b->timeaccess))) {
+            // Both last access.
+            if ($a->timeaccess == $b->timeaccess) {
+                return 0;
+            }
+            return ($a->timeaccess > $b->timeaccess) ? -1 : 1;
+        } else if ((!empty($a->timestart)) && (!empty($b->timestart))) {
+            // Both enrol.
+            if ($a->timestart == $b->timestart) {
+                return 0;
+            }
+            return ($a->timestart > $b->timestart) ? -1 : 1;
+        }
+
+        /* Must be comparing an enrol with a last access.
+           -1 is to say that 'a' comes before 'b'. */
+        if (!empty($a->timestart)) {
+            // If 'a' is the enrol entry.
+            return -1;
+        }
+        // Then 'b' must be the enrol entry.
+        return 1;
+    }
+
+    /**
      * Returns menu object containing main navigation.
      *
      * @return menu boject
@@ -1941,18 +1975,66 @@ EOT;
                     $icon = '';
 
                     if ($sortedcourses) {
+                        /* Add timeaccess and timestart to the courses for all override types to use in some shape or form.
+                           Get the last accessed information for the user and populate. */
+                        global $DB, $USER;
+                        $lastaccess = $DB->get_records('user_lastaccess', array('userid' => $USER->id), '', 'courseid, timeaccess');
+                        if ($lastaccess) {
+                            foreach ($sortedcourses as $course) {
+                                if (!empty($lastaccess[$course->id])) {
+                                    $course->timeaccess = $lastaccess[$course->id]->timeaccess;
+                                }
+                            }
+                        }
+                        // Determine if we need to query the enrolment and user enrolment tables.
+                        $enrolquery = false;
+                        foreach ($sortedcourses as $course) {
+                            if (empty($course->timeaccess)) {
+                                $enrolquery = true;
+                                break;
+                            }
+                        }
+                        if ($enrolquery) {
+                            // We do.
+                            $params = array('userid' => $USER->id);
+                            $sql = "SELECT ue.id, e.courseid, ue.timestart
+                                FROM {enrol} e
+                                JOIN {user_enrolments} ue ON (ue.enrolid = e.id AND ue.userid = :userid)";
+                            $enrolments = $DB->get_records_sql($sql, $params, 0, 0);
+                            if ($enrolments) {
+                                // Sort out any multiple enrolments on the same course.
+                                $userenrolments = array();
+                                foreach ($enrolments as $enrolment) {
+                                    if (!empty($userenrolments[$enrolment->courseid])) {
+                                        if ($userenrolments[$enrolment->courseid] < $enrolment->timestart) {
+                                            // Replace.
+                                            $userenrolments[$enrolment->courseid] = $enrolment->timestart;
+                                        }
+                                    } else {
+                                        $userenrolments[$enrolment->courseid] = $enrolment->timestart;
+                                    }
+                                }
+                                // We don't need to worry about timeend etc. as our course list will be valid for the user from above.
+                                foreach ($sortedcourses as $course) {
+                                    if (empty($course->timeaccess)) {
+                                        $course->timestart = $userenrolments[$course->id];
+                                    }
+                                }
+                            }
+                        }
+
                         if ($overridetype == 'myoverview') {
                             $myoverviewcourses = $this->parsemyoverview($sortedcourses);
 
                             if (!empty($myoverviewcourses[ADAPTABLE_COURSE_STARRED])) {
-                                $icon = '<i class="fa fa-star-o"></i> ';
+                                $icon = \theme_adaptable\toolbox::getfontawesomemarkup('star-o');
                                 $this->addcoursestomenu($branch, $myoverviewcourses[ADAPTABLE_COURSE_STARRED],
                                     $showshortcode, $showhover, $mysitesmaxlength, $icon);
                             }
 
                             if (!empty($myoverviewcourses[ADAPTABLE_COURSE_IN_PROGRESS])) {
-                                $icon = '<i class="fa fa-tasks"></i> ';
-                                $child = $branch->add($icon . $trunc = rtrim(
+                                $icon = \theme_adaptable\toolbox::getfontawesomemarkup('tasks');
+                                $child = $branch->add($icon . rtrim(
                                     mb_strimwidth(format_string(get_string('inprogress', 'theme_adaptable')),
                                     0, $mysitesmaxlengthhidden)) . '...', $this->page->url, '', 1000);
                                 $this->addcoursestomenu($child, $myoverviewcourses[ADAPTABLE_COURSE_IN_PROGRESS],
@@ -1960,8 +2042,8 @@ EOT;
                             }
 
                             if (!empty($myoverviewcourses[ADAPTABLE_COURSE_PAST])) {
-                                $icon = '<i class="fa fa-history"></i> ';
-                                $child = $branch->add($icon . $trunc = rtrim(
+                                $icon = \theme_adaptable\toolbox::getfontawesomemarkup('history');
+                                $child = $branch->add($icon . rtrim(
                                     mb_strimwidth(format_string(get_string('past', 'theme_adaptable')),
                                     0, $mysitesmaxlengthhidden)) . '...', $this->page->url, '', 1000);
                                 $this->addcoursestomenu($child, $myoverviewcourses[ADAPTABLE_COURSE_PAST],
@@ -1969,8 +2051,8 @@ EOT;
                             }
 
                             if (!empty($myoverviewcourses[ADAPTABLE_COURSE_FUTURE])) {
-                                $icon = '<i class="fa fa-clock-o"></i> ';
-                                $child = $branch->add($icon . $trunc = rtrim(
+                                $icon = \theme_adaptable\toolbox::getfontawesomemarkup('clock-o');
+                                $child = $branch->add($icon . rtrim(
                                     mb_strimwidth(format_string(get_string('future', 'theme_adaptable')),
                                     0, $mysitesmaxlengthhidden)) . '...', $this->page->url, '', 1000);
                                 $this->addcoursestomenu($child, $myoverviewcourses[ADAPTABLE_COURSE_FUTURE],
@@ -1978,14 +2060,20 @@ EOT;
                             }
 
                             if (!empty($myoverviewcourses[ADAPTABLE_COURSE_HIDDEN])) {
-                                $icon = '<i class="fa fa-eye-slash"></i> ';
-                                $child = $branch->add($icon . $trunc = rtrim(
+                                $faicon = (!empty($this->page->theme->settings->chiddenicon)) ? 
+                                    $this->page->theme->settings->chiddenicon : '';
+                                $hiddenicon = \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
+                                $child = $branch->add($hiddenicon . rtrim(
                                     mb_strimwidth(format_string(get_string('hiddenfromview', 'theme_adaptable')),
                                     0, $mysitesmaxlengthhidden)) . '...', $this->page->url, '', 1000);
                                 $this->addcoursestomenu($child, $myoverviewcourses[ADAPTABLE_COURSE_HIDDEN],
                                     $showshortcode, $showhover, $mysitesmaxlength);
                             }
                         } else {
+                            if ($overridetype == 'last') {
+                                uasort($sortedcourses, array($this, 'timeaccesscompare'));
+                            }
+
                             foreach ($sortedcourses as $course) {
                                 if ($course->visible) {
                                     $coursename = '';
@@ -2006,7 +2094,8 @@ EOT;
                                     }
 
                                     if (!$overridelist) { // Feature not in use, add to menu as normal.
-                                        $branch->add($coursename,
+                                        $icon = $this->getcoursemenuicons($course);
+                                        $branch->add($icon.$coursename,
                                             new moodle_url('/course/view.php?id='.$course->id), $alttext);
                                     } else {
                                         // We want to check against array from profile field.
@@ -2015,15 +2104,15 @@ EOT;
                                                 in_array($course->shortname, $overridelist)) ||
                                                 ($overridetype == 'strings' &&
                                                  $this->check_if_in_array_string($overridelist, $course->shortname))) {
-                                            $icon = '';
 
-                                            $branch->add($icon . $coursename,
+                                            $icon = $this->getcoursemenuicons($course);
+                                            $branch->add($icon.$coursename,
                                                 new moodle_url('/course/view.php?id='.$course->id), $alttext, 100);
                                         } else {
                                             // If not in array add to sub menu item.
                                             if (!isset($child)) {
                                                 $icon = '<i class="fa fa-history"></i> ';
-                                                $child = $branch->add($icon . $trunc = rtrim(
+                                                $child = $branch->add($icon . rtrim(
                                                     mb_strimwidth(format_string(get_string('pastcourses', 'theme_adaptable')),
                                                     0, $mysitesmaxlengthhidden)) . '...', $this->page->url, $alttext, 1000);
                                             }
@@ -2033,7 +2122,8 @@ EOT;
                                                 $rawcoursename = $course->fullname;
                                             }
 
-                                            $child->add($trunc = rtrim(mb_strimwidth(format_string($rawcoursename),
+                                            $icon = $this->getcoursemenuicons($course);
+                                            $child->add($icon.rtrim(mb_strimwidth(format_string($rawcoursename),
                                                 0, $mysitesmaxlengthhidden)) . '...',
                                                 new moodle_url('/course/view.php?id='.$course->id),
                                                 format_string($rawcoursename));
@@ -2042,17 +2132,20 @@ EOT;
                                 }
                             }
 
-                            $icon = '<i class="fa fa-eye-slash"></i> ';
+                            $faicon = (!empty($this->page->theme->settings->chiddenicon)) ? 
+                                $this->page->theme->settings->chiddenicon : 'eye-slash';
+                            $hiddenicon = \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
                             $child = null;
                             foreach ($sortedcourses as $course) {
+                                $icon = $this->getcoursemenuicons($course, $hiddenicon);
                                 if (!$course->visible && $mysitesvisibility == 'includehidden') {
                                     if (empty($child)) {
-                                        $child = $branch->add($icon .
-                                            $trunc = rtrim(mb_strimwidth(format_string(get_string('hiddencourses', 'theme_adaptable')),
+                                        $child = $branch->add($hiddenicon.
+                                            rtrim(mb_strimwidth(format_string(get_string('hiddencourses', 'theme_adaptable')),
                                             0, $mysitesmaxlengthhidden)) . '...', $this->page->url, '', 2000);
                                     }
 
-                                    $child->add($icon . $trunc = rtrim(mb_strimwidth(format_string($course->fullname),
+                                    $child->add($icon.rtrim(mb_strimwidth(format_string($course->fullname),
                                         0, $mysitesmaxlengthhidden)) . '...',
                                         new moodle_url('/course/view.php?id='.$course->id), format_string($course->shortname));
                                 }
@@ -2185,13 +2278,49 @@ EOT;
     }
 
     /**
+     * Get the icon markup of the icon(s) for the course that will be used in its menu item.
+     *
+     * @param stdClass $course Course.
+     * @param string $existingicon Existing icon markup if any.
+     *
+     * @return string Icon markup(s).
+     */
+    protected function getcoursemenuicons($course, $existingicon = '') {
+        global $CFG;
+        $icon = $existingicon;
+
+        if (!empty($course->timestart)) {
+            $faicon = (!empty($this->page->theme->settings->cneveraccessedicon)) ? 
+                $this->page->theme->settings->cneveraccessedicon : '';
+            $icon .= \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
+        }
+
+        if (!empty($CFG->contextlocking)) {
+            $context = context_course::instance($course->id);
+            if ($context->locked) {
+                $faicon = (!empty($this->page->theme->settings->cfrozenicon)) ? 
+                    $this->page->theme->settings->cfrozenicon : '';
+                $icon .= \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
+            }
+        }
+
+        if (empty($icon)) {
+            $faicon = (!empty($this->page->theme->settings->cdefaulticon)) ? 
+                $this->page->theme->settings->cdefaulticon : '';
+            $icon = \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
+        }
+
+        return $icon;
+    }
+
+    /**
      * Classify the courses in the same way that the My Overview block does non the dashboard.
      *
      * @param array $sortedcourses Array of courses - must contain the fields by 'define_properties' in 'course_summary_exporter'.
      *
      * @return array array of arrays that classify the courses.
      */
-     protected function parsemyoverview($sortedcourses) {
+     protected function parsemyoverview(&$sortedcourses) {
         global $CFG, $USER;
 
         $ufservice = \core_favourites\service_factory::get_service_for_user_context(\context_user::instance($USER->id));
@@ -2266,7 +2395,8 @@ EOT;
                     $alttext = '';
                 }
 
-                $menu->add($icon.$coursename, new moodle_url('/course/view.php?id='.$course->id), $alttext);
+                $courseicon = $this->getcoursemenuicons($course, $icon);
+                $menu->add($courseicon.$coursename, new moodle_url('/course/view.php?id='.$course->id), $alttext);
             }
         }
     }
