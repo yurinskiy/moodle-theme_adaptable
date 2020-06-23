@@ -1591,6 +1591,22 @@ $string['socialicondesc'] = 'Set Font Awesome icon for example: fa-facebook';
 $string['socialiconlist'] = 'Social Icon List';
 $string['socialiconlistdesc'] = 'Enter a delimited list to setup the social icons / links you need using the format: url|title|icon';
 
+// Templates
+$string['templatessettings'] = 'Templates';
+$string['templatesheading'] = 'Templates Settings';
+$string['templatesheadingdesc'] = 'Override templates';
+$string['templatessel'] = 'Templates to override';
+$string['templatesseldesc'] = 'Select the templates to override, then each will be shown on their own page.  If not selected here, then the template will not be overridden even if it is enabled.  To select none, use the \'Ctrl\' key.';
+$string['overridetemplate'] = 'Override template: {$a}';
+$string['activatetemplateoverride'] = 'Activate template override for \'{$a}\'';
+$string['activatetemplateoverridedesc'] = 'When ticked then the value in the \'{$a->setting}\' setting will be used as the \'{$a->template}\' template if it contains text.';
+$string['overriddentemplate'] = 'Overridden template: {$a}';
+$string['overriddentemplatedesc'] = 'If set then the text here will be used as the template \'{$a}\'.  To ensure that the preview works, there needs to be the standard example context in JSON format.';
+$string['overriddentemplatepreview'] = 'Setting overridden preview';
+$string['overriddentemplatenopreview'] = 'No preview because of missing JSON example';
+$string['originaltemplatepreview'] = 'Original / overridden theme file preview';
+$string['originaltemplatesource'] = 'Original / overridden theme file source';
+
 // Analytics *********************************.
 $string['analyticssettings'] = 'Analytics';
 $string['analyticssettingsheading'] = 'Setup Google Analytics and/or Matomo';
