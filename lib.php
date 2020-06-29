@@ -704,6 +704,10 @@ function theme_adaptable_page_init(moodle_page $page) {
     $page->requires->jquery_plugin('easing', 'theme_adaptable');
     $page->requires->jquery_plugin('adaptable', 'theme_adaptable');
 
+    if ((isloggedin()) && (theme_adaptable_get_setting('enableaccesstool')) && (file_exists($CFG->dirroot . "/local/accessibilitytool/lib.php"))) {
+        require_once($CFG->dirroot . "/local/accessibilitytool/lib.php");
+        local_accessibilitytool_page_init($page);
+    }
 }
 
 /**
