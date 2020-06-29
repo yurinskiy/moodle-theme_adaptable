@@ -149,13 +149,21 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    // Enable Feed.
+    // Enable My Feedback
     $name = 'theme_adaptable/enablefeed';
     $title = get_string('enablefeed', 'theme_adaptable');
     $description = get_string('enablefeeddesc', 'theme_adaptable');
     $default = false;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+   // Enable Accessibility Tool
+    $name = 'theme_adaptable/enableaccesstool';
+    $title = get_string('enableaccesstool', 'theme_adaptable');
+    $description = get_string('enableaccesstooldesc', 'theme_adaptable');
+    $default = false;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $temp->add($setting);
 
     $ADMIN->add('theme_adaptable', $temp);

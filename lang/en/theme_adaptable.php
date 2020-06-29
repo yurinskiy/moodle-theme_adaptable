@@ -497,6 +497,9 @@ $string['enablepostsdesc'] = 'Display a link to the my posts page';
 $string['enablefeed'] = 'My Feedback';
 $string['enablefeeddesc'] = 'Display a link to the users "My Feedback" page - Note: this requires the <a href="https://moodle.org/plugins/report_myfeedback" target="blank">My Feedback Plugin</a>';
 
+$string['enableaccesstool'] = 'Accessibility Tool';
+$string['enableaccesstooldesc'] = 'Display a link to the users "Accessibility Tool" Preferences page - Note: this requires the <a href="https://github.com/sharpchi/moodle-local_accessibilitytool" target="blank">Accessibility Tool Plugin</a>';
+
 $string['myblogs'] = 'My Blogs';
 
 $string['noenrolments'] = 'No enrolments found.';
