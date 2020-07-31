@@ -198,7 +198,11 @@ class adaptable_setting_confightmleditor extends admin_setting_configtext {
             $wwwroot = str_replace('http://', 'https://', $wwwroot);
         }
 
-        $draftitemid = $_REQUEST[$this->get_full_name().'_draftitemid'];
+        if (!empty($_REQUEST[$this->get_full_name().'_draftitemid'])) {
+            $draftitemid = $_REQUEST[$this->get_full_name().'_draftitemid'];
+        } else {
+            $draftitemid = 0;
+        }
         $draftfiles = $fs->get_area_files($options['context']->id, 'user', 'draft', $draftitemid, 'id');
         foreach ($draftfiles as $file) {
             if (!$file->is_directory()) {
