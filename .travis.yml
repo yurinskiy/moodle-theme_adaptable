@@ -29,7 +29,7 @@ matrix:
 env:
  global:
   - MOODLE_BRANCH=MOODLE_39_STABLE
-  - IGNORE_NAMES=*.txt,fallback.css
+  - IGNORE_NAMES=*.txt,fallback.css,admin_confightmleditor.php
 
 before_install:
 # This disables XDebug which should speed up the build.  One reason to remove this
