@@ -3,7 +3,8 @@ Change Log in version 3.0.0 (2020073100)
 
 Development in progress.
 
-Fix licence from GPLv2 to GPLv3 as is incorrect - Moodle plugins must be GPLv3.
+1. Fix licence from GPLv2 to GPLv3 as is incorrect - Moodle plugins must be GPLv3.
+2. Fix message drawer closure.
 
 
 Change Log in version 2.2.2 (2019112601)
