@@ -53,6 +53,10 @@
     margin-bottom: 2px;
 }
 
+.block {
+    padding: .5rem;
+}
+
 /* Block titles */
 .block .header,
 .block > .card-body,
@@ -173,6 +177,12 @@
 .block .content .block-timeline a:hover {
     background-color: [[setting:navbardropdownhovercolor]] !important;
     color: [[setting:navbardropdowntexthovercolor]] !important;
+}
+
+/* Recently accessed courses block */
+.block_recentlyaccessedcourses .paging-bar-container {
+    margin-right: 4rem;
+    margin-top: -2.4rem;
 }
 
 /* Login block */

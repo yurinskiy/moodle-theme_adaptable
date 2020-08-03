@@ -613,12 +613,12 @@ class theme_adaptable_core_renderer extends core_renderer {
                       array('id' => 'sb-' . $bc->skipid));
         }
 
-        $output .= html_writer::start_tag('div', $bc->attributes);
+        $output .= html_writer::start_tag('section', $bc->attributes);
 
         $output .= $this->block_header($bc);
         $output .= $this->block_content($bc);
 
-        $output .= html_writer::end_tag('div');
+        $output .= html_writer::end_tag('section');
 
         $output .= $this->block_annotation($bc);
 
@@ -639,6 +639,7 @@ class theme_adaptable_core_renderer extends core_renderer {
         $title = '';
         if ($bc->title) {
             $attributes = array();
+            $attributes['class'] = 'd-inline';
             if ($bc->blockinstanceid) {
                 $attributes['id'] = 'instance-'.$bc->blockinstanceid.'-header';
             }
