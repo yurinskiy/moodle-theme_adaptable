@@ -5,6 +5,7 @@ Development in progress.
 
 1. Fix licence from GPLv2 to GPLv3 as is incorrect - Moodle plugins must be GPLv3.
 2. Fix message drawer closure.
+3. Fix 'Regression - Frontpage marketing blocks don't display on desktop' - #139.
 
 
 Change Log in version 2.2.2 (2019112601)

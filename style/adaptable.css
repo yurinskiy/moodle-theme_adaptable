@@ -526,13 +526,8 @@ a.component-expand .badge {
 }
 
 #marketblocks {
-    overflow: hidden;
-    padding: 0 0 10px 0;
     background-color: [[setting:marketblocksbackgroundcolor]];
-}
-
-#marketblocks .span4 {
-    overflow: hidden;
+    padding-bottom: 10px;
 }
 
 #marketblocks .internalmarket {
