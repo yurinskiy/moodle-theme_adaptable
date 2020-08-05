@@ -11,6 +11,7 @@ Development in progress.
 6. Fix rubic icons -> https://moodle.org/mod/forum/discuss.php?d=408081#p1646693.
 7. Fix 'Searchbox conflict with Advanced Forum (hsuforum)' - #133.
 8. Fix 'Bullet list display in Collapsed Topics course format' - #81.
+9. Fix 'Block settings are left justified' - #82.
 
 
 Change Log in version 2.2.2 (2019112601)
