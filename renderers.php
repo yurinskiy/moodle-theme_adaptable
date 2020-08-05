@@ -654,9 +654,14 @@ class theme_adaptable_core_renderer extends core_renderer {
 
         $output = '';
         if ($title || $controlshtml) {
-            $output .= html_writer::tag('div', html_writer::tag('div',
-                       html_writer::tag('div', '', array('class' => 'block_action')) .
-                       $title . $controlshtml, array('class' => 'title')), array('class' => 'header'));
+            $output .=
+                html_writer::tag('div',
+                    html_writer::tag('div',
+                        html_writer::tag('div', '', array('class' => 'block_action')).$title.
+                            html_writer::tag('div', $controlshtml, array('class' => 'block-controls float-right')),
+                        array('class' => 'title')),
+                    array('class' => 'header')
+                );
         }
         return $output;
     }
