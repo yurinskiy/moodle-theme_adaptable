@@ -1439,8 +1439,7 @@ div.no-overflow, .yui3-datatable {
 }
 
 /* Search box */
-.searchbox {
-    float: right;
+#page-header .searchbox {
     padding: [[setting:searchboxpadding]];
 }
 
