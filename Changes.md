@@ -9,6 +9,7 @@ Development in progress.
 4. Moodle 3.9 New Activity Chooser styling needs work - #131.
 5. Blocks - My Home recently accessed course - #9.
 6. Fix rubic icons -> https://moodle.org/mod/forum/discuss.php?d=408081#p1646693.
+7. Fix 'Searchbox conflict with Advanced Forum (hsuforum)' - #133.
 
 
 Change Log in version 2.2.2 (2019112601)
