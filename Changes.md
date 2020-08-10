@@ -17,6 +17,7 @@ Development in progress.
 11. Fix 'Button/link 'Turn editing on' missing on Moodle 3.9' - #129.
 12. Fix '.btn declaired after .hidden' - #130.
 13. Fix message drawer hover.
+14. Improve position of #82.
 
 
 Change Log in version 2.2.2 (2019112601)
