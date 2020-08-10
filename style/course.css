@@ -424,8 +424,8 @@
 }
 
 .sectionname {
-    background-color: [[setting:coursesectionheaderbg]] !important;
-    color: [[setting:sectionheadingcolor]] !important;
+    background-color: [[setting:coursesectionheaderbg]];
+    color: [[setting:sectionheadingcolor]];
     margin-bottom: 20px;
     padding: 3px 10px;
     border-bottom: [[setting:coursesectionheaderborderstyle]] [[setting:coursesectionheaderbordercolor]] [[setting:coursesectionheaderborderwidth]];
@@ -434,6 +434,9 @@
     border-bottom-left-radius: [[setting:coursesectionheaderborderradiusbottom]];
 }
 
+.format-onetopic .onetopic .tab_content {
+    background-color: [[setting:coursesectionheaderbg]];
+}
 
 /* Alter nav on single-section for better onetopic course format support */
 .single-section .nav {
@@ -457,8 +460,10 @@
 }
 
 /* Current Section */
-#page .course-content ul li.section.main.current {
-    background: [[setting:currentcolor]];
+#page .course-content ul li.section.main.current,
+.format-onetopic .onetopic .nav-tabs .nav-link.active .tab_content,
+.format-onetopic .onetopic .nav-tabs .nav-link.active .tab_content .sectionname {
+    background-color: [[setting:currentcolor]];
 }
 
 .course-content ul li.section.hidden .sectionname,
