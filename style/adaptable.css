@@ -249,6 +249,7 @@ div.signuppanel h2 {
     -ms-flex-negative: 0;
     flex-shrink: 0;
 }
+
 /* Header */
 #adaptable-page-header-wrapper {
     background-color: [[setting:headerbkcolor2]];
@@ -258,9 +259,8 @@ div.signuppanel h2 {
 
 #page-header {
     background-color: transparent;
-    border-bottom: none solid [[setting:maincolor]];
+    border-bottom: none;
     clear: both;
-    color: [[setting:headertextcolor2]];
     margin-bottom: 0;
     min-height: [[setting:pageheaderheight]];
     padding-top: 0;

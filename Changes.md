@@ -13,6 +13,7 @@ Development in progress.
  8. Fix 'Bullet list display in Collapsed Topics course format' - #81.
  9. Fix 'Block settings are left justified' - #82.
 10. Improve 'Improve Onetopic course format tab rendering' - #115.
+11. Fix 'Missing action menu (like editing button / cog button) on content bank page' - #140.
 
 
 Change Log in version 2.2.2 (2019112601)

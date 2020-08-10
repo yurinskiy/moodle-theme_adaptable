@@ -90,23 +90,27 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 
 /* New main navbar styling */
 #adaptable-page-header-wrapper #main-navbar .navbar-nav > li > a,
-#adaptable-page-header-wrapper #main-navbar .navbar-nav > li > div.nav-link {
+#adaptable-page-header-wrapper #main-navbar .navbar-nav > li > div.nav-link,
+#adaptable-page-header-wrapper #main-navbar .navbar-nav .context-header-settings-menu .action-menu-trigger a.dropdown-toggle,
+#adaptable-page-header-wrapper #main-navbar .navbar-nav .context-header-settings-menu .action-menu-trigger a.dropdown-toggle:hover {
+    background-color: transparent;
     color: [[setting:menufontcolor]];
+    font-size: [[setting:menufontsize]];
+    font-weight: 400;
     line-height: 40px;
-    /* float: none; */
     padding: 2px [[setting:menufontpadding]] 2px [[setting:menufontpadding]];
     text-decoration: none;
     text-shadow: none;
-    font-weight: 400;
-    font-size: [[setting:menufontsize]];
     text-transform: none;
-    border-right: 0;
-    background-color: none;
-    -webkit-transition: all [[setting:navbardropdowntransitiontime]];
     -moz-transition: all [[setting:navbardropdowntransitiontime]];
     -ms-transition: all [[setting:navbardropdowntransitiontime]];
     -o-transition: all [[setting:navbardropdowntransitiontime]];
+    -webkit-transition: all [[setting:navbardropdowntransitiontime]];
     transition: all [[setting:navbardropdowntransitiontime]];
+}
+
+#adaptable-page-header-wrapper .context-header-settings-menu {
+    margin: 4px 0 0;
 }
 
 #adaptable-page-header-wrapper .dropdown-menu ul {

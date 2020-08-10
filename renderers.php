@@ -1621,7 +1621,6 @@ EOT;
     /**
      * Renders the breadcrumb navbar.
      *
-     * @param boolean $addbutton Add the page heading button.
      * return string Markup or empty string if 'nonavbar' for tge given page layout in the config.php file is true.
      */
     public function page_navbar($addbutton = false) {
@@ -1674,12 +1673,19 @@ EOT;
                         }
                         $retval .= '</div>';
                     } else {
-                        $retval .= '<div id="page-navbar" class="col-12">';
-                        if ($addbutton) {
-                            $retval .= '<nav class="breadcrumb-button">' . $this->page_heading_button() . '</nav>';
+                        if ($this->page->include_region_main_settings_in_header_actions() &&
+                            !$this->page->blocks->is_block_present('settings')) {
+                            $this->page->add_header_action(html_writer::div(
+                                $this->region_main_settings_menu(),
+                                'd-print-none',
+                                ['id' => 'region-main-settings-menu']
+                            ));
                         }
-                        $retval .= $this->navbar();
-                        $retval .= '</div>';
+
+                        $header = new stdClass();
+                        $header->navbar = $this->navbar();
+                        $header->headeractions = $this->page->get_header_actions();
+                        $retval .= $this->render_from_template('theme_adaptable/header', $header);
                     }
                     $retval .= '</div>';
                 }

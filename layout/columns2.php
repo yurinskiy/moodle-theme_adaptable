@@ -44,7 +44,7 @@ $regions = theme_adaptable_grid($left, $hassidepost);
 
 <div class="container outercont">
     <?php
-        echo $OUTPUT->page_navbar(false);
+        echo $OUTPUT->page_navbar();
     ?>
     <div id="page-content" class="row<?php echo $regions['direction'];?>">
         <section id="region-main" class="<?php echo $regions['content'];?>">

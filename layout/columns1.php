@@ -33,7 +33,7 @@ require_once(dirname(__FILE__) . '/includes/header.php');
 
 <div class="container outercont">
     <?php
-        echo $OUTPUT->page_navbar(false);
+        echo $OUTPUT->page_navbar();
     ?>
     <div id="page-content" class="row">
         <section id="region-main" class="col-12">
