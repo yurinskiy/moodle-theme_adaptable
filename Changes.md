@@ -18,6 +18,7 @@ Development in progress.
 12. Fix '.btn declaired after .hidden' - #130.
 13. Fix message drawer hover.
 14. Improve position of #82.
+15. Make 'side-post' have no padding on the right so that the page is symmetrical.
 
 
 Change Log in version 2.2.2 (2019112601)

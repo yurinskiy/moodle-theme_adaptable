@@ -720,7 +720,7 @@ span.fa-chevron-right.fa {
 
 /* Overridden from Boost theme to ignore background colour set on dashboard. */
 #page-my-index {
-  background-color: unset;
+    background-color: unset;
 }
 
 .navbar .nav-collapse.in {
@@ -1530,6 +1530,7 @@ div.questionbankwindow.block {
 }
 
 #block-region-side-post {
+    padding-right: 0;
     transition: all .5s ease-in-out;
 }
 
