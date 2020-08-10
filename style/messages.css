@@ -90,14 +90,9 @@
     color: inherit !important;
 }
 
-[data-region='message-drawer'] [data-region='body-container'] .btn-link:hover {
-    color: #fff !important;
-}
 [data-region='message-drawer'] [data-region='content-messages-footer-container'] .btn-link {
-    display: flex;
-    padding: 1px 1px 0 0 !important;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -ms-flex-align: center;
     align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 1px 1px 0 0 !important;
 }
