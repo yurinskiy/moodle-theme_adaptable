@@ -3,15 +3,16 @@ Change Log in version 3.0.0 (2020073100)
 
 Development in progress.
 
-1. Fix licence from GPLv2 to GPLv3 as is incorrect - Moodle plugins must be GPLv3.
-2. Fix message drawer closure.
-3. Fix 'Regression - Frontpage marketing blocks don't display on desktop' - #139.
-4. Moodle 3.9 New Activity Chooser styling needs work - #131.
-5. Blocks - My Home recently accessed course - #9.
-6. Fix rubic icons -> https://moodle.org/mod/forum/discuss.php?d=408081#p1646693.
-7. Fix 'Searchbox conflict with Advanced Forum (hsuforum)' - #133.
-8. Fix 'Bullet list display in Collapsed Topics course format' - #81.
-9. Fix 'Block settings are left justified' - #82.
+ 1. Fix licence from GPLv2 to GPLv3 as is incorrect - Moodle plugins must be GPLv3.
+ 2. Fix message drawer closure.
+ 3. Fix 'Regression - Frontpage marketing blocks don't display on desktop' - #139.
+ 4. Moodle 3.9 New Activity Chooser styling needs work - #131.
+ 5. Blocks - My Home recently accessed course - #9.
+ 6. Fix rubic icons -> https://moodle.org/mod/forum/discuss.php?d=408081#p1646693.
+ 7. Fix 'Searchbox conflict with Advanced Forum (hsuforum)' - #133.
+ 8. Fix 'Bullet list display in Collapsed Topics course format' - #81.
+ 9. Fix 'Block settings are left justified' - #82.
+10. Improve 'Improve Onetopic course format tab rendering' - #115.
 
 
 Change Log in version 2.2.2 (2019112601)
