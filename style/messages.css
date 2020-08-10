@@ -24,12 +24,7 @@
  */
 
 @media screen and (min-width: 768px) {
-    /* M3.6 */
-    .message-drawer,
-    .message-drawer .btn,
-    .message-drawer .btn a,
-    .message-drawer .form-control,
-    /* M3.7 */
+    /* M3.7+ */
     .message-app.drawer,
     .message-app.drawer .btn,
     .message-app.drawer .btn a,
@@ -37,20 +32,16 @@
         font-size: 105%;
     }
 
-    /* M3.6 */
-    .message-drawer .btn,
-    /* M3.7 */
+    /* M3.7+ */
     .message-app.drawer .btn {
         height: auto;
     }
 
-    .message-drawer, /* M3.6 */
-    .message-app.drawer { /* M3.7 */
+    .message-app.drawer { /* M3.7+ */
         width: 400px;
     }
 
-    .message-drawer.hidden, /* M3.6 */
-    .message-app.drawer.hidden { /* M3.7 */
+    .message-app.drawer.hidden { /* M3.7+ */
         right: -400px;
     }
 }

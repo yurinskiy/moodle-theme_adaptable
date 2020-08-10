@@ -15,6 +15,7 @@ Development in progress.
 10. Improve 'Improve Onetopic course format tab rendering' - #115.
 11. Fix 'Missing action menu (like editing button / cog button) on content bank page' - #140.
 11. Fix 'Button/link 'Turn editing on' missing on Moodle 3.9' - #129.
+12. Fix '.btn declaired after .hidden' - #130.
 
 
 Change Log in version 2.2.2 (2019112601)
