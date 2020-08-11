@@ -31,7 +31,9 @@ defined('MOODLE_INTERNAL') || die;
  * @copyright 2015 Fernando Acedo (3-bits.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * Class to configure html editor for admin settings allowing use of repositories
+ * Class to configure html editor for admin settings allowing use of repositories.
+ *
+ * TODO: Does not remove old files when no longer in use!  No separate file area for each setting.
  *
  * Special thanks to Iban Cardona i Subiela (http://icsbcn.blogspot.com.es/2015/03/use-image-repository-in-theme-settings.html)
  * This post laid the ground work for most of the code featured in this file.
@@ -44,9 +46,6 @@ class adaptable_setting_confightmleditor extends admin_setting_configtext {
 
     /** @var int number of columns */
     private $cols;
-
-    /** @var string options - looks like this unused and should be removed */
-    private $options;
 
     /** @var string filearea - filearea within Moodle repository API */
     private $filearea;
@@ -64,8 +63,8 @@ class adaptable_setting_confightmleditor extends admin_setting_configtext {
      * @param string $filearea
      */
     public function __construct($name, $visiblename, $description, $defaultsetting,
-                                $paramtype=PARAM_RAW, $cols='60', $rows='8',
-                                $filearea = 'adaptablemarketingimages') {
+            $paramtype = PARAM_RAW, $cols = '60', $rows= '8',
+            $filearea = 'adaptablemarkettingimages') {
         $this->rows = $rows;
         $this->cols = $cols;
         $this->filearea = $filearea;
@@ -116,8 +115,8 @@ class adaptable_setting_confightmleditor extends admin_setting_configtext {
         $draftitemid = file_get_unused_draft_itemid();
         $component = is_null($this->plugin) ? 'core' : $this->plugin;
         $data = file_prepare_draft_area($draftitemid, $options['context']->id,
-                                        $component, $this->get_full_name().'_draftitemid',
-                                        $draftitemid, $options, $data);
+            $component, $this->get_full_name().'_draftitemid',
+            $draftitemid, $options, $data);
 
         $fpoptions = array();
         $args = new stdClass();
@@ -237,6 +236,6 @@ class adaptable_setting_confightmleditor extends admin_setting_configtext {
             }
         }
 
-        return ($this->config_write($this->name, $data) ? '' : get_string('errorsetting', 'admin'));
+        return ($this->config_write($this->name, format_text($data, FORMAT_HTML)) ? '' : get_string('errorsetting', 'admin'));
     }
 }
