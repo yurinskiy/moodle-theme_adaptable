@@ -363,6 +363,8 @@ class theme_adaptable_core_renderer extends core_renderer {
             \theme_adaptable\toolbox::getfontawesomemarkup('user'));
         $usermenuitems[] = array('enableeditprofile', false, $CFG->wwwroot.'/user/edit.php', get_string('editmyprofile'),
             \theme_adaptable\toolbox::getfontawesomemarkup('cog'));
+        $usermenuitems[] = array('enableaccesstool', false, $CFG->wwwroot.'/local/accessibilitytool/manage.php', get_string('enableaccesstool', 'theme_adaptable'), 
+            \theme_adaptable\toolbox::getfontawesomemarkup('low-vision'));
         $usermenuitems[] = array('enableprivatefiles', false, $CFG->wwwroot.'/user/files.php', get_string('privatefiles', 'block_private_files'),
              \theme_adaptable\toolbox::getfontawesomemarkup('file'));
         if (\theme_adaptable\toolbox::kalturaplugininstalled()) {
