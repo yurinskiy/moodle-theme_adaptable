@@ -22,7 +22,7 @@ Development in progress.
 16. Fix 'H5P iframe element too small in content bank page' - #146.
 17. Fix 'Navbar Custom Menu does not fit' - #128.
 18. Fix 'Editing cog colour not consistent' - #149.
-19. Fix 'Whitespace Below Header in Course Pages' - #25.
+19. Fix 'Whitespace Below Header in Course Pages' - #38.
 
 
 Change Log in version 2.2.2 (2019112601)
