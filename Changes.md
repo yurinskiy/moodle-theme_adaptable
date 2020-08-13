@@ -21,6 +21,7 @@ Development in progress.
 15. Make 'side-post' have no padding on the right so that the page is symmetrical.
 16. Fix 'H5P iframe element too small in content bank page' - #146.
 17. Fix 'Navbar Custom Menu does not fit' - #128.
+18. Fix 'Editing cog colour not consistent' - #149.
 
 
 Change Log in version 2.2.2 (2019112601)

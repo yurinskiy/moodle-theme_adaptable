@@ -943,7 +943,7 @@ div.activity-wrapper {
 .context-header-settings-menu,
 .region-main-settings-menu {
     height: 2em;
-    margin: 9px 5px 0;
+    margin: 4px 0 0;
 }
 
 #region-main-settings-menu > div {
