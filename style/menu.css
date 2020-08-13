@@ -32,11 +32,11 @@
     z-index: 100;
 }
 
-#adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav > li:first-child a {
+#adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav > li:first-child a.dropdown-toggle {
     margin-left: -[[setting:menufontpadding]];
 }
 
-#adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav > li:last-child a {
+#adaptable-page-header-wrapper #main-navbar .navbar .navbar-nav > li:last-child a.dropdown-toggle {
     margin-right: -[[setting:menufontpadding]];
 }
 
