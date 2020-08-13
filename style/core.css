@@ -31,3 +31,8 @@
 .modchoosercontainer .btn-icon {
     padding-top: 0 !important;
 }
+
+body.h5p-embed #page-content {
+    display: block;
+    padding: 0;
+}
