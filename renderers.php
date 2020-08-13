@@ -1687,6 +1687,7 @@ EOT;
                         $header = new stdClass();
                         $header->navbar = $this->navbar();
                         $header->headeractions = $this->page->get_header_actions();
+                        $header->headerclasses = $this->page->theme->settings->responsivebreadcrumb;
                         $retval .= $this->render_from_template('theme_adaptable/header', $header);
                     }
                     $retval .= '</div>';
@@ -1750,7 +1751,7 @@ EOT;
 
         } // End loop.
 
-        $classes = $PAGE->theme->settings->responsivebreadcrumb;
+        $classes = $this->page->theme->settings->responsivebreadcrumb;
 
         return '<nav role="navigation" aria-label="'. get_string("breadcrumb", "theme_adaptable") .'">
             <ol  class="breadcrumb ' . $classes . '">'.$breadcrumbs.'</ol>

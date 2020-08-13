@@ -308,7 +308,7 @@ echo $OUTPUT->standard_top_of_body_html();
 
     <header id="adaptable-page-header-wrapper" <?php echo $headerbg; ?> >
 
-    <div id="above-header" class="mb-2 mb-lg-3">
+    <div id="above-header" class="mb-lg-3">
         <div class="container">
             <nav class="navbar navbar-expand btco-hover-menu">
 
