@@ -363,7 +363,7 @@ class theme_adaptable_core_renderer extends core_renderer {
             \theme_adaptable\toolbox::getfontawesomemarkup('user'));
         $usermenuitems[] = array('enableeditprofile', false, $CFG->wwwroot.'/user/edit.php', get_string('editmyprofile'),
             \theme_adaptable\toolbox::getfontawesomemarkup('cog'));
-        $usermenuitems[] = array('enableaccesstool', false, $CFG->wwwroot.'/local/accessibilitytool/manage.php', get_string('enableaccesstool', 'theme_adaptable'), 
+        $usermenuitems[] = array('enableaccesstool', false, $CFG->wwwroot.'/local/accessibilitytool/manage.php', get_string('enableaccesstool', 'theme_adaptable'),
             \theme_adaptable\toolbox::getfontawesomemarkup('low-vision'));
         $usermenuitems[] = array('enableprivatefiles', false, $CFG->wwwroot.'/user/files.php', get_string('privatefiles', 'block_private_files'),
              \theme_adaptable\toolbox::getfontawesomemarkup('file'));
@@ -431,7 +431,7 @@ class theme_adaptable_core_renderer extends core_renderer {
         return $retval;
     }
 
-    
+
 
     /**
      * Returns current url minus the value of $CFG->wwwroot
@@ -2074,7 +2074,7 @@ EOT;
                             }
 
                             if (!empty($myoverviewcourses[ADAPTABLE_COURSE_HIDDEN])) {
-                                $faicon = (!empty($this->page->theme->settings->chiddenicon)) ? 
+                                $faicon = (!empty($this->page->theme->settings->chiddenicon)) ?
                                     $this->page->theme->settings->chiddenicon : '';
                                 $hiddenicon = \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
                                 $child = $branch->add($hiddenicon . rtrim(
@@ -2146,7 +2146,7 @@ EOT;
                                 }
                             }
 
-                            $faicon = (!empty($this->page->theme->settings->chiddenicon)) ? 
+                            $faicon = (!empty($this->page->theme->settings->chiddenicon)) ?
                                 $this->page->theme->settings->chiddenicon : 'eye-slash';
                             $hiddenicon = \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
                             $child = null;
@@ -2304,7 +2304,7 @@ EOT;
         $icon = $existingicon;
 
         if (!empty($course->timestart)) {
-            $faicon = (!empty($this->page->theme->settings->cneveraccessedicon)) ? 
+            $faicon = (!empty($this->page->theme->settings->cneveraccessedicon)) ?
                 $this->page->theme->settings->cneveraccessedicon : '';
             $icon .= \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
         }
@@ -2312,14 +2312,14 @@ EOT;
         if (!empty($CFG->contextlocking)) {
             $context = context_course::instance($course->id);
             if ($context->locked) {
-                $faicon = (!empty($this->page->theme->settings->cfrozenicon)) ? 
+                $faicon = (!empty($this->page->theme->settings->cfrozenicon)) ?
                     $this->page->theme->settings->cfrozenicon : '';
                 $icon .= \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
             }
         }
 
         if (empty($icon)) {
-            $faicon = (!empty($this->page->theme->settings->cdefaulticon)) ? 
+            $faicon = (!empty($this->page->theme->settings->cdefaulticon)) ?
                 $this->page->theme->settings->cdefaulticon : '';
             $icon = \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
         }
