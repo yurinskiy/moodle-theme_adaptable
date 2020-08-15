@@ -24,6 +24,7 @@ Development in progress.
 18. Fix 'Editing cog colour not consistent' - #149.
 19. Fix 'Whitespace Below Header in Course Pages' - #38.
 20. Fix 'Use of "$setting->set_updatedcallback('theme_reset_all_caches');" not needed on some settings' - #25.
+21. Fix 'lib.php preg_match logic flaw' - #150.
 
 Change Log in version 2.2.2 (2019112601)
 ========================================
