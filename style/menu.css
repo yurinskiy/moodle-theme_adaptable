@@ -81,7 +81,8 @@
 
 #adaptable-page-header-wrapper .navbar-nav .dropdown li a i,
 #adaptable-page-header-wrapper #above-header a i {
-    padding-right: 4px;
+    text-align: center;
+    width: 22px;
 }
 
 a.dropdown-item.i.fa.fa-users.fa-lg {
@@ -695,10 +696,10 @@ a.dropdown-menu > .active > a:focus,
     font-size: 1.2em;
 }
 
-#adaptable-page-header-wrapper #main-navbar .nav-item i,
-#adaptable-page-header-wrapper #main-navbar a.dropdown-item img.icon {
-    padding-right: 2px;
+#adaptable-page-header-wrapper #main-navbar .nav-item .dropdown-toggle i {
+    width: 20px;
 }
+
 #adaptable-page-header-wrapper #main-navbar .nav-item i.fa-circle {
     font-size: 10px;
     margin-right: .25rem;
