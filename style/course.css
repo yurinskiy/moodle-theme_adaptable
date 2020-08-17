@@ -329,7 +329,7 @@
     z-index: 9; /* Override .cimbox class. */
 }
 
-.covtiles .panel-body:hover .coursebox-content {
+.covtiles .panel-body .coursebox-content:hover {
     height: calc(100% - 5px);
 }
 
