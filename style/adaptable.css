@@ -1654,8 +1654,9 @@ div.questionbankwindow.block {
   color: [[setting:rendereroverlayfontcolor]] !important;
 }
 
-.coursebox.panel.hover .panel-body:hover .coursebox-content h3 {
-  color: [[setting:rendereroverlayfontcolor]] !important;
+.coursebox.panel.hover .panel-body:hover .coursebox-content h3,
+.coursebox.panel.hover .panel-body:focus .coursebox-content h3 {
+    color: [[setting:rendereroverlayfontcolor]] !important;
 }
 
 .coursebox.hover .teachers li a,
