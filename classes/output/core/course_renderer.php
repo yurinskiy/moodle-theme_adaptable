@@ -103,10 +103,6 @@ class course_renderer extends \core_course_renderer {
 
         if ($type == 4) {
             $additionalcss = 'hover covtiles';
-            $type = 2;
-            $covhidebutton = "true";
-        } else {
-            $covhidebutton = "false";
         }
 
         if (!isset($this->strings->summary)) {
@@ -154,7 +150,7 @@ class course_renderer extends \core_course_renderer {
         }
 
         if ($type == 1) {
-            $content .= $this->coursecat_coursebox_enrolmenticons($course, $type);
+            $content .= $this->coursecat_coursebox_enrolmenticons($course);
         }
 
         if (($type == 1) || ($showcourses < self::COURSECAT_SHOW_COURSES_EXPANDED)) {
@@ -180,9 +176,9 @@ class course_renderer extends \core_course_renderer {
             $btn = html_writer::tag('span', get_string('course', 'theme_adaptable') . ' ' .
                     $arrow, array('class' => 'get_stringlink'));
 
-            if (empty($PAGE->theme->settings->covhidebutton)) {
+            if  (($type != 4) || (empty($PAGE->theme->settings->covhidebutton))) {
                 $content .= html_writer::link(new moodle_url('/course/view.php',
-                        array('id' => $course->id)), $btn, array('class' => " coursebtn submit btn btn-info btn-sm"));
+                    array('id' => $course->id)), $btn, array('class' => " coursebtn submit btn btn-info btn-sm"));
             }
         }
 
@@ -220,13 +216,15 @@ class course_renderer extends \core_course_renderer {
      *
      * Type - 1 = No Overlay.
      * Type - 2 = Overlay.
+     * Type - 3 = Moodle default.
+     * Type - 4 = Coventry tiles.
      *
      * @param coursecat_helper $chelper
      * @param string $course
      * @param int $type = 3
      * @return string
      */
-    protected function coursecat_coursebox_content(coursecat_helper $chelper, $course, $type=3) {
+    protected function coursecat_coursebox_content(coursecat_helper $chelper, $course, $type = 3) {
         global $CFG, $OUTPUT, $PAGE;
 
         if ($course instanceof stdClass) {
@@ -235,6 +233,10 @@ class course_renderer extends \core_course_renderer {
         }
         if ($type == 3 || $OUTPUT->body_id() != 'page-site-index') {
             return parent::coursecat_coursebox_content($chelper, $course);
+        }
+        if ($type == 4) {
+            // From this method's perspective 2 and 4 are the same.
+            $type = 2;
         }
         $content = '';
 
@@ -254,7 +256,7 @@ class course_renderer extends \core_course_renderer {
                     $contentimages .= html_writer::end_tag('div');
                 } else {
                     $contentimages .= html_writer::tag('div', '', array('class' => 'cimbox',
-                                                       'style' => 'background-image: url(\''.$url.'\');'));
+                        'style' => 'background-image: url(\''.$url.'\');'));
                 }
             } else {
                 $image = $this->output->pix_icon(file_file_icon($file, 24), $file->get_filename(), 'moodle');
@@ -269,7 +271,7 @@ class course_renderer extends \core_course_renderer {
             // Default image.
             $url = $PAGE->theme->setting_file_url('frontpagerendererdefaultimage', 'frontpagerendererdefaultimage');
             $contentimages .= html_writer::tag('div', '', array('class' => 'cimbox',
-                                               'style' => 'background-image: url(\''.$url.'\');'));
+                'style' => 'background-image: url(\''.$url.'\');'));
         }
         $content .= $contentimages.$contentfiles;
 
@@ -278,10 +280,12 @@ class course_renderer extends \core_course_renderer {
         }
 
         if ($type == 2) {
-            $content .= html_writer::start_tag('div', array('class' => 'coursebox-content'));
+            $content .= html_writer::start_tag('a', array(
+                'class' => 'coursebox-content',
+                'href' => new moodle_url('/course/view.php', array('id' => $course->id))
+            ));
             $coursename = $chelper->get_course_formatted_name($course);
-            $content .= html_writer::tag('h3', html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
-                    $coursename, array('class' => $course->visible ? '' : 'dimmed')));
+            $content .= html_writer::tag('h3', $coursename, array('class' => $course->visible ? '' : 'dimmed'));
         }
         $content .= html_writer::start_tag('div', array('class' => 'summary'));
         if (ISSET($coursename)) {
@@ -326,8 +330,8 @@ class course_renderer extends \core_course_renderer {
             }
         }
         if ($type == 2) {
-            $content .= html_writer::end_tag('div');
-            // End course-content.
+            $content .= html_writer::end_tag('a');
+            // End coursebox-content.
         }
         $content .= html_writer::tag('div', '', array('class' => 'boxfooter')); // Coursecat.
 

@@ -42,7 +42,7 @@ if ($ADMIN->fulltree) {
         1 => get_string('frontpagerendereroption1', 'theme_adaptable'),
         2 => get_string('frontpagerendereroption2', 'theme_adaptable'),
         3 => get_string('frontpagerendereroption3', 'theme_adaptable'),
-        4 => get_string('frontpagerendereroption4', 'theme_adaptable'),
+        4 => get_string('frontpagerendereroption4', 'theme_adaptable')
     );
     $setting = new admin_setting_configselect($name, $title, $description, 2, $choices);
     $temp->add($setting);

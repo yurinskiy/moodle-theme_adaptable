@@ -1654,7 +1654,7 @@ div.questionbankwindow.block {
   color: [[setting:rendereroverlayfontcolor]] !important;
 }
 
-.coursebox.panel.hover .panel-body:hover .coursebox-content h3 a {
+.coursebox.panel.hover .panel-body:hover .coursebox-content h3 {
   color: [[setting:rendereroverlayfontcolor]] !important;
 }
 
@@ -1674,7 +1674,7 @@ div.questionbankwindow.block {
 .coursebox.hover:hover .summary {
     display: block;
     height: auto;
-    min-width: 90%;
+    min-width: 100%;
     width: auto;
 }
 
