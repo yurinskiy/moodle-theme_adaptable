@@ -273,9 +273,11 @@ class theme_adaptable_core_renderer extends core_renderer {
     /**
      * Return list of the user's courses
      *
+     * @param string $overridetype
+     *
      * @return array list of courses
      */
-    public function render_mycourses() {
+    public function render_mycourses($overridetype) {
         // Set limit of courses to show in dropdown from setting.
         $coursedisplaylimit = '20';
         if (isset($this->page->theme->settings->mycoursesmenulimit)) {
@@ -286,22 +288,74 @@ class theme_adaptable_core_renderer extends core_renderer {
             join(',', array_keys(\core_course\external\course_summary_exporter::define_properties()))
         );
 
-        $sortedcourses = array();
-        $counter = 0;
-
-        // Get courses in sort order into list.
+        /* Add timeaccess and timestart to the courses for all override types to use in some shape or form.
+           Get the last accessed information for the user and populate. */
+        global $DB, $USER;
+        $lastaccess = $DB->get_records('user_lastaccess', array('userid' => $USER->id), '', 'courseid, timeaccess');
+        if ($lastaccess) {
+            foreach ($courses as $course) {
+                if (!empty($lastaccess[$course->id])) {
+                    $course->timeaccess = $lastaccess[$course->id]->timeaccess;
+                }
+            }
+        }
+        // Determine if we need to query the enrolment and user enrolment tables.
+        $enrolquery = false;
         foreach ($courses as $course) {
-
-            if (($counter >= $coursedisplaylimit) && ($coursedisplaylimit != 0)) {
+            if (empty($course->timeaccess)) {
+                $enrolquery = true;
                 break;
             }
-
-            $sortedcourses[] = $course;
-            $counter++;
-
+        }
+        if ($enrolquery) {
+            // We do.
+            $params = array('userid' => $USER->id);
+            $sql = "SELECT ue.id, e.courseid, ue.timestart
+                FROM {enrol} e
+                JOIN {user_enrolments} ue ON (ue.enrolid = e.id AND ue.userid = :userid)";
+            $enrolments = $DB->get_records_sql($sql, $params, 0, 0);
+            if ($enrolments) {
+                // Sort out any multiple enrolments on the same course.
+                $userenrolments = array();
+                foreach ($enrolments as $enrolment) {
+                    if (!empty($userenrolments[$enrolment->courseid])) {
+                        if ($userenrolments[$enrolment->courseid] < $enrolment->timestart) {
+                            // Replace.
+                            $userenrolments[$enrolment->courseid] = $enrolment->timestart;
+                        }
+                    } else {
+                        $userenrolments[$enrolment->courseid] = $enrolment->timestart;
+                    }
+                }
+                // We don't need to worry about timeend etc. as our course list will be valid for the user from above.
+                foreach ($courses as $course) {
+                    if (empty($course->timeaccess)) {
+                        $course->timestart = $userenrolments[$course->id];
+                    }
+                }
+            }
         }
 
-        return array($sortedcourses);
+        if ($overridetype == 'last') {
+            uasort($courses, array($this, 'timeaccesscompare'));
+        }
+
+        // Get courses in sort order into list.
+        if ($coursedisplaylimit != 0) {
+            $sortedcourses = array();
+            $counter = 0;
+            foreach ($courses as $course) {
+                if ($counter >= $coursedisplaylimit) {
+                    break;
+                }
+                $sortedcourses[] = $course;
+                $counter++;
+            }
+        } else {
+            $sortedcourses = $courses;
+        }
+
+        return $sortedcourses;
     }
 
 
@@ -1961,68 +2015,20 @@ EOT;
                     }
 
                     // Calls a local method (render_mycourses) to get list of a user's current courses that they are enrolled on.
-                    list($sortedcourses) = $this->render_mycourses();
+                    $sortedcourses = $this->render_mycourses($overridetype);
 
-                    // After finding out if there will be at least one course to display, check
-                    // for the option of displaying a sub-menu arrow symbol.
+                    /* After finding out if there will be at least one course to display, check
+                       for the option of displaying a sub-menu arrow symbol. */
                     if (!empty($PAGE->theme->settings->navbardisplaysubmenuarrow)) {
                         $branchlabel .= ' &nbsp;<i class="fa fa-caret-down"></i>';
                     }
 
-                    // Add top level menu option here after finding out if there will be at least one course to display.  This is
-                    // for the option of displaying a sub-menu arrow symbol above, if configured in the theme settings.
+                    /* Add top level menu option here after finding out if there will be at least one course to display.  This is
+                       for the option of displaying a sub-menu arrow symbol above, if configured in the theme settings. */
                     $branch = $menu->add($branchlabel, $branchurl, '', $branchsort);
                     $icon = '';
 
                     if ($sortedcourses) {
-                        /* Add timeaccess and timestart to the courses for all override types to use in some shape or form.
-                           Get the last accessed information for the user and populate. */
-                        global $DB, $USER;
-                        $lastaccess = $DB->get_records('user_lastaccess', array('userid' => $USER->id), '', 'courseid, timeaccess');
-                        if ($lastaccess) {
-                            foreach ($sortedcourses as $course) {
-                                if (!empty($lastaccess[$course->id])) {
-                                    $course->timeaccess = $lastaccess[$course->id]->timeaccess;
-                                }
-                            }
-                        }
-                        // Determine if we need to query the enrolment and user enrolment tables.
-                        $enrolquery = false;
-                        foreach ($sortedcourses as $course) {
-                            if (empty($course->timeaccess)) {
-                                $enrolquery = true;
-                                break;
-                            }
-                        }
-                        if ($enrolquery) {
-                            // We do.
-                            $params = array('userid' => $USER->id);
-                            $sql = "SELECT ue.id, e.courseid, ue.timestart
-                                FROM {enrol} e
-                                JOIN {user_enrolments} ue ON (ue.enrolid = e.id AND ue.userid = :userid)";
-                            $enrolments = $DB->get_records_sql($sql, $params, 0, 0);
-                            if ($enrolments) {
-                                // Sort out any multiple enrolments on the same course.
-                                $userenrolments = array();
-                                foreach ($enrolments as $enrolment) {
-                                    if (!empty($userenrolments[$enrolment->courseid])) {
-                                        if ($userenrolments[$enrolment->courseid] < $enrolment->timestart) {
-                                            // Replace.
-                                            $userenrolments[$enrolment->courseid] = $enrolment->timestart;
-                                        }
-                                    } else {
-                                        $userenrolments[$enrolment->courseid] = $enrolment->timestart;
-                                    }
-                                }
-                                // We don't need to worry about timeend etc. as our course list will be valid for the user from above.
-                                foreach ($sortedcourses as $course) {
-                                    if (empty($course->timeaccess)) {
-                                        $course->timestart = $userenrolments[$course->id];
-                                    }
-                                }
-                            }
-                        }
-
                         if ($overridetype == 'myoverview') {
                             $myoverviewcourses = $this->parsemyoverview($sortedcourses);
 
@@ -2070,10 +2076,6 @@ EOT;
                                     $showshortcode, $showhover, $mysitesmaxlength);
                             }
                         } else {
-                            if ($overridetype == 'last') {
-                                uasort($sortedcourses, array($this, 'timeaccesscompare'));
-                            }
-
                             foreach ($sortedcourses as $course) {
                                 if ($course->visible) {
                                     $coursename = '';
