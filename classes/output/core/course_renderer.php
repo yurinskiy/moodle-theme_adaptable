@@ -772,6 +772,11 @@ class course_renderer extends \core_course_renderer {
             return '';
         }
 
+        // If module is not visible to the user then don't bother getting meta data.
+        if (!$mod->uservisible) {
+            return '';
+        }
+
         // Do we have an activity function for this module for returning meta data?
         $meta = \theme_adaptable\activity::module_meta($mod);
         if (!$meta->is_set(true)) {
