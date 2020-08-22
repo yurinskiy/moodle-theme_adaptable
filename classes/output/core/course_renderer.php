@@ -869,8 +869,8 @@ class course_renderer extends \core_course_renderer {
             if (!$meta->submissionnotrequired && $meta->numsubmissions !== false) {
                 $engagementmeta[] = get_string('xofy'.$meta->submitstrkey, 'theme_adaptable',
                         (object) array(
-                                'completed' => $meta->numsubmissions,
-                                'participants' => \theme_adaptable\utils::course_participant_count($COURSE->id, $mod->modname)
+                                'completed' => $meta->numrequiregrading,
+                                'participants' => $meta->numsubmissions
                         )
                         );
             }
