@@ -131,15 +131,22 @@ class activity {
 
             // Teacher - useful teacher meta data.
             $methodnsubmissions = $mod->modname.'_num_submissions';
-            $methodnungraded = $mod->modname.'_num_submissions_ungraded';
+            $methodnumgraded = $mod->modname.'_num_submissions_ungraded';
+            $methodparticipants = $mod->modname.'_num_participants';
 
             if (method_exists('theme_adaptable\\activity', $methodnsubmissions)) {
                 $meta->numsubmissions = call_user_func('theme_adaptable\\activity::'.
                     $methodnsubmissions, $courseid, $mod);
             }
-            if (method_exists('theme_adaptable\\activity', $methodnungraded)) {
+            if (method_exists('theme_adaptable\\activity', $methodnumgraded)) {
                 $meta->numrequiregrading = call_user_func('theme_adaptable\\activity::'.
-                    $methodnungraded, $courseid, $mod);
+                    $methodnumgraded, $courseid, $mod);
+            }
+            if (method_exists('theme_adaptable\\activity', $methodparticipants)) {
+                $meta->numparticipants = call_user_func('theme_adaptable\\activity::'.
+                    $methodparticipants, $courseid, $mod);
+            } else {
+                $meta->numparticipants = self::course_participant_count($courseid, $mod->modname);
             }
 
             // If data module, get number of contributions.
@@ -619,6 +626,23 @@ class activity {
     }
 
     /**
+     * Assign module function for getting number of participants
+     *
+     * @param int $courseid
+     * @param cm_info $mod
+     * @return int
+     */
+    public static function assign_num_participants($courseid, $mod) {
+        // Ref: get_assign_grading_summary_renderable().
+        $coursemodulecontext = \context_module::instance($mod->id);
+        $course = get_course($courseid);
+        $assign = new \assign($coursemodulecontext, $mod, $course);
+        $activitygroup = groups_get_activity_group($mod);
+
+        return $assign->count_participants($activitygroup);
+    }
+
+    /**
      * Assign module function for getting number of submissions
      *
      * @param int $courseid
@@ -631,8 +655,8 @@ class activity {
         $course = get_course($courseid);
         $assign = new \assign($coursemodulecontext, $mod, $course);
         $activitygroup = groups_get_activity_group($mod);
-
-        return $assign->count_participants($activitygroup);
+        $submitted = ASSIGN_SUBMISSION_STATUS_SUBMITTED;
+        return $assign->count_submissions_with_status($submitted, $activitygroup);
     }
 
     /**
@@ -1078,5 +1102,45 @@ class activity {
         $vars = array('assignment' => $assignmentid, 'userid' => $USER->id);
         $row = $DB->get_record('assign_user_flags', $vars, 'extensionduedate');
         return $row ? $row->extensionduedate : false;
+    }
+
+    /**
+     * Get total participant count for specific courseid. Originally from
+     * the snap theme by Moodlerooms.
+     *
+     * @param int $courseid
+     * @param string $modname the name of the module, used to build a capability check
+     * @return int
+     */
+    public static function course_participant_count($courseid, $modname = null) {
+        static $participantcount = array();
+
+        // Incorporate the modname in the static cache index.
+        $idx = $courseid . $modname;
+
+        if (!isset($participantcount[$idx])) {
+            // Use the modname to determine the best capability.
+            switch ($modname) {
+                case 'quiz':
+                    $capability = 'mod/quiz:attempt';
+                    break;
+                case 'choice':
+                    $capability = 'mod/choice:choose';
+                    break;
+                case 'feedback':
+                    $capability = 'mod/feedback:complete';
+                    break;
+                default:
+                    // If no modname is specified, assume a count of all users is required.
+                    $capability = '';
+            }
+
+            $context = \context_course::instance($courseid);
+            $onlyactive = true;
+            $enrolled = count_enrolled_users($context, $capability, null, $onlyactive);
+            $participantcount[$idx] = $enrolled;
+        }
+
+        return $participantcount[$idx];
     }
 }

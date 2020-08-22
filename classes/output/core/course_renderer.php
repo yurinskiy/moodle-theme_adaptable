@@ -866,11 +866,11 @@ class course_renderer extends \core_course_renderer {
             $engagementmeta = array();
 
             // Below, !== false means we get 0 out of x submissions.
-            if (!$meta->submissionnotrequired && $meta->numsubmissions !== false) {
+            if (!$meta->submissionnotrequired && $meta->numparticipants !== false) {
                 $engagementmeta[] = get_string('xofy'.$meta->submitstrkey, 'theme_adaptable',
                         (object) array(
-                                'completed' => $meta->numrequiregrading,
-                                'participants' => $meta->numsubmissions
+                                'completed' => $meta->numsubmissions,
+                                'participants' => $meta->numparticipants
                         )
                         );
             }
