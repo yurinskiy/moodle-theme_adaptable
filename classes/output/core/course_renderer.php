@@ -776,9 +776,14 @@ class course_renderer extends \core_course_renderer {
             return '';
         }
 
+        // If module is not visible to the user then don't bother getting meta data.
+        if (!$mod->uservisible) {
+            return '';
+        }
+
         // Do we have an activity function for this module for returning meta data?
         $meta = \theme_adaptable\activity::module_meta($mod);
-        if (!$meta->is_set(true)) {
+        if (($meta == null) || (!$meta->is_set(true))) {
             // Can't get meta data for this module.
             return '';
         }
@@ -865,11 +870,11 @@ class course_renderer extends \core_course_renderer {
             $engagementmeta = array();
 
             // Below, !== false means we get 0 out of x submissions.
-            if (!$meta->submissionnotrequired && $meta->numsubmissions !== false) {
+            if (!$meta->submissionnotrequired && $meta->numparticipants !== false) {
                 $engagementmeta[] = get_string('xofy'.$meta->submitstrkey, 'theme_adaptable',
                         (object) array(
                                 'completed' => $meta->numsubmissions,
-                                'participants' => \theme_adaptable\utils::course_participant_count($COURSE->id, $mod->modname)
+                                'participants' => $meta->numparticipants
                         )
                         );
             }
