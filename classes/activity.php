@@ -638,8 +638,12 @@ class activity {
         $course = get_course($courseid);
         $assign = new \assign($coursemodulecontext, $mod, $course);
         $activitygroup = groups_get_activity_group($mod);
-
-        return $assign->count_participants($activitygroup);
+        $instance = $assign->get_default_instance();
+        if ($instance->teamsubmission) {
+            return $assign->count_teams($activitygroup);
+        } else {
+            return $assign->count_participants($activitygroup);
+        }
     }
 
     /**
@@ -734,7 +738,7 @@ class activity {
      * @return int
      */
     public static function quiz_num_submissions($courseid, $mod) {
-        return self::std_num_submissions($courseid, $modid, 'quiz', 'quiz', 'quiz_attempts');
+        return self::std_num_submissions($courseid, $mod, 'quiz', 'quiz', 'quiz_attempts');
     }
 
     /**
