@@ -186,8 +186,6 @@ class activity {
                             $meta->timesubmitted = $submissionrow->timecreated;
                         }
                     }
-                } else if ($mod->modname === 'assign') {
-                    return null;
                 }
             }
 
