@@ -779,7 +779,7 @@ class course_renderer extends \core_course_renderer {
 
         // Do we have an activity function for this module for returning meta data?
         $meta = \theme_adaptable\activity::module_meta($mod);
-        if (!$meta->is_set(true)) {
+        if (($meta == null) || (!$meta->is_set(true))) {
             // Can't get meta data for this module.
             return '';
         }

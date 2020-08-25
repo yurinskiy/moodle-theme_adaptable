@@ -118,13 +118,6 @@ class activity {
             $meta->set_default('reopenedstr', get_string('reopened', 'theme_adaptable'));
         }
 
-        if (!has_capability('mod/assign:grade', $mod->context)) {
-            // Student.
-            if (($mod->modname === 'assign') && (!has_capability('mod/assign:submit', $mod->context))) {
-                return $meta; // Default meta means don't show anything.
-            }
-        }
-
         $activitydates = self::instance_activity_dates($courseid, $mod, $timeopenfld, $timeclosefld);
         $meta->timeopen = $activitydates->timeopen;
         $meta->timeclose = $activitydates->timeclose;
@@ -193,6 +186,8 @@ class activity {
                             $meta->timesubmitted = $submissionrow->timecreated;
                         }
                     }
+                } else if ($mod->modname === 'assign') {
+                    return null;
                 }
             }
 
