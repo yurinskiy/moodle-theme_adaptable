@@ -155,7 +155,7 @@ class activity {
             }
         } else {
             // Student - useful student meta data - only display if activity is available.
-            if (empty($activitydates->timeopen) || $activitydates->timeopen <= time()) {  // TODO User time needed!!!
+            if (empty($activitydates->timeopen) || $activitydates->timeopen <= time()) {  // TODO User time needed???
 
                 $submissionrow = self::get_submission_row($courseid, $mod, $submissiontable, $keyfield, $submitselect);
 
@@ -790,7 +790,11 @@ class activity {
     }
 
     /**
-     * Get activity submission row
+     * Get activity submission row.
+     *
+     * This method gets all of the possible submission rows for the user for the given module type
+     * and then caches them so that there is only one database read for the user per module type
+     * regardless of the number on the course.
      *
      * @param int $courseid
      * @param cm_info $mod
@@ -807,7 +811,7 @@ class activity {
         static $submissions = array();
 
         // Pull from cache?
-        /*if (!PHPUNIT_TEST) {
+        if (!PHPUNIT_TEST) {
             if (isset($submissions[$courseid.'_'.$mod->modname])) {
                 if (isset($submissions[$courseid.'_'.$mod->modname][$mod->instance])) {
                     return $submissions[$courseid.'_'.$mod->modname][$mod->instance];
@@ -815,12 +819,12 @@ class activity {
                     return false;
                 }
             }
-        }*/
+        }
 
         $submissiontable = $mod->modname.'_'.$submissiontable;
 
         if ($mod->modname === 'assign') {
-            $params = [$courseid, $mod->instance];
+            $params = [$courseid];
             $sql = "-- Snap sql
                 SELECT a.id, st.*
                     FROM {".$submissiontable."} st
@@ -829,8 +833,7 @@ class activity {
                     ON a.id = st.$modfield
 
                     WHERE a.course = ?
-                    AND st.latest = 1
-                    AND st.assignment = ? $extraselect
+                    AND st.latest = 1 $extraselect
                     ORDER BY $modfield DESC, st.id DESC";
         } else {
             // Less effecient general purpose for other module types.
@@ -855,21 +858,23 @@ class activity {
                     ORDER BY $modfield DESC, st.id DESC";
         }
 
-        // Not every activity has a status field...
-        // Add one if it is missing so code assuming there is a status property doesn't explode.
-        $result = $DB->get_records_sql($sql, $params);
-        if (!$result) {
+        /* Not every activity has a status field...
+           Add one if it is missing so code assuming there is a status property doesn't explode. */
+        $results = $DB->get_records_sql($sql, $params);
+        if (!$results) {
             unset($submissions[$courseid.'_'.$mod->modname]);
             return false;
         }
 
-        foreach ($result as $r) {
+        foreach ($results as $r) {
             if (!isset($r->status)) {
                 $r->status = null;
             }
         }
 
         if ($mod->modname === 'assign') {
+            /* Assignment submissions can either be against the user's id or a group they are in.
+               Make a simple list of the groups the user is in. */
             $usergroups = array();
             foreach($USER->groupmember as $grouparray) {
                 foreach($grouparray as $group) {
@@ -877,23 +882,23 @@ class activity {
                 }
             }
 
-            $theresult = array();
-            foreach ($result as $r) {
-                if (!empty($r->userid)) {
-                    if ($r->userid == $USER->id) {
-                        $theresult[$mod->instance] = $r;
+            $theresults = array();
+            foreach ($results as $r) {
+                if (!empty($r->userid)) { // User id of 0 means that there should be a groupid.
+                    if ($r->userid == $USER->id) { // This record is for us.
+                        $theresults[$r->assignment] = $r;
                     }
                 } else if (!empty($r->groupid)) {
-                    if (in_array($r->groupid, $usergroups)) {
-                        $theresult[$mod->instance] = $r;
+                    if (in_array($r->groupid, $usergroups)) { // This record is in one of our groups.
+                        $theresults[$r->assignment] = $r;
                     }
                 }
             }
         } else {
-            $theresult = $result;
+            $theresults = $results;
         }
 
-        $submissions[$courseid.'_'.$mod->modname] = $theresult;
+        $submissions[$courseid.'_'.$mod->modname] = $theresults;
 
         if (isset($submissions[$courseid.'_'.$mod->modname][$mod->instance])) {
             return $submissions[$courseid.'_'.$mod->modname][$mod->instance];
