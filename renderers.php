@@ -207,6 +207,31 @@ if (file_exists("$CFG->dirroot/course/format/flexible/renderer.php")) {
     }
 }
 
+/******************************************************************************************
+ * @copyright 2020 Gareth J Barnard
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+ *
+ * Collapsed Topics format renderer for the Adaptable theme.
+ */
+
+// Check if Collapsed Topics is installed before trying to override it.
+if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
+    include_once($CFG->dirroot."/course/format/topcoll/renderer.php");
+
+    /**
+     * Constructor
+     * @copyright 2020 Gareth J Barnard
+     * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+     *
+     */
+    class theme_adaptable_format_topcoll_renderer extends format_topcoll_renderer {
+        public function __construct(moodle_page $page, $target) {
+            parent::__construct($page, $target);
+            $this->courserenderer = $this->page->get_renderer('theme_adaptable', 'topcoll_course');
+        }
+    }
+}
+
 define('ADAPTABLE_COURSE_STARRED', 'starred');
 define('ADAPTABLE_COURSE_IN_PROGRESS', 'inprogress');
 define('ADAPTABLE_COURSE_PAST', 'past');
