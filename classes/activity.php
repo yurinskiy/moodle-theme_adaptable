@@ -807,7 +807,7 @@ class activity {
         static $submissions = array();
 
         // Pull from cache?
-        if (!PHPUNIT_TEST) {
+        /*if (!PHPUNIT_TEST) {
             if (isset($submissions[$courseid.'_'.$mod->modname])) {
                 if (isset($submissions[$courseid.'_'.$mod->modname][$mod->instance])) {
                     return $submissions[$courseid.'_'.$mod->modname][$mod->instance];
@@ -815,14 +815,14 @@ class activity {
                     return false;
                 }
             }
-        }
+        }*/
 
         $submissiontable = $mod->modname.'_'.$submissiontable;
 
         if ($mod->modname === 'assign') {
-            $params = [$courseid, $USER->id];
+            $params = [$courseid, $mod->instance];
             $sql = "-- Snap sql
-                SELECT a.id AS instanceid, st.*
+                SELECT a.id, st.*
                     FROM {".$submissiontable."} st
 
                     JOIN {".$mod->modname."} a
@@ -830,7 +830,7 @@ class activity {
 
                     WHERE a.course = ?
                     AND st.latest = 1
-                    AND st.userid = ? $extraselect
+                    AND st.assignment = ? $extraselect
                     ORDER BY $modfield DESC, st.id DESC";
         } else {
             // Less effecient general purpose for other module types.
@@ -869,7 +869,31 @@ class activity {
             }
         }
 
-        $submissions[$courseid.'_'.$mod->modname] = $result;
+        if ($mod->modname === 'assign') {
+            $usergroups = array();
+            foreach($USER->groupmember as $grouparray) {
+                foreach($grouparray as $group) {
+                    $usergroups[] = $group;
+                }
+            }
+
+            $theresult = array();
+            foreach ($result as $r) {
+                if (!empty($r->userid)) {
+                    if ($r->userid == $USER->id) {
+                        $theresult[$mod->instance] = $r;
+                    }
+                } else if (!empty($r->groupid)) {
+                    if (in_array($r->groupid, $usergroups)) {
+                        $theresult[$mod->instance] = $r;
+                    }
+                }
+            }
+        } else {
+            $theresult = $result;
+        }
+
+        $submissions[$courseid.'_'.$mod->modname] = $theresult;
 
         if (isset($submissions[$courseid.'_'.$mod->modname][$mod->instance])) {
             return $submissions[$courseid.'_'.$mod->modname][$mod->instance];
