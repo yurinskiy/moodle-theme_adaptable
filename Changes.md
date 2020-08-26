@@ -27,6 +27,8 @@ Development in progress.
 21. Fix 'lib.php preg_match logic flaw' - #150.
 22. Fix 'wrong rtl css' - #142.
 23. Fix 'Impossible to enter a course with Coventry tiles' - #156.
+24. Update to version 3 https://moodlehq.github.io/moodle-plugin-ci/UPGRADE-3.0.html - #158.
+25. Assignment with restricting grouping shows all users or groups - #161.
 
 Change Log in version 2.2.2 (2019112601)
 ========================================
