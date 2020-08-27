@@ -48,37 +48,10 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $temp->add($setting);
 
-    // Block region builder.
+    // Dashboard block region builder.
     $noregions = 20; // Number of block regions defined in config.php.
-    $totalblocks = 0;
-    $imgpath = $CFG->wwwroot.'/theme/adaptable/pix/layout-builder/';
-    $imgblder = '';
-    for ($i = 1; $i <= 8; $i++) {
-        $name = 'theme_adaptable/dashblocklayoutlayoutrow' . $i;
-        $title = get_string('dashblocklayoutlayoutrow', 'theme_adaptable');
-        $description = get_string('dashblocklayoutlayoutrowdesc', 'theme_adaptable');
-        $default = $bootstrap12defaults[$i - 1];
-        $choices = $bootstrap12;
-        $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-        $temp->add($setting);
-
-        $settingname = 'dashblocklayoutlayoutrow' . $i;
-
-        if (!isset($PAGE->theme->settings->$settingname)) {
-            $PAGE->theme->settings->$settingname = '0-0-0-0';
-        }
-
-        if ($PAGE->theme->settings->$settingname != '0-0-0-0') {
-            $imgblder .= '<img src="' . $imgpath . $PAGE->theme->settings->$settingname . '.png' . '" style="padding-top: 5px">';
-        }
-
-        $vals = explode('-', $PAGE->theme->settings->$settingname);
-        foreach ($vals as $val) {
-            if ($val > 0) {
-                $totalblocks ++;
-            }
-        }
-    }
+    list('imgblder' => $imgblder, 'totalblocks' => $totalblocks) = \theme_adaptable\toolbox::admin_settings_layout_builder(
+        $temp, 'dashblocklayoutlayoutrow', $bootstrap12defaults, $bootstrap12);
 
     $temp->add(new admin_setting_heading('theme_adaptable_blocklayoutcheck', get_string('layoutcheck', 'theme_adaptable'),
         format_text(get_string('layoutcheckdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));

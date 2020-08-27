@@ -69,35 +69,9 @@ if ($ADMIN->fulltree) {
         get_string('marketingbuilderheading', 'theme_adaptable'),
         format_text(get_string('marketingbuilderdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
 
-    $totalblocks = 0;
-    $imgpath = $CFG->wwwroot . '/theme/adaptable/pix/layout-builder/';
-    $imgblder = '';
-    for ($i = 1; $i <= 5; $i++) {
-        $name = 'theme_adaptable/marketlayoutrow' . $i;
-        $title = get_string('marketlayoutrow', 'theme_adaptable');
-        $description = get_string('marketlayoutrowdesc', 'theme_adaptable');
-        $default = $marketingfooterbuilderdefaults[$i - 1];
-        $choices = $bootstrap12;
-        $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-        $temp->add($setting);
-
-        $settingname = 'marketlayoutrow' . $i;
-
-        if (!isset($PAGE->theme->settings->$settingname)) {
-            $PAGE->theme->settings->$settingname = '0-0-0-0';
-        }
-
-        if ($PAGE->theme->settings->$settingname != '0-0-0-0') {
-            $imgblder .= '<img src="' . $imgpath . $PAGE->theme->settings->$settingname . '.png' . '" style="padding-top: 5px">';
-        }
-
-        $vals = explode('-', $PAGE->theme->settings->$settingname);
-        foreach ($vals as $val) {
-            if ($val > 0) {
-                $totalblocks++;
-            }
-        }
-    }
+    // Marketing block region builder.
+    list('imgblder' => $imgblder, 'totalblocks' => $totalblocks) = \theme_adaptable\toolbox::admin_settings_layout_builder(
+        $temp, 'marketlayoutrow', $marketingfooterbuilderdefaults, $bootstrap12);
 
     $temp->add(new admin_setting_heading('theme_adaptable_blocklayoutcheck', get_string('layoutcheck', 'theme_adaptable'),
         format_text(get_string('layoutcheckdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
