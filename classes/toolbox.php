@@ -102,10 +102,10 @@ class toolbox {
                 // The last entry in the array is the top level category.
                 $catid = $catids[(count($catids) - 1)];
             }
-        } else if (!empty($$PAGE->course->category)) {
+        } else if (!empty($PAGE->course->category)) {
             $catid = $PAGE->course->category;
             // See if the course category is a top level one.
-            if (!array_key_exists($key, self::get_top_level_categories())) {
+            if (!array_key_exists($catid, self::get_top_level_categories())) {
                 $catid = false;
             }
         }
