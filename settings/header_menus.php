@@ -88,7 +88,7 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_RAW);
     $temp->add($setting);
 
-// Number of menus.
+    // Number of menus.
     $name = 'theme_adaptable/topmenuscount';
     $title = get_string('topmenuscount', 'theme_adaptable');
     $description = get_string('topmenuscountdesc', 'theme_adaptable');

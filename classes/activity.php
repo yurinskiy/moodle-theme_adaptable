@@ -876,8 +876,8 @@ class activity {
             /* Assignment submissions can either be against the user's id or a group they are in.
                Make a simple list of the groups the user is in. */
             $usergroups = array();
-            foreach($USER->groupmember as $grouparray) {
-                foreach($grouparray as $group) {
+            foreach ($USER->groupmember as $grouparray) {
+                foreach ($grouparray as $group) {
                     $usergroups[] = $group;
                 }
             }

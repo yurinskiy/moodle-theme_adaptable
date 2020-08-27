@@ -161,13 +161,9 @@ class editprofile_form extends \moodleform {
      * @return array|bool
      */
     public function validation($usernew, $files) {
-        global $DB;
-
         $usernew = (object)$usernew;
 
-        $user = $DB->get_record('user', array('id' => $usernew->id));
         $err = array();
-
         // Next the customisable profile fields.
         $err += profile_validation($usernew, $files);
 

@@ -52,7 +52,7 @@ echo $OUTPUT->doctype();
 
 <?php
 
-theme_adaptable_initialise_full($PAGE);
+theme_adaptable_initialise_full();
 $setfull = theme_adaptable_get_full();
 
 // Include header.
