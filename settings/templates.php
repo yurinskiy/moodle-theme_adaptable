@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Template settings.
+ *
  * @package    theme_adaptable
  * @copyright  2020 Gareth J Barnard
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -57,7 +59,7 @@ if ($overridetemplates) {
     }
 
     $overridetemplates = explode(',', $overridetemplates);
-    foreach($overridetemplates as $overridetemplate) {
+    foreach ($overridetemplates as $overridetemplate) {
         $overridetemplatesetting = str_replace('/', '_', $overridetemplate);
         $temppage = new admin_settingpage('theme_adaptable_templates_'.$overridetemplatesetting, get_string('overridetemplate', 'theme_adaptable', $overridetemplate));
         if ($ADMIN->fulltree) {

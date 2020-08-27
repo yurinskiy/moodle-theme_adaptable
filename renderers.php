@@ -225,6 +225,12 @@ if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
      *
      */
     class theme_adaptable_format_topcoll_renderer extends format_topcoll_renderer {
+        /**
+         * Constructor method.
+         *
+         * @param moodle_page $page.
+         * @param string $target one of rendering target constants.
+        */
         public function __construct(moodle_page $page, $target) {
             parent::__construct($page, $target);
             $this->courserenderer = $this->page->get_renderer('theme_adaptable', 'topcoll_course');
@@ -1670,7 +1676,7 @@ EOT;
     /**
      * Renders the breadcrumb navbar.
      *
-     * return string Markup or empty string if 'nonavbar' for tge given page layout in the config.php file is true.
+     * @return string Markup or empty string if 'nonavbar' for tge given page layout in the config.php file is true.
      */
     public function page_navbar() {
         global $PAGE;
@@ -1748,7 +1754,7 @@ EOT;
     /**
      * Render the navbar
      *
-     * return string
+     * @return string
      */
     public function navbar() {
         global $PAGE;

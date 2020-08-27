@@ -20,7 +20,6 @@
  * @package    theme_adaptable
  * @copyright  2020 Gareth J Barnard
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- *
  */
 
 namespace theme_adaptable\output\mod_forum\email;
@@ -29,13 +28,16 @@ defined('MOODLE_INTERNAL') || die();
 
 /**
  * Forum post renderable.
+ *
+ * @copyright  2020 Gareth J Barnard
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class renderer_textemail extends \mod_forum\output\email\renderer_textemail {
 
     /**
      * Display a forum post in the relevant context.
      *
-     * @param \mod_forum\output\forum_post $post The post to display.
+     * @param \mod_forum\output\forum_post_email $post The post to display.
      * @return string
      */
     public function render_forum_post_email(\mod_forum\output\forum_post_email $post) {

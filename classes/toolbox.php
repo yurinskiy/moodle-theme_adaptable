@@ -49,7 +49,7 @@ class toolbox {
      * @param string $setting Setting
      * @param Obj $theconfig
      *
-     * return string Setting url
+     * @return string Setting url
      */
     static public function get_setting_moodle_url($setting, $theconfig = null) {
         $settingurl = null;
@@ -368,7 +368,7 @@ class toolbox {
      * States if the Kaltura plugin is installed.
      * Ref: https://moodle.org/plugins/view.php?id=447
      *
-     * @rerurn boolean true or false.
+     * @return boolean true or false.
      */
     static public function kalturaplugininstalled() {
         global $CFG;
@@ -391,12 +391,12 @@ class toolbox {
     /**
      * Gets the Font Awesome markup for the given icon.
      *
-     * @param string $icon
+     * @param string $theicon
      * @param array $classes - Optional extra classes to add.
-     * @param array $sttributes - Optional attributes to add.
+     * @param array $attributes - Optional attributes to add.
      * @param string $content - Optional content.
      *
-     * @rerurn string markup or empty string if no icon specified.
+     * @return string markup or empty string if no icon specified.
      */
     static public function getfontawesomemarkup($theicon, $classes = array(), $attributes = array(), $content = '') {
         $icon = '';

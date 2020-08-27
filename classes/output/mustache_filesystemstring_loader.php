@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Mustache file system loader.
+ *
  * @package    theme_adaptable
  * @copyright  2020 Gareth J Barnard
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -24,8 +26,17 @@ namespace theme_adaptable\output;
 
 use coding_exception;
 
+/**
+ * Mustache file system loader.
+ *
+ * @copyright  2020 Gareth J Barnard
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class mustache_filesystemstring_loader extends \core\output\mustache_filesystem_loader {
 
+    /**
+     * var $templates array of templates.
+     */
     private $templates = array();
 
     /**
