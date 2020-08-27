@@ -149,45 +149,6 @@ if (isloggedin()) {
     $usermenu = $OUTPUT->render_from_template('theme_adaptable/usermenu', $data);
 }
 
-// Select fonts used.
-$fontname = '';
-$fontheadername = '';
-$fonttitlename = '';
-$fontweight = '';
-$fontheaderweight = '';
-$fonttitleweight = '';
-$fontssubset = '';
-
-switch ($PAGE->theme->settings->fontname) {
-    case 'default':
-        // Get the default font used by the browser.
-    break;
-
-    default:
-        // Get the Google fonts.
-        $fontname = str_replace(" ", "+", $PAGE->theme->settings->fontname);
-        $fontheadername = str_replace(" ", "+", $PAGE->theme->settings->fontheadername);
-        $fonttitlename = str_replace(" ", "+", $PAGE->theme->settings->fonttitlename);
-
-        $fontweight = ':400,400i';
-        $fontheaderweight = ':400,400i';
-        $fonttitleweight = ':700,700i';
-        $fontssubset = '';
-
-        // Get the Google Font weights.
-        $fontweight = ':'.$PAGE->theme->settings->fontweight.','.$PAGE->theme->settings->fontweight.'i';
-        $fontheaderweight = ':'.$PAGE->theme->settings->fontheaderweight.','.$PAGE->theme->settings->fontheaderweight.'i';
-        $fonttitleweight = ':'.$PAGE->theme->settings->fonttitleweight.','.$PAGE->theme->settings->fonttitleweight.'i';
-
-        // Get the Google fonts subset.
-        if (!empty($PAGE->theme->settings->fontsubset)) {
-            $fontssubset = '&subset='.$PAGE->theme->settings->fontsubset;
-        } else {
-            $fontssubset = '';
-        }
-    break;
-}
-
 // Get the HTML for the settings bits.
 $html = theme_adaptable_get_html_for_settings($OUTPUT, $PAGE);
 
