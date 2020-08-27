@@ -534,22 +534,38 @@ class course_renderer extends \core_course_renderer {
             return parent::course_section_cm_name($mod, $displayoptions);
         }
 
-        $output = '';
         if (!$mod->uservisible && empty($mod->availableinfo)) {
             // Nothing to be displayed to the user.
-            return $output;
+            return '';
         }
+
+        if (!$mod->url) {
+            return '';
+        }
+
+        $templateclass = new \core_course\output\course_module_name($mod, $this->page->user_is_editing(), $displayoptions);
+        $data = $this->adaptable_course_section_cm_name($mod, $templateclass);
+
+        return $this->output->render_from_template('core/inplace_editable', $data['templatedata']);
+    }
+
+    /**
+     * Common course_section_cm_name code.
+     *
+     * @param cm_info $mod
+     * @param course_module_name $templateclass
+     *
+     * @return array('templatedata', 'groupinglabel').
+     */
+    protected function adaptable_course_section_cm_name(cm_info $mod, $templateclass) {
         $url = $mod->url;
-        if (!$url) {
-            return $output;
-        }
 
         // Accessibility: for files get description via icon, this is very ugly hack!
         $instancename = $mod->get_formatted_name();
         $altname = $mod->modfullname;
-        // Avoid unnecessary duplication: if e.g. a forum name already
-        // includes the word forum (or Forum, etc) then it is unhelpful
-        // to include that in the accessible description that is added.
+        /* Avoid unnecessary duplication: if e.g. a forum name already
+           includes the word forum (or Forum, etc) then it is unhelpful
+           to include that in the accessible description that is added. */
         if (false !== strpos(core_text::strtolower($instancename),
                 core_text::strtolower($altname))) {
                     $altname = '';
@@ -560,11 +576,11 @@ class course_renderer extends \core_course_renderer {
             $altname = get_accesshide(' '.$altname);
         }
 
-        // For items which are hidden but available to current user
-        // ($mod->uservisible), we show those as dimmed only if the user has
-        // viewhiddenactivities, so that teachers see 'items which might not
-        // be available to some students' dimmed but students do not see 'item
-        // which is actually available to current student' dimmed.
+        /* For items which are hidden but available to current user
+           ($mod->uservisible), we show those as dimmed only if the user has
+           viewhiddenactivities, so that teachers see 'items which might not
+           be available to some students' dimmed but students do not see 'item
+           which is actually available to current student' dimmed. */
         $linkclasses = '';
         $accesstext = '';
         $textclasses = '';
@@ -585,22 +601,19 @@ class course_renderer extends \core_course_renderer {
             }
 
         } else {
-
             $linkclasses .= ' dimmed';
             $textclasses .= ' dimmed_text';
-
         }
 
-        // Get on-click attribute value if specified and decode the onclick - it
-        // has already been encoded for display (puke).
+        /* Get on-click attribute value if specified and decode the onclick - it
+           has already been encoded for display. */
         $onclick = htmlspecialchars_decode($mod->onclick, ENT_QUOTES);
 
         $groupinglabel = $mod->get_grouping_label($textclasses);
 
-        // Display link itself.
-
-        // Get icon url, but strip -24, -64, -256  etc from the end of filetype icons so we
-        // only need to provide one SVG, see MDL-47082. (Used from snap theme).
+        /* Display link itself.
+           Get icon url, but strip -24, -64, -256  etc from the end of filetype icons so we
+           only need to provide one SVG, see MDL-47082. (Used from snap theme). */
         $imageurl = \preg_replace('/-\d\d\d?$/', '', $mod->get_icon_url());
 
         $activitylink = html_writer::empty_tag('img', array('src' => $imageurl,
@@ -612,21 +625,18 @@ class course_renderer extends \core_course_renderer {
             $outputlink .= html_writer::link($url, $activitylink, array('class' => $linkclasses, 'onclick' => $onclick)) .
             $groupinglabel;
         } else {
-            // We may be displaying this just in order to show information
-            // about visibility, without the actual link ($mod->uservisible).
+            /* We may be displaying this just in order to show information
+               about visibility, without the actual link ($mod->uservisible).*/
             $outputlink .= html_writer::tag('div', $activitylink, array('class' => $textclasses)) .
             $groupinglabel;
         }
 
-        $tmpl = new \core_course\output\course_module_name($mod, $this->page->user_is_editing(), $displayoptions);
-        $templatedata = $tmpl->export_for_template($this->output);
+        $templatedata = $templateclass->export_for_template($this->output);
 
         // Variable displayvalue element is purposely overriden below with link including custom icon created above.
         $templatedata['displayvalue'] = $outputlink;
 
-        $output .= $this->output->render_from_template('core/inplace_editable', $templatedata);
-
-        return $output;
+        return array('templatedata' => $templatedata, 'groupinglabel' => $groupinglabel);
     }
 
     // New methods added for activity styling below.  Adapted from snap theme by Moodleroooms.
