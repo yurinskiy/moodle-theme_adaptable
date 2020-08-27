@@ -67,7 +67,7 @@ class renderer extends \core_user\output\myprofile\renderer {
         if ($this->enabletabbedprofile) {
             /* We need the user id!
             From user/profile.php - technically by the time we are instantiated then the user id will have been validated. */
-            global $CFG, $DB, $USER;
+            global $DB, $USER;
             $userid = optional_param('id', 0, PARAM_INT);
             $userid = $userid ? $userid : $USER->id;
             $this->user = \core_user::get_user($userid);
@@ -118,7 +118,7 @@ class renderer extends \core_user\output\myprofile\renderer {
         $output .= html_writer::end_tag('div');
 
         $output .= html_writer::start_tag('div', array('class' => 'ucol2 col-md-8')); // Col two.
-        $output .= $this->tabs($categories, $tree);
+        $output .= $this->tabs($categories);
         $output .= html_writer::end_tag('div');
 
         $output .= html_writer::end_tag('div');
@@ -402,11 +402,9 @@ class renderer extends \core_user\output\myprofile\renderer {
     /**
      * About me.
      *
-     * @param string $tree
-     *
      * @return array
      */
-    protected function create_aboutme($tree) {
+    protected function create_aboutme() {
         $aboutme = new category('aboutme', get_string('aboutme', 'theme_adaptable'));
         $descriptionempty = false;
         $interestsempty = false;
@@ -545,11 +543,10 @@ class renderer extends \core_user\output\myprofile\renderer {
      * Create tabs.
      *
      * @param array $categories
-     * @param string $tree
      *
      * @return string
      */
-    protected function tabs($categories, $tree) {
+    protected function tabs($categories) {
         global $USER;
 
         static $tabcategories = array('coursedetails');
@@ -559,7 +556,7 @@ class renderer extends \core_user\output\myprofile\renderer {
         $tabdata->tabs = array();
 
         // Aboutme tab.
-        $aboutme = $this->create_aboutme($tree);
+        $aboutme = $this->create_aboutme();
         $category = $aboutme['category'];
         $aboutmetab = new \stdClass;
         $aboutmetab->name = $category->name;
