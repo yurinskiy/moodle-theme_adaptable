@@ -502,4 +502,49 @@ class toolbox {
 
         return $output;
     }
+
+    /**
+     * Admin setting layout builder to build the setting layout and reduce code duplication.
+     *
+     * @param admin_settingpage $settingpage
+     * @param string $adminsettingname
+     * @param array $admindefaults
+     * @param array $adminchoices
+     *
+     * @return array of the imgblder and totalblocks.
+     */
+    static public function admin_settings_layout_builder($settingpage, $adminsettingname, $admindefaults, $adminchoices) {
+        global $CFG, $PAGE;
+
+        $totalblocks = 0;
+        $imgpath = $CFG->wwwroot.'/theme/adaptable/pix/layout-builder/';
+        $imgblder = '';
+        for ($i = 1; $i <= 5; $i++) {
+            $name = 'theme_adaptable/'.$adminsettingname.$i;
+            $title = get_string($adminsettingname, 'theme_adaptable');
+            $description = get_string($adminsettingname.'desc', 'theme_adaptable');
+            $default = $admindefaults[$i - 1];
+            $setting = new \admin_setting_configselect($name, $title, $description, $default, $adminchoices);
+            $settingpage->add($setting);
+
+            $settingname = $adminsettingname.$i;
+
+            if (!isset($PAGE->theme->settings->$settingname)) {
+                $PAGE->theme->settings->$settingname = '0-0-0-0';
+            }
+
+            if ($PAGE->theme->settings->$settingname != '0-0-0-0') {
+                $imgblder .= '<img src="' . $imgpath . $PAGE->theme->settings->$settingname . '.png' . '" style="padding-top: 5px">';
+            }
+
+            $vals = explode('-', $PAGE->theme->settings->$settingname);
+            foreach ($vals as $val) {
+                if ($val > 0) {
+                    $totalblocks++;
+                }
+            }
+        }
+        
+        return array('imgblder' => $imgblder, 'totalblocks' => $totalblocks);
+    }
 }
