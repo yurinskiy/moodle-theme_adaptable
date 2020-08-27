@@ -53,6 +53,7 @@ echo $OUTPUT->doctype();
 <?php
 
 theme_adaptable_initialise_full($PAGE);
+$setfull = theme_adaptable_get_full();
 
 // Include header.
 require_once(dirname(__FILE__) . '/head.php');
