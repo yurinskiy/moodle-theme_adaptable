@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * The mustache renderer.
+ *
  * @package    theme_adaptable
  * @copyright  2020 Gareth J Barnard
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

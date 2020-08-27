@@ -37,7 +37,7 @@ if (!empty($PAGE->theme->settings->loginheader)) {
 }
 
 echo '<div class="container outercont">';
-    echo $OUTPUT->page_navbar(false);
+    echo $OUTPUT->page_navbar();
     ?>
     <div id="page-content" class="row">
         <section id="region-main" class="col-12">

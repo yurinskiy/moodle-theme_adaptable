@@ -225,6 +225,12 @@ if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
      *
      */
     class theme_adaptable_format_topcoll_renderer extends format_topcoll_renderer {
+        /**
+         * Constructor method.
+         *
+         * @param moodle_page $page.
+         * @param string $target one of rendering target constants.
+        */
         public function __construct(moodle_page $page, $target) {
             parent::__construct($page, $target);
             $this->courserenderer = $this->page->get_renderer('theme_adaptable', 'topcoll_course');
@@ -508,7 +514,7 @@ class theme_adaptable_core_renderer extends core_renderer {
         return $retval;
     }
 
-    
+
 
     /**
      * Returns current url minus the value of $CFG->wwwroot
@@ -1662,8 +1668,7 @@ EOT;
     /**
      * Renders the breadcrumb navbar.
      *
-     * @param boolean $addbutton Add the page heading button.
-     * return string Markup or empty string if 'nonavbar' for tge given page layout in the config.php file is true.
+     * @return string Markup or empty string if 'nonavbar' for tge given page layout in the config.php file is true.
      */
     public function page_navbar() {
         global $PAGE;
@@ -1716,9 +1721,6 @@ EOT;
                         $retval .= '</div>';
                     } else {
                         $retval .= '<div id="page-navbar" class="col-12">';
-                        if ($addbutton) {
-                            $retval .= '<nav class="breadcrumb-button">' . $this->page_heading_button() . '</nav>';
-                        }
                         $retval .= $this->navbar();
                         $retval .= '</div>';
                     }
@@ -1733,7 +1735,7 @@ EOT;
     /**
      * Render the navbar
      *
-     * return string
+     * @return string
      */
     public function navbar() {
         global $PAGE;
@@ -1783,7 +1785,7 @@ EOT;
 
         } // End loop.
 
-        $classes = $PAGE->theme->settings->responsivebreadcrumb;
+        $classes = $this->page->theme->settings->responsivebreadcrumb;
 
         return '<nav role="navigation" aria-label="'. get_string("breadcrumb", "theme_adaptable") .'">
             <ol  class="breadcrumb ' . $classes . '">'.$breadcrumbs.'</ol>
@@ -2056,7 +2058,7 @@ EOT;
                             }
 
                             if (!empty($myoverviewcourses[ADAPTABLE_COURSE_HIDDEN])) {
-                                $faicon = (!empty($this->page->theme->settings->chiddenicon)) ? 
+                                $faicon = (!empty($this->page->theme->settings->chiddenicon)) ?
                                     $this->page->theme->settings->chiddenicon : '';
                                 $hiddenicon = \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
                                 $child = $branch->add($hiddenicon . rtrim(
@@ -2124,7 +2126,7 @@ EOT;
                                 }
                             }
 
-                            $faicon = (!empty($this->page->theme->settings->chiddenicon)) ? 
+                            $faicon = (!empty($this->page->theme->settings->chiddenicon)) ?
                                 $this->page->theme->settings->chiddenicon : 'eye-slash';
                             $hiddenicon = \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
                             $child = null;
@@ -2282,7 +2284,7 @@ EOT;
         $icon = $existingicon;
 
         if (!empty($course->timestart)) {
-            $faicon = (!empty($this->page->theme->settings->cneveraccessedicon)) ? 
+            $faicon = (!empty($this->page->theme->settings->cneveraccessedicon)) ?
                 $this->page->theme->settings->cneveraccessedicon : '';
             $icon .= \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
         }
@@ -2290,14 +2292,14 @@ EOT;
         if (!empty($CFG->contextlocking)) {
             $context = context_course::instance($course->id);
             if ($context->locked) {
-                $faicon = (!empty($this->page->theme->settings->cfrozenicon)) ? 
+                $faicon = (!empty($this->page->theme->settings->cfrozenicon)) ?
                     $this->page->theme->settings->cfrozenicon : '';
                 $icon .= \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
             }
         }
 
         if (empty($icon)) {
-            $faicon = (!empty($this->page->theme->settings->cdefaulticon)) ? 
+            $faicon = (!empty($this->page->theme->settings->cdefaulticon)) ?
                 $this->page->theme->settings->cdefaulticon : '';
             $icon = \theme_adaptable\toolbox::getfontawesomemarkup($faicon);
         }

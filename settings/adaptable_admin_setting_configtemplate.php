@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Template admin setting.
+ *
  * @package    theme_adaptable
  * @copyright  2020 Gareth J Barnard
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -22,15 +24,28 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+/**
+ * Template admin setting.
+ *
+ * @package    theme_adaptable
+ * @copyright  2020 Gareth J Barnard
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class adaptable_admin_setting_configtemplate extends admin_setting_configtextarea {
 
+    /**
+     * @var $templatename The name of the template.
+     */
     private $templatename;
 
     /**
+     * Constructor
+     *
      * @param string $name
      * @param string $visiblename
      * @param string $description
      * @param mixed $defaultsetting string or array
+     * @param string $templatename
      * @param mixed $paramtype
      * @param string $cols The number of columns to make the editor
      * @param string $rows The number of rows to make the editor

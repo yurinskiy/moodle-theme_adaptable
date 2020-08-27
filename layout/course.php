@@ -61,7 +61,7 @@ if ($movesidebartofooter) {
 
 <div class="container outercont">
     <?php
-        echo $OUTPUT->page_navbar(false);
+        echo $OUTPUT->page_navbar();
     ?>
     <div id="page-content" class="row<?php echo $regions['direction'];?>">
         <?php

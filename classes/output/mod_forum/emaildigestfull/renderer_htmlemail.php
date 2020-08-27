@@ -29,13 +29,17 @@ defined('MOODLE_INTERNAL') || die();
 
 /**
  * Forum post renderable.
+ *
+ * @copyright  2020 Gareth J Barnard
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class renderer_htmlemail extends \mod_forum\output\emaildigestfull\renderer {
 
     /**
      * Display a forum post in the relevant context.
      *
-     * @param \mod_forum\output\forum_post $post The post to display.
+     * @param \mod_forum\output\forum_post_email $post The post to display.
+     *
      * @return string
      */
     public function render_forum_post_email(\mod_forum\output\forum_post_email $post) {
