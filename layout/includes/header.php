@@ -214,66 +214,9 @@ echo $OUTPUT->doctype();
     <link rel="icon" href="<?php echo $OUTPUT->favicon(); ?>" />
 
 <?php
-// HTML head.
-echo $OUTPUT->standard_head_html() ?>
-    <!-- CSS print media -->
-    <link rel="stylesheet" type="text/css" href="<?php echo $wwwroot; ?>/theme/adaptable/style/print.css" media="print">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+// Include header.
+require_once(dirname(__FILE__) . '/head.php');
 
-    <!-- Twitter Card data -->
-    <meta name="twitter:card" value="summary">
-    <meta name="twitter:site" value="<?php echo $SITE->fullname; ?>" />
-    <meta name="twitter:title" value="<?php echo $OUTPUT->page_title(); ?>" />
-
-    <!-- Open Graph data -->
-    <meta property="og:title" content="<?php echo $OUTPUT->page_title(); ?>" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="<?php echo $wwwroot; ?>" />
-    <meta name="og:site_name" value="<?php echo $SITE->fullname; ?>" />
-
-    <!-- Chrome, Firefox OS and Opera on Android topbar color -->
-    <meta name="theme-color" content="<?php echo $PAGE->theme->settings->maincolor; ?>" />
-
-    <!-- Windows Phone topbar color -->
-    <meta name="msapplication-navbutton-color" content="<?php echo $PAGE->theme->settings->maincolor; ?>" />
-
-    <!-- iOS Safari topbar color -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="<?php echo $PAGE->theme->settings->maincolor; ?>" />
-
-    <?php
-    // Load fonts.
-    if ((!empty($fontname)) && ($fontname != 'default') && ($fontname != 'custom')) {
-        ?>
-    <!-- Load Google Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=<?php echo $fontname.$fontweight.$fontssubset; ?>'
-    rel='stylesheet'
-    type='text/css'>
-    <?php
-    }
-    ?>
-
-    <?php
-    if ((!empty($fontheadername)) && ($fontheadername != 'default') && ($fontname != 'custom')) {
-    ?>
-        <link href='https://fonts.googleapis.com/css?family=<?php echo $fontheadername.$fontheaderweight.$fontssubset; ?>'
-        rel='stylesheet'
-        type='text/css'>
-    <?php
-    }
-    ?>
-
-    <?php
-    if ((!empty($fonttitlename)) && ($fonttitlename != 'default') && ($fontname != 'custom')) {
-    ?>
-        <link href='https://fonts.googleapis.com/css?family=<?php echo $fonttitlename.$fonttitleweight.$fontssubset; ?>'
-        rel='stylesheet'
-        type='text/css'>
-    <?php
-    }
-    ?>
-</head>
-
-<?php
 // If it is a mobile and the header is not hidden or it is a desktop there will be a page header.
 $pageheader = 'has-page-header';
 
