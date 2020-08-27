@@ -79,7 +79,7 @@ if ($ADMIN->fulltree) {
         $description = get_string('toolsmenudesc', 'theme_adaptable');
         $setting = new admin_setting_configtextarea($name, $title, $description, '', PARAM_RAW, '50', '10');
         $temp->add($setting);
-        
+
         $name = 'theme_adaptable/toolsmenu' . $toolsmenusindex . 'field';
         $title = get_string('toolsmenufield', 'theme_adaptable');
         $description = get_string('toolsmenufielddesc', 'theme_adaptable');

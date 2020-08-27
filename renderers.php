@@ -549,7 +549,6 @@ class theme_adaptable_core_renderer extends core_renderer {
      * @return the user menu
      */
     public function user_menu($user = null, $withlinks = null) {
-        global $CFG;
         $usermenu = new custom_menu('', current_language());
         return $this->render_user_menu($usermenu);
     }
@@ -834,8 +833,6 @@ class theme_adaptable_core_renderer extends core_renderer {
             return '';
         }
 
-        global $PAGE;
-
         $retval = '<div class="customalert alert alert-dismissable adaptable-alert-' . $type . ' fade in">';
         $retval .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close" data-alertkey="' . $alertkey.
             '" data-alertindex="' . $alertindex . '">';
@@ -1022,7 +1019,7 @@ EOT;
      * @return string
      */
     public function get_piwik() {
-        global $CFG, $DB, $PAGE, $COURSE, $SITE;
+        global $DB, $PAGE;
 
         $enabled = $PAGE->theme->settings->piwikenabled;
         $imagetrack = $PAGE->theme->settings->piwikimagetrack;
@@ -1144,8 +1141,6 @@ EOT;
      * @return string
      */
     protected function render_user_menu(custom_menu $menu) {
-        global $CFG, $DB, $PAGE, $OUTPUT;
-
         // Add the custom usermenus.
         $content = html_writer::start_tag('ul', array('class' => 'navbar-nav mr-auto'));
         foreach ($menu->get_children() as $item) {
@@ -1153,30 +1148,6 @@ EOT;
         }
 
         return $content.html_writer::end_tag('ul');
-    }
-
-    /**
-     * Returns formats messages in the header with user profile images
-     *
-     * @return array
-     */
-    protected function process_user_messages() {
-        $messagelist = array();
-        foreach ($usermessages as $message) {
-            $cleanmsg = new stdClass();
-            $cleanmsg->from = fullname($message);
-            $cleanmsg->msguserid = $message->id;
-
-            $userpicture = new user_picture($message);
-            $userpicture->link = false;
-            $picture = $this->render($userpicture);
-
-            $cleanmsg->text = $picture . ' ' . $cleanmsg->text;
-
-            $messagelist[] = $cleanmsg;
-        }
-
-        return $messagelist;
     }
 
     /**
@@ -1251,7 +1222,7 @@ EOT;
      * @return string
      */
     public function socialicons() {
-        global $CFG, $PAGE;
+        global $PAGE;
 
         if (!isset($PAGE->theme->settings->socialiconlist)) {
             return '';
@@ -1290,7 +1261,7 @@ EOT;
      * @return string
      */
     public function get_news_ticker() {
-        global $PAGE, $OUTPUT;
+        global $PAGE;
         $retval = '';
 
         if (!isset($PAGE->theme->settings->enabletickermy)) {
@@ -1442,7 +1413,6 @@ EOT;
     public function get_missing_block_regions($blocksarray, $classes = array(), $displayall = false) {
         global $PAGE, $OUTPUT, $USER;
         $retval = '';
-        $style = '';
         $adminediting = false;
 
         if (isset($USER->editing) && $USER->editing == 1) {
@@ -1516,7 +1486,6 @@ EOT;
         global $PAGE, $OUTPUT;
         $fields = array();
         $blockcount = 0;
-        $style = '';
 
         $extramarketclass = $PAGE->theme->settings->frontpagemarketoption;
 
@@ -1585,7 +1554,6 @@ EOT;
         global $PAGE, $OUTPUT;
         $fields = array();
         $blockcount = 0;
-        $style = '';
 
         if (!$this->get_footer_visibility()) {
             return '';
@@ -1704,7 +1672,7 @@ EOT;
      *
      * return string Markup or empty string if 'nonavbar' for tge given page layout in the config.php file is true.
      */
-    public function page_navbar($addbutton = false) {
+    public function page_navbar() {
         global $PAGE;
         $retval = '';
         if (empty($PAGE->layout_options['nonavbar'])) { // Not disabled by 'nonavbar' in config.php.
@@ -1907,13 +1875,11 @@ EOT;
      * @return menu boject
      */
     public function navigation_menu_content() {
-
-        global $PAGE, $COURSE, $OUTPUT, $CFG, $USER;
+        global $COURSE, $OUTPUT, $PAGE;
         $menu = new custom_menu();
 
         $access = true;
         $overridelist = false;
-        $overridestrings = false;
         $overridetype = 'off';
 
         if (!empty($PAGE->theme->settings->navbardisplayicons)) {
@@ -1922,7 +1888,6 @@ EOT;
             $navbardisplayicons = false;
         }
 
-        $usernavbar = 'excludehidden';
         if (!empty($PAGE->theme->settings->enablemysites)) {
             $mysitesvisibility = $PAGE->theme->settings->enablemysites;
         }
@@ -2363,7 +2328,7 @@ EOT;
      * @return array array of arrays that classify the courses.
      */
      protected function parsemyoverview(&$sortedcourses) {
-        global $CFG, $USER;
+        global $USER;
 
         $ufservice = \core_favourites\service_factory::get_service_for_user_context(\context_user::instance($USER->id));
         $starred = $ufservice->find_favourites_by_type('core_course', 'courses');
@@ -2562,7 +2527,6 @@ EOT;
         for ($i = 1; $i <= $toolsmenuscount; $i++) {
             $menunumber = 'toolsmenu' . $i;
             $menutitle = $menunumber . 'title';
-            $requirelogin = $menunumber . 'requirelogin';
             $accessrules = $menunumber . 'field';
             $access = true;
 
@@ -2598,7 +2562,7 @@ EOT;
                         // We look each cells added to the line for capabilities.
                         for ($i = 3; $i < count($cells); $i++) {
                             // Check if the current cell contain a valid capability or not.
-                            if (!$capinfo = get_capability_info(trim($cells[$i]))) {
+                            if (!get_capability_info(trim($cells[$i]))) {
 
                                 // Should we say to the user that the capability is not valid ?
                                 // It should be better to print this when the "admin" fill the toolmenu, not when we print it.
@@ -2817,12 +2781,9 @@ EOT;
                 for ($i = 1; $i <= $topmenuscount; $i++) {
                     $menunumber = 'menu' . $i;
                     $newmenu = 'newmenu' . $i;
-                    $class = 'newmenu' . ($i + 4);
                     $fieldsetting = 'newmenu' . $i . 'field';
-                    $valuesetting = 'newmenu' . $i . 'value';
                     $newmenutitle = 'newmenu' . $i . 'title';
                     $requirelogin = 'newmenu' . $i . 'requirelogin';
-                    $logincheck = true;
                     $custommenuitems = '';
                     $access = true;
 
@@ -3086,7 +3047,7 @@ EOT;
      * @return array
      */
     public function get_profile_field_contents($profilefields) {
-        global $PAGE, $USER, $CFG;
+        global $CFG, $USER;
         $timestamp = 'currentcoursestime';
         $list = 'currentcourseslist';
 

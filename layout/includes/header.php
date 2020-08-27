@@ -44,10 +44,10 @@ if ( (strstr($PAGE->pagetype, 'course')) ||
 }
 
 // Screen size.
-theme_adaptable_initialise_zoom($PAGE);
+theme_adaptable_initialise_zoom();
 $setzoom = theme_adaptable_get_zoom();
 
-theme_adaptable_initialise_full($PAGE);
+theme_adaptable_initialise_full();
 $setfull = theme_adaptable_get_full();
 
 $bsoptionsdata = array('data' => array());

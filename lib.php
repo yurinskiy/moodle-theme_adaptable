@@ -444,19 +444,17 @@ function theme_adaptable_get_zoom() {
 
 /**
  * Set user preferences for zoom (show / hide block) function
- * @param moodle_page $page
  * @return void
  */
-function theme_adaptable_initialise_zoom(moodle_page $page) {
+function theme_adaptable_initialise_zoom() {
     user_preference_allow_ajax_update('theme_adaptable_zoom', PARAM_TEXT);
 }
 
 /**
  * Set the user preference for full screen
- * @param moodle_page $page
  * @return void
  */
-function theme_adaptable_initialise_full(moodle_page $page) {
+function theme_adaptable_initialise_full() {
     if (theme_adaptable_get_setting('enablezoom')) {
         user_preference_allow_ajax_update('theme_adaptable_full', PARAM_TEXT);
     }
@@ -618,10 +616,9 @@ function theme_adaptable_pluginfile($course, $cm, $context, $filearea, $args, $f
  * Get course activities for this course menu
  */
 function theme_adaptable_get_course_activities() {
-    GLOBAL $CFG, $PAGE, $OUTPUT;
+    global $PAGE;
     // A copy of block_activity_modules.
     $course = $PAGE->course;
-    $content = new stdClass();
     $modinfo = get_fast_modinfo($course);
     $modfullnames = array();
 
@@ -729,7 +726,7 @@ function theme_adaptable_grid($left, $hassidepost) {
  *
  */
 function theme_adaptable_get_current_page() {
-    global $COURSE, $PAGE;
+    global $PAGE;
 
     // This will store the kind of activity page type we find. E.g. It will get populated with 'section' or similar.
     $currentpage = '';
@@ -749,9 +746,6 @@ function theme_adaptable_get_current_page() {
             if (strstr ($url->raw_out(), 'course/view.php')) {
 
                 $currentpage = 'coursepage';
-
-                // Get raw querystring params from URL.
-                $getparams = http_build_query($_GET);
 
                 // Check url paramaters.  Count should be 1 if course home page. Use this to check if section page.
                 $urlparams = $url->params();

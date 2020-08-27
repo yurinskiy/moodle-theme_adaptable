@@ -44,7 +44,7 @@ class adaptable_admin_setting_configtemplate extends admin_setting_configtextare
         global $PAGE;
         $PAGE->requires->js_call_amd('theme_adaptable/templatepreview', 'init');
 
-        parent::__construct($name, $visiblename, $description, $defaultsetting);
+        parent::__construct($name, $visiblename, $description, $defaultsetting, $paramtype);
     }
 
     /**
