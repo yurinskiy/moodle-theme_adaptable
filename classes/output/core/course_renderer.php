@@ -89,7 +89,7 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
-        global $CFG, $OUTPUT, $PAGE;
+        global $OUTPUT, $PAGE;
         $type = theme_adaptable_get_setting('frontpagerenderer');
         if ($type == 3 || $OUTPUT->body_id() != 'page-site-index') {
             return parent::coursecat_coursebox($chelper, $course, $additionalclasses = '');
@@ -379,7 +379,7 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     public function frontpage_my_courses() {
-        global $USER, $CFG, $DB;
+        global $CFG, $DB;
         $output = '';
         if (!isloggedin() or isguestuser()) {
             return '';
@@ -773,8 +773,7 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function course_section_cm_get_meta(cm_info $mod) {
-
-        global $COURSE, $OUTPUT;
+        global $COURSE;
 
         $content = '';
 
@@ -820,14 +819,11 @@ class course_renderer extends \core_course_renderer {
 
         // Activity due date.
         if (!empty($meta->extension) || !empty($meta->timeclose)) {
-            $due = get_string('due', 'theme_adaptable');
             if (!empty($meta->extension)) {
                 $field = 'extension';
             } else if (!empty($meta->timeclose)) {
                 $field = 'timeclose';
             }
-
-            $pastdue = $meta->$field < time();
 
             // Create URL for due date.
             $url = new \moodle_url("/mod/{$mod->modname}/view.php", ['id' => $mod->id]);
