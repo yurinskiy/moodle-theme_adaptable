@@ -189,10 +189,10 @@ class renderer extends \core_user\output\myprofile\renderer {
      * @return array
      */
     protected function message_user() {
-        global $CFG, $PAGE, $USER;
+        global $CFG, $USER;
         $output = array();
 
-        $course = ($PAGE->context->contextlevel == CONTEXT_COURSE) ? $PAGE->course : null;  // Use Moodle code just in case!
+        $course = ($this->page->context->contextlevel == CONTEXT_COURSE) ? $this->page->course : null;  // Use Moodle code just in case!
         $user = $this->user;
 
         if (user_can_view_profile($user, $course)) {
@@ -207,7 +207,7 @@ class renderer extends \core_user\output\myprofile\renderer {
                         $linkattributes = \core_message\helper::messageuser_link_params($user->id);
                         // Change the id to us instead of copying the method.
                         $linkattributes['id'] = 'adaptable-message-user-button';
-                        self::adaptable_messageuser_requirejs();
+                        $this->adaptable_messageuser_requirejs();
                     }
                     $userbuttons['messages'] = array(
                         'buttontype' => 'message',
@@ -215,7 +215,7 @@ class renderer extends \core_user\output\myprofile\renderer {
                         'url' => new \moodle_url('/message/index.php', array('id' => $user->id)),
                         'image' => 't/message',
                         'linkattributes' => $linkattributes,
-                        'page' => $PAGE
+                        'page' => $this->page
                     );
                 }
 
@@ -235,12 +235,12 @@ class renderer extends \core_user\output\myprofile\renderer {
                         ),
                         'image' => 't/'.$contactimage,
                         'linkattributes' => \core_message\helper::togglecontact_link_params($user, $iscontact),
-                        'page' => $PAGE
+                        'page' => $this->page
                     );
                     \core_message\helper::togglecontact_requirejs();
                 }
 
-                $PAGE->requires->string_for_js('changesmadereallygoaway', 'moodle');
+                $this->page->requires->string_for_js('changesmadereallygoaway', 'moodle');
                 foreach ($userbuttons as $button) {
                     $image = $this->pix_icon($button['image'], $button['title'], 'moodle', array(
                         'class' => 'iconsmall',
@@ -268,15 +268,13 @@ class renderer extends \core_user\output\myprofile\renderer {
      *
      * @return void
      */
-    public static function adaptable_messageuser_requirejs() {
-        global $PAGE;
-
+    public function adaptable_messageuser_requirejs() {
         static $done = false;
         if ($done) {
             return;
         }
 
-        $PAGE->requires->js_call_amd('core_message/message_user_button', 'send', array('#adaptable-message-user-button'));
+        $this->page->requires->js_call_amd('core_message/message_user_button', 'send', array('#adaptable-message-user-button'));
         $done = true;
     }
 
@@ -372,9 +370,8 @@ class renderer extends \core_user\output\myprofile\renderer {
         $output = '';
 
         if (!empty($this->user)) {
-            global $OUTPUT;
             $output .= html_writer::start_tag('li', array('class' => 'adaptableuserpicture'));
-            $output .= $OUTPUT->user_picture($this->user, array('size' => '1'));
+            $output .= $this->output->user_picture($this->user, array('size' => '1'));
             $output .= html_writer::end_tag('li');
         }
 
@@ -422,9 +419,8 @@ class renderer extends \core_user\output\myprofile\renderer {
 
         // Interests.
         if (!empty($this->user->userdetails['interests'])) {
-            global $OUTPUT;
             // Odd but just the way things can be!
-            $interests = $OUTPUT->tag_list(\core_tag_tag::get_item_tags('core', 'user', $this->user->id), '');
+            $interests = $this->output->tag_list(\core_tag_tag::get_item_tags('core', 'user', $this->user->id), '');
         } else {
             $interests = get_string('usernointerests', 'theme_adaptable');
             $interestsempty = true;
