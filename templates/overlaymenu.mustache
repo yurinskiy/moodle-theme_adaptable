@@ -52,7 +52,9 @@
             {{#menus}}
                 <div class="col-{{span}}">
                     <ul class="overlaylist">
-                        {{{menuitems}}}
+                    {{#menuitems}}
+                        {{> theme_adaptable/overlaymenuitem }}
+                    {{/menuitems}}
                     </ul>
                 </div>
             {{/menus}}
