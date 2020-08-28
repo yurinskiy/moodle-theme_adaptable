@@ -89,9 +89,8 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
-        global $OUTPUT, $PAGE;
         $type = theme_adaptable_get_setting('frontpagerenderer');
-        if ($type == 3 || $OUTPUT->body_id() != 'page-site-index') {
+        if ($type == 3 || $this->output->body_id() != 'page-site-index') {
             return parent::coursecat_coursebox($chelper, $course, $additionalclasses = '');
         }
 
@@ -127,7 +126,7 @@ class course_renderer extends \core_course_renderer {
         }
 
         // Number of tiles per row: 12=1 tile / 6=2 tiles / 4 (default)=3 tiles / 3=4 tiles / 2=6 tiles.
-        $spanclass = $PAGE->theme->settings->frontpagenumbertiles;
+        $spanclass = $this->page->theme->settings->frontpagenumbertiles;
 
         // Display course tiles depending the number per row.
         $content .= html_writer::start_tag('div',
@@ -176,7 +175,7 @@ class course_renderer extends \core_course_renderer {
             $btn = html_writer::tag('span', get_string('course', 'theme_adaptable') . ' ' .
                     $arrow, array('class' => 'get_stringlink'));
 
-            if  (($type != 4) || (empty($PAGE->theme->settings->covhidebutton))) {
+            if (($type != 4) || (empty($this->page->theme->settings->covhidebutton))) {
                 $content .= html_writer::link(new moodle_url('/course/view.php',
                     array('id' => $course->id)), $btn, array('class' => " coursebtn submit btn btn-info btn-sm"));
             }
@@ -225,13 +224,13 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function coursecat_coursebox_content(coursecat_helper $chelper, $course, $type = 3) {
-        global $CFG, $OUTPUT, $PAGE;
+        global $CFG;
 
         if ($course instanceof stdClass) {
             require_once($CFG->libdir. '/coursecatlib.php');
             $course = new core_course_list_element($course);
         }
-        if ($type == 3 || $OUTPUT->body_id() != 'page-site-index') {
+        if ($type == 3 || $this->output->body_id() != 'page-site-index') {
             return parent::coursecat_coursebox_content($chelper, $course);
         }
         if ($type == 4) {
@@ -269,7 +268,7 @@ class course_renderer extends \core_course_renderer {
         }
         if (strlen($contentimages) == 0 && $type == 2) {
             // Default image.
-            $url = $PAGE->theme->setting_file_url('frontpagerendererdefaultimage', 'frontpagerendererdefaultimage');
+            $url = $this->page->theme->setting_file_url('frontpagerendererdefaultimage', 'frontpagerendererdefaultimage');
             $contentimages .= html_writer::tag('div', '', array('class' => 'cimbox',
                 'style' => 'background-image: url(\''.$url.'\');'));
         }
@@ -667,7 +666,6 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     public function course_section_cm($course, &$completioninfo, cm_info $mod, $sectionreturn, $displayoptions = array()) {
-        global $PAGE;
         $output = '';
         // We return empty string (because course module will not be displayed at all) if
         // 1) The activity is not visible to users and
@@ -745,7 +743,7 @@ class course_renderer extends \core_course_renderer {
 
         // Get further information.
         $settingname = 'coursesectionactivityfurtherinformation'. $mod->modname;
-        if (isset ($PAGE->theme->settings->$settingname) && $PAGE->theme->settings->$settingname == true) {
+        if (isset ($this->page->theme->settings->$settingname) && $this->page->theme->settings->$settingname == true) {
             $output .= html_writer::start_tag('div', array('class' => 'activity-meta-container'));
             $output .= $this->course_section_cm_get_meta($mod);
             $output .= html_writer::end_tag('div');
