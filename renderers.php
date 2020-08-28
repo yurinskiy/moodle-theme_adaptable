@@ -2327,7 +2327,7 @@ EOT;
             ADAPTABLE_COURSE_HIDDEN => array()
         );
 
-        foreach($sortedcourses as $course) {
+        foreach ($sortedcourses as $course) {
             if (in_array($course->id, $starredids)) {
                 $myoverviewcourses[ADAPTABLE_COURSE_STARRED][] = $course;
             } // Starred can also appear in the respective sub-menu.
@@ -2841,9 +2841,9 @@ EOT;
         if (!$menu->has_children()) {
             return '';
         }
-        $template->menuitems = '';
+        $template->menuitems = array();
         foreach ($menu->get_children() as $item) {
-            $template->menuitems .= $this->render_overlay_menu_item($item, 0);
+            $this->render_overlay_menu_item($item, $template->menuitems);
         }
         return $template;
     }
@@ -2852,32 +2852,30 @@ EOT;
      * Render the overlay menu items.
      *
      * @param custom_menu_item $item
+     * @param array $menuitems
      * @param int $level
-     *
-     * @return string html for item
      */
-    private function render_overlay_menu_item(custom_menu_item $item, $level = 0) {
-        $content = '';
+    private function render_overlay_menu_item(custom_menu_item $item, &$menuitems, $level = 0) {
         if ($item->has_children()) {
             $node = new stdClass;
             $node->title = $item->get_title();
             $node->text = $item->get_text();
             $node->class = 'level-' . $level;
+            $menuitems[] = $node;
 
-            // Top level menu.  Check if URL contains a valid URL, if not
-            // then use standard javascript:void(0).  Done to fix current
-            // jquery / Bootstrap incompatibility with using # in target URLS.
-            // Ref: Issue 617 on Adaptable theme issues on Bitbucket.
+            /* Top level menu.  Check if URL contains a valid URL, if not
+               then use standard javascript:void(0).  Done to fix current
+               jquery / Bootstrap incompatibility with using # in target URLS.
+               Ref: Issue 617 on Adaptable theme issues on Bitbucket. */
             if (empty($item->get_url())) {
                 $node->url = "javascript:void(0)";
             } else {
                 $node->url = $item->get_url();
             }
 
-            $content .= $this->render_from_template('theme_adaptable/overlaymenuitem', $node);
             $level++;
             foreach ($item->get_children() as $subitem) {
-                $content .= $this->render_overlay_menu_item($subitem, $level);
+                $menuitems[] = $this->render_overlay_menu_item($subitem, $menuitems, $level);
             }
         } else {
             $node = new stdClass;
@@ -2885,9 +2883,8 @@ EOT;
             $node->text = $item->get_text();
             $node->class = 'level-' . $level;
             $node->url = $item->get_url();
-            $content .= $this->render_from_template('theme_adaptable/overlaymenuitem', $node);
+            $menuitems[] = $node;
         }
-        return $content;
     }
 
     /**
