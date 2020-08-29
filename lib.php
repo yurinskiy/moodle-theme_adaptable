@@ -784,7 +784,7 @@ function theme_adaptable_extend_navigation_course($coursenode, $course, $coursec
         } else {
             // Edit on the main course page.
             $baseurl = new moodle_url(
-                '/course/view.php', 
+                '/course/view.php',
                 array('id' => $course->id, 'return' => $PAGE->url->out_as_local_url(false), 'sesskey' => sesskey())
             );
         }
