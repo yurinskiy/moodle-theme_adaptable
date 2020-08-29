@@ -534,7 +534,7 @@ class toolbox {
             }
 
             if ($PAGE->theme->settings->$settingname != '0-0-0-0') {
-                $imgblder .= '<img src="' . $imgpath . $PAGE->theme->settings->$settingname . '.png' . '" style="padding-top: 5px">';
+                $imgblder .= '<img src="'.$imgpath.$PAGE->theme->settings->$settingname.'.png'.'" style="padding-top: 5px">';
             }
 
             $vals = explode('-', $PAGE->theme->settings->$settingname);

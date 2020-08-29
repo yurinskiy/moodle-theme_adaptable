@@ -50,7 +50,9 @@ class adaptable_admin_setting_configtemplate extends admin_setting_configtextare
      * @param string $cols The number of columns to make the editor
      * @param string $rows The number of rows to make the editor
      */
-    public function __construct($name, $visiblename, $description, $defaultsetting, $templatename, $paramtype=PARAM_RAW, $cols='60', $rows='8') {
+    public function __construct(
+        $name, $visiblename, $description, $defaultsetting, $templatename,
+        $paramtype=PARAM_RAW, $cols='60', $rows='8') {
         $this->rows = $rows;
         $this->cols = $cols;
 

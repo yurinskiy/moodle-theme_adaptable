@@ -95,8 +95,8 @@ if ($ADMIN->fulltree) {
     $blkcontmsg .= $totalblocks;
     $blkcontmsg .= get_string('layoutaddcontentdesc2', 'theme_adaptable');
 
-    $temp->add(new admin_setting_heading('theme_adaptable_footerlayoutaddcontent', get_string('layoutaddcontent', 'theme_adaptable'),
-                    format_text($blkcontmsg, FORMAT_MARKDOWN)));
+    $temp->add(new admin_setting_heading('theme_adaptable_footerlayoutaddcontent',
+        get_string('layoutaddcontent', 'theme_adaptable'), format_text($blkcontmsg, FORMAT_MARKDOWN)));
 
     for ($i = 1; $i <= $totalblocks; $i++) {
         $name = 'theme_adaptable/footer' . $i . 'header';
