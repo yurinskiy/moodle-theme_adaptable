@@ -38,20 +38,18 @@
         ]
     }
 }}
-
 <style>
-    #{{containerid}} input.adaptabletab,
-    #{{containerid}} div.adaptable-tab {
-        display: none;
-    }
+#{{containerid}} input.adaptabletab,
+#{{containerid}} div.adaptable-tab {
+    display: none;
+}
 
-    {{#tabs}}
-    #{{name}}:checked~#adaptable-tab-{{name}} {
-        display: block;
-    }
-    {{/tabs}}
+{{#tabs}}
+#{{name}}:checked~#adaptable-tab-{{name}} {
+    display: block;
+}
+{{/tabs}}
 </style>
-
 <div id="{{containerid}}" class="tabcontentcontainer">
     {{#tabs}}
     <input id="{{name}}" type="radio" name="tabs" class="adaptabletab"{{#selected}} checked="checked"{{/selected}}>
