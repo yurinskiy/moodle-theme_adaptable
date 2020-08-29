@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * The mustache renderer.
+ *
  * @package    theme_adaptable
  * @copyright  2020 Gareth J Barnard
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -44,6 +46,7 @@ class mustache_renderer extends \renderer_base {
      * Simple types are array,stdClass,bool,int,float,string
      *
      * @since 2.9
+     * @param string $templatename
      * @param array|stdClass $context Context containing data for the template.
      * @return string|boolean
      */
