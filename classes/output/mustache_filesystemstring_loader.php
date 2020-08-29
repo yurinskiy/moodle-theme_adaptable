@@ -35,7 +35,7 @@ use coding_exception;
 class mustache_filesystemstring_loader extends \core\output\mustache_filesystem_loader {
 
     /**
-     * var $templates array of templates.
+     * @var $templates array of templates.
      */
     private $templates = array();
 

@@ -31,21 +31,21 @@
     }
 }}
 {{#showright}}
-        <a class="nav-link" href="javascript:void(0)" id="openoverlaymenu">
+    <span class="nav-link" id="openoverlaymenu">
         <i class="fa {{{menuslinkicon}}} fa-lg"></i><span class="linksdesc">{{#showlinktext}}{{#str}}linksmenu, theme_adaptable{{/str}}{{/showlinktext}}</span>
-        </a>
+    </span>
 {{/showright}}
 
 {{^showright}}
-        <a class="nav-link" href="javascript:void(0)" id="openoverlaymenu">
+    <span class="nav-link" id="openoverlaymenu">
         <i class="fa fa-link fa-lg"></i><span class="linksdesc">{{#showlinktext}}{{#str}}linksmenu, theme_adaptable{{/str}}{{/showlinktext}}</span>
-        </a>
+    </span>
 {{/showright}}
 
 <div id="conditionalmenu" class="overlaymenu">
-    <a id="overlaymenuclose" href="javascript:void(0)" class="btn btn-default pull-right overlayclosebtn">
+    <span id="overlaymenuclose" class="btn btn-default pull-right overlayclosebtn">
         <i class="fa fa-close"></i>
-    </a>
+    </span>
     <div class="overlay-content">
         {{#rows}}
         <div class="row-fluid">
