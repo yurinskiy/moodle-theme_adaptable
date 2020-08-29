@@ -220,15 +220,15 @@ if (file_exists("$CFG->dirroot/course/format/topcoll/renderer.php")) {
 
     /**
      * Constructor
+     *
      * @copyright 2020 Gareth J Barnard
      * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
-     *
      */
     class theme_adaptable_format_topcoll_renderer extends format_topcoll_renderer {
         /**
          * Constructor method.
          *
-         * @param moodle_page $page.
+         * @param moodle_page $page
          * @param string $target one of rendering target constants.
          */
         public function __construct(moodle_page $page, $target) {
@@ -448,13 +448,13 @@ class theme_adaptable_core_renderer extends core_renderer {
             \theme_adaptable\toolbox::getfontawesomemarkup('user'));
         $usermenuitems[] = array('enableeditprofile', false, $CFG->wwwroot.'/user/edit.php', get_string('editmyprofile'),
             \theme_adaptable\toolbox::getfontawesomemarkup('cog'));
-        $usermenuitems[] = array('enableaccesstool', false, $CFG->wwwroot.'/local/accessibilitytool/manage.php', get_string('enableaccesstool', 'theme_adaptable'),
-            \theme_adaptable\toolbox::getfontawesomemarkup('low-vision'));
-        $usermenuitems[] = array('enableprivatefiles', false, $CFG->wwwroot.'/user/files.php', get_string('privatefiles', 'block_private_files'),
-             \theme_adaptable\toolbox::getfontawesomemarkup('file'));
+        $usermenuitems[] = array('enableaccesstool', false, $CFG->wwwroot.'/local/accessibilitytool/manage.php',
+            get_string('enableaccesstool', 'theme_adaptable'), \theme_adaptable\toolbox::getfontawesomemarkup('low-vision'));
+        $usermenuitems[] = array('enableprivatefiles', false, $CFG->wwwroot.'/user/files.php',
+            get_string('privatefiles', 'block_private_files'), \theme_adaptable\toolbox::getfontawesomemarkup('file'));
         if (\theme_adaptable\toolbox::kalturaplugininstalled()) {
-            $usermenuitems[] = array(false, false, $CFG->wwwroot.'/local/mymedia/mymedia.php', get_string('nav_mymedia', 'local_mymedia'),
-                $this->pix_icon('my-media', '', 'local_mymedia'));
+            $usermenuitems[] = array(false, false, $CFG->wwwroot.'/local/mymedia/mymedia.php',
+                get_string('nav_mymedia', 'local_mymedia'), $this->pix_icon('my-media', '', 'local_mymedia'));
         }
         $usermenuitems[] = array('enablegrades', false, $CFG->wwwroot.'/grade/report/overview/index.php', get_string('grades'),
             \theme_adaptable\toolbox::getfontawesomemarkup('list-alt'));
@@ -466,12 +466,12 @@ class theme_adaptable_core_renderer extends core_renderer {
             \theme_adaptable\toolbox::getfontawesomemarkup('paper-plane'));
         $usermenuitems[] = array('enableblog', false, $CFG->wwwroot.'/blog/index.php', get_string('enableblog', 'theme_adaptable'),
             \theme_adaptable\toolbox::getfontawesomemarkup('rss'));
-        $usermenuitems[] = array('enableposts', false, $CFG->wwwroot.'/mod/forum/user.php', get_string('enableposts', 'theme_adaptable'),
-            \theme_adaptable\toolbox::getfontawesomemarkup('commenting'));
+        $usermenuitems[] = array('enableposts', false, $CFG->wwwroot.'/mod/forum/user.php',
+            get_string('enableposts', 'theme_adaptable'), \theme_adaptable\toolbox::getfontawesomemarkup('commenting'));
         $usermenuitems[] = array('enablefeed', false, $CFG->wwwroot.'/report/myfeedback/index.php',
             get_string('enablefeed', 'theme_adaptable'), \theme_adaptable\toolbox::getfontawesomemarkup('bullhorn'));
-        $usermenuitems[] = array('enablecalendar', false, $CFG->wwwroot.'/calendar/view.php', get_string('pluginname', 'block_calendar_month'),
-            \theme_adaptable\toolbox::getfontawesomemarkup('calendar'));
+        $usermenuitems[] = array('enablecalendar', false, $CFG->wwwroot.'/calendar/view.php',
+            get_string('pluginname', 'block_calendar_month'), \theme_adaptable\toolbox::getfontawesomemarkup('calendar'));
 
         $returnurl = $this->get_current_page_url(true);
         $context = context_course::instance($COURSE->id);

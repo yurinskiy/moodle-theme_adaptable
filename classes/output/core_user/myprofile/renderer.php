@@ -192,7 +192,8 @@ class renderer extends \core_user\output\myprofile\renderer {
         global $CFG, $USER;
         $output = array();
 
-        $course = ($this->page->context->contextlevel == CONTEXT_COURSE) ? $this->page->course : null;  // Use Moodle code just in case!
+        // Use Moodle code just in case!
+        $course = ($this->page->context->contextlevel == CONTEXT_COURSE) ? $this->page->course : null;
         $user = $this->user;
 
         if (user_can_view_profile($user, $course)) {

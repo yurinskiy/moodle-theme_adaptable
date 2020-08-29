@@ -52,20 +52,23 @@ $overridetemplates = get_config('theme_adaptable', 'templatessel');
 if ($overridetemplates) {
     if ($ADMIN->fulltree) {
         if (file_exists("{$CFG->dirroot}/theme/adaptable/settings/adaptable_admin_setting_configtemplate.php")) {
-            require_once($CFG->dirroot . '/theme/adaptable/settings/adaptable_admin_setting_configtemplate.php');
-        } else if (!empty($CFG->themedir) && file_exists("{$CFG->themedir}/adaptable/settings/adaptable_admin_setting_configtemplate.php")) {
-            require_once($CFG->themedir . '/adaptable/settings/adaptable_admin_setting_configtemplate.php');
+            require_once($CFG->dirroot.'/theme/adaptable/settings/adaptable_admin_setting_configtemplate.php');
+        } else if (!empty($CFG->themedir) &&
+            file_exists("{$CFG->themedir}/adaptable/settings/adaptable_admin_setting_configtemplate.php")) {
+            require_once($CFG->themedir.'/adaptable/settings/adaptable_admin_setting_configtemplate.php');
         }
     }
 
     $overridetemplates = explode(',', $overridetemplates);
     foreach ($overridetemplates as $overridetemplate) {
         $overridetemplatesetting = str_replace('/', '_', $overridetemplate);
-        $temppage = new admin_settingpage('theme_adaptable_templates_'.$overridetemplatesetting, get_string('overridetemplate', 'theme_adaptable', $overridetemplate));
+        $temppage = new admin_settingpage('theme_adaptable_templates_'.$overridetemplatesetting,
+            get_string('overridetemplate', 'theme_adaptable', $overridetemplate));
         if ($ADMIN->fulltree) {
             $name = 'theme_adaptable/activatetemplateoverride_'.$overridetemplatesetting;
             $title = get_string('activatetemplateoverride', 'theme_adaptable', $overridetemplate);
-            $description = get_string('activatetemplateoverridedesc', 'theme_adaptable', array('template' => $overridetemplate, 'setting' => $overridetemplatesetting));
+            $description = get_string('activatetemplateoverridedesc', 'theme_adaptable',
+                array('template' => $overridetemplate, 'setting' => $overridetemplatesetting));
             $setting = new admin_setting_configcheckbox($name, $title, $description, false);
             $temppage->add($setting);
 

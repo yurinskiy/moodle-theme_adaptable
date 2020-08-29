@@ -671,7 +671,8 @@ function theme_adaptable_page_init(moodle_page $page) {
     $page->requires->jquery_plugin('easing', 'theme_adaptable');
     $page->requires->jquery_plugin('adaptable', 'theme_adaptable');
 
-    if ((isloggedin()) && (theme_adaptable_get_setting('enableaccesstool')) && (file_exists($CFG->dirroot . "/local/accessibilitytool/lib.php"))) {
+    if ((isloggedin()) && (theme_adaptable_get_setting('enableaccesstool')) &&
+        (file_exists($CFG->dirroot . "/local/accessibilitytool/lib.php"))) {
         require_once($CFG->dirroot . "/local/accessibilitytool/lib.php");
         local_accessibilitytool_page_init($page);
     }
@@ -782,7 +783,10 @@ function theme_adaptable_extend_navigation_course($coursenode, $course, $coursec
             $baseurl->param('sesskey', sesskey());
         } else {
             // Edit on the main course page.
-            $baseurl = new moodle_url('/course/view.php', array('id' => $course->id, 'return' => $PAGE->url->out_as_local_url(false), 'sesskey' => sesskey()));
+            $baseurl = new moodle_url(
+                '/course/view.php', 
+                array('id' => $course->id, 'return' => $PAGE->url->out_as_local_url(false), 'sesskey' => sesskey())
+            );
         }
 
         $editurl = clone($baseurl);
@@ -794,7 +798,11 @@ function theme_adaptable_extend_navigation_course($coursenode, $course, $coursec
             $editstring = get_string('turneditingon');
         }
 
-        $childnode = navigation_node::create($editstring, $editurl, navigation_node::TYPE_SETTING, null, 'turneditingonoff', new pix_icon('i/edit', ''));
+        $childnode = navigation_node::create(
+            $editstring,
+            $editurl,
+            navigation_node::TYPE_SETTING, null, 'turneditingonoff', new pix_icon('i/edit', '')
+        );
         $keylist = $coursenode->get_children_key_list();
         if (!empty($keylist)) {
             if (count($keylist) > 1) {

@@ -137,7 +137,7 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $temp->add($setting);
 
-    // Enable My Feedback
+    // Enable My Feedback.
     $name = 'theme_adaptable/enablefeed';
     $title = get_string('enablefeed', 'theme_adaptable');
     $description = get_string('enablefeeddesc', 'theme_adaptable');
@@ -145,7 +145,7 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $temp->add($setting);
 
-    // Enable Accessibility Tool
+    // Enable Accessibility Tool.
     $name = 'theme_adaptable/enableaccesstool';
     $title = get_string('enableaccesstool', 'theme_adaptable');
     $description = get_string('enableaccesstooldesc', 'theme_adaptable');

@@ -40,7 +40,8 @@ if ($ADMIN->fulltree) {
     require_once($CFG->dirroot . '/course/lib.php');
     $name = 'theme_adaptable/commonlyusedar';
     $title = get_string('commonlyusedar', 'theme_adaptable');
-    $description = get_string('commonlyusedardesc', 'theme_adaptable', '\'' . implode(', ', array_keys(get_module_types_names())) . '\'');
+    $description = get_string('commonlyusedardesc', 'theme_adaptable',
+        '\''.implode(', ', array_keys(get_module_types_names())).'\'');
     $default = '';
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $temp->add($setting);
@@ -137,8 +138,8 @@ if ($ADMIN->fulltree) {
         $mktcountcolor = '#D7542A';
     }
     $mktcountmsg = '<span style="color: ' . $checkcountcolor . '; margin-bottom: 20px;">';
-    $mktcountmsg .= get_string('layoutcount1', 'theme_adaptable') . '<strong>' . $noregions . '</strong>';
-    $mktcountmsg .= get_string('layoutcount2', 'theme_adaptable') . '<strong>' . $totalblocks . '/' . $noregions . '</strong></span>.';
+    $mktcountmsg .= get_string('layoutcount1', 'theme_adaptable').'<strong>'.$noregions.'</strong>';
+    $mktcountmsg .= get_string('layoutcount2', 'theme_adaptable').'<strong>'.$totalblocks.'/'.$noregions.'</strong></span>.';
 
     $temp->add(new admin_setting_heading('theme_adaptable_courselayouttopblockscount', '', $mktcountmsg));
 
@@ -182,8 +183,8 @@ if ($ADMIN->fulltree) {
         $mktcountcolor = '#D7542A';
     }
     $mktcountmsg = '<span style="color: ' . $checkcountcolor . '">';
-    $mktcountmsg .= get_string('layoutcount1', 'theme_adaptable') . '<strong>' . $noregions . '</strong>';
-    $mktcountmsg .= get_string('layoutcount2', 'theme_adaptable') . '<strong>' . $totalblocks . '/' . $noregions . '</strong></span>.';
+    $mktcountmsg .= get_string('layoutcount1', 'theme_adaptable').'<strong>'.$noregions.'</strong>';
+    $mktcountmsg .= get_string('layoutcount2', 'theme_adaptable').'<strong>'.$totalblocks.'/'.$noregions.'</strong></span>.';
 
     $temp->add(new admin_setting_heading('theme_adaptable_courselayoutbottomblockscount', '', $mktcountmsg));
 
