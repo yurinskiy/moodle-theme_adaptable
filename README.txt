@@ -1,7 +1,7 @@
 Adaptable - the most adaptable moodle theme
 ===========================================
 
-Version 2.2.2 (2019112601)
+Version 2.3.1 (2019112604)
 
 Adaptable is a highly customizable responsive two column moodle theme based on the popular BCU theme adding:
 
@@ -46,6 +46,10 @@ Jeremy Hopkins (Coventry University)
 Fernando Acedo (3bits elearning solutions)
 Manoj Solanki (Coventry University)
 
+
+Change Log in 2.3.1
+------------------------------------
+- Fixes in line with version 3.0.0
 
 Change Log in 2.2.2
 ------------------------------------
