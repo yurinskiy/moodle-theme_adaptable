@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die;
 if ($ADMIN->fulltree) {
     // Google Fonts.
     $fontlist = array(
-        'default' => 'default',
+        'sans-serif' => 'default',
         'ABeeZee' => 'ABeeZee',
         'Abel' => 'Abel',
         'Abhayalibre' => 'Abhayalibre',

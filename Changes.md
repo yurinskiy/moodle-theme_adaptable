@@ -31,6 +31,7 @@ Development in progress.
 25. Assignment with restricting grouping shows all users or groups - #161.
 26. Fix 'Regression? / Inconsistent cog positioning in content bank' - #166.
 27. Fix 'Quiz attempt: no breadcrumbs' - #123.
+28. Fix '$fontname can never be 'custom'' - #104.
 
 Change Log in version 2.2.2 (2019112601)
 ========================================

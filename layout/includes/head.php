@@ -35,33 +35,48 @@ $fonttitleweight = '';
 $fontssubset = '';
 
 switch ($PAGE->theme->settings->fontname) {
-    case 'default':
-        // Get the default font used by the browser.
+    case 'sans-serif':
+        // Use 'sans-serif'.
     break;
 
     default:
-        // Get the Google fonts.
+        // Get the Google font.
         $fontname = str_replace(" ", "+", $PAGE->theme->settings->fontname);
-        $fontheadername = str_replace(" ", "+", $PAGE->theme->settings->fontheadername);
-        $fonttitlename = str_replace(" ", "+", $PAGE->theme->settings->fonttitlename);
-
-        $fontweight = ':400,400i';
-        $fontheaderweight = ':400,400i';
-        $fonttitleweight = ':700,700i';
-        $fontssubset = '';
-
-        // Get the Google Font weights.
-        $fontweight = ':'.$PAGE->theme->settings->fontweight.','.$PAGE->theme->settings->fontweight.'i';
-        $fontheaderweight = ':'.$PAGE->theme->settings->fontheaderweight.','.$PAGE->theme->settings->fontheaderweight.'i';
-        $fonttitleweight = ':'.$PAGE->theme->settings->fonttitleweight.','.$PAGE->theme->settings->fonttitleweight.'i';
-
-        // Get the Google fonts subset.
-        if (!empty($PAGE->theme->settings->fontsubset)) {
-            $fontssubset = '&subset='.$PAGE->theme->settings->fontsubset;
-        } else {
-            $fontssubset = '';
-        }
     break;
+}
+
+switch ($PAGE->theme->settings->fontheadername) {
+    case 'sans-serif':
+        // Use 'sans-serif'.
+    break;
+
+    default:
+        // Get the Google font.
+        $fontheadername = str_replace(" ", "+", $PAGE->theme->settings->fontheadername);
+    break;
+}
+
+switch ($PAGE->theme->settings->fonttitlename) {
+    case 'sans-serif':
+        // Use 'sans-serif'.
+    break;
+
+    default:
+        // Get the Google font.
+        $fonttitlename = str_replace(" ", "+", $PAGE->theme->settings->fonttitlename);
+    break;
+}
+
+if ((!empty($fontname)) || (!empty($fontheadername)) || (!empty($fonttitlename))) {
+    // Get the Google Font weights.
+    $fontweight = ':'.$PAGE->theme->settings->fontweight.','.$PAGE->theme->settings->fontweight.'i';
+    $fontheaderweight = ':'.$PAGE->theme->settings->fontheaderweight.','.$PAGE->theme->settings->fontheaderweight.'i';
+    $fonttitleweight = ':'.$PAGE->theme->settings->fonttitleweight.','.$PAGE->theme->settings->fonttitleweight.'i';
+
+    // Get the Google fonts subset.
+    if (!empty($PAGE->theme->settings->fontsubset)) {
+        $fontssubset = '&subset='.$PAGE->theme->settings->fontsubset;
+    }
 }
 
 // HTML head.
@@ -92,7 +107,7 @@ echo $OUTPUT->standard_head_html() ?>
 
     <?php
     // Load fonts.
-    if ((!empty($fontname)) && ($fontname != 'default') && ($fontname != 'custom')) {
+    if ((!empty($fontname)) && ($fontname != 'default')) {
         ?>
     <!-- Load Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=<?php echo $fontname.$fontweight.$fontssubset; ?>'
@@ -103,7 +118,7 @@ echo $OUTPUT->standard_head_html() ?>
     ?>
 
     <?php
-    if ((!empty($fontheadername)) && ($fontheadername != 'default') && ($fontname != 'custom')) {
+    if ((!empty($fontheadername)) && ($fontheadername != 'default')) {
     ?>
         <link href='https://fonts.googleapis.com/css?family=<?php echo $fontheadername.$fontheaderweight.$fontssubset; ?>'
         rel='stylesheet'
@@ -113,7 +128,7 @@ echo $OUTPUT->standard_head_html() ?>
     ?>
 
     <?php
-    if ((!empty($fonttitlename)) && ($fonttitlename != 'default') && ($fontname != 'custom')) {
+    if ((!empty($fonttitlename)) && ($fonttitlename != 'default')) {
     ?>
         <link href='https://fonts.googleapis.com/css?family=<?php echo $fonttitlename.$fonttitleweight.$fontssubset; ?>'
         rel='stylesheet'

@@ -884,7 +884,7 @@ $string['fontsettingsheading'] = 'Modify the fonts used throughout the theme.';
 $string['fontdesc'] = 'You can select the <a href="https://www.google.com/fonts" target="_blank">Google Fonts</a> that you would like to use throughout the theme. Select the subset needed (latin is always included) and enter the right font weight or the font will not displayed.';
 
 $string['fontname'] = 'Main font';
-$string['fontnamedesc'] = 'Select the default font or <a href="https://www.google.com/fonts" target="_blank">Google Fonts</a> used in the site.';
+$string['fontnamedesc'] = 'Select the default font, \'sans-serif\', or <a href="https://www.google.com/fonts" target="_blank">Google Fonts</a> used in the site.';
 
 $string['customfontname'] = 'Custom Main font';
 $string['customfontnamedesc'] = 'Enter the name of the custom Main Font only if you selected &apos;Custom&apos; in the Main Font dropdown.';
@@ -893,7 +893,7 @@ $string['fontsize'] = 'Main font size';
 $string['fontsizedesc'] = 'Select the default font size (in percentage) used in the whole site.';
 
 $string['fontheadername'] = 'Headers font';
-$string['fontheadernamedesc'] = 'Select the default font or <a href="https://www.google.com/fonts" target="_blank">Google Fonts</a> used in the text and blocks headers.';
+$string['fontheadernamedesc'] = 'Select the default font, \'sans-serif\', or <a href="https://www.google.com/fonts" target="_blank">Google Fonts</a> used in the text and blocks headers.';
 
 $string['customfontheadername'] = 'Custom Header font';
 $string['customfontheadernamedesc'] = 'Enter the name of the custom Header font only if you selected &apos;Custom&apos; in the Header Font dropdown.';
@@ -911,7 +911,7 @@ $string['fontheaderweight'] = 'Headers font weight';
 $string['fontheaderweightdesc'] = 'Headers font weight used in the site. Select a value from 100 to 900 depending the font selected.';
 
 $string['fonttitlename'] = 'Site / Course title font';
-$string['fonttitlenamedesc'] = 'Select the default font or <a href="https://www.google.com/fonts" target="_blank">Google Fonts</a> used in title site and course titles.';
+$string['fonttitlenamedesc'] = 'Select the default font, \'sans-serif\', or <a href="https://www.google.com/fonts" target="_blank">Google Fonts</a> used in title site and course titles.';
 
 $string['customfonttitlename'] = 'Custom Title font';
 $string['customfonttitlenamedesc'] = 'Enter the name of the custom Title Font only if you selected &apos;Custom&apos; in the Title Font dropdown.';
