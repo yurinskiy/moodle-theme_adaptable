@@ -1718,11 +1718,11 @@ EOT;
                 } else {
                     if ($this->page->include_region_main_settings_in_header_actions() &&
                         !$this->page->blocks->is_block_present('settings')) {
-                    $this->page->add_header_action(html_writer::div(
-                        $this->region_main_settings_menu(),
-                            'd-print-none',
-                            ['id' => 'region-main-settings-menu']
-                        ));
+                        $this->page->add_header_action(html_writer::div(
+                            $this->region_main_settings_menu(),
+                                'd-print-none',
+                                ['id' => 'region-main-settings-menu']
+                            ));
                     }
 
                     $header = new stdClass();
