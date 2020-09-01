@@ -32,6 +32,7 @@ Development in progress.
 26. Fix 'Regression? / Inconsistent cog positioning in content bank' - #166.
 27. Fix 'Quiz attempt: no breadcrumbs' - #123.
 28. Fix '$fontname can never be 'custom'' - #104.
+29. Implement 'Update google fonts list ' - #42 - thanks to 'Sal Zaydon' - https://gitlab.com/szaydon for the list.
 
 Change Log in version 2.2.2 (2019112601)
 ========================================
