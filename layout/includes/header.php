@@ -80,8 +80,8 @@ if (
     (isloggedin() && !isguestuser()) ||
     (!empty($PAGE->theme->settings->enablenavbarwhenloggedout)) ) {
 
-    // Remove menu navbar in Quiz pages even if they don't use SEB.
-    if ($PAGE->pagetype != "mod-quiz-attempt") {
+    // Show navbar unless disabled by config.
+    if (empty($PAGE->layout_options['nonavbar'])) {
         $shownavbar = true;
     }
 }
@@ -260,8 +260,8 @@ echo $OUTPUT->standard_top_of_body_html();
 
                         <?php
 
-                        // Remove Messages and Notifications icons in Quiz pages even if they don't use SEB.
-                        if ($PAGE->pagetype != "mod-quiz-attempt") {
+                        // Remove Messages and Notifications icons when no navbar.
+                        if (empty($PAGE->layout_options['nonavbar'])) {
                             echo '<div class="my-auto mx-md-1">' . $OUTPUT->navbar_plugin_output() . '</div>';
                         }
 
@@ -334,8 +334,8 @@ echo $OUTPUT->standard_top_of_body_html();
 
         <div class="col-lg-8 p-0 my-auto">
             <?php
-            // Remove Search Box or Social icons in Quiz pages even if they don't use SEB.
-            if ($PAGE->pagetype != "mod-quiz-attempt") {
+            // Remove Search Box or Social icons when no navbar.
+            if (empty($PAGE->layout_options['nonavbar'])) {
                 // Social icons.
                 if ($PAGE->theme->settings->socialorsearch == 'social') {
                         ?>
