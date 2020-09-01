@@ -30,6 +30,7 @@ Development in progress.
 24. Update to version 3 https://moodlehq.github.io/moodle-plugin-ci/UPGRADE-3.0.html - #158.
 25. Assignment with restricting grouping shows all users or groups - #161.
 26. Fix 'Regression? / Inconsistent cog positioning in content bank' - #166.
+27. Fix 'Quiz attempt: no breadcrumbs' - #123.
 
 Change Log in version 2.2.2 (2019112601)
 ========================================

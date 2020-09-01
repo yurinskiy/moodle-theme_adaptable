@@ -1673,69 +1673,65 @@ EOT;
     public function page_navbar() {
         $retval = '';
         if (empty($this->page->layout_options['nonavbar'])) { // Not disabled by 'nonavbar' in config.php.
+            if (!isset($this->page->theme->settings->enabletickermy)) {
+                $this->page->theme->settings->enabletickermy = 0;
+            }
 
-            // Remove breadcrumb in a quiz page.
-            if ($this->page->pagetype != "mod-quiz-attempt") {
-                if (!isset($this->page->theme->settings->enabletickermy)) {
-                    $this->page->theme->settings->enabletickermy = 0;
-                }
+            // Do not show navbar on dashboard / my home if news ticker is rendering.
+            if (!($this->page->theme->settings->enabletickermy && $this->page->bodyid == "page-my-index")) {
+                $retval = '<div class="row">';
+                if (($this->page->theme->settings->breadcrumbdisplay != 'breadcrumb')
+                    && (($this->page->pagelayout == 'course')
+                    || ($this->page->pagelayout == 'incourse'))) {
+                    global $COURSE;
+                    $retval .= '<div id="page-coursetitle" class="col-12">';
+                    switch ($this->page->theme->settings->breadcrumbdisplay) {
+                        case 'fullname':
+                            // Full Course Name.
+                            $coursetitle = $COURSE->fullname;
+                        break;
+                        case 'shortname':
+                            // Short Course Name.
+                            $coursetitle = $COURSE->shortname;
+                        break;
+                    }
 
-                // Do not show navbar on dashboard / my home if news ticker is rendering.
-                if (!($this->page->theme->settings->enabletickermy && $this->page->bodyid == "page-my-index")) {
-                    $retval = '<div class="row">';
-                    if (($this->page->theme->settings->breadcrumbdisplay != 'breadcrumb')
-                        && (($this->page->pagelayout == 'course')
-                        || ($this->page->pagelayout == 'incourse'))) {
-                        global $COURSE;
-                        $retval .= '<div id="page-coursetitle" class="col-12">';
-                        switch ($this->page->theme->settings->breadcrumbdisplay) {
-                            case 'fullname':
-                                // Full Course Name.
-                                $coursetitle = $COURSE->fullname;
-                            break;
-                            case 'shortname':
-                                // Short Course Name.
-                                $coursetitle = $COURSE->shortname;
-                            break;
+                    $coursetitlemaxwidth = (!empty($this->page->theme->settings->coursetitlemaxwidth)
+                        ? $this->page->theme->settings->coursetitlemaxwidth : 0);
+                    // Check max width of course title and trim if appropriate.
+                    if (($coursetitlemaxwidth > 0) && ($coursetitle <> '')) {
+                        if (strlen($coursetitle) > $coursetitlemaxwidth) {
+                            $coursetitle = core_text::substr($coursetitle, 0, $coursetitlemaxwidth) . " ...";
                         }
+                    }
 
-                        $coursetitlemaxwidth = (!empty($this->page->theme->settings->coursetitlemaxwidth)
-                            ? $this->page->theme->settings->coursetitlemaxwidth : 0);
-                        // Check max width of course title and trim if appropriate.
-                        if (($coursetitlemaxwidth > 0) && ($coursetitle <> '')) {
-                            if (strlen($coursetitle) > $coursetitlemaxwidth) {
-                                $coursetitle = core_text::substr($coursetitle, 0, $coursetitlemaxwidth) . " ...";
-                            }
-                        }
-
-                        switch ($this->page->theme->settings->breadcrumbdisplay) {
-                            case 'fullname':
-                            case 'shortname':
-                                // Full / Short Course Name.
-                                $courseurl = new moodle_url('/course/view.php', array('id' => $COURSE->id));
-                                $retval .= '<div id="coursetitle" class="p-2 bd-highlight"><h1><a href ="'
-                                    .$courseurl->out(true).'">'.format_string($coursetitle).'</a></h1></div>';
-                            break;
-                        }
-                        $retval .= '</div>';
-                    } else {
-                        if ($this->page->include_region_main_settings_in_header_actions() &&
-                            !$this->page->blocks->is_block_present('settings')) {
-                            $this->page->add_header_action(html_writer::div(
-                                $this->region_main_settings_menu(),
-                                'd-print-none',
-                                ['id' => 'region-main-settings-menu']
-                            ));
-                        }
-
-                        $header = new stdClass();
-                        $header->navbar = $this->navbar();
-                        $header->headeractions = $this->page->get_header_actions();
-                        $header->headerclasses = $this->page->theme->settings->responsivebreadcrumb;
-                        $retval .= $this->render_from_template('theme_adaptable/header', $header);
+                    switch ($this->page->theme->settings->breadcrumbdisplay) {
+                        case 'fullname':
+                        case 'shortname':
+                            // Full / Short Course Name.
+                            $courseurl = new moodle_url('/course/view.php', array('id' => $COURSE->id));
+                            $retval .= '<div id="coursetitle" class="p-2 bd-highlight"><h1><a href ="'
+                                .$courseurl->out(true).'">'.format_string($coursetitle).'</a></h1></div>';
+                        break;
                     }
                     $retval .= '</div>';
+                } else {
+                    if ($this->page->include_region_main_settings_in_header_actions() &&
+                        !$this->page->blocks->is_block_present('settings')) {
+                    $this->page->add_header_action(html_writer::div(
+                        $this->region_main_settings_menu(),
+                            'd-print-none',
+                            ['id' => 'region-main-settings-menu']
+                        ));
+                    }
+
+                    $header = new stdClass();
+                    $header->navbar = $this->navbar();
+                    $header->headeractions = $this->page->get_header_actions();
+                    $header->headerclasses = $this->page->theme->settings->responsivebreadcrumb;
+                    $retval .= $this->render_from_template('theme_adaptable/header', $header);
                 }
+                $retval .= '</div>';
             }
         }
 
@@ -2629,8 +2625,8 @@ EOT;
             $retval .= '<div class="p-2 bd-highlight ' . $responsivelogo . '">';
             $logo = '<img src=' . $this->page->theme->setting_file_url($logosetarea, $logosetarea) . ' id="logo" alt="" />';
 
-            // Exception - Quiz page - logo is not a link to site homepage.
-            if ($this->page->pagetype == "mod-quiz-attempt") {
+            // Exception - logo is not a link to site homepage.
+            if (!empty($this->page->layout_options['nonavbar'])) {
                 $retval .= $logo;
             } else {
                 // Standard - Output the logo as a link to site homepage.
