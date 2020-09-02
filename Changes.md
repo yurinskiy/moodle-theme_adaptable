@@ -33,6 +33,7 @@ Development in progress.
 27. Fix 'Quiz attempt: no breadcrumbs' - #123.
 28. Fix '$fontname can never be 'custom'' - #104.
 29. Implement 'Update google fonts list ' - #42 - thanks to 'Sal Zaydon' - https://gitlab.com/szaydon for the list.
+30. Fix no such font-family as 'default' - #42.
 
 Change Log in version 2.2.2 (2019112601)
 ========================================
