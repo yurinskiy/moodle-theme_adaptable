@@ -34,6 +34,18 @@ defined('MOODLE_INTERNAL') || die;
  */
 function xmldb_theme_adaptable_upgrade($oldversion = 0) {
 
+    if ($oldversion < 2019112604) {
+        if (get_config('theme_adaptable', 'fontname') == 'default') {
+            set_config('fontname', 'sans-serif', 'theme_adaptable');
+        }
+        if (get_config('theme_adaptable', 'fontheadername') == 'default') {
+            set_config('fontheadername', 'sans-serif', 'theme_adaptable');
+        }
+        if (get_config('theme_adaptable', 'fonttitlename') == 'default') {
+            set_config('fonttitlename', 'sans-serif', 'theme_adaptable');
+        }
+    }
+
     // Automatic 'Purge all caches'....
     if ($oldversion < 2119100900) {
         purge_all_caches();
