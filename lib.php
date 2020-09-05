@@ -50,6 +50,35 @@ function theme_adaptable_process_css($css, $theme) {
     // Set category custom CSS.
     $css = theme_adaptable_set_categorycustomcss($css, $theme->settings);
 
+    // Collapsed Topics colours.
+    if (empty($theme->settings->collapsedtopicscoloursenabled)) {
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content .toggle span.the_toggle h3.sectionname,'.PHP_EOL;
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content .toggle span.the_toggle h3.sectionname a,'.PHP_EOL;
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content .toggle span.the_toggle h3.sectionname a:hover,'.PHP_EOL;
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content .toggle span.the_toggle h3.sectionname a:focus,'.PHP_EOL;
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content.sectionhidden h3.sectionname'.PHP_EOL;
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content.sectionhidden h3.sectionname a,'.PHP_EOL;
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content.sectionhidden h3.sectionname a:hover,'.PHP_EOL;
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content.sectionhidden h3.sectionname a:focus {'.PHP_EOL;
+        $css .= '    color: [[setting:sectionheadingcolor]];'.PHP_EOL;
+        $css .= '}'.PHP_EOL;;
+
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content div.toggle,'.PHP_EOL;
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content div.toggle:hover,'.PHP_EOL;
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content div.toggle:focus {'.PHP_EOL;
+        $css .= '    background-color: [[setting:coursesectionheaderbg]];'.PHP_EOL;
+        $css .= '}'.PHP_EOL;
+
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content .toggle span,'.PHP_EOL;
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content .toggle span:hover,'.PHP_EOL;
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content .toggle span:focus,'.PHP_EOL;
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content.sectionhidden,'.PHP_EOL;
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content.sectionhidden:hover,'.PHP_EOL;
+        $css .= '.theme_adaptable .course-content ul.ctopics li.section .content.sectionhidden:focus {'.PHP_EOL;
+        $css .= '    color: inherit;'.PHP_EOL;
+        $css .= '}'.PHP_EOL;
+    }
+
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
         $customcss = $theme->settings->customcss;

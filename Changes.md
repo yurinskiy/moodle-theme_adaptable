@@ -34,6 +34,7 @@ Development in progress.
 28. Fix '$fontname can never be 'custom'' - #104.
 29. Implement 'Update google fonts list ' - #42 - thanks to 'Sal Zaydon' - https://gitlab.com/szaydon for the list.
 30. Fix no such font-family as 'default' - #42.
+31. Fix 'Topic header text now black' - #167.
 
 Change Log in version 2.2.2 (2019112601)
 ========================================
