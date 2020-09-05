@@ -134,6 +134,7 @@ $string['settingsanalytics'] = 'Analytics';
 $string['settingsblocksgeneral'] = 'General';
 $string['settingscolors'] = 'Colours';
 $string['settingsborders'] = 'Borders';
+$string['settingscourses'] = 'Courses';
 $string['settingstopicsweeks'] = 'Topics / Weeks';
 $string['settingsblockicons'] = 'Icons';
 
@@ -696,6 +697,9 @@ $string['marketblocksbackgroundcolordesc'] = 'Set the Marketing blocks region ba
 
 $string['sectionheadingcolor'] = 'Section Heading Text Colour';
 $string['sectionheadingcolordesc'] = 'Set the colour for section headings text';
+
+$string['collapsedtopicscoloursenabled'] = 'Collapsed Topics toggle fore and backgound colour settings';
+$string['collapsedtopicscoloursenableddesc'] = 'Use Collapsed Topics fore and bacground colour settings instead of Adaptable\'s \'sectionheadingcolor\' and \'coursesectionheaderbg\' settings.';
 
 $string['homebk'] = 'Frontpage Background Image';
 $string['homebkdesc'] = 'Upload an image that will be a background image on the homepage.';

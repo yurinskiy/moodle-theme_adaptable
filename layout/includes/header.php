@@ -191,7 +191,7 @@ if (!empty($PAGE->theme->settings->responsivesectionnav)) {
     $nomobilenavigation = 'nomobilenavigation';
 }
 ?>
-<body <?php echo $OUTPUT->body_attributes(array('two-column', $setzoom, 'header-'.$adaptableheaderstyle,
+<body <?php echo $OUTPUT->body_attributes(array('theme_adaptable', 'two-column', $setzoom, 'header-'.$adaptableheaderstyle,
         $pageheader, $hasheaderbg, $nomobilenavigation)); ?>>
 
 <?php

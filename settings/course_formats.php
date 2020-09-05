@@ -199,9 +199,9 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    // Topics / Weeks course format heading.
-    $name = 'theme_adaptable/settingstopicsweeks';
-    $heading = get_string('settingstopicsweeks', 'theme_adaptable');
+    // Courses course format heading.
+    $name = 'theme_adaptable/settingscourses';
+    $heading = get_string('settingscourses', 'theme_adaptable');
     $setting = new admin_setting_heading($name, $heading, '');
     $temp->add($setting);
 
@@ -230,6 +230,20 @@ if ($ADMIN->fulltree) {
     $previewconfig = null;
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '#d2f2ef', $previewconfig);
     $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Collapsed topics colour settings enabled.
+    $name = 'theme_adaptable/collapsedtopicscoloursenabled';
+    $title = get_string('collapsedtopicscoloursenabled', 'theme_adaptable');
+    $description = get_string('collapsedtopicscoloursenableddesc', 'theme_adaptable');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, false);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    // Topics / Weeks course format heading.
+    $name = 'theme_adaptable/settingstopicsweeks';
+    $heading = get_string('settingstopicsweeks', 'theme_adaptable');
+    $setting = new admin_setting_heading($name, $heading, '');
     $temp->add($setting);
 
     // Course section header border bottom style.

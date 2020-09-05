@@ -426,13 +426,13 @@
 
 .sectionname {
     background-color: [[setting:coursesectionheaderbg]];
+    border-bottom: [[setting:coursesectionheaderborderstyle]] [[setting:coursesectionheaderbordercolor]] [[setting:coursesectionheaderborderwidth]];
+    border-bottom-left-radius: [[setting:coursesectionheaderborderradiusbottom]];
+    border-bottom-right-radius: [[setting:coursesectionheaderborderradiusbottom]];
+    border-radius: [[setting:coursesectionheaderborderradiustop]];
     color: [[setting:sectionheadingcolor]];
     margin-bottom: 20px;
     padding: 3px 10px;
-    border-bottom: [[setting:coursesectionheaderborderstyle]] [[setting:coursesectionheaderbordercolor]] [[setting:coursesectionheaderborderwidth]];
-    border-radius: [[setting:coursesectionheaderborderradiustop]];
-    border-bottom-right-radius: [[setting:coursesectionheaderborderradiusbottom]];
-    border-bottom-left-radius: [[setting:coursesectionheaderborderradiusbottom]];
 }
 
 .format-onetopic .onetopic .tab_content {
