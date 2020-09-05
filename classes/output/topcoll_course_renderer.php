@@ -70,7 +70,7 @@ class topcoll_course_renderer extends \theme_adaptable\output\core\course_render
             list($linkclasses, $textclasses) = $this->course_section_cm_classes($mod);
             $groupinglabel = $mod->get_grouping_label($textclasses);
 
-            /* Render element that allows to edit activity name inline. It calls {@link course_section_cm_name_title()}
+            /* Render element that allows to edit activity name inline. It calls course_section_cm_name_title()
                to get the display title of the activity. */
             $tmpl = new \format_topcoll\output\course_module_name($mod, $this->page->user_is_editing(), $displayoptions);
             return $this->output->render_from_template('core/inplace_editable', $tmpl->export_for_template($this->output)).

@@ -562,8 +562,7 @@ class theme_adaptable_core_renderer extends core_renderer {
     /**
      * Prints a nice side block with an optional header.
      *
-     * The content is described
-     * by a {@link core_renderer::block_contents} object.
+     * The content is described by a core_renderer::block_contents object.
      *
      * <div id="inst{$instanceid}" class="block_{$blockname} block">
      *      <div class="header"></div>
@@ -3388,7 +3387,7 @@ EOT;
     /**
      * Renders tabobject (part of tabtree)
      *
-     * This function is called from {@link core_renderer::render_tabtree()}
+     * This function is called from core_renderer::render_tabtree()
      * and also it calls itself when printing the $tabobject subtree recursively.
      *
      * @param tabobject $tab

@@ -1608,7 +1608,7 @@ $string['socialicondesc'] = 'Set Font Awesome icon for example: fa-facebook';
 $string['socialiconlist'] = 'Social Icon List';
 $string['socialiconlistdesc'] = 'Enter a delimited list to setup the social icons / links you need using the format: url|title|icon';
 
-// Templates
+// Templates.
 $string['templatessettings'] = 'Templates';
 $string['templatesheading'] = 'Templates Settings';
 $string['templatesheadingdesc'] = 'Override templates';
