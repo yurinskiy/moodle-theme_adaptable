@@ -1,7 +1,7 @@
-Change Log in version 3.0.0 (2020073100)
+Change Log in version 3.0.0 (2020073101)
 ========================================
 
-Development in progress.
+Release candidate for Moodle 3.9.
 
  1. Fix licence from GPLv2 to GPLv3 as is incorrect - Moodle plugins must be GPLv3.
  2. Fix message drawer closure.

@@ -40,7 +40,7 @@ $plugin->requires  = 2020061500.00; // 3.9 (Build: 20200615).
 $plugin->release = '3.0.0';
 
 // Adaptable maturity (do not use ALPHA or BETA versions in production sites).
-$plugin->maturity = MATURITY_BETA;
+$plugin->maturity = MATURITY_RC;
 
 // Adaptable dependencies (Only Boost as it's the parent theme).
 $plugin->dependencies = array(
