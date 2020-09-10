@@ -304,11 +304,16 @@ class theme_adaptable_core_renderer extends core_renderer {
     /**
      * Return list of the user's courses
      *
-     * @param string $overridetype
+     * @param string $overridetype The override type, if null because being called from the course renderer,
+     *    then will be retrieved.
      *
      * @return array list of courses
      */
-    public function render_mycourses($overridetype) {
+    public function render_mycourses($overridetype = null) {
+        if ((empty($overridetype)) && (!empty($this->page->theme->settings->mysitessortoverride))) {
+            $overridetype = $this->page->theme->settings->mysitessortoverride;
+        }
+
         // Set limit of courses to show in dropdown from setting.
         $coursedisplaylimit = '20';
         if (isset($this->page->theme->settings->mycoursesmenulimit)) {
