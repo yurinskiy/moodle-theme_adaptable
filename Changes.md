@@ -1,40 +1,43 @@
+Change Log in version 3.0.1 (2020073102)
+========================================
+
 Change Log in version 3.0.0 (2020073101)
 ========================================
 
 Release candidate for Moodle 3.9.
 
- 1. Fix licence from GPLv2 to GPLv3 as is incorrect - Moodle plugins must be GPLv3.
- 2. Fix message drawer closure.
- 3. Fix 'Regression - Frontpage marketing blocks don't display on desktop' - #139.
- 4. Moodle 3.9 New Activity Chooser styling needs work - #131.
- 5. Fix 'Blocks - My Home recently accessed course' - #9.
- 6. Fix rubic icons -> https://moodle.org/mod/forum/discuss.php?d=408081#p1646693.
- 7. Fix 'Searchbox conflict with Advanced Forum (hsuforum)' - #133.
- 8. Fix 'Bullet list display in Collapsed Topics course format' - #81.
- 9. Fix 'Block settings are left justified' - #82.
+1. Fix licence from GPLv2 to GPLv3 as is incorrect - Moodle plugins must be GPLv3.
+2. Fix message drawer closure.
+3. Fix 'Regression - Frontpage marketing blocks don't display on desktop' - #139.
+4. Moodle 3.9 New Activity Chooser styling needs work - #131.
+5. Fix 'Blocks - My Home recently accessed course' - #9.
+6. Fix rubic icons -> https://moodle.org/mod/forum/discuss.php?d=408081#p1646693.
+7. Fix 'Searchbox conflict with Advanced Forum (hsuforum)' - #133.
+8. Fix 'Bullet list display in Collapsed Topics course format' - #81.
+9. Fix 'Block settings are left justified' - #82.
 10. Improve 'Improve Onetopic course format tab rendering' - #115.
 11. Fix 'Missing action menu (like editing button / cog button) on content bank page' - #140.
-11. Fix 'Button/link 'Turn editing on' missing on Moodle 3.9' - #129.
-12. Fix '.btn declaired after .hidden' - #130.
-13. Fix message drawer hover.
-14. Improve position of #82.
-15. Make 'side-post' have no padding on the right so that the page is symmetrical.
-16. Fix 'H5P iframe element too small in content bank page' - #146.
-17. Fix 'Navbar Custom Menu does not fit' - #128.
-18. Fix 'Editing cog colour not consistent' - #149.
-19. Fix 'Whitespace Below Header in Course Pages' - #38.
-20. Fix 'Use of "$setting->set_updatedcallback('theme_reset_all_caches');" not needed on some settings' - #25.
-21. Fix 'lib.php preg_match logic flaw' - #150.
-22. Fix 'wrong rtl css' - #142.
-23. Fix 'Impossible to enter a course with Coventry tiles' - #156.
-24. Update to version 3 https://moodlehq.github.io/moodle-plugin-ci/UPGRADE-3.0.html - #158.
-25. Assignment with restricting grouping shows all users or groups - #161.
-26. Fix 'Regression? / Inconsistent cog positioning in content bank' - #166.
-27. Fix 'Quiz attempt: no breadcrumbs' - #123.
-28. Fix '$fontname can never be 'custom'' - #104.
-29. Implement 'Update google fonts list ' - #42 - thanks to 'Sal Zaydon' - https://gitlab.com/szaydon for the list.
-30. Fix no such font-family as 'default' - #42.
-31. Fix 'Topic header text now black' - #167.
+12. Fix 'Button/link 'Turn editing on' missing on Moodle 3.9' - #129.
+13. Fix '.btn declaired after .hidden' - #130.
+14. Fix message drawer hover.
+15. Improve position of #82.
+16. Make 'side-post' have no padding on the right so that the page is symmetrical.
+17. Fix 'H5P iframe element too small in content bank page' - #146.
+18. Fix 'Navbar Custom Menu does not fit' - #128.
+19. Fix 'Editing cog colour not consistent' - #149.
+20. Fix 'Whitespace Below Header in Course Pages' - #38.
+21. Fix 'Use of "$setting->set_updatedcallback('theme_reset_all_caches');" not needed on some settings' - #25.
+22. Fix 'lib.php preg_match logic flaw' - #150.
+23. Fix 'wrong rtl css' - #142.
+24. Fix 'Impossible to enter a course with Coventry tiles' - #156.
+25. Update to version 3 https://moodlehq.github.io/moodle-plugin-ci/UPGRADE-3.0.html - #158.
+26. Assignment with restricting grouping shows all users or groups - #161.
+27. Fix 'Regression? / Inconsistent cog positioning in content bank' - #166.
+28. Fix 'Quiz attempt: no breadcrumbs' - #123.
+29. Fix '$fontname can never be 'custom'' - #104.
+30. Implement 'Update google fonts list ' - #42 - thanks to 'Sal Zaydon' - https://gitlab.com/szaydon for the list.
+31. Fix no such font-family as 'default' - #42.
+32. Fix 'Topic header text now black' - #167.
 
 Change Log in version 2.2.2 (2019112601)
 ========================================
