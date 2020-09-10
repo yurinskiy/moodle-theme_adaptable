@@ -387,13 +387,12 @@ class course_renderer extends \core_course_renderer {
         if (!isloggedin() or isguestuser()) {
             return '';
         }
-        // Calls a local method (render_mycourses) to get list of a user's current courses that they are enrolled on.
-        $courses = $this->render_mycourses();
-        list($sortedcourses) = $this->render_mycourses();
+        // Calls a core renderer method (render_mycourses) to get list of a user's current courses that they are enrolled on.
+        $sortedcourses = $this->render_mycourses();
 
         if (!empty($sortedcourses) || !empty($rcourses) || !empty($rhosts)) {
             $chelper = new coursecat_helper();
-            if (count($courses) > $CFG->frontpagecourselimit) {
+            if (count($sortedcourses) > $CFG->frontpagecourselimit) {
                 // There are more enrolled courses than we can display, display link to 'My courses'.
                 $totalcount = count($sortedcourses);
                 $courses = array_slice($sortedcourses, 0, $CFG->frontpagecourselimit, true);
@@ -410,7 +409,7 @@ class course_renderer extends \core_course_renderer {
                 $totalcount = $DB->count_records('course') - 1;
             }
             $chelper->set_show_courses(self::COURSECAT_SHOW_COURSES_EXPANDED)->set_attributes(
-                    array('class' => 'frontpage-course-list-enrolled'));
+                array('class' => 'frontpage-course-list-enrolled'));
             $output .= $this->coursecat_courses($chelper, $sortedcourses, $totalcount);
 
             if (!empty($rcourses)) {
