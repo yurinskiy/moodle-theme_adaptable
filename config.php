@@ -194,8 +194,7 @@ $THEME->layouts = array(
     'frontpage' => array(
         'file' => 'frontpage.php',
         'regions' => $regions,
-        'defaultregion' => 'side-post',
-        'options' => array('nonavbar' => true),
+        'defaultregion' => 'side-post'
     ),
     // Server administration scripts.
     'admin' => array(
