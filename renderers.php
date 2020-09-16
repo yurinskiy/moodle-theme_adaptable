@@ -1788,6 +1788,20 @@ EOT;
         </nav>';
     }
 
+    /**
+     * Renders a navigation node object.
+     *
+     * @param navigation_node $item The navigation node to render.
+     * @return string HTML fragment
+     */
+    protected function render_navigation_node(navigation_node $item) {
+        if ($item->action instanceof action_link) {
+            $action = clone($item->action);
+            $item = clone($item);
+            $item->action = $action;
+        }
+        return parent::render_navigation_node($item);
+    }
 
     /**
      * Returns html to render footer
