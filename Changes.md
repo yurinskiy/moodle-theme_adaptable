@@ -3,6 +3,7 @@ Change Log in version 3.0.1 (2020073102)
 1. Fix 'Too few arguments to function theme_adaptable_core_renderer::render_mycourses(),
    0 passed in [dirroot]/lib/outputrenderers.php on line 497 and exactly 1 expected' - #172.
 2. Fix navbar is not showing on the frontpage.
+3. Fix 'Book module has two icons' - #174.
 
 Change Log in version 3.0.0 (2020073101)
 ========================================
