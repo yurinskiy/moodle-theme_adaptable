@@ -469,110 +469,12 @@ class activity {
      * @return int
      */
     public static function assign_num_submissions_ungraded($courseid, $mod) {
-        global $DB;
-
-        static $hasgrades = null;
-        static $totalsbyid;
-
-        $modid = $mod->id;
-
-        // Use cache to see if assign has grades.
-        if ($hasgrades != null && !isset($hasgrades[$modid])) {
-            return 0;
-        }
-
-        // Use cache to return number of assigns yet to be graded.
-        if (!empty($totalsbyid)) {
-            if (isset($totalsbyid[$modid])) {
-                return intval($totalsbyid[$modid]->total);
-            } else {
-                return 0;
-            }
-        }
-
-        // Check to see if this assign is graded.
-        $params = array(
-                'courseid'      => $courseid,
-                'itemtype'      => 'mod',
-                'itemmodule'    => 'assign',
-                'gradetypenone' => GRADE_TYPE_NONE,
-                'gradetypetext' => GRADE_TYPE_TEXT,
-        );
-
-        // Fix #932.  When a grade AND outcome exists for an assignment, duplicate value error
-        // comes from the Data API in Moodle due to multiple iteminstances.  Added check for outcomeid is null.
-        $sql = 'SELECT iteminstance
-                FROM {grade_items}
-                WHERE courseid = ?
-                AND itemtype = ?
-                AND itemmodule = ?
-                AND gradetype <> ?
-                AND gradetype <> ?
-                AND outcomeid IS NULL';
-
-        $hasgrades = $DB->get_records_sql($sql, $params);
-
-        if (!isset($hasgrades[$modid])) {
-            return 0;
-        }
-
-        // Get grading information for remaining of assigns.
-        $coursecontext = \context_course::instance($courseid);
-        list($esql, $params) = get_enrolled_sql($coursecontext, 'mod/assign:submit', 0, true);
-
-        $params['submitted'] = ASSIGN_SUBMISSION_STATUS_SUBMITTED;
-        $params['courseid'] = $courseid;
-
-        $sql = "-- Snap sql
-        SELECT sb.assignment, count(sb.userid) AS total
-        FROM {assign_submission} sb
-
-        JOIN {assign} an
-        ON sb.assignment = an.id
-
-        LEFT JOIN {assign_grades} ag
-        ON sb.assignment = ag.assignment
-        AND sb.userid = ag.userid
-        AND sb.attemptnumber = ag.attemptnumber
-
-        -- Start of join required to make assignments marked via gradebook not show as requiring grading
-        -- Note: This will lead to disparity between the assignment page (mod/assign/view.php[questionmark]id=[id])
-        -- and the module page will still say that 1 item requires grading.
-
-        LEFT JOIN {grade_items} gi
-        ON gi.courseid = an.course
-        AND gi.itemtype = 'mod'
-        AND gi.itemmodule = 'assign'
-        AND gi.itemnumber = 0
-        AND gi.iteminstance = an.id
-
-        LEFT JOIN {grade_grades} gg
-        ON gg.itemid = gi.id
-        AND gg.userid = sb.userid
-
-        -- End of join required to make assignments classed as graded when done via gradebook
-
-        -- Start of enrolment join to make sure we only include students that are allowed to submit. Note this causes an ALL
-        -- join on mysql!
-        JOIN ($esql) e
-        ON e.id = sb.userid
-        -- End of enrolment join
-
-        WHERE an.course = :courseid
-        AND sb.timemodified IS NOT NULL
-        AND sb.status = :submitted
-        AND sb.latest = 1
-
-        AND (
-        sb.timemodified > gg.timemodified
-        OR gg.finalgrade IS NULL
-        )
-
-        GROUP BY sb.assignment
-        ";
-
-        $totalsbyid = $DB->get_records_sql($sql, $params);
-        return isset($totalsbyid[$modid]) ? intval($totalsbyid[$modid]->total) : 0;
+        // Ref: get_assign_grading_summary_renderable().
+        $coursemodulecontext = \context_module::instance($mod->id);
+        $course = get_course($courseid);
+        $assign = new \assign($coursemodulecontext, $mod, $course);
+        $activitygroup = groups_get_activity_group($mod);
+        return $assign->count_submissions_need_grading($activitygroup);
     }
 
     /**
