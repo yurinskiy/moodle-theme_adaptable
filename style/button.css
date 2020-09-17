@@ -106,6 +106,10 @@ a#adaptable-message-user-button,
     text-decoration: none !important;
 }
 
+a.btn-secondary {
+    color: [[setting:buttontextcolorscnd]];
+}
+
 .btn-secondary:hover {
     background-color: [[setting:buttonhovercolorscnd]];
     color: [[setting:buttontextcolorscnd]];

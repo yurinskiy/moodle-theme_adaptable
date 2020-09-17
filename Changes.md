@@ -6,6 +6,7 @@ Change Log in version 3.0.1 (2020073102)
 3. Fix 'Book module has two icons' - #174.
 4. Fix 'Course in category' - https://moodle.org/mod/forum/discuss.php?d=408081#p1656297.
 5. Fix 'Ungraded assign' - https://moodle.org/mod/forum/discuss.php?d=410681.
+6. Fix btn-secondary text colour when link.
 
 Change Log in version 3.0.0 (2020073101)
 ========================================
