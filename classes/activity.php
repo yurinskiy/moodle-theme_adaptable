@@ -30,7 +30,6 @@ namespace theme_adaptable;
 
 defined('MOODLE_INTERNAL') || die();
 
-use \theme_adaptable\activity_meta;
 use \cm_info;
 
 require_once($CFG->dirroot.'/mod/assign/locallib.php');
@@ -129,30 +128,34 @@ class activity {
         if (has_capability('mod/assign:grade', $mod->context)) {
             $meta->isteacher = true;
 
-            // Teacher - useful teacher meta data.
-            $methodnsubmissions = $mod->modname.'_num_submissions';
-            $methodnumgraded = $mod->modname.'_num_submissions_ungraded';
-            $methodparticipants = $mod->modname.'_num_participants';
-
-            if (method_exists('theme_adaptable\\activity', $methodnsubmissions)) {
-                $meta->numsubmissions = call_user_func('theme_adaptable\\activity::'.
-                    $methodnsubmissions, $courseid, $mod);
-            }
-            if (method_exists('theme_adaptable\\activity', $methodnumgraded)) {
-                $meta->numrequiregrading = call_user_func('theme_adaptable\\activity::'.
-                    $methodnumgraded, $courseid, $mod);
-            }
-            if (method_exists('theme_adaptable\\activity', $methodparticipants)) {
-                $meta->numparticipants = call_user_func('theme_adaptable\\activity::'.
-                    $methodparticipants, $courseid, $mod);
+            if ($mod->modname === 'assign') {
+                list(
+                    'participants' => $meta->numparticipants,
+                    'submissions' => $meta->numsubmissions,
+                    'ungraded' => $meta->numrequiregrading,
+                ) = self::assign_nums($courseid, $mod);
             } else {
-                $meta->numparticipants = self::course_participant_count($courseid, $mod->modname);
+                // Teacher - useful teacher meta data.
+                $methodnsubmissions = $mod->modname.'_num_submissions';
+                $methodnumgraded = $mod->modname.'_num_submissions_ungraded';
+                $methodparticipants = $mod->modname.'_num_participants';
+
+                if (method_exists('theme_adaptable\\activity', $methodnsubmissions)) {
+                    $meta->numsubmissions = call_user_func('theme_adaptable\\activity::'.
+                        $methodnsubmissions, $courseid, $mod);
+                }
+                if (method_exists('theme_adaptable\\activity', $methodnumgraded)) {
+                    $meta->numrequiregrading = call_user_func('theme_adaptable\\activity::'.
+                        $methodnumgraded, $courseid, $mod);
+                }
+                if (method_exists('theme_adaptable\\activity', $methodparticipants)) {
+                    $meta->numparticipants = call_user_func('theme_adaptable\\activity::'.
+                        $methodparticipants, $courseid, $mod);
+                } else {
+                    $meta->numparticipants = self::course_participant_count($courseid, $mod->modname);
+                }
             }
 
-            // If data module, get number of contributions.
-            if ($mod->modname == 'data') {
-                $meta->numsubmissions = self::data_num_contributions($courseid, $mod);
-            }
         } else {
             // Student - useful student meta data - only display if activity is available.
             if (empty($activitydates->timeopen) || $activitydates->timeopen <= time()) {  // TODO User time needed???
@@ -232,7 +235,7 @@ class activity {
      * @param cm_info $modinst - module instance
      * @return activity_meta
      */
-    public static function assign_meta(cm_info $modinst) {
+    protected static function assign_meta(cm_info $modinst) {
         global $DB;
         static $submissionsenabled;
 
@@ -275,7 +278,7 @@ class activity {
      * @param cm_info $modinst - module instance
      * @return string
      */
-    public static function choice_meta(cm_info $modinst) {
+    protected static function choice_meta(cm_info $modinst) {
         return  self::std_meta($modinst, 'timeopen', 'timeclose', 'choiceid', 'answers', 'timeseen', 'answered');
     }
 
@@ -285,7 +288,7 @@ class activity {
      * @param cm_info $modinst - module instance
      * @return string
      */
-    public static function data_meta(cm_info $modinst) {
+    protected static function data_meta(cm_info $modinst) {
         return self::std_meta($modinst, 'timeavailablefrom', 'timeavailableto', 'dataid', 'records', 'timemodified', 'contributed');
     }
 
@@ -295,7 +298,7 @@ class activity {
      * @param cm_info $modinst - module instance
      * @return string
      */
-    public static function feedback_meta(cm_info $modinst) {
+    protected static function feedback_meta(cm_info $modinst) {
         return self::std_meta($modinst, 'timeopen', 'timeclose', 'feedback', 'completed', 'timemodified', 'submitted');
     }
 
@@ -305,7 +308,7 @@ class activity {
      * @param cm_info $modinst - module instance
      * @return string
      */
-    public static function lesson_meta(cm_info $modinst) {
+    protected static function lesson_meta(cm_info $modinst) {
         $meta = self::std_meta($modinst, 'available', 'deadline', 'lessonid', 'attempts', 'timeseen', 'attempted', true);
         // TO BE DELETED: $meta->submissionnotrequired = true; ..........
         return $meta;
@@ -317,30 +320,13 @@ class activity {
      * @param cm_info $modinst - module instance
      * @return string
      */
-    public static function quiz_meta(cm_info $modinst) {
+    protected static function quiz_meta(cm_info $modinst) {
         return self::std_meta($modinst, 'timeopen', 'timeclose', 'quiz',
                 'attempts', 'timemodified', 'attempted', true, 'AND st.state=\'finished\'');
     }
 
     // The lesson_ungraded function has been removed as it was very tricky to implement.
     // This was because it creates a grade record as soon as a student finishes the lesson.
-
-    /**
-     * Get number of ungraded submissions for specific assignment
-     * Based on count_submissions_need_grading() in mod/assign/locallib.php
-     *
-     * @param int $courseid
-     * @param cm_info $mod
-     * @return int
-     */
-    public static function assign_num_submissions_ungraded($courseid, $mod) {
-        // Ref: get_assign_grading_summary_renderable().
-        $coursemodulecontext = \context_module::instance($mod->id);
-        $course = get_course($courseid);
-        $assign = new \assign($coursemodulecontext, $mod, $course);
-        $activitygroup = groups_get_activity_group($mod);
-        return $assign->count_submissions_need_grading($activitygroup);
-    }
 
     /**
      * Standard function for getting number of submissions (where sql is not complicated and pretty much standard)
@@ -395,13 +381,13 @@ class activity {
     }
 
     /**
-     * Assign module function for getting number of participants
+     * Get assignment number information.
      *
      * @param int $courseid
      * @param cm_info $mod
-     * @return int
+     * @return array
      */
-    public static function assign_num_participants($courseid, $mod) {
+    protected static function assign_nums($courseid, $mod) {
         // Ref: get_assign_grading_summary_renderable().
         $coursemodulecontext = \context_module::instance($mod->id);
         $course = get_course($courseid);
@@ -409,37 +395,27 @@ class activity {
         $activitygroup = groups_get_activity_group($mod);
         $instance = $assign->get_default_instance();
         if ($instance->teamsubmission) {
-            return $assign->count_teams($activitygroup);
+            $participants = $assign->count_teams($activitygroup);
         } else {
-            return $assign->count_participants($activitygroup);
+            $participants = $assign->count_participants($activitygroup);
         }
-    }
-
-    /**
-     * Assign module function for getting number of submissions
-     *
-     * @param int $courseid
-     * @param cm_info $mod
-     * @return int
-     */
-    public static function assign_num_submissions($courseid, $mod) {
-        // Ref: get_assign_grading_summary_renderable().
-        $coursemodulecontext = \context_module::instance($mod->id);
-        $course = get_course($courseid);
-        $assign = new \assign($coursemodulecontext, $mod, $course);
-        $activitygroup = groups_get_activity_group($mod);
         $submitted = ASSIGN_SUBMISSION_STATUS_SUBMITTED;
-        return $assign->count_submissions_with_status($submitted, $activitygroup);
+
+        return array(
+            'participants' => $participants,
+            'submissions' => $assign->count_submissions_with_status($submitted, $activitygroup),
+            'ungraded' => $assign->count_submissions_need_grading($activitygroup)
+        );
     }
 
     /**
-     * Data module function for getting number of contributions
+     * Data module function for getting number of contributions.
      *
      * @param int $courseid
      * @param cm_info $mod
      * @return int
      */
-    public static function data_num_contributions($courseid, $mod) {
+    protected static function data_num_submissions($courseid, $mod) {
         global $DB;
 
         $modid = $mod->id;
@@ -467,57 +443,57 @@ class activity {
     }
 
     /**
-     * Get number of answers for specific choice
+     * Get number of answers for specific choice.
      *
      * @param int $courseid
      * @param cm_info $mod
      * @return int
      */
-    public static function choice_num_submissions($courseid, $mod) {
+    protected static function choice_num_submissions($courseid, $mod) {
         return self::std_num_submissions($courseid, $mod, 'choice', 'choiceid', 'choice_answers');
     }
 
     /**
-     * Get number of submissions for feedback activity
+     * Get number of submissions for feedback activity.
      *
      * @param int $courseid
      * @param cm_info $mod
      * @return int
      */
-    public static function feedback_num_submissions($courseid, $mod) {
+    protected static function feedback_num_submissions($courseid, $mod) {
         return self::std_num_submissions($courseid, $mod, 'feedback', 'feedback', 'feedback_completed');
     }
 
     /**
-     * Get number of submissions for lesson activity
+     * Get number of submissions for lesson activity.
      *
      * @param int $courseid
      * @param cm_info $mod
      * @return int
      */
-    public static function lesson_num_submissions($courseid, $mod) {
+    protected static function lesson_num_submissions($courseid, $mod) {
         return self::std_num_submissions($courseid, $mod, 'lesson', 'lessonid', 'lesson_attempts');
     }
 
     /**
-     * Get number of attempts for specific quiz
+     * Get number of attempts for specific quiz.
      *
      * @param int $courseid
      * @param cm_info $mod
      * @return int
      */
-    public static function quiz_num_submissions($courseid, $mod) {
+    protected static function quiz_num_submissions($courseid, $mod) {
         return self::std_num_submissions($courseid, $mod, 'quiz', 'quiz', 'quiz_attempts');
     }
 
     /**
-     * Get number of ungraded quiz attempts for specific quiz
+     * Get number of ungraded quiz attempts for specific quiz.
      *
      * @param int $courseid
      * @param int $quizid
      * @return int
      */
-    public static function quiz_num_submissions_ungraded($courseid, $quizid) {
+    protected static function quiz_num_submissions_ungraded($courseid, $quizid) {
         global $DB;
 
         static $totalsbyquizid;
@@ -571,7 +547,7 @@ class activity {
      *
      * @return mixed
      */
-    public static function get_submission_row($courseid, $mod, $submissiontable, $modfield, $extraselect='') {
+    protected static function get_submission_row($courseid, $mod, $submissiontable, $modfield, $extraselect='') {
         global $DB, $USER;
 
         // Note: Caches all submissions to minimise database transactions.
@@ -675,7 +651,7 @@ class activity {
     }
 
     /**
-     * Get the activity dates for a specific module instance
+     * Get the activity dates for a specific module instance.
      *
      * @param int $courseid
      * @param cm_info $mod
@@ -684,7 +660,7 @@ class activity {
      *
      * @return bool|stdClass
      */
-    public static function instance_activity_dates($courseid, $mod, $timeopenfld = '', $timeclosefld = '') {
+    protected static function instance_activity_dates($courseid, $mod, $timeopenfld = '', $timeclosefld = '') {
         global $DB, $USER;
         // Note: Caches all moduledates to minimise database transactions.
         static $moddates = array();
@@ -797,7 +773,7 @@ class activity {
      *
      * @return bool
      */
-    public static function grade_row($courseid, $mod) {
+    protected static function grade_row($courseid, $mod) {
         global $DB, $USER;
 
         static $grades = array();
@@ -847,66 +823,6 @@ class activity {
     }
 
     /**
-     * Get everything graded from a specific date to the current date.
-     *
-     * @param bool $onlyactive - only show grades in courses actively enrolled on if true.
-     * @param null|int $showfrom - timestamp to show grades from. Note if not set defaults to 1 month ago.
-     * @return mixed
-     */
-    public static function events_graded($onlyactive = true, $showfrom = null) {
-        global $DB, $USER;
-
-        $params = [];
-        $coursesql = '';
-        if ($onlyactive) {
-            $courses = enrol_get_my_courses();
-            $courseids = array_keys($courses);
-            $courseids[] = SITEID;
-            list ($coursesql, $params) = $DB->get_in_or_equal($courseids);
-            $coursesql = 'AND gi.courseid '.$coursesql;
-        }
-
-        $onemonthago = time() - (DAYSECS * 31);
-        $showfrom = $showfrom !== null ? $showfrom : $onemonthago;
-
-        $sql = "-- Snap sql
-        SELECT gg.*, gi.itemmodule, gi.iteminstance, gi.courseid, gi.itemtype
-        FROM {grade_grades} gg
-        JOIN {grade_items} gi
-        ON gg.itemid = gi.id $coursesql
-        WHERE gg.userid = ?
-        AND (gg.timemodified > ?
-        OR gg.timecreated > ?)
-        AND (gg.finalgrade IS NOT NULL
-        OR gg.rawgrade IS NOT NULL
-        OR gg.feedback IS NOT NULL)
-        AND gi.itemtype = 'mod'
-        ORDER BY timemodified DESC";
-
-        $params = array_merge($params, [$USER->id, $showfrom, $showfrom]);
-        $grades = $DB->get_records_sql($sql, $params, 0, 5);
-
-        $eventdata = array();
-        foreach ($grades as $grade) {
-            $eventdata[] = $grade;
-        }
-
-        return $eventdata;
-    }
-
-    /**
-     * Return extension date for user on assignment.
-     * @param int $assignmentid
-     * @return int | bool
-     */
-    public static function assignment_user_extension_date($assignmentid) {
-        global $USER, $DB;
-        $vars = array('assignment' => $assignmentid, 'userid' => $USER->id);
-        $row = $DB->get_record('assign_user_flags', $vars, 'extensionduedate');
-        return $row ? $row->extensionduedate : false;
-    }
-
-    /**
      * Get total participant count for specific courseid. Originally from
      * the snap theme by Moodlerooms.
      *
@@ -914,7 +830,7 @@ class activity {
      * @param string $modname the name of the module, used to build a capability check
      * @return int
      */
-    public static function course_participant_count($courseid, $modname = null) {
+    protected static function course_participant_count($courseid, $modname = null) {
         static $participantcount = array();
 
         // Incorporate the modname in the static cache index.
