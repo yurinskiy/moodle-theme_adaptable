@@ -7,6 +7,7 @@ Change Log in version 3.0.1 (2020073102)
 4. Fix 'Course in category' - https://moodle.org/mod/forum/discuss.php?d=408081#p1656297.
 5. Fix 'Ungraded assign' - https://moodle.org/mod/forum/discuss.php?d=410681.
 6. Fix btn-secondary text colour when link.
+7. Fix 'Filter not applied' - https://moodle.org/mod/forum/discuss.php?d=408081#p1657138.
 
 Change Log in version 3.0.0 (2020073101)
 ========================================

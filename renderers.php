@@ -2685,6 +2685,9 @@ EOT;
                     break;
             }
 
+            // Pre-process to avoid any filter issue.
+            $coursetitle = format_string($coursetitle);
+
             // Check max width of course title and trim if appropriate.
             if (($coursetitlemaxwidth > 0) && ($coursetitle <> '')) {
                 if (strlen($coursetitle) > $coursetitlemaxwidth) {
@@ -2699,7 +2702,7 @@ EOT;
                     if (!empty($categoryheadercustomtitle)) {
                         $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
                     }
-                    $retval .= '<h1>'. format_string($coursetitle) . '</h1>';
+                    $retval .= '<h1>'.$coursetitle. '</h1>';
                     $retval .= '</div>';
                     break;
 
@@ -2709,7 +2712,7 @@ EOT;
                     if (!empty($categoryheadercustomtitle)) {
                         $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
                     }
-                    $retval .= '<h1>'. format_string($coursetitle) . '</h1>';
+                    $retval .= '<h1>'.$coursetitle.'</h1>';
                     $retval .= '</div>';
                     break;
 
