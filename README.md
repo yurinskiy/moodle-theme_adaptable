@@ -1,7 +1,7 @@
 Adaptable - the most adaptable moodle theme
 ===========================================
 
-Version 2.3.1 (2019112604)
+Version 2.3.2 (2019112604)
 
 Adaptable is a highly customizable responsive two column moodle theme based on the popular BCU theme adding:
 
@@ -46,29 +46,6 @@ Jeremy Hopkins (Coventry University)
 Fernando Acedo (3bits elearning solutions)
 Manoj Solanki (Coventry University)
 
-
-Change Log in 2.3.1
-------------------------------------
-- Fixes in line with version 3.0.0
-
-Change Log in 2.2.2
-------------------------------------
-
-Main fixes & Enhancements done in this release.
-
-- Fix mobile responsive settings in "layout responsive" settings page
-- Fix ability to set general box color in forums
-- Fix issues with login page when no header in use
-- Fix issue of footer riding up on short pages with little content
-- Fix close icon for activity chooser in Moodle 3.8
-- Fix combo list on mobile, now collapses into single column
-
-What's new?
-
-- Layout responsive settings page
-- Setting to control color of forum "general box" background where forum description is displayed
-
-
 HTML/CSS sample code for block areas
 ------------------------------------
 Here you will find some code samples to help you to customize the Info Box and the Marketing Blocks.
@@ -91,7 +68,7 @@ There are two possible slider styles each with different markup required:
 
 
 Original BCU Slider Markup:
-
+``
 <div class="span9">
   <h4>Information</h4>
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
@@ -102,22 +79,22 @@ Original BCU Slider Markup:
   <div class="span3">
   <a href="#" class="submit">2016/17 Courses <i class="fa-chevron-right fa"></i></a>
 </div>
-
+``
 
 Coventry Style Slider Markup
-
+``
 <div class="span6 col-sm-6">
 <h3>Hand-crafted</h3> <h4>pixels and code for the Moodle community</h4>
 <a href="#" class="submit">Check out our custom theme pricing!</a>
 </div>
-
+``
 
 Frontpage Marketing Block HTML structure Coventry
-
+``
 <div><img src="http://somewebsite.com/2.jpg" class="marketimage"></div>
 <h4><a href="#">International Courses</a></h4>
 <p>Some text below the link....</p>
-
+``
 
 Front page Info Box and Marketing Blocks
 ----------------------------------------
@@ -136,39 +113,39 @@ Some samples:
 
 
 Block with solid background, FA icon and some text:
-
+``
 <div style="text-align:center; background: #e6e6e6; height: 350px; padding: 7px;">
     <i class="fa fa-paint-brush fa-5x" style="color: #3A454b;"></i>
     <h3>Title </h3>
     <div style="text-align:center;">Add your text here.</div>
 </div>
-
+``
 
 Block with border and transparent background:
-
+``
 <div style="text-align:center; height: 350px; padding: 7px; border: 1px solid #3A454b;">
     <i class="fa fa-list fa-5x" style="color: #3A454b;"></i>
     <h3>Heading</h3>
     <div style="text-align:center; padding: 5px; color: #3A454b;">Add your text here.</div>
 </div>
-
+``
 
 Block with an image:
-
+``
 <div style="height: 350px;">
     <img src="http://yoursite/yourimage.jpg" style="vertical-align:text-bottom; margin: 0 .5em;" height="auto" width="100%">
     <p style="margin-top: 5px; color: #333333; text-align: center;"><strong>Add your text here</strong></p>
 </div>
-
+``
 
 Block with a video:
-
+``
 <div style="background: #606060; height: 350px">
     <center>
     <iframe src="https://www.youtube.com/embed/wop3FMhoLGs" allowfullscreen="" frameborder="0" height="315" width="560"></iframe>
     </center>
 </div>
-
+``
 
 Block using multi-lang filter:
 
@@ -188,16 +165,16 @@ You can apply the same HTML/CSS in the footer blocks.
 Some samples:
 
 Contact information
-
+``
 <i class="fa fa-building"></i>  High St. 100<br>
 <span style="margin-left: 20px;">123456 City</span><br><br>
 <i class="fa fa-phone"></i> +12 (3)456 78 90<br>
 <i class="fa fa-envelope"></i> info@mail.com<br>
 <i class="fa fa-globe"></i> www.example.com
-
+``
 
 List with Chevron
-
+``
 <ul class="block-list">
     <li><a href="http://moodle.org/"><span class="fa fa-chevron-right"></span><span>Accessibility</span></a></li>
     <li><a href="http://moodle.org/"><span class="fa fa-chevron-right"></span><span>Moodle Help</span></a></li>
@@ -205,25 +182,25 @@ List with Chevron
     <li><a href="http://moodle.org/"><span class="fa fa-chevron-right"></span><span>IT Help</span></a></li>
     <li><a href="http://moodle.org/"><span class="fa fa-chevron-right"></span><span>IT Feedback</span></a></li>
 </ul>
-
+``
 
 Copyright text
 --------------
 A sample of copyright text using FA icon
 
-Made with <i class="fa fa-heart" style="color: #ff0000;"></i> in Europe
+Made with `<i class="fa fa-heart" style="color: #ff0000;"></i>` in Europe
 
 
 News Ticker
 -----------
 From version 1.3 the news ticker do not need to create an unordered list. Just add paragraphs using <p> tags:
-
+``
 <p>Configure all the theme colors</p>
 <p>Use any Google Font for the content, headings and site title</p>
 <p>Display a logo or a configurable title site</p>
 <p>Configurable Slideshow</p>
 <p>Display up to 12 marketing blocks in the front page</p>
-
+``
 
 Messages / Notifications
 ------------------------
