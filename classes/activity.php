@@ -340,15 +340,14 @@ class activity {
      *
      * @return int
      */
-    protected static function std_num_submissions($courseid,
+    protected static function std_num_submissions(
+            $courseid,
             $mod,
             $maintable,
             $mainkey,
             $submittable,
             $extraselect = '') {
         global $DB;
-
-        $modid = $mod->id;
 
         static $modtotalsbyid = array();
 
@@ -373,8 +372,9 @@ class activity {
         $totalsbyid = $modtotalsbyid[$maintable][$courseid];
 
         if (!empty($totalsbyid)) {
-            if (isset($totalsbyid[$modid])) {
-                return intval($totalsbyid[$modid]->totalsubmitted);
+            $instanceid = $mod->instance;
+            if (isset($totalsbyid[$instanceid])) {
+                return intval($totalsbyid[$instanceid]->totalsubmitted);
             }
         }
         return 0;
@@ -490,10 +490,10 @@ class activity {
      * Get number of ungraded quiz attempts for specific quiz.
      *
      * @param int $courseid
-     * @param int $quizid
+     * @param cm_info $mod
      * @return int
      */
-    protected static function quiz_num_submissions_ungraded($courseid, $quizid) {
+    protected static function quiz_num_submissions_ungraded($courseid, $mod) {
         global $DB;
 
         static $totalsbyquizid;
@@ -524,6 +524,7 @@ class activity {
         }
 
         if (!empty($totalsbyquizid)) {
+            $quizid = $mod->instance;
             if (isset($totalsbyquizid[$quizid])) {
                 return intval($totalsbyquizid[$quizid]->total);
             }
