@@ -1,3 +1,6 @@
+Change Log in version 3.0.2 (2020073103)
+========================================
+
 Change Log in version 3.0.1 (2020073102)
 ========================================
 1. Fix 'Too few arguments to function theme_adaptable_core_renderer::render_mycourses(),
