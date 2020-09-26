@@ -28,15 +28,18 @@
 /* Main elements selectors */
 html,
 body {
-    margin: 0;
-    padding: 0;
-    background-color: [[setting:backcolor]];
-    background-size: 100% auto;
     color: [[setting:fontcolor]];
     font-family: [[setting:fontname]], sans-serif;
     font-size: [[setting:fontsize]];
     font-weight: [[setting:fontweight]] !important;
     line-height: normal;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: [[setting:backcolor]];
+    background-size: 100% auto;
 }
 
 /* Headings */
