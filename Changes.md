@@ -1,6 +1,8 @@
 Change Log in version 3.0.2 (2020073103)
 ========================================
 1. Fix 'Error in function quiz_num_submissions_ungraded' - #176.
+2. Fix 'course_participant_count inaccurate' - #179.
+3. Fix 'Lesson status inaccurate' - #180.
 
 Change Log in version 3.0.1 (2020073102)
 ========================================
