@@ -309,7 +309,7 @@ class activity {
      * @return string
      */
     protected static function lesson_meta(cm_info $modinst) {
-        $meta = self::std_meta($modinst, 'available', 'deadline', 'lessonid', 'attempts', 'timeseen', 'attempted', true);
+        $meta = self::std_meta($modinst, 'available', 'deadline', 'lessonid', 'timer', 'lessontime', 'attempted', true);
         // TO BE DELETED: $meta->submissionnotrequired = true; ..........
         return $meta;
     }
@@ -472,7 +472,7 @@ class activity {
      * @return int
      */
     protected static function lesson_num_submissions($courseid, $mod) {
-        return self::std_num_submissions($courseid, $mod, 'lesson', 'lessonid', 'lesson_attempts');
+        return self::std_num_submissions($courseid, $mod, 'lesson', 'lessonid', 'lesson_timer');
     }
 
     /**

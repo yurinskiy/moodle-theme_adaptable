@@ -1,6 +1,8 @@
 Change Log in version 2.3.2 (2019112606)
 ========================================
 1. Fix 'Error in function quiz_num_submissions_ungraded' - #176.
+2. Fix 'course_participant_count inaccurate' - #179.
+3. Fix 'Lesson status inaccurate' - #180.
 
 Change Log in 2.3.1
 ========================================
