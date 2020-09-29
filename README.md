@@ -1,7 +1,7 @@
 Adaptable - the most adaptable moodle theme
 ===========================================
 
-Version 2.4.1 (2020070100)
+Version 2.3.2 (2020042500)
 
 Adaptable is a highly customizable responsive two column moodle theme based on the popular BCU theme adding:
 
@@ -49,11 +49,11 @@ G J Barnard MSc. BSc(Hons)(Sndw). MBCS. CEng. CITP. PGCE.  Moodle profile | http
 
 Required version of Moodle
 --------------------------
-This version works with Moodle 3.8 version 2019111800.00 (Build: 20191118) and above within the 3.8 branch until the
+This version works with Moodle 3.7 version 2019052000.00 (Build: 20190520) and above within the 3.7 branch until the
 next release.
 
 Please ensure that your hardware and software complies with 'Requirements' in 'Installing Moodle' on
-'docs.moodle.org/38/en/Installing_Moodle'.
+'docs.moodle.org/37/en/Installing_Moodle'.
 
 HTML/CSS sample code for block areas
 ------------------------------------
