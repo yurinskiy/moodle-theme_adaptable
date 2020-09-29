@@ -393,7 +393,7 @@ class activity {
         $course = get_course($courseid);
         $assign = new \assign($coursemodulecontext, $mod, $course);
         $activitygroup = groups_get_activity_group($mod);
-        $instance = $assign->get_default_instance();
+        $instance = $assign->get_instance();
         if ($instance->teamsubmission) {
             $participants = $assign->count_teams($activitygroup);
         } else {
