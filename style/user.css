@@ -37,12 +37,8 @@
     margin-top: 3.5em; /* Magic number to line up with tabs. */
 }
 
-#adaptable_profile_tree .ucol1 .node_category.contact .firstname,
-#adaptable_profile_tree .ucol1 .node_category.contact .fullname {
-    padding-top: 30px;
-}
-
 #adaptable_profile_tree .ucol1 .adaptableuserpicture {
+    padding-bottom: 30px;
     position: relative;
 }
 
