@@ -1,6 +1,7 @@
 Change Log in version 3.0.3 (2020073104)
 ========================================
 1. Fix 'Cope when there is no first or full name' when showing a user profile.
+2. Fix 'Frontpage tiles do not show course contacts' - #184.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================
