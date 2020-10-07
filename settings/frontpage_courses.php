@@ -80,6 +80,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('tilesshowallcontacts', 'theme_adaptable');
     $description = get_string('tilesshowallcontactsdesc', 'theme_adaptable');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
     $name = 'theme_adaptable/tilescontactstitle';
