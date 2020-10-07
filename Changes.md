@@ -1,3 +1,6 @@
+Change Log in version 3.0.3 (2020073104)
+========================================
+
 Change Log in version 3.0.2 (2020073103)
 ========================================
 1. Fix 'Error in function quiz_num_submissions_ungraded' - #176.
