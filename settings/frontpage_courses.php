@@ -62,7 +62,7 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, 4, $choices);
     $temp->add($setting);
 
-    // TODO - Not served by theme_adaptable_pluginfile ?
+    // Default image for 'Tiles with overlay' on 'frontpagerenderer' setting.
     $name = 'theme_adaptable/frontpagerendererdefaultimage';
     $title = get_string('frontpagerendererdefaultimage', 'theme_adaptable');
     $description = get_string('frontpagerendererdefaultimagedesc', 'theme_adaptable');

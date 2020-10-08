@@ -1625,7 +1625,7 @@ div.questionbankwindow.block {
 }
 
 .cimbox {
-    background-color: #fff;
+    background-color: [[setting:blockbackgroundcolor]];
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1637,42 +1637,61 @@ div.questionbankwindow.block {
 }
 
 .coursebox-content {
-  padding: 5px 15px 10px;
-  text-align: center;
+    padding: 5px 15px 10px;
+    text-align: center;
 }
 
 .coursebox.hover .summary {
-  min-height: 50px;
-  overflow: auto;
-  position: absolute;
-  text-align: center;
-  color: [[setting:rendereroverlayfontcolor]] !important;
-  padding: 20px;
-  top: 0;
-  left: 0;
-  display: none;
+    color: [[setting:rendereroverlayfontcolor]];
+    display: none;
+    left: 0;
+    min-height: 50px;
+    overflow: auto;
+    padding: 20px;
+    position: absolute;
+    text-align: center;
+    top: 0;
 }
 
 .coursebox.hover .summary p {
-  color: [[setting:rendereroverlayfontcolor]] !important;
+    color: [[setting:rendereroverlayfontcolor]];
 }
 
-.coursebox.panel.hover .panel-body:hover .coursebox-content h3,
-.coursebox.panel.hover .panel-body:focus .coursebox-content h3 {
-    color: [[setting:rendereroverlayfontcolor]] !important;
+.coursebox.panel.hover {
+    height: 100%;
+}
+
+.coursebox.panel.hover .panel-body .coursebox-content h3 {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: normal;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.coursebox.panel.hover:hover .panel-body {
+    background-color: [[setting:rendereroverlaycolor]];
+    transition: all .5s ease-in-out;
+}
+
+.coursebox.panel.hover:hover .panel-body .coursebox-content h3,
+.coursebox.panel.hover:focus .panel-body .coursebox-content h3 {
+    color: [[setting:rendereroverlayfontcolor]];
 }
 
 .coursebox.hover .teachers li a,
 .coursebox.hover .summary > a:link,
 .coursebox.hover .summary > a:visited {
-  color: [[setting:rendereroverlayfontcolor]] !important;
+    color: [[setting:rendereroverlayfontcolor]];
 }
 
 .coursebox.hover .teachers {
-    text-align: left;
-    padding-top: 2px;
+    color: [[setting:rendereroverlayfontcolor]];
     padding-left: 2px;
-    color: [[setting:rendereroverlayfontcolor]] !important;
+    padding-top: 2px;
+    text-align: left;
 }
 
 .coursebox.hover:hover .summary {
@@ -1682,46 +1701,27 @@ div.questionbankwindow.block {
     width: auto;
 }
 
-.coursebox.panel.hover .panel-body:hover {
-  background-color: [[setting:rendereroverlaycolor]] !important;
-  transition: all .5s ease-in-out;
-}
-
-.coursebox.panel .panel-body:hover .cimbox {
-  opacity: .3;
-  transition: all .5s ease-in-out;
+.coursebox.panel.hover:hover .panel-body .cimbox {
+    opacity: .3;
+    transition: all .5s ease-in-out;
 }
 
 .panel.hover .coursebtn.submit.btn {
-    float: none;
+    border: 1px solid #eee !important;
+    box-shadow: none;
     display: block;
-    width: 90%;
+    float: none;
+    font-weight: 300;
     margin: 0 auto;
     padding-left: 0;
     padding-right: 0;
-    border: 1px solid #eee !important;
-    box-shadow: none;
-    font-weight: 300;
     position: inherit;
-}
-
-.coursebox.panel.hover {
-  height: 100%;
-}
-
-.coursebox.panel.hover .panel-body .coursebox-content h3 {
-    font-weight: normal;
-    font-size: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 100%;
-    line-height: normal;
+    width: 90%;
 }
 
 .coursebox.hover .boxfooter {
-  clear: none;
-  margin-bottom: 0;
+    clear: none;
+    margin-bottom: 0;
 }
 
 .coursebox .content .courseimage img {
