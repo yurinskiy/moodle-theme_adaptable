@@ -46,10 +46,10 @@
 /* Reset border values */
 [class^="block-side-"] .card-body,
 .block {
-    background: [[setting:blockbackgroundcolor]] !important;
+    background-color: [[setting:blockbackgroundcolor]];
     border: none !important;
-    box-shadow: none !important;
     border-radius: 0 !important;
+    box-shadow: none !important;
     margin-bottom: 2px;
 }
 

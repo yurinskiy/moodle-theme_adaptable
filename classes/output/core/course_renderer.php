@@ -268,9 +268,12 @@ class course_renderer extends \core_course_renderer {
         }
         if (strlen($contentimages) == 0 && $type == 2) {
             // Default image.
+            $cimboxattr = array('class' => 'cimbox');
             $url = $this->page->theme->setting_file_url('frontpagerendererdefaultimage', 'frontpagerendererdefaultimage');
-            $contentimages .= html_writer::tag('div', '', array('class' => 'cimbox',
-                'style' => 'background-image: url(\''.$url.'\');'));
+            if (!empty($url)) {
+                $cimboxattr['style'] = 'background-image: url(\''.$url.'\');';
+            }
+            $contentimages .= html_writer::tag('div', '', $cimboxattr);
         }
         $content .= $contentimages.$contentfiles;
 
