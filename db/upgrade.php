@@ -27,10 +27,10 @@
 defined('MOODLE_INTERNAL') || die;
 
 /**
- * Automatically purge caches during upgrades.
+ * Upgrade.
  *
  * @param int   $oldversion Is this an old version
- * @return bool Return true
+ * @return bool Success.
  */
 function xmldb_theme_adaptable_upgrade($oldversion = 0) {
     global $CFG;
@@ -47,12 +47,12 @@ function xmldb_theme_adaptable_upgrade($oldversion = 0) {
                 set_config('fonttitlename', 'sans-serif', 'theme_adaptable');
             }
         }
+    } else {
+        return false;
     }
 
     // Automatic 'Purge all caches'....
-    if ($oldversion < 2119100900) {
-        purge_all_caches();
-    }
+    purge_all_caches();
 
     return true;
 }
