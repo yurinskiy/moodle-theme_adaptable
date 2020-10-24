@@ -5,6 +5,7 @@ Change Log in version 3.0.3 (2020073104)
 3. Due date label doesn't honor overridden dates for mod_assign - #186,
    thanks to https://github.com/golenkovm for the original patch in Collapsed Topics.
 4. Fix 'adaptable_setting_confightmleditor does not set setting as empty when there is no content' - #187.
+5. Fix 'Sub sub menus and below show all at once' - #188.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================
