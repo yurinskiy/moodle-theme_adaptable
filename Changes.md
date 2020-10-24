@@ -4,6 +4,7 @@ Change Log in version 2.4.2 (2020070101)
 2. Fix 'Frontpage tiles do not show course contacts' - #184.
 3. Due date label doesn't honor overridden dates for mod_assign - #186,
    thanks to https://github.com/golenkovm for the original patch in Collapsed Topics.
+4. Fix 'adaptable_setting_confightmleditor does not set setting as empty when there is no content' - #187.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================

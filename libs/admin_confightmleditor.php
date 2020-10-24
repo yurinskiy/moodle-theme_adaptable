@@ -203,6 +203,8 @@ class adaptable_setting_confightmleditor extends admin_setting_configtext {
         } else {
             $draftitemid = 0;
         }
+
+        $hasfiles = false;
         $draftfiles = $fs->get_area_files($options['context']->id, 'user', 'draft', $draftitemid, 'id');
         foreach ($draftfiles as $file) {
             if (!$file->is_directory()) {
@@ -232,7 +234,13 @@ class adaptable_setting_confightmleditor extends admin_setting_configtext {
                                                            $filerec->get_filepath(),
                                                            $filerec->get_filename());
                     $data = str_ireplace($strtosearch, $url, $data);
+                    $hasfiles = true;
                 }
+            }
+        }
+        if (!$hasfiles) {
+            if (trim(html_to_text($data)) === '') {
+                $data = '';
             }
         }
 
