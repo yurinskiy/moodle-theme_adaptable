@@ -35,7 +35,7 @@ $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $regions = theme_adaptable_grid($left, $hassidepost);
 
 $hasfootnote = (!empty($PAGE->theme->settings->footnote));
-$dashblocksposition = $PAGE->theme->settings->dashblocksposition;
+$dashblocksposition = (!empty($PAGE->theme->settings->dashblocksposition)) ? $PAGE->theme->settings->dashblocksposition : 'abovecontent';
 
 $dashblocklayoutlayoutrow = '';
 if (!empty($PAGE->theme->settings->dashblocksenabled)) {

@@ -43,7 +43,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_adaptable/dashblocksposition';
     $title = get_string('dashblocksposition', 'theme_adaptable');
     $description = get_string('dashblockspositiondesc', 'theme_adaptable');
-    $default = $dashboardblockregionposition['abovecontent'];
+    $default = 'abovecontent';
     $choices = $dashboardblockregionposition;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $temp->add($setting);
