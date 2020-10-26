@@ -110,7 +110,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_adaptable/coursepageblocklayoutlayouttoprow1';
     $title = get_string('coursepageblocklayoutlayouttoprow', 'theme_adaptable');
     $description = get_string('coursepageblocklayoutlayouttoprowdesc', 'theme_adaptable');
-    $default = $bootstrap12defaults[0];
+    $default = 0;
     $choices = $bootstrap12;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $temp->add($setting);
@@ -154,7 +154,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_adaptable/coursepageblocklayoutlayoutbottomrow2';
     $title = get_string('coursepageblocklayoutlayoutbottomrow', 'theme_adaptable');
     $description = get_string('coursepageblocklayoutlayoutbottomrowdesc', 'theme_adaptable');
-    $default = $bootstrap12defaults[0];
+    $default = 0;
     $choices = $bootstrap12;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $temp->add($setting);

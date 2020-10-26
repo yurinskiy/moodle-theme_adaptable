@@ -127,8 +127,9 @@ if ($ADMIN->fulltree) {
         $choices = array(
             'info' => get_string('alertinfo', 'theme_adaptable'),
             'warning' => get_string('alertwarning', 'theme_adaptable'),
-            'success' => get_string('alertannounce', 'theme_adaptable'));
-            $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+            'success' => get_string('alertannounce', 'theme_adaptable')
+        );
+        $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
         $temp->add($setting);
 
         // Alert Access.

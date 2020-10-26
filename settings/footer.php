@@ -63,7 +63,7 @@ if ($ADMIN->fulltree) {
         $name = 'theme_adaptable/footerlayoutrow' . $i;
         $title = get_string('footerlayoutrow', 'theme_adaptable');
         $description = get_string('footerlayoutrowdesc', 'theme_adaptable');
-        $default = $marketingfooterbuilderdefaults[$i - 1];
+        $default = $i - 1;
         $choices = $bootstrap12;
         $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
         $temp->add($setting);

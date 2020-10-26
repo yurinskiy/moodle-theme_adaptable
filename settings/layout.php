@@ -116,7 +116,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_adaptable/tabbedlayoutcoursepage';
     $title = get_string('tabbedlayoutcoursepage', 'theme_adaptable');
     $description = get_string('tabbedlayoutcoursepagedesc', 'theme_adaptable');
-    $default = $tabbedlayoutdefaultscourse[0];
+    $default = 0;
     $choices = $tabbedlayoutdefaultscourse;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $temp->add($setting);
@@ -158,7 +158,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_adaptable/tabbedlayoutdashboard';
     $title = get_string('tabbedlayoutdashboard', 'theme_adaptable');
     $description = get_string('tabbedlayoutdashboarddesc', 'theme_adaptable');
-    $default = $tabbedlayoutdefaultsdashboard[0];
+    $default = 0;
     $choices = $tabbedlayoutdefaultsdashboard;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $temp->add($setting);
