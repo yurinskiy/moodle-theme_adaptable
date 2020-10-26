@@ -37,6 +37,7 @@ body {
     padding: 0;
 }
 
+#page-my-index, /* Overridden from Boost theme to ignore background colour set on dashboard. */
 body {
     background-color: [[setting:backcolor]];
     background-size: 100% auto;
@@ -719,11 +720,6 @@ span.fa-chevron-right.fa {
 
 #page-my-index #page-navbar {
     display: inline;
-}
-
-/* Overridden from Boost theme to ignore background colour set on dashboard. */
-#page-my-index {
-    background-color: unset;
 }
 
 .navbar .nav-collapse.in {
