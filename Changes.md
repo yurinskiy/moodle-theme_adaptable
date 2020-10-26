@@ -8,6 +8,7 @@ Change Log in version 2.4.2 (2020070101)
 5. Fix 'Sub sub menus and below show all at once' - #188.
 6. Fix the ability for Behat to run without '$CFG->forced_plugin_settings' being set - dashboard.php issue only - #159.
 7. Fix 'admin_setting_configselect defaults should use the index and not the value' - #189.
+8. Fix 'regression - background colour on dashboard' - #190.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================
