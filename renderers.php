@@ -1565,7 +1565,7 @@ EOT;
 
         for ($i = 1; $i <= 3; $i++) {
             $footerrow = $layoutrow . $i;
-            $footerrow = (!empty($this->page->theme->settings->$footerrow) ? $this->page->theme->settings->$footerrow : '3-3-3-3';
+            $footerrow = (!empty($this->page->theme->settings->$footerrow)) ? $this->page->theme->settings->$footerrow : '3-3-3-3';
             if ($footerrow != '0-0-0-0') {
                 $fields[] = $footerrow;
             }
