@@ -851,7 +851,7 @@ class course_renderer extends \core_course_renderer {
                     if ($mod->modname == 'assign') {
                             $warningclass = ' activity-date-overdue';
                     }
-                    $labeltext .= html_writer::tag('i', '&nbsp;', array('class' => 'fa fa-exclamation')) . ' ';
+                    $labeltext .= $this->output->pix_icon('i/warning', get_string('warning', 'theme_adaptable'));
                 }
 
                 $labeltext .= get_string('due', 'theme_adaptable', userdate($meta->$field, $dateformat));
@@ -949,7 +949,7 @@ class course_renderer extends \core_course_renderer {
                 } else {
                     $submittedonstr = ' '.userdate($meta->timesubmitted, get_string('strftimedate', 'langconfig'));
                 }
-                $message = html_writer::tag('i', '&nbsp;', array('class' => 'fa fa-check')) . $meta->submittedstr.$submittedonstr;
+                $message = $this->output->pix_icon('i/checked', get_string('checked', 'theme_adaptable')).$meta->submittedstr.$submittedonstr;
             } else {
                 if ($meta->expired) {
                     $warningstr = $meta->expiredstr;

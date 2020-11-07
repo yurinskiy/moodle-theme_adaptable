@@ -1752,6 +1752,9 @@ $string['xofycontributed'] = '{$a->completed} of {$a->participants} Contributed'
 $string['xofysubmitted'] = '{$a->completed} of {$a->participants} Submitted';
 $string['xungraded'] = '{$a} Ungraded';
 
+$string['checked'] = 'Checked';
+$string['warning'] = 'Warning';
+
 $string['coursesectionactivityfurtherinformation'] = 'Course page further information';
 $string['coursesectionactivityfurtherinformationassign'] = 'Show Assignment information';
 $string['coursesectionactivityfurtherinformationassigndesc'] = 'Show assignment information, such as due date, submission status.  For teachers / admins, show number of submissions.';
