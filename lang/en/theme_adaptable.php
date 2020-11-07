@@ -1002,6 +1002,9 @@ $string['edithorizontalpadding'] = 'Set Horizontal padding of editing buttons';
 
 $string['buttondropshadow'] = 'Drop shadow decoration on bottom of button';
 $string['buttondropshadowdesc'] = 'Show a drop shadow (shading) on bottom of button.';
+$string['none'] = 'None';
+$string['slight'] = 'Slight';
+$string['standard'] = 'Standard';
 
 // Login button.
 $string['logintextbutton'] = 'Log In';
@@ -1172,8 +1175,6 @@ $string['fullscreenwidthdesc'] = 'Set the max width of the theme when it is in f
 
 $string['standardscreenwidth'] = 'Standard screen width.';
 $string['standardscreenwidthdesc'] = 'Set the width of the screen when toggled to "standard" view (also see related enablezoom and defaultzoom settings).';
-$string['narrow'] = '1000px';
-$string['standard'] = '1170px';
 
 // Help Links ******************************************************.
 $string['headernavbarhelpheading'] = 'Help Links and Options';
