@@ -62,8 +62,8 @@ class activity_meta {
     /**
      * @var string $draftstr - string for draft status.
      */
-
     public $draftstr;
+
     /**
      * @var string $reopenedstr - string for reopened status.
      */

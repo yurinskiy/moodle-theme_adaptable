@@ -224,7 +224,11 @@ if ($ADMIN->fulltree) {
     $name = 'theme_adaptable/buttondropshadow';
     $title = get_string('buttondropshadow', 'theme_adaptable');
     $description = get_string('buttondropshadowdesc', 'theme_adaptable');
-    $shadowchoices = array ('0px' => 'None', '-1px' => 'Slight', '-2px' => 'Standard');
+    $shadowchoices = array (
+        '0px' => get_string('none', 'theme_adaptable'),
+        '-1px' => get_string('slight', 'theme_adaptable'),
+        '-2px' => get_string('standard', 'theme_adaptable')
+    );
     $setting = new admin_setting_configselect($name, $title, $description, '0px', $shadowchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
