@@ -951,10 +951,21 @@ class course_renderer extends \core_course_renderer {
                 }
                 $message = html_writer::tag('i', '&nbsp;', array('class' => 'fa fa-check')) . $meta->submittedstr.$submittedonstr;
             } else {
-                $warningstr = $meta->draft ? $meta->draftstr : $meta->notsubmittedstr;
-                $warningstr = $meta->reopened ? $meta->reopenedstr : $warningstr;
-                $message = $warningstr;
-                $message = html_writer::tag('i', '&nbsp;', array('class' => 'fa fa-info-circle')) . $message;
+                if ($meta->expired) {
+                    $warningstr = $meta->expiredstr;
+                    $warningicon = 't/locked';
+                } else if ($meta->reopened) {
+                    $warningstr = $meta->reopenedstr;
+                    $warningicon = 't/unlocked';
+                } else if ($meta->draft) {
+                    $warningstr = $meta->draftstr;
+                    $warningicon = 'i/warning';
+                } else {
+                    $warningstr = $meta->notsubmittedstr;
+                    $warningicon = 'i/warning';
+                }
+
+                $message = $this->output->pix_icon($warningicon, get_string('warning', 'theme_adaptable')).$warningstr;
             }
 
             return html_writer::link($url, $message);
