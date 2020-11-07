@@ -11,6 +11,7 @@ Change Log in version 3.0.3 (2020073104)
 8. Fix 'regression - background colour on dashboard' - #190.
 9. Add 'Book printing to PDF' - #173.
 10. Fix 'Dashboard dropdown hover makes text unreadable' - #194.
+11. Add 'Not submitted confusing when student can no longer submit' - #195.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================
