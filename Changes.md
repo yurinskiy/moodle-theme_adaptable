@@ -1,3 +1,11 @@
+Change Log in version 2.2.4 (2019112608)
+========================================
+1. Fix 'Invalid syntax in M3.6 version' - #196.
+
+Change Log in version 2.2.3 (2019112607)
+========================================
+1. Method change - #181.
+
 Change Log in version 2.3.2 (2019112606)
 ========================================
 1. Fix 'Error in function quiz_num_submissions_ungraded' - #176.

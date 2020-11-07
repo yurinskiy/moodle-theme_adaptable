@@ -41,22 +41,22 @@ if ($ADMIN->fulltree) {
 
     // Block region builder.
     $noregions = 20; // Number of block regions defined in config.php.
-    list('imgblder' => $imgblder, 'totalblocks' => $totalblocks) = \theme_adaptable\toolbox::admin_settings_layout_builder(
+    $blocklayout = \theme_adaptable\toolbox::admin_settings_layout_builder(
         $temp, 'blocklayoutlayoutrow', $bootstrap12defaults, $bootstrap12);
 
     $temp->add(new admin_setting_heading('theme_adaptable_blocklayoutcheck', get_string('layoutcheck', 'theme_adaptable'),
         format_text(get_string('layoutcheckdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
 
     $checkcountcolor = '#00695C';
-    if ($totalblocks > $noregions) {
+    if ($blocklayout['totalblocks'] > $noregions) {
         $mktcountcolor = '#D7542A';
     }
     $mktcountmsg = '<span style="color: ' . $checkcountcolor . '">';
     $mktcountmsg .= get_string('layoutcount1', 'theme_adaptable') . '<strong>' . $noregions . '</strong>';
-    $mktcountmsg .= get_string('layoutcount2', 'theme_adaptable') . '<strong>' . $totalblocks . '/' . $noregions . '</strong>.';
+    $mktcountmsg .= get_string('layoutcount2', 'theme_adaptable') . '<strong>' . $blocklayout['totalblocks'] . '/' . $noregions . '</strong>.';
 
     $temp->add(new admin_setting_heading('theme_adaptable_layoutblockscount', '', $mktcountmsg));
 
-    $temp->add(new admin_setting_heading('theme_adaptable_layoutbuilder', '', $imgblder));
+    $temp->add(new admin_setting_heading('theme_adaptable_layoutbuilder', '', $blocklayout['imgblder']));
 }
 $ADMIN->add('theme_adaptable', $temp);
