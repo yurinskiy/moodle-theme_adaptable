@@ -123,28 +123,9 @@
     padding: 10px 5px;
 }
 
-.block .content a,
-.block .content li a,
-.block .content td a {
-    color: [[setting:linkcolor]];
-}
-
-.block .content a:hover,
-.block .content li a:hover,
-.block .content td a:hover {
-    color: [[setting:linkhover]];
-    text-decoration: none !important;
-}
-
 .block .block-hider-show,
 .block .block-hider-hide {
     width: 18px;
-}
-
-/* Added for 3.7 to make dropdowns in blocks be like Boost default as Adaptable styling above for .block .content a makes it appear dark and not unreadable. */
-.block .content a.dropdown-item:active {
-    background-color: [[setting:navbardropdownhovercolor]];
-    color: [[setting:navbardropdowntexthovercolor]];
 }
 
 /** Some specific block styles for calendar block, login block, my profile block, etc. **/
