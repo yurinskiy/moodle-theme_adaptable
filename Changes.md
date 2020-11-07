@@ -10,6 +10,7 @@ Change Log in version 2.4.2 (2020070101)
 7. Fix 'admin_setting_configselect defaults should use the index and not the value' - #189.
 8. Fix 'regression - background colour on dashboard' - #190.
 9. Add 'Book printing to PDF' - #173.
+10. Fix '' - #192.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================

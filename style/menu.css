@@ -132,21 +132,6 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
     align-items: center
 }
 
-#adaptable-page-header-wrapper #main-navbar li ul li a,
-#adaptable-page-header-wrapper #main-navbar li .action-menu-trigger .dropdown-item {
-    color: [[setting:navbardropdowntextcolor]];
-}
-
-#adaptable-page-header-wrapper #main-navbar li ul li a:hover,
-#adaptable-page-header-wrapper #main-navbar li .action-menu-trigger .dropdown-item:hover {
-    background-color: [[setting:navbardropdownhovercolor]];
-    color: [[setting:navbardropdowntexthovercolor]];
-}
-
-#adaptable-page-header-wrapper #main-navbar li .action-menu-trigger .dropdown-item:hover a {
-    color: [[setting:navbardropdowntexthovercolor]];
-}
-
 #adaptable-page-header-wrapper #main-navbar .navbar-nav>.nav-item .dropdown-menu .dropdown-toggle:hover:after {
     border-left-color: [[setting:navbardropdowntexthovercolor]];
 }
@@ -161,28 +146,6 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
     font-size: 16px;
 }
 
-#adaptable-page-header-wrapper #above-header li a.dropdown-item,
-#adaptable-page-header-wrapper #above-header li ul li a {
-    color: [[setting:navbardropdowntextcolor]];
-}
-
-#adaptable-page-header-wrapper #above-header li a.dropdown-item:hover,
-#adaptable-page-header-wrapper #above-header li ul li a:hover {
-    background-color: [[setting:navbardropdownhovercolor]];
-    color: [[setting:navbardropdowntexthovercolor]];
-}
-
-.block a.dropdown-item.active,
-.dropdown-item.active {
-    background-color: [[setting:navbardropdownhovercolor]];
-}
-
-.dropdown-item:active {
-    background-color: [[setting:navbardropdownhovercolor]];
-    color: [[setting:navbardropdowntexthovercolor]];
-    text-decoration: none;
-}
-
 .navbar .nav > li:last-child > a {
     border-right: 0 !important;
 }
@@ -193,10 +156,8 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 /* New top header menu styling (includes #aboveheader css previously in adaptable.css). */
 
 #above-header {
-    border-bottom: 1px solid [[setting:dividingline]];
-    /* height: 35px;
-    padding-bottom: 5px; */
     background-color: [[setting:headerbkcolor]];
+    border-bottom: 1px solid [[setting:dividingline]];
 }
 
 #adaptable-page-header-wrapper #above-header .dropdown-item {
@@ -240,9 +201,9 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 #adaptable-page-header-wrapper #header2 .dropdown-menu a,
 #adaptable-page-header-wrapper #header2 .dropdown-toggle a,
 #adaptable-page-header-wrapper #above-header .dropdown-menu a {
+    color: [[setting:linkcolor]];
     font-family: [[setting:fontname]], sans-serif;
     font-size: [[setting:topmenufontsize]];
-    color: [[setting:linkcolor]];
 }
 
 #adaptable-page-header-wrapper #above-header .dropdown-toggle a i,
@@ -277,10 +238,6 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 #adaptable-page-header-wrapper #header2 a i {
     padding-right: 4px;
 }
-
-/* #adaptable-page-header-wrapper#above-header .dropdown-toggle::after {
-    display: none;
-} */
 
 #adaptable-page-header-wrapper #above-header a.dropdown-toggle {
     margin-top: 2px;
@@ -454,14 +411,14 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
     font-size: [[setting:menufontsize]];
 }
 
-#adaptable-page-header-wrapper .navbar .dropdown-menu /* , .headermenu .dropdown-menu, .langmenu .dropdown-menu */ {
+#adaptable-page-header-wrapper .navbar .dropdown-menu {
     font-size: [[setting:menufontsize]];
     border-radius: [[setting:navbardropdownborderradius]];
     -webkit-transition: all [[setting:navbardropdowntransitiontime]];
     -moz-transition: all [[setting:navbardropdowntransitiontime]];
     -ms-transition: all [[setting:navbardropdowntransitiontime]];
     -o-transition: all [[setting:navbardropdowntransitiontime]];
-    transition: all [[setting:navbardropdowntransitiontime]];    
+    transition: all [[setting:navbardropdowntransitiontime]];
 }
 
 #region-main-settings-menu .dropdown-menu {
@@ -474,14 +431,14 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 }
 
 .dropdown-menu.fade {
-   display: block;
-   opacity: 0;
-   pointer-events: none;
+    display: block;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .show > .dropdown-menu.fade {
-   pointer-events: auto;
-   opacity: 1;
+    pointer-events: auto;
+    opacity: 1;
 }
 
 /* Bootstrap hides/shows dropdowns onclick via the class .show */
@@ -490,35 +447,41 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 }
 
 #adaptable-page-header-wrapper .nav .dropdown-menu li a {
-    color: [[setting:linkcolor]] /* !important */;
+    color: [[setting:linkcolor]];
     background-color: none;
 }
 
+.dropdown-item:hover,
+.dropdown-item:focus,
+.dropdown-item:focus-within,
+.dropdown-item:active,
+.dropdown-item.active,
+.dropdown-submenu:hover > a,
+.dropdown-submenu:focus > a,
+.block a.dropdown-item.active {
+    background-color: [[setting:navbardropdownhovercolor]];
+    color: [[setting:navbardropdowntexthovercolor]];
+}
 
-a.dropdown-item > a,
-a.dropdown-menu > .active,
-a.dropdown-menu > .active > a,
+.dropdown-item:focus-within a {
+    color: [[setting:navbardropdowntexthovercolor]];
+}
+
+.dropdown-menu a,
+.dropdown-menu > .active,
+.dropdown-menu > .active > a,
+.dropdown-submenu > a
 #adaptable-page-header-wrapper .dropdown-menu li a {
     color: [[setting:navbardropdowntextcolor]];
 }
 
-a.dropdown-item:hover > a,
-a.dropdown-item:focus > a,
-a.dropdown-menu > .active > a:hover,
-a.dropdown-menu > .active > a:focus,
+.dropdown-item:hover > a,
+.dropdown-item:focus > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus,
 #adaptable-page-header-wrapper .dropdown-menu li a:hover {
     background-color: [[setting:navbardropdownhovercolor]];
     background-image: none !important;
-    color: [[setting:navbardropdowntexthovercolor]];
-}
-
-.dropdown-submenu > a {
-    color: [[setting:navbardropdowntextcolor]];
-}
-
-.dropdown-submenu:hover > a,
-.dropdown-submenu:focus > a {
-    background-color: [[setting:navbardropdownhovercolor]];
     color: [[setting:navbardropdowntexthovercolor]];
 }
 
@@ -526,7 +489,7 @@ a.dropdown-menu > .active > a:focus,
     border-radius: [[setting:navbardropdownborderradius]];
 }
 
-#adaptable-page-header-wrapper #main-navbar .navbar-nav > .nav-item .dropdown-menu .dropdown-toggle:after  {
+#adaptable-page-header-wrapper #main-navbar .navbar-nav > .nav-item .dropdown-menu .dropdown-toggle:after {
     display: block;
     content: " ";
     float: right;
