@@ -76,11 +76,16 @@ class adaptable_setting_confightmleditor extends admin_setting_configtext {
      * get options
      */
     private function get_options() {
-        global $USER;
+        if (PHPUNIT_TEST) {
+            $userid = 2;  // Admin user.
+        } else {
+            global $USER;
+            $userid = $USER->id;
+        }
 
         $default = array();
         $default['noclean'] = false;
-        $default['context'] = context_user::instance($USER->id);
+        $default['context'] = context_user::instance($userid);
         $default['maxbytes'] = 0;
         $default['maxfiles'] = -1;
         $default['forcehttps'] = false;
@@ -100,7 +105,12 @@ class adaptable_setting_confightmleditor extends admin_setting_configtext {
      * @return string XHTML string for the editor
      */
     public function output_html($data, $query='') {
-        global $USER;
+        if (PHPUNIT_TEST) {
+            $userid = 2;  // Admin user.
+        } else {
+            global $USER;
+            $userid = $USER->id;
+        }
 
         $default = $this->get_defaultsetting();
 
@@ -109,7 +119,7 @@ class adaptable_setting_confightmleditor extends admin_setting_configtext {
             $defaultinfo = "\n".$default;
         }
 
-        $ctx = context_user::instance($USER->id);
+        $ctx = context_user::instance($userid);
         $editor = editors_get_preferred_editor(FORMAT_HTML);
         $options = $this->get_options();
         $draftitemid = file_get_unused_draft_itemid();
@@ -198,10 +208,10 @@ class adaptable_setting_confightmleditor extends admin_setting_configtext {
             $wwwroot = str_replace('http://', 'https://', $wwwroot);
         }
 
-        if (!empty($_REQUEST[$this->get_full_name().'_draftitemid'])) {
-            $draftitemid = $_REQUEST[$this->get_full_name().'_draftitemid'];
-        } else {
+        if (PHPUNIT_TEST) {
             $draftitemid = 0;
+        } else {
+            $draftitemid = $_REQUEST[$this->get_full_name().'_draftitemid'];
         }
 
         $hasfiles = false;
