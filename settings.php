@@ -30,12 +30,9 @@ defined('MOODLE_INTERNAL') || die;
 require_once(__DIR__.'/libs/admin_confightmleditor.php');
 require_once(__DIR__.'/lib.php');
 
-$settings = null;
-
-if (is_siteadmin()) {
+if ($ADMIN->fulltree) {
     // Adaptable theme settings page.
-    global $PAGE;
-    $ADMIN->add('themes', new admin_category('theme_adaptable', 'Adaptable'));
+    $settings = new theme_boost_admin_settingspage_tabs('themesettingadaptable', get_string('configtitle', 'theme_adaptable'));
 
     include(dirname(__FILE__) . '/settings/array_definitions.php');
     include(dirname(__FILE__) . '/settings/colors.php');
