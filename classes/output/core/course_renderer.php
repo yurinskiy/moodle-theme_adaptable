@@ -697,7 +697,7 @@ class course_renderer extends \core_course_renderer {
         $output .= html_writer::div('', $indentclasses);
 
         // Start a wrapper for the actual content to keep the indentation consistent.
-        $output .= html_writer::start_tag('div', array('class' => 'activity-wrapper'));
+        $output .= html_writer::start_tag('div', array('class' => 'ad-activity-wrapper'));
 
         // Display the link to the module (or do nothing if module has no url).
         $cmname = $this->course_section_cm_name($mod, $displayoptions);
@@ -744,7 +744,7 @@ class course_renderer extends \core_course_renderer {
         // Get further information.
         $settingname = 'coursesectionactivityfurtherinformation'. $mod->modname;
         if (isset ($this->page->theme->settings->$settingname) && $this->page->theme->settings->$settingname == true) {
-            $output .= html_writer::start_tag('div', array('class' => 'activity-meta-container'));
+            $output .= html_writer::start_tag('div', array('class' => 'ad-activity-meta-container'));
             $output .= $this->course_section_cm_get_meta($mod);
             $output .= html_writer::end_tag('div');
             // TO BE DELETED    $output .= '<div style="clear: both;"></div>'; ????
@@ -795,24 +795,23 @@ class course_renderer extends \core_course_renderer {
             return '';
         }
         $content .= '';
-        $duedate = '';
 
         $warningclass = '';
         if ($meta->submitted) {
-            $warningclass = ' activity-date-submitted ';
+            $warningclass = ' ad-activity-date-submitted ';
         }
 
         $activitycontent = $this->submission_cta($mod, $meta);
 
         if (!(empty($activitycontent))) {
             if ( ($mod->modname == 'assign') && ($meta->submitted) ) {
-                $content .= html_writer::start_tag('span', array('class' => ' activity-due-date ' . $warningclass));
+                $content .= html_writer::start_tag('span', array('class' => 'ad-activity-due-date'.$warningclass));
                 $content .= $activitycontent;
                 $content .= html_writer::end_tag('span') . '<br>';
             } else {
                 // Only display if this is really a student on the course (i.e. not anyone who can grade an assignment).
                 if (!has_capability('mod/assign:grade', $mod->context)) {
-                    $content .= html_writer::start_tag('div', array('class' => 'activity-mod-engagement' . $warningclass));
+                    $content .= html_writer::start_tag('div', array('class' => 'ad-activity-mod-engagement'.$warningclass));
                     $content .= $activitycontent;
                     $content .= html_writer::end_tag('div');
                 }
@@ -835,21 +834,22 @@ class course_renderer extends \core_course_renderer {
 
             // Display assignment status (due, nearly due, overdue), as long as it hasn't been submitted,
             // or submission not required.
-            if ( (!$meta->submitted) && (!$meta->submissionnotrequired) ) {
+            if ((!$meta->submitted) && (!$meta->submissionnotrequired)) {
                 $warningclass = '';
                 $labeltext = '';
 
                 // If assignment due in 7 days or less, display in amber, if overdue, then in red, or if submitted, turn to green.
 
                 // If assignment is 7 days before date due(nearly due).
+                $time = time();
                 $timedue = $meta->$field - (86400 * 7);
-                if ( (time() > $timedue) &&  !(time() > $meta->$field) ) {
+                if (($time > $timedue) &&  ($time <= $meta->$field)) {
                     if ($mod->modname == 'assign') {
-                        $warningclass = ' activity-date-nearly-due';
+                        $warningclass = ' ad-activity-date-nearly-due';
                     }
-                } else if (time() > $meta->$field) { // If assignment is actually overdue.
+                } else if ($time > $meta->$field) { // If assignment is actually overdue.
                     if ($mod->modname == 'assign') {
-                            $warningclass = ' activity-date-overdue';
+                        $warningclass = ' ad-activity-date-overdue';
                     }
                     $labeltext .= $this->output->pix_icon('i/warning', get_string('warning', 'theme_adaptable'));
                 }
@@ -858,15 +858,14 @@ class course_renderer extends \core_course_renderer {
 
                 $activityclass = '';
                 if ($mod->modname == 'assign') {
-                        $activityclass = ' activity-due-date ';
+                    $activityclass = 'ad-activity-due-date';
                 }
-                $duedate .= html_writer::start_tag('span', array('class' => $activityclass . $warningclass));
+                $duedate = html_writer::start_tag('span', array('class' => $activityclass.$warningclass));
                 $duedate .= html_writer::link($url, $labeltext);
                 $duedate .= html_writer::end_tag('span');
+                $content .= html_writer::start_tag('div', array('class' => 'ad-activity-mod-engagement'));
+                $content .= $duedate . html_writer::end_tag('div');
             }
-
-            $content .= html_writer::start_tag('div', array('class' => 'activity-mod-engagement'));
-            $content .= $duedate . html_writer::end_tag('div');
         }
 
         if ($meta->isteacher) {
@@ -876,11 +875,11 @@ class course_renderer extends \core_course_renderer {
             // Below, !== false means we get 0 out of x submissions.
             if (!$meta->submissionnotrequired && $meta->numparticipants !== false) {
                 $engagementmeta[] = get_string('xofy'.$meta->submitstrkey, 'theme_adaptable',
-                        (object) array(
-                                'completed' => $meta->numsubmissions,
-                                'participants' => $meta->numparticipants
-                        )
-                        );
+                    (object) array(
+                        'completed' => $meta->numsubmissions,
+                        'participants' => $meta->numparticipants
+                    )
+                );
             }
 
             if ($meta->numrequiregrading) {
@@ -890,27 +889,27 @@ class course_renderer extends \core_course_renderer {
                 $engagementstr = implode(', ', $engagementmeta);
 
                 $params = array(
-                        'action' => 'grading',
-                        'id' => $mod->id,
-                        'tsort' => 'timesubmitted',
-                        'filter' => 'require_grading'
+                    'action' => 'grading',
+                    'id' => $mod->id,
+                    'tsort' => 'timesubmitted',
+                    'filter' => 'require_grading'
                 );
                 $url = new moodle_url("/mod/{$mod->modname}/view.php", $params);
 
                 $icon = html_writer::tag('i', '&nbsp;', array('class' => 'fa fa-info-circle'));
-                $content .= html_writer::start_tag('div', array('class' => 'activity-mod-engagement'));
-                $content .= html_writer::link($url, $icon . $engagementstr);
+                $content .= html_writer::start_tag('div', array('class' => 'ad-activity-mod-engagement'));
+                $content .= html_writer::link($url, $icon.$engagementstr, array('class' => 'ad-activity-action'));
                 $content .= html_writer::end_tag('div');
             }
 
         } else {
             // Feedback meta.
             if (!empty($meta->grade)) {
-                   $url = new \moodle_url('/grade/report/user/index.php', ['id' => $COURSE->id]);
+                $url = new \moodle_url('/grade/report/user/index.php', ['id' => $COURSE->id]);
                 if (in_array($mod->modname, ['quiz', 'assign'])) {
                     $url = new \moodle_url('/mod/'.$mod->modname.'/view.php?id='.$mod->id);
                 }
-                $content .= html_writer::start_tag('span', array('class' => 'activity-mod-feedback'));
+                $content .= html_writer::start_tag('span', array('class' => 'ad-activity-mod-feedback'));
                 $feedbackavailable = html_writer::tag('i', '&nbsp;', array('class' => 'fa fa-commenting-o')) .
                     get_string('feedbackavailable', 'theme_adaptable');
                 $content .= html_writer::link($url, $feedbackavailable);
@@ -968,7 +967,7 @@ class course_renderer extends \core_course_renderer {
                 $message = $this->output->pix_icon($warningicon, get_string('warning', 'theme_adaptable')).$warningstr;
             }
 
-            return html_writer::link($url, $message);
+            return html_writer::link($url, $message, array('class' => 'ad-activity-action'));
         }
         return '';
     }
@@ -1016,6 +1015,4 @@ class course_renderer extends \core_course_renderer {
 
         return $this->output->render_from_template('core_course/activity_navigation', $data);
     }
-
-    // End.
 }
