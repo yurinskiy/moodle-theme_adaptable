@@ -15,7 +15,7 @@ Change Log in version 3.0.3 (2020073104)
 12. Fix 'buttondropshadow does not use lang strings' - #152.
 13. Port of Collapsed Topics accessible colours for the activity meta - https://github.com/gjb2048/moodle-format_topcoll/issues/88.
 14. Tabbed settings and fixed use of $PAGE which gives invalid variable values when Adaptable is not the set theme.
-15. Fix '' - #197.
+15. Fix 'PHPUnit install fails' - #197.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================
