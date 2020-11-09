@@ -27,10 +27,10 @@
 defined('MOODLE_INTERNAL') || die;
 
 // Print settings.
-$temp = new admin_settingpage('theme_adaptable_print',
-    get_string('printsettings', 'theme_adaptable'));
 if ($ADMIN->fulltree) {
-    $temp->add(new admin_setting_heading('theme_adaptable_print', get_string('printsettingsheading', 'theme_adaptable'),
+    $page = new admin_settingpage('theme_adaptable_print', get_string('printsettings', 'theme_adaptable'));
+
+    $page->add(new admin_setting_heading('theme_adaptable_print', get_string('printsettingsheading', 'theme_adaptable'),
         format_text(get_string('printsettingsdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
 
     $name = 'theme_adaptable/printpageorientation';
@@ -42,27 +42,28 @@ if ($ADMIN->fulltree) {
     );
     $setting = new admin_setting_configselect($name, $title, $description, 'landscape', $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/printbodyfontsize';
     $title = get_string('printbodyfontsize', 'theme_adaptable');
     $description = get_string('printbodyfontsizedesc', 'theme_adaptable');
     $setting = new admin_setting_configtext($name, $title, $description, '11pt', PARAM_TEXT);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/printmargin';
     $title = get_string('printmargin', 'theme_adaptable');
     $description = get_string('printmargindesc', 'theme_adaptable');
     $setting = new admin_setting_configtext($name, $title, $description, '2cm 1cm 2cm 2cm', PARAM_TEXT);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/printlineheight';
     $title = get_string('printlineheight', 'theme_adaptable');
     $description = get_string('printlineheightdesc', 'theme_adaptable');
     $setting = new admin_setting_configtext($name, $title, $description, '1.2', PARAM_TEXT);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
+
+    $settings->add($page);
 }
-$ADMIN->add('theme_adaptable', $temp);

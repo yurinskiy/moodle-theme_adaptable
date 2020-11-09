@@ -14,6 +14,7 @@ Change Log in version 2.4.2 (2020070101)
 11. Add 'Not submitted confusing when student can no longer submit' - #195.
 12. Fix 'buttondropshadow does not use lang strings' - #152.
 13. Port of Collapsed Topics accessible colours for the activity meta - https://github.com/gjb2048/moodle-format_topcoll/issues/88.
+14. Tabbed settings and fixed use of $PAGE which gives invalid variable values when Adaptable is not the set theme.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================

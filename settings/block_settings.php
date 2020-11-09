@@ -26,13 +26,14 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$temp = new admin_settingpage('theme_adaptable_blocks', get_string('blocksettings', 'theme_adaptable'));
 if ($ADMIN->fulltree) {
+    $page = new admin_settingpage('theme_adaptable_blocks', get_string('blocksettings', 'theme_adaptable'));
+
     // General.
     $name = 'theme_adaptable/settingsblocksgeneral';
     $heading = get_string('settingsblocksgeneral', 'theme_adaptable');
     $setting = new admin_setting_heading($name, $heading, '');
-    $temp->add($setting);
+    $page->add($setting);
 
     // Show the navigation block on the course page.
     $name = 'theme_adaptable/shownavigationblockoncoursepage';
@@ -40,13 +41,13 @@ if ($ADMIN->fulltree) {
     $description = get_string('shownavigationblockoncoursepagedesc', 'theme_adaptable');
     $default = true;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $temp->add($setting);
+    $page->add($setting);
 
     // Colours.
     $name = 'theme_adaptable/settingscolors';
     $heading = get_string('settingscolors', 'theme_adaptable');
     $setting = new admin_setting_heading($name, $heading, '');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockbackgroundcolor';
     $title = get_string('blockbackgroundcolor', 'theme_adaptable');
@@ -54,7 +55,7 @@ if ($ADMIN->fulltree) {
     $previewconfig = null;
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '#FFFFFF', $previewconfig);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockheaderbackgroundcolor';
     $title = get_string('blockheaderbackgroundcolor', 'theme_adaptable');
@@ -62,7 +63,7 @@ if ($ADMIN->fulltree) {
     $previewconfig = null;
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '#FFFFFF', $previewconfig);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockbordercolor';
     $title = get_string('blockbordercolor', 'theme_adaptable');
@@ -70,7 +71,7 @@ if ($ADMIN->fulltree) {
     $previewconfig = null;
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '#59585D', $previewconfig);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockregionbackgroundcolor';
     $title = get_string('blockregionbackground', 'theme_adaptable');
@@ -78,13 +79,13 @@ if ($ADMIN->fulltree) {
     $previewconfig = null;
     $setting = new admin_setting_configcolourpicker($name, $title, $description, 'transparent', $previewconfig);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     // Borders.
     $name = 'theme_adaptable/settingsborders';
     $heading = get_string('settingsborders', 'theme_adaptable');
     $setting = new admin_setting_heading($name, $heading, '');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockheaderbordertopstyle';
     $title = get_string('blockheaderbordertopstyle', 'theme_adaptable');
@@ -92,7 +93,7 @@ if ($ADMIN->fulltree) {
     $radchoices = $borderstyles;
     $setting = new admin_setting_configselect($name, $title, $description, 'dashed', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockheadertopradius';
     $title = get_string('blockheadertopradius', 'theme_adaptable');
@@ -100,7 +101,7 @@ if ($ADMIN->fulltree) {
     $radchoices = $from0to20px;
     $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockheaderbottomradius';
     $title = get_string('blockheaderbottomradius', 'theme_adaptable');
@@ -108,7 +109,7 @@ if ($ADMIN->fulltree) {
     $radchoices = $from0to20px;
     $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockheaderbordertop';
     $title = get_string('blockheaderbordertop', 'theme_adaptable');
@@ -116,7 +117,7 @@ if ($ADMIN->fulltree) {
     $radchoices = $from0to6px;
     $setting = new admin_setting_configselect($name, $title, $description, '1px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockheaderborderleft';
     $title = get_string('blockheaderborderleft', 'theme_adaptable');
@@ -124,7 +125,7 @@ if ($ADMIN->fulltree) {
     $radchoices = $from0to6px;
     $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockheaderborderright';
     $title = get_string('blockheaderborderright', 'theme_adaptable');
@@ -132,7 +133,7 @@ if ($ADMIN->fulltree) {
     $radchoices = $from0to6px;
     $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockheaderborderbottom';
     $title = get_string('blockheaderborderbottom', 'theme_adaptable');
@@ -140,7 +141,7 @@ if ($ADMIN->fulltree) {
     $radchoices = $from0to6px;
     $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockmainbordertopstyle';
     $title = get_string('blockmainbordertopstyle', 'theme_adaptable');
@@ -148,7 +149,7 @@ if ($ADMIN->fulltree) {
     $radchoices = $borderstyles;
     $setting = new admin_setting_configselect($name, $title, $description, 'none', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockmaintopradius';
     $title = get_string('blockmaintopradius', 'theme_adaptable');
@@ -156,7 +157,7 @@ if ($ADMIN->fulltree) {
     $radchoices = $from0to20px;
     $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockmainbottomradius';
     $title = get_string('blockmainbottomradius', 'theme_adaptable');
@@ -164,7 +165,7 @@ if ($ADMIN->fulltree) {
     $radchoices = $from0to20px;
     $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockmainbordertop';
     $title = get_string('blockmainbordertop', 'theme_adaptable');
@@ -172,7 +173,7 @@ if ($ADMIN->fulltree) {
     $radchoices = $from0to6px;
     $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockmainborderleft';
     $title = get_string('blockmainborderleft', 'theme_adaptable');
@@ -180,7 +181,7 @@ if ($ADMIN->fulltree) {
     $radchoices = $from0to6px;
     $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockmainborderright';
     $title = get_string('blockmainborderright', 'theme_adaptable');
@@ -188,7 +189,7 @@ if ($ADMIN->fulltree) {
     $radchoices = $from0to6px;
     $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     $name = 'theme_adaptable/blockmainborderbottom';
     $title = get_string('blockmainborderbottom', 'theme_adaptable');
@@ -196,13 +197,13 @@ if ($ADMIN->fulltree) {
     $radchoices = $from0to6px;
     $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     // Fonts heading.
     $name = 'theme_adaptable/settingsfonts';
     $heading = get_string('settingsfonts', 'theme_adaptable');
     $setting = new admin_setting_heading($name, $heading, '');
-    $temp->add($setting);
+    $page->add($setting);
 
     // Block Header Font size.
     $name = 'theme_adaptable/fontblockheadersize';
@@ -212,7 +213,7 @@ if ($ADMIN->fulltree) {
     $choices = $standardfontsize;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     // Block Header Font weight.
     $name = 'theme_adaptable/fontblockheaderweight';
@@ -220,7 +221,7 @@ if ($ADMIN->fulltree) {
     $description = get_string('fontblockheaderweightdesc', 'theme_adaptable');
     $setting = new admin_setting_configselect($name, $title, $description, 400, $from100to900);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     // Block Header Font color.
     $name = 'theme_adaptable/fontblockheadercolor';
@@ -229,13 +230,13 @@ if ($ADMIN->fulltree) {
     $previewconfig = null;
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '#3A454b', $previewconfig);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
 
     // Icons heading.
     $name = 'theme_adaptable/settingsblockicons';
     $heading = get_string('settingsblockicons', 'theme_adaptable');
     $setting = new admin_setting_heading($name, $heading, '');
-    $temp->add($setting);
+    $page->add($setting);
 
     // Add icon to the title.
     $name = 'theme_adaptable/blockicons';
@@ -243,7 +244,7 @@ if ($ADMIN->fulltree) {
     $description = get_string('blockiconsdesc', 'theme_adaptable');
     $default = true;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $temp->add($setting);
+    $page->add($setting);
 
     // Block Header Icon size.
     $name = 'theme_adaptable/blockiconsheadersize';
@@ -253,6 +254,7 @@ if ($ADMIN->fulltree) {
     $choices = $standardfontsize;
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $temp->add($setting);
+    $page->add($setting);
+
+    $settings->add($page);
 }
-$ADMIN->add('theme_adaptable', $temp);
