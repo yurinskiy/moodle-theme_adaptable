@@ -74,6 +74,8 @@ class adaptable_setting_confightmleditor extends admin_setting_configtext {
     }
 
     /**
+     * Gets the file area options.
+     *
      * @param context_user $ctx
      * @return array
      */
@@ -178,6 +180,8 @@ class adaptable_setting_confightmleditor extends admin_setting_configtext {
     }
 
     /**
+     * Writes the setting to the database.
+     *
      * @param mixed $data
      * @return string
      * @throws coding_exception
