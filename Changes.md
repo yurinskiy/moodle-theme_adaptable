@@ -16,6 +16,7 @@ Change Log in version 3.0.3 (2020073104)
 13. Port of Collapsed Topics accessible colours for the activity meta - https://github.com/gjb2048/moodle-format_topcoll/issues/88.
 14. Tabbed settings and fixed use of $PAGE which gives invalid variable values when Adaptable is not the set theme.
 15. Fix 'PHPUnit install fails' - #197.
+16. Fix 'Install fails on Moodle 3.9' - #198 - thanks to https://gitlab.com/kiklopgs for the patch in https://gitlab.com/jezhops/moodle-theme_adaptable/-/merge_requests/34.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================
