@@ -794,3 +794,47 @@ function theme_adaptable_get_current_page() {
 
     return $currentpage;
 }
+
+/**
+ * Extend the course navigation.
+ *
+ * Ref: MDL-69249.
+ *
+ * @param navigation_node $coursenode The navigation node.
+ * @param stdClass $course The course.
+ * @param context_course $coursecontext The course context.
+ */
+function theme_adaptable_extend_navigation_course($coursenode, $course, $coursecontext) {
+    global $PAGE;
+
+    if (($PAGE->theme->name == 'adaptable') && ($PAGE->user_allowed_editing())) {
+        // Add the turn on/off settings.
+        if ($PAGE->pagetype == 'grade-report-grader-index') {
+            $editnode = $coursenode->find('turneditingonoff', navigation_node::TYPE_SETTING);
+            if ($editnode instanceof navigation_node) {
+                $editurl = clone($PAGE->url);
+                $editurl->param('plugin', 'grader');
+                $editurl->param('sesskey', sesskey());
+
+                // From /grade/report/grader/index.php.
+                if (has_capability('moodle/grade:edit', $coursecontext)) {
+                    global $USER;
+                    $editing = $USER->gradeediting[$course->id];
+                } else {
+                    $editing = 0;
+                }
+                /* Note: The 'single_button' will still use the Moodle core strings because of the
+                   way /grade/report/grader/index.php is written. */
+                if ($editing) {
+                    $editstring = get_string('turngradereditingoff', 'theme_adaptable');
+                    $editurl->param('edit', '0');
+                } else {
+                    $editstring = get_string('turngradereditingon', 'theme_adaptable');
+                    $editurl->param('edit', '1');
+                }
+                $editnode->text = $editstring;
+                $editnode->action = $editurl;
+            }
+        }
+    }
+}
