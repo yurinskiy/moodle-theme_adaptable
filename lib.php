@@ -832,15 +832,14 @@ function theme_adaptable_extend_navigation_course($coursenode, $course, $coursec
             if ($PAGE->url->compare(new moodle_url('/course/view.php'), URL_MATCH_BASE)) {
                 // We are on the course page, retain the current page params e.g. section.
                 $editurl = clone($PAGE->url);
-                $editing = $PAGE->user_is_editing();
             } else {
                 // Edit on the main course page.
                 $editurl = new moodle_url(
                     '/course/view.php',
                     array('id' => $course->id, 'return' => $PAGE->url->out_as_local_url(false))
                 );
-                $editing = $PAGE->user_is_editing();
             }
+            $editing = $PAGE->user_is_editing();
             if ($editing) {
                 $editstring = get_string('turneditingoff');
             } else {
