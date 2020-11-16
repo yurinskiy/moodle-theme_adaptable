@@ -17,6 +17,7 @@ Change Log in version 3.0.3 (2020073104)
 14. Tabbed settings and fixed use of $PAGE which gives invalid variable values when Adaptable is not the set theme.
 15. Fix 'PHPUnit install fails' - #197.
 16. Fix 'Install fails on Moodle 3.9' - #198 - thanks to https://gitlab.com/kiklopgs for the patch in https://gitlab.com/jezhops/moodle-theme_adaptable/-/merge_requests/34.
+17. Fix 'Gradebook: Edit link not working' - #201.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================

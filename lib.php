@@ -810,25 +810,49 @@ function theme_adaptable_extend_navigation_course($coursenode, $course, $coursec
 
     if (($PAGE->theme->name == 'adaptable') && ($PAGE->user_allowed_editing())) {
         // Add the turn on/off settings.
-        if ($PAGE->url->compare(new moodle_url('/course/view.php'), URL_MATCH_BASE)) {
-            // We are on the course page, retain the current page params e.g. section.
-            $baseurl = clone($PAGE->url);
-            $baseurl->param('sesskey', sesskey());
-        } else {
-            // Edit on the main course page.
-            $baseurl = new moodle_url(
-                '/course/view.php',
-                array('id' => $course->id, 'return' => $PAGE->url->out_as_local_url(false), 'sesskey' => sesskey())
-            );
-        }
+        if ($PAGE->pagetype == 'grade-report-grader-index') {
+            $editurl = clone($PAGE->url);
+            $editurl->param('plugin', 'grader');
 
-        $editurl = clone($baseurl);
-        if ($PAGE->user_is_editing()) {
-            $editurl->param('edit', 'off');
-            $editstring = get_string('turneditingoff');
+            // From /grade/report/grader/index.php.
+            if (has_capability('moodle/grade:edit', $coursecontext)) {
+                global $USER;
+                $editing = $USER->gradeediting[$course->id];
+            } else {
+                $editing = 0;
+            }
+            /* Note: The 'single_button' will still use the Moodle core strings because of the
+               way /grade/report/grader/index.php is written. */
+            if ($editing) {
+                $editstring = get_string('turngradereditingoff', 'theme_adaptable');
+            } else {
+                $editstring = get_string('turngradereditingon', 'theme_adaptable');
+            }
         } else {
-            $editurl->param('edit', 'on');
-            $editstring = get_string('turneditingon');
+            if ($PAGE->url->compare(new moodle_url('/course/view.php'), URL_MATCH_BASE)) {
+                // We are on the course page, retain the current page params e.g. section.
+                $editurl = clone($PAGE->url);
+                $editing = $PAGE->user_is_editing();
+            } else {
+                // Edit on the main course page.
+                $editurl = new moodle_url(
+                    '/course/view.php',
+                    array('id' => $course->id, 'return' => $PAGE->url->out_as_local_url(false))
+                );
+                $editing = $PAGE->user_is_editing();
+            }
+            if ($editing) {
+                $editstring = get_string('turneditingoff');
+            } else {
+                $editstring = get_string('turneditingon');
+            }
+        }
+        $editurl->param('sesskey', sesskey());
+
+        if ($editing) {
+            $editurl->param('edit', '0');
+        } else {
+            $editurl->param('edit', '1');
         }
 
         $childnode = navigation_node::create(

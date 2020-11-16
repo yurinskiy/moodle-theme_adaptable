@@ -1694,7 +1694,7 @@ $string['jssectionrestricteddashboardonlydesc'] = 'Show the javascript only on t
 // Cache definitions.
 $string['cachedef_userdata'] = 'A session cache used to store user specific data.';
 
-// Activity and section navigation ********************************.
+// Activity and section navigation *******************.
 $string['nextactivity'] = 'Next Activity';
 $string['previousactivity'] = 'Previous Activity';
 
@@ -1704,17 +1704,21 @@ $string['previoussection'] = 'Previous Section';
 $string['maincoursepage'] = 'Main Course Page';
 $string['jumpto'] = 'Jump to...';
 
-// General ******************************************.
+// General *******************************************.
 $string['hide'] = 'Hide';
 $string['show'] = 'Show';
+
+// Grade editing *************************************.
+$string['turngradereditingoff'] = 'Turn grader editing off';
+$string['turngradereditingon'] = 'Turn grader editing on';
 
 // Navbar Links menu *********************************.
 $string['linksmenu'] = 'Links Menu';
 
-// Navbar user menu *********************************.
+// Navbar user menu **********************************.
 $string['usermenu'] = 'User menu';
 
-// Save / Discard button text *********************************.
+// Save / Discard button text ************************.
 $string['savebuttontext'] = 'Save changes';
 $string['discardbuttontext'] = 'Cancel';
 
@@ -1730,8 +1734,8 @@ $string['forumheaderbackgroundcolordesc'] = 'Background colour for a Forum post'
 $string['forumbodybackgroundcolor'] = 'Forum post body background';
 $string['forumbodybackgroundcolordesc'] = 'Background colour for a Forum post';
 
-// Course page further information *********************.
-// Activity display *********************************.
+// Course page further information *******************.
+// Activity display **********************************.
 $string['answered'] = 'Answered';
 $string['attempted'] = 'Attempted';
 $string['contributed'] = 'Contributed';
