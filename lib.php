@@ -528,34 +528,6 @@ function theme_adaptable_get_alertkey($alertindex) {
 }
 
 /**
- * Get HTML for settings
- * @param renderer_base $output
- * @param moodle_page $page
- */
-function theme_adaptable_get_html_for_settings(renderer_base $output, moodle_page $page) {
-    global $CFG;
-    $return = new stdClass;
-
-    $return->navbarclass = '';
-    if (!empty($page->theme->settings->invert)) {
-        $return->navbarclass .= ' navbar-inverse';
-    }
-
-    if (!empty($page->theme->settings->logo)) {
-        $return->heading = html_writer::link($CFG->wwwroot, '', array('title' => get_string('home'), 'class' => 'logo'));
-    } else {
-        $return->heading = $output->page_heading();
-    }
-
-    $return->footnote = '';
-    if (!empty($page->theme->settings->footnote)) {
-        $return->footnote = '<div class="footnote">'.$page->theme->settings->footnote.'</div>';
-    }
-
-    return $return;
-}
-
-/**
  * Get theme setting
  * @param string $setting
  * @param string $format = false

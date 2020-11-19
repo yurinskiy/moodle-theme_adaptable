@@ -20,6 +20,7 @@ Change Log in version 3.0.3 (2020073104)
 17. Fix 'Gradebook: Edit link not working' - #201.
 18. Fix 'edit_button in renderers.php is not used' - #202.
 19. Fix 'Redundant CSS' - #96.
+20. Fix 'theme_adaptable_get_html_for_settings() is not used!' - #27.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================
