@@ -565,9 +565,7 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 }
 
 @media (min-width: 991px) {
-    #adaptable-page-header-wrapper .btco-hover-menu .collapse ul li,
-    #adaptable-page-header-wrapper .btco-hover-menu .collapse ul ul.dropdown-menu li,
-    #adaptable-page-header-wrapper .btco-hover-menu .collapse ul ul.dropdown-menu ul li {
+    #adaptable-page-header-wrapper .btco-hover-menu .collapse ul li {
         position:relative;
     }
 
