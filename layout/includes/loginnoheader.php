@@ -35,8 +35,6 @@ if (empty($CFG->loginhttps)) {
 // JS call. Fix for #85 where alerts could not be dismissed.
 $PAGE->requires->js_call_amd('theme_adaptable/bsoptions', 'init', array());
 
-$responsivealerts = $PAGE->theme->settings->responsivealerts;
-
 $standardscreenwidthclass = 'standard';
 if (!empty($PAGE->theme->settings->standardscreenwidth)) {
     $standardscreenwidthclass = $PAGE->theme->settings->standardscreenwidth;

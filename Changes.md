@@ -23,6 +23,7 @@ Change Log in version 2.4.2 (2020070101)
 20. Fix 'theme_adaptable_get_html_for_settings() is not used!' - #27.
 21. Fix '$hasmiddle is not used!' - #26.
 22. Fix '$hasfootnote is not used!' - #203.
+23. Fix '$responsivealerts = $PAGE->theme->settings->responsivealerts; not used!' - #204.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================
