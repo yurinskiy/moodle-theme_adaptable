@@ -69,7 +69,6 @@ $PAGE->requires->js_call_amd('theme_adaptable/drawer', 'init');
 // Layout.
 $left = (!right_to_left());  // To know if to add 'pull-right' and 'desktop-first-column' classes in the layout for LTR.
 
-$hasmiddle = $PAGE->blocks->region_has_content('middle', $OUTPUT);
 $hasfootnote = (!empty($PAGE->theme->settings->footnote));
 
 $responsivealerts = $PAGE->theme->settings->responsivealerts;
