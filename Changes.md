@@ -18,6 +18,7 @@ Change Log in version 2.4.2 (2020070101)
 15. Fix 'PHPUnit install fails' - #197.
 16. Fix 'Install fails on Moodle 3.9' - #198 - thanks to https://gitlab.com/kiklopgs for the patch in https://gitlab.com/jezhops/moodle-theme_adaptable/-/merge_requests/34.
 17. Fix 'Gradebook: Edit link not working' - #201.
+18. Fix 'edit_button in renderers.php is not used' - #202.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================
