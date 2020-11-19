@@ -35,9 +35,6 @@ $left = $PAGE->theme->settings->blockside;
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $regions = theme_adaptable_grid($left, $hassidepost);
 
-// We need to load some settings.
-$hasfootnote = (!empty($PAGE->theme->settings->footnote));
-
 // Let's include the images slider if enabled.
 if (!empty($PAGE->theme->settings->sliderenabled)) {
     echo $OUTPUT->get_frontpage_slider();

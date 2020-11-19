@@ -22,6 +22,7 @@ Change Log in version 3.0.3 (2020073104)
 19. Fix 'Redundant CSS' - #96.
 20. Fix 'theme_adaptable_get_html_for_settings() is not used!' - #27.
 21. Fix '$hasmiddle is not used!' - #26.
+22. Fix '$hasfootnote is not used!' - #203.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================
