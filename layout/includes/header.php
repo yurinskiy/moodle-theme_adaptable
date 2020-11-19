@@ -149,9 +149,6 @@ if (isloggedin()) {
     $usermenu = $OUTPUT->render_from_template('theme_adaptable/usermenu', $data);
 }
 
-// Get the HTML for the settings bits.
-$html = theme_adaptable_get_html_for_settings($OUTPUT, $PAGE);
-
 // Social icons class.
 $showicons = "";
 $showicons = $PAGE->theme->settings->blockicons;

@@ -20,6 +20,7 @@ Change Log in version 2.4.2 (2020070101)
 17. Fix 'Gradebook: Edit link not working' - #201.
 18. Fix 'edit_button in renderers.php is not used' - #202.
 19. Fix 'Redundant CSS' - #96.
+20. Fix 'theme_adaptable_get_html_for_settings() is not used!' - #27.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================
