@@ -89,6 +89,7 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'favicon');
     $page->add($setting);
 
+    // Site title.
     $name = 'theme_adaptable/sitetitle';
     $title = get_string('sitetitle', 'theme_adaptable');
     $description = get_string('sitetitledesc', 'theme_adaptable');
@@ -100,12 +101,12 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, 'default', $radchoices);
     $page->add($setting);
 
-    // Site title.
+    // Site title text.
     $name = 'theme_adaptable/sitetitletext';
     $title = get_string('sitetitletext', 'theme_adaptable');
     $description = get_string('sitetitletextdesc', 'theme_adaptable');
     $default = '';
-    $setting = new adaptable_setting_confightmleditor($name, $title, $description, $default);
+    $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
     $page->add($setting);
 
     // Display Course title in the header.
@@ -130,22 +131,6 @@ if ($ADMIN->fulltree) {
         'shortname' => get_string('coursetitleshortname', 'theme_adaptable')
     );
     $setting = new admin_setting_configselect($name, $title, $description, 'breadcrumb', $radchoices);
-    $page->add($setting);
-
-    // Site Title Padding.
-    $name = 'theme_adaptable/sitetitlepadding';
-    $title = get_string('sitetitlepadding', 'theme_adaptable');
-    $description = get_string('sitetitlepaddingdesc', 'theme_adaptable');
-    $setting = new admin_setting_configtext($name, $title, $description, '0px 0px 15px 0px');
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
-    // Site Title Maximum Width.
-    $name = 'theme_adaptable/sitetitlemaxwidth';
-    $title = get_string('sitetitlemaxwidth', 'theme_adaptable');
-    $description = get_string('sitetitlemaxwidthdesc', 'theme_adaptable');
-    $setting = new admin_setting_configselect($name, $title, $description, '50%', $from35to80percent);
-    $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Course Title Maximum Width.
@@ -215,6 +200,17 @@ if ($ADMIN->fulltree) {
         'style2' => get_string('headerstyle2', 'theme_adaptable')
     );
     $setting = new admin_setting_configselect($name, $title, $description, 'style1', $radchoices);
+    $page->add($setting);
+
+    // Page header layout.
+    $name = 'theme_adaptable/pageheaderlayout';
+    $title = get_string('pageheaderlayout', 'theme_adaptable');
+    $description = get_string('pageheaderlayoutdesc', 'theme_adaptable');
+    $radchoices = array(
+        'original' => get_string('pageheaderoriginal', 'theme_adaptable'),
+        'alternative' => get_string('pageheaderalternative', 'theme_adaptable')
+    );
+    $setting = new admin_setting_configselect($name, $title, $description, 'left', $radchoices);
     $page->add($setting);
 
     // Header 2 search box.

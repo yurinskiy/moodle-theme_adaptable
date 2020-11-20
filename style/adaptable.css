@@ -216,12 +216,7 @@ div.signuppanel h2 {
 }
 
 #header2 .row {
-    min-height: [[setting:pageheaderheight]];
     margin: 0 0 0 -15px;
-}
-
-#adaptable-page-header-wrapper > #header2 > div > div,
-#adaptable-page-header-wrapper #header2 .navbar-nav {
     min-height: [[setting:pageheaderheight]];
 }
 
@@ -269,10 +264,6 @@ div.signuppanel h2 {
     color: [[setting:headertextcolor]];
 }
 
-#titlecontainer {
-    width: [[setting:sitetitlemaxwidth]];
-}
-
 #logo {
     margin-bottom: 2px;
     margin-left: 0;
@@ -288,7 +279,12 @@ div.signuppanel h2 {
 #sitetitle,
 #sitetitle a,
 #sitetitle p,
-#sitetitle h1 {
+#sitetitle h1,
+#sitetitle h2,
+#sitetitle h3,
+#sitetitle h4,
+#sitetitle h5,
+#sitetitle h6 {
     color: [[setting:fonttitlecolor]] !important;
 
     font-size: [[setting:fonttitlesize]];
@@ -296,16 +292,18 @@ div.signuppanel h2 {
     font-weight: [[setting:fonttitleweight]] !important;
 
     line-height: 120%;
-    max-width: [[setting:sitetitlemaxwidth]];
-    min-width: 50%;
+    margin: 0;
     overflow: visible;
-    padding: [[setting:sitetitlepadding]];
     position: relative;
     text-overflow: ellipsis;
     width: auto;
-    white-space: nowrap;
-    margin: 0;
     vertical-align: middle;
+}
+
+#sitetitle img {
+    max-height: 107px;
+    max-width: 100%;
+    width: auto;
 }
 
 #coursesearchbox2 {
@@ -322,7 +320,6 @@ div.signuppanel h2 {
 }
 
 .socialbox {
-    display: inline-block;
     margin-top: 15px;
     margin-bottom: 15px;
     padding-top: [[setting:socialpaddingtop]];
@@ -1432,7 +1429,17 @@ div.no-overflow, .yui3-datatable {
 
 /* Search box */
 #page-header .searchbox {
+    bottom: 0;
     padding: [[setting:searchboxpadding]];
+    position: absolute;
+}
+
+#page-header .searchbox.pagelayoutoriginal {
+    right: 0;
+}
+
+#page-header .searchbox.pagelayoutalternative {
+    left: 0;
 }
 
 .greybox {
@@ -1464,8 +1471,8 @@ button.search-box__button {
 }
 
 .search-box {
-    float: right;
-    margin-bottom: 5px;
+    margin: 0 auto;
+    width: 312px;
 }
 
 .bg-white {
