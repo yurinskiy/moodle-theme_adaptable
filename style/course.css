@@ -924,6 +924,10 @@ li.activity div.actions-right {
     padding-left: 0;
 }
 
+.section .activity.modtype_label.label {
+    padding: 0;
+}
+
 .topics .section .activity .mod-indent-outer {
     margin-left: 15px;
 }
