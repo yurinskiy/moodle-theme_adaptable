@@ -24,6 +24,7 @@ Change Log in version 3.0.3 (2020073104)
 21. Fix '$hasmiddle is not used!' - #26.
 22. Fix '$hasfootnote is not used!' - #203.
 23. Fix '$responsivealerts = $PAGE->theme->settings->responsivealerts; not used!' - #204.
+24. Fix 'Improve Activity Completion Icons' - #8.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================
