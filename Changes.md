@@ -1,3 +1,6 @@
+Change Log in version 2.4.2 (2020070101)
+========================================
+
 Change Log in version 2.3.2 (2019112606)
 ========================================
 1. Fix 'Error in function quiz_num_submissions_ungraded' - #176.
