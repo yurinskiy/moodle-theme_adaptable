@@ -117,6 +117,11 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
     margin: 0;
 }
 
+#adaptable-page-header-wrapper #dropdownlangmenu0.dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
 #adaptable-page-header-wrapper #main-navbar ul.navbar-nav > li > a.nav-link:hover,
 #adaptable-page-header-wrapper #main-navbar li div.nav-link:hover,
 #adaptable-page-header-wrapper #main-navbar li #edittingbutton input[type="submit"]:hover {

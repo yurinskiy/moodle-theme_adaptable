@@ -113,8 +113,8 @@ if (!empty($PAGE->theme->settings->headerstyle)) {
 $userpic = '';
 $username = '';
 $usermenu = '';
-// Only used when user is logged in.
-if (isloggedin()) {
+// Only used when user is logged in and not on the secure layout.
+if ((isloggedin()) && ($PAGE->pagelayout != 'secure')) {
     // User icon.
     $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'visibletoscreenreaders' => false,
                'size' => 50, 'class' => 'userpicture'));
@@ -445,7 +445,10 @@ echo $OUTPUT->standard_top_of_body_html();
 
                         <?php
 
-                        echo '<div class="my-auto mx-1">' . $OUTPUT->navbar_plugin_output() . '</div>';
+                        // Remove Messages and Notifications icons when no navbar.
+                        if (empty($PAGE->layout_options['nonavbar'])) {
+                            echo '<div class="my-auto mx-1">' . $OUTPUT->navbar_plugin_output() . '</div>';
+                        }
 
                         $showlangtext = false;
 
