@@ -3233,24 +3233,28 @@ EOT;
     protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0, $menuid = '') {
         static $submenucount = 0;
 
-        if ($menunode->has_children()) {
-
+        // If the node has a url, then use it, even if it has children as the URL could be that of an overview page.
+        if ($menunode->get_url() !== null) {
+            $url = $menunode->get_url();
+        } else {
             $url = '#';
-
+        }
+        if ($menunode->has_children()) {
             $content = '<li class="nav-item dropdown my-auto">';
             $content .= html_writer::start_tag('a', array('href' => $url,
-                    'class' => 'nav-link dropdown-toggle my-auto', 'role' => 'button',
-                    'id' => $menuid . $submenucount,
-                    'aria-haspopup' => 'true',
-                    'aria-expanded' => 'false',
-                    'aria-controls' => 'dropdown' . $menuid . $submenucount,
-                    'data-target' => $url,
-                    'data-toggle' => 'dropdown',
-                    'title' => $menunode->get_title()));
+                'class' => 'nav-link dropdown-toggle my-auto', 'role' => 'button',
+                'id' => $menuid . $submenucount,
+                'aria-haspopup' => 'true',
+                'aria-expanded' => 'false',
+                'aria-controls' => 'dropdown' . $menuid . $submenucount,
+                'data-target' => $url,
+                'data-toggle' => 'dropdown',
+                'title' => $menunode->get_title())
+            );
             $content .= $menunode->get_text();
             $content .= '</a>';
             $content .= '<ul role="menu" class="dropdown-menu" id="dropdown' . $menuid . $submenucount . '" aria-labelledby="'
-                        .$menuid . $submenucount . '">';
+                .$menuid . $submenucount . '">';
 
             foreach ($menunode->get_children() as $menunode) {
                 $content .= $this->render_custom_menu_item($menunode, 1, $menuid . $submenucount);
@@ -3265,12 +3269,6 @@ EOT;
                 $content = '<li>';
                 $linkclass = 'dropdown-item';
             }
-            // The node doesn't have children so produce a final menuitem.
-            if ($menunode->get_url() !== null) {
-                $url = $menunode->get_url();
-            } else {
-                $url = '#';
-            }
 
             /* This is a bit of a cludge, but allows us to pass url, of type moodle_url with a param of
              * "helptarget", which when equal to "_blank", will create a link with target="_blank" to allow the link to open
@@ -3280,10 +3278,10 @@ EOT;
                 $helptarget = $url->get_param('helptarget');
                 $url->remove_params('helptarget');
                 $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title(),
-                        'target' => $helptarget, 'class' => $linkclass));
+                    'target' => $helptarget, 'class' => $linkclass));
             } else {
                 $content .= html_writer::link($url, $menunode->get_text(),
-                        array('title' => $menunode->get_title(), 'class' => $linkclass));
+                    array('title' => $menunode->get_title(), 'class' => $linkclass));
             }
 
             $content .= "</li>";

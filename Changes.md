@@ -27,6 +27,7 @@ Change Log in version 3.0.3 (2020073104)
 24. Fix 'Improve Activity Completion Icons' - #8.
 25. Fix 'User menu available when using "Full screen pop-up with some Javascript scurity" in Quiz' - #210.
 26. Fix 'Adding Activity with Safari in Moodle 3.9' - #211.
+27. Fix 'Second level links do not work when using 3 levels of sub-menu in custom menus' - #117.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================
