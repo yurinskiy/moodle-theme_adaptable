@@ -137,6 +137,7 @@ $THEME->sheets = array(
         'user',
         'print',
         'categorycustom',
+        'browser',
         'custom'
 );
 

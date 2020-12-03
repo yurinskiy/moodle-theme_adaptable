@@ -258,6 +258,24 @@ class theme_adaptable_core_renderer extends core_renderer {
     protected $language = null;
 
     /**
+     * Returns HTML attributes to use within the body tag. This includes an ID and classes.
+     *
+     * @since Moodle 2.5.1 2.6
+     * @param string|array $additionalclasses Any additional classes to give the body tag,
+     * @return string
+     */
+    public function body_attributes($additionalclasses = array()) {
+        if (\core_useragent::is_safari()) {
+            if (is_array($additionalclasses)) {
+                $additionalclasses[] = 'safari';
+            } else {
+                $additionalclasses .= ' safari';
+            }
+        }
+        return parent::body_attributes($additionalclasses);
+    }
+
+    /**
      * Outputs the opening section of a box.
      *
      * @param string $classes A space-separated list of CSS classes
