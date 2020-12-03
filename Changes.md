@@ -33,6 +33,7 @@ Change Log in version 2.4.2 (2020070101)
 30. Add version information to settings pages.
 31. Fix 'Calendar links on the page'.
 32. Fix 'Navigation tweaks'.
+33. Fix '' - #119.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================
