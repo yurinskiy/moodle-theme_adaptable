@@ -400,7 +400,7 @@ class renderer extends \core_user\output\myprofile\renderer {
     /**
      * About me.
      *
-     * @return array
+     * @return category Obj
      */
     protected function create_aboutme() {
         $aboutme = new category('aboutme', get_string('aboutme', 'theme_adaptable'));
@@ -430,13 +430,13 @@ class renderer extends \core_user\output\myprofile\renderer {
             $interests);
         $aboutme->add_node($node);
 
-        return array('category' => $aboutme, 'diempty' => (($descriptionempty) && ($interestsempty)));
+        return $aboutme;
     }
 
     /**
      * Custom user profile.
      *
-     * @return Obj
+     * @return category Obj or null if not created.
      */
     protected function customuserprofile() {
         $category = null;
@@ -553,8 +553,7 @@ class renderer extends \core_user\output\myprofile\renderer {
         $tabdata->tabs = array();
 
         // Aboutme tab.
-        $aboutme = $this->create_aboutme();
-        $category = $aboutme['category'];
+        $category = $this->create_aboutme();
         $aboutmetab = new \stdClass;
         $aboutmetab->name = $category->name;
         $aboutmetab->displayname = $category->title;
@@ -616,15 +615,8 @@ class renderer extends \core_user\output\myprofile\renderer {
             $category->notitle = true;
             $editprofiletab->content = $this->render($category);
             $tabdata->tabs[] = $editprofiletab;
-
-            if ($aboutme['diempty']) {
-                $editprofiletab->selected = true;
-            } else {
-                $aboutmetab->selected = true;
-            }
-        } else {
-            $aboutmetab->selected = true;
         }
+        $aboutmetab->selected = true;
 
         return $this->render_from_template('theme_adaptable/tabs', $tabdata);
     }

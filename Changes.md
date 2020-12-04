@@ -29,6 +29,7 @@ Change Log in version 2.4.2 (2020070101)
 26. Fix 'Adding Activity with Safari in Moodle 3.9' - #211.
 27. Fix 'Second level links do not work when using 3 levels of sub-menu in custom menus' - #117.
 28. Fix 'Course formatting in Safari and Moodle 3.9' - #212.
+29. Fix ''About me' tab should be the default for the user profile page' - #206.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================
