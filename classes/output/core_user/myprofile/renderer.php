@@ -404,15 +404,12 @@ class renderer extends \core_user\output\myprofile\renderer {
      */
     protected function create_aboutme() {
         $aboutme = new category('aboutme', get_string('aboutme', 'theme_adaptable'));
-        $descriptionempty = false;
-        $interestsempty = false;
 
         // Description.
         if (!empty($this->user->userdetails['description'])) {
             $description = $this->user->userdetails['description'];
         } else {
             $description = get_string('usernodescription', 'theme_adaptable');
-            $descriptionempty = true;
         }
         $node = new node('aboutme', 'description', get_string('description'), null, null,
             $description);
@@ -424,7 +421,6 @@ class renderer extends \core_user\output\myprofile\renderer {
             $interests = $this->output->tag_list(\core_tag_tag::get_item_tags('core', 'user', $this->user->id), '');
         } else {
             $interests = get_string('usernointerests', 'theme_adaptable');
-            $interestsempty = true;
         }
         $node = new node('aboutme', 'interests', get_string('interests'), null, null,
             $interests);
