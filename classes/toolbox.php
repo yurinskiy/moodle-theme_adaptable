@@ -72,6 +72,23 @@ class toolbox {
     }
 
     /**
+     * Finds the given setting in the theme using the get_config core function for when the
+     * theme_config object has not been created.
+     *
+     * @param string $setting Setting name.
+     * @param themename $themename null(default of 'adaptable' used)|theme name.
+     *
+     * @return any false|value of setting.
+     */
+    static public function get_config_setting($setting, $themename = null) {
+        if (empty($themename)) {
+            $themename = 'adaptable';
+        }
+        return \get_config('theme_'.$themename, $setting);
+    }
+
+
+    /**
      * Get top level categories.
      *
      * @return array category ids
