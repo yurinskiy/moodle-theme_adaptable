@@ -36,7 +36,7 @@ if ($ADMIN->fulltree) {
     $settings = new theme_adaptable_admin_settingspage_tabs('themesettingadaptable',
         get_string('configtitle', 'theme_adaptable'),
         get_string('version', 'theme_adaptable', $adaptableversion),
-        39,
+        38,
         $adaptableversion
     );
 
