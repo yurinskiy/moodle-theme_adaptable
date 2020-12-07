@@ -32,7 +32,7 @@ Change Log in version 2.4.2 (2020070101)
 29. Fix ''About me' tab should be the default for the user profile page' - #206.
 30. Add version information to settings pages.
 31. Fix 'Calendar links on the page'.
-32. 
+32. Fix 'Navigation tweaks'.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================
