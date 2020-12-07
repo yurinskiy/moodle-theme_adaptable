@@ -2265,7 +2265,7 @@ img.smallicon {
 }
 
 .form-inline input.form-control[type=text] {
-    min-width: 120px;
+    min-width: 0;
     border-radius: 2px;
     height: 32px;
 }
