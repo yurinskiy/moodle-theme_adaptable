@@ -92,17 +92,16 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 /* New main navbar styling */
 #adaptable-page-header-wrapper #main-navbar .navbar-nav > li > a,
 #adaptable-page-header-wrapper #main-navbar .navbar-nav > li > div.nav-link {
+    background-color: none;
+    border-right: 0;
     color: [[setting:menufontcolor]];
-    line-height: 40px;
-    /* float: none; */
+    font-size: [[setting:menufontsize]];
+    font-weight: 400;
+    line-height: 14px;
     padding: 2px [[setting:menufontpadding]] 2px [[setting:menufontpadding]];
     text-decoration: none;
     text-shadow: none;
-    font-weight: 400;
-    font-size: [[setting:menufontsize]];
     text-transform: none;
-    border-right: 0;
-    background-color: none;
     -webkit-transition: all [[setting:navbardropdowntransitiontime]];
     -moz-transition: all [[setting:navbardropdowntransitiontime]];
     -ms-transition: all [[setting:navbardropdowntransitiontime]];
