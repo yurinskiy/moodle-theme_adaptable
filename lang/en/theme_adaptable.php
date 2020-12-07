@@ -1707,6 +1707,7 @@ $string['jumpto'] = 'Jump to...';
 // General *******************************************.
 $string['hide'] = 'Hide';
 $string['show'] = 'Show';
+$string['version'] = 'Version {$a}';
 
 // Grade editing *************************************.
 $string['turngradereditingoff'] = 'Turn grader editing off';

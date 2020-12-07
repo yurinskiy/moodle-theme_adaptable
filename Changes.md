@@ -30,6 +30,7 @@ Change Log in version 3.0.3 (2020073104)
 27. Fix 'Second level links do not work when using 3 levels of sub-menu in custom menus' - #117.
 28. Fix 'Course formatting in Safari and Moodle 3.9' - #212.
 29. Fix ''About me' tab should be the default for the user profile page' - #206.
+30. Add version information to settings pages.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================

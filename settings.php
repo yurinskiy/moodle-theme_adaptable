@@ -32,7 +32,9 @@ require_once(__DIR__.'/lib.php');
 
 if ($ADMIN->fulltree) {
     // Adaptable theme settings page.
-    $settings = new theme_boost_admin_settingspage_tabs('themesettingadaptable', get_string('configtitle', 'theme_adaptable'));
+    $adaptableversion = \theme_adaptable\toolbox::get_config_setting('version');
+    $settings = new theme_adaptable_admin_settingspage_tabs('themesettingadaptable',
+        get_string('configtitle', 'theme_adaptable'), get_string('version', 'theme_adaptable', $adaptableversion));
 
     include(dirname(__FILE__) . '/settings/array_definitions.php');
     include(dirname(__FILE__) . '/settings/colors.php');
