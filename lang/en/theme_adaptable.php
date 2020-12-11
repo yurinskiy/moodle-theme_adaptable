@@ -1708,6 +1708,7 @@ $string['jumpto'] = 'Jump to...';
 $string['hide'] = 'Hide';
 $string['show'] = 'Show';
 $string['version'] = 'Version {$a}';
+$string['versioncheck'] = 'Version {$a->aversion} is incompatible with Moodle {$a->mrelease}, please get the correct version from <a href="https://moodle.org/plugins/theme_adaptable" target="_blank">Moodle.org</a>.';
 
 // Grade editing *************************************.
 $string['turngradereditingoff'] = 'Turn grader editing off';

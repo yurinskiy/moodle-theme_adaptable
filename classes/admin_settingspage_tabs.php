@@ -33,17 +33,28 @@ class theme_adaptable_admin_settingspage_tabs extends theme_boost_admin_settings
     /** @var string The version string to be shown. */
     protected $version;
 
+    /** @var int The branch this Adaptable is for. */
+    protected $mbranch;
+
+    /** @var int Adaptable version. */
+    protected $aversion;
+
     /**
      * see admin_settingpage for details of this function
      *
      * @param string $name The internal name for this external page. Must be unique amongst ALL part_of_admin_tree objects.
      * @param string $visiblename The displayed name for this external page. Usually obtained through get_string().
+     * @param string $version The version info.
+     * @param int $mbranch The branch this Adaptable is for.
+     * @param int $aversion Adaptable version.
      * @param mixed $req_capability The role capability/permission a user must have to access this external page. Defaults to 'moodle/site:config'.
      * @param boolean $hidden Is this external page hidden in admin tree block? Default false.
      * @param stdClass $context The context the page relates to.
      */
-    public function __construct($name, $visiblename, $version, $req_capability = 'moodle/site:config', $hidden = false, $context = NULL) {
+    public function __construct($name, $visiblename, $version, $mbranch, $aversion, $req_capability = 'moodle/site:config', $hidden = false, $context = NULL) {
         $this->version = $version;
+        $this->mbranch = $mbranch;
+        $this->aversion = $aversion;
         return parent::__construct($name, $visiblename, $req_capability, $hidden, $context);
     }
 
@@ -53,7 +64,7 @@ class theme_adaptable_admin_settingspage_tabs extends theme_boost_admin_settings
      * @return string
      */
     public function output_html() {
-        global $OUTPUT;
+        global $CFG, $OUTPUT;
 
         $activetab = optional_param('activetab', '', PARAM_TEXT);
         $context = array('tabs' => array());
@@ -82,6 +93,15 @@ class theme_adaptable_admin_settingspage_tabs extends theme_boost_admin_settings
             return '';
         }
         $context['version'] = $this->version;
+        if ($CFG->branch != $this->mbranch) {
+            $string['versioncheck'] = 'Version {$a->aversion} is incompatible with Moodle {$a->mrelease}, please get the correct version from <a href="https://moodle.org/plugins/theme_adaptable" target="_blank">Moodle.org</a>.';
+
+            $context['versioncheck'] = get_string(
+                'versioncheck',
+                'theme_adaptable',
+                array('aversion' => $this->aversion, 'mrelease' => $CFG->release)
+                );
+        }
 
         return $OUTPUT->render_from_template('theme_adaptable/adaptable_admin_setting_tabs', $context);
     }
