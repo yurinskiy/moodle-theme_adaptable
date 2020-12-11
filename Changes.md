@@ -34,6 +34,7 @@ Change Log in version 3.0.3 (2020073104)
 31. Fix 'Calendar links on the page'.
 32. Fix 'Navigation tweaks'.
 33. Fix 'User details not visible on profile page' - #119.
+34. Tabs update in line with MDL-69301.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================
