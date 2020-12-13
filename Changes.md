@@ -35,6 +35,7 @@ Change Log in version 2.4.2 (2020070101)
 32. Fix 'Navigation tweaks'.
 33. Fix 'User details not visible on profile page' - #119.
 34. Tabs update in line with MDL-69301.
+35. Fix block header icons.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================
