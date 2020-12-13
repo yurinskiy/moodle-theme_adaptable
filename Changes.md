@@ -36,6 +36,7 @@ Change Log in version 3.0.3 (2020073104)
 33. Fix 'User details not visible on profile page' - #119.
 34. Tabs update in line with MDL-69301.
 35. Fix block header icons.
+36. Fix block hide / show icon size.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================

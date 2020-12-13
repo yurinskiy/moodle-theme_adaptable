@@ -406,10 +406,6 @@
     opacity: 1;
 }
 
-.block .block-hider-show, .block .block-hider-hide {
-    width: 12px;
-}
-
 body.has_dock div#dock {
     z-index: 3;
 }
