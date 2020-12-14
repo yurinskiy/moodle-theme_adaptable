@@ -47,7 +47,7 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configmultiselect($name, $title, $description, $default, $templates);
     $page->add($setting);
 
-    $settings->add($page);
+    $asettings->add($page);
 
     $overridetemplates = get_config('theme_adaptable', 'templatessel');
     if ($overridetemplates) {
@@ -78,7 +78,7 @@ if ($ADMIN->fulltree) {
             $setting = new adaptable_admin_setting_configtemplate($name, $title, $description, $default, $overridetemplate);
             $temppage->add($setting);
 
-            $settings->add($temppage);
+            $asettings->add($temppage);
         }
     }
 }

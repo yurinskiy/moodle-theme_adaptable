@@ -60,5 +60,5 @@ if ($ADMIN->fulltree) {
 
     $page->add(new admin_setting_heading('theme_adaptable_layoutbuilder', '', $imgblder));
 
-    $settings->add($page);
+    $asettings->add($page);
 }

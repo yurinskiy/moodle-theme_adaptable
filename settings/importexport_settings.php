@@ -25,9 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+$page = new admin_settingpage('theme_adaptable_importexport', get_string('properties', 'theme_adaptable'));
 if ($ADMIN->fulltree) {
-    $page = new admin_settingpage('theme_adaptable_importexport', get_string('properties', 'theme_adaptable'));
-
     if (file_exists("{$CFG->dirroot}/theme/adaptable/settings/adaptable_admin_setting_getprops.php")) {
         require_once($CFG->dirroot . '/theme/adaptable/settings/adaptable_admin_setting_getprops.php');
         require_once($CFG->dirroot . '/theme/adaptable/settings/adaptable_admin_setting_putprops.php');
@@ -66,6 +65,5 @@ if ($ADMIN->fulltree) {
     );
     $setting->set_updatedcallback('purge_all_caches');
     $page->add($setting);
-
-    $settings->add($page);
 }
+$ADMIN->add('theme_adaptable', $page);

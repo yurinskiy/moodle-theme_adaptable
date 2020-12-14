@@ -131,5 +131,5 @@ if ($ADMIN->fulltree) {
         }
     }
 
-    $settings->add($page);
+    $asettings->add($page);
 }

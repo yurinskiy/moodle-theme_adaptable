@@ -253,5 +253,5 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configtext($name, $title, $description, 'exclamation-triangle');
     $page->add($setting);
 
-    $settings->add($page);
+    $asettings->add($page);
 }
