@@ -69,5 +69,5 @@ if ($ADMIN->fulltree) {
 
     $page->add(new admin_setting_heading('theme_adaptable_dashlayoutbuilder', '', $imgblder));
 
-    $settings->add($page);
+    $asettings->add($page);
 }

@@ -280,5 +280,5 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, 1, $radchoices);
     $page->add($setting);
 
-    $settings->add($page);
+    $asettings->add($page);
 }

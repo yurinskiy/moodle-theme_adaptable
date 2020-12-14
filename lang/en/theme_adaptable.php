@@ -72,6 +72,7 @@ Alistair Spark (University College London)
 
 $string['pluginname'] = 'Adaptable';
 $string['configtitle'] = 'Adaptable';
+$string['configtabtitle'] = 'Adaptable settings';
 
 $string['region-middle'] = 'Middle';
 $string['region-frnt-footer'] = 'Footer';
@@ -1783,7 +1784,7 @@ $string['coursesectionactivitymarginbottom'] = 'Bottom margin activity spacing.'
 $string['coursesectionactivitymarginbottomdesc'] = 'Bottom margin spacing between activities.';
 
 // Properties.
-$string['properties'] = 'Import / Export Settings';
+$string['properties'] = 'Import / Export Adaptable settings';
 $string['propertiessub'] = 'Current theme settings';
 $string['propertiesdesc'] = 'In this section you can import / export current Adaptable theme settings (properties) in JSON format. You can also view all current settings on this Moodle installation.';
 $string['propertiesproperty'] = 'Property';

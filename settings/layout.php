@@ -194,5 +194,5 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_RAW, '');
     $page->add($setting);
 
-    $settings->add($page);
+    $asettings->add($page);
 }

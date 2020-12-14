@@ -202,5 +202,5 @@ if ($ADMIN->fulltree) {
         $page->add($setting);
     }
 
-    $settings->add($page);
+    $asettings->add($page);
 }

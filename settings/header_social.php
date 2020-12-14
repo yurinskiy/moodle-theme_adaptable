@@ -67,5 +67,5 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configtextarea($name, $title, $description, $default, PARAM_RAW, '50', '10');
     $page->add($setting);
 
-    $settings->add($page);
+    $asettings->add($page);
 }

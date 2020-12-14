@@ -154,5 +154,5 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $page->add($setting);
 
-    $settings->add($page);
+    $asettings->add($page);
 }

@@ -30,16 +30,18 @@ defined('MOODLE_INTERNAL') || die;
 require_once(__DIR__.'/libs/admin_confightmleditor.php');
 require_once(__DIR__.'/lib.php');
 
-if ($ADMIN->fulltree) {
-    // Adaptable theme settings page.
-    $adaptableversion = \theme_adaptable\toolbox::get_config_setting('version');
-    $settings = new theme_adaptable_admin_settingspage_tabs('themesettingadaptable',
-        get_string('configtitle', 'theme_adaptable'),
-        get_string('version', 'theme_adaptable', $adaptableversion),
-        39,
-        $adaptableversion
-    );
+$settings = null;
+$ADMIN->add('themes', new admin_category('theme_adaptable', get_string('configtitle', 'theme_adaptable')));
 
+// Adaptable theme settings page.
+$adaptableversion = \theme_adaptable\toolbox::get_config_setting('version');
+$asettings = new theme_adaptable_admin_settingspage_tabs('themesettingadaptable',
+    get_string('configtabtitle', 'theme_adaptable'),
+    get_string('version', 'theme_adaptable', $adaptableversion),
+    39,
+    $adaptableversion
+);
+if ($ADMIN->fulltree) {
     include(dirname(__FILE__) . '/settings/array_definitions.php');
     include(dirname(__FILE__) . '/settings/colors.php');
     include(dirname(__FILE__) . '/settings/fonts.php');
@@ -70,6 +72,7 @@ if ($ADMIN->fulltree) {
     include(dirname(__FILE__) . '/settings/templates.php');
     include(dirname(__FILE__) . '/settings/print.php');
     include(dirname(__FILE__) . '/settings/analytics.php');
-    include(dirname(__FILE__) . '/settings/importexport_settings.php');
     include(dirname(__FILE__) . '/settings/custom_css.php');
 }
+$ADMIN->add('theme_adaptable', $asettings);
+include(dirname(__FILE__) . '/settings/importexport_settings.php');

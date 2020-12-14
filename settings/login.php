@@ -117,5 +117,5 @@ if ($ADMIN->fulltree) {
     $setting = new adaptable_setting_confightmleditor($name, $title, $description, $default);
     $page->add($setting);
 
-    $settings->add($page);
+    $asettings->add($page);
 }
