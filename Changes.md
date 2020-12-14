@@ -38,6 +38,7 @@ Change Log in version 3.0.3 (2020073104)
 35. Fix block header icons.
 36. Fix block hide / show icon size.
 37. Fix 'Wrong display of date user profile fields' - #214.
+38. Fix property display can cause markup to be interpreted.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================
