@@ -37,6 +37,7 @@ Change Log in version 3.0.3 (2020073104)
 34. Tabs update in line with MDL-69301.
 35. Fix block header icons.
 36. Fix block hide / show icon size.
+37. Fix 'Wrong display of date user profile fields' - #214.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================

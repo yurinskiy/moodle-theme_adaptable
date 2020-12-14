@@ -515,6 +515,8 @@ class renderer extends \core_user\output\myprofile\renderer {
     /**
      * Custom user profile.
      *
+     * TODO: May need to change, somehow, to use display_data(), see: userprofilefields().
+     *
      * @return category Obj or null if not created.
      */
     protected function customuserprofile() {
@@ -573,18 +575,24 @@ class renderer extends \core_user\output\myprofile\renderer {
             $customcoursesubtitleprofilefield = get_config('theme_adaptable', 'customcoursesubtitle');
 
             $customfieldscat = new category('customfields', '');
-
             $hasnodes = false;
-            foreach ($this->user->userdetails['customfields'] as $cfield) {
-                if ((!empty($customcoursetitleprofilefield)) && ($cfield['shortname'] == $customcoursetitleprofilefield)) {
-                    continue;
+
+            $categories = profile_get_user_fields_with_data_by_category($this->user->id);
+            foreach ($categories as $categoryid => $fields) {
+                foreach ($fields as $formfield) {
+                    if ((!empty($customcoursetitleprofilefield)) && ($formfield->field->shortname == $customcoursetitleprofilefield)) {
+                        continue;
+                    }
+                    if ((!empty($customcoursesubtitleprofilefield)) && ($formfield->field->shortname == $customcoursesubtitleprofilefield)) {
+                        continue;
+                    }
+                    if ($formfield->is_visible() and !$formfield->is_empty()) {
+                        $node = new node('customfields', 'custom_field_' . $formfield->field->shortname,
+                            format_string($formfield->field->name), null, null, $formfield->display_data());
+                        $customfieldscat->add_node($node);
+                        $hasnodes = true;
+                    }
                 }
-                if ((!empty($customcoursesubtitleprofilefield)) && ($cfield['shortname'] == $customcoursesubtitleprofilefield)) {
-                    continue;
-                }
-                $node = new node('customfields', $cfield['shortname'], $cfield['name'], null, null, $cfield['value']);
-                $customfieldscat->add_node($node);
-                $hasnodes = true;
             }
 
             if ($hasnodes) {
