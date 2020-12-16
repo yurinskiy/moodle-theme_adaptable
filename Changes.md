@@ -40,6 +40,7 @@ Change Log in version 2.4.2 (2020070101)
 37. Fix 'Wrong display of date user profile fields' - #214.
 38. Fix property display can cause markup to be interpreted.
 39. Allow Import / Export settings to work by separating from tabbed settings.
+40. Fix 'Impossible to enter a course with Coventry tiles' - #156.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================

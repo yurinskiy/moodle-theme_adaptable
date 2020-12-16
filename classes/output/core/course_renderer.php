@@ -282,13 +282,12 @@ class course_renderer extends \core_course_renderer {
         }
 
         if ($type == 2) {
-            $content .= html_writer::start_tag('div', array('class' => 'coursebox-content'));
             $content .= html_writer::start_tag('a', array(
+                'class' => 'coursebox-content',
                 'href' => new moodle_url('/course/view.php', array('id' => $course->id))
             ));
             $coursename = $chelper->get_course_formatted_name($course);
             $content .= html_writer::tag('h3', $coursename, array('class' => $course->visible ? '' : 'dimmed'));
-            $content .= html_writer::end_tag('a');
         }
         $content .= html_writer::start_tag('div', array('class' => 'summary'));
         // Display course summary.
@@ -330,7 +329,7 @@ class course_renderer extends \core_course_renderer {
             }
         }
         if ($type == 2) {
-            $content .= html_writer::end_tag('div');
+            $content .= html_writer::end_tag('a');
             // End coursebox-content.
         }
         $content .= html_writer::tag('div', '', array('class' => 'boxfooter')); // Coursecat.
