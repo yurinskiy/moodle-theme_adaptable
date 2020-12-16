@@ -41,6 +41,7 @@ Change Log in version 3.0.3 (2020073104)
 38. Fix property display can cause markup to be interpreted.
 39. Allow Import / Export settings to work by separating from tabbed settings.
 40. Fix 'Impossible to enter a course with Coventry tiles' - #156.
+41. Remove setting to control activities in chooser - M3.9+ only - #135.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================
