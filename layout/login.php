@@ -77,4 +77,6 @@ echo '<div class="container outercont">';
 // Include footer.
 if (!empty($PAGE->theme->settings->loginfooter)) {
     require_once(dirname(__FILE__) . '/includes/footer.php');
+} else {
+    require_once(dirname(__FILE__) . '/includes/loginnofooter.php');
 }

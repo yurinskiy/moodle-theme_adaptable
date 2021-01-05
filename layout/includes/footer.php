@@ -154,5 +154,8 @@ if (!empty($PAGE->theme->settings->jssectionrestrictedprofilefield)) {
 ?>
 
 <?php echo $OUTPUT->get_all_tracking_methods(); ?>
+<script type="text/javascript">
+    require(['theme_boost/loader']);
+</script>
 </body>
 </html>
