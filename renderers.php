@@ -1793,35 +1793,6 @@ EOT;
     }
 
     /**
-     * Returns html to render footer
-     *
-     * @return string
-     */
-    public function footer() {
-        global $CFG;
-
-        $output = $this->container_end_all(true);
-
-        $footer = $this->opencontainers->pop('header/footer');
-
-        // Provide some performance info if required.
-        $performanceinfo = '';
-        if (defined('MDL_PERF') || (!empty($CFG->perfdebug) and $CFG->perfdebug > 7)) {
-            $perf = get_performance_info();
-
-            if (defined('MDL_PERFTOFOOT') || debugging() || $CFG->perfdebug > 7) {
-                $performanceinfo = theme_adaptable_performance_output($perf);
-            }
-        }
-
-        $footer = str_replace($this->unique_performance_info_token, $performanceinfo, $footer);
-        $footer = str_replace($this->unique_end_html_token, $this->page->requires->get_end_code(), $footer);
-        $this->page->set_state(moodle_page::STATE_DONE);
-
-        return $output . $footer;
-    }
-
-    /**
      * Compares two course entries against their access time for a user to see which is first.
      *
      * @param stdClass $a A course.
