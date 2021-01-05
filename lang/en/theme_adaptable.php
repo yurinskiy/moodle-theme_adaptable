@@ -1121,8 +1121,6 @@ $string['enableavailablecoursesdesc'] = 'Display "Available Courses" text in the
 $string['thiscourse'] = 'This course';
 $string['coursesections'] = 'Course sections';
 
-$string['loadtime'] = 'Page loaded in';
-
 $string['loadingcolor'] = 'Loading colour';
 $string['loadingcolordesc'] = 'The loading bar colour in the top of the page';
 

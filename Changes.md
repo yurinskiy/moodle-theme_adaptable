@@ -45,6 +45,7 @@ Change Log in version 3.0.3 (2020073104)
 42. Fix 'stickynavbar' JS error on login page.
 43. Fix 'Login page cookies popup not working' - #217.
 44. Fix 'Onetopic: background color in tabs' - #215.
+45. Fix 'Theme does not respect the before_footer callback' - #216.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================

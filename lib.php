@@ -654,16 +654,6 @@ function theme_adaptable_get_course_activities() {
 }
 
 /**
- * Get formatted performance info showing only page load time
- * @param string $param
- */
-function theme_adaptable_performance_output($param) {
-    $html = html_writer::tag('span', get_string('loadtime', 'theme_adaptable').' '. round($param['realtime'], 2) . ' ' .
-            get_string('seconds'), array('id' => 'load'));
-    return $html;
-}
-
-/**
  * Initialize page
  * @param moodle_page $page
  */
