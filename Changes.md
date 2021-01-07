@@ -45,6 +45,7 @@ Change Log in version 2.4.2 (2020070101)
 42. Fix 'Login page cookies popup not working' - #217.
 43. Fix 'Onetopic: background color in tabs' - #215.
 44. Fix 'Theme does not respect the before_footer callback' - #216.
+45. Fix 'No multilang support in headers and footer' - #132.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================

@@ -261,6 +261,6 @@ class adaptable_setting_confightmleditor extends admin_setting_configtext {
             }
         }
 
-        return ($this->config_write($this->name, format_text($data, FORMAT_HTML)) ? '' : get_string('errorsetting', 'admin'));
+        return ($this->config_write($this->name, $data) ? '' : get_string('errorsetting', 'admin'));
     }
 }
