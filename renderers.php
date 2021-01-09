@@ -1572,7 +1572,7 @@ EOT;
                         $output .= '<div class="left-col col-' . $val . '">';
                         if (!empty($this->page->theme->settings->$footerheader)) {
                             $output .= '<h3>';
-                            $output .= $this->get_setting($footerheader, 'format_text');
+                            $output .= $this->get_setting($footerheader, 'format_html');
                             $output .= '</h3>';
                         }
                         $output .= $this->get_setting($footercontent, 'format_html');
