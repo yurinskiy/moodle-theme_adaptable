@@ -1128,7 +1128,7 @@ $string['sitetitledefault'] = 'Use Moodle site title (site name)';
 $string['sitetitlecustom'] = 'Use custom site title (enter in the \'sitetitletext\' box below)';
 
 $string['pageheaderlayout'] = 'Page header layout';
-$string['pageheaderlayoutdesc'] = 'The page header layout.  Only affects header style one.  Header style two unchanged.';
+$string['pageheaderlayoutdesc'] = 'The page header layout.  Only affects header style one.  Header style two unchanged.  Note: \'Alternative\' is subject to change without notice and is still in development.';
 $string['pageheaderoriginal'] = 'Original';
 $string['pageheaderalternative'] = 'Alternative';
 
@@ -1703,8 +1703,7 @@ $string['jumpto'] = 'Jump to...';
 // General *******************************************.
 $string['hide'] = 'Hide';
 $string['show'] = 'Show';
-$string['version'] = 'Version {$a}';
-$string['versioncheck'] = 'Version {$a->aversion} is incompatible with Moodle {$a->mrelease}, please get the correct version from <a href="https://moodle.org/plugins/theme_adaptable" target="_blank">Moodle.org</a>.';
+$string['versioninfo'] = 'Release {$a->release}, version {$a->version} on Moodle {$a->moodle}';
 
 // Grade editing *************************************.
 $string['turngradereditingoff'] = 'Turn grader editing off';
