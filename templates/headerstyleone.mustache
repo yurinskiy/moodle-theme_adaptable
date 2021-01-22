@@ -21,7 +21,19 @@
 
     Example context (json):
     {
-        "output": "core_renderer instance"
+        "headerbg": '',
+        "sitelogo": '',
+        "sitetitle": 'Adaptable',
+        "output": 'core_renderer instance',
+        "shownavbar": true,
+        "responsivesearchicon": '',
+        "coursesearch": '',
+        "nonavbar": false,
+        "langmenu": false,
+        "loginoruser": '',
+        "menuslinkright": false,
+        "pageheaderoriginal": true,
+        "socialorsearch": ''
     }
 }}
 <header id="adaptable-page-header-wrapper"{{headerbg}}>
@@ -42,12 +54,12 @@
                 <div class="my-auto m-1">{{{output.get_top_menus}}}</div>
                 {{/menuslinkright}}
                     <ul class="navbar-nav ml-auto my-auto">
-                        <div class="pull-left">
+                        <li class="pull-left">
                             {{{output.user_menu}}}
-                        </div>
+                        </li>
 
                         {{#menuslinkright}}
-                        <div class="my-auto m-1">{{{output.get_top_menus}}}</div>
+                        <li class="my-auto m-1">{{{output.get_top_menus}}}</li>
                         {{/menuslinkright}}
 
                         <li class="nav-item mx-md-1 my-auto{{responsivesearchicon}}">
@@ -58,7 +70,7 @@
 
                         {{! Remove Messages and Notifications icons when no navbar. }}
                         {{^nonavbar}}
-                        <div class="my-auto mx-md-1">{{{output.navbar_plugin_output}}}</div>
+                        <li class="my-auto mx-md-1">{{{output.navbar_plugin_output}}}</li>
                         {{/nonavbar}}
 
                         {{#langmenu}}
