@@ -30,14 +30,8 @@ defined('MOODLE_INTERNAL') || die();
  */
 class theme_adaptable_admin_settingspage_tabs extends theme_boost_admin_settingspage_tabs {
 
-    /** @var string The version string to be shown. */
-    protected $version;
-
     /** @var int The branch this Adaptable is for. */
     protected $mbranch;
-
-    /** @var int Adaptable version. */
-    protected $aversion;
 
     /**
      * see admin_settingpage for details of this function
@@ -51,10 +45,8 @@ class theme_adaptable_admin_settingspage_tabs extends theme_boost_admin_settings
      * @param boolean $hidden Is this external page hidden in admin tree block? Default false.
      * @param stdClass $context The context the page relates to.
      */
-    public function __construct($name, $visiblename, $version, $mbranch, $aversion, $req_capability = 'moodle/site:config', $hidden = false, $context = NULL) {
-        $this->version = $version;
+    public function __construct($name, $visiblename, $mbranch, $req_capability = 'moodle/site:config', $hidden = false, $context = NULL) {
         $this->mbranch = $mbranch;
-        $this->aversion = $aversion;
         return parent::__construct($name, $visiblename, $req_capability, $hidden, $context);
     }
 
@@ -92,15 +84,24 @@ class theme_adaptable_admin_settingspage_tabs extends theme_boost_admin_settings
         if (empty($context['tabs'])) {
             return '';
         }
-        $context['version'] = $this->version;
-        if ($CFG->branch != $this->mbranch) {
-            $string['versioncheck'] = 'Version {$a->aversion} is incompatible with Moodle {$a->mrelease}, please get the correct version from <a href="https://moodle.org/plugins/theme_adaptable" target="_blank">Moodle.org</a>.';
 
-            $context['versioncheck'] = get_string(
-                'versioncheck',
-                'theme_adaptable',
-                array('aversion' => $this->aversion, 'mrelease' => $CFG->release)
-                );
+        $plugininfo = core_plugin_manager::instance()->get_plugin_info('theme_adaptable');
+        $context['versioninfo'] = get_string('versioninfo', 'theme_adaptable',
+            array(
+                'moodle' => $CFG->release,
+                'release' => $plugininfo->release,
+                'version' => $plugininfo->versiondisk
+            )
+        );
+        if ($CFG->branch != $this->mbranch) {
+            $context['versioncheck'] = 'Release '.$plugininfo->release.', version '.$plugininfo->versiondisk.' is incompatible with Moodle '.$CFG->release;
+            $context['versioncheck'] .= ', please get the correct version from ';
+            $context['versioncheck'] .= '<a href="https://moodle.org/plugins/theme_adaptable" target="_blank">Moodle.org</a>.  ';
+            $context['versioncheck'] .= 'If none is available, then please consider supporting the theme by funding it.  ';
+            $context['versioncheck'] .= 'Please contact me via \'gjbarnard at gmail dot com\' or my ';
+            $context['versioncheck'] .= '<a href="http://moodle.org/user/profile.php?id=442195">Moodle dot org profile</a>.  ';
+            $context['versioncheck'] .= 'This is my <a href="http://about.me/gjbarnard">\'Web profile\'</a> if you want ';
+            $context['versioncheck'] .= 'to know more about me.';
         }
 
         return $OUTPUT->render_from_template('theme_adaptable/adaptable_admin_setting_tabs', $context);
