@@ -38,7 +38,7 @@ echo $OUTPUT->get_footer_blocks();
 if ($PAGE->theme->settings->hidefootersocial == 1) { ?>
         <div class="container">
             <div class="row">
-                <div class="col-12 pagination-centered">
+                <div class="col-12 pagination-centered socialicons">
 <?php
     echo $OUTPUT->socialicons();
 ?>
