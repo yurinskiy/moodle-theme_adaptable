@@ -3297,21 +3297,20 @@ EOT;
         if ($menunode->has_children()) {
 
             $submenucount++;
-            $url = '#';
-
-            $content = html_writer::start_tag('a', array('href' => '#' . $menuid . $submenucount,
-                        'class' => 'list-group-item dropdown-toggle',
-                        'aria-haspopup' => 'true', 'data-target' => $url, 'data-toggle' => 'collapse',
-                        'title' => $menunode->get_title()));
+            $content = '<li class="m-l-0">';
+            $content .= html_writer::start_tag('a', array('href' => '#' . $menuid . $submenucount,
+                'class' => 'list-group-item dropdown-toggle',
+                'aria-haspopup' => 'true', 'data-target' => '#', 'data-toggle' => 'collapse',
+                'title' => $menunode->get_title()));
             $content .= $menunode->get_text();
             $content .= '</a>';
 
-            $content .= '<ul class="collapse" id="' . $menuid . $submenucount . '">';
+            $content .= '<ul class="collapse" id="'.$menuid . $submenucount . '">';
             $indent = true;
             foreach ($menunode->get_children() as $menunode) {
                 $content .= $this->render_custom_menu_item_drawer($menunode, 1, $menuid . $submenucount, $indent);
             }
-            $content .= '</ul>';
+            $content .= '</ul></li>';
         } else {
 
             // The node doesn't have children so produce a final menuitem.
@@ -3321,22 +3320,21 @@ EOT;
                 $url = '#';
             }
 
-            $marginclass = 'm-l-0';
-
-            $dataindent = 0;
             if ($indent) {
                 $dataindent = 1;
-                $marginclass = ' m-l-1';
+                $marginclass = 'm-l-1';
+            } else {
+                $dataindent = 0;
+                $marginclass = 'm-l-0';
             }
 
-            $content = '<li class="' . $marginclass . '">';
-
-            $content = '<a class="list-group-item list-group-item-action" href="' . $url . '"';
-            $content .= 'data-key="" data-isexpandable="0" data-indent="' . $dataindent;
+            $content = '<li class="'.$marginclass.'">';
+            $content .= '<a class="list-group-item list-group-item-action" href="'.$url.'"';
+            $content .= 'data-key="" data-isexpandable="0" data-indent="'.$dataindent;
             $content .= '" data-showdivider="0" data-type="1" data-nodetype="1"';
             $content .= 'data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" ';
-            $content .= 'data-preceedwithhr="0" data-parent-key="' . $menuid . '">';
-            $content .= '<div class="' . $marginclass . '">';
+            $content .= 'data-preceedwithhr="0" data-parent-key="'.$menuid.'">';
+            $content .= '<div class="'. $marginclass .'">';
             $content .= $menunode->get_text();
             $content .= '</div></a></li>';
 

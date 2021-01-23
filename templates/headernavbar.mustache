@@ -22,7 +22,7 @@
     Example context (json):
     {
         "disablecustommenu": false,
-        "navigationmenudrawer": "",
+        "navigationmenudrawer": "<li class="m-l-0"><a class="list-group-item list-group-item-action" href="https://localhost" data-key="" data-isexpandable="0" data-indent="0" data-showdivider="0" data-type="1" data-nodetype="1" data-collapse="0" data-forceopen="1" data-isactive="1" data-hidden="0" data-preceedwithhr="0" data-parent-key="main-navigation-drawer"><div class="m-l-0"><i class="fa fa-home fa-lg"></i> Home</div></a></li>",
         "searchurl": "http://localhost",
         "toolsmenudrawer": true,
         "navigationmenu": "",
@@ -49,10 +49,14 @@
             <ul class="list-unstyled components">
                 {{{navigationmenudrawer}}}
                 {{^disablecustommenu}}
-                {{{output.custom_menu_drawer}}}
+                <li>
+                    {{{output.custom_menu_drawer}}}
+                </li>
                 {{/disablecustommenu}}
                 {{#toolsmenudrawer}}
-                {{{toolsmenudrawer}}}
+                <li>
+                    {{{toolsmenudrawer}}}
+                </li>
                 {{/toolsmenudrawer}}
             </ul>
         </nav>
@@ -82,7 +86,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                <nav role="navigation" aria-label="{{#str}}sitelinkslabel, theme_adaptable{{/str}}">
+                <nav aria-label="{{#str}}sitelinkslabel, theme_adaptable{{/str}}">
                     <ul class="navbar-nav">
                         {{{navigationmenu}}}
                         {{^disablecustommenu}}

@@ -62,15 +62,15 @@
                     <div class="collapse navbar-collapse">
                         <ul class="navbar-nav ml-auto">
 
-                            <div class="my-auto">
+                            <li class="my-auto">
                                 {{{output.search_box}}}
-                            </div>
+                            </li>
 
-                            <div class="my-auto m-1">{{{topmenus}}}</div>
+                            <li class="my-auto m-1">{{{topmenus}}}</li>
 
-                            <div class="pull-left mr-2 my-auto">
+                            <li class="pull-left mr-2 my-auto">
                                 {{{output.user_menu}}}
-                            </div>
+                            </li>
 
                             <li class="nav-item mx-md-1 my-auto{{responsivesearchicon}}">
                                 <a class="nav-link" href="{{coursesearch}}">
@@ -80,14 +80,17 @@
 
                             {{! Remove Messages and Notifications icons when no navbar. }}
                             {{^nonavbar}}
-                            <div class="my-auto mx-1">{{{output.navbar_plugin_output}}}</div>
+                            <li class="my-auto mx-1">{{{output.navbar_plugin_output}}}</li>
                             {{/nonavbar}}
 
                             {{#langmenu}}
                                 {{{langmenu}}}
                             {{/langmenu}}
 
-                            {{{loginoruser}}}
+                            {{{output.page_heading_menu}}}
+                            <li class="nav-item">
+                                {{{loginoruser}}}
+                            </li>
                         </ul>
                     </div>
                 </nav>
