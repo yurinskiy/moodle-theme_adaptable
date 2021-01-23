@@ -1250,6 +1250,9 @@ $string['alerttextdesc'] = 'Enter the text to display in the Alert box';
 $string['enablealerts'] = 'Enable / Disable Alerts';
 $string['enablealertsdesc'] = 'Enable / disable site alerts, not course, see the \'alerthiddencourse\' setting.';
 
+$string['enablealertstriptags'] = 'Automatically strip html tags from alerts';
+$string['enablealertstriptagsdesc'] = 'Enable will clean up the alert messages automatically and disable to allow you to use html / links in messages but you will have to clean up manually in html view.';
+
 $string['alertkeyvalue'] = 'Alert Key';
 $string['alertkeyvalue_details'] = 'The key that identifies this alert, from previous alerts. If you change this, all users who have dismissed the alert previously will see it again. If you change the alert, you will likely want to change this to ensure all users see it.';
 
