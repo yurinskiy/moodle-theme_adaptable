@@ -47,14 +47,6 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $page->add($setting);
 
-    // Disable alert in course pages.  TODO -> Used anymore??
-    $name = 'theme_adaptable/enablealertcoursepages';
-    $title = get_string('enablealertcoursepages', 'theme_adaptable');
-    $description = get_string('enablealertcoursepagesdesc', 'theme_adaptable');
-    $default = false;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $page->add($setting);
-
     // Alert hidden course.
     $name = 'theme_adaptable/alerthiddencourse';
     $title = get_string('alerthiddencourse', 'theme_adaptable');

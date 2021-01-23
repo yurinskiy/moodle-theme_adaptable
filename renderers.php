@@ -877,24 +877,21 @@ class theme_adaptable_core_renderer extends core_renderer {
     }
 
     /**
-     * Displays notices to alert teachers of problems with course such as being hidden
+     * Displays notices to alert teachers of problems with course such as being hidden.
      */
     public function get_course_alerts() {
-        global $CFG, $COURSE;
         $retval = '';
-        $warninghidden = $this->page->theme->settings->alerthiddencourse;
-
-        if ($warninghidden != 'disabled') {
+        $alerttype = $this->page->theme->settings->alerthiddencourse;
+        if ($alerttype != 'disabled') {
             if ($this->page->course->visible == 0) {
-                $alerttext = get_string('alerthiddencoursetext-1', 'theme_adaptable')
-                . '<a href="' . $CFG->wwwroot . '/course/edit.php?id=' . $COURSE->id . '">'
-                        . get_string('alerthiddencoursetext-2', 'theme_adaptable') . '</a>';
+                global $CFG, $COURSE;
+                $alerttext = get_string('alerthiddencoursetext-1', 'theme_adaptable').
+                    '<a href="'.$CFG->wwwroot.'/course/edit.php?id='.$COURSE->id.'">'.
+                    get_string('alerthiddencoursetext-2', 'theme_adaptable').'</a>';
 
-                        $alerttype = $warninghidden;
-                        $alertindex = 'hiddencoursealert-' . $COURSE->id;
-                        $alertkey = $alertindex; // These keys are never reset so can use fixed value.
+                $alertindexkey = 'hiddencoursealert-'.$COURSE->id;
 
-                        $retval = $this->get_alert_message($alerttext, $alerttype, $alertindex, $alertkey);
+                $retval = $this->get_alert_message($alerttext, $alerttype, $alertindexkey, $alertindexkey);
             }
         }
 
