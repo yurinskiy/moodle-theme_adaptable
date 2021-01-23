@@ -1234,8 +1234,8 @@ $string['course'] = 'Course';
 $string['actingasrole'] = 'You are currently acting as a different role';
 
 // Alert Hidden Course.
-$string['alerthiddencourse'] = 'Hidden course warning';
-$string['alerthiddencoursedesc'] = 'Display alert in course page if it is hidden';
+$string['alerthiddencourse'] = 'Enable course alerts';
+$string['alerthiddencoursedesc'] = 'Display alerts in on course page.';
 
 $string['alerthiddencoursetext-1'] = 'This course is hidden and cannot be accessed by students. ';
 $string['alerthiddencoursetext-2'] = 'Click here to update settings';
@@ -1252,13 +1252,7 @@ $string['alerttext'] = 'Alert text';
 $string['alerttextdesc'] = 'Enter the text to display in the Alert box';
 
 $string['enablealerts'] = 'Enable / Disable Alerts';
-$string['enablealertsdesc'] = 'Enable / disable alerts on your site';
-
-$string['enablealertcoursepages'] = 'Enable Alert Box on Course Pages';
-$string['enablealertcoursepagesdesc'] = 'Turning this option on will display the top alert box in the courses pages';
-
-$string['enablealertstriptags'] = 'Automatically strip html tags from alerts';
-$string['enablealertstriptagsdesc'] = 'Enable will clean up alert messages automatically, Disable will allow you to use html / links in messages but you will have to clean up manually in html view';
+$string['enablealertsdesc'] = 'Enable / disable site alerts, not course, see the \'alerthiddencourse\' setting.';
 
 $string['alertkeyvalue'] = 'Alert Key';
 $string['alertkeyvalue_details'] = 'The key that identifies this alert, from previous alerts. If you change this, all users who have dismissed the alert previously will see it again. If you change the alert, you will likely want to change this to ensure all users see it.';

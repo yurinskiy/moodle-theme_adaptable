@@ -50,6 +50,7 @@ Change Log in version 2.4.2 (2020070101)
 47. Fix 'Duplicate code in get_logo_title()' - #208.
 48. Fix 'responsivealerts used?' - #205.
 49. Fix 'fonttitlecolorcourse setting not used' - #154.
+50. Fix 'enablealertcoursepages setting used?' - #151.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================
