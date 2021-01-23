@@ -2657,8 +2657,9 @@ EOT;
             }
 
             switch ($this->page->theme->settings->enableheading) {
+                // Full / Short Course Name.
                 case 'fullname':
-                    // Full Course Name.
+                case 'shortname':
                     $retval .= '<div id="sitetitle" class="pb-2 bd-highlight ' . $responsivecoursetitle . '">';
                     if (!empty($categoryheadercustomtitle)) {
                         $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
@@ -2666,17 +2667,6 @@ EOT;
                     $retval .= '<h1>'.$coursetitle. '</h1>';
                     $retval .= '</div>';
                     break;
-
-                case 'shortname':
-                    // Short Course Name.
-                    $retval .= '<div id="sitetitle" class="pb-2 bd-highlight ' . $responsivecoursetitle . '">';
-                    if (!empty($categoryheadercustomtitle)) {
-                        $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
-                    }
-                    $retval .= '<h1>'.$coursetitle.'</h1>';
-                    $retval .= '</div>';
-                    break;
-
                 default:
                     // Default 'off'.
                     $usedefault = true;
