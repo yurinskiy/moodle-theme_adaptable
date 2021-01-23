@@ -2674,7 +2674,7 @@ EOT;
                     if (!empty($categoryheadercustomtitle)) {
                         $retval .= '<h1>'. format_string($categoryheadercustomtitle) . '</h1>';
                     }
-                    $retval .= '<h1>'.$coursetitle. '</h1>';
+                    $retval .= '<h1 id="coursetitle">'.$coursetitle.'</h1>';
                     $retval .= '</div>';
                     break;
                 default:

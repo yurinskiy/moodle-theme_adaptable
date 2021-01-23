@@ -187,7 +187,7 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
-    // Course font color.  TODO - USED?
+    // Course font color.
     $name = 'theme_adaptable/fonttitlecolorcourse';
     $title = get_string('fonttitlecolorcourse', 'theme_adaptable');
     $description = get_string('fonttitlecolorcoursedesc', 'theme_adaptable');

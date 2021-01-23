@@ -50,6 +50,7 @@ Change Log in version 3.0.3 (2020073104)
 47. Fix 'Drag&Drop Image question behaviour problem' - #220.
 48. Fix 'Duplicate code in get_logo_title()' - #208.
 49. Fix 'responsivealerts used?' - #205.
+50. Fix 'fonttitlecolorcourse setting not used' - #154.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================

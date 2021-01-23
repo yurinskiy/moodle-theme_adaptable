@@ -277,10 +277,10 @@ div.signuppanel h2 {
 #sitetitle h4,
 #sitetitle h5,
 #sitetitle h6 {
-    color: [[setting:fonttitlecolor]] !important;
+    color: [[setting:fonttitlecolor]];
 
-    font-size: [[setting:fonttitlesize]];
     font-family: [[setting:fonttitlename]], sans-serif;
+    font-size: [[setting:fonttitlesize]];
     font-weight: [[setting:fonttitleweight]] !important;
 
     line-height: 120%;

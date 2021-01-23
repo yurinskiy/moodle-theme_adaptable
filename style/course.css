@@ -40,6 +40,11 @@
     text-align: center;
 }
 
+#coursetitle,
+#sitetitle #coursetitle {
+    color: [[setting:fonttitlecolorcourse]];
+}
+
 /* ************************ */
 /* Course Tiles             */
 /* ************************ */
