@@ -31,15 +31,6 @@ if ($ADMIN->fulltree) {
     $page->add(new admin_setting_heading('theme_adaptable_mobile', get_string('responsivesettingsheading', 'theme_adaptable'),
         format_text(get_string('responsivesettingsdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
 
-    // Hide Alerts.
-    $name = 'theme_adaptable/responsivealerts';
-    $title = get_string('responsivealerts', 'theme_adaptable');
-    $description = get_string('responsivealertsdesc', 'theme_adaptable');
-    $default = 'd-none d-lg-block';
-    $choices = $screensizeblock;
-    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-    $page->add($setting);
-
     // Hide Full Header.
     $name = 'theme_adaptable/responsiveheader';
     $title = get_string('responsiveheader', 'theme_adaptable');

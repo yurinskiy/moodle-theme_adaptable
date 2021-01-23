@@ -242,7 +242,6 @@ function theme_adaptable_process_css($css, $theme) {
         '[[setting:emoticonsize]]' => '16px',
         '[[setting:fullscreenwidth]]' => '98%',
         '[[setting:coursetitlemaxwidth]]' => '20',
-        '[[setting:responsivealerts]]' => 'd-none d-lg-block',
         '[[setting:responsiveheader]]' => 'd-none d-lg-block',
         '[[setting:responsivesocial]]' => 'd-none d-lg-block',
         '[[setting:responsivesocialsize]]' => '34px',
