@@ -86,14 +86,6 @@ a:focus {
     outline-offset: -2px;
 }
 
-/* Images */
-img {
-    vertical-align: middle;
-    border: 0;
-    height: auto;
-    max-width: 100%;
-}
-
 /* Lists */
 li {
     line-height: 28px;
