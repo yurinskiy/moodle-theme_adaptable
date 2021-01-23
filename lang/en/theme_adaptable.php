@@ -1343,9 +1343,6 @@ $string['responsivesettingsdesc'] = 'Here you can control the responsive behavio
     To gain a better understanding of how these settings work please refer to the Bootstrap 4 documentation:<br/><br/>
     https://getbootstrap.com/docs/4.0/utilities/display/ <br/><br/>';
 
-$string['responsivealerts'] = 'Alerts';
-$string['responsivealertsdesc'] = 'What sized screens would you like alerts to be displayed on?';
-
 $string['responsivesocial'] = 'Social Icons';
 $string['responsivesocialdesc'] = 'What sized screens would you like social icons to be displayed on?';
 

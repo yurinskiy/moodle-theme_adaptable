@@ -48,6 +48,7 @@ Change Log in version 2.4.2 (2020070101)
 45. Fix 'No multilang support in headers and footer' - #132.
 46. Fix 'Drag&Drop Image question behaviour problem' - #220.
 47. Fix 'Duplicate code in get_logo_title()' - #208.
+48. Fix 'responsivealerts used?' - #205.
 
 Change Log in version 2.3.2 (2019112606)
 ========================================
