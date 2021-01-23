@@ -312,27 +312,33 @@ div.signuppanel h2 {
 }
 
 .socialbox {
-    margin-top: 15px;
     margin-bottom: 15px;
-    padding-top: [[setting:socialpaddingtop]];
+    margin-top: 15px;
     vertical-align: middle;
 }
 
 .socialbox a {
     color: [[setting:headertextcolor2]] !important;
+}
+
+.socialicons {
+    padding-top: [[setting:socialpaddingtop]];
+}
+
+.socialicons a {
     padding-left: [[setting:socialpaddingsidehalf]]px;
     padding-right: [[setting:socialpaddingsidehalf]]px);
 }
 
-.socialbox a:first-of-type {
+.socialicons a:first-of-type {
     padding-left: [[setting:socialpaddingside]]px;
 }
 
-.socialbox a:last-of-type {
+.socialicons a:last-of-type {
     padding-right: [[setting:socialpaddingside]]px;
 }
 
-.socialbox a i {
+.socialicons a i {
     /* Make at least 29px, values look odd but on inspection they are needed to be so for FontAwesome. */
     font-size: [[setting:socialsize]];
     line-height: [[setting:socialsize]];

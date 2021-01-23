@@ -1231,13 +1231,9 @@ EOT;
         foreach ($lines as $line) {
             if (strstr($line, '|')) {
                 $fields = explode('|', $line);
-                $val = '<a';
-                $val .= ' target="' . $target;
-                $val .= '" title="' . $fields[1];
-                $val .= '" href="' . $fields[0] . '">';
-                $val .= '<i class="fa ' . $fields[2] . '"></i>';
-                $val .= '</a>';
-                $retval .= $val;
+                $retval .= '<a target="'.$target.'" title="'.$fields[1].'" href="'.$fields[0].'">';
+                $retval .= '<i class="fa '.$fields[2].'"></i>';
+                $retval .= '</a>';
             }
         }
 
