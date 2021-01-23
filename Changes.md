@@ -48,6 +48,7 @@ Change Log in version 3.0.3 (2020073104)
 45. Fix 'Theme does not respect the before_footer callback' - #216.
 46. Fix 'No multilang support in headers and footer' - #132.
 47. Fix 'Drag&Drop Image question behaviour problem' - #220.
+48. Fix 'Duplicate code in get_logo_title()' - #208.
 
 Change Log in version 3.0.2 (2020073103)
 ========================================
