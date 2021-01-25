@@ -1,3 +1,6 @@
+Change Log in version 2.4.3 (2020070102)
+========================================
+
 Change Log in version 2.4.2 (2020070101)
 ========================================
 1. Fix 'Cope when there is no first or full name' when showing a user profile.
