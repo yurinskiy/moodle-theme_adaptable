@@ -81,7 +81,7 @@ if (!empty($PAGE->theme->settings->categoryhavecustomheader)) {
         $categoryheaderbgimageset = 'categoryheaderbgimage'.$currenttopcat;
         if (!empty($PAGE->theme->settings->$categoryheaderbgimageset)) {
             $headerbg = ' class="headerbgimage" style="background-image: ' .
-            ' url('.$PAGE->theme->setting_file_url($categoryheaderbgimageset, $categoryheaderbgimageset).');"';
+            'url(\''.$PAGE->theme->setting_file_url($categoryheaderbgimageset, $categoryheaderbgimageset).'\');"';
         }
     }
 } else {
@@ -89,7 +89,7 @@ if (!empty($PAGE->theme->settings->categoryhavecustomheader)) {
 }
 if ((empty($headerbg)) && (!empty($PAGE->theme->settings->headerbgimage))) {
     $headerbg = ' class="headerbgimage" style="background-image: ' .
-    ' url('.$PAGE->theme->setting_file_url('headerbgimage', 'headerbgimage').');"';
+    'url(\''.$PAGE->theme->setting_file_url('headerbgimage', 'headerbgimage').'\');"';
 }
 
 /* Choose the header style.  There styles available are:

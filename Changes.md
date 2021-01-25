@@ -1,5 +1,6 @@
 Change Log in version 2.4.3 (2020070102)
 ========================================
+1. Fix 'Header issues with logo and background image'.
 
 Change Log in version 2.4.2 (2020070101)
 ========================================
