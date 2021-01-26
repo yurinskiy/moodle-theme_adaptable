@@ -229,7 +229,7 @@ if (!empty($PAGE->theme->settings->pageheaderlayout)) {
 // Navbar Menu.
 if ($shownavbar) {
     $headercontext['shownavbar'] = [
-        'disablecustommenu' => (empty($PAGE->theme->settings->disablecustommenu)),
+        'disablecustommenu' => (!empty($PAGE->theme->settings->disablecustommenu)),
         'navigationmenu' => $OUTPUT->navigation_menu('main-navigation'),
         'navigationmenudrawer' => $OUTPUT->navigation_menu('main-navigation-drawer'),
         'output' => $OUTPUT,
