@@ -1,6 +1,7 @@
 Change Log in version 2.4.3 (2020070102)
 ========================================
 1. Fix 'Header issues with logo and background image'.
+2. Fix 'Custom menu items not shown even when "disablecustommenu" is false'.
 
 Change Log in version 2.4.2 (2020070101)
 ========================================
