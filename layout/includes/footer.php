@@ -36,16 +36,15 @@ echo $OUTPUT->standard_after_main_region_html();
 echo $OUTPUT->get_footer_blocks();
 
 if ($PAGE->theme->settings->hidefootersocial == 1) { ?>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 pagination-centered socialicons">
-<?php
+    <div class="container">
+        <div class="row">
+            <div class="col-12 pagination-centered socialicons">
+    <?php
     echo $OUTPUT->socialicons();
-?>
-                </div>
+    ?>
             </div>
         </div>
-
+    </div>
 <?php }
 
 if ($PAGE->theme->settings->moodledocs) {
@@ -61,27 +60,26 @@ if ($PAGE->theme->settings->showfooterblocks) {
             <div class="row">
                 <div class="<?php echo $footnoteclass; ?>">
                     <div class="tool_usertours-resettourcontainer"></div>
-<?php echo $OUTPUT->get_setting('footnote', 'format_html');
-?>
+    <?php echo $OUTPUT->get_setting('footnote', 'format_html');?>
                 </div>
 
-<?php
-if ($PAGE->theme->settings->moodledocs) {
-?>
+    <?php
+    if ($PAGE->theme->settings->moodledocs) {
+    ?>
                 <div class="col-md-4 my-md-0 my-2 helplink">
-<?php
+    <?php
     echo $OUTPUT->page_doc_link(); ?>
                 </div>
-<?php
-}
-?>
+    <?php
+    }
+    ?>
                 <div class="col-md-4 my-md-0 my-2">
                     <?php echo $OUTPUT->standard_footer_html(); ?>
                 </div>
             </div>
         </div>
     </div>
-<?php
+    <?php
 }
 ?>
 </footer>
@@ -145,10 +143,8 @@ if (!empty($PAGE->theme->settings->jssectionrestrictedprofilefield)) {
             } else {
                 echo $PAGE->theme->settings->jssectionrestricted;
             }
-
         }
     }
-
 }
 
 ?>

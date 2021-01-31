@@ -64,7 +64,7 @@ if (!empty($PAGE->theme->settings->frontpageblocksenabled)) { ?>
             <?php echo $OUTPUT->get_block_regions(); ?>
         </div>
     </div>
-<?php
+    <?php
 }
 
 // And finally let's show the Infobox 2 if enabled.
