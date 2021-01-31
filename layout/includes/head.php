@@ -109,32 +109,22 @@ $siteurl = new moodle_url('');
     <?php
     // Load fonts.
     if ((!empty($fontname)) && ($fontname != 'default')) {
-        ?>
-    <!-- Load Google Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=<?php echo $fontname.$fontweight.$fontssubset; ?>'
-    rel='stylesheet'
-    type='text/css'>
-    <?php
+        echo '<!-- Load Google Fonts -->';
+        echo '<link href="https://fonts.googleapis.com/css?family=';
+        echo $fontname.$fontweight.$fontssubset;
+        echo '" rel="stylesheet" type="text/css">';
     }
-    ?>
 
-    <?php
     if ((!empty($fontheadername)) && ($fontheadername != 'default')) {
-    ?>
-        <link href='https://fonts.googleapis.com/css?family=<?php echo $fontheadername.$fontheaderweight.$fontssubset; ?>'
-        rel='stylesheet'
-        type='text/css'>
-    <?php
+        echo '<link href="https://fonts.googleapis.com/css?family=';
+        echo $fontheadername.$fontheaderweight.$fontssubset;
+        echo '" rel="stylesheet" type="text/css">';
     }
-    ?>
 
-    <?php
     if ((!empty($fonttitlename)) && ($fonttitlename != 'default')) {
-    ?>
-        <link href='https://fonts.googleapis.com/css?family=<?php echo $fonttitlename.$fonttitleweight.$fontssubset; ?>'
-        rel='stylesheet'
-        type='text/css'>
-    <?php
+        echo '<link href="https://fonts.googleapis.com/css?family=';
+        echo $fonttitlename.$fonttitleweight.$fontssubset;
+        echo '" rel="stylesheet" type="text/css">';
     }
     ?>
 </head>

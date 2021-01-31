@@ -47,12 +47,10 @@ if (!empty($PAGE->theme->settings->infobox)) {
     } else {
         echo '<div id="theinfo" class="container">';
     }
-?>
-            <div class="row">
-<?php echo $OUTPUT->get_setting('infobox', 'format_html'); ?>
-            </div>
-        </div>
-<?php
+    echo '<div class="row">';
+    echo $OUTPUT->get_setting('infobox', 'format_html');
+    echo '</div>';
+    echo '</div>';
 }
 
 // If Marketing Blocks are enabled then let's show them.
@@ -76,12 +74,10 @@ if (!empty($PAGE->theme->settings->infobox2)) {
     } else {
         echo '<div id="theinfo2" class="container">';
     }
-?>
-        <div class="row">
-<?php echo $OUTPUT->get_setting('infobox2', 'format_html'); ?>
-        </div>
-</div>
-<?php
+    echo '<div class="row">';
+    echo $OUTPUT->get_setting('infobox2', 'format_html');
+    echo '</div>';
+    echo '</div>';
 }
 
 // The main content goes here.

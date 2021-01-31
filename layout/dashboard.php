@@ -157,9 +157,9 @@ if (!empty($PAGE->theme->settings->dashblocksenabled)) {
         </section>
 
         <?php
-        if ($hassidepost) {
-            echo $OUTPUT->blocks('side-post', $regions['blocks'].' d-print-none ');
-        }
+            if ($hassidepost) {
+                echo $OUTPUT->blocks('side-post', $regions['blocks'].' d-print-none ');
+            }
         }
     ?>
 
