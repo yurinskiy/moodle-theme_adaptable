@@ -67,10 +67,10 @@ if ($PAGE->theme->settings->showfooterblocks) {
     if ($PAGE->theme->settings->moodledocs) {
     ?>
                 <div class="col-md-4 my-md-0 my-2 helplink">
-    <?php
-    echo $OUTPUT->page_doc_link(); ?>
+        <?php
+        echo $OUTPUT->page_doc_link(); ?>
                 </div>
-    <?php
+        <?php
     }
     ?>
                 <div class="col-md-4 my-md-0 my-2">
