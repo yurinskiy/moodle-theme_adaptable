@@ -1254,20 +1254,17 @@ EOT;
 
         // Display ticker if possible.
         if ((!empty($this->page->theme->settings->enableticker) &&
-                $this->page->theme->settings->enableticker &&
-                $this->page->bodyid == "page-site-index") ||
-                ($this->page->theme->settings->enabletickermy && $this->page->bodyid == "page-my-index")) {
-                    $msg = '';
-                    $tickercount = $this->page->theme->settings->newstickercount;
+            $this->page->theme->settings->enableticker &&
+            $this->page->bodyid == "page-site-index") ||
+            ($this->page->theme->settings->enabletickermy && $this->page->bodyid == "page-my-index")) {
+            $msg = '';
+            $tickercount = $this->page->theme->settings->newstickercount;
 
             for ($i = 1; $i <= $tickercount; $i++) {
                 $textfield = 'tickertext' . $i;
                 $profilefield = 'tickertext' . $i . 'profilefield';
 
-                format_text($textfield, FORMAT_HTML);
-
                 $access = true;
-
                 if (!empty($this->page->theme->settings->$profilefield)) {
                     $profilevals = explode('=', $this->page->theme->settings->$profilefield);
                     if (!$this->check_menu_access($profilevals[0], $profilevals[1], $textfield)) {
@@ -1275,7 +1272,7 @@ EOT;
                     }
                 }
 
-                if ($access) {
+                if (($access) && (!empty($this->page->theme->settings->$textfield))) {
                     $msg .= format_text($this->page->theme->settings->$textfield, FORMAT_HTML, array('trusted' => true));
                 }
             }

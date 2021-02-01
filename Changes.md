@@ -3,6 +3,7 @@ Change Log in version 3.0.4 (2020073105)
 1. Fix 'Header issues with logo and background image'.
 2. Fix 'Custom menu items not shown even when "disablecustommenu" is false'.
 3. Fix 'Header style two does not show logo when there is no site title'.
+4. Fix 'Undefined property: stdClass::$tickertext1 when running behat tests' - #159.
 
 Change Log in version 3.0.3 (2020073104)
 ========================================
