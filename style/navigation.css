@@ -23,6 +23,10 @@
  *
  */
 
+.navbar {
+    min-height: 40px;
+}
+
 .nav-item {
     margin-bottom: auto;
     margin-top: auto;
