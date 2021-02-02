@@ -1,3 +1,6 @@
+Change Log in version 3.0.5 (2020073106)
+========================================
+
 Change Log in version 3.0.4 (2020073105)
 ========================================
 1. Fix 'Header issues with logo and background image'.
