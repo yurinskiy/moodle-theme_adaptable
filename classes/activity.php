@@ -113,6 +113,7 @@ class activity {
         $meta->set_default('draftstr', get_string('draft', 'theme_adaptable'));
         $meta->set_default('reopenedstr', get_string('reopened', 'theme_adaptable'));
         $meta->set_default('expiredstr', get_string('expired', 'theme_adaptable'));
+        $meta->set_default('notopenstr', get_string('notopen', 'theme_adaptable'));
 
         $activitydates = self::instance_activity_dates($courseid, $mod, $timeopenfld, $timeclosefld);
         $meta->timeopen = $activitydates->timeopen;
@@ -187,8 +188,10 @@ class activity {
                         }
                     }
                 } else if ($mod->modname === 'assign') {
-                    return null;
+                    $meta->notattempted = true;
                 }
+            } else {
+                $meta->notopen = true;
             }
 
             $graderow = false;
