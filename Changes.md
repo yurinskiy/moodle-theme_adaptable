@@ -2,6 +2,7 @@ Change Log in version 2.4.4 (2020070103)
 ========================================
 1. Fix 'Menu bar height loss' - #222.
 2. Fix 'Activity meta information not showing when student first accesses page' - https://moodle.org/mod/forum/discuss.php?d=417731.
+3. Fix 'Footer shown on popup layout' - https://moodle.org/mod/forum/discuss.php?d=417793.
 
 Change Log in version 2.4.3 (2020070102)
 ========================================

@@ -87,26 +87,23 @@ if ($PAGE->theme->settings->showfooterblocks) {
 <div id="back-to-top"><i class="fa fa-angle-up "></i></div>
 
 <?php
-    // If admin settings page, show template for floating save / discard buttons.
-    $templatecontext = [
+// If admin settings page, show template for floating save / discard buttons.
+$templatecontext = [
     'topmargin'   => ($PAGE->theme->settings->stickynavbar ? '35px' : '0px'),
     'savetext'    => get_string('savebuttontext', 'theme_adaptable'),
     'discardtext' => get_string('discardbuttontext', 'theme_adaptable')
-    ];
-    if (strstr($PAGE->pagetype, 'admin-setting')) {
-        if ($PAGE->theme->settings->enablesavecanceloverlay) {
-            echo $OUTPUT->render_from_template('theme_adaptable/savediscard', $templatecontext);
-        }
+];
+if (strstr($PAGE->pagetype, 'admin-setting')) {
+    if ($PAGE->theme->settings->enablesavecanceloverlay) {
+        echo $OUTPUT->render_from_template('theme_adaptable/savediscard', $templatecontext);
     }
-?>
+}
 
-<?php echo $OUTPUT->standard_end_of_body_html() ?>
+echo $OUTPUT->standard_end_of_body_html() ?>
 
 </div>
-<?php echo $PAGE->theme->settings->jssection; ?>
-
 <?php
-
+echo $PAGE->theme->settings->jssection;
 
 // Conditional javascript based on a user profile field.
 if (!empty($PAGE->theme->settings->jssectionrestrictedprofilefield)) {
@@ -146,10 +143,8 @@ if (!empty($PAGE->theme->settings->jssectionrestrictedprofilefield)) {
         }
     }
 }
-
+echo $OUTPUT->get_all_tracking_methods();
 ?>
-
-<?php echo $OUTPUT->get_all_tracking_methods(); ?>
 <script type="text/javascript">
     require(['theme_boost/loader']);
 </script>
