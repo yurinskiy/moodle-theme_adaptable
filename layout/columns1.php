@@ -62,6 +62,6 @@ if (empty($PAGE->layout_options['nofooter'])) {
 </script>
 </body>
 </html>
-<?php
+    <?php
 }
 
