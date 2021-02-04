@@ -136,9 +136,11 @@ class renderer extends \core_user\output\myprofile\renderer {
     protected function transform_contact_category($oldcontactcategory) {
         $contactcategory = new category('contact', '');
 
-        $node = new node('contact', 'userimage', '', null, null,
-            $this->userimage());
-        $contactcategory->add_node($node);
+        $userimage = $this->userimage();
+        if (!empty($userimage)) {
+            $node = new node('contact', 'userimage adaptableuserpicture', '', null, null, $userimage);
+            $contactcategory->add_node($node);
+        }
 
         if ((empty($this->user->userdetails['firstname'])) || (empty($this->user->userdetails['lastname']))) {
             $node = new node('contact', 'fullname', '', null, null,
@@ -382,9 +384,7 @@ class renderer extends \core_user\output\myprofile\renderer {
         $output = '';
 
         if (!empty($this->user)) {
-            $output .= html_writer::start_tag('li', array('class' => 'adaptableuserpicture'));
             $output .= $this->output->user_picture($this->user, array('size' => '1'));
-            $output .= html_writer::end_tag('li');
         }
 
         return $output;

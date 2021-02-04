@@ -3,6 +3,7 @@ Change Log in version 3.0.5 (2020073106)
 1. Fix 'Menu bar height loss' - #222.
 2. Fix 'Activity meta information not showing when student first accesses page' - https://moodle.org/mod/forum/discuss.php?d=417731.
 3. Fix 'Footer shown on popup layout' - https://moodle.org/mod/forum/discuss.php?d=417793.
+4. Fix 'User profile image is cropped' - https://moodle.org/mod/forum/discuss.php?d=417776.
 
 Change Log in version 3.0.4 (2020073105)
 ========================================
