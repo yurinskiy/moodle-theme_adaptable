@@ -958,6 +958,12 @@ class course_renderer extends \core_course_renderer {
                 } else if ($meta->draft) {
                     $warningstr = $meta->draftstr;
                     $warningicon = 'i/warning';
+                } else if ($meta->notopen) {
+                    $warningstr = $meta->notopenstr;
+                    $warningicon = 'i/warning';
+                } else if ($meta->notattempted) {
+                    $warningstr = get_string('notattempted', 'theme_adaptable');
+                    $warningicon = 'i/warning';
                 } else {
                     $warningstr = $meta->notsubmittedstr;
                     $warningicon = 'i/warning';

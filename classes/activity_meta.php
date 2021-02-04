@@ -74,6 +74,11 @@ class activity_meta {
      */
     public $expiredstr;
 
+    /**
+     * @var string $notopenstr - string for not open status.
+     */
+    public $notopenstr;
+
     // General meta data.
     /**
      * @var int $timeopen - unix time stamp for time open.
@@ -119,6 +124,16 @@ class activity_meta {
      * @var bool $expired - true if expired.
      */
     public $expired = false;
+
+    /**
+     * @var bool $notopen - true if not open.
+     */
+    public $notopen = false;
+
+    /**
+     * @var bool $notattempted - true if not attempted.
+     */
+    public $notattempted = false;
 
     /**
      * @var int $timesubmitted - unix time stamp for time submitted.
