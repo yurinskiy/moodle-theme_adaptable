@@ -154,192 +154,190 @@ echo $OUTPUT->standard_top_of_body_html();
 
 <div id="page-wrapper">
     <div id="page" class="<?php echo "$setfull $showiconsclass $standardscreenwidthclass"; ?>">
-
     <?php
-echo $OUTPUT->get_alert_messages();
+    echo $OUTPUT->get_alert_messages();
 
-$headercontext = [
-    'output' => $OUTPUT
-];
+    $headercontext = [
+        'output' => $OUTPUT
+    ];
 
-if ((!isloggedin() || isguestuser()) && ($PAGE->pagetype != "login-index")) {
-    if ($PAGE->theme->settings->displaylogin != 'no') {
-        $loginformcontext = [
-            'displayloginbox' => ($PAGE->theme->settings->displaylogin == 'box') ? true : false,
-            'output' => $OUTPUT,
-            'token' => s(\core\session\manager::get_login_token()),
-            'url' => new moodle_url('/login/index.php')
-        ];
-
-        $headercontext['loginoruser'] = $OUTPUT->render_from_template('theme_adaptable/headerloginform', $loginformcontext);
+    if ((!isloggedin() || isguestuser()) && ($PAGE->pagetype != "login-index")) {
+        if ($PAGE->theme->settings->displaylogin != 'no') {
+            $loginformcontext = [
+                'displayloginbox' => ($PAGE->theme->settings->displaylogin == 'box') ? true : false,
+                'output' => $OUTPUT,
+                'token' => s(\core\session\manager::get_login_token()),
+                'url' => new moodle_url('/login/index.php')
+            ];
+            $headercontext['loginoruser'] = $OUTPUT->render_from_template('theme_adaptable/headerloginform', $loginformcontext);
+        } else {
+            $headercontext['loginoruser'] = '';
+        }
     } else {
-        $headercontext['loginoruser'] = '';
-    }
-} else {
-    // Display user profile menu.
-    // Only used when user is logged in and not on the secure layout.
-    if ((isloggedin()) && ($PAGE->pagelayout != 'secure')) {
-        // User icon.
-        $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'visibletoscreenreaders' => false,
-            'size' => 50, 'class' => 'userpicture'));
-        // User name.
-        $username = format_string(fullname($USER));
+        // Display user profile menu.
+        // Only used when user is logged in and not on the secure layout.
+        if ((isloggedin()) && ($PAGE->pagelayout != 'secure')) {
+            // User icon.
+            $userpic = $OUTPUT->user_picture($USER, array('link' => false, 'visibletoscreenreaders' => false,
+                'size' => 50, 'class' => 'userpicture'));
+            // User name.
+            $username = format_string(fullname($USER));
 
-        // User menu dropdown.
-        if (!empty($PAGE->theme->settings->usernameposition)) {
-            $usernameposition = $PAGE->theme->settings->usernameposition;
-            if ($usernameposition == 'right') {
-                $usernamepositionleft = false;
+            // User menu dropdown.
+            if (!empty($PAGE->theme->settings->usernameposition)) {
+                $usernameposition = $PAGE->theme->settings->usernameposition;
+                if ($usernameposition == 'right') {
+                    $usernamepositionleft = false;
+                } else {
+                    $usernamepositionleft = true;
+                }
             } else {
                 $usernamepositionleft = true;
             }
+
+            // Set template context.
+            $usermenucontext = [
+                'username' => $username,
+                'userpic' => $userpic,
+                'showusername' => $PAGE->theme->settings->showusername,
+                'usernamepositionleft' => $usernamepositionleft,
+                'userprofilemenu' => $OUTPUT->user_profile_menu(),
+            ];
+            $usermenu = $OUTPUT->render_from_template('theme_adaptable/usermenu', $usermenucontext);
+            $headercontext['loginoruser'] = '<li class="nav-item dropdown ml-3 ml-md-4 mr-2 mr-md-0">'.$usermenu.'</li>';
         } else {
-            $usernamepositionleft = true;
+            $headercontext['loginoruser'] = '';
         }
+    }
 
-        // Set template context.
-        $usermenucontext = [
-            'username' => $username,
-            'userpic' => $userpic,
-            'showusername' => $PAGE->theme->settings->showusername,
-            'usernamepositionleft' => $usernamepositionleft,
-            'userprofilemenu' => $OUTPUT->user_profile_menu(),
-        ];
-        $usermenu = $OUTPUT->render_from_template('theme_adaptable/usermenu', $usermenucontext);
-        $headercontext['loginoruser'] = '<li class="nav-item dropdown ml-3 ml-md-4 mr-2 mr-md-0">'.$usermenu.'</li>';
+    if (!$hidesitetitle) {
+        $headercontext['sitelogo'] = $OUTPUT->get_logo($currenttopcat);
+        $headercontext['sitetitle'] = $OUTPUT->get_title($currenttopcat);
+    }
+
+    $headercontext['headerbg'] = $headerbg;
+    $headercontext['nonavbar'] = (!empty($PAGE->layout_options['nonavbar']));
+    $headercontext['responsivesearchicon'] = (!empty($PAGE->theme->settings->responsivesearchicon)) ? ' d-xs-block d-sm-block d-md-none my-auto' : ' d-none';
+    $headercontext['shownavbar'] = $shownavbar;
+    if (!empty($PAGE->theme->settings->pageheaderlayout)) {
+        $headercontext['pageheaderoriginal'] = ($PAGE->theme->settings->pageheaderlayout == 'original');
     } else {
-        $headercontext['loginoruser'] = '';
-    }
-}
-
-if (!$hidesitetitle) {
-    $headercontext['sitelogo'] = $OUTPUT->get_logo($currenttopcat);
-    $headercontext['sitetitle'] = $OUTPUT->get_title($currenttopcat);
-}
-
-$headercontext['headerbg'] = $headerbg;
-$headercontext['nonavbar'] = (!empty($PAGE->layout_options['nonavbar']));
-$headercontext['responsivesearchicon'] = (!empty($PAGE->theme->settings->responsivesearchicon)) ? ' d-xs-block d-sm-block d-md-none my-auto' : ' d-none';
-$headercontext['shownavbar'] = $shownavbar;
-if (!empty($PAGE->theme->settings->pageheaderlayout)) {
-    $headercontext['pageheaderoriginal'] = ($PAGE->theme->settings->pageheaderlayout == 'original');
-} else {
-    $headercontext['pageheaderoriginal'] = true;
-}
-
-// Navbar Menu.
-if ($shownavbar) {
-    $headercontext['shownavbar'] = [
-        'disablecustommenu' => (!empty($PAGE->theme->settings->disablecustommenu)),
-        'navigationmenu' => $OUTPUT->navigation_menu('main-navigation'),
-        'navigationmenudrawer' => $OUTPUT->navigation_menu('main-navigation-drawer'),
-        'output' => $OUTPUT,
-        'searchurl' => new moodle_url('/admin/search.php'),
-        'toolsmenu' => ($PAGE->theme->settings->enabletoolsmenus)
-    ];
-
-    if ($PAGE->theme->settings->enabletoolsmenus) {
-        $headercontext['shownavbar']['toolsmenudrawer'] = $OUTPUT->tools_menu('tools-menu-drawer');
+        $headercontext['pageheaderoriginal'] = true;
     }
 
-    $navbareditsettings = $PAGE->theme->settings->editsettingsbutton;
-    $headercontext['shownavbar']['showcog'] = true;
-    $showeditbuttons = false;
+    // Navbar Menu.
+    if ($shownavbar) {
+        $headercontext['shownavbar'] = [
+            'disablecustommenu' => (!empty($PAGE->theme->settings->disablecustommenu)),
+            'navigationmenu' => $OUTPUT->navigation_menu('main-navigation'),
+            'navigationmenudrawer' => $OUTPUT->navigation_menu('main-navigation-drawer'),
+            'output' => $OUTPUT,
+            'searchurl' => new moodle_url('/admin/search.php'),
+            'toolsmenu' => ($PAGE->theme->settings->enabletoolsmenus)
+        ];
 
-    if ($navbareditsettings == 'button') {
-        $showeditbuttons = true;
-        $headercontext['shownavbar']['showcog'] = false;
-    } else if ($navbareditsettings == 'cogandbutton') {
-        $showeditbuttons = true;
-    }
+        if ($PAGE->theme->settings->enabletoolsmenus) {
+            $headercontext['shownavbar']['toolsmenudrawer'] = $OUTPUT->tools_menu('tools-menu-drawer');
+        }
 
-    if ($headercontext['shownavbar']['showcog']) {
-        $headercontext['shownavbar']['coursemenucontent'] = $OUTPUT->context_header_settings_menu();
-        $headercontext['shownavbar']['othermenucontent'] = $OUTPUT->region_main_settings_menu();
-    }
+        $navbareditsettings = $PAGE->theme->settings->editsettingsbutton;
+        $headercontext['shownavbar']['showcog'] = true;
+        $showeditbuttons = false;
 
-    /* Ensure to only hide the button on relevant pages.  Some pages will need the button, such as the
-       dashboard page. Checking if the cog is being displayed above to figure out if it still needs to
-       show (when there is no cog). Also show mod pages (e.g. Forum, Lesson) as these sometimes have
-       a button for a specific purpose. */
-    if (($showeditbuttons) ||
-        (($headercontext['shownavbar']['showcog']) && ((empty($headercontext['shownavbar']['coursemenucontent'])) && (empty($headercontext['shownavbar']['othermenucontent'])))) ||
-        (strstr($PAGE->pagetype, 'mod-'))) {
-        $headercontext['shownavbar']['pageheadingbutton'] = $OUTPUT->page_heading_button();
-    }
+        if ($navbareditsettings == 'button') {
+            $showeditbuttons = true;
+            $headercontext['shownavbar']['showcog'] = false;
+        } else if ($navbareditsettings == 'cogandbutton') {
+            $showeditbuttons = true;
+        }
 
-    if (isloggedin()) {
-        if (!empty($this->page->theme->settings->enableshowhideblocks)) {
-            $zoomside = ((!empty($this->page->theme->settings->blockside)) && ($this->page->theme->settings->blockside == 1)) ? 'left' : 'right';
-            $hidetitle = get_string('hideblocks', 'theme_adaptable');
-            $showtitle = get_string('showblocks', 'theme_adaptable');
-            if ($setzoom == 'zoomin') { // Blocks not shown.
-                $zoominicontitle = $showtitle;
-                if ($zoomside == 'right') {
-                    $icontype = 'outdent';
+        if ($headercontext['shownavbar']['showcog']) {
+            $headercontext['shownavbar']['coursemenucontent'] = $OUTPUT->context_header_settings_menu();
+            $headercontext['shownavbar']['othermenucontent'] = $OUTPUT->region_main_settings_menu();
+        }
+
+        /* Ensure to only hide the button on relevant pages.  Some pages will need the button, such as the
+           dashboard page. Checking if the cog is being displayed above to figure out if it still needs to
+           show (when there is no cog). Also show mod pages (e.g. Forum, Lesson) as these sometimes have
+           a button for a specific purpose. */
+        if (($showeditbuttons) ||
+            (($headercontext['shownavbar']['showcog']) && ((empty($headercontext['shownavbar']['coursemenucontent'])) && (empty($headercontext['shownavbar']['othermenucontent'])))) ||
+            (strstr($PAGE->pagetype, 'mod-'))) {
+            $headercontext['shownavbar']['pageheadingbutton'] = $OUTPUT->page_heading_button();
+        }
+
+        if (isloggedin()) {
+            if (!empty($this->page->theme->settings->enableshowhideblocks)) {
+                $zoomside = ((!empty($this->page->theme->settings->blockside)) && ($this->page->theme->settings->blockside == 1)) ? 'left' : 'right';
+                $hidetitle = get_string('hideblocks', 'theme_adaptable');
+                $showtitle = get_string('showblocks', 'theme_adaptable');
+                if ($setzoom == 'zoomin') { // Blocks not shown.
+                    $zoominicontitle = $showtitle;
+                    if ($zoomside == 'right') {
+                        $icontype = 'outdent';
+                    } else {
+                        $icontype = 'indent';
+                    }
                 } else {
-                    $icontype = 'indent';
+                    $zoominicontitle = $hidetitle;
+                    if ($zoomside == 'right') {
+                        $icontype = 'indent';
+                    } else {
+                        $icontype = 'outdent';
+                    }
                 }
-            } else {
-                $zoominicontitle = $hidetitle;
-                if ($zoomside == 'right') {
-                    $icontype = 'indent';
-                } else {
-                    $icontype = 'outdent';
-                }
+                $headercontext['shownavbar']['showhideblocks'] = true;
+                $headercontext['shownavbar']['showhideblockszoomside'] = $zoomside;
+                $headercontext['shownavbar']['showhideblockszoominicontitle'] = $zoominicontitle;
+                $headercontext['shownavbar']['showhideblockshidetitle'] = $hidetitle;
+                $headercontext['shownavbar']['showhideblocksshowtitle'] = $showtitle;
+                $headercontext['shownavbar']['showhideblocksicontype'] = $icontype;
+                $headercontext['shownavbar']['showhideblockstext'] = ($PAGE->theme->settings->enableshowhideblockstext);
+
+                $PAGE->requires->js_call_amd('theme_adaptable/zoomin', 'init');
             }
-            $headercontext['shownavbar']['showhideblocks'] = true;
-            $headercontext['shownavbar']['showhideblockszoomside'] = $zoomside;
-            $headercontext['shownavbar']['showhideblockszoominicontitle'] = $zoominicontitle;
-            $headercontext['shownavbar']['showhideblockshidetitle'] = $hidetitle;
-            $headercontext['shownavbar']['showhideblocksshowtitle'] = $showtitle;
-            $headercontext['shownavbar']['showhideblocksicontype'] = $icontype;
-            $headercontext['shownavbar']['showhideblockstext'] = ($PAGE->theme->settings->enableshowhideblockstext);
-
-            $PAGE->requires->js_call_amd('theme_adaptable/zoomin', 'init');
-        }
-        if ($PAGE->theme->settings->enablezoom) {
-            $headercontext['shownavbar']['enablezoom'] = true;
-            $headercontext['shownavbar']['enablezoomshowtext'] = ($PAGE->theme->settings->enablezoomshowtext);
-        }
-    }
-}
-
-if ($adaptableheaderstyle == "style1") {
-    $headercontext['menuslinkright'] = (!empty($PAGE->theme->settings->menuslinkright));
-    $headercontext['coursesearch'] = new moodle_url('/course/search.php');
-    $headercontext['langmenu'] = (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']);
-    $headercontext['responsiveheader'] = $PAGE->theme->settings->responsiveheader;
-
-    if (!$headercontext['nonavbar']) {
-        // Social icons.
-        if ($PAGE->theme->settings->socialorsearch == 'social') {
-            $headersocialcontext = [
-                'classes' => $PAGE->theme->settings->responsivesocial,
-                'pageheaderoriginal' => $headercontext['pageheaderoriginal'],
-                'output' => $OUTPUT
-            ];
-            $headercontext['socialorsearch'] = $OUTPUT->render_from_template('theme_adaptable/headersocial', $headersocialcontext);
-        }
-        // Search box.
-        if ((!$hidesitetitle) && ($PAGE->theme->settings->socialorsearch == 'search') ) {
-            $headersearchcontext = [
-                'pagelayout' => ($headercontext['pageheaderoriginal']) ? 'pagelayoutoriginal' : 'pagelayoutalternative',
-                'url' => new moodle_url('/course/search.php')
-            ];
-            $headercontext['socialorsearch'] = $OUTPUT->render_from_template('theme_adaptable/headersearch', $headersearchcontext);
+            if ($PAGE->theme->settings->enablezoom) {
+                $headercontext['shownavbar']['enablezoom'] = true;
+                $headercontext['shownavbar']['enablezoomshowtext'] = ($PAGE->theme->settings->enablezoomshowtext);
+            }
         }
     }
 
-    echo $OUTPUT->render_from_template('theme_adaptable/headerstyleone', $headercontext);
-} else if ($adaptableheaderstyle == "style2") {
-    $headercontext['topmenus'] = $OUTPUT->get_top_menus(false);
-    if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
-        $headercontext['langmenu'] = '<div class="my-auto">'.$OUTPUT->lang_menu(false).'</div>';
+    if ($adaptableheaderstyle == "style1") {
+        $headercontext['menuslinkright'] = (!empty($PAGE->theme->settings->menuslinkright));
+        $headercontext['coursesearch'] = new moodle_url('/course/search.php');
+        $headercontext['langmenu'] = (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']);
+        $headercontext['responsiveheader'] = $PAGE->theme->settings->responsiveheader;
+
+        if (!$headercontext['nonavbar']) {
+            // Social icons.
+            if ($PAGE->theme->settings->socialorsearch == 'social') {
+                $headersocialcontext = [
+                    'classes' => $PAGE->theme->settings->responsivesocial,
+                    'pageheaderoriginal' => $headercontext['pageheaderoriginal'],
+                    'output' => $OUTPUT
+                ];
+                $headercontext['socialorsearch'] = $OUTPUT->render_from_template('theme_adaptable/headersocial', $headersocialcontext);
+            }
+            // Search box.
+            if ((!$hidesitetitle) && ($PAGE->theme->settings->socialorsearch == 'search') ) {
+                $headersearchcontext = [
+                    'pagelayout' => ($headercontext['pageheaderoriginal']) ? 'pagelayoutoriginal' : 'pagelayoutalternative',
+                    'url' => new moodle_url('/course/search.php')
+                ];
+                $headercontext['socialorsearch'] = $OUTPUT->render_from_template('theme_adaptable/headersearch', $headersearchcontext);
+            }
+        }
+
+        echo $OUTPUT->render_from_template('theme_adaptable/headerstyleone', $headercontext);
+    } else if ($adaptableheaderstyle == "style2") {
+        $headercontext['topmenus'] = $OUTPUT->get_top_menus(false);
+        if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
+            $headercontext['langmenu'] = '<div class="my-auto">'.$OUTPUT->lang_menu(false).'</div>';
+        }
+
+        echo $OUTPUT->render_from_template('theme_adaptable/headerstyletwo', $headercontext);
     }
 
-    echo $OUTPUT->render_from_template('theme_adaptable/headerstyletwo', $headercontext);
-}
-
-// Display News Ticker.
-echo $OUTPUT->get_news_ticker();
+    // Display News Ticker.
+    echo $OUTPUT->get_news_ticker();

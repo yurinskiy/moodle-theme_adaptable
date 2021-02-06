@@ -36,14 +36,16 @@ echo $OUTPUT->doctype();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-    <div class="container outercont">
-        <div id="page-content" class="row">
-            <section id="region-main" class="col-12">
-                <?php
-                echo $OUTPUT->course_content_header();
-                echo $OUTPUT->main_content();
-                echo $OUTPUT->course_content_footer();
-                ?>
-            </section>
+        <div class="container outercont">
+            <div id="page-content" class="row">
+                <section id="region-main" class="col-12">
+                    <?php
+                    echo $OUTPUT->course_content_header();
+                    echo $OUTPUT->main_content();
+                    echo $OUTPUT->course_content_footer();
+                    ?>
+                </section>
+            </div>
         </div>
-    </div>
+    </body>
+</html>
