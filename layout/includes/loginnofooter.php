@@ -26,8 +26,9 @@
 defined('MOODLE_INTERNAL') || die;
 
 echo $OUTPUT->standard_after_main_region_html();
+echo '</div>'; // #page
+echo '</div>'; // #page-wrapper.
 echo $OUTPUT->standard_end_of_body_html();
-
 echo $OUTPUT->get_all_tracking_methods(); ?>
 <script type="text/javascript">
     require(['theme_boost/loader']);
