@@ -44,12 +44,5 @@ echo $OUTPUT->doctype() ?>
         </div>
     </div>
 </div>
-<?php echo $OUTPUT->standard_end_of_body_html() ?>
-<script type="text/javascript">
-    require(['theme_boost/loader']);
-</script>
-<script type="text/javascript">
-    <?php echo $PAGE->theme->settings->jssection;?>
-</script>
-</body>
-</html>
+<?php
+require_once(dirname(__FILE__) . '/includes/nofooter.php');

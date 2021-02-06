@@ -33,7 +33,7 @@ global $PAGE, $OUTPUT;
 if (!empty($PAGE->theme->settings->loginheader)) {
     require_once(dirname(__FILE__) . '/includes/header.php');
 } else {
-    require_once(dirname(__FILE__) . '/includes/loginnoheader.php');
+    require_once(dirname(__FILE__) . '/includes/noheader.php');
 }
 
 echo '<div class="container outercont">';
@@ -78,5 +78,5 @@ echo '<div class="container outercont">';
 if (!empty($PAGE->theme->settings->loginfooter)) {
     require_once(dirname(__FILE__) . '/includes/footer.php');
 } else {
-    require_once(dirname(__FILE__) . '/includes/loginnofooter.php');
+    require_once(dirname(__FILE__) . '/includes/nofooter.php');
 }
