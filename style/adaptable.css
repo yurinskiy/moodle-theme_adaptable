@@ -219,16 +219,11 @@ div.signuppanel h2 {
 
 /* Page */
 #page {
+    [[setting:homebkg]]
     clear: both;
     margin: 0;
-    padding: 0;
     max-width: inherit;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    display: -ms-flexbox;
-    display: flex;
-    height: 100%;
-    [[setting:homebkg]]
+    padding: 0;
 }
 
 .container.outercont {
@@ -2526,7 +2521,7 @@ img.smallicon {
 }
 
 #page-login-index #page {
-    background:none;
+    background-image: none;
 }
 
 .progressbar_container {

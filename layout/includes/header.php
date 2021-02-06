@@ -152,9 +152,10 @@ echo $OUTPUT->standard_top_of_body_html();
 // echo $OUTPUT->get_dev_alert();.
 ?>
 
-<div id="page" class="<?php echo "$setfull $showiconsclass $standardscreenwidthclass"; ?>">
+<div id="page-wrapper">
+    <div id="page" class="<?php echo "$setfull $showiconsclass $standardscreenwidthclass"; ?>">
 
-<?php
+    <?php
 echo $OUTPUT->get_alert_messages();
 
 $headercontext = [
