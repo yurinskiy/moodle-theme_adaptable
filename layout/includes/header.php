@@ -261,14 +261,17 @@ echo $OUTPUT->standard_top_of_body_html();
            show (when there is no cog). Also show mod pages (e.g. Forum, Lesson) as these sometimes have
            a button for a specific purpose. */
         if (($showeditbuttons) ||
-            (($headercontext['shownavbar']['showcog']) && ((empty($headercontext['shownavbar']['coursemenucontent'])) && (empty($headercontext['shownavbar']['othermenucontent'])))) ||
+            (($headercontext['shownavbar']['showcog']) &&
+            ((empty($headercontext['shownavbar']['coursemenucontent'])) &&
+            (empty($headercontext['shownavbar']['othermenucontent'])))) ||
             (strstr($PAGE->pagetype, 'mod-'))) {
             $headercontext['shownavbar']['pageheadingbutton'] = $OUTPUT->page_heading_button();
         }
 
         if (isloggedin()) {
             if (!empty($this->page->theme->settings->enableshowhideblocks)) {
-                $zoomside = ((!empty($this->page->theme->settings->blockside)) && ($this->page->theme->settings->blockside == 1)) ? 'left' : 'right';
+                $zoomside = ((!empty($this->page->theme->settings->blockside)) &&
+                    ($this->page->theme->settings->blockside == 1)) ? 'left' : 'right';
                 $hidetitle = get_string('hideblocks', 'theme_adaptable');
                 $showtitle = get_string('showblocks', 'theme_adaptable');
                 if ($setzoom == 'zoomin') { // Blocks not shown.
