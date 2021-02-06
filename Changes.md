@@ -5,6 +5,7 @@ Change Log in version 2.4.4 (2020070103)
 3. Fix 'Footer shown on popup layout' - https://moodle.org/mod/forum/discuss.php?d=417793.
 4. Fix 'User profile image is cropped' - https://moodle.org/mod/forum/discuss.php?d=417776.
 5. Fix 'Textured page background image does not extend down when the page height changes' - #223.
+6. Grid format has changed method name of 'section_header_onsectionpage_topic0notattop' to 'section_header_onsectionpage'.
 
 Change Log in version 2.4.3 (2020070102)
 ========================================
