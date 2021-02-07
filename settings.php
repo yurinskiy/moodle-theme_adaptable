@@ -72,4 +72,4 @@ if ($ADMIN->fulltree) {
     include(dirname(__FILE__) . '/settings/custom_css.php');
 }
 $ADMIN->add('theme_adaptable', $asettings);
-require_once(dirname(__FILE__) . '/settings/importexport_settings.php');
+include(dirname(__FILE__) . '/settings/importexport_settings.php');
