@@ -21,6 +21,7 @@
  * @copyright 2015-2019 Jeremy Hopkins (Coventry University)
  * @copyright 2015-2019 Fernando Acedo (3-bits.com)
  * @copyright 2017-2019 Manoj Solanki (Coventry University)
+ * @copyright 2020-2021 Gareth J Barnard
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
@@ -28,46 +29,38 @@
 // General.
 $string['choosereadme'] = '
 <div class="clearfix">
-<div class="well">
 <h2>Adaptable</h2>
 <p><img class="img-polaroid" src="adaptable/pix/screenshot.png" /></p>
-</div>
-<div class="well">
 <h3>About</h3>
-<p>Adaptable is a Moodle 2-columns responsive theme highly customizable and based in the popular BCU theme. Version 2 is using
- Boost as a base theme and therefore Bootstrap 4.</p>
-<p>The theme is licensed under the GPL (GNU General Public License). You can find a complete licence copy <a href="http://www.gnu.org/licenses/" target="_HERE">blank</a></p>
+<p>Adaptable is a two column responsive theme, highly customizable and based upon the popular BCU theme.  Versions 2 and 3 use Boost as a base theme and therefore Bootstrap 4.</p>
+<p>The theme is licensed under the GPL (GNU General Public License) version 3. You can find the full details \'<a href="http://www.gnu.org/licenses/gpl-3.0.html" target="_blank">here</a>\'.</p>
 <br>
 <h4>Modify it! - Improve it! - Share it!</h4>
 <br>
 <h3>Credits</h3>
-<p>This theme has been developed by:<br>
-Jeremy Hopkins (Coventry University)<br>
-Fernando Acedo (<a href="https://3-bits.com" target="_blank">3-bits.com</a>)</p>
-Manoj Solanki (Coventry University)<br>
+<p>This version of the theme has been developed by:<br>
+Gareth J Barnard (<a href="http://moodle.org/user/profile.php?id=442195" target="_blank">moodle.org/user/profile.php?id=442195</a>).
+</p>
+<p>This theme has previously been developed by:<ul>
+<li>Jeremy Hopkins (Coventry University).</li>
+<li>Fernando Acedo (<a href="https://3-bits.com" target="_blank">3-bits.com</a>).</li>
+<li>Manoj Solanki (Coventry University).</li>
+</ul></p>
+<h3>Other credits</h3>
+<p>Collaborators for version 2:<ul>
+<li>Gareth J Barnard (<a href="http://moodle.org/user/profile.php?id=442195" target="_blank">moodle.org/user/profile.php?id=442195</a>).</li>
+<li>Stuart Lamour.</li>
+<li>Alistair Spark (University College London).</li>
+</ul><p>amongst many other developers, testers, translators and volunteers (please see the <a href="adaptable/README.md" target="_blank">README.md</a> file).</p>
 <br>
-<h2>Other Credits</h2>
-<p>In the development of version 2 they have also collaborated:<br>
-Gareth J. Barnard (http://moodle.org/user/profile.php?id=442195)
-Stuart Lamour
-Alistair Spark (University College London)
-<br>
-<p>among many other developers, testers, translators and volunteers (See <a href="adaptable/README.txt" target="_blank">README.txt</a>)</p>
-<br>
-<h3>Bugs Report</h3>
-<p>You can report bugs (and please, <b>ONLY</b> bugs) in our <a href="https://gitlab.com/3bits/moodle-theme_adaptable2" target="_blank">repository</a></p>
+<h3>Reporting bugs</h3>
+<p>You can report bugs and enhancements you wish to fund in our \'<a href="https://gitlab.com/jezhops/moodle-theme_adaptable/-/issues" target="_blank">repository</a>\'.</p>
 <br>
 <h3>Technical Support</h3>
-<p>You can ask your questions in the moodle forum:</p>
+<p>You can ask your questions on the moodle forum:</p>
 <ul>
-<li>English: <a href="https://moodle.org/mod/forum/discuss.php?d=340404" target="_blank">https://moodle.org/mod/forum/discuss.php?d=340404</a>
-<li>Español: <a href="https://moodle.org/mod/forum/discuss.php?d=326804" target="_blank">https://moodle.org/mod/forum/discuss.php?d=326804</a>
-<li>Català: <a href="https://moodle.org/mod/forum/discuss.php?d=340406" target="_blank">https://moodle.org/mod/forum/discuss.php?d=340406</a>
+<li>English: <a href="https://moodle.org/mod/forum/view.php?id=46" target="_blank">Themes forum</a>.</li>
 </ul>
-<br>
-<h3>Demo</h3>
-<p>You can see a demo version <a href="https://adaptable.ws/demo" target="_blank">HERE</a></p>
-</div>
 </div>';
 
 $string['pluginname'] = 'Adaptable';
