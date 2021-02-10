@@ -1,5 +1,6 @@
 Change Log in version 3.8.1.0 (2020070104)
 ==========================================
+1. Fix 'Quiz due date has no background colour'.
 
 Change Log in version 2.4.4 (2020070103)
 ========================================

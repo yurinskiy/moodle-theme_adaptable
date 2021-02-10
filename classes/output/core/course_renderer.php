@@ -855,11 +855,7 @@ class course_renderer extends \core_course_renderer {
 
                 $labeltext .= get_string('due', 'theme_adaptable', userdate($meta->$field, $dateformat));
 
-                $activityclass = '';
-                if ($mod->modname == 'assign') {
-                    $activityclass = 'ad-activity-due-date';
-                }
-                $duedate = html_writer::start_tag('span', array('class' => $activityclass.$warningclass));
+                $duedate = html_writer::start_tag('span', array('class' => 'ad-activity-due-date'.$warningclass));
                 $duedate .= html_writer::link($url, $labeltext);
                 $duedate .= html_writer::end_tag('span');
                 $content .= html_writer::start_tag('div', array('class' => 'ad-activity-mod-engagement'));
