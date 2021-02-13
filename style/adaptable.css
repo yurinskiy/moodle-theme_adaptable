@@ -1422,17 +1422,15 @@ div.no-overflow, .yui3-datatable {
 
 /* Search box */
 #page-header .searchbox {
-    bottom: 0;
     padding: [[setting:searchboxpadding]];
-    position: absolute;
 }
 
-#page-header .searchbox.pagelayoutoriginal {
-    right: 0;
+#page-header .searchbox.pagelayoutoriginal .search-box {
+    margin: 0 0 0 auto;
 }
 
-#page-header .searchbox.pagelayoutalternative {
-    left: 0;
+#page-header .searchbox.pagelayoutalternative .search-box {
+    margin: 0 auto 0 0;
 }
 
 .greybox {
