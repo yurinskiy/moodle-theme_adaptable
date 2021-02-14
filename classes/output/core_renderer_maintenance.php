@@ -30,12 +30,11 @@ namespace theme_adaptable\output;
 defined('MOODLE_INTERNAL') || die;
 
 /**
- * Renderers to align Moodle's HTML with that expected by Bootstrap
+ * The core maintenance renderer.
  *
- * Note: This class is required to avoid inheriting Boost's core_renderer
- *
- * @copyright Copyright (c) 2017 Manoj Solanki (Coventry University)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright  &copy; 2021-onwards G J Barnard.
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
-class core_renderer extends \core_renderer {
+class core_renderer_maintenance extends \core_renderer_maintenance {
+    use core_renderer_toolbox;
 }
