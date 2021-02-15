@@ -710,7 +710,7 @@ class course_renderer extends \core_course_renderer {
             $output .= $mod->afterlink;
 
             // Closing the tag which contains everything but edit icons. Content part of the module should not be part of this.
-            $output .= html_writer::end_tag('div'); // .activityinstance class.
+            $output .= html_writer::end_tag('div'); // End .activityinstance class.
         }
 
         // If there is content but NO link (eg label), then display the
@@ -943,7 +943,8 @@ class course_renderer extends \core_course_renderer {
                 } else {
                     $submittedonstr = ' '.userdate($meta->timesubmitted, get_string('strftimedate', 'langconfig'));
                 }
-                $message = $this->output->pix_icon('i/checked', get_string('checked', 'theme_adaptable')).$meta->submittedstr.$submittedonstr;
+                $message = $this->output->pix_icon('i/checked', get_string('checked', 'theme_adaptable')).
+                    $meta->submittedstr.$submittedonstr;
             } else {
                 if ($meta->expired) {
                     $warningstr = $meta->expiredstr;

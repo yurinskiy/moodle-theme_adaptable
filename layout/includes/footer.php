@@ -98,8 +98,8 @@ if (strstr($PAGE->pagetype, 'admin-setting')) {
         echo $OUTPUT->render_from_template('theme_adaptable/savediscard', $templatecontext);
     }
 }
-echo '</div>'; // #page
-echo '</div>'; // #page-wrapper.
+echo '</div>'; // End #page
+echo '</div>'; // End #page-wrapper.
 echo $OUTPUT->standard_end_of_body_html();
 echo $PAGE->theme->settings->jssection;
 

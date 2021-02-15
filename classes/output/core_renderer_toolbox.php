@@ -1201,6 +1201,7 @@ EOT;
      *
      * @param string $layoutrow
      * @param string $settingname
+     * @return string Markup.
      */
     public function get_marketing_blocks($layoutrow = 'marketlayoutrow', $settingname = 'market') {
         $fields = array();
@@ -1245,6 +1246,7 @@ EOT;
     /**
      * Returns footer visibility setting
      *
+     * @return boolean Visibility.
      */
     public function get_footer_visibility() {
         global $COURSE;
@@ -1267,7 +1269,8 @@ EOT;
     /**
      * Renders footer blocks.
      *
-     * @param string $layoutrow.
+     * @param string $layoutrow The footer row.
+     * @return string HTML output.
      */
     public function get_footer_blocks($layoutrow = 'footerlayoutrow') {
         $fields = array();
@@ -1501,7 +1504,8 @@ EOT;
                 }
                 $start = false;
             }
-            $breadcrumbs .= '<span class="separator"><i class="fa-'.$breadcrumbseparator.' fa"></i></span><li>'.$this->render($item).'</li>';
+            $breadcrumbs .= '<span class="separator"><i class="fa-'.$breadcrumbseparator.' fa"></i></span><li>'.
+                $this->render($item).'</li>';
         }
 
         $classes = $this->page->theme->settings->responsivebreadcrumb;
@@ -2408,7 +2412,7 @@ EOT;
             }
         }
 
-        // If course id is one or 'enableheading' was 'off' above then we display the site title.
+        // If the course id is one or 'enableheading' was 'off' above then we display the site title.
         if (($COURSE->id == 1) || ($usedefault)) {
             if (!empty($categoryheadercustomtitle)) {
                 $retval .= '<div id="sitetitle" class="pb-2 bd-highlight ' . $responsivecoursetitle . '">';
@@ -2647,20 +2651,19 @@ EOT;
 
     /**
      * Check users menu visibility settings, will store in session to avaoid repeated loading of profile data.
-     * @param string $profilefield.
-     * @return boolean.
+     * @param string $profilefield The profile field.
+     * @return boolean Visibility.
      */
     public function get_user_visibility($profilefield) {
         global $CFG, $USER;
-        $uservisibility = '';
 
         require_once($CFG->dirroot.'/user/profile/lib.php');
         require_once($CFG->dirroot.'/user/lib.php');
         profile_load_data($USER);
 
-        $uservisibility = $USER->$profilefield;
-        $USER->theme_adaptable_menus['menuvisibility'] = $uservisibility;
-        return $uservisibility;
+        $USER->theme_adaptable_menus['menuvisibility'] = $USER->$profilefield;
+
+        return $USER->theme_adaptable_menus['menuvisibility'];
     }
 
     /**
