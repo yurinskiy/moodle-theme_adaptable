@@ -29,21 +29,14 @@ namespace theme_adaptable\output;
 
 defined('MOODLE_INTERNAL') || die;
 
-use \action_menu;
 use \block_contents;
-use \cache;
 use \context_course;
 use \custom_menu;
 use \custom_menu_item;
 use \html_writer;
-use \preferences_groups;
 use \moodle_url;
 use \navigation_node;
-use \renderer_base;
 use \stdClass;
-use \tabtree;
-use \tabobject;
-use \theme_config;
 
 define('ADAPTABLE_COURSE_STARRED', 'starred');
 define('ADAPTABLE_COURSE_IN_PROGRESS', 'inprogress');
@@ -95,36 +88,8 @@ trait core_renderer_toolbox {
     public function box_start($classes = 'generalbox', $id = null, $attributes = array()) {
         $this->opencontainers->push('box', html_writer::end_tag('div'));
         $attributes['id'] = $id;
-        $attributes['class'] = 'box ' . renderer_base::prepare_classes($classes);
+        $attributes['class'] = 'box ' . \renderer_base::prepare_classes($classes);
         return html_writer::start_tag('div', $attributes);
-    }
-
-    /**
-     * Renders an action menu component.
-     *
-     * @param action_menu $menu
-     * @return string HTML
-     */
-    public function render_action_menu(action_menu $menu) {
-        global $CFG;
-
-        if ($CFG->branch < 37) {
-            // We don't want the class icon there!
-            foreach ($menu->get_secondary_actions() as $action) {
-                if ($action instanceof \action_menu_link && $action->has_class('icon')) {
-                    $action->attributes['class'] = preg_replace('/(^|\s+)icon(\s+|$)/i', '', $action->attributes['class']);
-                }
-            }
-
-            if ($menu->is_empty()) {
-                return '';
-            }
-            $context = $menu->export_for_template($this);
-
-            return $this->render_from_template('core/action_menu', $context);
-        } else {
-            return parent::render_action_menu($menu);
-        }
     }
 
     /**
@@ -243,8 +208,12 @@ trait core_renderer_toolbox {
      * @return string
      */
     public function get_setting($setting, $format = false, $theme = null) {
+        static $themeconfig = null;
         if (empty($theme)) {
-            $theme = theme_config::load('adaptable');
+            if (empty($themeconfig)) {
+                $themeconfig = \theme_config::load('adaptable');
+            }
+            $theme = $themeconfig;
         }
 
         if (empty($theme->settings->$setting)) {
@@ -267,11 +236,11 @@ trait core_renderer_toolbox {
         global $CFG, $COURSE;
         $retval = '';
 
-        // False or theme setting name to first array param (not all links have settings).
-        // False or Moodle version number to second param (only some links check version).
-        // URL for link in third param.
-        // Link text in fourth parameter.
-        // Icon in fifth param.
+        /* False or theme setting name to first array param (not all links have settings).
+           False or Moodle version number to second param (only some links check version).
+           URL for link in third param.
+           Link text in fourth parameter.
+           Icon in fifth param. */
         $usermenuitems = array();
         $usermenuitems[] = array('enablemy', false, $CFG->wwwroot.'/my', get_string('myhome'),
             \theme_adaptable\toolbox::getfontawesomemarkup('dashboard'));
@@ -304,20 +273,16 @@ trait core_renderer_toolbox {
         $usermenuitems[] = array('enablecalendar', false, $CFG->wwwroot.'/calendar/view.php',
             get_string('pluginname', 'block_calendar_month'), \theme_adaptable\toolbox::getfontawesomemarkup('calendar'));
 
-        $returnurl = $this->get_current_page_url(true);
+        $returnurl = $this->page->url->out_as_local_url(false);
         $context = context_course::instance($COURSE->id);
-
         if ((!is_role_switched($COURSE->id)) && (has_capability('moodle/role:switchroles', $context))) {
-            // TBR $returnurl = str_replace().
             $url = $CFG->wwwroot.'/course/switchrole.php?id='.$COURSE->id.'&switchrole=-1&returnurl='.$returnurl;
-                $usermenuitems[] = array(false, false, $url, get_string('switchroleto'),
+            $usermenuitems[] = array(false, false, $url, get_string('switchroleto'),
                 \theme_adaptable\toolbox::getfontawesomemarkup('user-o'));
         }
-
         if (is_role_switched($COURSE->id)) {
             $url = $CFG->wwwroot.'/course/switchrole.php?id='.$COURSE->id.'&sesskey='.sesskey().
             '&switchrole=0&returnurl='.$returnurl;
-
             $usermenuitems[] = array(false, false, $url, get_string('switchrolereturn'),
                 \theme_adaptable\toolbox::getfontawesomemarkup('user-o'));
         }
@@ -345,37 +310,6 @@ trait core_renderer_toolbox {
             }
         }
         return $retval;
-    }
-
-
-
-    /**
-     * Returns current url minus the value of $CFG->wwwroot
-     *
-     * @param bool $stripwwwroot
-     *
-     * Should be replaced with inbuilt Moodle function if one can be found
-     */
-    public function get_current_page_url($stripwwwroot = false) {
-        global $CFG;
-        $pageurl = 'http';
-
-        if ( isset( $_SERVER["HTTPS"] ) && strtolower( $_SERVER["HTTPS"] ) == "on" ) {
-            $pageurl .= "s";
-        }
-
-        $pageurl .= "://";
-
-        if ($_SERVER["SERVER_PORT"] != "80") {
-            $pageurl .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-        } else {
-            $pageurl .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-        }
-
-        if ($stripwwwroot) {
-            $pageurl = str_replace($CFG->wwwroot, '', $pageurl);
-        }
-        return $pageurl;
     }
 
     /**
@@ -440,9 +374,9 @@ trait core_renderer_toolbox {
             $skipdest = '';
         } else {
             $output = html_writer::link('#sb-'.$bc->skipid, get_string('skipa', 'access', $skiptitle),
-                      array('class' => 'skip skip-block', 'id' => 'fsb-' . $bc->skipid));
+                array('class' => 'skip skip-block', 'id' => 'fsb-' . $bc->skipid));
             $skipdest = html_writer::span('', 'skip-block-to',
-                      array('id' => 'sb-' . $bc->skipid));
+                array('id' => 'sb-' . $bc->skipid));
         }
 
         $output .= html_writer::start_tag('section', $bc->attributes);
@@ -569,7 +503,7 @@ trait core_renderer_toolbox {
      * @param  preferences_groups $renderable The renderable
      * @return string The output.
      */
-    public function render_preferences_groups(preferences_groups $renderable) {
+    public function render_preferences_groups(\preferences_groups $renderable) {
         return $this->render_from_template('core/preferences_groups', $renderable);
     }
 
@@ -644,7 +578,7 @@ trait core_renderer_toolbox {
             $alertindex = $alertcount + 1;
             $alertkey = "undismissable";
 
-            $returnurl = $this->get_current_page_url(true);
+            $returnurl = $this->page->url->out_as_local_url(false);
             $url = $CFG->wwwroot.'/course/switchrole.php?id='.$COURSE->id.'&sesskey='.sesskey().
                 '&switchrole=0&returnurl='.$returnurl;
 
@@ -867,8 +801,7 @@ EOT;
         $analytics = '';
         if ($enabled && !empty($siteurl) && !empty($siteid) && (!is_siteadmin() || $trackadmin)) {
             if ($imagetrack) {
-                $addition = '<noscript><p>
-                            <img src="//'.$siteurl.'/piwik.php?idsite='.$siteid.' style="border:0;" alt="" /></p></noscript>';
+                $addition = '<noscript><p><img src="//'.$siteurl.'/piwik.php?idsite='.$siteid.' style="border:0;"/></p></noscript>';
             } else {
                 $addition = '';
             }
@@ -966,7 +899,7 @@ EOT;
 
             if (empty($message->contexturl)) {
                 $messagecontent->url = new moodle_url('/message/index.php',
-                        array('user1' => $USER->id, 'viewing' => 'recentnotifications'));
+                    array('user1' => $USER->id, 'viewing' => 'recentnotifications'));
             } else {
                 $messagecontent->url = new moodle_url($message->contexturl);
             }
@@ -983,7 +916,7 @@ EOT;
             }
             $messagecontent->from = $DB->get_record('user', array('id' => $message->useridfrom));
             $messagecontent->url = new moodle_url('/message/index.php',
-                    array('user1' => $USER->id, 'user2' => $message->useridfrom));
+                array('user1' => $USER->id, 'user2' => $message->useridfrom));
         }
         $messagecontent->date = userdate($message->timecreated, get_string('strftimetime', 'langconfig'));
         $messagecontent->unread = empty($message->timeread);
@@ -1126,12 +1059,12 @@ EOT;
         $style = '';
         $adminediting = false;
 
-        // Check if user has capability to edit block on homepage.  This is used as part of checking if
-        // blocks should display the dotted borders and labels for editing. (Issue #809).
+        /* Check if user has capability to edit block on homepage.  This is used as part of checking if
+           blocks should display the dotted borders and labels for editing. (Issue #809). */
         $context = context_course::instance($COURSE->id);
 
-        // Check if front page and if has capability to edit blocks.  The $pageallowed variable will store
-        // the correct state of whether user can edit that page.
+        /* Check if front page and if has capability to edit blocks.  The $pageallowed variable will store
+           the correct state of whether user can edit that page. */
         $caneditblock = has_capability('moodle/block:edit', $context);
         if ( ($this->page->pagelayout == "frontpage") && ($caneditblock !== true) ) {
             $pageallowed = false;
@@ -1150,9 +1083,9 @@ EOT;
             for ($i = 1; $i <= 8; $i++) {
                 $marketrow = $settingsname . $i;
 
-                // Need to check if the setting exists as this function is now
-                // called for variable row numbers in block regions (e.g. course page
-                // which is a single row of block regions).
+                /* Need to check if the setting exists as this function is now
+                   called for variable row numbers in block regions (e.g. course page
+                   which is a single row of block regions). */
 
                 if (isset($this->page->theme->settings->$marketrow)) {
                     $marketrow = $this->page->theme->settings->$marketrow;
@@ -1215,13 +1148,13 @@ EOT;
 
             foreach ($blocksarray as $block) {
 
-                // Do this for up to 8 rows (allows for expansion.  Be careful
-                // of losing blocks if this value changes from a high to low number!).
+                /* Do this for up to 8 rows (allows for expansion.  Be careful
+                   of losing blocks if this value changes from a high to low number!). */
                 for ($i = 1; $i <= 8; $i++) {
 
-                    // For each block region in a row, analyse the current layout (e.g. 6-6-0-0, 3-3-3-3).  Check if less than
-                    // 4 blocks (meaning a change in settings from say 4-4-4-4 to 6-6.  Meaning missing blocks,
-                    // i.e. 6-6-0-0 means the two end ones may have content that is inadvertantly lost.
+                    /* For each block region in a row, analyse the current layout (e.g. 6-6-0-0, 3-3-3-3).  Check if less than
+                       4 blocks (meaning a change in settings from say 4-4-4-4 to 6-6.  Meaning missing blocks,
+                       i.e. 6-6-0-0 means the two end ones may have content that is inadvertantly lost. */
                     $rowsetting = $block['settingsname'] . $i;
 
                     if (isset($this->page->theme->settings->$rowsetting)) {
@@ -1232,8 +1165,8 @@ EOT;
                         foreach ($spannumbers as $spannumber) {
                             $y++;
 
-                            // Here's the crucial bit.  Check if span number is 0,
-                            // or $displayall is true (override) and if so, print it out.
+                            /* Here's the crucial bit.  Check if span number is 0,
+                               or $displayall is true (override) and if so, print it out. */
                             if ($spannumber == 0 || $displayall) {
 
                                 $blockclass = $block['classnamebeginswith'] . chr(96 + $y);
@@ -1244,13 +1177,11 @@ EOT;
                                     if ($adminediting) {
                                         $missingblocks .= '<em>ORPHANED BLOCK - Originally displays in: <strong>' .
                                                 get_string('region-' . $blockclass, 'theme_adaptable') .'</strong></em>';
-
                                     }
                                     $missingblocks .= $missingblock;
                                 }
-
                             }
-                        } // End foreach.
+                        }
                     }
                 }
             }
@@ -1334,9 +1265,9 @@ EOT;
     }
 
     /**
-     * Renders footer blocks
+     * Renders footer blocks.
      *
-     * @param string $layoutrow
+     * @param string $layoutrow.
      */
     public function get_footer_blocks($layoutrow = 'footerlayoutrow') {
         $fields = array();
@@ -1346,8 +1277,7 @@ EOT;
             return '';
         }
 
-        $output = '<div id="course-footer">' . $this->course_footer() . '</div>
-                <div class="container blockplace1">';
+        $output = '<div id="course-footer">' . $this->course_footer() . '</div><div class="container blockplace1">';
 
         for ($i = 1; $i <= 3; $i++) {
             $footerrow = $layoutrow . $i;
@@ -1380,6 +1310,7 @@ EOT;
             $output .= '</div>';
         }
         $output .= '</div>';
+
         return $output;
     }
 
@@ -1456,7 +1387,7 @@ EOT;
     /**
      * Renders the breadcrumb navbar.
      *
-     * @return string Markup or empty string if 'nonavbar' for tge given page layout in the config.php file is true.
+     * @return string Markup or empty string if 'nonavbar' for the given page layout in the config.php file is true.
      */
     public function page_navbar() {
         $retval = '';
@@ -1527,9 +1458,9 @@ EOT;
     }
 
     /**
-     * Render the navbar
+     * Render the navbar.
      *
-     * @return string
+     * @return string Markup.
      */
     public function navbar() {
         $items = $this->page->navbar->get_items();
@@ -1541,41 +1472,37 @@ EOT;
             return '';
         }
 
-        $i = 0;
-
+        $start = true;
         foreach ($items as $item) {
             $item->hideicon = true;
 
             // Text / Icon home.
-            if ($i++ == 0) {
+            if ($start) {
                 $breadcrumbs .= '<li>';
 
                 if (get_config('theme_adaptable', 'enablehome') && get_config('theme_adaptable', 'enablemyhome')) {
                     $breadcrumbs = html_writer::tag('i', '', array(
-                            'title' => get_string('home', 'theme_adaptable'),
-                            'class' => 'fa fa-folder-open fa-lg'
+                        'title' => get_string('home', 'theme_adaptable'),
+                        'class' => 'fa fa-folder-open fa-lg'
                     )
                             );
                 } else if (get_config('theme_adaptable', 'breadcrumbhome') == 'icon') {
                     $breadcrumbs .= html_writer::link(new moodle_url('/'),
-                            // Adds in a title for accessibility purposes.
-                            html_writer::tag('i', '', array(
-                                    'title' => get_string('home', 'theme_adaptable'),
-                                    'class' => 'fa fa-home fa-lg')
-                                    )
-                            );
+                        // Adds in a title for accessibility purposes.
+                        html_writer::tag('i', '', array(
+                            'title' => get_string('home', 'theme_adaptable'),
+                            'class' => 'fa fa-home fa-lg')
+                        )
+                    );
                     $breadcrumbs .= '</li>';
                 } else {
                     $breadcrumbs .= html_writer::link(new moodle_url('/'), get_string('home', 'theme_adaptable'));
                     $breadcrumbs .= '</li>';
                 }
-                continue;
+                $start = false;
             }
-
-            $breadcrumbs .= '<span class="separator"><i class="fa-'.$breadcrumbseparator.' fa"></i>
-                             </span><li>'.$this->render($item).'</li>';
-
-        } // End loop.
+            $breadcrumbs .= '<span class="separator"><i class="fa-'.$breadcrumbseparator.' fa"></i></span><li>'.$this->render($item).'</li>';
+        }
 
         $classes = $this->page->theme->settings->responsivebreadcrumb;
 
@@ -2225,7 +2152,7 @@ EOT;
     public function navigation_menu($menuid) {
 
         $sessttl = 0;
-        $cache = cache::make('theme_adaptable', 'userdata');
+        $cache = \cache::make('theme_adaptable', 'userdata');
 
         if ($sessttl > 0 && time() <= $cache->get('usernavbarttl')) {
             return $cache->get('mysitesvisibility');
@@ -2327,11 +2254,10 @@ EOT;
                             // Check if the current cell contain a valid capability or not.
                             if (!get_capability_info(trim($cells[$i]))) {
 
-                                // Should we say to the user that the capability is not valid ?
-                                // It should be better to print this when the "admin" fill the toolmenu, not when we print it.
-
-                                // If it's not valid, check the next cell (here we could change the behaviour from "do nothing"
-                                // to "delete the line").
+                                /* Should we say to the user that the capability is not valid ?
+                                   It should be better to print this when the "admin" fill the toolmenu, not when we print it.
+                                   If it's not valid, check the next cell (here we could change the behaviour from "do nothing"
+                                   to "delete the line"). */
                                 continue;
                             }
 
@@ -2343,16 +2269,16 @@ EOT;
                                 // We have removed the line, we don't need to check nexts cells.
                                 break;
 
-                                // NOTE: The behaviour here is "the user need to have ALL capabilities written on the line"
-                                // I.E: AND logic only, it needs a more complex traitement if we want to take in
-                                // account some logics mixing OR and AND.
+                                /* NOTE: The behaviour here is "the user need to have ALL capabilities written on the line"
+                                   I.E: AND logic only, it needs a more complex traitement if we want to take in
+                                   account some logics mixing OR and AND. */
                             }
                         }
                     }
                 }
 
-                // Once we have finish to check all lines, we recreate the menu
-                // (without the lines that the user don't have the capabilities needed) to continue the original process.
+                /* Once we have finish to check all lines, we recreate the menu
+                   (without the lines that the user don't have the capabilities needed) to continue the original process. */
                 $menu = implode("\n", $linesmenu);
 
                 $label = $this->page->theme->settings->$menutitle;
@@ -2586,15 +2512,15 @@ EOT;
 
         $template->rows = array();
 
-        $grid = array(
-                '5' => '3',
-                '6' => '3',
-                '7' => '4',
-                '8' => '4',
-                '9' => '3',
-                '10' => '4',
-                '11' => '4',
-                '12' => '4'
+        static $grid = array(
+            '5' => '3',
+            '6' => '3',
+            '7' => '4',
+            '8' => '4',
+            '9' => '3',
+            '10' => '4',
+            '11' => '4',
+            '12' => '4'
         );
 
         if ($nummenus <= 4) {
@@ -2720,9 +2646,9 @@ EOT;
     }
 
     /**
-     * Check users menu visibility settings, will store in session to avaoid repeated loading of profile data
-     * @param string $profilefield
-     * @return boolean
+     * Check users menu visibility settings, will store in session to avaoid repeated loading of profile data.
+     * @param string $profilefield.
+     * @return boolean.
      */
     public function get_user_visibility($profilefield) {
         global $CFG, $USER;
@@ -2738,12 +2664,12 @@ EOT;
     }
 
     /**
-     * Checks menu access based on admin settings and a users custom profile fields
+     * Checks menu access based on admin settings and a users custom profile fields.
      *
-     * @param string $ftype the custom profile field
-     * @param string $setvalue the expected value a user must have in their profile field
-     * @param string $menu a token to identify the menu used to store access in session
-     * @return boolean
+     * @param string $ftype the custom profile field.
+     * @param string $setvalue the expected value a user must have in their profile field.
+     * @param string $menu a token to identify the menu used to store access in session.
+     * @return boolean.
      */
     public function check_menu_access($ftype, $setvalue, $menu) {
         global $CFG, $USER;
@@ -2808,10 +2734,10 @@ EOT;
     }
 
     /**
-     * Returns contents of multiple comma delimited custom profile fields
+     * Returns contents of multiple comma delimited custom profile fields.
      *
-     * @param string $profilefields delimited list of fields
-     * @return array
+     * @param string $profilefields delimited list of fields.
+     * @return array.
      */
     public function get_profile_field_contents($profilefields) {
         global $CFG, $USER;
@@ -2854,7 +2780,7 @@ EOT;
     }
 
     /**
-     * Parses / wraps custom menus in HTML
+     * Parses / wraps custom menus in HTML.
      *
      * @param string $menu
      * @param string $label
@@ -2865,9 +2791,9 @@ EOT;
      */
     public function parse_custom_menu($menu, $label, $class = '', $close = '') {
 
-        // Top level menu option.  No URL added after $close (previously was #).
-        // Done to fix current jquery / Bootstrap version incompatibility with using #
-        // in target URLS. Ref: Issue 617 on Adaptable theme issues on Bitbucket.
+        /* Top level menu option.  No URL added after $close (previously was #).
+           Done to fix current jquery / Bootstrap version incompatibility with using #
+           in target URLS. Ref: Issue 617 on Adaptable theme issues on Bitbucket. */
         $custommenuitems = $class . $label. $close . "||".$label."\n";
         $arr = explode("\n", $menu);
 
@@ -2942,7 +2868,7 @@ EOT;
             }
 
             $this->language = $langmenu->add('<i class="fa fa-globe fa-lg"></i><span class="langdesc">'.$currentlang.'</span>',
-                                        new moodle_url($this->page->url), $strlang, 10000);
+                new moodle_url($this->page->url), $strlang, 10000);
 
             foreach ($langs as $langtype => $langname) {
                 $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
@@ -2983,19 +2909,7 @@ EOT;
      * @return string
      */
     protected function render_custom_menu(custom_menu $menu, $wrappre = '', $wrappost = '', $menuid = '') {
-        global $CFG;
-
-        // TODO: eliminate this duplicated logic, it belongs in core, not
-        // here. See MDL-39565.
-        $addlangmenu = true;
-        $langs = get_string_manager()->get_list_of_translations();
-        if (count($langs) < 2
-                or empty($CFG->langmenu)
-                or ($this->page->course != SITEID and !empty($this->page->course->lang))) {
-            $addlangmenu = false;
-        }
-
-        if (!$menu->has_children() && $addlangmenu === false) {
+        if (!$menu->has_children()) {
             return '';
         }
 
@@ -3093,7 +3007,6 @@ EOT;
         static $submenucount = 0;
 
         if ($menunode->has_children()) {
-
             $submenucount++;
             $content = '<li class="m-l-0">';
             $content .= html_writer::start_tag('a', array('href' => '#' . $menuid . $submenucount,
@@ -3110,7 +3023,6 @@ EOT;
             }
             $content .= '</ul></li>';
         } else {
-
             // The node doesn't have children so produce a final menuitem.
             if ($menunode->get_url() !== null) {
                 $url = $menunode->get_url();
@@ -3147,7 +3059,7 @@ EOT;
      * @param tabtree $tabtree
      * @return string
      */
-    protected function render_tabtree(tabtree $tabtree) {
+    protected function render_tabtree(\tabtree $tabtree) {
         if (empty($tabtree->subtree)) {
             return '';
         }
@@ -3170,7 +3082,7 @@ EOT;
      * @param tabobject $tab
      * @return string HTML fragment
      */
-    protected function render_tabobject(tabobject $tab) {
+    protected function render_tabobject(\tabobject $tab) {
         if ($tab->selected or $tab->activated) {
             return html_writer::tag('li', html_writer::tag('a', $tab->text,
                 array('class' => 'nav-link active')), array('class' => 'nav-item'));
@@ -3269,7 +3181,7 @@ EOT;
      */
     public function context_header_settings_menu() {
         $context = $this->page->context;
-        $menu = new action_menu();
+        $menu = new \action_menu();
 
         $items = $this->page->navbar->get_items();
         $currentnode = end($items);
@@ -3454,7 +3366,7 @@ EOT;
      */
     public function region_main_settings_menu() {
         $context = $this->page->context;
-        $menu = new action_menu();
+        $menu = new \action_menu();
 
         if ($context->contextlevel == CONTEXT_MODULE) {
 
@@ -3469,8 +3381,8 @@ EOT;
 
                 $items = $this->page->navbar->get_items();
                 $navbarnode = end($items);
-                // We only want to show the menu on the first page of the activity. This means
-                // the breadcrumb has no additional nodes.
+                /* We only want to show the menu on the first page of the activity. This means
+                   the breadcrumb has no additional nodes. */
                 if ($navbarnode && ($navbarnode->key === $node->key && $navbarnode->type == $node->type)) {
                     $buildmenu = true;
                 }
@@ -3510,7 +3422,7 @@ EOT;
      * @param boolean $onlytopleafnodes
      * @return boolean nodesskipped - True if nodes were skipped in building the menu
      */
-    protected function build_action_menu_from_navigation(action_menu $menu,
+    protected function build_action_menu_from_navigation(\action_menu $menu,
         navigation_node $node, $indent = false, $onlytopleafnodes = false) {
         $skipped = false;
 
@@ -3582,9 +3494,9 @@ EOT;
     public function search_box($id = false) {
         global $CFG;
 
-        // Accessing $CFG directly as using \core_search::is_global_search_enabled would
-        // result in an extra included file for each site, even the ones where global search
-        // is disabled.
+        /* Accessing $CFG directly as using \core_search::is_global_search_enabled would
+           result in an extra included file for each site, even the ones where global search
+           is disabled. */
         if (empty($CFG->enableglobalsearch) || !has_capability('moodle/search:query', context_system::instance())) {
             return '';
         }
