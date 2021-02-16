@@ -290,16 +290,6 @@ class course_renderer extends \core_course_renderer {
 
         if (($type == 2) || ($type == 4)) {
             $content .= $this->coursecat_coursebox_enrolmenticons($course);
-        }
-
-        if ($type == 2) {
-            $content .= html_writer::start_tag('a', array(
-                'class' => 'coursebox-content',
-                'href' => new moodle_url('/course/view.php', array('id' => $course->id))
-            ));
-            $coursename = $chelper->get_course_formatted_name($course);
-            $content .= html_writer::tag('h3', $coursename, array('class' => $course->visible ? '' : 'dimmed'));
-        } else if ($type == 4) {
             $content .= html_writer::start_tag('div', array(
                 'class' => 'coursebox-content'
                 )
@@ -325,12 +315,12 @@ class course_renderer extends \core_course_renderer {
             if ($course->has_course_contacts()) {
                 $content .= html_writer::start_tag('ul', array('class' => 'teachers'));
                 foreach ($course->get_course_contacts() as $userid => $coursecontact) {
-                    $name = ($coursecontacttitle ? $coursecontact['rolename'].': ' : html_writer::tag('i', '&nbsp;',
-                            array('class' => 'fa fa-graduation-cap')) ).
-                            html_writer::link(new moodle_url('/user/view.php',
-                                    array('id' => $userid, 'course' => SITEID)),
-                                    $coursecontact['username']);
-                            $content .= html_writer::tag('li', $name);
+                    $cct = ($coursecontacttitle ? $coursecontact['rolename'].': ' : html_writer::tag('i', '&nbsp;',
+                        array('class' => 'fa fa-graduation-cap')));
+                    $name = html_writer::link(new moodle_url('/user/view.php',
+                        array('id' => $userid, 'course' => $course->id)),
+                        $cct.$coursecontact['username']);
+                    $content .= html_writer::tag('li', $name);
                 }
                 $content .= html_writer::end_tag('ul'); // Teachers.
             }
@@ -348,10 +338,7 @@ class course_renderer extends \core_course_renderer {
                         $content .= html_writer::end_tag('div'); // Coursecat.
             }
         }
-        if ($type == 2) {
-            $content .= html_writer::end_tag('a');
-            // End coursebox-content.
-        } else if ($type == 4) {
+        if (($type == 2) || ($type == 4)) {
             $content .= html_writer::end_tag('div');
             // End coursebox-content.
         }

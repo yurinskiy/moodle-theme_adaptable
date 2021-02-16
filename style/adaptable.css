@@ -1620,7 +1620,15 @@ div.questionbankwindow.block {
     position: relative;
     margin-right: -1px;
     transition: all .5s ease-in-out;
-    z-index: 8
+}
+
+a.cimbox {
+    display: block;
+}
+
+#page-site-index a.submit {
+    white-space: normal;
+    width: 100%;
 }
 
 .coursebox-content {
