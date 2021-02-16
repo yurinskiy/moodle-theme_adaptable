@@ -233,10 +233,6 @@ class course_renderer extends \core_course_renderer {
         if ($type == 3 || $this->output->body_id() != 'page-site-index') {
             return parent::coursecat_coursebox_content($chelper, $course);
         }
-        if ($type == 4) {
-            // From this method's perspective 2 and 4 are the same.
-            $type = 2;
-        }
         $content = '';
 
         // Display course overview files.
@@ -254,8 +250,17 @@ class course_renderer extends \core_course_renderer {
                     $contentimages .= html_writer::link($link, html_writer::empty_tag('img', array('src' => $url)));
                     $contentimages .= html_writer::end_tag('div');
                 } else {
-                    $contentimages .= html_writer::tag('div', '', array('class' => 'cimbox',
-                        'style' => 'background-image: url(\''.$url.'\');'));
+                    $cimboxattr = array(
+                        'class' => 'cimbox',
+                        'style' => 'background-image: url(\''.$url.'\');'
+                    );
+                    if ($type == 4) {
+                        $cimtag = 'a';
+                        $cimboxattr['href'] = new moodle_url('/course/view.php', array('id' => $course->id));
+                    } else {
+                        $cimtag = 'div';
+                    }
+                    $contentimages .= html_writer::tag($cimtag, '', $cimboxattr);
                 }
             } else {
                 $image = $this->output->pix_icon(file_file_icon($file, 24), $file->get_filename(), 'moodle');
@@ -266,18 +271,24 @@ class course_renderer extends \core_course_renderer {
                         array('class' => 'coursefile fp-filename-icon'));
             }
         }
-        if (strlen($contentimages) == 0 && $type == 2) {
+        if (strlen($contentimages) == 0 && (($type == 2) || ($type == 4))) {
             // Default image.
             $cimboxattr = array('class' => 'cimbox');
             $url = $this->page->theme->setting_file_url('frontpagerendererdefaultimage', 'frontpagerendererdefaultimage');
             if (!empty($url)) {
                 $cimboxattr['style'] = 'background-image: url(\''.$url.'\');';
             }
-            $contentimages .= html_writer::tag('div', '', $cimboxattr);
+            if ($type == 2) {
+                $cimtag = 'div';
+            } else { // Type is 4.
+                $cimboxattr['href'] = new moodle_url('/course/view.php', array('id' => $course->id));
+                $cimtag = 'a';
+            }
+            $contentimages .= html_writer::tag($cimtag, '', $cimboxattr);
         }
         $content .= $contentimages.$contentfiles;
 
-        if ($type == 2) {
+        if (($type == 2) || ($type == 4)) {
             $content .= $this->coursecat_coursebox_enrolmenticons($course);
         }
 
@@ -288,6 +299,15 @@ class course_renderer extends \core_course_renderer {
             ));
             $coursename = $chelper->get_course_formatted_name($course);
             $content .= html_writer::tag('h3', $coursename, array('class' => $course->visible ? '' : 'dimmed'));
+        } else if ($type == 4) {
+            $content .= html_writer::start_tag('div', array(
+                'class' => 'coursebox-content'
+                )
+            );
+            $coursename = $chelper->get_course_formatted_name($course);
+            $content .= html_writer::start_tag('a', array('href' => new moodle_url('/course/view.php', array('id' => $course->id))));
+            $content .= html_writer::tag('h3', $coursename, array('class' => $course->visible ? '' : 'dimmed'));
+            $content .= html_writer::end_tag('a');
         }
         $content .= html_writer::start_tag('div', array('class' => 'summary'));
         // Display course summary.
@@ -331,7 +351,11 @@ class course_renderer extends \core_course_renderer {
         if ($type == 2) {
             $content .= html_writer::end_tag('a');
             // End coursebox-content.
+        } else if ($type == 4) {
+            $content .= html_writer::end_tag('div');
+            // End coursebox-content.
         }
+
         $content .= html_writer::tag('div', '', array('class' => 'boxfooter')); // Coursecat.
 
         return $content;

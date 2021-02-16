@@ -235,6 +235,10 @@
     overflow: hidden;
 }
 
+#page .covtiles.panel a.cimbox {
+    display: block;
+}
+
 #page .covtiles.panel .cimbox,
 #page .covtiles.panel:hover .cimbox,
 #page .covtiles.panel:hover {
