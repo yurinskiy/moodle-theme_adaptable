@@ -3247,7 +3247,7 @@ EOT;
                 if ($skipped) {
                     $text = get_string('morenavigationlinks');
                     $url = new moodle_url('/course/admin.php', array('courseid' => $this->page->course->id));
-                    $link = new action_link($url, $text, null, null, new pix_icon('t/edit', ''));
+                    $link = new \action_link($url, $text, null, null, new \pix_icon('t/edit', ''));
                     $menu->add_secondary_action($link);
                 }
             }
@@ -3262,7 +3262,7 @@ EOT;
                 if ($skipped) {
                     $text = get_string('morenavigationlinks');
                     $url = new moodle_url('/course/admin.php', array('courseid' => $this->page->course->id));
-                    $link = new action_link($url, $text, null, null, new pix_icon('t/edit', ''));
+                    $link = new \action_link($url, $text, null, null, new \pix_icon('t/edit', ''));
                     $menu->add_secondary_action($link);
                 }
             }
@@ -3438,21 +3438,21 @@ EOT;
                     continue;
                 }
                 if ($menuitem->action) {
-                    if ($menuitem->action instanceof action_link) {
+                    if ($menuitem->action instanceof \action_link) {
                         $link = $menuitem->action;
                         // Give preference to setting icon over action icon.
                         if (!empty($menuitem->icon)) {
                             $link->icon = $menuitem->icon;
                         }
                     } else {
-                        $link = new action_link($menuitem->action, $menuitem->text, null, null, $menuitem->icon);
+                        $link = new \action_link($menuitem->action, $menuitem->text, null, null, $menuitem->icon);
                     }
                 } else {
                     if ($onlytopleafnodes) {
                         $skipped = true;
                         continue;
                     }
-                    $link = new action_link(new moodle_url('#'), $menuitem->text, null, ['disabled' => true], $menuitem->icon);
+                    $link = new \action_link(new moodle_url('#'), $menuitem->text, null, ['disabled' => true], $menuitem->icon);
                 }
                 if ($indent) {
                     $link->add_class('ml-4');
@@ -3500,7 +3500,7 @@ EOT;
         /* Accessing $CFG directly as using \core_search::is_global_search_enabled would
            result in an extra included file for each site, even the ones where global search
            is disabled. */
-        if (empty($CFG->enableglobalsearch) || !has_capability('moodle/search:query', context_system::instance())) {
+        if (empty($CFG->enableglobalsearch) || !has_capability('moodle/search:query', \context_system::instance())) {
             return '';
         }
 
