@@ -3,6 +3,7 @@ Change Log in version 3.9.1.0 (2020073107)
 1. Fix 'Quiz due date has no background colour'.
 2. Possible fix for header title underlaps search box - https://moodle.org/mod/forum/discuss.php?d=417124#p1685280.
 3. Refactor renderers so that don't have to worry about calls to undefined methods when upgrading or in maintenance.
+4. Fix 'Coventry tiles do not show teachers' - ref: https://moodle.org/mod/forum/discuss.php?d=418430.
 
 Change Log in version 3.0.5 (2020073106)
 ========================================
