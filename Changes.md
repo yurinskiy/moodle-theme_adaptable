@@ -4,6 +4,8 @@ Change Log in version 3.8.1.0 (2020070104)
 2. Possible fix for header title underlaps search box - https://moodle.org/mod/forum/discuss.php?d=417124#p1685280.
 3. Refactor renderers so that don't have to worry about calls to undefined methods when upgrading or in maintenance.
 4. Fix 'Coventry tiles do not show teachers' - ref: https://moodle.org/mod/forum/discuss.php?d=418430.
+5. Added 'editcognocourseupdate' setting so that when 'off' the cog / gear icon will not show in courses for users 
+   without the 'moodle/course:update' capability.
 
 Change Log in version 2.4.4 (2020070103)
 ========================================

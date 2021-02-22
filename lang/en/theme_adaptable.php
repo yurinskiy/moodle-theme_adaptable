@@ -1847,6 +1847,8 @@ $string['editsettingsbuttondesc'] = 'Configure here what should appear in the Na
 $string['editsettingsbuttonshowcog'] = 'Show edit settings icon (cog / gear wheel icon) only.';
 $string['editsettingsbuttonshowbutton'] = 'Show edit button only. E.g. "Turn Editing on" button on course page.';
 $string['editsettingsbuttonshowcogandbutton'] = 'Show edit settings icon and cog.  Note that this takes up more space in navigation.';
+$string['editcognocourseupdate'] = 'Show the cog / gear wheel to no course update users';
+$string['editcognocourseupdatedesc'] = 'Show the cog / gear wheel to users who do not the the \'moodle/course:update\' capability, i.e. the \'Non-editing teacher\' role.';
 $string['displayeditingbuttontext'] = 'Editing button text';
 $string['displayeditingbuttontextdesc'] = 'Show or hide the text on the editing button.  Note: Only applies to the course editing button.';
 

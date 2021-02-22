@@ -3184,6 +3184,14 @@ EOT;
      */
     public function context_header_settings_menu() {
         $context = $this->page->context;
+
+        $coursecontext = context_course::instance($this->page->course->id);
+        if (!$this->get_setting('editcognocourseupdate')) {
+            if (!has_capability('moodle/course:update', $coursecontext)) {
+                return '';
+            }
+        }
+
         $menu = new \action_menu();
 
         $items = $this->page->navbar->get_items();
@@ -3368,6 +3376,13 @@ EOT;
      * @return string
      */
     public function region_main_settings_menu() {
+        if (!$this->get_setting('editcognocourseupdate')) {
+            $coursecontext = context_course::instance($this->page->course->id);
+            if (!has_capability('moodle/course:update', $coursecontext)) {
+                return '';
+            }
+        }
+
         $context = $this->page->context;
         $menu = new \action_menu();
 
