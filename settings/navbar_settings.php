@@ -150,6 +150,14 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, 'cog', $choices );
     $page->add($setting);
 
+    // Show the cog to non-editing teachers.
+    $name = 'theme_adaptable/editcognocourseupdate';
+    $title = get_string('editcognocourseupdate', 'theme_adaptable');
+    $description = get_string('editcognocourseupdatedesc', 'theme_adaptable');
+    $default = true;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+    $page->add($setting);
+
     $name = 'theme_adaptable/displayeditingbuttontext';
     $title = get_string('displayeditingbuttontext', 'theme_adaptable');
     $description = get_string('displayeditingbuttontextdesc', 'theme_adaptable');
