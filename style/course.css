@@ -971,14 +971,18 @@ li.activity div.actions-right {
 /* region-main-settings-menu is used on pages other than course pages, but included here to keep the settings together. */
 .context-header-settings-menu,
 .region-main-settings-menu {
-    height: 2em;
-    margin: 4px 0 0;
+    height: 42px;
+    margin-top: 0;
+}
+.context-header-settings-menu .dropdown-toggle>.icon,
+#region-main-settings-menu .dropdown-toggle>.icon {
+    vertical-align: sub;
 }
 
 #region-main-settings-menu > div {
-  position: static;
-  right: auto;
-  margin: 0;
+    position: static;
+    margin: 0;
+    right: auto;
 }
 
 .section .activity .contentwithoutlink > a,
