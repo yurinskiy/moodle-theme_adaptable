@@ -97,8 +97,8 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
     color: [[setting:menufontcolor]];
     font-size: [[setting:menufontsize]];
     font-weight: 400;
-    line-height: 14px;
-    padding: 2px [[setting:menufontpadding]] 2px [[setting:menufontpadding]];
+    line-height: 42px;
+    padding: 0 [[setting:menufontpadding]];
     text-decoration: none;
     text-shadow: none;
     text-transform: none;
