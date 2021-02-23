@@ -1,4 +1,4 @@
-Change Log in version 3.9.1.0 (2020073107)
+Change Log in version 3.10.1.0 (2021022300)
 ==========================================
 1. Fix 'Quiz due date has no background colour'.
 2. Possible fix for header title underlaps search box - https://moodle.org/mod/forum/discuss.php?d=417124#p1685280.
@@ -6,6 +6,7 @@ Change Log in version 3.9.1.0 (2020073107)
 4. Fix 'Coventry tiles do not show teachers' - ref: https://moodle.org/mod/forum/discuss.php?d=418430.
 5. Added 'editcognocourseupdate' setting so that when 'off' the cog / gear icon will not show in courses for users 
    without the 'moodle/course:update' capability.
+6. Initial fixes for M3.10 version.
 
 Change Log in version 3.0.5 (2020073106)
 ========================================

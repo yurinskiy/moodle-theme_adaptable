@@ -98,7 +98,7 @@
                     </ul>
                 </nav>
 
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto d-flex flex-wrap">
                     {{#showcog}}
                     {{#coursemenucontent}}
                     <li class="nav-item mr-2">
@@ -118,10 +118,8 @@
                     {{/showcog}}
 
                     {{#pageheadingbutton}}
-                    <li class="nav-item mx-0 my-auto">
-                        <div id="edittingbutton">
-                            {{{pageheadingbutton}}}
-                        </div>
+                    <li id="edittingbutton" class="nav-item mx-0 my-auto">
+                        {{{pageheadingbutton}}}
                     </li>
                     {{/pageheadingbutton}}
 
