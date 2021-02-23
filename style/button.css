@@ -76,17 +76,17 @@ a#adaptable-message-user-button,
 #availability_addrestriction_profile.btn.btn-secondary,
 #availability_addrestriction_list_.btn.btn-secondary,
 #availability_addrestriction_completion.btn.btn-secondary {
-    font-family: [[setting:fontname]];
     background-image: none;
     background-color: [[setting:buttoncolor]];
     background-size: 100% 200%;
-    text-shadow: none;
     box-shadow: 0 [[setting:buttondropshadow]] 0 0 rgba(0, 0, 0, 0.5) inset;
     border: 0;
     border-radius: [[setting:buttonradius]];
     color: [[setting:buttontextcolor]] !important;
     cursor: pointer;
+    font-family: [[setting:fontname]];
     padding: .4rem 1rem;
+    text-shadow: none;
     -ie-transition: background .2s ease-out;
     -o-transition: background .2s ease-out;
     transition: background .2s ease-out;
@@ -173,10 +173,6 @@ button.close {
     box-shadow: none !important;
 }
 
-#edittingbutton .btn {
-    color: [[setting:editfont]] !important;
-}
-
 #edittingbutton {
     padding-right: 10px;
     line-height: 22px;
@@ -249,14 +245,10 @@ td.submit input[disabled] {
     background-color: [[setting:editonbk]];
     border-radius: [[setting:buttonradius]];
     box-shadow: 0 [[setting:buttondropshadow]] 0 0 rgba(0, 0, 0, 0.5) inset;
-    color: [[setting:editfont]] !important;
+    color: [[setting:editfont]];
     height: 24px;
-    line-height: 14px;
+    line-height: 1;
     padding: [[setting:editverticalpadding]] [[setting:edithorizontalpadding]];
-}
-
-#adaptable-page-header-wrapper #main-navbar #edittingbutton a {
-    color: [[setting:editfont]] !important;
 }
 
 .editing #edittingbutton .btn,
