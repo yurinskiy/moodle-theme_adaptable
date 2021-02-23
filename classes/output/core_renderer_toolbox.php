@@ -29,14 +29,14 @@ namespace theme_adaptable\output;
 
 defined('MOODLE_INTERNAL') || die;
 
-use \block_contents;
-use \context_course;
-use \custom_menu;
-use \custom_menu_item;
-use \html_writer;
-use \moodle_url;
-use \navigation_node;
-use \stdClass;
+use block_contents;
+use context_course;
+use custom_menu;
+use custom_menu_item;
+use html_writer;
+use moodle_url;
+use navigation_node;
+use stdClass;
 
 define('ADAPTABLE_COURSE_STARRED', 'starred');
 define('ADAPTABLE_COURSE_IN_PROGRESS', 'inprogress');
@@ -910,7 +910,7 @@ EOT;
                 $message->smallmessage = html_to_text($message->smallmessage);
             }
             if (strlen($message->smallmessage) > 18) {
-                $messagecontent->text = core_text::substr($message->smallmessage, 0, 15) . '...';
+                $messagecontent->text = \core_text::substr($message->smallmessage, 0, 15) . '...';
             } else {
                 $messagecontent->text = $message->smallmessage;
             }
@@ -1423,7 +1423,7 @@ EOT;
                     // Check max width of course title and trim if appropriate.
                     if (($coursetitlemaxwidth > 0) && ($coursetitle <> '')) {
                         if (strlen($coursetitle) > $coursetitlemaxwidth) {
-                            $coursetitle = core_text::substr($coursetitle, 0, $coursetitlemaxwidth) . " ...";
+                            $coursetitle = \core_text::substr($coursetitle, 0, $coursetitlemaxwidth) . " ...";
                         }
                     }
 
@@ -2390,7 +2390,7 @@ EOT;
             // Check max width of course title and trim if appropriate.
             if (($coursetitlemaxwidth > 0) && ($coursetitle <> '')) {
                 if (strlen($coursetitle) > $coursetitlemaxwidth) {
-                    $coursetitle = core_text::substr($coursetitle, 0, $coursetitlemaxwidth) . " ...";
+                    $coursetitle = \core_text::substr($coursetitle, 0, $coursetitlemaxwidth) . " ...";
                 }
             }
 
