@@ -42,6 +42,7 @@ require_once($CFG->dirroot.'/mod/assign/locallib.php');
  * @package   theme_adaptable
  * @copyright Copyright (c) 2015 Moodlerooms Inc. (http://www.moodlerooms.com)
  * @copyright Copyright (c) 2017 Manoj Solanki (Coventry University)
+ * @copyright Copyright (c) 2020 G J Barnard
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class activity {
@@ -628,12 +629,23 @@ class activity {
         }
 
         if ($mod->modname === 'assign') {
-            /* Assignment submissions can either be against the user's id or a group they are in.
-               Make a simple list of the groups the user is in. */
-            $usergroups = array();
-            foreach ($USER->groupmember as $grouparray) {
-                foreach ($grouparray as $group) {
-                    $usergroups[] = $group;
+            // Assignment submissions can either be against the user's id or a group they are in.
+            if (empty($USER->groupmember)) {
+                if (!isguestuser($USER)) {
+                    // Adapted from get_complete_user_data() in moodlelib.php.
+                    $sql = "SELECT g.id, g.courseid
+                        FROM {groups} g, {groups_members} gm
+                        WHERE gm.groupid=g.id AND gm.userid=? AND g.courseid=?";
+
+                    $USER->groupmember = array();
+                    if ($groups = $DB->get_records_sql($sql, array($USER->id, $courseid))) {
+                        $USER->groupmember[$courseid] = array();
+                        foreach ($groups as $group) {
+                            $USER->groupmember[$group->courseid][$group->id] = $group->id;
+                        }
+                    }
+                } else {
+                    $USER->groupmember = array($courseid => array());
                 }
             }
 
@@ -644,7 +656,7 @@ class activity {
                         $theresults[$r->assignment] = $r;
                     }
                 } else if (!empty($r->groupid)) {
-                    if (in_array($r->groupid, $usergroups)) { // This record is in one of our groups.
+                    if (in_array($r->groupid, $USER->groupmember[$courseid])) { // This record is in one of our groups.
                         $theresults[$r->assignment] = $r;
                     }
                 }

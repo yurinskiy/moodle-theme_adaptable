@@ -6,6 +6,7 @@ Change Log in version 3.8.1.0 (2020070104)
 4. Fix 'Coventry tiles do not show teachers' - ref: https://moodle.org/mod/forum/discuss.php?d=418430.
 5. Added 'editcognocourseupdate' setting so that when 'off' the cog / gear icon will not show in courses for users 
    without the 'moodle/course:update' capability.
+6. Port of fix 'Undefined property: stdClass::$groupmember in moodle/course/format/topcoll/classes/activity.php on line 650' from Collapsed Topics.
 
 Change Log in version 2.4.4 (2020070103)
 ========================================
