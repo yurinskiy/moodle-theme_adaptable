@@ -2074,12 +2074,6 @@ a.dimmed_text:visited,
     vertical-align: middle;
 }
 
-.section li.activity {
-    padding-top: 0;
-    padding-bottom: 0;
-    clear: both;
-}
-
 /* Plugins installation status */
 .status-upgrade {
     background-color: #d9edf7;

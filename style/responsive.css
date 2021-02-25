@@ -149,8 +149,8 @@ order for prescidence.
         display: none;
     }
 
-    #edittingbutton a,
-    #edittingbutton .btn {
+    #editingbutton a,
+    #editingbutton .btn {
         margin-left: 10px !important;
     }
 
@@ -198,7 +198,7 @@ order for prescidence.
         padding-bottom: 4px;
     }
 
-    #edittingbutton {
+    #editingbutton {
         margin-left: 10px;
     }
 
@@ -383,8 +383,8 @@ order for prescidence.
         margin: 50px 0;
     }
 
-    #edittingbutton a,
-    #edittingbutton .btn {
+    #editingbutton a,
+    #editingbutton .btn {
         margin-left: -10px !important;
     }
 

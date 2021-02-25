@@ -272,8 +272,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('coursesectionheaderborderwidth', 'theme_adaptable');
     $description = get_string('coursesectionheaderborderwidthdesc', 'theme_adaptable');
     $radchoices = $from0to6px;
-    ;
-    $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
+    $setting = new admin_setting_configselect($name, $title, $description, '0', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -282,7 +281,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('coursesectionheaderborderradiustop', 'theme_adaptable');
     $description = get_string('coursesectionheaderborderradiustopdesc', 'theme_adaptable');
     $radchoices = $from0to50px;
-    $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
+    $setting = new admin_setting_configselect($name, $title, $description, '0', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -309,7 +308,6 @@ if ($ADMIN->fulltree) {
     $title = get_string('coursesectionborderwidth', 'theme_adaptable');
     $description = get_string('coursesectionborderwidthdesc', 'theme_adaptable');
     $radchoices = $from0to6px;
-    ;
     $setting = new admin_setting_configselect($name, $title, $description, '1px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);

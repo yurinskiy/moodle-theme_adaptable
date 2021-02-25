@@ -90,8 +90,12 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 }
 
 /* New main navbar styling */
-#adaptable-page-header-wrapper #main-navbar .navbar-nav > li > a,
-#adaptable-page-header-wrapper #main-navbar .navbar-nav > li > div.nav-link {
+#adaptable-page-header-wrapper #main-navbar .navbar-nav > li > a.nav-link,
+#adaptable-page-header-wrapper #main-navbar .navbar-nav > li > div.nav-link,
+#adaptable-page-header-wrapper #main-navbar .navbar-nav .context-header-settings-menu .action-menu-trigger a.dropdown-toggle,
+#adaptable-page-header-wrapper #main-navbar .navbar-nav .context-header-settings-menu .action-menu-trigger a.dropdown-toggle:hover,
+#adaptable-page-header-wrapper #main-navbar .navbar-nav .region-main-settings-menu .action-menu-trigger a.dropdown-toggle,
+#adaptable-page-header-wrapper #main-navbar .navbar-nav .region-main-settings-menu .action-menu-trigger a.dropdown-toggle:hover {
     background-color: none;
     border-right: 0;
     color: [[setting:menufontcolor]];
@@ -121,7 +125,7 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 
 #adaptable-page-header-wrapper #main-navbar ul.navbar-nav > li > a.nav-link:hover,
 #adaptable-page-header-wrapper #main-navbar li div.nav-link:hover,
-#adaptable-page-header-wrapper #main-navbar li #edittingbutton input[type="submit"]:hover {
+#adaptable-page-header-wrapper #main-navbar li #editingbutton input[type="submit"]:hover {
     background-color: [[setting:menuhovercolor]];
     text-decoration: none;
 }
