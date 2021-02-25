@@ -1031,8 +1031,8 @@ if ($ADMIN->fulltree) {
     );
 
     // Pixels.
-    $from0to6px = array();
-    for ($i = 0; $i < 7; $i++) {
+    $from0to6px = array('0' => '0');
+    for ($i = 1; $i < 7; $i++) {
         $from0to6px[$i . 'px'] = $i . 'px';
     }
 
