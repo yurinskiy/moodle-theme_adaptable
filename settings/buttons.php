@@ -146,19 +146,11 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
-    $name = 'theme_adaptable/editverticalpadding';
-    $title = get_string('editverticalpadding', 'theme_adaptable');
-    $description = get_string('editverticalpadding', 'theme_adaptable');
-    $radchoices = $from0to6px;
-    $setting = new admin_setting_configselect($name, $title, $description, '4px', $radchoices);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
     $name = 'theme_adaptable/edithorizontalpadding';
     $title = get_string('edithorizontalpadding', 'theme_adaptable');
     $description = get_string('edithorizontalpadding', 'theme_adaptable');
     $radchoices = $from0to6px;
-    $setting = new admin_setting_configselect($name, $title, $description, '6px', $radchoices);
+    $setting = new admin_setting_configselect($name, $title, $description, '4px', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 

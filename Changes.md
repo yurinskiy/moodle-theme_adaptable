@@ -7,6 +7,9 @@ Change Log in version 3.9.1.0 (2020073107)
 5. Added 'editcognocourseupdate' setting so that when 'off' the cog / gear icon will not show in courses for users 
    without the 'moodle/course:update' capability.
 6. Port of fix 'Undefined property: stdClass::$groupmember in moodle/course/format/topcoll/classes/activity.php on line 650' from Collapsed Topics.
+7. Removed 'editverticalpadding' setting as contradictory to the ability to centre the button text accurately.
+8. No such thing as '0px'.
+9. Corrected style spelling of 'edittingbutton' to 'editingbutton'.
 
 Change Log in version 3.0.5 (2020073106)
 ========================================

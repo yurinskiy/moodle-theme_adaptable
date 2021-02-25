@@ -912,7 +912,8 @@ div.fdescription.required {
 }
 
 li.activity div.actions-right {
-    float: right; padding: 5px;
+    float: right;
+    padding: 5px;
 }
 
 .ad-activity-wrapper {
@@ -960,6 +961,7 @@ li.activity div.actions-right {
 }
 
 .section li.activity {
+    clear: both;
     padding: 0;
     margin-bottom: 5px;
 }

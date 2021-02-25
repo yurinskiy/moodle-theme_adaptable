@@ -989,7 +989,6 @@ $string['buttontextcolordesccancel'] = 'The colour of text used on cancel button
 $string['editfont'] = 'Editing and Customize this page button font colour';
 $string['editfontdesc'] = 'Set the Editing and Customize this page button font colour';
 
-$string['editverticalpadding'] = 'Set vertical padding of editing buttons';
 $string['edithorizontalpadding'] = 'Set Horizontal padding of editing buttons';
 
 $string['buttondropshadow'] = 'Drop shadow decoration on bottom of button';
