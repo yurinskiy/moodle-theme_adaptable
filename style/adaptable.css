@@ -1123,7 +1123,7 @@ input[type="radio"], input[type="checkbox"] {
 
 #adaptable-page-header-wrapper .navbar #pre-login-form .btn-login {
     margin: 3px 1px 1px 10px;
-    padding: 0px 15px;
+    padding: 0 15px;
     height: 30px;
 }
 
@@ -2113,7 +2113,7 @@ a.dimmed_text:visited,
     background-color: #fff;
     border: 1px solid #999;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 0px;
+    border-radius: 0;
     -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
     box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
 }
@@ -2124,7 +2124,7 @@ a.dimmed_text:visited,
     color: #565656;
     padding: 10px;
     border-bottom: 1px solid #f5f5f5;
-    border-radius: 0px;
+    border-radius: 0;
     text-align: left;
     font-size: 16px;
     min-height: 20px;
@@ -2205,7 +2205,7 @@ img.smallicon {
 }
 
 .groupmanagementtable .row {
-    margin-left: 0px;
+    margin-left: 0;
 }
 
 /* Added to style the grid of letters etc on participants page */

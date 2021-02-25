@@ -182,7 +182,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('buttonloginpadding', 'theme_adaptable');
     $description = get_string('buttonloginpaddingdesc', 'theme_adaptable');
     $radchoices = $from0to8px;
-    $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
+    $setting = new admin_setting_configselect($name, $title, $description, '0', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -218,11 +218,11 @@ if ($ADMIN->fulltree) {
     $title = get_string('buttondropshadow', 'theme_adaptable');
     $description = get_string('buttondropshadowdesc', 'theme_adaptable');
     $shadowchoices = array (
-        '0px' => get_string('none', 'theme_adaptable'),
+        '0' => get_string('none', 'theme_adaptable'),
         '-1px' => get_string('slight', 'theme_adaptable'),
         '-2px' => get_string('standard', 'theme_adaptable')
     );
-    $setting = new admin_setting_configselect($name, $title, $description, '0px', $shadowchoices);
+    $setting = new admin_setting_configselect($name, $title, $description, '0', $shadowchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 

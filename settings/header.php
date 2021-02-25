@@ -174,7 +174,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_adaptable/searchboxpadding';
     $title = get_string('searchboxpadding', 'theme_adaptable');
     $description = get_string('searchboxpaddingdesc', 'theme_adaptable');
-    $setting = new admin_setting_configtext($name, $title, $description, '0px 0px 10px 0px');
+    $setting = new admin_setting_configtext($name, $title, $description, '0 0 10px 0');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
