@@ -89,7 +89,7 @@ if ($PAGE->theme->settings->showfooterblocks) {
 <?php
 // If admin settings page, show template for floating save / discard buttons.
 $templatecontext = [
-    'topmargin'   => ($PAGE->theme->settings->stickynavbar ? '35px' : '0px'),
+    'topmargin'   => ($PAGE->theme->settings->stickynavbar ? '35px' : '0'),
     'savetext'    => get_string('savebuttontext', 'theme_adaptable'),
     'discardtext' => get_string('discardbuttontext', 'theme_adaptable')
 ];
