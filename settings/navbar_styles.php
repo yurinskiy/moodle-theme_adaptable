@@ -87,7 +87,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_adaptable/navbardropdownborderradius';
     $title = get_string('navbardropdownborderradius', 'theme_adaptable');
     $description = get_string('navbardropdownborderradiusdesc', 'theme_adaptable');
-    $setting = new admin_setting_configselect($name, $title, $description, '0px', $from0to20px);
+    $setting = new admin_setting_configselect($name, $title, $description, '0', $from0to20px);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 

@@ -361,9 +361,9 @@
 
 .course-content .current {
     background-color: transparent;
-    border-left: 0px solid #ccc;
-    border-right: 0px dashed #ccc;
-    margin-top: 0px !important;
+    border-left: 0 solid #ccc;
+    border-right: 0 dashed #ccc;
+    margin-top: 0 !important;
 }
 
 .panel-body {
@@ -787,7 +787,7 @@ div.fdescription.required {
 /* Activity styling */
 .block_site_main_menu .mod-indent .activity,
 .block_site_main_menu .main-menu-content .activity {
-    padding: 5px 0px 5px 0px;
+    padding: 5px 0 5px 0;
 }
 
 .section-modchooser {
@@ -842,7 +842,7 @@ div.fdescription.required {
 /* Activity further information styling */
 .ad-activity-meta-container {
     padding: 5px 0 0 0;
-    margin: 0px 10px 0 30px;
+    margin: 0 10px 0 30px;
 }
 
 .ad-activity-due-date {

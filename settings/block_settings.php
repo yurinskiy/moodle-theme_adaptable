@@ -99,7 +99,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('blockheadertopradius', 'theme_adaptable');
     $description = get_string('blockheadertopradiusdesc', 'theme_adaptable');
     $radchoices = $from0to20px;
-    $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
+    $setting = new admin_setting_configselect($name, $title, $description, '0', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -107,7 +107,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('blockheaderbottomradius', 'theme_adaptable');
     $description = get_string('blockheaderbottomradiusdesc', 'theme_adaptable');
     $radchoices = $from0to20px;
-    $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
+    $setting = new admin_setting_configselect($name, $title, $description, '0', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -155,7 +155,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('blockmaintopradius', 'theme_adaptable');
     $description = get_string('blockmaintopradiusdesc', 'theme_adaptable');
     $radchoices = $from0to20px;
-    $setting = new admin_setting_configselect($name, $title, $description, '0px', $radchoices);
+    $setting = new admin_setting_configselect($name, $title, $description, '0', $radchoices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
