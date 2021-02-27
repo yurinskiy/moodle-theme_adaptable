@@ -880,12 +880,23 @@ class course_renderer extends \core_course_renderer {
 
             // Below, !== false means we get 0 out of x submissions.
             if (!$meta->submissionnotrequired && $meta->numparticipants !== false) {
-                $engagementmeta[] = get_string('xofy'.$meta->submitstrkey, 'theme_adaptable',
-                    (object) array(
-                        'completed' => $meta->numsubmissions,
-                        'participants' => $meta->numparticipants
-                    )
-                );
+                /* If numparticipants is 0 then the code cannot determine how many students could
+                   take the activity.  Such as when the activity is hidden and would not be able
+                   to tell if a student could when it was visible. */
+                if ($meta->numparticipants == 0) {
+                    $engagementmeta[] = get_string('x'.$meta->submitstrkey, 'theme_adaptable',
+                        array(
+                            'completed' => $meta->numsubmissions
+                        )
+                    );
+                } else {
+                    $engagementmeta[] = get_string('xofy'.$meta->submitstrkey, 'theme_adaptable',
+                        array(
+                            'completed' => $meta->numsubmissions,
+                            'participants' => $meta->numparticipants
+                        )
+                    );
+                }
             }
 
             if ($meta->numrequiregrading) {

@@ -1735,11 +1735,15 @@ $string['overdue'] = 'Overdue';
 $string['reopened'] = 'Reopened';
 $string['submitted'] = 'Submitted';
 
-$string['xofyanswered'] = '{$a->completed} of {$a->participants} Answered';
-$string['xofyattempted'] = '{$a->completed} of {$a->participants} Attempted';
-$string['xofycontributed'] = '{$a->completed} of {$a->participants} Contributed';
-$string['xofysubmitted'] = '{$a->completed} of {$a->participants} Submitted';
-$string['xungraded'] = '{$a} Ungraded';
+$string['xanswered'] = '{$a->completed} answered';
+$string['xattempted'] = '{$a->completed} attempted';
+$string['xcontributed'] = '{$a->completed} contributed';
+$string['xsubmitted'] = '{$a->completed} submitted';
+$string['xofyanswered'] = '{$a->completed} of {$a->participants} answered';
+$string['xofyattempted'] = '{$a->completed} of {$a->participants} attempted';
+$string['xofycontributed'] = '{$a->completed} of {$a->participants} contributed';
+$string['xofysubmitted'] = '{$a->completed} of {$a->participants} submitted';
+$string['xungraded'] = '{$a} ungraded';
 
 $string['checked'] = 'Checked';
 $string['warning'] = 'Warning';
