@@ -380,7 +380,7 @@ class activity {
                     AND sb.userid NOT IN ($graderids)
                     $extraselect
                     GROUP BY m.id";
-              $modtotalsbyid[$maintable][$courseid] = $DB->get_records_sql($sql, $params);
+            $modtotalsbyid[$maintable][$courseid] = $DB->get_records_sql($sql, $params);
         }
         $totalsbyid = $modtotalsbyid[$maintable][$courseid];
 

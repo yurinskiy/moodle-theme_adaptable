@@ -243,8 +243,11 @@ div.signuppanel h2 {
     border-bottom: none;
     clear: both;
     margin-bottom: 0;
-    min-height: [[setting:pageheaderheight]];
     padding-top: 0;
+}
+
+#page-header > div {
+    min-height: [[setting:pageheaderheight]];
 }
 
 #above-header .fa {
