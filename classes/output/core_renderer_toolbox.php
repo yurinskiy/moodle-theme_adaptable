@@ -868,6 +868,40 @@ EOT;
     }
 
     /**
+     * Returns HTML to display a "Turn editing on/off" button in a form.
+     *
+     * Note: Not called directly by theme but by core in its way of setting the 'page button'
+     *       attribute.  This version needed for 'Edit button keep position' in adaptable.js.
+     *
+     * @param moodle_url $url The URL + params to send through when clicking the button
+     * @return string HTML the button
+     * Written by G J Barnard
+     */
+    public function edit_button(moodle_url $url) {
+        $url->param('sesskey', sesskey());
+        if ($this->page->user_is_editing()) {
+            $url->param('edit', 'off');
+            $btn = 'btn-danger';
+            $title = get_string('turneditingoff');
+            $icon = 'fa-power-off';
+        } else {
+            $url->param('edit', 'on');
+            $btn = 'btn-success';
+            $title = get_string('turneditingon');
+            $icon = 'fa-edit';
+        }
+        $editingtext = get_config('theme_adaptable', 'displayeditingbuttontext');
+        $buttontitle = '';
+        if ($editingtext) {
+            $buttontitle = $title;
+        } else {
+            $icon .= ' only';
+        }
+        return html_writer::tag('a', html_writer::tag('i', '', array('class' => $icon.' fa fa-fw')).
+            $buttontitle, array('href' => $url, 'class' => 'btn '.$btn, 'title' => $title));
+    }
+
+    /**
      * Returns the upper user menu
      *
      * @param custom_menu $menu
