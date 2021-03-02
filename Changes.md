@@ -11,7 +11,8 @@ Change Log in version 3.10.1.0 (2021022300)
 8. No such thing as '0px'.
 9. Corrected style spelling of 'edittingbutton' to 'editingbutton'.
 10. Fix '0 attempted' - ref: https://moodle.org/mod/forum/discuss.php?d=418918.
-11. Initial fixes for M3.10 version.
+11. Remove FireFox CSS that breaks the activity / resource editing page.
+12. Initial fixes for M3.10 version.
 
 Change Log in version 3.0.5 (2020073106)
 ========================================
