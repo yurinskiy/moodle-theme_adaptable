@@ -132,20 +132,6 @@ fieldset {
     margin: 3px 5px 5px 0;
 }
 
-@-moz-document url-prefix() {
-    fieldset {
-        display: table-cell;
-    }
-
-    textarea {
-        box-sizing: border-box;
-    }
-
-    textarea[cols] {
-        width: 100%;
-    }
-}
-
 select {
     width: auto;
 }
