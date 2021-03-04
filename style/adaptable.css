@@ -185,7 +185,6 @@ div.signuppanel h2 {
     color: [[setting:headertextcolor2]];
     margin-bottom: 0;
     min-height: [[setting:pageheaderheight]];
-    padding-top: 0;
 }
 
 /* Override default boost max height for header2. */
@@ -232,7 +231,7 @@ div.signuppanel h2 {
     padding-top: 0;
 }
 
-#page-header > div {
+#page-header > div:first-of-type {
     min-height: [[setting:pageheaderheight]];
 }
 
