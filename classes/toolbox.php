@@ -252,12 +252,19 @@ class toolbox {
 
         // Pre-process files - using 'theme_adaptable_pluginfile' in lib.php as a reference.
         $filestoreport = '';
-        $preprocessfilesettings = array('logo', 'homebk', 'pagebackground', 'iphoneicon', 'iphoneretinaicon',
-            'ipadicon', 'ipadretinaicon', 'fontfilettfheading', 'fontfilettfbody', 'adaptablemarkettingimages');
+        $preprocessfilesettings = array('logo', 'favicon', 'homebk', 'pagebackground', 'frontpagerendererdefaultimage',
+            'headerbgimage', 'loginbgimage', 'adaptablemarkettingimages');
 
         // Slide show.
         for ($propslide = 1; $propslide <= $props['slidercount']; $propslide++) {
             $preprocessfilesettings[] = 'p'.$propslide;
+        }
+
+        // Category.
+        $customheaderids = explode(',', get_config('theme_adaptable', 'categoryhavecustomheader'));
+        foreach ($customheaderids as $customheaderid) {
+            $preprocessfilesettings[] = 'categoryheaderbgimage'.$customheaderid;
+            $preprocessfilesettings[] = 'categoryheaderlogo'.$customheaderid;
         }
 
         // Process the file properties.
