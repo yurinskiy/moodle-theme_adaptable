@@ -2,7 +2,8 @@ Change Log in version 3.10.1.1 (2021022301)
 ===========================================
 1. Small header fixes.
 2. Fix 'Issue with Adaptable Theme Header' - #227.
-3. Fix "No vertical gap with side post blocks when 'blockside' setting is 'Left side'" - ref: https://moodle.org/mod/forum/discuss.php?d=419201#p1689468.
+3. Fix "No vertical gap with side post blocks when 'blockside' setting is 'Left side'" - Ref: https://moodle.org/mod/forum/discuss.php?d=419201#p1689468.
+4. Fix 'File picker .nav-item's have header changes' - Ref: https://moodle.org/mod/forum/discuss.php?d=419201#p1689468.
 
 Change Log in version 3.10.1.0 (2021022300)
 ===========================================
