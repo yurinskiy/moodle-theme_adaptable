@@ -1,6 +1,7 @@
 Change Log in version 3.10.1.1 (2021022301)
 ===========================================
 1. Small header fixes.
+2. Fix 'Issue with Adaptable Theme Header' - #227.
 
 Change Log in version 3.10.1.0 (2021022300)
 ===========================================

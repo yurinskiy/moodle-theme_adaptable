@@ -91,21 +91,23 @@
         <div class="row align-items-end">
             {{#pageheaderoriginal}}
             <div class="col-lg-4 p-0">
-                {{#sitelogo}}
-                <div class="d-flex justify-content-start bd-highlight">
-                    {{{sitelogo}}}
+                <div class="d-none d-lg-flex justify-content-start bd-highlight">
+                    {{#sitelogo}}
+                    <div class="p-2">
+                        {{{sitelogo}}}
+                    </div>
+                    {{/sitelogo}}
+                    {{#sitetitle}}
+                    <div class="p-2">
+                        {{{sitetitle}}}
+                    </div>
+                    {{/sitetitle}}
                 </div>
-                {{/sitelogo}}
                 <div id="course-header">
                     {{{output.course_header}}}
                 </div>
             </div>
             <div class="col-lg-8">
-                {{#sitetitle}}
-                <div class="d-flex justify-content-end bd-highlight">
-                    {{{sitetitle}}}
-                </div>
-                {{/sitetitle}}
                 {{! Remove Search Box or Social icons when no navbar. }}
                 {{^nonavbar}}
                     {{{socialorsearch}}}
