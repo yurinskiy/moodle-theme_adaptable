@@ -585,24 +585,10 @@ function theme_adaptable_pluginfile($course, $cm, $context, $filearea, $args, $f
             return $theme->setting_file_serve('loginbgimage', $args, $forcedownload, $options);
         } else if (preg_match("/^p[1-9][0-9]?$/", $filearea)) {
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
-        } else if ((substr($filearea, 0, 9) === 'marketing') && (substr($filearea, 10, 5) === 'image')) {
-            return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if (preg_match("/^categoryheaderbgimage[1-9][0-9]*$/", $filearea)) { // Link: http://regexpal.com/ useful.
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else if (preg_match("/^categoryheaderlogo[1-9][0-9]*$/", $filearea)) { // Link: http://regexpal.com/ useful.
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
-        } else if ($filearea === 'iphoneicon') {
-            return $theme->setting_file_serve('iphoneicon', $args, $forcedownload, $options);
-        } else if ($filearea === 'iphoneretinaicon') {
-            return $theme->setting_file_serve('iphoneretinaicon', $args, $forcedownload, $options);
-        } else if ($filearea === 'ipadicon') {
-            return $theme->setting_file_serve('ipadicon', $args, $forcedownload, $options);
-        } else if ($filearea === 'ipadretinaicon') {
-            return $theme->setting_file_serve('ipadretinaicon', $args, $forcedownload, $options);
-        } else if ($filearea === 'fontfilettfheading') {
-            return $theme->setting_file_serve('fontfilettfheading', $args, $forcedownload, $options);
-        } else if ($filearea === 'fontfilettfbody') {
-            return $theme->setting_file_serve('fontfilettfbody', $args, $forcedownload, $options);
         } else if ($filearea === 'adaptablemarkettingimages') {
             return $theme->setting_file_serve('adaptablemarkettingimages', $args, $forcedownload, $options);
         } else {
