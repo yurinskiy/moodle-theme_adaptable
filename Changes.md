@@ -2,6 +2,7 @@ Change Log in version 3.8.1.1 (2020070105)
 ==========================================
 1. Small header fixes.
 2. Fix 'Issue with Adaptable Theme Header' - #227.
+3. Fix "No vertical gap with side post blocks when 'blockside' setting is 'Left side'" - ref: https://moodle.org/mod/forum/discuss.php?d=419201#p1689468.
 
 Change Log in version 3.8.1.0 (2020070104)
 ==========================================
