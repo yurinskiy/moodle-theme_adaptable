@@ -699,7 +699,7 @@ function theme_adaptable_grid($left, $hassidepost) {
         if ($left) {
             $regions['direction'] = ' flex-row-reverse';
         } else {
-            $regions['direction'] = '';
+            $regions['direction'] = ' flex-row';
         }
     } else {
         $regions = array('content' => 'col-12');
