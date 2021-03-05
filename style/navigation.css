@@ -27,7 +27,7 @@
     min-height: 40px;
 }
 
-.nav-item {
+header .nav-item {
     margin-bottom: auto;
     margin-top: auto;
     vertical-align: middle;
