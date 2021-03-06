@@ -8,6 +8,7 @@ Change Log in version 3.9.1.1 (2020073108)
 6. Add information page in the settings with readme and settings lang tidy.
 7. Add 'thirdpartylibs.xml' information.
 8. Tidy the language strings.
+9. Organise the settings tabs.
 
 Change Log in version 3.9.1.0 (2020073107)
 ==========================================
