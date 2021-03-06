@@ -99,20 +99,19 @@ li {
 }
 
 /* Text Selection */
-::selection  {
-    color: [[setting:selectiontext]];
+::selection {
     background-color: [[setting:selectionbackground]];
+    color: [[setting:selectiontext]];
 }
 
-::-moz-selection  {
-    color: [[setting:selectiontext]];
+::-moz-selection {
     background-color: [[setting:selectionbackground]];
+    color: [[setting:selectiontext]];
 }
 
 /* Forms */
 fieldset {
     min-width: 0;
-    /* width: 90%; */
 }
 
 .mform fieldset {
@@ -150,11 +149,11 @@ select {
 #frontpage-category-names h2,
 #frontpage-category-combo h2,
 .course_category_tree .category > .info > .categoryname {
-    font-family: [[setting:fontheadername]], sans-serif !important;
-    font-weight: [[setting:fontheaderweight]] !important;
-    color: [[setting:fontheadercolor]];
-    font-size: 24px;
     border-bottom: 0 solid #eee;
+    color: [[setting:fontheadercolor]];
+    font-family: [[setting:fontheadername]], sans-serif !important;
+    font-size: 24px;
+    font-weight: [[setting:fontheaderweight]] !important;
     margin-bottom: 20px;
 }
 
@@ -282,12 +281,12 @@ div.signuppanel h2 {
 }
 
 #coursesearchbox2 {
+    background: #fff url([[pix:theme|search2]]) no-repeat 98% 50%;
     border-radius: 0;
     box-shadow: none;
     min-width: 240px;
     padding: 8px 10px 5px;
     width: auto;
-    background: #fff url([[pix:theme|search2]]) no-repeat 98% 50%;
 }
 
 #coursesearch2 {
@@ -328,13 +327,13 @@ div.signuppanel h2 {
 }
 
 .headermenu {
+    color: #ccc;
     float: right;
+    font-size: 12px;
+    margin-left: 15px;
     padding-top: 0;
     padding-right: 0;
-    font-size: 12px;
-    color: #ccc;
     text-align: right;
-    margin-left: 15px;
 }
 
 .headermenu span.fa.fa-angle-down {
@@ -353,8 +352,8 @@ div.signuppanel h2 {
 
 .usermendrop span {
     font-size: [[setting:topmenufontsize]];
-    padding-right: 5px;
     height: 30px;
+    padding-right: 5px;
 }
 
 #page-header .userimg {
@@ -365,16 +364,16 @@ div.signuppanel h2 {
 }
 
 .usermenu2.nav {
-    margin-bottom: 0;
     color: [[setting:headertextcolor]];
     font-size: [[setting:topmenufontsize]];
+    margin-bottom: 0;
     padding-left: 10px;
 }
 
 .usermenu2.nav a.dropdown-toggle {
+    color: [[setting:headertextcolor]];
     font-family: [[setting:fontname]], sans-serif;
     font-size: [[setting:topmenufontsize]];
-    color: [[setting:headertextcolor]];
 }
 
 .usermenu2 .fa.fa-comments {
@@ -396,110 +395,111 @@ a.component-expand .badge {
 }
 
 .badge-primary {
+    background-color: #1177d1;
     color: #fff;
-    background-color: #1177d1; }
+}
 
 .badge-primary[href]:hover,
 .badge-primary[href]:focus {
-        color: #fff;
-        text-decoration: none;
-        background-color: #0d5ca2;
+    background-color: #0d5ca2;
+    color: #fff;
+    text-decoration: none;
 }
 
 .badge-secondary {
-    color: #212529;
     background-color: #ced4da;
+    color: #212529;
 }
 
 .badge-secondary[href]:hover,
 .badge-secondary[href]:focus {
-        color: #212529;
-        text-decoration: none;
-        background-color: #b1bbc4;
+    background-color: #b1bbc4;
+    color: #212529;
+    text-decoration: none;
 }
 
 .badge-success {
-    color: #fff;
     background-color: #5cb85c;
+    color: #fff;
 }
 
 .badge-success[href]:hover,
 .badge-success[href]:focus {
+    background-color: #449d44;
     color: #fff;
     text-decoration: none;
-    background-color: #449d44;
 }
 
 .badge-info {
-    color: #212529;
     background-color: #5bc0de;
+    color: #212529;
 }
 
 .badge-info[href]:hover,
 .badge-info[href]:focus {
+    background-color: #31b0d5;
     color: #212529;
     text-decoration: none;
-    background-color: #31b0d5;
 }
 
 .badge-warning {
-    color: #212529;
     background-color: #f0ad4e;
+    color: #212529;
 }
 
 .badge-warning[href]:hover,
 .badge-warning[href]:focus {
+    background-color: #ec971f;
     color: #212529;
     text-decoration: none;
-    background-color: #ec971f;
 }
 
 .badge-danger {
-    color: #fff;
     background-color: #d9534f;
+    color: #fff;
 }
 
 .badge-danger[href]:hover,
 .badge-danger[href]:focus {
+    background-color: #c9302c;
     color: #fff;
     text-decoration: none;
-    background-color: #c9302c;
 }
 
 .badge-light {
-    color: #212529;
     background-color: #f8f9fa;
+    color: #212529;
 }
 
 .badge-light[href]:hover,
 .badge-light[href]:focus {
+    background-color: #dae0e5;
     color: #212529;
     text-decoration: none;
-    background-color: #dae0e5;
 }
 
 .badge-dark {
-    color: #fff;
     background-color: #373a3c;
+    color: #fff;
 }
 
 .badge-dark[href]:hover,
 .badge-dark[href]:focus {
+    background-color: #1f2021;
     color: #fff;
     text-decoration: none;
-    background-color: #1f2021;
 }
 
 
 .slidewrap {
-    margin-top: [[setting:slidermargintop]];
     margin-bottom: [[setting:slidermarginbottom]];
+    margin-top: [[setting:slidermargintop]];
 }
 
 #frontblockregion {
+    background-color: [[setting:blockregionbackgroundcolor]];
     margin-bottom: 20px;
     margin-top: 20px;
-    background-color: [[setting:blockregionbackgroundcolor]];
 }
 
 #marketblocks {
@@ -508,22 +508,22 @@ a.component-expand .badge {
 }
 
 #marketblocks .internalmarket {
-    padding: 10px 15px 30px;
-    text-align: center;
     border: 1px solid [[setting:marketblockbordercolor]];
     border-top: 0;
+    padding: 10px 15px 30px;
+    text-align: center;
 }
 
 .marketimage {
+    border: 0;
     display: block;
     width: 100%;
-    border: 0;
 }
 
 #marketblocks h3 {
     font-size: 24px;
-    line-height: 48px;
     font-weight: normal;
+    line-height: 48px;
     margin: 10px auto;
 }
 
@@ -542,9 +542,9 @@ img.emoticon {
 
 #person img {
     border: 6px solid #fff;
-    max-width: 130px;
     display: block;
     margin: 0 auto;
+    max-width: 130px;
 }
 
 .persontitle {
@@ -556,27 +556,26 @@ span.fa-chevron-right.fa {
 }
 
 #theinfo .span3 {
-    text-align: right;
     padding-top: 35px;
+    text-align: right;
 }
 
 #theinfo2 .span3 {
-    text-align: right;
     padding-top: 35px;
+    text-align: right;
 }
 
 #frontpage-course-list h2 {
     display: [[setting:enableavailablecourses]];
 }
 
-
 #page-footer {
     background-color: [[setting:footerbkcolor]];
+    border-top: 0;
+    color: [[setting:footertextcolor]] !important;
+    font-size: 110%;
     margin: auto 0 0;
     text-align: left;
-    color: [[setting:footertextcolor]] !important;
-    border-top: 0;
-    font-size: 110%;
     word-wrap: break-word;
 }
 
@@ -614,11 +613,8 @@ span.fa-chevron-right.fa {
     padding: 0;
 }
 
+#page-footer .blockplace2,
 #page-footer .blockplace3 {
-    display: none;
-}
-
-#page-footer .blockplace2 {
     display: none;
 }
 
@@ -647,24 +643,24 @@ span.fa-chevron-right.fa {
 }
 
 #page-footer .logininfo {
-    margin: 0 auto 0;
     font-size: 90%;
+    margin: 0 auto 0;
     width: auto;
 }
 
 #page-footer .info {
+    border-top: 1px solid [[setting:dividingline2]];
+    color: [[setting:footertextcolor2]];
+    font-size: 90%;
     line-height: 21px;
     margin: 0 auto;
     margin-top: 34px;
     padding-top: 10px;
     padding-bottom: 10px;
-    border-top: 1px solid [[setting:dividingline2]];
-    font-size: 90%;
-    color: [[setting:footertextcolor2]];
 }
 
 #page-footer .info a {
-  color: [[setting:footerlinkcolor]] !important;
+    color: [[setting:footerlinkcolor]] !important;
 }
 
 .info nav ul li {
@@ -673,10 +669,14 @@ span.fa-chevron-right.fa {
     float: left;
 }
 
-.mrl, .mhl, .mal {
+.mrl,
+.mhl,
+.mal {
     margin-right: 20px !important;
 }
-.mtm, .mvm, .mam {
+.mtm,
+.mvm,
+.mam {
     margin-top: 10px !important;
 }
 
@@ -686,7 +686,8 @@ span.fa-chevron-right.fa {
     padding: 0.1em .8em;
 }
 
-#page-footer ol, #page-footer ul {
+#page-footer ol,
+#page-footer ul {
     list-style: none outside none;
     margin: 0 0;
 }
@@ -728,8 +729,8 @@ langmenu a:hover {
 }
 
 .breadcrumb li {
-    text-shadow: none;
     margin: 5px 0;
+    text-shadow: none;
 }
 
 .breadcrumb li span a {
@@ -770,8 +771,8 @@ langmenu a:hover {
 }
 
 .breadcrumb li span.divider {
-    display: none !important;
     border-bottom: 0 solid [[setting:maincolor]];
+    display: none !important;
 }
 
 .breadcrumb-button {
@@ -804,8 +805,8 @@ langmenu a:hover {
 /* Messages popup. */
 #newmessageoverlay #newmessagetext {
     background-color: [[setting:messagepopupbackground]];
-    color: [[setting:messagepopupcolor]];
     border-radius: 5px 5px 0 0;
+    color: [[setting:messagepopupcolor]];
 }
 
 #newmessageoverlay {
@@ -817,21 +818,21 @@ langmenu a:hover {
 }
 
 .pagelayout-redirect #content {
-    width: 60%;
     background-color: #fff;
-    margin: 20px auto;
-    padding: 1em;
     border: 1px solid #dadada;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+    margin: 20px auto;
+    padding: 1em;
+    width: 60%;
 }
 
 div.redirectmessage {
-    width: 60%;
-    margin: 10px auto 0 auto;
+    background: #fff url([[pix:theme|ajax-loader]]) no-repeat 50% 95%;
     border: none solid transparent;
     font-size: 13px;
-    background: #fff url([[pix:theme|ajax-loader]]) no-repeat 50% 95%;
+    margin: 10px auto 0 auto;
     padding: 20px 20px 40px;
+    width: 60%;
 }
 
 .singleselect {
@@ -854,30 +855,30 @@ div.redirectmessage {
 }
 
 .gradingform_guide .criterion .description {
-    width: 100%;
     padding: 10px 5px 10px 5px;
+    width: 100%;
 }
 
 #notice h4 {
     font-size: 24px;
-    margin-bottom: 20px;
     font-weight: bold !important;
+    margin-bottom: 20px;
 }
 
 #notice.box {
+    background-color: [[setting:alertbackgroundcolorinfo]];
     border: none;
+    border-color: [[setting:alertbordercolorinfo]];
+    color: [[setting:alertcolorinfo]];
+    font-size: 18px;
     padding: 15px;
     margin-top: 100px;
-    font-size: 18px;
-    color: [[setting:alertcolorinfo]];
-    background-color: [[setting:alertbackgroundcolorinfo]];
-    border-color: [[setting:alertbordercolorinfo]];
 }
 
 #notice,
 .redirectmessage2 {
-    text-align: center;
     border-color: #e5e5e5;
+    text-align: center;
     padding: 5px;
 }
 
@@ -898,16 +899,18 @@ div.redirectmessage {
     width: 100%;
 }
 
-#plugins-control-panel, #admindeviceselector {
-  display: block;
-  overflow: auto;
+#plugins-control-panel,
+#admindeviceselector {
+    display: block;
+    overflow: auto;
 }
 
 #admindeviceselector .cell img {
-  max-width: 420px;
+    max-width: 420px;
 }
 
-span2.mceEditor iframe, table.mceLayout2 iframe {
+span2.mceEditor iframe,
+table.mceLayout2 iframe {
     max-width: 500px !important;
 }
 
@@ -915,35 +918,22 @@ span2.mceEditor iframe, table.mceLayout2 iframe {
     min-width: 3.5em;
 }
 
-.form-item .form-label, .mform .fitem div.fitemtitle, .userprofile dl.list dt, .form-horizontal .control-label {
+.form-item .form-label,
+.mform .fitem div.fitemtitle,
+.userprofile dl.list dt,
+.form-horizontal .control-label {
     width: 250px;
 }
 
-.form-item .form-label, .mform .fitem div.fitemtitle {
-    float: left;
-}
-
-.form-item .form-setting,
-.form-item .form-description,
-.mform .fitem .felement,
-#page-mod-forum-search .c1,
-.mform .fdescription.required,
-.userprofile dl.list dd,
-.form-horizontal .controls {
-/*    margin-left: 260px; */
-}
-
-.form-item .form-label,
 .mform .fitem div.fitemtitle {
     text-align: right;
 }
 
-
 .form-label label {
-    font-family: [[setting:fontheadername]], sans-serif !important;
-    font-weight: [[setting:fontheaderweight]] !important;
     color: [[setting:fontheadercolor]];
+    font-family: [[setting:fontheadername]], sans-serif !important;
     font-size: 18px;
+    font-weight: [[setting:fontheaderweight]] !important;
     padding-bottom: 10px;
 }
 
@@ -953,22 +943,21 @@ span2.mceEditor iframe, table.mceLayout2 iframe {
 
 .settingsform .form-item {
     border-bottom: 1px solid [[setting:blockbordercolor]];
-    padding: 10px 0;
     margin: 10px 0;
+    padding: 10px 0;
 }
 
 
 input[type="radio"], input[type="checkbox"] {
-    /* margin-left: 15px; */
     margin-right: 1px;
 }
 
 #adminsettings h3 {
-    font-family: [[setting:fontheadername]], sans-serif !important;
-    font-weight: [[setting:fontheaderweight]] !important;
     color: [[setting:fontheadercolor]];
-    font-size: 24px;
     display: block;
+    font-family: [[setting:fontheadername]], sans-serif !important;
+    font-size: 24px;
+    font-weight: [[setting:fontheaderweight]] !important;
     line-height: 40px;
     margin-bottom: 20px;
     margin-top: 40px;
@@ -992,19 +981,18 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .langmenu a:hover {
-    color: [[setting:headertextcolor]];
     background-color: none;
+    color: [[setting:headertextcolor]];
 }
 
 /* alert messages */
-
 .alert .close {
     text-decoration: none;
 }
 
 .customalert {
-    font-weight: 600;
     font-size: 14px;
+    font-weight: 600;
     text-align: center;
 }
 
@@ -1022,15 +1010,15 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 #beta {
+    background-color: #cc0000;
     min-height: 50px;
-    background-color: #CC0000;
 }
 
 #beta h3 {
-    line-height: 48px;
     color: #fff !important;
     font-size: 24px;
     font-weight: bolder;
+    line-height: 48px;
     text-align: center;
 }
 
@@ -1054,8 +1042,8 @@ input[type="radio"], input[type="checkbox"] {
 
 .adaptable-alert-success {
     background-color: [[setting:alertbackgroundcolorsuccess]];
-    border-width: 1px;
     border-color: [[setting:alertbordercolorsuccess]];
+    border-width: 1px;
     color: [[setting:alertcolorsuccess]];
 }
 .adaptable-alert-success a,
@@ -1065,8 +1053,8 @@ input[type="radio"], input[type="checkbox"] {
 
 .adaptable-alert-warning {
     background-color: [[setting:alertbackgroundcolorwarning]];
-    border-width: 1px;
     border-color: [[setting:alertbordercolorwarning]];
+    border-width: 1px;
     color: [[setting:alertcolorwarning]];
 }
 .adaptable-alert-warning a,
@@ -1088,11 +1076,11 @@ input[type="radio"], input[type="checkbox"] {
 .notifytiny {
     background-color: #f2dede;
     border-color: #ebcccc;
-    color: #a94442;
     border-radius: 0.25rem;
-    margin: 1rem;
-    font-size: 14px;
+    color: #a94442;
     font-family: monospace;
+    font-size: 14px;
+    margin: 1rem;
     padding: 0.75rem 1.25rem;
 }
 
@@ -1100,8 +1088,8 @@ input[type="radio"], input[type="checkbox"] {
 .navbar input,
 .navbar .singlebutton div,
 .path-mod-data .navbar form {
-  margin: 0 0;
-  line-height: 18px;
+    line-height: 18px;
+    margin: 0 0;
 }
 
 #adaptable-page-header-wrapper .navbar #pre-login-form input {
@@ -1110,15 +1098,14 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 #adaptable-page-header-wrapper .navbar #pre-login-form .btn-login {
+    height: 30px;
     margin: 3px 1px 1px 10px;
     padding: 0 15px;
-    height: 30px;
 }
 
 .navbar input#navsearchbox {
     margin-right: 5px;
 }
-
 
 @media (min-width: 576px) {
     #adaptable-page-header-wrapper #header2 .search-input-wrapper.expandable > form {
@@ -1182,13 +1169,13 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .modal-backdrop {
-    position: fixed;
-    top: 0;
-    right: 0;
+    background-color: #000;
     bottom: 0;
     left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
     z-index: 1040;
-    background-color: #000;
 }
 
 .modal-backdrop.fade {
@@ -1197,15 +1184,14 @@ input[type="radio"], input[type="checkbox"] {
 
 .modal-backdrop,
 .modal-backdrop.fade.in {
-    opacity: .8;
     filter: alpha(opacity=80);
+    opacity: .8;
 }
 
 .modal {
-/*    border: 1px solid #999;*/
+    background-clip: padding-box;
     border-radius: 6px;
     box-shadow: 0 3px 7px rgba(0, 0, 0, .3);
-    background-clip: padding-box;
     outline: 0;
 }
 
@@ -1223,9 +1209,9 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .modal-header {
-    padding: 9px 15px;
-    border-bottom: none !important;
     background-color: transparent;
+    border-bottom: none !important;
+    padding: 9px 15px;
 }
 
 .modal-header h4 {
@@ -1248,8 +1234,8 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .modal-header h3 {
-    margin: 0;
     line-height: 30px;
+    margin: 0;
 }
 
 .modal-body {
@@ -1272,19 +1258,19 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .modal-footer {
-    padding: 14px 15px 15px;
-    margin-bottom: 0;
-    text-align: right;
     background-color: transparent !important;
-    border-top: none;
     border-radius: 0 0 6px 6px;
+    border-top: none;
     box-shadow: none !important;
+    margin-bottom: 0;
+    padding: 14px 15px 15px;
+    text-align: right;
 }
 
 .modal-footer:after,
 .modal-footer:before {
-    display: table;
     content: "";
+    display: table;
     line-height: 0;
 }
 
@@ -1316,9 +1302,8 @@ input[type="radio"], input[type="checkbox"] {
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd.yui3-widget-hd {
     background:none;
     background-color: [[setting:maincolor]];
-    border-bottom: 1px solid #bbbbbb;
-/*     border-radius: 10px 10px 0 0; */
-    color: #ffffff !important;
+    border-bottom: 1px solid #bbb;
+    color: #fff !important;
     font-family: [[setting:fontheadername]], sans-serif !important;
     font-size: 15px;
     font-weight: normal;
@@ -1326,16 +1311,16 @@ input[type="radio"], input[type="checkbox"] {
     margin: 0;
     padding: 0.7em;
     text-align: center;
-    text-shadow: 1px 1px 1px #666666 !important;
+    text-shadow: 1px 1px 1px #666 !important;
 }
 
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd h1,
 .moodle-dialogue h3 {
     font-family: [[setting:fontheadername]], sans-serif !important;
-    color: #ffffff !important;
-    text-shadow: 1px 1px 1px #666666 !important;
+    color: #fff !important;
     padding: 0;
     text-align: center;
+    text-shadow: 1px 1px 1px #666 !important;
 }
 
 #page-navbar .breadcrumb-button {
@@ -1351,24 +1336,24 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 #gridshadebox_content {
+    background-clip: padding-box;
     background-color: #fff;
     border: 1px solid #999;
     border-radius: 6px;
-    outline: 0;
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-    background-clip: padding-box;
     min-height: 200px;
+    outline: 0;
 }
 
 .sr-only {
-    position: absolute;
-    width: 1px;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
     height: 1px;
-    padding: 0;
     margin: -1px;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 
 button.close {
@@ -1380,14 +1365,14 @@ button.close {
 }
 
 .close {
+    color: #000;
+    filter: alpha(opacity=20);
     float: right;
     font-size: 21px;
     font-weight: 700;
     line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-    filter: alpha(opacity=20);
     opacity: .2;
+    text-shadow: 0 1px 0 #fff;
 }
 
 #region-main .generaltable {
@@ -1440,10 +1425,10 @@ button.search-box__button {
 
 .search-box__button:hover {
     background: [[setting:buttonhovercolor]];
-    opacity: 0.9;
     border: 1px solid rgba(#000, .05);
-    box-shadow: 1px 1px 2px rgba(#fff, .2);
+    box-shadow: 1px 1px 2px rgba(255, 255, 255, .2);
     color: [[setting:buttontextcolor]];
+    opacity: 0.9;
     text-decoration: none;
     text-shadow: -1px -1px 0 [[setting:buttonhovercolor]];
     transition: all 150ms linear;
@@ -1455,39 +1440,35 @@ button.search-box__button {
 }
 
 .bg-white {
-  background-color: #fff;
+    background-color: #fff;
 }
 
 .pas {
-  padding: 2px 4px;
-  float: right;
+    float: right;
+    padding: 2px 4px;
 }
 
 .no-border {
-  border: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
 }
 
 #search-1 {
-  padding: 5px 3px 5px 5px !important;
-  margin: 0 !important;
-  font-size: 14px;
-  color: #444;
+    color: #444;
+    font-size: 14px;
+    margin: 0 !important;
+    padding: 5px 3px 5px 5px !important;
 }
 
 #search-1:focus {
-  border: none !important;
-  box-shadow: none;
+    border: none !important;
+    box-shadow: none;
 }
 
 .icon-search {
     font-size: 1.4em;
 }
-
-/* #navwrap {
-    background-color: [[setting:menubkcolor]];
-} */
 
 div.questionbankwindow.block {
     overflow: auto;
@@ -1536,10 +1517,10 @@ div.questionbankwindow.block {
     }
     #block-region-side-post {
         background-color: #fff;
+        min-width: 90%;
         overflow: hidden;
         padding: 0;
         position: fixed;
-        min-width: 90%;
         right: -90%;
         transition: right 0.75s;
         z-index: 11;
@@ -1568,8 +1549,8 @@ div.questionbankwindow.block {
         background-color: [[setting:mobileslidebartabbkcolor]];
         border-bottom: 4px solid [[setting:mobileslidebartabbkcolor]];
         border-left: 4px solid [[setting:mobileslidebartabbkcolor]];
-        border-top: 4px solid [[setting:mobileslidebartabbkcolor]];
         border-radius: 45px 0 0 45px;
+        border-top: 4px solid [[setting:mobileslidebartabbkcolor]];
         color: [[setting:mobileslidebartabiconcolor]];
         display: block;
         padding: 6px;
@@ -1711,7 +1692,7 @@ a.cimbox {
 }
 
 .coursebox .content .courseimage img {
-  max-width: 300px;
+    max-width: 300px;
 }
 
 .paging .paging-morelink {
@@ -1736,42 +1717,39 @@ a.cimbox {
 }
 
 .gradingform_guide.editor .criterion .controls .delete input {
-    width: 20px;
-    height: 16px;
     background: transparent url([[pix:t/delete]]) no-repeat center top;
+    height: 16px;
     margin-top: 4px;
+    width: 20px;
 }
 
 .gradingform_guide.editor .moveup input {
-    width: 20px;
-    height: 15px;
     background: transparent url([[pix:t/up]]) no-repeat center top;
+    height: 15px;
     margin-top: 4px;
+    width: 20px;
 }
 
 .gradingform_guide.editor .movedown input {
-    width: 20px;
-    height: 15px;
     background: transparent url([[pix:t/down]]) no-repeat center top;
+    height: 15px;
     margin-top: 4px;
+    width: 20px;
 }
 
-.gradingform_guide.editor .movedown input:hover {
-    background: #00aeef url([[pix:t/up]]) no-repeat center top;
-}
-
+.gradingform_guide.editor .movedown input:hover,
 .gradingform_guide.editor .controls .delete input:hover {
     background: #00aeef url([[pix:t/up]]) no-repeat center top;
 }
 
 .gradingform_guide.editor .addcriterion input,
 .gradingform_guide.editor .addcomment input {
-    padding-left: 10px;
-    line-height: 20px;
-    height: 36px;
     background-position: 5px 12px;
     color: #fff;
     font-weight: normal;
+    height: 36px;
+    line-height: 20px;
+    padding-left: 10px;
 }
 
 .gradingform_guide.editor .addcomment,
@@ -1817,41 +1795,41 @@ a.cimbox {
 }
 
 .pace-inactive {
-  display: none;
+    display: none;
 }
 
 .pace .pace-progress {
-  background-color: [[setting:loadingcolor]];
-  position: fixed;
-  z-index: 2000;
-  top: 0;
-  right: 100%;
-  width: 100%;
-  height: 3px;
+    background-color: [[setting:loadingcolor]];
+    height: 3px;
+    position: fixed;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    z-index: 2000;
 }
 
 /* Hidden admin blocks */
 .hidden-blocks .block {
-  float: right;
-  width: 250px;
-  margin-left: 10px;
+    float: right;
+    margin-left: 10px;
+    width: 250px;
 }
 
 .hidden-blocks {
-  background-color: rgba(255, 154, 154, 0.5);
-  padding: 7px 7px;
+    background-color: rgba(255, 154, 154, 0.5);
+    padding: 7px 7px;
 }
 
 .hidden-blocks h3 {
     border-bottom: 1px solid #e8eaeb;
-    text-shadow: 1px 1px 2px #ffffff;
     color: #ff0000;
     margin-left: 10px;
+    text-shadow: 1px 1px 2px #fff;
 }
 
 .hidden-blocks .block-region .block {
-  width: 25%;
-  margin: 0 10px
+    margin: 0 10px;
+    width: 25%;
 }
 
 .hidden-blocks .block-region .block .header {
@@ -1880,17 +1858,17 @@ a.cimbox {
 }
 
 .path-mod-quiz #mod_quiz_navblock .qnbutton {
-    font-size: 14px;
-    line-height: 25px !important;
-    font-weight: bold;
     background: none;
     background-color: #eee;
-    height: 45px;
-    width: 35px;
-    border-radius: 4px;
     border: 0;
-    margin: 0 5px 5px 0;
+    border-radius: 4px;
     color: [[setting:linkcolor]] !important;
+    font-size: 14px;
+    font-weight: bold;
+    height: 45px;
+    line-height: 25px !important;
+    margin: 0 5px 5px 0;
+    width: 35px;
 }
 
 .path-mod-quiz #mod_quiz_navblock .qnbutton .thispageholder {
@@ -1908,11 +1886,11 @@ a.cimbox {
 }
 
 .path-mod-quiz #mod_quiz_navblock .qnbutton .trafficlight {
-    border: 0;
     background: #fff none center 4px / 10px no-repeat scroll;
+    border: 0;
+    border-radius: 0 0 4px 4px;
     height: 20px;
     margin-top: 25px;
-    border-radius: 0 0 4px 4px;
 }
 
 /* Not yet answered */
@@ -2015,8 +1993,8 @@ a.cimbox {
 
 /* New message drawer (moodle 3.6 and higher) */
 .message-drawer {
-    box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.08);
     border-left: 1px solid [[setting:headerbkcolor]];
+    box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 .rounded-circle {
@@ -2027,7 +2005,6 @@ a.cimbox {
 Change the filter selector for other colours */
 .message-drawer button img.icon {
     filter: grayscale(100%) brightness(5);
-
     max-width: none !important;
     margin-left: -5px;
     padding-right: 0;
@@ -2055,7 +2032,7 @@ a.dimmed_text:visited,
 .usersuspended a:visited,
 .dimmed_category,
 .dimmed_category a {
-    color: #999999 !important;
+    color: #999 !important;
 }
 
 .activity img.iconlarge {
@@ -2076,21 +2053,21 @@ a.dimmed_text:visited,
 
 /* Activity chooser styling. */
 .moodle-dialogue-base .moodle-dialogue.chooserdialogue {
-    min-width: 90%;
     height: 100%;
+    min-width: 90%;
 }
 
 .choosercontainer #chooseform .option label {
+    border-bottom: 1px solid #fff;
     display: block;
-    padding: 0.4em 0 0.7em 0;
-    border-bottom: 1px solid #FFFFFF;
     font-weight: normal;
+    padding: 0.4em 0 0.7em 0;
 }
 
 .jschooser .choosercontainer #chooseform .alloptions .option .typename {
     display: inline-block;
-    width: 65%;
     font-size: 1.2em;
+    width: 65%;
 }
 
 /* Only set these options if we're showing the js container */
@@ -2099,33 +2076,32 @@ a.dimmed_text:visited,
 }
 
 .chooserdialogue .moodle-dialogue-wrap {
-    margin-top: 15px;
-    margin-left: -3px;
     background-color: #fff;
-    border: 1px solid #999;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 0;
     -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
     box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    margin-left: -3px;
+    margin-top: 15px;
 }
 
 .moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd,
 .moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd.yui3-widget-hd {
     background-image: none;
-    color: #565656;
-    padding: 10px;
     border-bottom: 1px solid #f5f5f5;
     border-radius: 0;
-    text-align: left;
+    color: #565656;
     font-size: 16px;
     min-height: 20px;
+    padding: 10px;
+    text-align: left;
 }
 
 .moodle-dialogue-base .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {
+    background-image: none;
     margin-top: 5px;
     margin-right: 5px;
     padding: 0;
-    background-image: none;
 }
 
 .choosercontainer #chooseform .selected .typesummary,
@@ -2135,15 +2111,15 @@ a.dimmed_text:visited,
 /* End Activity chooser styling */
 
 #savediscardsection {
-    width: 100%;
+    background-color: #eee;
+    filter: alpha(opacity=80);
     min-width: 100%;
     min-height: 30px;
-    padding: 10px;
-    top: 10px;
-    background-color: #EEEEEE;
     opacity: 0.8;
-    filter: alpha(opacity=80);
+    padding: 10px;
     position: fixed; /* For IE8 and earlier */
+    top: 10px;
+    width: 100%;
 }
 
 img.smallicon {
@@ -2164,25 +2140,25 @@ img.smallicon {
 
 #profilepic img,
 .userpicture {
-    display: inline;
-    margin: 0 4px 0 0;
     background-color: #fff;
     border-radius: 50%;
+    display: inline;
+    margin: 0 4px 0 0;
 }
 
 #adaptable-page-header-wrapper #above-header .userpicture {
-     width: 25px ;
-     height: 25px;
+    height: 25px;
+    width: 25px ;
 }
 
 #adaptable-page-header-wrapper #header2 .userpicture {
-    width: 35px ;
     height: 35px;
+    width: 35px ;
 }
 
 .comment-message .picture {
-  width: 30px;
-  float: left;
+    float: left;
+    width: 30px;
 }
 
 .tag_list .inline-list a.label-info[href] {
@@ -2190,9 +2166,9 @@ img.smallicon {
 }
 
 .searchbox abbr[title]{
-    border-bottom:none;
-    cursor:pointer;
-    text-decoration:none;
+    border-bottom: none;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .groupmanagementtable .row {
@@ -2201,9 +2177,9 @@ img.smallicon {
 
 /* Added to style the grid of letters etc on participants page */
 .userlist .initialbar .letter {
+    border: 0;
     height: 1.8em;
     min-width: 1.8em;
-    border: 0;
 }
 
 .userlist .initialbar .letter.active {
@@ -2215,7 +2191,7 @@ img.smallicon {
 }
 
 .userlist .initialbar .letter:hover {
-    color: #FFFFFF !important;
+    color: #fff !important;
 }
 
 /* Filepicker area. */
@@ -2229,11 +2205,11 @@ img.smallicon {
 }
 
 .row-fluid .col-9 {
+    flex: none;
+    max-width: none;
+    min-height: inherit;
     width: 74.46808511%;
     *width: 74.41489362%;
-    max-width: none;
-    flex: none;
-    min-height: inherit;
 }
 
 .row-fluid .col-3 {
@@ -2256,9 +2232,9 @@ img.smallicon {
 }
 
 .form-inline input.form-control[type=text] {
-    min-width: 0;
     border-radius: 2px;
     height: 32px;
+    min-width: 0;
 }
 
 #page-login-index .card-header {
@@ -2266,7 +2242,6 @@ img.smallicon {
 }
 
 /* Block action classes lifted from previously used bootstrapbase parent theme. */
-
 .block.hidden .header .block_action .block-hider-hide {
     display: none;
 }
@@ -2275,8 +2250,8 @@ img.smallicon {
 }
 
 .block .header .block_action {
-    padding: 3px 2px;
     float: right;
+    padding: 3px 2px;
 }
 
 .block .header .block_action > * {
@@ -2318,42 +2293,38 @@ img.smallicon {
 
 /* Dialog box styling. */
 .moodle-dialogue-base .moodle-dialogue-wrap .container,
-.moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .container
-  {
+.moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .container {
     width: 100%;
 }
 
 .moodle-dialogue-base button.closebutton,
 .moodle-dialogue-base .chooserdialogue button.closebutton,
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .closebutton,
-.moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons button.yui3-button.closebutton
- {
-    opacity: 1;
-    line-height: 1.2em;
+.moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons button.yui3-button.closebutton {
+    background-color: #fff;
     border-radius: 3px;
-    background-color: #FFF;
+    line-height: 1.2em;
+    margin: 0;
+    opacity: 1;
+    padding: 0;
     width: 26px;
-	padding:0;
-	margin:0;
-
 }
 
 .moodle-dialogue-base .closebutton::after,
 .moodle-dialogue-base .chooserdialogue .closebutton::after
-.moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons button.yui3-button.closebutton:after
- {
-    display: inline-block;
-    vertical-align: top;
-    opacity: 1;
+.moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons button.yui3-button.closebutton:after {
     background: none;
     color: #777;
+    display: inline-block;
+    opacity: 1;
+    vertical-align: top;
 }
 
 .form-group textarea.form-control {
     margin: 0 0 0.7rem 0;
 }
 .moodle-dialogue-base .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {
-    padding:0.6em;
+    padding: 0.6em;
 }
  
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd .yui3-widget-buttons {
@@ -2362,10 +2333,6 @@ img.smallicon {
 
 .settingsform fieldset {
     margin-bottom: 10px;
-}
-
-.settingsform .form-item .form-label {
-    padding-left: 0;
 }
 
 .modal.modal-in-page {
@@ -2389,10 +2356,7 @@ img.smallicon {
     width: 20%;
 }
 
-.path-backup .detail-pair-value .ics-search input[type="submit"] {
-    margin: 10px 0 0;
-}
-
+.path-backup .detail-pair-value .ics-search input[type="submit"],
 .path-backup .detail-pair .detail-pair-value input[type="submit"] {
     margin: 10px 0 0;
 }

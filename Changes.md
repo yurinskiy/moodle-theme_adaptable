@@ -9,6 +9,7 @@ Change Log in version 3.10.1.1 (2021022301)
 7. Add 'thirdpartylibs.xml' information.
 8. Tidy the language strings.
 9. Organise the settings tabs.
+10. Tidy and optimise adaptable.css.
 
 Change Log in version 3.10.1.0 (2021022300)
 ===========================================
