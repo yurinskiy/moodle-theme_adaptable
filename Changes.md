@@ -7,6 +7,7 @@ Change Log in version 3.9.1.1 (2020073108)
 5. Fix 'put_properties in Toolbox does not process all of the file settings' - #221.
 6. Add information page in the settings with readme and settings lang tidy.
 7. Add 'thirdpartylibs.xml' information.
+8. Tidy the language strings.
 
 Change Log in version 3.9.1.0 (2020073107)
 ==========================================
