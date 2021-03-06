@@ -111,18 +111,18 @@ $string['region-course-bottom-c'] = 'Course page bottom region 7';
 $string['region-course-bottom-d'] = 'Course page bottom region 8';
 
 // Settings page headings ******************************************.
-$string['settingsmaincolors'] = 'Main Colours';
-$string['settingsheadercolors'] = 'Header Colours';
-$string['settingsmobilecolors'] = 'Mobile Colours';
-$string['settingsinfoboxcolors'] = 'Info Box Colours';
-$string['settingssecondinfoboxcolors'] = 'Second Info Box Colours';
-$string['settingsmarketingcolors'] = 'Marketing Block Colours';
-$string['settingsoverlaycolors'] = 'Overlay Tiles Colours';
-$string['settingsnavbarcolors'] = 'Navigation Bar (navbar) Colours';
-$string['settingsalertbox'] = 'Alert Box';
-$string['settingsbreadcrumbcolors'] = 'Breadcrumb Colours';
-$string['settingsmessagescolors'] = 'Messages Pop-Up Colours';
-$string['settingsfootercolors'] = 'Footer Colours';
+$string['settingsmaincolors'] = 'Main colours';
+$string['settingsheadercolors'] = 'Header colours';
+$string['settingsmobilecolors'] = 'Mobile colours';
+$string['settingsinfoboxcolors'] = 'Info box colours';
+$string['settingssecondinfoboxcolors'] = 'Second info box colours';
+$string['settingsmarketingcolors'] = 'Marketing block colours';
+$string['settingsoverlaycolors'] = 'Overlay tiles colours';
+$string['settingsnavbarcolors'] = 'Navigation bar (navbar) colours';
+$string['settingsalertbox'] = 'Alert box';
+$string['settingsbreadcrumbcolors'] = 'Breadcrumb colours';
+$string['settingsmessagescolors'] = 'Messages pop-up colours';
+$string['settingsfootercolors'] = 'Footer colours';
 $string['settingsfonts'] = 'Fonts';
 $string['settingsanalytics'] = 'Analytics';
 $string['settingsblocksgeneral'] = 'General';
@@ -133,23 +133,33 @@ $string['settingstopicsweeks'] = 'Topics / Weeks';
 $string['settingsblockicons'] = 'Icons';
 
 // Admin Menu Strings.
-$string['blocksettings'] = 'Block Settings';
-$string['frontpagealertsettings'] = 'Alert Box';
-$string['frontpageblockregionsettings'] = 'Block Region Builder';
-$string['dashboardblockregionsettings'] = 'Dashboard Block Region Builder';
-$string['coursepageblockregionsettings'] = 'Course page Block Region Builder';
-$string['frontpageblocksettings'] = 'Marketing Blocks';
-$string['frontpagetickersettings'] = 'Frontpage Ticker';
-$string['frontpageslidersettings'] = 'Frontpage Slider';
-$string['frontpagecoursesettings'] = 'Frontpage Courses List';
+$string['blocksettings'] = 'Block settings';
+$string['frontpagealertsettings'] = 'Alert box';
+$string['frontpageblockregionsettings'] = 'Block region builder';
+$string['dashboardblockregionsettings'] = 'Dashboard block region builder';
+$string['coursepageblockregionsettings'] = 'Course page block region builder';
+$string['frontpageblocksettings'] = 'Marketing blocks';
+$string['frontpagetickersettings'] = 'Frontpage ticker';
+$string['frontpageslidersettings'] = 'Frontpage slider';
+$string['frontpagecoursesettings'] = 'Frontpage courses list';
 $string['frontpagesettingsheading'] = 'Frontpage rendering';
 $string['frontpagedesc'] = 'Configure the way that the course boxes are rendered on the frontpage.';
-$string['frontpagerenderer'] = 'Frontpage Course Boxes';
+$string['frontpagerenderer'] = 'Frontpage course boxes';
 $string['frontpagerendererdesc'] = 'Control the way that the coure boxes on the front page are rendered.';
 $string['frontpagerendereroption1'] = 'Tiles';
 $string['frontpagerendereroption2'] = 'Tiles w/ overlay';
 $string['frontpagerendereroption3'] = 'Moodle default';
-$string['frontpagerendereroption4'] = 'Coventry Tiles';
+$string['frontpagerendereroption4'] = 'Coventry tiles';
+
+// Information
+$string['settingsinformation'] = 'Information';
+$string['informationsettings'] = 'Information settings';
+$string['informationsettingsdesc'] = 'Information about the Adaptable theme.';
+
+$string['themechanges'] = 'Changes';
+$string['themechangesdesc'] = 'Theme changes....';
+$string['themereadme'] = 'Readme';
+$string['themereadmedesc'] = 'Theme readme....';
 
 
 // Ticker **********************************************************.

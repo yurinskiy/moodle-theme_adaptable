@@ -40,6 +40,7 @@ $asettings = new theme_adaptable_admin_settingspage_tabs('themesettingadaptable'
 );
 if ($ADMIN->fulltree) {
     include(dirname(__FILE__) . '/settings/array_definitions.php');
+    include(dirname(__FILE__) . '/settings/information.php');
     include(dirname(__FILE__) . '/settings/colors.php');
     include(dirname(__FILE__) . '/settings/fonts.php');
     include(dirname(__FILE__) . '/settings/buttons.php');
