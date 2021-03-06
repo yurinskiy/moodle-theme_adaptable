@@ -275,22 +275,16 @@ $string['sliderstyle2'] = 'Slider style 2';
 
 // Block Regions ***************************************************.
 $string['blocklayoutbuilder'] = 'Frontpage block regions';
-$string['blocklayoutbuilderdesc'] = 'Below you can build your own layout for block regions on the front page.
-To add content these regions you will need to <strong> turn editing on on the front page of Moodle</strong>.
-Then you can begin to drag/drop blocks into the regions you create!';
+$string['blocklayoutbuilderdesc'] = 'Below you can build your own layout for block regions on the front page.<br/>To add content these regions you will need to <strong> turn editing on on the front page of Moodle</strong>.<br/>Then you can begin to drag/drop blocks into the regions you create!';
 
 $string['dashblocklayoutbuilder'] = 'Dashboard block regions';
-$string['dashblocklayoutbuilderdesc'] = 'Below you can build your own layout for block regions on the Dashboard page.
-To add content these regions you will need to <strong> turn editing on, on the dashboard page of Moodle</strong>.
-Then you can begin to drag/drop blocks into the regions you create!';
+$string['dashblocklayoutbuilderdesc'] = 'Below you can build your own layout for block regions on the dashboard page.<br/>To add content these regions you will need to <strong> turn editing on, on the dashboard page of Moodle</strong>.<br/>Then you can begin to drag/drop blocks into the regions you create!';
 
 $string['coursepagesidebarinfooterenabledsection'] = 'Common settings';
 $string['coursepagesidebarinfooterenabledsectiondesc'] = 'Common settings for most of the course formats.';
 
 $string['coursepageblocklayoutbuilder'] = 'Course page block regions';
-$string['coursepageblocklayoutbuilderdesc'] = 'Below you can build your own layout for block regions on the course page.
-To add content these regions you will need to <strong> turn editing on, on the course page of Moodle</strong>.
-Then you can begin to drag/drop blocks into the regions you create!';
+$string['coursepageblocklayoutbuilderdesc'] = 'Below you can build your own layout for block regions on the course page.<br/>To add content these regions you will need to <strong> turn editing on, on the course page of Moodle</strong>.<br/>Then you can begin to drag/drop blocks into the regions you create!';
 
 $string['blocklayoutlayoutcheck'] = 'Check your layout';
 $string['blocklayoutlayoutcheckdesc'] = 'Use the tool below to check the number of blocks you have used and see a representation of your new layout.';
@@ -310,12 +304,10 @@ $string['coursepageblocklayoutlayoutbottomrow'] = 'Course page block bottom regi
 $string['coursepageblocklayoutlayoutbottomrowdesc'] = 'Add / set layout for block region row on the course page.';
 
 $string['frontpageblocksenabled'] = 'Enable custom block region on front page';
-$string['frontpageblocksenableddesc'] = 'You can enable / disable custom block regions on the front page.  
-You can then drag and drop blocks into the regions you created.';
+$string['frontpageblocksenableddesc'] = 'You can enable / disable custom block regions on the front page.  You can then drag and drop blocks into the regions you created.';
 
 $string['dashblocksenabled'] = 'Enable custom block region on the \'Dashboard\' page';
-$string['dashblocksenableddesc'] = 'You can enable / disable custom block regions on the \'Dashboard\' page.  
-You can then drag and drop blocks into the regions you created.';
+$string['dashblocksenableddesc'] = 'You can enable / disable custom block regions on the \'Dashboard\' page.  You can then drag and drop blocks into the regions you created.';
 
 $string['dashblocksposition'] = 'Custom block region position';
 $string['dashblockspositiondesc'] = 'When custom block regions are enabled for the dashboard page, choose the position.';
@@ -323,11 +315,10 @@ $string['dashblocksabovecontent'] = 'Show above main content';
 $string['dashblocksbelowcontent'] = 'Show below main content';
 
 $string['coursepageblocksenabled'] = 'Enable custom block regions on the course page';
-$string['coursepageblocksenableddesc'] = 'You can enable / disable custom block regions (top and bottom) on the Course page.  
-You can then drag and drop blocks into the regions you created.';
+$string['coursepageblocksenableddesc'] = 'You can enable / disable custom block regions (top and bottom) on the Course page.  You can then drag and drop blocks into the regions you created.';
 
 $string['coursepagenewssliderblockregionheading'] = 'Custom news slider block region';
-$string['coursepagenewssliderblockregionheadingdesc'] = 'A custom block region designed for use with the news slider that is part of Adaptable UI. This region appears above course activities on a Course page.  To add news slider block, first install the <strong><a href="https://moodle.org/plugins/block_news_slider">Adaptable UI news slider</a></strong> and configure it to appear in the region "course page slider region" on all course pages.';
+$string['coursepagenewssliderblockregionheadingdesc'] = 'A custom block region designed for use with the news slider that is part of Adaptable UI.  This region appears above course activities on a Course page.  To add news slider block, first install the <strong><a href="https://moodle.org/plugins/block_news_slider">Adaptable UI news slider</a></strong> and configure it to appear in the region "course page slider region" on all course pages.';
 
 $string['coursepageblocksliderenabled'] = 'Enable custom slider block region on Course page';
 $string['coursepageblocksliderenableddesc'] = 'Enable this region on all course pages.';
@@ -351,8 +342,7 @@ $string['sidebaricon'] = 'Show / hide the sidebar';
 // Marketing Blocks & Info Box *************************************.
 $string['marketingsettings'] = 'Marketing blocks';
 $string['marketingsettingsheading'] = 'Customize the marketing blocks that appear on the front page. See the layout <a href="./../theme/adaptable/pix/layout.png" target="_blank"> here</a>';
-$string['marketingdesc'] = 'There are two full width info boxes with differing styles you can use.
-In addition to this there is a layout builder allowing you to decide how many blocks you need and define your own layout, please see the <a href="./../theme/adaptable/README.txt" target="_blank">README</a> file that comes with this theme.';
+$string['marketingdesc'] = 'There are two full width info boxes with differing styles you can use.<br/>In addition to this there is a layout builder allowing you to decide how many blocks you need and define your own layout, please see the <a href="./../theme/adaptable/README.txt" target="_blank">README</a> file that comes with this theme.';
 
 $string['marketingbuilderheading'] = 'Marketing block layout builder';
 $string['marketingbuilderdesc'] = 'Use the tool below to setup your marketing blocks. Once defined the block settings will appear further down the page.';
@@ -365,8 +355,7 @@ $string['marketdesc'] = 'Add html for marketing block (see the <a href="./../the
 
 $string['layoutaddcontent'] = 'Happy with your layout?  Now add content to your blocks:';
 $string['layoutaddcontentdesc1'] = 'You have configured ';
-$string['layoutaddcontentdesc2'] = ' marketing blocks. If you are happy with this layout add content to the blocks below.
-If you are not happy use the layout builder above to make changes.<br />';
+$string['layoutaddcontentdesc2'] = ' marketing blocks. If you are happy with this layout add content to the blocks below.<br/>If you are not happy use the layout builder above to make changes.';
 
 $string['infobox'] = 'Frontpage info box';
 $string['infoboxdesc'] = 'Frontpage info block HTML (see the <a href="./../theme/adaptable/README.txt" target="_blank">README</a> file for additional info and hints).<br><br><strong>Note: </strong><i>This element is only used for compatibility with BCU and will be removed in coming versions.</i>';
@@ -1035,8 +1024,7 @@ $string['passwordplaceholder'] = 'Password';
 // Header ***********************************************************.
 $string['headersettings'] = 'Header';
 $string['headersettingsheading'] = 'Customize the header of this theme.  See the layout \'<a href="./../theme/adaptable/pix/layout.png" target="_blank">here</a>\'.';
-$string['headerdesc'] = 'Upload your favicon, logo, set login form in header, adjust titles in header.<br />
-You can set font size and styles for titles in the \'<a href="./../admin/settings.php?section=theme_adaptable_font">fonts</a>\' settings page.';
+$string['headerdesc'] = 'Upload your favicon, logo, set login form in header, adjust titles in header.<br />You can set font size and styles for titles in the \'<a href="./../admin/settings.php?section=theme_adaptable_font">fonts</a>\' settings page.';
 
 $string['headerbgimage'] = 'Background image';
 $string['headerbgimagedesc'] = 'Set a background image in the header. Minimum size is 1600x180px (1900x180px recommended). The image cover the full header. You can add a colour in \'Top header background colour\' or use <i>transparent</i> to show the background image. In that case, modify the text colour to get displayed correctly over the image.';
@@ -1067,9 +1055,7 @@ $string['coursetitlefullname'] = 'Course full name';
 $string['coursetitleshortname'] = 'Course short name / code';
 
 $string['headerstyleheading'] = 'Header style settings';
-$string['headerstyleheadingdesc'] = 'Adaptable supports two header styles, the original three row header and a newer simplified two row header.
-Be aware that if you switch to the newer two row header you will <strong>NOT</strong> be able to: <br />
-<ol><li>Show social icons in the header.</li><li>Display the site logo on mobile devices.</li></ol>';
+$string['headerstyleheadingdesc'] = 'Adaptable supports two header styles, the original three row header and a newer simplified two row header.<br/>Be aware that if you switch to the newer two row header you will <strong>NOT</strong> be able to:<br /><ol><li>Show social icons in the header.</li><li>Display the site logo on mobile devices.</li></ol>';
 
 $string['headerstyle'] = 'Header style';
 $string['headerstyledesc'] = 'Choose the style of header.  Header 1 refers to the original 3 row Adaptable header.  Header 2 is a minimal 2 row header. Note that when using Header 2, for the setting "Use Search Box or Social Icons", this will always use a search box.';
@@ -1332,11 +1318,7 @@ $string['alerticonsuccessdesc'] = 'Set the \'<a href="http://fortawesome.github.
 // Mobile **********************************************************.
 $string['responsivesettings'] = 'Layout responsive';
 $string['responsivesettingsheading'] = 'Control how your site behaves at different screen sizes';
-$string['responsivesettingsdesc'] = 'Here you can control the responsive behaviour of your site (which elements appear on screens of different sizes).<br/>
-    By default most non essential items are hidden on mobile devices, being set to appear only on larger screens.<br/>
-    You can make elements appears on smaller screens by choosing to display them on "Extra Small" or "Small screens".<br/>
-    To gain a better understanding of how these settings work please refer to the Bootstrap 4 documentation:<br/><br/>
-    https://getbootstrap.com/docs/4.0/utilities/display/<br/><br/>';
+$string['responsivesettingsdesc'] = 'Here you can control the responsive behaviour of your site (which elements appear on screens of different sizes).<br/>By default most non essential items are hidden on mobile devices, being set to appear only on larger screens.<br/>You can make elements appears on smaller screens by choosing to display them on "Extra Small" or "Small screens".<br/>To gain a better understanding of how these settings work please refer to the Bootstrap 4 documentation:<br/><br/>https://getbootstrap.com/docs/4.5/utilities/display/<br/><br/>';
 
 $string['responsivesocial'] = 'Social icons';
 $string['responsivesocialdesc'] = 'What sized screens would you like social icons to be displayed on?';
@@ -1351,11 +1333,8 @@ $string['responsivesectionnavdesc'] = 'Show / hide the the <strong>text</strong>
 $string['responsivelogo'] = 'Logo';
 $string['responsivelogodesc'] = 'What sized screens would you like the logo to be displayed on?';
 
+$string['responsiveheaderdesc'] = 'What sized screens would you like the main header to be displayed on?<br/>This setting only applies if you are using the default / original 3 row header.<br/>Removing the header entirely will also remove elements contained within it:<br/><ul><li>Social Icons</li><li>Logo</li><li>Site / Course Title</li></ul>';
 $string['responsiveheader'] = 'Main header';
-$string['responsiveheaderdesc'] = 'What sized screens would you like the main header to be displayed on?<br/>
-    This setting only applies if you are using the default / original 3 row header.<br/>
-    Removing the header entirely will also remove elements contained within it:<br/>
-    <ul><li>Social Icons</li><li>Logo</li><li>Site / Course Title</li></ul>';
 
 $string['responsiveticker'] = 'News ticker';
 $string['responsivetickerdesc'] = 'What sized screens would you like the news ticker to be displayed on?';
@@ -1412,8 +1391,7 @@ $string['targetnewwindow'] = 'New window';
 $string['targetsamewindow'] = 'Same window';
 
 $string['toolsmenu2'] = 'Second tools menu';
-$string['toolsmenu2desc'] = 'You can configure links to be shown under a tools menu. Each line consists of some menu text, a link URL (optional), a tooltip title (optional) and a language code or comma-separated list of codes (optional, for displaying the line to users of the specified language only), separated by pipe characters. You can specify a structure using hyphens. For example:
-<pre>
+$string['toolsmenu2desc'] = 'You can configure links to be shown under a tools menu. Each line consists of some menu text, a link URL (optional), a tooltip title (optional) and a language code or comma-separated list of codes (optional, for displaying the line to users of the specified language only), separated by pipe characters. You can specify a structure using hyphens. For example:<br/><pre>
 Moodle community|https://moodle.org
 -Moodle free support|https://moodle.org/support
 -Moodle development|https://moodle.org/development
@@ -1461,8 +1439,7 @@ $string['newmenu1trigger'] = 'Top menu dropdown 1 trigger word';
 $string['newmenu1triggerdesc'] = 'Set a top menu Dropdown 1 trigger word.  Font awesome icons can be used';
 
 $string['menusheading'] = 'Configure navigation for link menus in the upper header';
-$string['menustitledesc'] = 'Tools menus (in navbar) and top menus (upper header) can be restricted based on custom profile fields (optional).  To add a restriction enter the name of the profile field and expected value.  Menu Structure follows the common Moodle format:
-<pre>
+$string['menustitledesc'] = 'Tools menus (in navbar) and top menus (upper header) can be restricted based on custom profile fields (optional).  To add a restriction enter the name of the profile field and expected value.  Menu Structure follows the common Moodle format:<br/><pre>
 Moodle community|https://moodle.org
 -Moodle free support|https://moodle.org/support
 -Moodle development|https://moodle.org/development
@@ -1510,8 +1487,7 @@ $string['topmenufontsize'] = 'Top menu font size';
 $string['topmenufontsizedesc'] = 'Adjust the font size of the top menus.';
 
 $string['menuuseroverride'] = 'Allow user override';
-$string['menuuseroverridedesc'] = 'These settings can be used to give users control over where menus appear via a custom profile field. To use this option you will need to create a custom profile field in the "list" format with values in the corresponding order:
-<pre>1. Sitewide (the first item in the list will be for sitewide menu visibility)
+$string['menuuseroverridedesc'] = 'These settings can be used to give users control over where menus appear via a custom profile field. To use this option you will need to create a custom profile field in the "list" format with values in the corresponding order:<br/><pre>1. Sitewide (the first item in the list will be for sitewide menu visibility)
 2. Homepages Only (the second item in the list will set visibility to only site / homepages)
 3. Hidden (the third value in the list will hide menus entirely)</pre>
 You should NOT use the "Disable Menus on Course Pages" option in conjuction with profile field settings, instead use set the default value to your "Homepages Only" entry when setting up your profile field list.
@@ -1539,8 +1515,7 @@ $string['enabletoolsmenusdesc'] = 'It is recommended you leave this off if menus
 
 $string['toolsmenuheading'] = 'Tools menus (in main nagivation)';
 $string['toolsmenuheadingdesc'] = 'You can configure links to be shown under a tools menu (in main navigation bar).
- The format is similar to that used for Moodle custom menus but allows you to add fa icons to menu items:
-<pre>
+ The format is similar to that used for Moodle custom menus but allows you to add fa icons to menu items:<br/><pre>
 &lt;span class=&quot;fa fa-video-camera&quot;&gt;&lt;/span&gt; Record Screen|http://google.co.uk|Record Screen
 &lt;span class=&quot;fa fa-picture-o&quot;&gt;&lt;/span&gt; ThinkStock|http://google.co.uk|ThinkStock
 &lt;span class=&quot;fa fa-clock-o&quot;&gt;&lt;/span&gt; Exam Clock|http://google.co.uk|Exam Clock
@@ -1565,9 +1540,7 @@ $string['toolsmenufielddesc'] = 'Add access rule using for custom profile field 
 // Social settings *************************************************.
 $string['socialsettings'] = 'Header social';
 $string['socialheading'] = 'Social icon settings';
-$string['socialtitledesc'] = 'You can disable the sitewide search box and enable social icons / links in its place.
-To setup icons enter a delimited list into the "Social Icon List" field below.
-This should be in the format:
+$string['socialtitledesc'] = 'You can disable the sitewide search box and enable social icons / links in its place.<br/>To setup icons enter a delimited list into the "Social Icon List" field below.<br/>This should be in the format:
 
 url|title|icon
 
