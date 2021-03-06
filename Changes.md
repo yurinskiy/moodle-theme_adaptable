@@ -6,6 +6,7 @@ Change Log in version 3.10.1.1 (2021022301)
 4. Fix 'File picker .nav-item's have header changes' - Ref: https://moodle.org/mod/forum/discuss.php?d=419201#p1689468.
 5. Fix 'put_properties in Toolbox does not process all of the file settings' - #221.
 6. Add information page in the settings with readme and settings lang tidy.
+7. Add 'thirdpartylibs.xml' information.
 
 Change Log in version 3.10.1.0 (2021022300)
 ===========================================
