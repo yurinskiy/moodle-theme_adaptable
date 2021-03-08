@@ -10,6 +10,7 @@ Change Log in version 3.8.1.1 (2020070105)
 8. Tidy the language strings.
 9. Organise the settings tabs.
 10. Tidy and optimise adaptable.css.
+11. Add Support.md file.
 
 Change Log in version 3.8.1.0 (2020070104)
 ==========================================

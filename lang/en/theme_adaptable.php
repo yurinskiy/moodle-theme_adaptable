@@ -160,6 +160,8 @@ $string['themechanges'] = 'Changes';
 $string['themechangesdesc'] = 'Theme changes....';
 $string['themereadme'] = 'Readme';
 $string['themereadmedesc'] = 'Theme readme....';
+$string['themesupport'] = 'Support';
+$string['themesupportdesc'] = 'Theme support....';
 
 
 // Ticker **********************************************************.
