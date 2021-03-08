@@ -2647,18 +2647,16 @@ EOT;
     }
 
     /**
-     * Checks menu visibility where setup to allow users to control via custom profile setting
+     * Checks menu visibility where setup to allow users to control via custom profile setting.
      *
      * @return boolean
      */
     public function check_menu_user_visibility() {
-        global $COURSE, $USER;
-        $uservalue = '';
-
         if (empty($this->page->theme->settings->menuuseroverride)) {
             return true;
         }
 
+        global $USER;
         if (isset($USER->theme_adaptable_menus['menuvisibility'])) {
             $uservalue = $USER->theme_adaptable_menus['menuvisibility'];
         } else {
@@ -2671,6 +2669,7 @@ EOT;
             return true;
         }
 
+        global $COURSE;
         if ($uservalue == 1 && $COURSE->id != 1) {
             return false;
         }
@@ -2694,8 +2693,11 @@ EOT;
         require_once($CFG->dirroot.'/user/profile/lib.php');
         require_once($CFG->dirroot.'/user/lib.php');
         profile_load_data($USER);
-
-        $USER->theme_adaptable_menus['menuvisibility'] = $USER->$profilefield;
+        if (empty($USER->$profilefield)) {
+            $USER->theme_adaptable_menus['menuvisibility'] = 0;
+        } else {
+            $USER->theme_adaptable_menus['menuvisibility'] = $USER->$profilefield;
+        }
 
         return $USER->theme_adaptable_menus['menuvisibility'];
     }
