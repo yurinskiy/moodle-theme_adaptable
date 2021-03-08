@@ -35,6 +35,13 @@ if ($ADMIN->fulltree) {
     $page->add(new admin_setting_heading('theme_adaptable_information', get_string('informationsettings', 'theme_adaptable'),
         format_text(get_string('informationsettingsdesc', 'theme_adaptable'), FORMAT_MARKDOWN)));
 
+    // Support.md.
+    $name = 'theme_adaptable/themesupport';
+    $title = get_string('themesupport', 'theme_adaptable');
+    $description = get_string('themesupportdesc', 'theme_adaptable');
+    $setting = new admin_setting_markdown($name, $title, $description, 'Support.md');
+    $page->add($setting);
+
     // Changes.md.
     $name = 'theme_adaptable/themechanges';
     $title = get_string('themechanges', 'theme_adaptable');
