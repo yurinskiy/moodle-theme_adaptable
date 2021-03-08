@@ -227,8 +227,7 @@ class course_renderer extends \core_course_renderer {
         global $CFG;
 
         if ($course instanceof stdClass) {
-            require_once($CFG->libdir. '/coursecatlib.php');
-            $course = new core_course_list_element($course);
+            $course = new \core_course_list_element($course);
         }
         if ($type == 3 || $this->output->body_id() != 'page-site-index') {
             return parent::coursecat_coursebox_content($chelper, $course);
