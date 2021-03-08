@@ -12,6 +12,7 @@ Change Log in version 3.9.1.1 (2020073108)
 10. Tidy and optimise adaptable.css.
 11. Add Support.md file.
 12. Fix 'Json error when getting course info in combined list on frontpage' - #229.
+13. Fix 'menuoverrideprofilefield topmenusettings error' - #228.
 
 Change Log in version 3.9.1.0 (2020073107)
 ==========================================
