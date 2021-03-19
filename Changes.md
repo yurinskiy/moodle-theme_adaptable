@@ -1,5 +1,6 @@
 Change Log in version 3.9.1.2 (2020073109)
 ==========================================
+1. Fix 'borderradius cannot be set to zero' - Ref: https://moodle.org/mod/forum/discuss.php?d=419461#p1692161.
 
 Change Log in version 3.9.1.1 (2020073108)
 ==========================================

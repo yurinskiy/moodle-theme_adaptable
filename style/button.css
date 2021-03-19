@@ -29,10 +29,10 @@
 .btn,
 .btn a {
     background-image: none;
-    border: 1px solid #ccc;
     border-color: #e6e6e6 #e6e6e6 #bfbfbf;
     border-bottom-color: #b3b3b3;
     border-radius: [[setting:buttonradius]];
+    border-style: solid;
     box-shadow: 0 [[setting:buttondropshadow]] 0 0 rgba(0, 0, 0, 0.5) inset;
     cursor: pointer;
     font-family: [[setting:fontname]];
@@ -79,8 +79,7 @@ a#adaptable-message-user-button,
     background-color: [[setting:buttoncolor]];
     background-size: 100% 200%;
     box-shadow: 0 [[setting:buttondropshadow]] 0 0 rgba(0, 0, 0, 0.5) inset;
-    border: 0;
-    border-radius: [[setting:buttonradius]];
+    border: none;
     color: [[setting:buttontextcolor]] !important;
     cursor: pointer;
     font-family: [[setting:fontname]];
@@ -237,7 +236,6 @@ td.submit input[disabled] {
 #editingbutton input[type="submit"] {
     background-image: none;
     background-color: [[setting:editonbk]];
-    border-radius: [[setting:buttonradius]];
     box-shadow: 0 [[setting:buttondropshadow]] 0 0 rgba(0, 0, 0, 0.5) inset;
     color: [[setting:editfont]];
     height: 32px;
@@ -250,12 +248,16 @@ td.submit input[disabled] {
 .editing #editingbutton a:hover,
 .purgecaches a,
 .tool_dataprivacy a {
-    color: [[setting:editfont]];
     background-image: none;
     background-color: [[setting:editoffbk]];
+    box-shadow: 0 [[setting:buttondropshadow]] 0 0 rgba(0, 0, 0, 0.5) inset;
+    color: [[setting:editfont]];
     padding: 0 [[setting:edithorizontalpadding]];
     text-decoration: none !important;
-    box-shadow: 0 [[setting:buttondropshadow]] 0 0 rgba(0, 0, 0, 0.5) inset;
+}
+
+.purgecaches a,
+.tool_dataprivacy a {
     border-radius: [[setting:buttonradius]];
 }
 
@@ -316,16 +318,15 @@ button[name="resetbutton"]:hover,
     background-image: none;
     background-color: [[setting:buttonlogincolor]];
     border: none;
-    border-radius: [[setting:buttonradius]];
     box-shadow: 0 [[setting:buttondropshadow]] 0 0 rgba(0, 0, 0, 0.5) inset;
     color: [[setting:buttonlogintextcolor]];
     cursor: pointer;
+    height: [[setting:buttonloginheight]];
+    margin-right: 2px;
+    margin-top: [[setting:buttonloginmargintop]];
     padding: [[setting:buttonloginpadding]] 15px;
     text-shadow: none;
     transition: background 0.2s ease-out 0s;
-    margin-top: [[setting:buttonloginmargintop]];
-    margin-right:2px;
-    height:[[setting:buttonloginheight]];
 }
 
 .btn-login:hover {
