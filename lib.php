@@ -300,7 +300,7 @@ function theme_adaptable_process_css($css, $theme) {
 
     // Get all the defined settings for the theme and replace defaults.
     foreach ($theme->settings as $key => $val) {
-        if (array_key_exists('[[setting:'.$key.']]', $defaults) && !empty($val)) {
+        if (array_key_exists('[[setting:'.$key.']]', $defaults)) {
             $defaults['[[setting:'.$key.']]'] = $val;
         }
     }
