@@ -1,5 +1,6 @@
 Change Log in version 3.10.1.3 (2021022303)
 ===========================================
+1. Expandable search in header two not working well - #234.
 
 Change Log in version 3.10.1.2 (2021022302)
 ===========================================
