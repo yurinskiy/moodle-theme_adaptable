@@ -3,6 +3,7 @@ Change Log in version 3.10.1.3 (2021022303)
 1. Fix 'Expandable search in header two not working well' - #234.
 2. Fix 'Assignment Grouping' - #233.
 3. Fix 'This course section list overflows page' - #236.
+4. Fix 'Navbar link icon spacing wrong' - #235.
 
 Change Log in version 3.10.1.2 (2021022302)
 ===========================================
