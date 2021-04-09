@@ -4,6 +4,7 @@ Change Log in version 3.10.1.3 (2021022303)
 2. Fix 'Assignment Grouping' - #233.
 3. Fix 'This course section list overflows page' - #236.
 4. Fix 'Navbar link icon spacing wrong' - #235.
+5. Fix 'Missing theme cache reset' - Ref: https://moodle.org/mod/forum/discuss.php?d=420530.
 
 Change Log in version 3.10.1.2 (2021022302)
 ===========================================
