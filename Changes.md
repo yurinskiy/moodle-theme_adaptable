@@ -9,6 +9,7 @@ Change Log in version 3.10.1.3 (2021022303)
    Thus, when they do, the setting will be changed correctly instead of getting a default and effectively changing the
    value of the setting.
 7. README.md to Readme.md - #240.
+8. Fix 'Mobile view does not show bulleted list' - #238.
 
 Change Log in version 3.10.1.2 (2021022302)
 ===========================================
