@@ -15,96 +15,85 @@
  * along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
  *
  *
- * Adaptable Search style sheet - initially adapted from Boost search.scss in M3.7.
+ * Adaptable search style sheet
  *
  * @package    theme_adaptable
  * @copyright  2021 G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
-.search-input-wrapper {
-    float: right;
-    overflow: hidden;
-    padding-bottom: 0;
-    padding-top: 0;
-    transition: width 0.5s ease, left 0.5s ease;
-    width: 24px;
+
+.headersearch {
+    padding: [[setting:searchboxpadding]];
 }
 
-.search-input-wrapper > div {
-    float: left;
+.headersearch .btn-close,
+.navbarsearchsocial .btn-close {
+    border-width: 0;
+}
+
+.headersearch .btn-open {
+    border-radius: 0;
+    color: [[setting:fonttitlecolorcourse]];
+}
+
+#adaptable-page-header-wrapper #header2 a.btn-open i {
+    color: [[setting:headertextcolor]];
+}
+
+.headersearch abbr[title]{
+    border-bottom: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.headersearch .form-inline,
+.navbarsearchsocial .form-inline,
+#adaptable-page-header-wrapper #above-header .navbar .navbarsearchsocial button {
     margin: 0;
 }
-.search-input-wrapper > div .icon {
-    margin-right: 0;
-    margin-top: 10px;
+
+.headersearch .form-inline input.form-control[type=text],
+.navbarsearchsocial .form-inline input.form-control[type=text] {
+    height: 35px;
 }
 
-.search-input-wrapper > form {
-    margin-left: 25px;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.search-input-wrapper > form > input {
-    margin: 0;
-}
-
-.search-input-wrapper form.expanded {
-    opacity: 1;
-}
-
-.search-input-wrapper.expanded {
-    width: 162px;
-}
-
-@media (max-width:575.98px) {
-    .search-input-wrapper > div {
+@media (max-width: 979px) {
+    .headersearch {
         margin: 0;
-    }
-
-    .search-input-wrapper > form {
-        display: none;
-    }
-    .search-input-wrapper.expanded {
-        width: 32px
+        padding-bottom: 5px;
+        width: 100%;
     }
 }
 
-@media (min-width: 576px) {
-    #adaptable-page-header-wrapper #header2 .search-input-wrapper.expandable > form {
-        margin: 0;
-    }
-
-    #adaptable-page-header-wrapper #header2 .search-input-wrapper.expandable {
-        padding: 0;
-        position: relative;
-    }
-
-    #adaptable-page-header-wrapper #header2 .search-input-wrapper.expandable > div { /* The button! */
-        background-color: [[setting:regionmaincolor]];
-        color: [[setting:fontcolor]];
-        height: 32px;
-        position: absolute;
-        right: 1px;
-        text-align: right;
-        top: 1px;
-        width: 22px;
-    }
-
-    #adaptable-page-header-wrapper #header2 .search-input-wrapper.expandable > div .icon {
-        margin-top: 0;
-    }
+#adaptable-page-header-wrapper .navbarsearchsocial form .icon {
+    color: [[setting:fontcolor]];
 }
 
-@media (max-width: 575.98px) {
-    .search-input-wrapper.expanded {
-        width: 32px;
-    }
+.headersearch .simplesearchform .btn-submit,
+#adaptable-page-header-wrapper #above-header .navbar .navbarsearchsocial button {
+    border-radius: 0;
+}
+.navbarsearchsocial .btn-open {
+    border-width: 0;
+    font-size: 1.2em;
 }
 
-#adaptable-page-header-wrapper #header2 .search-input-wrapper > div .icon {
+#adaptable-page-header-wrapper .navbarsearchsocial .icon {
     margin-right: 0;
-    margin-top: 8px;
     padding-right: 0;
+}
+
+@media (max-width: 991.98px) {
+    .navbarsearchsocial .simplesearchform .collapse.show,
+    .navbarsearchsocial .simplesearchform .collapsing {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        display: flex;
+        background-color: transparent;
+        z-index: 1060;
+        height: auto;
+    }
 }

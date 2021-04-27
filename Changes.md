@@ -13,6 +13,7 @@ Change Log in version 3.10.1.3 (2021022303)
 9. Fix 'Site administration in 'dock' on mobile view' - #237.
 10. Improve menu accessible titles and vertically centred header title.
 11. Fix 'Breadcrumb trail' - #242.
+12. Enhancement 'Implement Global Search capability' - #241.
 
 Change Log in version 3.10.1.2 (2021022302)
 ===========================================
