@@ -12,6 +12,7 @@ Change Log in version 3.9.1.3 (2020073110)
 8. Fix 'Mobile view does not show bulleted list' - #238.
 9. Fix 'Site administration in 'dock' on mobile view' - #237.
 10. Improve menu accessible titles and vertically centred header title.
+11. Fix 'Breadcrumb trail' - #242.
 
 Change Log in version 3.9.1.2 (2020073109)
 ==========================================
