@@ -154,20 +154,6 @@ order for prescidence.
         margin-left: 10px !important;
     }
 
-    .searchbox {
-        padding-bottom: 5px;
-    }
-
-    .search-box,
-    .searchbox {
-        margin: 0;
-        width: 100%;
-    }
-
-    #search-1 {
-        width: calc(100% - 39px);
-    }
-
     .hbl, .sbl, .hbll, .sbll {
         display: none !important;
     }
@@ -211,11 +197,6 @@ order for prescidence.
         padding: inherit;
     }
 
-    #adaptable-page-header-wrapper .fa {
-        height: 24px;
-        margin-right: .5rem;
-        width: 24px;
-    }
 
     #adaptable-page-header-wrapper .topmenuleft {
         float: left !important;
@@ -513,10 +494,6 @@ order for prescidence.
     #page-header .userimg {
         display: none;
     }
-
-    #coursesearchbox2 {
-        display: none;
-    }
 }
 
 /* Mins in ascending order.
@@ -580,13 +557,6 @@ order for prescidence.
 /*=====================================================
 Other.
 ======================================================= */
-@media (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
-    #coursesearchbox2 {
-        min-width: 140px;
-        margin-top: 5px;
-    }
-}
-
 @media (min-width: 481px) {
     /* Activity chooser styling. Desktop styling. */
     .jsenabled .choosercontainer #chooseform .alloptions {

@@ -136,12 +136,12 @@ $THEME->sheets = array(
         'navigation',
         'notifications',
         'responsive',
+        'search',
         'tabs',
         'user',
         'print',
         'categorycustom',
         'browser',
-        'search',
         'custom'
 );
 

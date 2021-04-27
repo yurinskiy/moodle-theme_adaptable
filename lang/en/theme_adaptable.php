@@ -475,8 +475,7 @@ $string['enableprivatefilesdesc'] = 'Display a link to the users private files.'
 
 $string['enablesearchbox'] = 'Enable search box';
 $string['enablesearchboxdesc'] = 'Display a search box in the header.';
-
-$string['searchcourses'] = 'Search courses';
+$string['coursesearch'] = 'Course search';
 
 $string['enablepref'] = 'My preferences';
 $string['enableprefdesc'] = 'Display a link to the user preferences page.';
@@ -1060,24 +1059,26 @@ $string['headerstyleheading'] = 'Header style settings';
 $string['headerstyleheadingdesc'] = 'Adaptable supports two header styles, the original three row header and a newer simplified two row header.<br/>Be aware that if you switch to the newer two row header you will <strong>NOT</strong> be able to:<br /><ol><li>Show social icons in the header.</li><li>Display the site logo on mobile devices.</li></ol>';
 
 $string['headerstyle'] = 'Header style';
-$string['headerstyledesc'] = 'Choose the style of header.  Header 1 refers to the original 3 row Adaptable header.  Header 2 is a minimal 2 row header. Note that when using Header 2, for the setting "Use Search Box or Social Icons", this will always use a search box.';
-$string['headerstyle1'] = 'Header 1 (original 3 row header)';
-$string['headerstyle2'] = 'Header 2 (2 row header)';
+$string['headerstyledesc'] = 'Choose the style of header.  Header one refers to the original three row Adaptable header.  Header two is a minimal two row header with a search box.';
+$string['headerstyle1'] = 'Header one (original three row header)';
+$string['headerstyle2'] = 'Header two (two row header)';
 
-$string['header2searchbox'] = 'Header 2 search box expandable';
-$string['header2searchboxdesc'] = 'Disabled, static or expand and collapse functionality on the search box when using header 2.';
-
-$string['socialorsearch'] = 'Use Search Box or Social Icons';
-$string['socialorsearchdesc'] = 'You can set the theme to either display social icons or a search box in the header.<br />
+$string['headersearchandsocial'] = 'Header search and social';
+$string['headersearchandsocialdesc'] = 'Set the position of the search box and social icons in the header for header style one.<br />
 You can set social icons under the <a href="./../admin/settings.php?section=themesettingadaptable#theme_adaptable_social">Header social</a> settings page</strong>.';
+$string['headersearchandsocialnone'] = 'None';
+$string['headersearchandsocialsearchmobilenav'] = 'Search in header and navbar for mobiles';
+$string['headersearchandsocialsearchheader'] = 'Search in header';
+$string['headersearchandsocialsocialheader'] = 'Social in header';
+$string['headersearchandsocialsearchnavbar'] = 'Search on navbar';
+$string['headersearchandsocialsearchnavbarsocialheader'] = 'Search on navbar, social in header';
 
-$string['socialorsearchnone'] = 'None';
+// M3.9- for search
+$string['togglesearch'] = 'Toggle search input';
 
-$string['socialorsearchsocial'] = 'Display social icons in header';
-$string['socialorsearchsearch'] = 'Display search box in header';
 
-$string['searchboxpadding'] = 'Search box padding';
-$string['searchboxpaddingdesc'] = 'Set padding above search box (if being used instead of social icons) <br />E.g. 5px 10px 5px 10px (top, right, bottom, left).<br> You can set social icons under the <a href="./../admin/settings.php?section=theme_adaptable_social">Header Social</a> settings page</strong>.';
+$string['searchboxpadding'] = 'Header search box padding';
+$string['searchboxpaddingdesc'] = 'Set padding for the search box when it is in the header (if being used instead of social icons) <br />E.g. 5px 10px 5px 10px (top, right, bottom, left).<br> You can set social icons under the <a href="./../admin/settings.php?section=theme_adaptable_social">Header Social</a> settings page</strong>.';
 
 $string['enablesavecanceloverlay'] = 'Enable save / cancel overlay on settings pages';
 $string['enablesavecanceloverlaydesc'] = 'Display a save / cancel button overlay at the top of a settings page to make it easier to save settings.';
@@ -1347,8 +1348,6 @@ $string['responsivepagefooterdesc'] = 'What sized screens would you like the foo
 $string['responsiveslider'] = 'Frontpage slider';
 $string['responsivesliderdesc'] = 'What sized screens would you like the Frontpage Slider to be displayed on?';
 
-$string['responsivesearchicon'] = 'Show search icon';
-$string['responsivesearchicondesc'] = 'Show search icon on small screen devices.';
 $string['responsivebreadcrumb'] = 'Beadcrumb navigation';
 $string['responsivebreadcrumbdesc'] = 'What sized screens would you like Breadcrumb Navigation to be displayed on?';
 
