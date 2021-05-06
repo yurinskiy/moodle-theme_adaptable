@@ -473,10 +473,6 @@ $string['enablecalendardesc'] = 'Display a link to the users calendar.';
 $string['enableprivatefiles'] = 'Private files';
 $string['enableprivatefilesdesc'] = 'Display a link to the users private files.';
 
-$string['enablesearchbox'] = 'Enable search box';
-$string['enablesearchboxdesc'] = 'Display a search box in the header.';
-$string['coursesearch'] = 'Course search';
-
 $string['enablepref'] = 'My preferences';
 $string['enableprefdesc'] = 'Display a link to the user preferences page.';
 
@@ -509,7 +505,6 @@ $string['sections'] = 'Sections';
 $string['enablecompetencieslink'] = 'Competencies link';
 $string['enablecompetencieslinkdesc'] = 'Display competencies link in the \'This course\' menu.  Note: \'core_competency|enabled\' needs to be ticked.';
 
-$string['search'] = 'Search';
 $string['togglenavigation'] = 'Toggle navigation';
 
 // Navbar styling *********************************************************.
@@ -1072,6 +1067,7 @@ $string['headersearchandsocialsearchheader'] = 'Search in header';
 $string['headersearchandsocialsocialheader'] = 'Social in header';
 $string['headersearchandsocialsearchnavbar'] = 'Search on navbar';
 $string['headersearchandsocialsearchnavbarsocialheader'] = 'Search on navbar, social in header';
+$string['coursesearch'] = 'Course search';
 
 // M3.9- for search
 $string['togglesearch'] = 'Toggle search input';
