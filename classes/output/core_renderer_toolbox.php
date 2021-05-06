@@ -3127,8 +3127,8 @@ EOT;
             return html_writer::tag('li', html_writer::tag('a', $tab->text,
                 array('class' => 'nav-link active')), array('class' => 'nav-item'));
         } else if ($tab->inactive) {
-            return html_writer::tag('li', html_writer::tag('a', $tab->text, array('class' => 'nav-link disabled')),
-                array('class' => 'nav-link'));
+            return html_writer::tag('li', html_writer::tag('a', $tab->text,
+                array('class' => 'nav-link disabled')), array('class' => 'nav-item'));
         } else {
             if (!($tab->link instanceof moodle_url)) {
                 // Backward compatibility when link was passed as quoted string.
