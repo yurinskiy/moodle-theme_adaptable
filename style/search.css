@@ -105,6 +105,11 @@
     color: [[setting:fonttitlecolorcourse]];
 }
 
+.headersearch .btn,
+.navbarsearchsocial .btn {
+    box-shadow: none;
+}
+
 #adaptable-page-header-wrapper #header2 a.btn-open i {
     color: [[setting:headertextcolor]];
 }
