@@ -38,6 +38,9 @@ with it afterwards.
 With a little time you should be able to setup an attractive Moodle site with a high degree of individuality without without
 knowing any CSS.
 
+Current developer:
+G J Barnard MSc. BSc(Hons)(Sndw). MBCS. CEng. CITP. PGCE.  Moodle profile | http://moodle.org/user/profile.php?id=442195.  Web profile | http://about.me/gjbarnard
+
 This theme has been developed by:
 Lead Developers
 Jeremy Hopkins (Coventry University)
@@ -73,7 +76,7 @@ Acknowledgments
 Big thanks to all the volunteers that are collaborating and testing Adaptable continuously. We really appreciate your help and
 support to develop the most adaptable theme for moodle.
 
-Development:
+Development contributions from:
 - Justin Hunt
 - Leonid Chernyavskiy
 - COMETE (UniversitÃ© Paris Nanterre)
