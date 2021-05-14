@@ -302,6 +302,7 @@ echo $OUTPUT->standard_top_of_body_html();
             }
         }
     }
+    $headercontext['topmenus'] = $OUTPUT->get_top_menus(false);
 
     if ($adaptableheaderstyle == "style1") {
         $headercontext['menuslinkright'] = (!empty($PAGE->theme->settings->menuslinkright));
@@ -353,7 +354,6 @@ echo $OUTPUT->standard_top_of_body_html();
         echo $OUTPUT->render_from_template('theme_adaptable/headerstyleone', $headercontext);
     } else if ($adaptableheaderstyle == "style2") {
         $headercontext['navbarsearch'] = $OUTPUT->search_box();
-        $headercontext['topmenus'] = $OUTPUT->get_top_menus(false);
         if (empty($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu']) {
             $headercontext['langmenu'] = '<div class="my-auto">'.$OUTPUT->lang_menu(false).'</div>';
         }
