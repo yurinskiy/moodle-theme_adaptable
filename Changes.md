@@ -16,6 +16,8 @@ Change Log in version 3.9.1.3 (2020073110)
 12. Enhancement 'Implement Global Search capability' - #241.
 13. Fix 'Inactive tabs are displaced' - #244.
 14. Fix 'Styling self-registration message card on login page' - #183.
+15. Fix 'Site title not showing when 'responsiveheader' and 'responsivecoursetitle' settings are set to 'Extra small - Extra large'.'.
+    Ref: https://moodle.org/mod/forum/discuss.php?d=424098.
 
 Change Log in version 3.9.1.2 (2020073109)
 ==========================================
