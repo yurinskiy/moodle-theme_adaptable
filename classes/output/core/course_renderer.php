@@ -807,13 +807,6 @@ class course_renderer extends \core_course_renderer {
                 $content .= html_writer::link($url, $feedbackavailable);
                 $content .= html_writer::end_tag('span');
             }
-
-            // If submissions are not allowed, return the content.
-            if (!empty($meta->timeopen) && $meta->timeopen > time()) {
-                // TODO - spit out a 'submissions allowed from' tag.
-                return $content;
-            }
-
         }
 
         return $content;
