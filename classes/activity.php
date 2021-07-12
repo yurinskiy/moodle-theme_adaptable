@@ -84,7 +84,8 @@ class activity {
      * @param bool $submissionnotrequired
      * @return activity_meta
      */
-    protected static function std_meta(cm_info $mod,
+    protected static function std_meta(
+            cm_info $mod,
             $timeopenfld,
             $timeclosefld,
             $keyfield,
