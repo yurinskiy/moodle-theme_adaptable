@@ -793,7 +793,6 @@ class course_renderer extends \core_course_renderer {
                 $content .= html_writer::link($url, $icon.$engagementstr, array('class' => 'ad-activity-action'));
                 $content .= html_writer::end_tag('div');
             }
-
         } else {
             // Feedback meta.
             if (!empty($meta->grade)) {
