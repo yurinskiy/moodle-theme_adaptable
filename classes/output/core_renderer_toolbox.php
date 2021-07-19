@@ -3006,29 +3006,34 @@ EOT;
             $content .= '</ul></li>';
 
         } else {
-            if ($level == 0) {
-                $content = '<li class="nav-item">';
-                $linkclass = 'nav-link';
+            if (preg_match("/^#+$/", $menunode->get_text())) {
+                // This is a divider.
+                $content = html_writer::start_tag('li', array('class' => 'dropdown-divider'));
             } else {
-                $content = '<li>';
-                $linkclass = 'dropdown-item';
-            }
+                if ($level == 0) {
+                    $content = '<li class="nav-item">';
+                    $linkclass = 'nav-link';
+                } else {
+                    $content = '<li>';
+                    $linkclass = 'dropdown-item';
+                }
 
-            /* This is a bit of a cludge, but allows us to pass url, of type moodle_url with a param of
-             * "helptarget", which when equal to "_blank", will create a link with target="_blank" to allow the link to open
-             * in a new window.  This param is removed once checked.
-             */
-            if (is_object($url) && (get_class($url) == 'moodle_url') && ($url->get_param('helptarget') != null)) {
-                $helptarget = $url->get_param('helptarget');
-                $url->remove_params('helptarget');
-                $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title(),
-                    'target' => $helptarget, 'class' => $linkclass));
-            } else {
-                $content .= html_writer::link($url, $menunode->get_text(),
-                    array('title' => $menunode->get_title(), 'class' => $linkclass));
-            }
+                /* This is a bit of a cludge, but allows us to pass url, of type moodle_url with a param of
+                 * "helptarget", which when equal to "_blank", will create a link with target="_blank" to allow the link to open
+                 * in a new window.  This param is removed once checked.
+                 */
+                if (is_object($url) && (get_class($url) == 'moodle_url') && ($url->get_param('helptarget') != null)) {
+                    $helptarget = $url->get_param('helptarget');
+                    $url->remove_params('helptarget');
+                    $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title(),
+                        'target' => $helptarget, 'class' => $linkclass));
+                } else {
+                    $content .= html_writer::link($url, $menunode->get_text(),
+                        array('title' => $menunode->get_title(), 'class' => $linkclass));
+                }
 
-            $content .= "</li>";
+                $content .= "</li>";
+            }
         }
         return $content;
     }

@@ -18,6 +18,7 @@ Change Log in version 3.10.1.3 (2021022303)
 14. Fix 'Styling self-registration message card on login page' - #183.
 15. Fix 'Site title not showing when 'responsiveheader' and 'responsivecoursetitle' settings are set to 'Extra small - Extra large'.'.
     Ref: https://moodle.org/mod/forum/discuss.php?d=424098.
+16. Fix 'Divider in custom menus' - Ref: https://moodle.org/mod/forum/discuss.php?d=424547.
 
 Change Log in version 3.10.1.2 (2021022302)
 ===========================================
