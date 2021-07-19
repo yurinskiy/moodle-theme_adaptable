@@ -100,7 +100,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('buttoncolorcancel', 'theme_adaptable');
     $description = get_string('buttoncolordesccancel', 'theme_adaptable');
     $previewconfig = null;
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#ef5350', $previewconfig);
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#c64543', $previewconfig);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -158,7 +158,7 @@ if ($ADMIN->fulltree) {
     $title = get_string('buttonlogincolor', 'theme_adaptable');
     $description = get_string('buttonlogincolordesc', 'theme_adaptable');
     $previewconfig = null;
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#ef5350', $previewconfig);
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#c64543', $previewconfig);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
