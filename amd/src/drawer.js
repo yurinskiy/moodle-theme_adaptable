@@ -28,6 +28,15 @@ define(['jquery', 'core/log'], function($, log) {
                     }
                 });
                 body.addClass('drawer-ease');
+
+                // Header two message drawer height.
+                if (body.hasClass("header-style2")) {
+                    var height = $('#adaptable-page-header-wrapper').height();
+                    $('.header-style2 [data-region=right-hand-drawer].drawer')
+                        .css({'height':'calc(100% - ' + height + 'px)', 'top': height + 'px'});
+                    log.debug('Header 2 height: ' + height);
+                }
+
                 log.debug('Adaptable Drawer AMD init');
             });
         }
