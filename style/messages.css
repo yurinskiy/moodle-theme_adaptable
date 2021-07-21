@@ -87,3 +87,13 @@
     justify-content: center;
     padding: 1px 1px 0 0 !important;
 }
+
+.header-style2 [data-region=right-hand-drawer].drawer {
+    height: calc(100% - 72px);
+    top: 72px;
+}
+
+.header-style2.scrolled [data-region=right-hand-drawer].drawer {
+    height: calc(100% - 45px);
+    top: 45px;
+}
