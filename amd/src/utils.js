@@ -1,5 +1,5 @@
 /* jshint ignore:start */
-define(['jquery'], function($) {
+define(['jquery'], function($, log) {
 
     "use strict"; // ... jshint ;_;.
     return {
@@ -25,7 +25,7 @@ define(['jquery'], function($) {
                             expiration = new Date(tabTimestamp);
                             expiration.setMinutes(expiration.getMinutes() + parseInt(tabpersistencetime));
                             if (now.getTime() > expiration.getTime()) {
-                                console.log ('Expired');
+                                log.debug('Expired');
                                 sessionStorage.removeItem('tabTimestamp');
                                 sessionStorage.removeItem('tabValues');
                                 tabValues = {};
@@ -35,7 +35,7 @@ define(['jquery'], function($) {
                             sessionStorage.setItem("tabTimestamp", JSON.stringify(new Date()));
                         } else {
                             sessionStorage.setItem("tabTimestamp", JSON.stringify(new Date()));
-                            console.log ('Setting timestamp');
+                            log.debug('Setting timestamp');
                         }
 
                         var params = (new URL(document.location)).searchParams;

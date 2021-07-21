@@ -25,7 +25,7 @@
 // @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
 
 /* jshint ignore:start */
-define(['jquery', 'core/log'], function($ , log) {
+define(['jquery', 'core/log'], function($, log) {
     "use strict"; // ...jshint ;_; !!!
 
     log.debug('Adaptable AMD');
@@ -36,16 +36,15 @@ define(['jquery', 'core/log'], function($ , log) {
 
                 log.debug('Adaptable AMD init');
 
-                // Dismiss Alerts
-                //
-                // Bootstrap will close the alert because it spots the data-dismiss="alert" attribute
-                // Here we also handle the alert close event. We have added two custom tags data-alertindex
-                // and data-alertkey. e.g Alert1  has alertindex1. The alertkey value identifies the
-                // alert content, since Alert1 (2 and 3) will be reused. We use a YUI function to set
-                // the user preference for the key to the last dismissed key for the alertindex.
-                // alertkey undismissable is a special case for "loginas" alert which shouldn't really
-                // be permanently dismissed.
-                // Justin 2015/12/05.
+                /* Dismiss Alerts
+                   Bootstrap will close the alert because it spots the data-dismiss="alert" attribute
+                   Here we also handle the alert close event. We have added two custom tags data-alertindex
+                   and data-alertkey. e.g Alert1  has alertindex1. The alertkey value identifies the
+                   alert content, since Alert1 (2 and 3) will be reused. We use a YUI function to set
+                   the user preference for the key to the last dismissed key for the alertindex.
+                   alertkey undismissable is a special case for "loginas" alert which shouldn't really
+                   be permanently dismissed.
+                   Justin 2015/12/05. */
 
                 $('.close').click(function() {
                     var alertindex = $(this).data('alertindex');
@@ -61,7 +60,8 @@ define(['jquery', 'core/log'], function($ , log) {
 
                 // Edit button keep position.  Needs session storage!
                 try {
-                    $('.context-header-settings-menu .dropdown-menu .dropdown-item a[href*="edit"], #editingbutton a').click(function(event) {
+                    $('.context-header-settings-menu .dropdown-menu .dropdown-item a[href*="edit"], #editingbutton a')
+                        .click(function(event) {
                         event.preventDefault();
 
                         var to = $(window).scrollTop();
@@ -72,7 +72,7 @@ define(['jquery', 'core/log'], function($ , log) {
                         return false;
                     });
                     var scrollTo = sessionStorage.getItem('scrollTo');
-                    if (scrollTo != null) {
+                    if (scrollTo !== null) {
                         window.scrollTo(0, scrollTo);
                         sessionStorage.removeItem('scrollTo');
                     }
@@ -111,7 +111,7 @@ define(['jquery', 'core/log'], function($ , log) {
                     event.preventDefault();
                     $('html, body').animate({scrollTop: 0}, duration);
                     return false;
-                })
+                });
 
                 // Anchor.
                 if (window.location.hash) {

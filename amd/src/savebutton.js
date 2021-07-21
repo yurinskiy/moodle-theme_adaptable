@@ -20,7 +20,7 @@ define(['jquery', 'core/log'], function($, log) {
                     $("#adminsettings").submit();
                 });
                 $("#adminresetbutton").click(function() {
-                    var result = confirm("This resets any changes made since loading this page. Are you sure?")
+                    var result = confirm("This resets any changes made since loading this page. Are you sure?");
                     if (result == true) {
                         $('#adminsettings')[0].reset();
                         $("#savediscardsection").hide();
