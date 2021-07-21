@@ -199,9 +199,10 @@ a.dropdown-item.i.fa.fa-users.fa-lg {
 }
 
 #adaptable-page-header-wrapper #above-header .dropdown-toggle a,
+#adaptable-page-header-wrapper #above-header .dropdown-menu a,
 #adaptable-page-header-wrapper #header2 .dropdown-menu a,
 #adaptable-page-header-wrapper #header2 .dropdown-toggle a,
-#adaptable-page-header-wrapper #above-header .dropdown-menu a {
+#adaptable-page-header-wrapper #header2 .popover-region-container {
     color: [[setting:linkcolor]];
     font-family: [[setting:fontname]], sans-serif;
     font-size: [[setting:topmenufontsize]];
