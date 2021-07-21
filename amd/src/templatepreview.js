@@ -7,10 +7,10 @@ define(['jquery', 'core/log'], function($, log) {
 
     return {
         init: function() {
-            $(document).ready(function($) {
+            $(document).ready(function() {
                 log.debug('Adaptable Template Preview AMD init');
             });
         }
-    }
+    };
 });
 /* jshint ignore:end */

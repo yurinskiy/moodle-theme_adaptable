@@ -31,8 +31,7 @@
  *
  * grunt css     Create CSS from the SCSS.
  *
- * grunt amd     Create the Asynchronous Module Definition JavaScript files.  See: MDL-49046.
- *               Done here as core Gruntfile.js currently *nix only.
+ * grunt amd     Use core, e.g. grunt amd --root=theme/adaptable
  *
  * @package theme_adaptable.
  * @author G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}
@@ -108,27 +107,6 @@ module.exports = function(grunt) { // jshint ignore:line
                     }
                 }
             }
-        },
-        jshint: {
-            options: {jshintrc: moodleroot + '/.jshintrc'},
-            files: ['**/amd/src/*.js']
-        },
-        uglify: {
-            dynamic_mappings: {
-                files: grunt.file.expandMapping(
-                    ['**/src/*.js', '!**/node_modules/**'],
-                    '',
-                    {
-                        cwd: cwd,
-                        rename: function(destBase, destPath) {
-                            destPath = destPath.replace('src', 'build');
-                            destPath = destPath.replace('.js', '.min.js');
-                            destPath = path.resolve(cwd, destPath);
-                            return destPath;
-                        }
-                    }
-                )
-            }
         }
     });
 
@@ -138,14 +116,9 @@ module.exports = function(grunt) { // jshint ignore:line
     grunt.loadNpmTasks('grunt-stylelint');
     grunt.registerTask("decache", ["exec:decache"]);
 
-    // Load core tasks.
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.registerTask("amd", ["jshint", "uglify", "decache"]);
-
     // Register CSS taks.
     grunt.registerTask('css', ['stylelint:scss', 'sass']);
 
     // Register the default task.
-    grunt.registerTask('default', ['amd']);
+    grunt.registerTask('default', ['css']);
 };
