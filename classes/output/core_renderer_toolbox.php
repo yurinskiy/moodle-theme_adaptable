@@ -2713,20 +2713,14 @@ EOT;
      */
     public function check_menu_access($ftype, $setvalue, $menu) {
         global $CFG, $USER;
-        $usersvalue = 'default-zz'; // Just want a value that will not be matched by accident.
-        $sessttl = (time() + ($this->page->theme->settings->menusessionttl * 60));
-        $menuttl = $menu . 'ttl';
+        $menuttl = $menu.'ttl';
+        $time = time();
 
         if ($this->page->theme->settings->menusession) {
             if (isset($USER->theme_adaptable_menus[$menu])) {
-
                 // If cache hasn't yet expired.
-                if ($USER->theme_adaptable_menus[$menuttl] >= time()) {
-                    if ($USER->theme_adaptable_menus[$menu] == true) {
-                        return true;
-                    } else if ($USER->theme_adaptable_menus[$menu] == false) {
-                        return false;
-                    }
+                if ($USER->theme_adaptable_menus[$menuttl] >= $time) {
+                    return $USER->theme_adaptable_menus[$menu];
                 }
             }
         }
@@ -2737,17 +2731,19 @@ EOT;
         $ftype = "profile_field_$ftype";
         if (isset($USER->$ftype)) {
             $usersvalue = $USER->$ftype;
+        } else {
+            $usersvalue = 'default-zz'; // Just want a value that will not be matched by accident.
         }
 
+        $sessttl = ($time + ($this->page->theme->settings->menusessionttl * 60));
+        $USER->theme_adaptable_menus[$menuttl] = $sessttl;
         if ($usersvalue == $setvalue) {
             $USER->theme_adaptable_menus[$menu] = true;
-            $USER->theme_adaptable_menus[$menuttl] = $sessttl;
-            return true;
+        } else {
+            $USER->theme_adaptable_menus[$menu] = false;
         }
 
-        $USER->theme_adaptable_menus[$menu] = false;
-        $USER->theme_adaptable_menus[$menuttl] = $sessttl;
-        return false;
+        return $USER->theme_adaptable_menus[$menu];
     }
 
     /**
@@ -2777,24 +2773,22 @@ EOT;
      * Returns contents of multiple comma delimited custom profile fields.
      *
      * @param string $profilefields delimited list of fields.
-     * @return array.
+     * @return array of multiple comma delimited custom profile fields.
      */
     public function get_profile_field_contents($profilefields) {
         global $CFG, $USER;
         $timestamp = 'currentcoursestime';
         $list = 'currentcourseslist';
+        $time = time();
 
         if (isset($USER->theme_adaptable_menus[$timestamp])) {
-            if ($USER->theme_adaptable_menus[$timestamp] >= time()) {
+            if ($USER->theme_adaptable_menus[$timestamp] >= $time) {
                 if (isset($USER->theme_adaptable_menus[$list])) {
                     return $USER->theme_adaptable_menus[$list];
                 }
             }
         }
 
-        $sessttl = 1000 * 60 * 3;
-        $sessttl = 0;
-        $sessttl = time() + $sessttl;
         $retval = array();
 
         require_once($CFG->dirroot.'/user/profile/lib.php');
@@ -2802,7 +2796,6 @@ EOT;
         profile_load_data($USER);
 
         $fields = explode(',', $profilefields);
-
         foreach ($fields as $field) {
             $field = trim($field);
             $field = "profile_field_$field";
@@ -2815,7 +2808,8 @@ EOT;
         }
 
         $USER->theme_adaptable_menus[$list] = $retval;
-        $USER->theme_adaptable_menus[$timestamp] = $sessttl;
+        $USER->theme_adaptable_menus[$timestamp] = $time + 1000 * 60 * 3; // Sess TTL.
+
         return $retval;
     }
 
