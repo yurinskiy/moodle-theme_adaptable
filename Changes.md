@@ -21,6 +21,7 @@ Change Log in version 3.10.1.3 (2021022303)
 16. Fix 'Divider in custom menus' - Ref: https://moodle.org/mod/forum/discuss.php?d=424547.
 17. Fix 'Notifications menu colour problem' - #248.
 18. Fix 'Message drawer height' - Header height fluctuates so go with a simple solution as there is a close icon.
+19. Fix 'Sitename overlays loginbox on mobile devices' - Ref: https://moodle.org/mod/forum/discuss.php?d=424098#p1708632.
 
 Change Log in version 3.10.1.2 (2021022302)
 ===========================================

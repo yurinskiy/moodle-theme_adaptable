@@ -59,7 +59,7 @@ define(['jquery', 'core/log'], function($, log) {
                     makeNavbarSticky();
                 }
 
-                var screenmd = 992;
+                var screenmd = 979;
 
                 var isFixed = 0;
                 /* Ok, here's an odd one... desktops need to use the 'inner' variables and mobiles the 'outer' to be accurate!
@@ -71,13 +71,15 @@ define(['jquery', 'core/log'], function($, log) {
                    As per above comments, some issues noted with using CSS position: fixed, but these seem to mostly be constrained
                    to older browsers (inc. mobile browsers). May need to revisit!
                    https://caniuse.com/#feat=css-fixed */
+                var stickything = $(".stickything");
+                var body = $("body");
                 if ($(window).width() <= screenmd) {
-                    $("#adaptable-page-header-wrapper").addClass("fixed-top");
-                    $("body").addClass("page-header-margin");
+                    stickything.addClass("fixed-top");
+                    body.addClass("page-header-margin");
                     isFixed = 1;
                 } else {
-                    $("#adaptable-page-header-wrapper").removeClass("fixed-top");
-                    $("body").removeClass("page-header-margin");
+                    stickything.removeClass("fixed-top");
+                    body.removeClass("page-header-margin");
                 }
 
                 /* If you want these classes to toggle when a desktop user shrinks the browser width to
@@ -85,14 +87,14 @@ define(['jquery', 'core/log'], function($, log) {
                 $(window).resize(function() {
                     if ($(window).width() <= screenmd) {
                         if (isFixed == 0) {
-                            $("#adaptable-page-header-wrapper").addClass("fixed-top");
-                            $("body").addClass("page-header-margin");
+                            stickything.addClass("fixed-top");
+                            body.addClass("page-header-margin");
                             isFixed = 1;
                         }
                     } else {
                         if (isFixed == 1) {
-                            $("#adaptable-page-header-wrapper").removeClass("fixed-top");
-                            $("body").removeClass("page-header-margin");
+                            stickything.removeClass("fixed-top");
+                            body.removeClass("page-header-margin");
                             isFixed = 0;
                         }
                     }
@@ -113,7 +115,7 @@ define(['jquery', 'core/log'], function($, log) {
                                 navDrawer.attr("aria-hidden", "true");
                                 $("#drawer").attr("aria-expanded", "false");
                                 var side = $('#drawer').attr('data-side');
-                                $("body").removeClass("drawer-open-" + side);
+                                body.removeClass("drawer-open-" + side);
                             }
                         }
                     }
