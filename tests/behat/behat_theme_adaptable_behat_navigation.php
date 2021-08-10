@@ -25,7 +25,7 @@
 
 use Behat\Mink\Exception\ExpectationException as ExpectationException;
 
-require_once __DIR__ . '/../../../../lib/tests/behat/behat_navigation.php';
+require_once (__DIR__ . '/../../../../lib/tests/behat/behat_navigation.php');
 
 /**
  * Overrides to make behat navigation work with adapt.
@@ -156,5 +156,4 @@ class behat_theme_adaptable_behat_navigation extends behat_navigation {
             [$nodetext, "link", $xpath, "xpath_element"]
         );
     }
-
 }

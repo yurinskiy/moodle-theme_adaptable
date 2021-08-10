@@ -1,3 +1,7 @@
+Change Log in version 3.11.0.1 (2021081000)
+===========================================
+1. M3.11 version made possible with thanks from Alexander Dominicus of Hochschule Bochum, https://www.hochschule-bochum.de/.
+
 Change Log in version 3.10.1.3 (2021022303)
 ===========================================
 1. Fix 'Expandable search in header two not working well' - #234.
