@@ -551,6 +551,11 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     public function course_section_cm($course, &$completioninfo, cm_info $mod, $sectionreturn, $displayoptions = array()) {
+        if ($this->page->user_is_editing()) { // Don't display the activity meta when editing so that drag and drop is not broken.
+            return parent::course_section_cm($course, $completioninfo, $mod, $sectionreturn, $displayoptions);
+        }
+        global $USER;
+
         $output = '';
         /* We return empty string (because course module will not be displayed at all) if
            1) The activity is not visible to users and
@@ -611,15 +616,7 @@ class course_renderer extends \core_course_renderer {
             $output .= $contentpart;
         }
 
-        $modicons = '';
-        if ($this->page->user_is_editing()) {
-            $editactions = course_get_cm_edit_actions($mod, $mod->indent, $sectionreturn);
-            $modicons .= ' '. $this->course_section_cm_edit_actions($editactions, $mod, $displayoptions);
-            $modicons .= $mod->afterediticons;
-        }
-
         // Fetch completion details.
-        global $USER;
         $showcompletionconditions = $course->showcompletionconditions == COMPLETION_SHOW_CONDITIONS;
         $completiondetails = \core_completion\cm_completion_details::get_instance($mod, $USER->id, $showcompletionconditions);
         $ismanualcompletion = $completiondetails->has_completion() && !$completiondetails->is_automatic();
@@ -638,17 +635,19 @@ class course_renderer extends \core_course_renderer {
             $output .= $this->output->activity_information($mod, $completiondetails, $activitydates);
         }
 
+        // Show availability info (if module is not available).
+        $output .= $this->course_section_cm_availability($mod, $displayoptions);
+
         // Get further information.
         $settingname = 'coursesectionactivityfurtherinformation'. $mod->modname;
         if (isset ($this->page->theme->settings->$settingname) && $this->page->theme->settings->$settingname == true) {
             $output .= html_writer::start_tag('div', array('class' => 'ad-activity-meta-container'));
             $output .= $this->course_section_cm_get_meta($mod);
             $output .= html_writer::end_tag('div');
-            // TO BE DELETED    $output .= '<div style="clear: both;"></div>'; ????
         }
 
-        // If there is content AND a link, then display the content here.
-        // (AFTER any icons). Otherwise it was displayed before.
+        /* If there is content AND a link, then display the content here.
+           (AFTER any icons). Otherwise it was displayed before. */
         if (!empty($url)) {
             $output .= $contentpart;
         }
