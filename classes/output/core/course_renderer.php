@@ -652,9 +652,6 @@ class course_renderer extends \core_course_renderer {
             $output .= $contentpart;
         }
 
-        // Show availability info (if module is not available).
-        $output .= $this->course_section_cm_availability($mod, $displayoptions);
-
         $output .= html_writer::end_tag('div');
 
         // End of indentation div.
