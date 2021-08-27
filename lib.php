@@ -405,6 +405,8 @@ function theme_adaptable_process_scss($scss, $theme) {
  */
 function theme_adaptable_process_customcss($css, $theme) {
 
+    $css .= ' ' . file_get_contents(__DIR__ . '/style/frontpage.css');
+
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
         $customcss = $theme->settings->customcss;
