@@ -118,6 +118,7 @@ $THEME->parents = ['boost'];
 
 // Styles.
 $THEME->sheets = array(
+    'frontpage',
     'custom'
 );
 
