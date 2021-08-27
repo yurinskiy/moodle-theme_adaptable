@@ -150,6 +150,7 @@ $string['frontpagerendereroption1'] = 'Tiles';
 $string['frontpagerendereroption2'] = 'Tiles w/ overlay';
 $string['frontpagerendereroption3'] = 'Moodle default';
 $string['frontpagerendereroption4'] = 'Coventry tiles';
+$string['frontpagerendereroption5'] = 'Tiles For SibSU';
 
 // Information
 $string['settingsinformation'] = 'Information';

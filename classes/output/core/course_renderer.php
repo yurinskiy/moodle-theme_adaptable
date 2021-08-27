@@ -64,6 +64,37 @@ use action_link;
  */
 class course_renderer extends \core_course_renderer {
 
+
+    /**
+     * Returns HTML to print list of available courses for the frontpage
+     *
+     * @return string
+     */
+    public function frontpage_available_courses() {
+        $type = theme_adaptable_get_setting('frontpagerenderer');
+
+        if ($type != 5) {
+            return parent::frontpage_available_courses();
+        }
+
+        global $CFG;
+        $chelper = new coursecat_helper();
+        $chelper->set_show_courses(self::COURSECAT_SHOW_COURSES_EXPANDED)->
+        set_courses_display_options(array(
+            'recursive' => true,
+            'limit' => $CFG->frontpagecourselimit,
+            'viewmoreurl' => new moodle_url('/course/index.php'),
+            'viewmoretext' => new lang_string('fulllistofcourses')));
+        $chelper->set_attributes(array('class' => 'frontpage-course-list-all tiles-grid'));
+        $courses = \core_course_category::get(0)->get_courses($chelper->get_courses_display_options());
+        $totalcount = \core_course_category::get(0)->get_courses_count($chelper->get_courses_display_options());
+        if (!$totalcount && !$this->page->user_is_editing() && has_capability('moodle/course:create', context_system::instance())) {
+            // Print link to create a new course, for the 1st available category.
+            return $this->add_new_course_button();
+        }
+        return $this->coursecat_courses($chelper, $courses, $totalcount);
+    }
+
     /**
      * Build the HTML for the module chooser javascript popup
      *
@@ -89,7 +120,148 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
+        global $CFG, $PAGE;
         $type = theme_adaptable_get_setting('frontpagerenderer');
+
+        if ($type == 5) {
+
+            if (!isset($this->strings->summary)) {
+                $this->strings->summary = get_string('summary');
+            }
+            if ($chelper->get_show_courses() <= self::COURSECAT_SHOW_COURSES_COUNT) {
+                return '';
+            }
+            if ($course instanceof stdClass) {
+                if ($CFG->version < 2018051799) {
+                    require_once($CFG->libdir.'/coursecatlib.php');
+                }
+                $course = new course_in_list($course);
+            }
+            $content = '';
+            $coursename = $chelper->get_course_formatted_name($course);
+
+            $btnInfo = '';
+            $popup = '';
+            $summary = '';
+            $contacts = '';
+
+            $coursecontacts = theme_adaptable_get_setting('tilesshowcontacts');
+
+            if ($course->has_summary()) {
+                $summary .= $chelper->get_course_formatted_summary($course, array(
+                    'overflowdiv' => true,
+                    'noclean' => true,
+                    'para' => false
+                ));
+            }
+
+            if ($coursecontacts) {
+                $coursecontacttitle = theme_adaptable_get_setting('tilescontactstitle');
+                // Display course contacts. See course_in_list::get_course_contacts().
+                if ($course->has_course_contacts()) {
+                    $contacts .= html_writer::start_tag('ul', array('class' => 'teachers'));
+                    foreach ($course->get_course_contacts() as $userid => $coursecontact) {
+                        $name = ($coursecontacttitle ? $coursecontact['rolename'].': ' : html_writer::tag('i', '&nbsp;',
+                                array('class' => 'fa fa-graduation-cap')) ).
+                            html_writer::link(new moodle_url('/user/view.php',
+                                array('id' => $userid, 'course' => SITEID)),
+                                $coursecontact['username']);
+                        $contacts .= html_writer::tag('li', $name);
+                    }
+                    $contacts .= html_writer::end_tag('ul'); // Teachers.
+                }
+            }
+
+            if ($summary != '' || $contacts != '') {
+                $btnInfo = html_writer::link('#popupCourse' . $course->id, html_writer::tag('i', '', array('class' => 'fa fa-info')), array(
+                    'class' => 'tile-link',
+                    'onclick' => '$("body").css("overflow", "hidden");'
+                ));
+
+                $popup .= html_writer::start_tag('div', array(
+                    'class' => 'overlay',
+                    'id' => 'popupCourse' . $course->id
+                ));
+                $popup .= html_writer::tag('div', $coursename, array(
+                    'class' => 'background',
+                    'onclick' => 'location.hash="#_";$("body").css("overflow", "auto");'
+                ));
+                $popup .= html_writer::start_tag('div', array('class' => 'popup'));
+                $popup .= html_writer::start_tag('div', array('class' => 'popup-header'));
+                $popup .= html_writer::tag('h4', $coursename, array());
+                $popup .= html_writer::link('#_', '&times;', array(
+                    'class' => 'close',
+                    'onclick' => '$("body").css("overflow", "auto");'
+                ));
+                $popup .= html_writer::end_tag('div'); // End .popup-header.
+
+                $popup .= html_writer::start_tag('div', array('class' => 'popup-content'));
+
+                if($contacts != '') {
+                    $popup .= html_writer::tag('div', $contacts, array('class' => 'contacts'));
+                }
+
+                if ($summary != '') {
+                    $popup .= html_writer::tag('div', $summary, array('class' => 'summary'));
+                }
+
+                $popup .= html_writer::end_tag('div'); // End .content.
+                $popup .= html_writer::end_tag('div'); // End .popup.
+                $popup .= html_writer::end_tag('div'); // End .overlay.
+            }
+
+            // Display course image.
+            $urlImage = '';
+            foreach ($course->get_course_overviewfiles() as $file) {
+                $isimage = $file->is_valid_image();
+
+                if ($isimage) {
+                    $urlImage = file_encode_url("$CFG->wwwroot/pluginfile.php",
+                        '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
+                        $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
+                }
+            }
+            if (strlen($urlImage) == 0) {
+                // Default image.
+                $urlImage = $PAGE->theme->setting_file_url('frontpagerendererdefaultimage', 'frontpagerendererdefaultimage');
+            }
+            if (strlen($urlImage) == 0) {
+                // Empty default image.
+                $urlImage = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMjAiIGhlaWdodD0iMzIwIj48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJyZ2IoMTYyLCAxNTUsIDI1NCkiIC8+PGNpcmNsZSBjeD0iMCIgY3k9IjAiIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjEzMjY2NjY2NjY2NjY3O3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMzIwIiBjeT0iMCIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMTMyNjY2NjY2NjY2Njc7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSIwIiBjeT0iMzIwIiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgc3R5bGU9Im9wYWNpdHk6MC4xMzI2NjY2NjY2NjY2NztzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjMyMCIgY3k9IjMyMCIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMTMyNjY2NjY2NjY2Njc7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSI1My4zMzMzMzMzMzMzMzMiIGN5PSIwIiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4xMDY2NjY2NjY2NjY2NztzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjUzLjMzMzMzMzMzMzMzMyIgY3k9IjMyMCIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMTA2NjY2NjY2NjY2Njc7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSIxMDYuNjY2NjY2NjY2NjciIGN5PSIwIiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4wNTQ2NjY2NjY2NjY2Njc7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSIxMDYuNjY2NjY2NjY2NjciIGN5PSIzMjAiIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjA1NDY2NjY2NjY2NjY2NztzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjE2MCIgY3k9IjAiIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjExNTMzMzMzMzMzMzMzO3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMTYwIiBjeT0iMzIwIiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgc3R5bGU9Im9wYWNpdHk6MC4xMTUzMzMzMzMzMzMzMztzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjIxMy4zMzMzMzMzMzMzMyIgY3k9IjAiIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjA5ODtzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjIxMy4zMzMzMzMzMzMzMyIgY3k9IjMyMCIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMDk4O3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMjY2LjY2NjY2NjY2NjY3IiBjeT0iMCIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMDM3MzMzMzMzMzMzMzMzO3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMjY2LjY2NjY2NjY2NjY3IiBjeT0iMzIwIiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4wMzczMzMzMzMzMzMzMzM7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSIwIiBjeT0iNTMuMzMzMzMzMzMzMzMzIiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgc3R5bGU9Im9wYWNpdHk6MC4wNDY7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSIzMjAiIGN5PSI1My4zMzMzMzMzMzMzMzMiIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjA0NjtzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjUzLjMzMzMzMzMzMzMzMyIgY3k9IjUzLjMzMzMzMzMzMzMzMyIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMDgwNjY2NjY2NjY2NjY3O3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMTA2LjY2NjY2NjY2NjY3IiBjeT0iNTMuMzMzMzMzMzMzMzMzIiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgc3R5bGU9Im9wYWNpdHk6MC4xMTUzMzMzMzMzMzMzMztzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjE2MCIgY3k9IjUzLjMzMzMzMzMzMzMzMyIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMTA2NjY2NjY2NjY2Njc7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSIyMTMuMzMzMzMzMzMzMzMiIGN5PSI1My4zMzMzMzMzMzMzMzMiIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjEyNDtzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjI2Ni42NjY2NjY2NjY2NyIgY3k9IjUzLjMzMzMzMzMzMzMzMyIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMTI0O3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMCIgY3k9IjEwNi42NjY2NjY2NjY2NyIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMTI0O3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMzIwIiBjeT0iMTA2LjY2NjY2NjY2NjY3IiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4xMjQ7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSI1My4zMzMzMzMzMzMzMzMiIGN5PSIxMDYuNjY2NjY2NjY2NjciIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjEzMjY2NjY2NjY2NjY3O3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMTA2LjY2NjY2NjY2NjY3IiBjeT0iMTA2LjY2NjY2NjY2NjY3IiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgc3R5bGU9Im9wYWNpdHk6MC4xNTtzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjE2MCIgY3k9IjEwNi42NjY2NjY2NjY2NyIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMDI4NjY2NjY2NjY2NjY3O3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMjEzLjMzMzMzMzMzMzMzIiBjeT0iMTA2LjY2NjY2NjY2NjY3IiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgc3R5bGU9Im9wYWNpdHk6MC4wOTg7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSIyNjYuNjY2NjY2NjY2NjciIGN5PSIxMDYuNjY2NjY2NjY2NjciIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjEyNDtzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjAiIGN5PSIxNjAiIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjAyO3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMzIwIiBjeT0iMTYwIiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4wMjtzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjUzLjMzMzMzMzMzMzMzMyIgY3k9IjE2MCIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMDgwNjY2NjY2NjY2NjY3O3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMTA2LjY2NjY2NjY2NjY3IiBjeT0iMTYwIiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4wNzI7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSIxNjAiIGN5PSIxNjAiIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjAyO3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMjEzLjMzMzMzMzMzMzMzIiBjeT0iMTYwIiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4xMjQ7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSIyNjYuNjY2NjY2NjY2NjciIGN5PSIxNjAiIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjEwNjY2NjY2NjY2NjY3O3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMCIgY3k9IjIxMy4zMzMzMzMzMzMzMyIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMTE1MzMzMzMzMzMzMzM7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSIzMjAiIGN5PSIyMTMuMzMzMzMzMzMzMzMiIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjExNTMzMzMzMzMzMzMzO3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iNTMuMzMzMzMzMzMzMzMzIiBjeT0iMjEzLjMzMzMzMzMzMzMzIiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgc3R5bGU9Im9wYWNpdHk6MC4wODA2NjY2NjY2NjY2Njc7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSIxMDYuNjY2NjY2NjY2NjciIGN5PSIyMTMuMzMzMzMzMzMzMzMiIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjEwNjY2NjY2NjY2NjY3O3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMTYwIiBjeT0iMjEzLjMzMzMzMzMzMzMzIiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4xNDEzMzMzMzMzMzMzMztzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjIxMy4zMzMzMzMzMzMzMyIgY3k9IjIxMy4zMzMzMzMzMzMzMyIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMTI0O3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMjY2LjY2NjY2NjY2NjY3IiBjeT0iMjEzLjMzMzMzMzMzMzMzIiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4wNTQ2NjY2NjY2NjY2Njc7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSIwIiBjeT0iMjY2LjY2NjY2NjY2NjY3IiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgc3R5bGU9Im9wYWNpdHk6MC4xMDY2NjY2NjY2NjY2NztzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjMyMCIgY3k9IjI2Ni42NjY2NjY2NjY2NyIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMTA2NjY2NjY2NjY2Njc7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSI1My4zMzMzMzMzMzMzMzMiIGN5PSIyNjYuNjY2NjY2NjY2NjciIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBzdHlsZT0ib3BhY2l0eTowLjA4OTMzMzMzMzMzMzMzMztzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjEwNi42NjY2NjY2NjY2NyIgY3k9IjI2Ni42NjY2NjY2NjY2NyIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIHN0eWxlPSJvcGFjaXR5OjAuMDQ2O3N0cm9rZS13aWR0aDoxMy4zMzMzMzMzMzMzMzNweDsiIC8+PGNpcmNsZSBjeD0iMTYwIiBjeT0iMjY2LjY2NjY2NjY2NjY3IiByPSI0Ni42NjY2NjY2NjY2NjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgc3R5bGU9Im9wYWNpdHk6MC4wNjMzMzMzMzMzMzMzMzM7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48Y2lyY2xlIGN4PSIyMTMuMzMzMzMzMzMzMzMiIGN5PSIyNjYuNjY2NjY2NjY2NjciIHI9IjQ2LjY2NjY2NjY2NjY2NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBzdHlsZT0ib3BhY2l0eTowLjA5ODtzdHJva2Utd2lkdGg6MTMuMzMzMzMzMzMzMzMzcHg7IiAvPjxjaXJjbGUgY3g9IjI2Ni42NjY2NjY2NjY2NyIgY3k9IjI2Ni42NjY2NjY2NjY2NyIgcj0iNDYuNjY2NjY2NjY2NjY3IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIHN0eWxlPSJvcGFjaXR5OjAuMDI7c3Ryb2tlLXdpZHRoOjEzLjMzMzMzMzMzMzMzM3B4OyIgLz48L3N2Zz4=';
+            }
+
+            $content .= html_writer::start_tag('div', array('class' => 'tile'));
+
+            $tile = '';
+
+            $tile .= html_writer::start_tag('div', array('class' => 'tile-header'));
+            $tile .= html_writer::link(
+                new moodle_url('/course/view.php', array('id' => $course->id)),
+                html_writer::empty_tag('img', array('src' => $urlImage, 'class' => 'tile-img', 'alt' => $coursename)),
+                array('class' => 'tile-title')
+            );
+            $tile .= html_writer::end_tag('div'); // End .tile-header.
+
+            $tile .= html_writer::start_tag('div', array('class' => 'tile-body'));
+
+            $tile .= $btnInfo;
+            $tile .= html_writer::tag('h5', html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
+                $coursename, array('title' => $coursename)), array('class' => 'tile-title'));
+
+
+            $tile .= html_writer::end_tag('div'); // End .tile-body.
+
+            $content .= html_writer::tag('div', $tile, array(
+                'class' => 'tile-inner' . ($course->visible ? '' : ' dimmed')
+            ));
+
+            $content .= html_writer::end_tag('div'); // End .tile.
+
+            $content .= $popup;
+
+            return $content;
+        }
+
         if ($type == 3 || $this->output->body_id() != 'page-site-index') {
             return parent::coursecat_coursebox($chelper, $course, $additionalclasses = '');
         }
