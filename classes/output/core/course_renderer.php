@@ -64,6 +64,15 @@ use action_link;
  */
 class course_renderer extends \core_course_renderer {
 
+    protected function coursecat_tree(coursecat_helper $chelper, $coursecat) {
+        $type = theme_adaptable_get_setting('frontpagerenderer');
+
+        if ($type == 5) {
+            $chelper->set_attributes(array('class' => 'frontpage-course-list-all tiles-grid'));
+        }
+        
+        return parent::coursecat_tree($chelper, $coursecat);
+    }
 
     /**
      * Returns HTML to print list of available courses for the frontpage
