@@ -63,7 +63,25 @@ use action_link;
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class course_renderer extends \core_course_renderer {
+    protected function coursecat_tree(coursecat_helper $chelper, $coursecat) {
+        $type = theme_adaptable_get_setting('frontpagerenderer');
 
+        if ($type == 5) {
+            $chelper->set_attributes(array('class' => 'tiles-grid'));
+        }
+
+        return parent::coursecat_tree($chelper, $coursecat);
+    }
+
+    protected function coursecat_courses(coursecat_helper $chelper, $courses, $totalcount = null) {
+        $type = theme_adaptable_get_setting('frontpagerenderer');
+
+        if ($type == 5) {
+            $chelper->set_attributes(array('class' => 'tiles-grid'));
+        }
+
+        return parent::coursecat_courses($chelper, $courses, $totalcount);
+    }
 
     /**
      * Returns HTML to print list of available courses for the frontpage
