@@ -67,10 +67,20 @@ class course_renderer extends \core_course_renderer {
         $type = theme_adaptable_get_setting('frontpagerenderer');
 
         if ($type == 5) {
-            $chelper->set_attributes(array('class' => 'frontpage-course-list-all tiles-grid'));
+            $chelper->set_attributes(array('class' => 'tiles-grid'));
         }
 
         return parent::coursecat_tree($chelper, $coursecat);
+    }
+
+    protected function coursecat_courses(coursecat_helper $chelper, $courses, $totalcount = null) {
+        $type = theme_adaptable_get_setting('frontpagerenderer');
+
+        if ($type == 5) {
+            $chelper->set_attributes(array('class' => 'tiles-grid'));
+        }
+
+        return parent::coursecat_courses($chelper, $courses, $totalcount);
     }
 
     /**
